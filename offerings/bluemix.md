@@ -62,8 +62,7 @@ Storage usage is checked daily. If you exceed your 1-GB storage limit, requests 
 
 If you want to store more than one GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
-You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you cannot create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, the following message appears, "You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
-{: note}
+You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you cannot create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, the following message displays, "You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
 
 ### Standard plan
 {: #standard-plan}
@@ -133,7 +132,8 @@ operation types: *Read*, *Write*, and *Global Query*.
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
 where the second is a *sliding* window.
-If your account exceeds the number of throughput events that are provisioned for the plan, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number that is provisioned.
+
+If your account exceeds the number of throughput events provisioned for the plan, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
 For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 read events during a consecutive period of 1,000 milliseconds (1 second). Subsequent read requests made during the sliding 1,000-millisecond period
@@ -204,7 +204,7 @@ occurs based on parts of the selector that can't be satisfied by the index.
 Therefore, these results mean that the rows read value, and consumed read units, can be
 higher than the number of eventual results you receive.
 
-In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row that is returned by the
+In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row returned by the
 underlying index so it can execute further filtering required by the
 selector and passed to the query.
 
