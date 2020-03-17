@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-16"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-09 -->
+<!-- Acrolinx: 2020-03-16 -->
 
 # Capacity
 {: #capacity}
@@ -34,7 +34,7 @@ to do the following tasks:
 - View the current consumption of provisioned throughput capacity used.
 {: shortdesc}
 
-For more information, see the [provisioned throughput capacity](/docs/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) documentation about how {{site.data.keyword.cloudant_short_notm}} allocates and consumes capacity, as well as how to view and change the capacity in the UI.
+For more information, see [provisioned throughput capacity](/docs/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) about how {{site.data.keyword.cloudant_short_notm}} allocates and consumes capacity, as well as how to view and change the capacity in the UI.
 
 The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legacy auth admin role or IAM Manager role to access the API endpoints. The following curl examples omit the authentication aspect for simplicity. See the [authentication overview](/docs/Cloudant?topic=cloudant-connecting#authentication-overview) section for more details on using both types of authentication.  
 {: note}
@@ -42,7 +42,7 @@ The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legac
 ## View the current and target provisioned throughput capacity setting
 {: #view-current-and-target-capacity-setting}
 
-Use a GET to the `_api/v2/user/capacity/throughput` endpoint to see what amount of provisioned throughput capacity is allocated to the {{site.data.keyword.cloudant_short_notm}} instance and what is the target provisioned throughput capacity. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The amount of time it takes for the current capacity to match the target capacity depends on the size of the capacity change and the amount of data stored in the {{site.data.keyword.cloudant_short_notm}} instance. The capacity change is complete when the current and target capacity is the same. 
+Use a GET to the `_api/v2/user/capacity/throughput` endpoint to see what amount of provisioned throughput capacity is allocated to the {{site.data.keyword.cloudant_short_notm}} instance and what is the target provisioned throughput capacity. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The size of the capacity change and the amount of data stored in the {{site.data.keyword.cloudant_short_notm}} instance determines the time it takes before the current and target capacities match. The capacity change is complete when the current and target capacity is the same. 
 
 -   **Method** - `GET`
 -   **Path** - `_api/v2/user/capacity/throughput`
@@ -96,7 +96,7 @@ See the following example JSON response with the current and target capacity:
 ## Set the target provisioned throughput capacity setting
 {: #set-target-capacity-setting}
 
-Use a PUT to the `_api/v2/user/capacity/throughput` endpoint to set the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The amount of time it takes for the current capacity to match the target capacity depends on the size of the capacity change and the amount of data that is stored in the {{site.data.keyword.cloudant_short_notm}} instance. 
+Use a PUT to the `_api/v2/user/capacity/throughput` endpoint to set the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The amount of time it takes for the current capacity to The size of the capacity change and the amount of data stored in the {{site.data.keyword.cloudant_short_notm}} instance determines the time it takes before the current and target capacities match. 
 
 -   **Method** - `PUT`
 -   **Path** - `_api/v2/user/capacity/throughput`
@@ -129,7 +129,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput" \
 ```
 {: codeblock}
 
-Where a block consists of 100 reads/sec, 50 writes/sec, and 5 global queries/sec of provisioned throughput capacity. The `NUMBER_OF_BLOCKS` field must be an integer in the range of 1 to 100. _Larger capacity sizes can be obtained by contacting {{site.data.keyword.cloudant_short_notm}} support._
+Here a block consists of 100 reads/sec, 50 writes/sec, and 5 global queries/sec of provisioned throughput capacity. The `NUMBER_OF_BLOCKS` field must be an integer in the range of 1 to 100. *Larger capacity sizes can be obtained by contacting {{site.data.keyword.cloudant_short_notm}} support.*
 
 The returned structure includes the following fields:
 

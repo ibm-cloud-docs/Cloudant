@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-03-16"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated} 
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-13 -->
+<!-- Acrolinx: 2020-03-16 -->
 
 # Third-party client libraries
 {: #third-party-client-libraries}
@@ -95,7 +95,7 @@ install-package mycouch.cloudant
 meaning you can make your apps offline-ready by using PouchDB. For more information,
 see [our blog post](https://cloudant.com/blog/pouchdb){: new_window}{: external} on PouchDB.
 
-For more information on downloading and setting up PouchDB, see the [PouchDB](http://pouchdb.com/){: new_window}{: external} website.
+For more information, see the [PouchDB](http://pouchdb.com/){: new_window}{: external} website about downloading and setting up PouchDB.
 
 PouchDB is also available for Node.js: `npm install pouchdb`.
 {: note}
@@ -111,8 +111,8 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Examples and tutorials for PouchDB
 {: #examples-and-tutorials-for-pouchdb}
 
-- [PouchDB Getting Started Guide](http://pouchdb.com/getting-started.html){: new_window}{: external} - example Todo application that synchronizes from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
-- [Locationtracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map locations by using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
+- [PouchDB Getting Started Guide](http://pouchdb.com/getting-started.html){: new_window}{: external} - example to do application that synchronizes from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
+- [Location tracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map locations by using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
 {: #node-js-thirdparty}
@@ -120,7 +120,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Unsupported libraries and frameworks for Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
-- [Sag-JS](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser. For more information, see [saggingcouch](https://github.com/sbisbee/saggingcouch.com){: new_window}{: external} for more detail.
+- [Sag-JS](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser. For more information, see [sagging couch](https://github.com/sbisbee/saggingcouch.com){: new_window}{: external} for more detail.
 - [Nano](https://github.com/dscape/nano){: new_window}{: external} is a minimalist implementation.
 - [Restler](https://github.com/danwrong/restler){: new_window}{: external} delivers the best performance but is really barebones.
 - [Cradle](https://github.com/flatiron/cradle){: new_window}{: external} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
@@ -179,7 +179,7 @@ gem install couchrest
 ### Libraries and frameworks for Ruby
 {: #libraries-and-frameworks-for-ruby}
 
-[Ruby Toolbox](https://www.ruby-toolbox.com/categories/couchdb_clients){: new_window}{: external} lists many CouchDB clients.
+[Ruby toolbox](https://www.ruby-toolbox.com/categories/couchdb_clients){: new_window}{: external} lists many CouchDB clients.
 
 ### Examples and tutorials for Ruby
 {: #examples-and-tutorials-for-ruby}
