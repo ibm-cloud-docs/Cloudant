@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-03-16"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -21,21 +21,21 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-11 -->
+<!-- Acrolinx: 2020-03-16 -->
 
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}
-
-This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
-It's worth starting there if you're new to the subject and want to understand where back up fits in
-with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
-to support Disaster Recovery (DR) and High Availability (HA) requirements.
-{: shortdesc}
 
 Although data is stored redundantly within an {{site.data.keyword.cloudant_short_notm}} cluster,
 it's important to consider extra backup measures.
 For example,
 redundant data storage doesn't protect against mistakes when data is changed.
+{: shortdesc}
+
+If you're new to the subject and want to understand where backup fits in
+with the other features that {{site.data.keyword.cloudant_short_notm}} offers
+to support Disaster Recovery (DR) and High Availability (HA) requirements, review the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup). 
+{: note}
 
 ## Introducing CouchBackup
 {: #introducing-couchbackup}
@@ -113,11 +113,10 @@ The CouchBackup tools have the following limitations:
 
 * `_security` settings aren't backed up by the tools.
 * Attachments aren't backed up by the tools.
-* Backups aren't precisely accurate "point-in-time" snapshots.
+* Backups aren't precise "point-in-time" snapshots.
   The reason is that the documents in the database are retrieved in batches,
   but other applications might be updating documents at the same time.
-  Therefore,
-  the data in the database can change between the times when the first and last batches are read.
+  Consequently, data in the database can change between the times when the first and last batches are read.
 * Index definitions that are held in design documents are backed up,
   but the content of indexes isn't backed up.
   This limitation means that when data is restored,
@@ -153,7 +152,7 @@ for long-term retention.
 ## Command line scripting examples
 {: #command-line-scripting-examples}
 
-Two requirements are frequently encountered:
+Two requirements frequently occur:
 
 * Saving disk space,
   by ['zipping' the backup](#compressing-a-backup-file) file as it's created.
@@ -165,7 +164,7 @@ Two requirements are frequently encountered:
 The `couchbackup` tool can write a backup file to disk directly,
 or stream the backup to `stdout`.
 Streaming to `stdout` enables data to be transformed before it's written to disk.
-This capability is used to compress data within the stream.
+This feature is used to compress data within the stream.
 
 ```sh
 couchbackup --url "https://examples.cloudant.com" \
@@ -192,9 +191,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
 It's straightforward to extend the pipeline if you want to transform the data in other ways.
 For example,
 you might want to encrypt the data before it's written to disk.
-Alternatively,
-you might want to write the data directly to an object store service,
-by using their command-line tools.
+You might also want to write the data directly to an object store service by using their command-line tools.
 
 ### Hourly or daily backups that use `cron`
 {: #hourly-or-daily-backups-that-use-cron-}
@@ -221,7 +218,7 @@ it can be entered into a 'cron job':
 You can create a cron entry by using the `crontab -e` command.
 See your system documentation for specific details on the 'cron' options.
 
-A cron entry to do a daily backup is similar to the following example:
+A cron entry that runs a daily backup looks similar to the following example:
 
 ```sh
 0 5 * * * couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" --db "animaldb" > /path/to/folder/animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
@@ -229,7 +226,7 @@ A cron entry to do a daily backup is similar to the following example:
 {: codeblock}
 
 This cron entry creates a daily backup at 05:00.
-You can modify the cron pattern to do hourly, daily, weekly, or monthly backups as needed.
+You can modify the cron pattern to run hourly, daily, weekly, or monthly backups as needed.
 
 ## Using CouchBackup as a library
 {: #using-couchbackup-as-a-library}

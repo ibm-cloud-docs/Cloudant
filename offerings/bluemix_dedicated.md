@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-03-16"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-03-16 -->
 
 # {{site.data.keyword.cloud_notm}} Dedicated
 {: #ibm-cloud-dedicated}
@@ -37,7 +37,7 @@ via the syndicated catalog, including the Lite and Standard plan instances. {{si
 {{site.data.keyword.cloud_notm}} Public catalog. {{site.data.keyword.cloud_notm}} Dedicated users must leverage {{site.data.keyword.cloudant_short_notm}} Dedicated on 
 {{site.data.keyword.cloud_notm}} Dedicated if dedicated hardware is required.   
 
-The following screen capture shows where you select the Dedicated Hardware plan on the {{site.data.keyword.cloud_notm}} Dashboard while creating a resource.  
+The following screen capture shows where you select the Dedicated Hardware plan on the {{site.data.keyword.cloud_notm}} Dashboard when you create a resource.  
 
 ![{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan](../images/ibmcloud_catalog.png)
 
@@ -47,9 +47,9 @@ The following screen capture shows where you select the Dedicated Hardware plan 
 {{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloud_notm}} Dedicated is purchased via an "{{site.data.keyword.cloud_notm}} Dedicated 
 {{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity" part, which includes a clustered {{site.data.keyword.cloudant_short_notm}} environment 
 that consists of three database nodes and two load balancers. Each database node 
-contains 1.6 TB on SSDs, and since all data is stored in triplicate, this
-equates to 1.6 TB of unique disk space across the cluster. Expansion of an 
-environment can be accomplished by purchasing more "{{site.data.keyword.cloud_notm}} Dedicated 
+includes 1.6 TB on SSDs, and since all data is stored in triplicate, this
+storage equates to 1.6 TB of unique disk space across the cluster. Expansion of an 
+environment can be accomplished by buying more "{{site.data.keyword.cloud_notm}} Dedicated 
 {{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity" parts, which can be used to expand the 
 {{site.data.keyword.cloudant_short_notm}} cluster in multiples of three database nodes. Customers can also 
 choose to have multiple separate {{site.data.keyword.cloudant_short_notm}} environments rather than 

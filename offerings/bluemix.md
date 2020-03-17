@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-03-16"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-11 -->
+<!-- Acrolinx: 2020-03-16 -->
 
 # Plans and provisioning
 {: #ibm-cloud-public}
@@ -36,7 +36,7 @@ The free [Lite plan](#lite-plan) includes a fixed amount of
 throughput capacity and data for development and evaluation purposes. The paid [Standard plan](#standard-plan) offers configurable provisioned throughput 
 capacity and data storage pricing that scales as your application requirements 
 change.  An optional [Dedicated Hardware plan](#dedicated-hardware-plan) is also available for an 
-additional monthly fee to run one or more of your Standard plan instances 
+extra monthly fee to run one or more of your Standard plan instances 
 on a dedicated hardware environment. The dedicated hardware environment 
 is for your sole use. If a Dedicated Hardware plan instance is provisioned 
 within a US location, you can optionally select a [HIPAA](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}{: external} 
@@ -63,7 +63,6 @@ Storage usage is checked daily. If you exceed your 1-GB storage limit, requests 
 If you want to store more than one GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
 You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you cannot create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, the following message displays, "You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
-{: note}
 
 ### Standard plan
 {: #standard-plan}
@@ -133,6 +132,7 @@ operation types: *Read*, *Write*, and *Global Query*.
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
 where the second is a *sliding* window.
+
 If your account exceeds the number of throughput events provisioned for the plan, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
@@ -423,7 +423,7 @@ You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard 
 - Using the dashboard. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window}{: external} tutorial that describes the process.
 - Using the Cloud Foundry command tool. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} CLI](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}{: external} tutorial that describes the process.
  
-To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}{: external} tutorial that describes the process.
+To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}{: external} tutorial that describes the process.
 
 
 
