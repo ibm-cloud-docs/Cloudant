@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-19"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -26,8 +26,7 @@ subcollection: cloudant
 # Design document management
 {: #design-document-management}
 
-*Article contributed by Glynn Bird, Developer Advocate at IBM Cloudant,
-[glynn@cloudant.com](mailto:glynn@cloudant.com)*
+*Article contributed by Glynn Bird, Developer Advocate at {{site.data.keyword.cloudant_short_notm}}, glynn@cloudant.com*
 
 {{site.data.keyword.cloudantfull}}'s scalable JSON data store has several querying mechanisms,
 all of which generate indices that are created and maintained separately to the core data.

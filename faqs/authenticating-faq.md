@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-23"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -107,4 +107,4 @@ The values for the previous example are described in the following list:
 - `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
 - `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
-For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-).
+For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloudant-api-keys-and-_use-only-iam_).

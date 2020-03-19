@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-24"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -125,64 +125,77 @@ Follow the basic upgrade steps for a load balancer node.
 
 Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} database node.
 
-<ol>
-<li>Put the database node in maintenance mode.
-<ol type=a>
-<li>From the <code>/opt/cloudant</code> directory, put the database node
-        in maintenance mode by running the command.
-        <p><code>cast node maintenance --true</code></p></li>
-<li>Verify that the database node is in maintenance mode: <code>curl localhost:5984/_up</code>.
-<p>You see this response.</p>
-<p><code>{"status":"maintenance_mode"}</code></p></li>
-<li>Verify that this node is not available for traffic from
-        your load balancer URL.
-        <p><code>https://&lt;load_balancer&gt;/_haproxy</code></p>
-<p>The node status must be stopped for maintenance.</p></li>
-</ol>
-</li>
-<li>Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binary files.
-<ol type=a>
-<li>Uninstall the current version by running the command.
-<p><code>cast system uninstall</code></p>
-<p>This command also stops the services.</p></li>
-<li>Run the InstallShield uninstall command.
-<p><code>/root/cloudant/uninstall/uninstall.bin</code></p></li>
-<li>Check for Cloudant processes.
-<p><code>ps -ef | grep clo</code></p></li>
-<li>Stop any Cloudant processes that are running.
-<p><code>kill -9 (pid)</code></p></li>
-</ol>
-</li>
-<li>Install the database node by using the steps in [Installing the first database node](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-the-first-database-node).
+1. Put the database node in maintenance mode.
 
-<p><strong>Note</strong>: Ensure that when you run the <code>cast system install</code> command you start the node with a maintenance mode flag and pass the current cluster configuration to your <code>dbnode.yaml</code> file.</p>
-<ol type=a>
-<li>Find the current values of database node cluster
-        credentials and IDs from the <code>local.ini</code>, <code>vm.args</code>, and
-        <code>default.ini</code> files on other nodes or from the backup
-        directories, such as <code>/opt/cloudant/etc.bak</code>.</li>
-<li>Configure these values as-is in the <code>dbnode.yaml</code> file.
-<p>Use encrypted or hashed values for fields <code>admin</code>,
-        <code>cloudant</code>, <code>httpd_auth</code> and <code>cookie</code>. Leave the <code>uuid</code> and
-        <code>monitor_role</code> values as <code>open_ssl</code>.</p>
-</li>
-<li>After you configure the <code>dbnode.yaml</code> file, you can
-        distribute and use it for other database node upgrades.
-<p>For example, you can get a sample of <code>dbnode.yaml</code> from
-        <code>/opt/cloudant/cast/samples/dbnode.yaml</code> and run the
-        following command.</p>
-<p><code>cast system install --maintenance -db -c /&lt;path_to&gt;/dbnode.yaml<code/></p>
-</li>
-</ol>  
-</li>
-<li>Check status of the database node update.
-<ol type=a>
-<li>Verify the status of the database node.
+   a. From the `/opt/cloudant` directory, put the database node in maintenance mode by running the command.
 
-<p><code>curl -X GET http://localhost:5984<code></p>
-<p>The response shows the new version.</p>
+   ```sh
+   cast node maintenance --true
+   ```
+   {: pre}
 
-<p>      <pre>  <code>{
+   b. Verify that the database node is in maintenance mode: `curl localhost:5984/_up`. 
+
+   You see this response.
+   ```sh
+   {"status":"maintenance_mode"}
+   ```
+
+   c. Verify that this node is not available for traffic from your load balancer URL.
+   ```http
+   https://load_balancer/_haproxy
+   ```
+
+   The node status must be stopped for maintenance.
+
+2. Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binary files.<br>
+   a. Uninstall the current version by running the command.<br>
+      ```sh
+      cast system uninstall
+      ```
+
+      This command also stops the services.
+      
+   b. Run the InstallShield uninstall command.
+      ```sh
+      /root/cloudant/uninstall/uninstall.bin
+      ```
+
+   c. Check for Cloudant processes.
+      ```sh
+      ps -ef | grep clo
+      ```
+
+   d. Stop any Cloudant processes that are running.
+      ```sh
+      kill -9 (pid)
+      ```
+
+3. Install the database node by using the steps in [Installing the first database node](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-the-first-database-node).
+
+   Ensure that when you run the `cast system install` command you start the node with a maintenance mode flag and pass the current cluster configuration to your `dbnode.yaml` file.
+   {: note}
+   
+   a. Find the current values of database node cluster credentials and IDs from the `local.ini`, `vm.args`, and `default.ini` files on other nodes or from the backup directories, such as `/opt/cloudant/etc.bak`.
+
+   b. Configure these values as-is in the `dbnode.yaml` file. Use encrypted or hashed values for fields `admin`, `cloudant`, `httpd_auth` and `cookie`. Leave the `uuid` and `monitor_role` values as `open_ssl`.
+   
+   c. After you configure the `dbnode.yaml` file, you can distribute and use it for other database node upgrades. For example, you can get a sample of `dbnode.yaml` from `/opt/cloudant/cast/samples/dbnode.yaml` and run the following command.
+   ```sh
+   cast system install --maintenance -db -c /<path_to>/dbnode.yaml
+   ```
+
+4. Check status of the database node update.
+
+   a. Verify the status of the database node.
+      ```curl
+      curl -X GET http://localhost:5984
+      ```
+
+      The response shows the new version.<br>
+
+      ```sh
+      {
             "couchdb": "Welcome",
             "version": "2.0.0",
             "vendor": {
@@ -193,38 +206,49 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
             "features": [
                 "geo"
             ]
-        }</code></pre></li>
-<li>Verify that the database node is in maintenance mode and
-        is not receiving traffic on the load balancer.
-<p><code>cast node maintenance</code></p>
-<p>The response shows the status of the node.</p>
-<p><code>The node is IN maintenance mode.</code></p></li>
-<li>Verify the status of the upgraded node as a member of the
-        cluster.
-<p><code>cast cluster status</code></p>
-<p>The response lists all the cluster nodes.</p></li>
-<li>Check the health of the database node by using the
-        Weatherreport application, [Monitor cluster health with
-        Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).</li>
-</ol>
-</li>
-<li>Bring the database node out of maintenance mode and check its
-    availability.
-<ol type=a>
-<li>Run the following command to bring the database node out
-        of maintenance mode.
-<p><code>cast node maintenance --false</code></p>
-<p>The response shows the status of the node.</p>
-<p><code>The node is OUT of maintenance mode.</code></p>
-        </li>
-<li>Verify that the database node is up and available for
-        traffic from your load balancer.
-<p><code>https://&lt;load_balancer&gt;/_haproxy</code></p>
-<p>If the upgrade was successful, the response shows that
-        the node is up and available.</p></li>
-</ol>
-</li>
-</ol>
+        }
+        ```
+
+   b. Verify that the database node is in maintenance mode and is not receiving traffic on the load balancer.
+   ```sh
+   cast node maintenance
+   ```
+       
+   The response shows the status of the node.
+
+   ```sh
+   The node is IN maintenance mode.
+   ```
+
+   c. Verify the status of the upgraded node as a member of the cluster.
+
+   ```sh
+   cast cluster status
+   ```
+        
+   The response lists all the cluster nodes.
+
+   d. Check the health of the database node by using the Weatherreport application, [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+
+5. Bring the database node out of maintenance mode and check its availability.
+
+   a. Run the following command to bring the database node out of maintenance mode.
+
+   ```sh
+   cast node maintenance --false
+   ```
+
+   The response shows the status of the node.
+   ```sh
+   The node is OUT of maintenance mode.
+   ```
+
+   b. Verify that the database node is up and available for traffic from your load balancer.
+   ```http
+   https://load_balancer/_haproxy
+   ```
+
+   If the upgrade was successful, the response shows that the node is up and available.
 
 ## Upgrading a load balancer node
 {: #upgrading-a-load-balancer-node}
@@ -232,32 +256,31 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 Upgrade each {{site.data.keyword.cloudant_local_notm}} load balancer node by following
 these steps.
 
-<ol>
-<li>Verify that the load balancer failover works correctly when
-    one load balancer (in a cluster of two or more load balancers) is taken offline during an
-    upgrade.</li>
-<li>Uninstall the current version by running the command.
-<p><code>cast system uninstall</code></p>
-<p>This command also stops the services.</p></li>
-<li>Run the InstallShield <code>uninstall</code> command.
-<p><code>/root/cloudant/uninstall/uninstall.bin</code></p></li>
-<li>Install the new {{site.data.keyword.cloudant_local_notm}} packages and start the upgraded
-    node, [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
-<ol type=a>
-<li>Find the load balancer node's current credentials,
-        cluster nodes, host name, and IP addresses in the current
-        version of the <code>/etc/haproxy/haproxy.cfg</code> file.
-</li>
-<li>Configure the values in the <code>lbnode.yaml</code> file.
+1. Verify that the load balancer failover works correctly when one load balancer (in a cluster of two or more load balancers) is taken offline during an upgrade.
+2. Uninstall the current version by running the command.
+   ```sh
+   cast system uninstall
+   ```
 
-<p>You can get a sample from
-        <code>/opt/cloudant/cast/samples/lbnode.yaml</code> file, and run the
-        following command to install and pass the configuration.</p>
-<p><code>cast system install -lb -c /&lt;path_to&gt;/lbnode.yaml</code></p></li>
-</ol>
-</li>
-<li>Verify that the load balancer is reachable through its URL and
-    that all cluster nodes are listed and available to receive
-    traffic by using this URL:  
-<p><code>https://&lt;upgrade_node_load_balancer&gt;/_haproxy</code></p></li>
-</ol>
+   This command also stops the services.
+3. Run the InstallShield `uninstall` command.
+   ```sh
+   /root/cloudant/uninstall/uninstall.bin
+   ```
+
+4. Install the new {{site.data.keyword.cloudant_local_notm}} packages and start the upgraded node, [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
+
+   a. Find the load balancer node's current credentials, cluster nodes, host name, and IP addresses in the current version of the `/etc/haproxy/haproxy.cfg` file.
+
+   b. Configure the values in the `lbnode.yaml` file.
+
+   You can get a sample from `/opt/cloudant/cast/samples/lbnode.yaml` file, and run the following command to install and pass the configuration.
+   ```sh
+   cast system install -lb -c /&lt;path_to&gt;/lbnode.yaml
+   ```
+      
+5. Verify that the load balancer is reachable through its URL and that all cluster nodes are listed and available to receive traffic by using this URL:  
+   ```http
+   https://upgrade_node_load_balancer/_haproxy
+   ```
+

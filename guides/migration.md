@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-03-19"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -180,4 +180,4 @@ No, it's not possible to keep your domain. You must plan to update your applicat
 ## Who do I contact if I have questions?
 {: #who-do-i-contact-if-i-have-questions-}
 
-Contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com) or open a ticket from within the {{site.data.keyword.cloudant_short_notm}} Dashboard if you have any questions about migration. {{site.data.keyword.cloudant_short_notm}} support is happy to provide more details.
+Email support@cloudant.com, or open a ticket from within the {{site.data.keyword.cloudant_short_notm}} Dashboard if you have any questions about migration. {{site.data.keyword.cloudant_short_notm}} support is happy to provide more details.

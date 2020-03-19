@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-24"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -35,7 +35,7 @@ You can learn about advanced replication concepts and tasks, such as the ones in
 
 You might also find it helpful to review details of the underlying
 [replication protocol](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window}{: external},
-and review the [Advanced methods](/docs/Cloudant?topic=cloudant-advanced-api#advanced-api) material.
+and review the [advanced methods](/docs/Cloudant?topic=cloudant-advanced-api#advanced-api) material.
 
 ## Replication database maintenance
 {: #replication-database-maintenance}

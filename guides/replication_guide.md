@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-03-19"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -750,7 +750,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com) for further advice.
+email support@cloudant.com for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -817,4 +817,4 @@ with replication treated as a background process.
 * If you want to run replication with minimal impact, setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
 For further assistance about the best configuration for your use case,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com).
+email support@cloudant.com.

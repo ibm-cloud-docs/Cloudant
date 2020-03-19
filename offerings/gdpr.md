@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-03-20"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -59,7 +59,7 @@ for GDPR:
  * Connectivity and device data
 
 **Sensitive Personal Data**, which is restricted to:
-  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){: new_window}{: external}
+  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: new_window}{: external}
 
 If you're storing healthcare data, you *must* complete the following tasks:
  - Notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
@@ -95,7 +95,7 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 ### Restriction of processing
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request via support@cloudant.com. Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
 ability to contact dedicated customers via email. We provide an interface for customers to keep this 
@@ -248,6 +248,5 @@ file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make 
 database are removed from your system. For more information, see 
 [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}. 
 
-If you need more help, contact 
-[{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com).
+If you need more help, email support@cloudant.com.
 
