@@ -48,22 +48,22 @@ Verify that you have what you need to start the tutorial from the following list
 - [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
 - Verify that you have the  most current version of the [Python programming language](https://www.python.org/){: new_window}{: external}:
 
-  1.  To check the Python version installed on your machine, run the following command:
+
+1.  To check the Python version installed on your machine, run the following command:
       ```sh
 	    python3 --version
 	    ```
 	    {: pre}
 	
-  2. Verify that your version matches the most recent version. The result looks something like this:
+2. Verify that your version matches the most recent version. The result looks something like this:
 	    ```
 	    Python 3.7.4
 	    ```
 	    {: screen}
 
-     - The Cloudant Python library enables your Python applications to work with
-	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
+    - The Cloudant Python library enables your Python applications to work with {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
-	3.	To check that the client library is already installed, run the following command at a prompt:	
+3.	To check that the client library is already installed, run the following command at a prompt:	
       ```sh
 	    pip3 freeze
 	    ```
@@ -76,7 +76,7 @@ Verify that you have what you need to start the tutorial from the following list
 	    ```
 	    {: screen}
 	
-	4.  If the `cloudant` module isn't installed, install it by using a command similar to the following one.
+4.  If the `cloudant` module isn't installed, install it by using a command similar to the following one.
 	    ```
 	    pip3 install cloudant
 	    ```
