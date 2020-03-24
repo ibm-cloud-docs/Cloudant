@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-26"
+  years: 2015, 2020
+lastupdated: "2020-03-17"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-01-24 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # CAP Theorem
 {: #cap-theorem}
@@ -30,7 +30,7 @@ subcollection: cloudant
 {: shortdesc}
 
 To understand how this model works,
-and why it is an essential part of using {{site.data.keyword.cloudant_short_notm}},
+and why it's an essential part of using {{site.data.keyword.cloudant_short_notm}},
 consider what is meant by Consistency.
 
 Consistency is one of the four ['ACID'](https://en.wikipedia.org/wiki/ACID){: new_window}{: external} properties
@@ -42,7 +42,7 @@ consistency is one of the three attributes in the
 theorem.
 The attributes are **C**onsistency,
 **A**vailability, and **P**artition tolerance.
-The theorem states that it is not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
+The theorem states that it's not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
 to guarantee three attributes *simultaneously*:
 
 - Consistency, where all nodes see the same data at the same time.
@@ -50,10 +50,10 @@ to guarantee three attributes *simultaneously*:
 - Partition tolerance, where the system continues to operate even if any one part of the system is lost or fails.
 
 The impossibility of guaranteeing all three attributes at the same time
-means that {{site.data.keyword.cloudant_short_notm}} does not guarantee the Consistency attribute.
+means that {{site.data.keyword.cloudant_short_notm}} doesn't guarantee the Consistency attribute.
 In an eventually consistent model,
 like {{site.data.keyword.cloudant_short_notm}},
-an update made to one part of the system is *eventually* seen by other parts of the system.
+when you make an update to one part of the system, the update is *eventually* seen by other parts of the system.
 As the update propagates,
 the system is said to 'converge' on complete consistency.
 
@@ -65,7 +65,7 @@ With an eventually consistent model,
 the write or update request can return almost immediately,
 while the propagation across the system continues 'behind the scenes'.
 
-A database can exhibit only two of these three attributes for both theoretical and practical reasons.
+A database can demonstrate only two of these three attributes for both theoretical and practical reasons.
 A database prioritizing consistency and availability is simple:
 a single node stores a single copy of your data.
 But this model is difficult to scale as you must upgrade the node to get more performance,
@@ -83,17 +83,17 @@ A database that prioritizes consistency and partition tolerance commonly employs
 <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">master-slave <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
 setup,
 where one node of the many in the system is elected leader.
-Only the leader can approve data writes,
+Only the leader approves data writes,
 while all secondary nodes replicate data from the leader to handle reads.
 If the leader loses connection to the network,
 or can't communicate with many of the system's nodes,
 the remainder elects a new leader.
 This election process differs between systems,
-and can be a source of [significant problems](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}{: external}.
+and might be a source of [significant problems](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}{: external}.
 
 {{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a master-master setup,
 such that every node can accept both writes and reads to its portion of your data.
-Multiple nodes contain copies of each portion of your data.
+Multiple nodes include copies of each portion of your data.
 Each node copies data with other nodes.
 If a node becomes inaccessible,
 others can serve in its place while the network heals.
@@ -102,7 +102,7 @@ the system returns your data in a timely manner despite arbitrary node failure,
 and maintains [eventual consistency](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}{: external}.
 The tradeoff in deprioritizing absolute consistency is that it takes time for all nodes to see the same data.
 As a result,
-some responses might contain old data while the new data propagates through the system.
+some responses might include old data while the new data propagates through the system.
 
 ## Changing the approach
 {: #changing-the-approach}
@@ -110,8 +110,8 @@ some responses might contain old data while the new data propagates through the 
 Maintaining one consistent view of data is logical and easy to understand
 because a relational database does this work for you.
 The expectation is that web-based services that interact with database systems behave in this way.
-But that expectation does not mean that they do work this way.
-Consistency is not a given,
+But that expectation doesn't mean that they do work this way.
+Consistency isn't a given,
 and it takes a little work to change the approach.
 
 In fact,
@@ -123,21 +123,21 @@ is better suited to keeping your application online.
 The consistency of application data can be addressed after the fact.
 As Seth Gilbert and Nancy Lynch of MIT
 [conclude](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window}{: external},
-"most real-world systems today are forced to settle with returning 'most of the data, most of the time.' "
+"...most real-world systems today are forced to settle with returning 'most of the data, most of the time.' "
 
 ## Application availability versus consistency in the enterprise
 {: #application-availability-versus-consistency-in-the-enterprise}
 
 A look at popular web-based services shows that people already expect high availability,
 and happily trade this availability for eventually consistent data,
-often without realizing they are doing so.
+often without realizing they're doing so.
 
 Many applications mislead users for the sake of availability.
 Consider ATMs:
 inconsistent banking data is why it's still possible to overdraft money without realizing it.
-It is unrealistic to present a consistent view of your account balance throughout the entire banking system
+It's unrealistic to present a consistent view of your account balance throughout the entire banking system
 if every node in the network must halt and record this figure before operations continue.
-It's better to make the system highly available.
+A better choice is to make the system highly available.
 
 The banking industry figured it out back in the 1980s,
 but many IT organizations are still worried about sacrificing consistency for the sake of availability.
@@ -158,18 +158,14 @@ and missed opportunities.
 
 Addressing high availability is vital for cloud applications.
 Otherwise,
-global database consistency remains a major bottleneck as you scale.
+global database consistency stays a major bottleneck as you scale.
 Highly available applications need to maintain constant contact with their data,
-even if that data isn't the most up-to-date.
+even if that data isn't the most up to date.
 That's the concept of eventual consistency,
-and it's nothing to be scared of.
-At large scale,
-sometimes it's better to serve answers that are not perfectly correct than to not serve them at all.
+and it's nothing to be scared of. Sometimes, with a large scale, it's better to serve answers that aren't perfectly correct than to not serve them at all.
 
 Database systems hide the complexities of availability versus consistency in different ways,
-but they are always there.
-The view that is taken by the {{site.data.keyword.cloudant_short_notm}} database-as-a-service,
-along with CouchDB and other NoSQL databases,
-is that it's better to require developers to address these complexities early in the design process.
+but they're always there.
+{{site.data.keyword.cloudant_short_notm}}, CouchDB, and other NoSQL database teams believe the best policy is to require developers to address these complexities early in the design process.
 By doing the hard work up front,
 you reduce surprises because applications are ready to scale from day one.

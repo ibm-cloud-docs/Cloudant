@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-18"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -21,20 +21,22 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-07 -->
+<!-- Acrolinx: 2020-03-18 -->
 
 # {{site.data.keyword.cloudant_short_notm}} basics
 {: #ibm-cloudant-basics}
 
-If it's your first time here,
-scan this section before you scroll further.
-{: shortdesc}
+If you haven't used {{site.data.keyword.cloudantfull}} or NoSQL databases in general,
+	scan this quick introduction to the basics before you read further.
+	It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
+	The rest of the documentation assumes that you know these basics.
 
-To understand the information on the following topics, we assume that you know some basic things about {{site.data.keyword.cloudantfull}}: 
+You can find more information about {{site.data.keyword.cloudant_short_notm}} in the following sections: 
 
 - [Client Libraries](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries)
 - [API Reference](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)
 - [Guides](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
+{: shortdesc}
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
@@ -61,10 +63,10 @@ For more information about how {{site.data.keyword.cloudant_short_notm}} uses HT
     Request the specified item.
     As with normal HTTP requests,
     the format of the URL defines what is returned.
-    With {{site.data.keyword.cloudant_short_notm}} this can include static items,
+    With {{site.data.keyword.cloudant_short_notm}}, this definition can include static items,
     database documents,
     and configuration and statistical information.
-    In most cases the information is returned in the form of a JSON document.
+    In most cases, the information is returned in the form of a JSON document.
 
 -   `HEAD`
 
@@ -81,7 +83,7 @@ For more information about how {{site.data.keyword.cloudant_short_notm}} uses HT
 
 -   `PUT`
 
-    Used to 'store' a specific resource.
+    Used to "store" a specific resource.
     In {{site.data.keyword.cloudant_short_notm}}'s API,
     `PUT` is used to create new objects,
     including databases,
@@ -100,15 +102,14 @@ For more information about how {{site.data.keyword.cloudant_short_notm}} uses HT
 
     A special method that can be used to copy documents and objects.
 
-If the client (such as some web browsers) does not support using these HTTP methods,
+If the client (such as some web browsers) doesn't support using these HTTP methods,
 `POST` can be used instead with the `X-HTTP-Method-Override` request header set to the actual HTTP method.
 
 ### Method not allowed error
 {: #method-not-allowed-error}
 
-If you use an unsupported HTTP request type with a URL that does not support the specified type,
-a [405](/docs/Cloudant?topic=cloudant-http#http-status-codes) error is returned,
-listing the supported HTTP methods, as shown in the following example.
+If you use an unsupported HTTP request type with a URL that doesn't support the specified type,
+a [405](/docs/Cloudant?topic=cloudant-http#http-status-codes) error is returned that lists the supported HTTP methods, as shown in the following example.
 
 #### Example error message in response to an unsupported request
 
@@ -125,7 +126,7 @@ listing the supported HTTP methods, as shown in the following example.
 
 {{site.data.keyword.cloudant_short_notm}} stores documents using JSON (JavaScript Object Notation) encoding,
 so anything encoded into JSON can be stored as a document.
-Files containing media,
+Files that include media,
 such as images,
 videos,
 and audio,
@@ -140,12 +141,12 @@ More information about JSON can be found in the [JSON Guide](/docs/Cloudant?topi
 {{site.data.keyword.cloudant_short_notm}}'s API enables you to interact with a collaboration of numerous machines,
 called a cluster.
 The machines in a cluster must be in the same datacenter,
-but can be within different 'pods' in that datacenter.
+but can be within different "pods" in that datacenter.
 Using different pods helps improve the High Availability characteristics of {{site.data.keyword.cloudant_short_notm}}.
 
 An advantage of clustering is that when you need more computing capacity,
 you just add more machines.
-This is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
+This method is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
 
 For more information about {{site.data.keyword.cloudant_short_notm}} and distributed system concepts,
 see the [CAP Theorem](/docs/Cloudant?topic=cloudant-cap-theorem#cap-theorem) guide.
@@ -162,7 +163,7 @@ Replication synchronizes the state of two databases so that their contents are i
 You can replicate continuously.
 This means that a target database updates every time the source database changes.
 Continuous replication can be used for backups of data,
-aggregating data across multiple databases,
+aggregating data across many databases,
 or for sharing data.
 
 However,

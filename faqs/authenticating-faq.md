@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-03-17"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-02-13 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Authenticating with {{site.data.keyword.cloudant_short_notm}} FAQ
 {: #faq-authenticating-cloudant}
@@ -51,7 +51,10 @@ subcollection: cloudant
 {: #use-legacy-or-iam}
 {: faq}
 
-We recommend you use the *Use only IAM* mode. This mode means that only IAM credentials are provided via service binding and credential generation. The advantages for using {{site.data.keyword.cloud_notm}} IAM include the management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling, and credentials that can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
+We recommend you use the *Use only IAM* mode. This mode means only IAM credentials are provided via service binding and credential generation. You gain the following advantages when you use {{site.data.keyword.cloud_notm}} IAM:
+
+- Managing access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling.
+- Using credentials that you can easily revoke and rotate when you use {{site.data.keyword.cloud_notm}} IAM.
 
 For more information about the advantages and disadvantages between these modes, see [Advantages and disadvantages of the two access control mechanisms](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#advantages-and-disadvantages-of-the-two-access-control-mechanisms).
 
@@ -70,7 +73,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
 ```
 {: codeblock}
 
-If you don't use *Use only IAM* mode when you use the Reader and Writer IAM roles, you might grant users Legacy credentials with more access permissions than you intended.
+If you don't use *Use only IAM* mode when you use the IAM Reader and Writer roles, you might grant users Legacy credentials with more access permissions than you intended.
 {: note}
 
 ## How can I generate service credentials? 

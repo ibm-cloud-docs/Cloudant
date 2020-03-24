@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2019-01-07"
+lastupdated: "2020-03-17"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Audit logging
 {: #audit-logging}

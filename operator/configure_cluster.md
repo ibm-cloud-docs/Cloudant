@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-14"
+lastupdated: "2020-03-19"
 
 keywords: operator, field reference
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-03-19 -->
 
 # Configuring a CouchDB cluster
 {: #configure-couchdb-cluster}
@@ -111,7 +111,7 @@ The `size` parameter refers to the number of database nodes deployed in the Apac
 
 The CouchDB configuration field reference section refers to everything in the environment section of the YAML file, and defines the parameters on how Apache CouchDB itself operates. 
 
-Update the `adminPassword` to a password of your choosing. It's recommended that you keep the default values for the other parameters unless your specific workload warrants a specific configuration.
+Update the `adminPassword` to a password of your choosing. We recommend that you keep the default values for the other parameters unless your specific workload warrants a specific configuration.
 
 | Name           | Description                                          | Default    | Information |
 |----------------|------------------------------------------------------|------------|-----------|
