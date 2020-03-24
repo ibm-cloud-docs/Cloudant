@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-18"
 
 keywords: develop applications, supported library, third-party library
 
@@ -36,6 +36,7 @@ The following client libraries are formally [supported](/docs/Cloudant?topic=clo
 -	[Java](/docs/Cloudant?topic=cloudant-supported-client-libraries#java-supported)
 -	[Node.js](/docs/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 -	[Swift](/docs/Cloudant?topic=cloudant-supported-client-libraries#swift)
+-	[Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)
 
 A supported library is one where you can contact {{site.data.keyword.cloudant_short_notm}} if you encounter a specific,
 reproducible problem in the current version of the library.
