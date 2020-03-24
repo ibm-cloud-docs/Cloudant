@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-03-17"
 
 keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 
@@ -21,14 +21,14 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Attachments
 {: #attachments}
 
 Another way to store data is to use attachments.
 Attachments are Binary Large OBject ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external})
-files that are contained within documents.
+files included within documents.
 {: shortdesc}
 
 The BLOB is stored in the `_attachments` component of the document.
@@ -48,10 +48,10 @@ For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
 
-It is a good idea to keep attachments small in size and number because attachments can impact performance.
+It's a good idea to keep attachments small in size and number because attachments can impact performance.
 {: important}
 
-Attachments are not permitted on documents in [`_replicator`](/docs/Cloudant?topic=cloudant-replication-api#replication-document-format) or [`_users`](/docs/Cloudant/api?topic=cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db) databases.
+Attachments aren't permitted on documents in [`_replicator`](/docs/Cloudant?topic=cloudant-replication-api#replication-document-format) or [`_users`](/docs/Cloudant/api?topic=cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db) databases.
 {: important}
 
 ## Create / update
@@ -112,9 +112,9 @@ fs.readFile($FILEPATH, function (err, data) {
 
 -->
 
-The response contains the document ID and the new document revision.
+The response includes the document ID and the new document revision.
 
-Attachments do not have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document it is attached to. 
+Attachments don't have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document it's attached to. 
 {: tip}
 
 See the following example response with the document ID and new revision:
@@ -175,7 +175,7 @@ db.attachment.get($DOCUMENT_ID, $FILENAME, function (err, body) {
 To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
-If you do not supply the most recent `_rev`,
+If you don't supply the most recent `_rev`,
 the response is a [409 error](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 
 See the following example of deleting an attachment by using HTTP:
@@ -213,7 +213,7 @@ db.attachment.destroy($DOCUMENT_ID, $FILENAME, $REV, function (err, body) {
 -->
 
 If the deletion is successful,
-the response contains `"ok": true`,
+the response includes `"ok": true`,
 and the ID and new revision of the document.
 
 See the following example response after a successful delete of an attachment:
@@ -262,7 +262,7 @@ having too many attachments can have an adverse performance impact during replic
 
 For example,
 if your application requires storage for multiple images as attachments or includes large images,
-it is best to use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
+we recommend that you use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
 storage mechanism to store the images.
 You might then use {{site.data.keyword.cloudant_short_notm}} to keep
 the image metadata,

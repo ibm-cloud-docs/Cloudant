@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-17"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-13 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Advanced replication
 {: #advanced-replication}
@@ -799,8 +799,8 @@ See the following example JSON document that describes the required replication:
 Code  | Description
 ------|------------
 `200` | Replication request successfully completed.
-`202` | Continuous replication request has been accepted.
-`404` | Either the source or target database wasn't found.
+`202` | Continuous replication request was accepted.
+`404` | Either the source or target database was not found.
 `500` | JSON specification was invalid.
 
 ### Canceling replication by using the `/_replicate` endpoint
@@ -813,8 +813,9 @@ If a replication is canceled,
 the request that started the replication fails with [error 500 (shutdown)](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 {: note}
 
-The replication ID can be obtained from the original replication request if it's a continuous replication.
-Or the replication ID can be obtained from [`/_active_tasks`](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks).
+The replication ID can be found in the original replication request if it is a continuous replication.
+Alternatively,
+the replication ID can be found in [`/_active_tasks`](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks).
 
 See the following example that uses HTTP to cancel a replication:
 

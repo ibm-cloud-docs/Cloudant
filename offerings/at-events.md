@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-17"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-13 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Activity Tracker events
 {: #at_events}
@@ -90,7 +90,7 @@ See the following example response that shows both management and data event typ
 #### `POST /_api/v2/user/activity_tracker/events`
 {: #at_event_types_api_post}
 
-Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field. This field includes an array of event types that update the event types being sent. See the first option for the JSON object that is passed to the endpoint:
+Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field. This field includes an array of event types that update the event types that are sent. See the two possible options for the JSON object that is passed to the endpoint:
 
 ```json
 {

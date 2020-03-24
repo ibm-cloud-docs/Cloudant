@@ -45,7 +45,7 @@ The response is a JSON object that includes a welcome message and the version of
 The `version` field includes the CouchDB version the server is compatible with.
 The `vendor.version` field includes the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
-For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field includes the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
+For versions of {{site.data.keyword.cloudant_short_notm}} before version 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field includes the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
 {: note}
 
 See the following example request to get server meta information by using HTTP:

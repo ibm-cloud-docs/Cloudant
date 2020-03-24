@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-03-17"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 {: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
@@ -104,7 +104,7 @@ curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ## Step 2. Create an API key for your replications
 {: #step-2-create-an-api-key-for-your-replications}
 
-It is a good idea to use an [API key](/docs/Cloudant?topic=cloudant-authorization#api-keys) for continuous replications.
+It's a good idea to use an [API key](/docs/Cloudant?topic=cloudant-authorization#api-keys) for continuous replications.
 The advantage is that if your primary account details change,
 for example after a password reset,
 your replications can continue unchanged.
@@ -132,7 +132,7 @@ A successful response is similar to the following abbreviated example:
 ```
 {: codeblock}
 
-Take careful note of the password. It isn't possible to retrieve the password later.
+Take careful note of the password. It'sn't possible to retrieve the password later.
 {: important}
 
 ## Step 3. Grant access permission
@@ -153,8 +153,7 @@ for details of how to grant permissions programmatically.
 
 Replications in {{site.data.keyword.cloudant_short_notm}} are always uni-directional:
 from one database to another database.
-Therefore,
-to replicate both ways between two databases,
+To replicate both ways between two databases,
 two replications are required,
 one for each direction.
 
@@ -203,7 +202,7 @@ modifying,
 and deleting documents in either database.
 
 After each change in one database,
-check that you can also see that the change is reflected in the other database.
+check that you can also see that change in the other database.
 
 ## Step 6. Configure your application
 {: #step-6-configure-your-application}
@@ -233,7 +232,7 @@ This configuration offers several benefits:
 An application can be set up to communicate with the 'nearest'
 {{site.data.keyword.cloudant_short_notm}} account.
 For applications hosted in DC1,
-it is appropriate to set their {{site.data.keyword.cloudant_short_notm}}
+it's appropriate to set their {{site.data.keyword.cloudant_short_notm}}
 URL to `"https://myaccount-dc1.cloudant.com/mydb"`.
 Similarly,
 for applications that are hosted in DC2,
@@ -244,8 +243,7 @@ you would set their {{site.data.keyword.cloudant_short_notm}} URL to `"https://m
 
 In an active-passive configuration,
 all instances of an application are configured to use a primary database.
-However,
-the application can failover to the other backup database,
+However, the application can failover to the other backup database,
 if circumstances make it necessary.
 The failover might be implemented within the application logic itself,
 or by using a load balancer,
@@ -301,7 +299,7 @@ consider the following possible options:
   This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}}
   instances that are used by applications can be handled through a modification to the proxy configuration
   rather than a modification to the application settings.
-  Many proxies have the capability to balance the load,
+  Many proxies can balance the load,
   based on user-defined health checks.
 * Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} or [Dyn Traffic Director](http://dyn.com/traffic-director/){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
   This option requires a `CNAME` definition that routes to
@@ -316,9 +314,9 @@ If a single {{site.data.keyword.cloudant_short_notm}} instance is unreachable,
 avoid redirecting traffic back to it as soon as it becomes reachable again.
 The reason is that some time is required for intensive tasks
 such as synchronizing the database state from any peers,
-and ensuring that indexes are up-to-date.
+and ensuring that indexes are up to date.
 
-It is helpful to have a mechanism for monitoring these tasks
+It's helpful to have a mechanism for monitoring these tasks
 to help decide when a database is in a suitable state to service your production traffic.
 
 As a guide,
@@ -327,7 +325,7 @@ a typical list of checks to apply include:
 * [Replications](#replications)
 * [Indexes](#indexes)
 
-If you implement request rerouting or failover based on a health test, you might want to incorporate corresponding checks to avoid premature rerouting back to a service instance that is still recovering.
+If you implement rerouting for requests or failover based on a health test, you might want to incorporate corresponding checks to avoid premature rerouting back to a service instance that is still recovering.
 {: note}
 
 ### Replications
@@ -340,13 +338,13 @@ If you implement request rerouting or failover based on a health test, you might
 More information on [monitoring replication status](/docs/Cloudant?topic=cloudant-advanced-replication#replication-status)
 is available.
 
-If a database is being changed continuously, the replication status is unlikely to 0. You must decide what status threshold is acceptable, or that represents an error state.
+If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}
 
 ### Indexes
 {: #indexes}
 
-* Are the indexes sufficiently up-to-date?
+* Are the indexes sufficiently up to date?
   Verify that indexes are updated by using the [active tasks](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks) endpoint.
 * Test the level of 'index readiness' by sending a query to the index,
   and deciding whether it returns within an acceptable time.

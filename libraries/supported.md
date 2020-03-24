@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-03-17"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-13 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Supported client libraries
 {: #supported-client-libraries}
@@ -35,7 +35,7 @@ You can find information on supported client libraries, such as mobile, Node.js,
 The {{site.data.keyword.cloudantfull}} Sync library is used to store,
 index,
 and query local JSON data on a mobile device.
-It's also used to synchronize data between many devices.
+The library can also synchronize data between many devices.
 Synchronization is controlled by your application.
 The library also provides helper methods for finding and resolving conflicts,
 both in the local device and the remote database.
@@ -52,8 +52,8 @@ s
 
 The [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external} library is the official {{site.data.keyword.cloudantfull}} library for Java&trade;.
 
-For more information about installing the library by adding it as a dependency to your Maven or Gradle builds, see 
-[Installation and Usage](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}{: external}. You can also see details and examples of how to use the library in the guide.  
+For more information, see 
+[Installation and Usage](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}{: external} about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
 
 ### Libraries and frameworks for Java
 {: #libraries-and-frameworks-for-java}
