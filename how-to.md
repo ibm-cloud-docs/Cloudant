@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-03-23"
 
 keywords: tutorials, recovery and backup, guides, links to documentation, about 
 
@@ -64,7 +64,6 @@ Guide | Description
 [Database partitioning](/docs/Cloudant?topic=cloudant-database-partitioning#database-partitioning) | A guide that describes partitioned databases and how to use them. 
 [Design document management](/docs/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} | A guide that describes what a design document is and how to work with one in {{site.data.keyword.cloudant_short_notm}}.
 [Document versioning and MVCC](/docs/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | A guide that describes multi-version concurrency control (MVCC) and how it works with {{site.data.keyword.cloudant_short_notm}} databases to ensure that all of the nodes in a database's cluster contain only the newest version of a document.
-[Five tips for modeling your data to scale](/docs/Cloudant?topic=cloudant-five-tips-for-modeling-your-data-to-scale#five-tips-for-modeling-your-data-to-scale){: new_window} | A guide that considers the finer points of modeling your application's data to work efficiently on a large scale.
 [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant){: new_window} | A guide that outlines some of the factors that are involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths, by using concepts that are applicable to many other domains.
 [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} | A guide that covers common questions {{site.data.keyword.cloudant_short_notm}} support receives about this transition.
 [How is data stored in {{site.data.keyword.cloudant_short_notm}}?](/docs/Cloudant?topic=cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-){: new_window} | A guide that describes sharding and how it works in {{site.data.keyword.cloudant_short_notm}}.

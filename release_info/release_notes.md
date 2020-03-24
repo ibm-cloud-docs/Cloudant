@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-04"
+lastupdated: "2020-03-23"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-24 -->
+<!-- Acrolinx: 2020-02-24 -->
 
 # Release notes
 {: #release-notes}
@@ -66,7 +66,7 @@ The following changes will be coming March 6, 2020 or later and might cause comp
 Review the changes on the Deprecations page:
 
 - The fields used by `GET /{db}` and `GET /{db}/_design/{ddoc}/_info` were replaced with new fields. For more information, see the [Deprecations](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-dbinfo-size-fields) page.
-- The `?queries` parameter was replaced by `POST /{db}/_design/{ddoc}/_view/{view}/queries`. For more information, see the [Deprecations](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-?queries-parameter) page.
+- The `?queries` parameter was replaced by `POST /{db}/_design/{ddoc}/_view/{view}/queries`. For more information, see the [Deprecations](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter) page.
 
 ## Build 8142 (March 2020)
 {: #build-8142-03-2020}
@@ -192,7 +192,7 @@ Review the changes on the Deprecations page:
 ## Build 7426 (November 15, 2018)
 {: #build-7426-november-15-2018}
 
-- Include [CRN](/docs/overview?topic=overview-crn) in audit logs.
+- Include [CRN](https://cloud.ibm.com/docs/resources?topic=resources-crn) in audit logs.
 - Replicator stability improvements.
 - Improve validation of `q` parameter on database creation. See [COUCHDB-1582](https://issues.apache.org/jira/browse/COUCHDB-1582){: new_window}{: external}.
 - Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650](https://issues.apache.org/jira/browse/COUCHDB-1650){: new_window}{: external}.

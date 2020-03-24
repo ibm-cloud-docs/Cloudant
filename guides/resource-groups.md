@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-14"
+  years: 2015, 2020
+lastupdated: "2020-03-24"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -58,8 +58,8 @@ provisioned after this date are associated with a resource group instead.
 {: #why-can-t-i-create-new-standard-plan-instances-on-my-dedicated-hardware-instances-}
 
 New Standard plan instances are provisioned into resource groups. In order to
-provision these instances onto a Dedicated Hardware instance, the Dedicated
-Hardware instance must first be migrated into a resource group.
+provision these instances onto a Dedicated Hardware instance, you must first migrate the Dedicated
+Hardware instance into a resource group.
 
 For more information about how to do this migration, see [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}{: external}.
 
@@ -75,6 +75,5 @@ the Standard plan instances that are hosted on them:
 1. Migrate Dedicated Hardware instances to a resource group. This migration allows new Standard plan instances to be created on the Dedicated Hardware.
 2. Migrate Standard instances.
 
-Lite plan instances and Standard plan instances not hosted on Dedicated Hardware
-can be migrated at any time.
+You can migrate Lite plan instances and Standard plan instances not hosted on Dedicated Hardware at any time.
 {: tip}

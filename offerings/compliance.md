@@ -73,8 +73,7 @@ You can request an SOC 2 Type 2 report from the customer portal
 or contact your sales representative. Alternatively, you can open 
 a support ticket with 
 [IBM Cloud support](https://www.ibm.com/cloud/support){: new_window}{: external} 
-or email 
-[support@cloudant.com](mailto:support@cloudant.com).
+or email support@cloudant.com.
 
 ## General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-overview}

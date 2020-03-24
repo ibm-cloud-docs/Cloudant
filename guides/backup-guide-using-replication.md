@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-19"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -514,5 +514,4 @@ Make sure that your replication jobs don't begin at the same time.
 Replication and backups can be tricky.
 If you get stuck,
 check out the [replication guide](/docs/Cloudant?topic=cloudant-replication-guide#replication-guide),
-or contact the
-[{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com).
+or email support@cloudant.com.

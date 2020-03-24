@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-24"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -12,9 +12,9 @@ subcollection: cloudant
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:screen: .screen}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +42,7 @@ one in each region:
 
 Remember these important facts:
 
-* Within each datacenter,
+* Within each data center,
   {{site.data.keyword.cloudant_short_notm}} already offers high availability
   by storing data in triplicate across three servers.
 * Replication occurs at the database rather than account level
@@ -58,7 +58,7 @@ Remember these important facts:
 For an active-active deployment, a strategy for managing conflicts must be in place, so be sure to understand how [replication](/docs/Cloudant?topic=cloudant-replication-api#replication-api) and [conflicts](/docs/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc) work before you consider this architecture.
 {: note}
 
-Contact [{{site.data.keyword.cloudant_short_notm}} support](mailto: support@cloudant.com) if you need help with how to model data to handle conflicts effectively.
+Email support@cloudant.com if you need help with how to model data to handle conflicts effectively.
 
 ## Overview
 {: #overview-active-active}
@@ -141,7 +141,7 @@ Take careful note of the password. It'sn't possible to retrieve the password lat
 Give the API Key [permission](/docs/Cloudant?topic=cloudant-authorization#modifying-permissions)
 to read and to write on both databases.
 
-If you also want to replicate indexes,
+If you also need to replicate indexes,
 assign admin permissions.
 
 Use the {{site.data.keyword.cloudant_short_notm}} Dashboard,
@@ -226,7 +226,7 @@ while application 'B' might write to database `myaccount-dc2.cloudant.com/mydb`.
 This configuration offers several benefits:
 
 - Load can be spread over several accounts.
-- Applications can be configured to access an account with
+- You can configure applications to access an account with
   lower latency (not always the geographically closest).
 
 An application can be set up to communicate with the 'nearest'
@@ -265,7 +265,7 @@ You might consider other hybrid approaches for your configuration.
 For example,
 in a 'Write-Primary, Read-Replica' configuration,
 all writes go to one database,
-but the read load is spread among the replicas.
+but the read load is distributed among the replicas.
 
 ## Step 7. Next steps
 {: #step-7-next-steps}
@@ -301,7 +301,7 @@ consider the following possible options:
   rather than a modification to the application settings.
   Many proxies can balance the load,
   based on user-defined health checks.
-* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} or [Dyn Traffic Director](http://dyn.com/traffic-director/){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
+* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} or [Dyn Traffic Director](http://dyn.com/traffic-director/){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
   This option requires a `CNAME` definition that routes to
   different {{site.data.keyword.cloudant_short_notm}} accounts,
   based on a health check or latency rule.

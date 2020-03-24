@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-23"
 
 keywords: port forward, openshift route
 
@@ -39,7 +39,7 @@ kubectl port-forward svc/<couchdb name> 5984:5984 -n <namespace>
 ```
 {: codeblock}
 
-You can then access your cluster locally by pointing a client to https://localhost:5984. To access the CouchDB dashboard, visit https://localhost:5984/_utils in a web browser.
+You can then access your cluster locally by pointing a client to `https://localhost:5984`. To access the CouchDB dashboard, visit `https://localhost:5984/_utils` in a web browser.
 
 
 ### OpenShift route
