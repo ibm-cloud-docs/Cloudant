@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-03-26"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -132,7 +132,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    ```sh
    cast node maintenance --true
    ```
-   {: pre}
+   {: codeblock}
 
    b. Verify that the database node is in maintenance mode: `curl localhost:5984/_up`. 
 
@@ -140,11 +140,13 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    ```sh
    {"status":"maintenance_mode"}
    ```
+   {: codeblock}
 
    c. Verify that this node is not available for traffic from your load balancer URL.
    ```http
    https://load_balancer/_haproxy
    ```
+   {: codeblock}
 
    The node status must be stopped for maintenance.
 
@@ -153,6 +155,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
       ```sh
       cast system uninstall
       ```
+      {: codeblock}
 
       This command also stops the services.
       
@@ -160,16 +163,19 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
       ```sh
       /root/cloudant/uninstall/uninstall.bin
       ```
+      {: codeblock}
 
-   c. Check for Cloudant processes.
+   c. Check for {{site.data.keyword.cloudant_local_notm}} processes.
       ```sh
       ps -ef | grep clo
       ```
+      {: codeblock}
 
-   d. Stop any Cloudant processes that are running.
+   d. Stop any {{site.data.keyword.cloudant_local_notm}} processes that are running.
       ```sh
       kill -9 (pid)
       ```
+      {: codeblock}
 
 3. Install the database node by using the steps in [Installing the first database node](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-the-first-database-node).
 
@@ -184,6 +190,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    ```sh
    cast system install --maintenance -db -c /<path_to>/dbnode.yaml
    ```
+   {: codeblock}
 
 4. Check status of the database node update.
 
@@ -191,6 +198,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
       ```curl
       curl -X GET http://localhost:5984
       ```
+      {: codeblock}
 
       The response shows the new version.<br>
 
@@ -208,11 +216,13 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
             ]
         }
         ```
+        {: codeblock}
 
    b. Verify that the database node is in maintenance mode and is not receiving traffic on the load balancer.
    ```sh
    cast node maintenance
    ```
+   {: codeblock}
        
    The response shows the status of the node.
 
@@ -225,6 +235,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    ```sh
    cast cluster status
    ```
+   {: codeblock}
         
    The response lists all the cluster nodes.
 
@@ -237,6 +248,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    ```sh
    cast node maintenance --false
    ```
+   {: codeblock}
 
    The response shows the status of the node.
    ```sh
@@ -247,6 +259,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    ```http
    https://load_balancer/_haproxy
    ```
+   {: codeblock}
 
    If the upgrade was successful, the response shows that the node is up and available.
 
@@ -261,12 +274,14 @@ these steps.
    ```sh
    cast system uninstall
    ```
+   {: codeblock}
 
    This command also stops the services.
 3. Run the InstallShield `uninstall` command.
    ```sh
    /root/cloudant/uninstall/uninstall.bin
    ```
+   {: codeblock}
 
 4. Install the new {{site.data.keyword.cloudant_local_notm}} packages and start the upgraded node, [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
 
@@ -278,9 +293,12 @@ these steps.
    ```sh
    cast system install -lb -c /&lt;path_to&gt;/lbnode.yaml
    ```
+   {: codeblock}
       
 5. Verify that the load balancer is reachable through its URL and that all cluster nodes are listed and available to receive traffic by using this URL:  
    ```http
    https://upgrade_node_load_balancer/_haproxy
    ```
+   {: codeblock}
+   
 

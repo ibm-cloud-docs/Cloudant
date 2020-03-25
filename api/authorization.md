@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-20"
+lastupdated: "2020-03-30"
 
 keywords: authorization, roles, permissions, view permissions, modify permissions, _users database, API keys, create API key, use API key, delete API key, _admin, _reader, _writer, _design, _replicator, _security, assign role
 
@@ -115,7 +115,7 @@ if an application tries to read data from a database,
 but didn't identify itself,
 the task can continue only if the `nobody` user has the role `_reader`.
 
-It's possible to grant more powerful roles to an <i>un</i>authenticated user than to an authenticated user.
+It's possible to grant more powerful roles to an *un*authenticated user than to an authenticated user.
 For example,
 if the `nobody` username is intentionally granted `_admin`,
 `_reader`,

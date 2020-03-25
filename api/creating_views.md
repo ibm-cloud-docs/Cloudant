@@ -326,7 +326,7 @@ In addition to referential transparency, the reduce function must also have comm
 and associative properties for the input. These properties makes it possible for the MapReduce
 function to reduce its own output and produce the same response, for example:
 
-<code>f(Key, Values) == f(Key, [ f(Key, Values) ] )</code>
+`f(Key, Values) == f(Key, [ f(Key, Values) ] )`
 
 As a result, {{site.data.keyword.cloudant_short_notm}} can store intermediate
 results to the inner nodes of the

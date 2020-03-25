@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-25"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -424,7 +424,7 @@ database concurrently can lead to data loss.
     install <code>rsync</code> package on all the nodes. For example, on Red Hat
     platforms, use the <code>yum install rsync</code> command to install <code>rsync</code>.
     If you checked the configuration and tried to rerun the shard
-    moves, but the problem persists, contact support.</p></li>
+    moves, but the problem persists, email support@cloudant.com.</p></li>
 </ol>
 
 ### Verifying the new node
@@ -1213,7 +1213,7 @@ if you experience disk space issues,
 these functions might help.
 If they do,
 that indicates a bug or configuration issue with `Smoosh`.
-Check your configuration and contact support.
+Check your configuration and email support@cloudant.com.
 
 ## Disks and file system layout on a DBCore node
 {: #disks-and-file-system-layout-on-a-dbcore-node}

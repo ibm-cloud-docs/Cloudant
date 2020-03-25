@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-30"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -37,8 +37,7 @@ Consistency is one of the four ['ACID'](https://en.wikipedia.org/wiki/ACID){: ne
 that are necessary for transactions within a database to be processed and reported reliably.
 
 Additionally,
-consistency is one of the three attributes in the
-<a href="http://en.wikipedia.org/wiki/CAP_Theorem" target="_blank">'CAP' <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
+consistency is one of the three attributes in the ['CAP'](http://en.wikipedia.org/wiki/CAP_Theorem)
 theorem.
 The attributes are **C**onsistency,
 **A**vailability, and **P**artition tolerance.
@@ -79,8 +78,7 @@ the system must become more sophisticated.
 ## Tradeoffs in partition tolerance
 {: #tradeoffs-in-partition-tolerance}
 
-A database that prioritizes consistency and partition tolerance commonly employs a
-<a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">master-slave <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
+A database that prioritizes consistency and partition tolerance commonly employs a [master-slave](http://en.wikipedia.org/wiki/Master/slave_(technology))
 setup,
 where one node of the many in the system is elected leader.
 Only the leader approves data writes,

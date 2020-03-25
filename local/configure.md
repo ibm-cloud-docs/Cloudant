@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-20"
+lastupdated: "2020-03-25"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -1116,13 +1116,15 @@ Follow these steps to create the example:
 
 1. Confirm that the admin user is specified in the `local.ini` file in the `[admins]` section.
 
-2. Create the db1 and db2 databases.
+2. Create the `db1` and `db2` databases.
 
    ```sh
    $ curl -X PUT -u admin:password https://loadbalancer.example.com/db1
 
    $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2
    ```
+   {: codeblock}
+
    You receive an `{"ok":true}` message after the databases
     are created.
 
@@ -1134,6 +1136,7 @@ Follow these steps to create the example:
     > -H "Content-Type: application/json" \
     > -d "{\"likes\": \"turtles\"}"
     ```
+    {: codeblock}
     
     You receive an `{"ok":true}` message after the document is
     created, and the message includes the document ID and revision
@@ -1148,7 +1151,7 @@ Follow these steps to create the example:
 
 5. Replace all variables in these examples. 
 
-    a. Create the _users database.
+    a. Create the `_users` database.
 
     ```
     $ curl -X PUT https://loadbalancer.example.com/_users -u admin:password
@@ -1158,15 +1161,19 @@ Follow these steps to create the example:
 
     b. Create the `member` user.
 
-       ```$ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:member \
+       ```sh
+       $ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:member \
        > -H "Accept: application/json" \
        > -H "Content-Type: application/json" \
        > -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \
-       > -u admin:password```
+       > -u admin:password
+       ```
+       {: codeblock}
        
-     The password for the member user is specified on the fourth line.
+     The password for the `member` user is specified on the fourth line.
 
-      After the document is created, you receive an `{"ok":true}` message that includes the document ID and revision number for that user document as seen in this example. 
+     After the document is created, you receive an `{"ok":true}` message that includes the document ID and revision number for that user document as seen in this example. 
+
       `{"ok":true,"id":"org.couchdb.user:member","rev":"1-d9bdb39bac9288b154cdf5cc4d643ce9"}`
 
     c. Create the `outsider` user.
@@ -1178,14 +1185,15 @@ Follow these steps to create the example:
         > -d '{"name": "outsider", "password": "ncGfv9bcDBn0", "type": "user"}' \
         > -u admin:password
     ```
+    {: codeblock}
 
-    The password for the outsider user is specified on the fourth line. 
+    The password for the `outsider` user is specified on the fourth line. 
         
-    For example, after the document is created, the message `{"ok":true}` appears that includes the document ID andnrevision number for that user document.
+    For example, after the document is created, the message `{"ok":true}` appears that includes the document ID and revision number for that user document.
         
     `{"ok":true,"id":"org.couchdb.user:outsider","rev":"1-7d2b68aca9a2634fee51c49e4d7d39ca"}`
 
-    Both users are now listed as valid users in the _users database and were granted permission to create JSON documents. However, neither user has the authority to add documents to a database that includes database-level security.
+    Both users are now listed as valid users in the `_users` database and were granted permission to create JSON documents. However, neither user has the authority to add documents to a database that includes database-level security.
         
 6. Add database-level security by adding the `_security` object on
     one of your test databases.
@@ -1198,34 +1206,36 @@ Follow these steps to create the example:
     > -H "Content-Type: application/json" \
     > -d "{"admins": {"names": ["admin"], "roles": []}, "members": {"names": ["member"], "roles": []}}"
     ```
+    {: codeblock}
 
     You receive an `{"ok":true}` message after the security is set up.
 
-    In the preceding example, security is set up for the db1 database only. Moreover, only the member user is granted authority to create JSON documents in that database, other than the admin user, who always has authority to create JSON documents.
+    In the preceding example, security is set up for the `db1` database only. Moreover, only the `member` user is granted authority to create JSON documents in that database, other than the `admin` user, who always has authority to create JSON documents.
 
-8. Confirm that access to the db1 database is restricted to
+8. Confirm that access to the `db1` database is restricted to
     authorized users only.
     
-    a. Run this command to access the db1 database as an unauthorized user.
+    a. Run this command to access the `db1` database as an unauthorized user.
+
     `$ curl https://loadbalancer.example.com/db1`
 
-    An unauthorized user is a user who is not in the _users database. When the user is not authorized to access the db1 database, you receive the following error message.
+    An unauthorized user is a user who is not in the `_users` database. When the user is not authorized to access the `db1` database, you receive the following error message.
     
     `{"error":"unauthorized","reason":"You are not authorized to access this db."}`
     
-    b. Run this command to access the db1 database as the outsider user.
+    b. Run this command to access the `db1` database as the `outsider` user.
     
     `$ curl https://loadbalancer.example.com/db1 -u  outsider:ncGfv9bcDBn0`
 
-    When the outsider user is not authorized to access the db1 database, you receive the following error message.
+    When the `outsider` user is not authorized to access the `db1` database, you receive the following error message.
         
     `{"error":"unauthorized","reason":"You are not authorized to access this db."}`
     
-    c. Run this command to access the db1 database as the member user.
+    c. Run this command to access the `db1` database as the `member` user.
 
     `$ curl https://loadbalancer.example.com/db1 -u member:f1wu8tvp5gGe`
 
-    When the member user is authorized to access the database, you receive a message like the one in this example.
+    When the `member` user is authorized to access the database, you receive a message like the one in this example.
 
     ```sh
     {"db_name":"db1","update_seq":"10-g1AAAAIDeJzLYWBg4MhgTmFQT87JL01JzCtxSEky1INxc 
@@ -1234,12 +1244,13 @@ Follow these steps to create the example:
     "purge_seq":0,"other":{"data_size":76},"doc_del_count":1,"doc_coun t":0,"disk_size":107887,
     "disk_format_version":6,"data_size":1942,"compact_runnin g":false,"instance_start_time":"0"}
     ```
+    {: codeblock}
 
-    d. Run this command to access the db1 database as the admin user.
+    d. Run this command to access the `db1` database as the `admin` user.
 
     `$ curl https://loadbalancer.example.com/db1 -u admin:password`
 
-    When the admin user is authorized to access any database, including db1, you receive a message like the one in this example.
+    When the `admin` user is authorized to access any database, including `db1`, you receive a message like the one in this example.
 
     ```sh
     {"db_name":"db1","update_seq":"11-g1AAAAIDeJzLYWBg4MhgTmFQT87JL01JzCtxSEky1INxc 
@@ -1248,10 +1259,11 @@ Follow these steps to create the example:
     "purge_seq":0,"other":{"data_size":175},"doc_del_count":1,"doc_co unt":1,"disk_size":128367,
     "disk_format_version":6,"data_size":2282,"compact_runn ing":false,"instance_start_time":"0"}
     ```
+    {: codeblock}
 
-9. Confirm that only authorized users can add JSON documents to the db1 database. 
+9. Confirm that only authorized users can add JSON documents to the `db1` database. 
 
-    a. Add a document to the db1 database as the outsider user.
+    a. Add a document to the `db1` database as the `outsider` user.
 
     ```sh
     $ curl -X PUT https://loadbalancer.example.com/db1/foo \
@@ -1260,12 +1272,13 @@ Follow these steps to create the example:
     > -d '{"bar": "baz"}' \
     > -u outsider:ncGfv9bcDBn0
     ```
+    {: codeblock}
 
-    When the outsider user is not authorized to access the database, you receive a message like the one in this example.
+    When the `outsider` user is not authorized to access the database, you receive a message like the one in this example.
 
     `{"error":"unauthorized","reason":"You are not authorized to access this db."}`
     
-    b. Add a document to the db1 database as the member user. 
+    b. Add a document to the `db1` database as the `member` user. 
 
     ```sh
     $ curl -X PUT https://loadbalancer.example.com/db1/foo \
@@ -1274,6 +1287,7 @@ Follow these steps to create the example:
     > -d '{"bar": "baz"}' \
     > -u member:f1wu8tvp5gGe
     ```
+    {: codeblock}
 
     When the member user is authorized to add documents to the database, you receive a `{"ok":true}` message like the one in this example.
 
@@ -1281,7 +1295,7 @@ Follow these steps to create the example:
 
     The message includes the following information about the document: document ID, which is foo, and revision number.
 
-    c. Add a document to the db1 database as the admin user. 
+    c. Add a document to the `db1` database as the `admin` user. 
  
     ```sh
     $ curl -X PUT https://loadbalancer.example.com/db1/foo2 \
@@ -1290,18 +1304,19 @@ Follow these steps to create the example:
     > -d '{"bar": "baz"}' \
     > -u admin:password
     ```
+    {: codeblock}
 
-    When the admin user is authorized to add documents to the database, you receive an `{"ok":true}` message like the one in this example.
+    When the `admin` user is authorized to add documents to the database, you receive an `{"ok":true}` message like the one in this example.
 
     `{"ok":true,"id":"foo2","rev":"1-c86e975fffb4a635eed6d1dfc92afded"}`
 
-    The message includes the following information about the document: document ID, which is foo2 and revision number.
+    The message includes the following information about the document: document ID, which is foo2, and revision number.
 
 10. Confirm that only authorized users can create design documents. 
 
-    Design documents are similar to materialized views or indexes in a relational database management system (RDBMS). In Couch DB and {{site.data.keyword.cloudant_local_notm}}, only admin-level users can create design functions like views, shows, and others, as illustrated in this step. 
+    Design documents are similar to materialized views or indexes in a relational database management system (RDBMS). In CouchDB and {{site.data.keyword.cloudant_local_notm}}, only admin-level users can create design functions like views, shows, and others, as illustrated in the following step. 
     
-    a. Create a design document in the db1 database as the outsider user. 
+    a. Create a design document in the `db1` database as the `outsider` user. 
 
     ```sh
     $ curl -X PUT https://loadbalancer.example.com/db1/_design/all \
@@ -1311,12 +1326,13 @@ Follow these steps to create the example:
     "views":{"all":"mapin ":function(doc){emit(doc._id, 1)};","reduce": "_count"}}' \
     > -u outsider:ncGfv9bcDBn0
     ```
+    {: codeblock}
 
-    When the outsider user is not authorized to create a design document, you receive a message like the one in this example.   
+    When the `outsider` user is not authorized to create a design document, you receive a message like the one in this example.   
     
     `{"error":"unauthorized","reason":"You are not authorized to access this db."}`
 
-    b. Create a design document in the db1 database as the member user. 
+    b. Create a design document in the `db1` database as the `member` user. 
     
     ```sh
     $ curl -X PUT https://loadbalancer.example.com/db1/_design/all \
@@ -1326,14 +1342,15 @@ Follow these steps to create the example:
       "views":{"all":{"map":"function(doc){emit(doc._id, 1)};","reduce":"_count"}}}' \
     > -u member:f1wu8tvp5gGe
     ```
+    {: codeblock}
 
-    When the member user is not authorized to create a design document, you receive a message like the one in this example.
+    When the `member` user is not authorized to create a design document, you receive a message like the one in this example.
     
     `{"error":"unauthorized","reason":"You are not a db or server admin."}`
 
     As the message indicates, you must be an administrator user to create a design document.
     
-    c. Create a design document in the db1 database as the admin user.
+    c. Create a design document in the `db1` database as the `admin` user.
     
     ```sh
     $ curl -X PUT https://loadbalancer.example.com/db1/_design/all \
@@ -1342,12 +1359,13 @@ Follow these steps to create the example:
      "views":{"all":{"map":"function(doc){emit(doc._id,1)};","reduce":"_count"}}}'\
     > -u admin:password
     ```
+    {: codeblock}
 
     When the admin user is authorized to create a design document, you receive a message like the one in this example.
 
     `{"ok":true,"id":"_design/all","rev":"1-5c0878a3c1cabf82004ed85113fa59c6"}`
 
-    The message includes the following information about the design document: document ID, which is `_design/all` and revision number.
+    The message includes the following information about the design document: document ID, which is `_design/all`, and revision number.
 
 
 ## Configuring IOQ

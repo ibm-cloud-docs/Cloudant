@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-03-30"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -339,7 +339,7 @@ Value  | Description           | Notes
 `false`    | Create the index as global.  | Can be used in any database.
 {: caption="Table 6. The partitioned field values" caption-side="top"}
 
-The default follows the <code>partitioned</code> setting for the database:
+The default follows the `partitioned` setting for the database:
 
 Database is partitioned | Default `partitioned` value | Allowed values
 ---------|----------|---------

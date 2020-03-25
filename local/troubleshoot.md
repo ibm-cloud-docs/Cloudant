@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-20"
+lastupdated: "2020-03-25"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -300,7 +300,7 @@ and display the Metrics application.
     For more information about SSL, see [Configuring SSL](/docs/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-ssl-ibm-cloudant-local).
 3. Replace `loadbalancer.company.com` with your load balancer
     host name, such as `cloudantlocal.cloudant.com`.
-4. If needed, replace `metrics_app` with the METRICS_DBNAME`
+4. If needed, replace `metrics_app` with the `METRICS_DBNAME`
     you entered in the `metrics.ini` file and append `_app` to
     it.
     The default value for the `METRICS_DBNAME` field is
@@ -331,25 +331,38 @@ updates the metrics database security document.
 
 1. Create a user for the Metrics application.
    The new user in this example is `metuser3`.
-   `curl -X PUT http://localhost/_users/org.couchdb.user:metuser3 -H "Accept: application/json" -H "Content-Type: application/json" -d '{"name": "metuser3", "password": "metpass3", "type": "user", "roles":[]}' -u admin`
+
+   ```sh
+   curl -X PUT http://localhost/_users/org.couchdb.user:metuser3 -H "Accept: application/json" -H "Content-Type: application/json" -d '{"name": "metuser3", "password": "metpass3", "type": "user", "roles":[]}' -u admin
+   ```
+   {: codeblock}
+
 2. Get the list of current Metrics application users from the
     metrics security document.
+
     `curl -X GET http://localhost/metrics/_security -u admin`
+    
     When you add a user for the first time, this list might be empty.
     {: note}
 
 3. Add or append a new user to the `members:names` list in the
     metrics `_security` document.
+
     The `_security` document is overwritten. If you want to keep existing users, you must add them, and the new users, to the list.
     {: note}
-4. Run the following command to add a user to the original
-        security document when the `members:names` list is  empty.
-    `curl -X PUT http://localhost/metrics/_security -Hcontent-type:application/json -d '{"admins":{"names":[],"roles":[]},"members":{"names":["metuser3"],"roles":[]}}' -u admin`
-5. Run the following command to add a user to the original
-        security document when the `members:names` list is not
-        empty and contains existing users, for example, `metuser1`
-        and `metuser2`.
-     `curl -X PUT http://localhost/metrics/_security -Hcontent-type:application/json -d '{"admins":{"names":[],"roles":[]},"members":{"names":["metuser1","metuser2","metuser3"],"roles":[]}}' -u admin`
+4. Run the following command to add a user to the original security document when the `members:names` list is  empty.
+    
+    ```sh
+    curl -X PUT http://localhost/metrics/_security -Hcontent-type:application/json -d '{"admins":{"names":[],"roles":[]},"members":{"names":["metuser3"],"roles":[]}}' -u admin
+    ```
+    {: codeblock}
+
+5. Run the following command to add a user to the original security document when the `members:names` list is not empty and contains existing users, for example, `metuser1` and `metuser2`.
+
+   ```sh
+   curl -X PUT http://localhost/metrics/_security -Hcontent-type:application/json -d '{"admins":{"names":[],"roles":[]},"members":{"names":["metuser1","metuser2","metuser3"],"roles":[]}}' -u admin
+   ```
+   {: codeblock}
 
 6. The new user can log in to the Metrics application and view
     metrics with their new ID, `metuser3`.
