@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-08-27"
+  years: 2017, 2020
+lastupdated: "2020-03-31"
 
 keywords: query, response content-type, attachments, disabled javascript constructors, active tasks, views, design documents, authentication, user documents, replication, result set
 
@@ -51,13 +51,13 @@ response content-type is `application/json`.
 ### Default response format
 {: #default-response-format}
 
-<ul><li>Change in default response format for retrieving documents that use `attachments=true` query string parameter. 
-<p>A call to retrieve a document and its attachment (<code>GET /db/doc?attachments=true</code>) can return data in either a JSON or <code>multipart/related</code> format. An explicit <code>Accept</code> is used to switch between the two.</p>
+Change in default response format for retrieving documents that use `attachments=true` query string parameter. 
 
-<p>Previously, a call to retrieve a document and all its attachments would return the <code>application/json</code> format if no <code>Accept</code> header was provided. Now, the default is to provide a <code>multipart/related</code> body. This change was made because the <code>multipart/related</code> format is more efficient to generate.</p>
+A call to retrieve a document and its attachment (`GET /db/doc?attachments=true`) can return data in either a JSON or `multipart/related` format. An explicit `Accept` is used to switch between the two.
 
-<p>If your application is expecting an <code>application/json</code> response, the <code>Accept: application/json</code> header now needs to be explicitly set.</p>
-</li></ul>
+Previously, a call to retrieve a document and all its attachments would return the `application/json` format if no `Accept` header was provided. Now, the default is to provide a `multipart/related` body. This change was made because the `multipart/related` format is more efficient to generate.
+
+If your application is expecting an `application/json` response, the `Accept: application/json` header now needs to be explicitly set.
 
 ### Disabled JavaScript constructors
 {: #disabled-javascript-constructors}
