@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-30"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -51,7 +51,8 @@ A full list of the events, along with their description and type are in the foll
 
 By default, only management events are sent to {{site.data.keyword.at_full_notm}}. You can change what types of events are sent to {{site.data.keyword.at_full_notm}} in the {{site.data.keyword.cloud_notm}} Dashboard by following these steps: 
 
-1. Go to the Resource list, and select an {{site.data.keyword.cloudant_short_notm}} instance. <br>
+1. Go to the Resource list, and select an {{site.data.keyword.cloudant_short_notm}} instance.
+
    The Manage page opens.  
 2. Click **Overview**.  
 3. On the Deployment Details page, find Activity Tracker event types.

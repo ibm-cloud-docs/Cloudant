@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-24"
+lastupdated: "2020-03-30"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -279,20 +279,28 @@ the credentials that are requested in the following steps in order to continue w
 Ensure that you select the specified instance, either the Source or Target.
 {: note}
 
-<ol><li>Log in to <code>cloud.ibm.com</code>.</li>
-<li>From the Resource list, select <strong>Services</strong> and your Source instance.
-<ol type=a><li>Click <strong>Service credentials</strong> and click <strong>New credential</strong>.</li>
-	<li>Name the new credential <code>replicator-source</code>, and select the Manager role.</li>
-	<li>Click <strong>Add</strong>, and make note of its <code>apikey</code>, which is under View Credentials in the Actions column.</li></ol>
-</li>
-<li>Repeat steps 2 through 2.c. for the Target instance.
-<ol type=a><li>Create a credential called <code>replicator-target</code> with the Manager role.</li>
-<li>Make note of its IAM API key, which is under View Credentials in the Actions column.</li></ol></li>
-<li>Select the Source instance, and click <strong>Service credentials</strong> and <strong>New credential</strong>.
- 	<ol type=a><li>Name the new credential <code>apiaccess</code>, and select the Manager role. </li>
-    	<li>Make note of the actual IAM API key under View Credentials in the Actions column.</li></ol>
-</li>
-<li>Make note of Source and Target instance URLs.</li></ol>
+1. Log in to `cloud.ibm.com`.
+2. From the Resource list, select **Services** and your Source instance.
+
+   a. Click **Service credentials** and click **New credential**.
+
+   b. Name the new credential `replicator-source`, and select the Manager role.
+
+	 c. Click **Add**, and make note of its `apikey`, which is under View Credentials in the Actions column.
+
+3. Repeat steps 2 through 2.c. for the Target instance.
+
+   a. Create a credential called `replicator-target` with the Manager role.
+
+   b. Make note of its IAM API key, which is under View Credentials in the Actions column.
+
+4. Select the Source instance, and click **Service credentials** and **New credential**.
+
+   a. Name the new credential `apiaccess`, and select the Manager role. 
+
+   b. Make note of the actual IAM API key under View Credentials in the Actions column.
+
+5. Make note of Source and Target instance URLs.
 
 Depending on your workflow, instead of creating a service-level credential (step 4), you can use a personal IAM API key, as detailed in [Creating an API key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key){: new_window}{: external}.
 
@@ -832,9 +840,11 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 
 The following endpoints are unavailable to requests authorized with IAM:
 
-- HTTP rewrite handlers - `/db/_design/design-doc/_rewrite/path`. <br>
+- HTTP rewrite handlers - `/db/_design/design-doc/_rewrite/path`. 
+
 While design documents can contain rewrite handlers, users cannot call them.
-- Update handlers - `POST /db/_design/ddoc/_update/func`. <br>
+- Update handlers - `POST /db/_design/ddoc/_update/func`. 
+
 While design documents can contain update functions, users cannot call them.
 
 ## Troubleshooting
