@@ -2,7 +2,11 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-30"
+
+keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery
+
+subcollection: cloudant
 
 ---
 
