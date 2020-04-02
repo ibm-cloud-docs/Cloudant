@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-30"
+lastupdated: "2020-04-02"
 
 keywords: authorization, roles, permissions, view permissions, modify permissions, _users database, API keys, create API key, use API key, delete API key, _admin, _reader, _writer, _design, _replicator, _security, assign role
 
@@ -66,6 +66,7 @@ Role      | Description
 `_admin`  | Change security settings, including adding roles.
 `_reader` | Read documents from the database.
 `_writer` | Create, update, and delete documents (except design documents) in the database.
+{: caption="Table 1. Core roles" caption-side="top"}
 
 The `_reader` and `_writer` roles are exclusive. If a user has the `_writer` role, they can't read documents that they create unless they *also* have the `_reader` role.
 {: tip}
@@ -85,11 +86,12 @@ but apply *only* to the specific API endpoint.
 
 The focused roles are defined in the following table:
 
-Role          | Description                                                                                   | API Endpoints
---------------|-----------------------------------------------------------------------------------------------|--------------
-`_design`     | Allows create, read, modify, or delete access to design documents.                            | [`_design`](/docs/Cloudant?topic=cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index), [`_index`](/docs/Cloudant?topic=cloudant-query#working-with-indexes)
+Role | Description | API Endpoints
+-----|-------------|---------------
+`_design`     | Allows create, read, modify, or delete access to design documents. | [`_design`](/docs/Cloudant?topic=cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index), [`_index`](/docs/Cloudant?topic=cloudant-query#working-with-indexes)
 `_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/docs/Cloudant?topic=cloudant-replication-api#the-since_seq-field), [`_replicate`](/docs/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint), [`_replicator`](/docs/Cloudant?topic=cloudant-replication-api#the-_replicator-database)
-`_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint.                          | [`_security`](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions)
+`_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions)
+{: caption="Table 2. Focused roles" caption-side="top"}
 
 The nature of the access that is granted depends on the specific API endpoint.
 For example,

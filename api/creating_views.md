@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-02"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -264,6 +264,7 @@ Function | Description
 `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
 `_sum`   | Produces the sum of all values for a key. The values must be numeric.
 `_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: new_window}{: external} algorithm.
+{: caption="Table 1. Built-in reduce functions" caption-side="top"}
 
 By feeding the results of `reduce` functions back into the `reduce` function,
 MapReduce can split up the analysis of huge data sets into discrete,

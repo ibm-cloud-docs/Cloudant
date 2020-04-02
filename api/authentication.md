@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-04-02"
 
 keywords: basic authentication, cookie authentication, request cookie, delete cookie, get cookie
 
@@ -126,6 +126,7 @@ Method | Path | Description | Headers | Form Parameters
 `POST` | `/_session` | Do cookie-based user login. | `Content-Type: application/x-www-form-urlencoded` | `name`, `password`
 `GET` | `/_session` | Returns cookie-based login user information. | AuthSession cookie returned by POST request. | 
 `DELETE` | `/_session` | Log out cookie-based user. | AuthSession cookie returned by POST request. | 
+{: caption="Table 1. Cookie authentication and methods" caption-side="top"}
 
 ### Requesting a cookie
 {: #requesting-a-cookie}

@@ -91,6 +91,7 @@ Method | Path                        | Description
 -------|-----------------------------|------------
 `GET`  | `/_api/v2/user/config/cors` | Returns the current CORS configuration.
 `PUT`  | `/_api/v2/user/config/cors` | Changes the CORS configuration.
+{: caption="Table 1. Configuration endpoints" caption-side="top"}
 
 ## JSON format
 {: #json-format}
