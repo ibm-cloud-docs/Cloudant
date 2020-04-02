@@ -36,8 +36,9 @@ All *Q* shards together contain the data within database.
 Each shard is stored in three separate copies.
 Each shard copy is called a shard *replica*.
 Each shard replica is stored on a different server.
-The servers are available within a single location data center.
-The collection of servers in a data center is called a cluster.
+The servers are available within a single Region.
+If the Region supports Availability Zones, the replicas are stored on servers in different Zones.
+The collection of servers in a Region is called a cluster.
 
 ![sharding](../images/sharding_database.png)
 
