@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-06"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -138,6 +138,7 @@ Field           | Purpose
 `source`        | The URL of the source {{site.data.keyword.cloudant_short_notm}} database, including login credentials.
 `target`        | The URL of the destination {{site.data.keyword.cloudant_short_notm}} database, including login credentials.
 `create_target` | (Optional) Determine whether to create the destination database if it doesn't exist yet.
+{: caption="Table 1. Replication document" caption-side="top"}
 
 See the following example that uses HTTP to start a replication job:
 
@@ -710,6 +711,7 @@ Document size | Attachment size | Total size | Replicates?
 1 MB | Five 2-MB attachments | 11 MB | yes
 1 MB | One 10-MB attachment | 11 MB | yes
 0 MB | One hundred 1-MB attachments | 100 MB | no
+{: caption="Table 2. Various scenarios based on maximum HTTP request size 11 MB" caption-side="top"}
 
 Several considerations apply when you use replication.
 

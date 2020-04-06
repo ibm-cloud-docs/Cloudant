@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-20"
+lastupdated: "2020-04-06"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -42,6 +42,7 @@ Calls to `GET /{db}` were replaced by the following fields:
 | `data_size` | `sizes.active` |
 | `disk_size` | `sizes.file` |
 | `other.data_size` | `sizes.external` |
+{: caption="Table 1. New fields to replace deprecated database information fields" caption-side="top"}
 
 Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 
@@ -49,6 +50,7 @@ Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 |-----------|----------|
 | `data_size` | `sizes.external` |
 | `disk_size` | `sizes.file` | 
+{: caption="Table 1. New fields to replace deprecated design doc information fields" caption-side="top"}
 
 ## Replaced `queries` parameter (March 6, 2020 or later)
 {: #replaced-queries-parameter}
@@ -113,7 +115,7 @@ The information that is returned in the previous example is described in the fol
 | `dynamite_token` | DB2 password |
 | `target` | DB2 JDBC connection URL, only used if the value for `dashboard_url` is null |
 | `dynamite_user` | DB2 user name |
-{: caption="Table 1. Response from a search for information in the warehouser document" caption-side="top"}
+{: caption="Table 3. Response from a search for information in the warehouser document" caption-side="top"}
 
 To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.
        

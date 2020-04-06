@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-04-06"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -100,6 +100,7 @@ Field | Purpose
 `iam_apikey_name` | ID of the IAM API key.
 `iam_role_crn` | The IAM role that the IAM API key has.
 `iam_serviceid_crn`	| The CRN of the service ID.
+{: caption="Table 1. Service credential fields" caption-side="top"}
 
 To create an application that can access your service instance, you need these credentials.
 

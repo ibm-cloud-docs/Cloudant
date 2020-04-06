@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-04-06"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -43,7 +43,7 @@ submit a `GET` request with the following format:
 | Request | None |
 | Response | JSON of the documents that are returned by the view. |
 | Roles permitted | `_reader` |
-
+{: caption="Table 1. Format for querying a view" caption-side="top"}
 
 The request runs either:
 
@@ -82,6 +82,7 @@ Argument         | Description | Optional | Type | Default | Supported values | 
 `startkey`       | Return records, starting with the specified key. | Yes | String or JSON array | | | Yes
 `startkey_docid` | Return records, starting with the specified document ID. | Yes | String | || Yes
  `update`        | Ensure that the view is updated before results are returned. | Yes | String | `true` | Yes
+{: caption="Table 2. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
 This table shows the supported values for the following arguments:
 
@@ -89,6 +90,7 @@ Argument | Supported values
 ---------|-----------------
 `stale` | `ok`- Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
 `update` | `true` - Return results after updating the view.<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
+{: caption="Table 2. Supported values" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
@@ -255,7 +257,7 @@ If you want to save old index versions without incurring indexing overhead, you 
 ## View freshness
 {: #view-freshness}
 
-By default, all index results reflect the current state of the database. {{site.data.keyword.cloudantfull}} builds its indexes automatically and asynchronously in the background.
+By default, all index results reflect the current state of the database. {{site.data.keyword.cloudant_short_notm}} builds its indexes automatically and asynchronously in the background.
 This practice usually means that the index is fully up-to-date 
 when you query it.  If not, we call the index "stale," and by default, the remaining updates occur when you query the index. 
 The results of your query include these updates. {{site.data.keyword.cloudant_short_notm}} builds three copies of every index in 
@@ -269,6 +271,7 @@ Option   | Purpose                                                              
 ---------|---------------------------------------------------------------------------------------------------------------------------------------|--------------
 `stable` | Determine whether view results are obtained from a consistent or 'stable' set of shards. Possible values include `true`, and `false`. | `false`
 `update` | Determine whether the view is updated before the results are returned. Possible values include `true`, `false`, and `lazy`.           | `true`
+{: caption="Table 3. Parameter default values" caption-side="top"}
 
 The defaults are suitable for most applications. For better performance and
 availability, use `stable=false&update=false`. For better result stability
@@ -312,6 +315,7 @@ allow controlling the two orthogonal behaviors that are caused by `stale` separa
 `false`  | `stable=false`, `update=true`
 `ok`  | `stable=true`, `update=false`
 `update_after`  | `stable=false`, `update=lazy`
+{: caption="Table 4. `stale` option replacement" caption-side="top"}
 
 ## Sorting returned rows
 {: #sorting-returned-rows}
@@ -333,6 +337,7 @@ Text (lowercase)                                                                
 Text (uppercase)                                                                                  |
 Arrays (according to the values of each element, by using the order given in this table)          |
 Objects (according to the values of keys, in key order by using the order given in this table)    | Last
+{: caption="Table 5. Order of returned rows" caption-side="top"}
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 

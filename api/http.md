@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-06"
 
 keywords: http headers, response headers, http status codes
 
@@ -270,4 +270,4 @@ Code                                    | Meaning
 `429 - Too Many Requests`               | The user sent too many requests in a specific amount of time. More information is available in the corresponding [RFC 6585](https://tools.ietf.org/html/rfc6585#page-3){: new_window}{: external}.
 `500 - Internal Server Error`           | The request was invalid, either because the supplied JSON was invalid, or invalid information was supplied as part of the request. Alternatively, a replication was canceled while in progress.
 `503 - Service Unavailable`             | The request could not be processed. Seeing this response follow an {{site.data.keyword.cloudant_short_notm}} request might indicate a misspelled {{site.data.keyword.cloudant_short_notm}} account name.
-
+{: caption="Table 1. HTTP status codes" caption-side="top"}

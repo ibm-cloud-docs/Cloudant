@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-04-06"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -1161,20 +1161,20 @@ Follow these steps to create the example:
 
     b. Create the `member` user.
 
-       ```sh
-       $ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:member \
-       > -H "Accept: application/json" \
-       > -H "Content-Type: application/json" \
-       > -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \
-       > -u admin:password
-       ```
+    ```sh
+    $ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:member \
+    > -H "Accept: application/json" \
+    > -H "Content-Type: application/json" \
+    > -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \
+    > -u admin:password
+    ```
        {: codeblock}
        
-     The password for the `member` user is specified on the fourth line.
+    The password for the `member` user is specified on the fourth line.
 
-     After the document is created, you receive an `{"ok":true}` message that includes the document ID and revision number for that user document as seen in this example. 
+    After the document is created, you receive an `{"ok":true}` message that includes the document ID and revision number for that user document as seen in this example. 
 
-      `{"ok":true,"id":"org.couchdb.user:member","rev":"1-d9bdb39bac9288b154cdf5cc4d643ce9"}`
+    `{"ok":true,"id":"org.couchdb.user:member","rev":"1-d9bdb39bac9288b154cdf5cc4d643ce9"}`
 
     c. Create the `outsider` user.
     

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-06"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -299,6 +299,7 @@ Name                | Type | Description | Default
 `rev`               | string | Retrieves document of specified revision. | -
 `revs`              | boolean | Includes list of all known document revisions. | false
 `revs_info`         | boolean | Includes detailed information for all known document revisions. | false
+{: caption="Table 1. Query parameters" caption-side="top"}
 
 ## Read many
 {: #read-many}
@@ -747,7 +748,7 @@ For both inserts and updates the basic structure of the JSON document in the req
 Field  | Description             | Type             | Optional
 -------|-------------------------|------------------|---------
 `docs` | Bulk Documents Document | Array of objects | no
-
+{: caption="Table 2. Basic bulk request structure" caption-side="top"}
 
 Each `docs` array object has the following structure:
 
@@ -756,6 +757,7 @@ Field      | Description                           | Type    | Optional
 `_id`      | Document ID                           | String  | Optional only for new documents. Otherwise, it is mandatory.
 `_rev`     | Document revision                     | String  | Mandatory for updates and deletes, not used for new documents.
 `_deleted` | Whether the document must be deleted. | Boolean | Yes, the default value is `false`.
+{: caption="Table 3. Structure of the `docs` array object" caption-side="top"}
 
 Recall that for a partitioned database the `_id` field will be formed of
 a partition key part and a document key part.
@@ -835,6 +837,7 @@ Code | Description
 -|-
 `201` | The request did succeed, but this success does not imply all documents were updated. Inspect the response body to determine the status of each requested change, and [address any problems](#bulk-document-validation-and-conflict-errors).
 `202` | For at least one document, the write [quorum](#quorum-writing-and-reading-data) was not met.
+{: caption="Table 4. HTTP status codes" caption-side="top"}
 
 #### Example response from a bulk request
 
@@ -1140,6 +1143,7 @@ The structure of the returned information is as follows:
 Field  | Description             | Type
 -------|-------------------------|-----
 `docs` | Bulk Documents Document | Array of objects
+{: caption="Table 5. Structure of JSON returned" caption-side="top"}
 
 Each `docs` array object has the following structure:
 
@@ -1148,6 +1152,7 @@ Field    | Description                        | Type
 `id`     | Document ID                        | String
 `error`  | Error type.                        | String
 `reason` | Error string with extended reason. | String
+{: caption="Table 6. Structure for the `docs` array object" caption-side="top"}
 
 When a document (or document revision) is not correctly committed to the database because of an error,
 you must check the `error` field to determine error type and course of action.

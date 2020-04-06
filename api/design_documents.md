@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-03"
+lastupdated: "2020-04-06"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -514,6 +514,8 @@ Field        | Description
 -------------|-------------
 `offset`     | Offset where the document list started.
 `total_rows` | Number of documents in the view.
+{: caption="Table 6. Fields for the `head` argument" caption-side="top"}
+
 
 ### `req`
 {: #req}
@@ -535,6 +537,7 @@ Field            | Description
 `secObj`         | The database's [security object](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions).
 `userCtx`        | Context about the currently authenticated user, specifically, their `name` and `roles` within the current database.
 `uuid`           | A generated UUID.
+{: caption="Table 7. Fields for the `req` argument" caption-side="top"}
 
 ## Show functions
 {: #show-functions}
@@ -627,7 +630,7 @@ db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
 ## Update handlers
 {: #update-handlers}
 
-Design documents with `options.partitioned` set to `true` can't contain a `updates` field.
+Design documents with `options.partitioned` set to `true` can't contain an `updates` field.
 {: tip}
 
 Update handlers are custom functions that create or update a document.
@@ -657,6 +660,7 @@ Method | URL
 -------|------
 `POST` | `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HANDLER`
 `PUT`  | `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HANDLER/$DOCUMENT_ID`
+{: caption="Table 8. Methods that query update handlers" caption-side="top"}
 
 The following variables are included: 
 
@@ -665,6 +669,7 @@ Variable          | Purpose
 `$DESIGN_ID`      | The ID of the document that defines the update handler.
 `$DOCUMENT_ID`    | The ID of the document that the handler must work with.
 `$UPDATE_HANDLER` | The name of the update handler.
+{: caption="Table 9. Method variables" caption-side="top"}
 
 See the following example of a design document with an update handler:
 
@@ -1104,6 +1109,7 @@ Argument  | Purpose
 `oldDoc`  | The version of the document currently in the database, or `null` if none exists.
 `secObj`  | The [security object](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions) for the database.
 `userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`.
+{: caption="Table 10. Arguments for the update validator" caption-side="top"}
 
 Update validators do not apply when a design document is updated by an admin user. This practice ensures that admins can never accidentally lock themselves out.
 {: tip}

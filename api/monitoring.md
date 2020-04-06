@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-04-06"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -92,6 +92,7 @@ Field        | Meaning
 `END`        | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the end point of a time series query that is mutually exclusive with `START`.
 `END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor.
 `START`      | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the starting point of a time series query that is mutually exclusive with `END`.
+{: caption="Table 1. Monitoring API request fields" caption-side="top"}
 
 Several of the fields have default values:
 
@@ -100,6 +101,7 @@ Field      | Default value
 `DURATION` | 5 minutes.
 `END`      | No default value.
 `START`    | The current time.
+{: caption="Table 2. Default values for monitoring API request fields" caption-side="top"}
 
 ### Results format
 {: #results-format}
@@ -214,6 +216,7 @@ Endpoint                                | Description
 [`rate/verb`](#rate-verb)               | The rate of requests, grouped by HTTP verb.
 [`rps`](#rps)                           | The number of reads per second.
 [`wps`](#wps)                           | The number of writes per second.
+{: caption="Table 2. Monitoring API endpoints" caption-side="top"}
 
 ### Example showing how to obtain a list of the currently supported monitoring end points:*
 

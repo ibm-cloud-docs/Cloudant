@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-06"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials
 
@@ -111,6 +111,7 @@ Let's look at some use cases and some good and bad choices for a partition key.
 | Blogging platform          | One document per blog post | author_id     | Good - if many authors participate. Easy to query each author's posts.                                     |
 | IOT - sensor readings      | One document per reading    | device_id     | Good - if there are many devices, make sure that one device is not producing many more readings than the others. |
 | IOT - sensor readings      | One document per reading    | date          | Bad - current readings cause a "hot spot" on the current date's partition.                                  |
+{: caption="Table 1. Good and bad choices for a partition key" caption-side="top"}
 
 Some use cases exist where there isn't a viable choice for a partition key.
 In these situations, it's likely a non-partitioned database is the best

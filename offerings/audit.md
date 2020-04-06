@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-04-06"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -36,6 +36,8 @@ Information | Description
 `Action` | The action carried out, for example, document read.
 `Resource` | Details about the account, database, and document accessed or query made.
 `Timestamp` | A record of the time and data of the event. 
+{: caption="Table 1. Recorded audit information" caption-side="top"}
+
 {: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:
