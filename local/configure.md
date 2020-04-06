@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-08"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -308,7 +308,7 @@ authority (CA), this step is not needed.
 1. If you use a self-signed certificate, confirm your certificate
     when the following untrusted connection message opens.
 
-   ![Example of an untrusted connection message.](images/ssl_8a.jpg)
+   ![Example of an untrusted connection message.](images/ssl_8a.jpg){: caption="Figure 1. Example of an untrusted connection message" caption-side="bottom"}
 
 2. Click `Add Exception` on the `This Connection is Untrusted` message.
     
@@ -318,7 +318,7 @@ authority (CA), this step is not needed.
 
    b. Click `Confirm Security Exception` to confirm the exception.
 
-   ![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg)
+   ![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg){: caption="Figure 2. Example shows how to add an exception for an untrusted site" caption-side="bottom"}
 
 #### Viewing the load balancer
 {: #viewing-the-load-balancer}
@@ -332,15 +332,15 @@ an "untrusted" certificate, one of the following screens open.
     similar URL, a load balancer welcome message opens, similar to
     the example.
 
-    ![Example of a load balancer welcome message.](images/ssl_9.jpg)
+    ![Example of a load balancer welcome message.](images/ssl_9.jpg){: caption="Figure 3. Example of load balancer welcome message" caption-side="bottom"}
 
 *   If you specified a URL that includes the Dashboard component,
     `/dashboard.html`, the {{site.data.keyword.cloudant_short_notm}} Dashboard (or the Login screen
     for the dashboard) opens. This example shows the
     user-specified `dashboard.html` as part of the URL.
 
-    ![Example of the {{site.data.keyword.cloudant_short_notm}} Dashboard Login screen.](images/20170722-dashboardlogin.jpg)
-    
+    ![Example of the {{site.data.keyword.cloudant_short_notm}} Dashboard Login screen.](images/20170722-dashboardlogin.jpg){: caption="Figure 4. Example of the {{site.data.keyword.cloudant_short_notm}} Dashboard Login screen" caption-side="bottom"}
+
 #### Connecting load balancer and database nodes by using SSL
 {: #connecting-lb-and-db-nodes-by-using-ssl-config-ssl-lb}
 
@@ -672,7 +672,6 @@ group_base_dn = dc=example,dc=com
 and cookie-based authentication handlers to obtain the roles that
 are associated with a particular user. Using `ldap_auth` with basic
 authentication requires no client-side changes.
-
 
 A properly configured database automatically attempts to
 authenticate with LDAP by using the supplied credentials.

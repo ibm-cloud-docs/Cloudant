@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-04-08"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -38,7 +38,7 @@ The following diagram shows a typical configuration that
 uses two {{site.data.keyword.cloudant_short_notm}} accounts,
 one in each region:
 
-![Example active-active architecture](../images/active-active.png)
+![Example active-active architecture](../images/active-active.png){: caption="Figure 1. Example active-active architecture" caption-side="bottom"}
 
 Remember these important facts:
 

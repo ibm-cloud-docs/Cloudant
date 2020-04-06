@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-08"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -123,7 +123,7 @@ Deleted documents are de-indexed.
 This time-saving process is known as *incremental MapReduce*,
 as shown in the following diagram:
 
-![Illustration of Incremental MapReduce](../images/DesDocMan00.png)
+![Illustration of Incremental MapReduce](../images/DesDocMan00.png){: caption="Figure 1. Illustration of Incremental MapReduce" caption-side="bottom"}
 
 It's worth remembering the following points:
 
@@ -156,6 +156,7 @@ This behavior doesn't apply to Lucene search indexes. They can be altered within
 {: note}
 
 ![Illustration of design document version change](../images/DesDocMan02.png)
+{: caption="Figure 2. Illustration of design document version change" caption-side="bottom"}
 
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}
@@ -305,7 +306,7 @@ but new records are added into the database,
 then the index is scheduled to be updated in the background.
 The state of the database is shown in the following diagram:
 
-![Illustration of index that is scheduled for updating](../images/DesDocMan01.png)
+![Illustration of index that is scheduled for updating](../images/DesDocMan01.png){: caption="Figure 3. Illustration of index that is scheduled for updating" caption-side="bottom"}
 
 When querying the view, we have the following three choices:
 

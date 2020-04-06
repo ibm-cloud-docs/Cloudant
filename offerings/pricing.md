@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-08"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -30,19 +30,19 @@ subcollection: cloudant
 
 The following table shows example hourly pricing for various provisioned throughput capacity settings. You can toggle the capacity in granular blocks of 100 reads/sec, 50 writes/sec, and 5 global queries/sec on an hourly basis. An approximate monthly cost is also shown for each setting that assumes an average of 730 hours in a month. The prices that are shown are in USD. 
 
-![Pricing spreadsheet](../images/pricing_spreadsheet.png)
+![Pricing spreadsheet](../images/pricing_spreadsheet.png){: caption="Figure 1. Pricing spreadsheet" caption-side="bottom"}
 
 You can use the {{site.data.keyword.cloud_notm}} pricing calculator to see estimated costs in other currencies by clicking the **Add to estimate** button from the {{site.data.keyword.cloudant_short_notm}} catalog tile. Specify storage, capacity, and select the country whose currency you want to see. See the calculator in the following screen capture.
 
-![Pricing calculator](../images/pricing_calculater.png)
+![Pricing calculator](../images/pricing_calculater.png){: caption="Figure 2. Pricing calculator" caption-side="bottom"}
 
 Click **Calculate cost** and **Save**. Now, click **Review estimate**. Expand the estimate to see more details. If you save multiple estimates, you can then click **Review estimate** and compare them. See a sample estimate in the following screen capture.
 
-![Review estimate](../images/review_estimate.png)
+![Review estimate](../images/review_estimate.png){: caption="Figure 3. Review estimate" caption-side="bottom"}
 
 You can launch the {{site.data.keyword.cloudant_short_notm}} **Dashboard** > **Account** > **Capacity** tab to view and change the provisioned throughput capacity and see the hourly and approximate monthly costs: 
 
-![Slider](../images/migrate2.gif)
+![Slider](../images/migrate2.gif){: caption="Figure 4. Slider" caption-side="bottom"}
 
 ## Pricing examples 
 {: #pricing-examples}
@@ -61,7 +61,7 @@ the 20 GB of storage that is included in the Standard plan, no storage costs are
 {{site.data.keyword.cloudant_short_notm}} Dashboard's > **Account** > **Capacity** tab, the 
 provisioned throughput capacity setting looks like this screen capture:
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab](../images/cloudant-dashboard.png)
+![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab](../images/cloudant-dashboard.png){: caption="Figure 5. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab" caption-side="bottom"}
 
 The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 reads/sec, 50 writes/sec, and 5 global queries/sec in USD of $0.105/hour. The slider shows a rough cost per month of $76.65. The monthly amount is an estimate based on an average of 730 hours per month. The cost in any month can be slightly different depending on the number of hours in the month.
 
@@ -73,7 +73,7 @@ See the following example equation:
 
 Reads, writes, and global queries can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads/sec, writes/sec, or global queries/sec required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads/sec, 500 writes/sec, and 50 global queries/sec, even if you don't need the corresponding number of writes or global queries.
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected](../images/cloudant-gran-tuning.png)
+![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected](../images/cloudant-gran-tuning.png){: caption="Figure 6. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected" caption-side="bottom"}
 
 How do you estimate the total cost for provisioned throughput capacity per month of 1,000 reads, 500 writes, and 50 global queries? 
 
@@ -99,6 +99,6 @@ How does data display in the {{site.data.keyword.cloud_notm}} Usage Dashboard?
 
 Current and historical usage bills can be seen in the {{site.data.keyword.cloud_notm}} Dashboard, under Manage -> Billing and usage -> Usage. This view shows the totals for usage that are accrued during a particular month at the service, plan, or instance level.  The Estimated Total reflects the bill so far for the month or for past complete months. It shows only the hourly costs that are accrued up to that point for the current month. By the end of the month, you see your average provisioned throughput capacity for the month reflected in the `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH`, and `QUERIES_PER_MONTH` fields. (Note lookups are now called reads and queries are now called global queries.) The `STORAGE_MANAGED_PER_MONTH` field shows only the storage that is charged and doesn't include the 20 GB that are included in the Standard plan. In the following example, a quantity of 20+ GB reflects an average of 40 GB of data in the instance for the month. When you use less than 20 GB of storage, the display shows 0 GB since you didn't go over the limit.   
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH](../images/usage-dashboard1.png)
+![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH](../images/usage-dashboard1.png){: caption="Figure 7. {{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH" caption-side="bottom"}
 
 

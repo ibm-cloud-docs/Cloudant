@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-08"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -32,7 +32,7 @@ Every database in {{site.data.keyword.cloudantfull}} is formed of one or more di
 ## Concepts
 {: #concepts}
 
-All *Q* shards together contain the data within database.
+All *Q* shards together contain the data within a database.
 Each shard is stored in three separate copies.
 Each shard copy is called a shard *replica*.
 Each shard replica is stored on a different server.
@@ -40,12 +40,12 @@ The servers are available within a single Region.
 If the Region supports Availability Zones, the replicas are stored on servers in different Zones.
 The collection of servers in a Region is called a cluster.
 
-![sharding](../images/sharding_database.png)
+![How data is stored.](../images/sharding_database.png){: caption="Figure 1. How data is stored" caption-side="bottom"}
 
 A document is assigned to a particular shard by using consistent hashing of its ID.
 This assignment means that a document is always stored on a known shard and a known set of servers.
 
-![document consistent hashing](../images/sharding_document.png)
+![Document consistent hashing](../images/sharding_document.png){: caption="Figure 2. Document consistent hashing" caption-side="bottom"}
 
 Occasionally,
 shards are *rebalanced*.

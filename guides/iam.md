@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-30"
+lastupdated: "2020-04-08"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -311,7 +311,7 @@ You can also complete these steps on the command line by using the [{{site.data.
 
 Use the `apiaccess` key from step 4.b.:
 
-```curl
+```sh
 curl -k -X POST \
   --header "Content-Type: application/x-www-form-urlencoded" \
   --header "Accept: application/json" \
@@ -323,7 +323,7 @@ curl -k -X POST \
 
 which returns the following information (abbreviated):
 
-```curl
+```sh
 {
    "access_token": "eyJraWQiOiIyMDE5MD...tIwkCO9A",
    "refresh_token": "ReVbNrHo3UA38...mq67g",
@@ -337,7 +337,7 @@ which returns the following information (abbreviated):
 
 Create an environment variable to save some typing by using the value under the `access_token` key in the response data:
 
-```curl
+```sh
 export TOK="Bearer eyJraWQiOiIyMDE5MD...tIwkCO9A"
 ```
 {: codeblock}
@@ -347,7 +347,7 @@ export TOK="Bearer eyJraWQiOiIyMDE5MD...tIwkCO9A"
 
 URL is the Source instance URL that you previously wrote down in step 4.b.
 
-```curl
+```sh
 curl -k -X PUT \
      -H"Content-type: application/json" \
      -H'Authorization: '"$TOK"'' \
@@ -367,7 +367,7 @@ See the results in the following example:
 
 Create a file called `data.json` that contains the following information. The two keys are the Source and Target API keys that are created in the beginning, and the Source and Target instance URLs, with database names added.
 
-```curl
+```sh
 {
   "source": {
     "url": "https://d43caf1b-e2c8-4d3e-9b85-1d04839fa68f-bluemix.cloudant.com/source",
@@ -393,7 +393,7 @@ Create a file called `data.json` that contains the following information. The tw
 
 Now, write a replication document called `source_dest` to the `_replicator` database on the Source instance.
 
-```curl
+```sh
 curl -k -X PUT \
      -H"Content-type: application/json" \
      -H'Authorization: '"$TOK"'' \

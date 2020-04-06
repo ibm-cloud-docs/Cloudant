@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-01"
+lastupdated: "2020-04-09"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -44,45 +44,45 @@ For more language-specific tutorials, see [Get started by deploying your first a
 
 Verify that you have what you need to start the tutorial from the following list:
 
-- An [{{site.data.keyword.cloud}} account](https://cloud.ibm.com){: new_window}{: external}
+- [An {{site.data.keyword.cloud}} account](https://cloud.ibm.com){: new_window}{: external}
 - [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
 - Verify that you have the  most current version of the [Python programming language](https://www.python.org/){: new_window}{: external}:
 
 
 1.  To check the Python version installed on your machine, run the following command:
-      ```sh
-	    python3 --version
-	    ```
-	    {: pre}
+    ```sh
+	  python3 --version
+	  ```
+	  {: pre}
 	
 2. Verify that your version matches the most recent version. The result looks something like this:
-	    ```
-	    Python 3.7.4
-	    ```
-	    {: screen}
+	  ```sh
+	  Python 3.7.4
+	  ```
+	  {: screen}
 
     - The Cloudant Python library enables your Python applications to work with {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
 3.	To check that the client library is already installed, run the following command at a prompt:	
-      ```sh
-	    pip3 freeze
-	    ```
-	    {: pre}
+    ```sh
+	  pip3 freeze
+	  ```
+	  {: pre}
 	
-	    You see a list of all the Python modules that are installed on your system. Review the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
+	  You see a list of all the Python modules that are installed on your system. Review the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
 
-	    ```
-	    cloudant==<version>
-	    ```
-	    {: screen}
+	  ```
+	  cloudant==<version>
+	  ```
+	  {: screen}
 	
 4.  If the `cloudant` module isn't installed, install it by using a command similar to the following one.
-	    ```
-	    pip3 install cloudant
-	    ```
-	    {: pre}
+	  ```sh
+	  pip3 install cloudant
+	  ```
+	  {: pre}
   
-      For more information about the Python library, see the [supported platforms](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported) documentation. 
+    For more information about the Python library, see the [supported platforms](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported) documentation. 
 
 ## Step 1. Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
@@ -93,7 +93,8 @@ Verify that you have what you need to start the tutorial from the following list
     ```
     {: codeblock}
   
-  ![Python 3 interactive shell](tutorials/images/python3.png)
+  ![Python 3 interactive shell](tutorials/images/python3.png){: caption="Figure 1. Python 3 interactive shell" caption-side="bottom"}
+
 
 2.  Run the `import` statements of the {{site.data.keyword.cloudant_short_notm}}
 	Client Library components to enable your Python application to connect to
@@ -105,35 +106,35 @@ Verify that you have what you need to start the tutorial from the following list
 	```
 	{: codeblock}
 
-3.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
+2.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
+
+   a. In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
+
+   b. In the menu, click `Service credentials`.
+
+   c. Click the `New credential` button.
+
+   ![Create new service credentials.](tutorials/images/img0050.png){: caption="Figure 2. Create new service credentials" caption-side="bottom"}
   
-  a. In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
-  
-  b. In the menu, click `Service credentials`.
-  
-  c. Click the `New credential` button.
-  
-  ![Create new service credentials.](tutorials/images/img0050.png)
-  
-  d. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
-  
-  e. (Optional) Add inline configuration parameters.
-  
-  f. Click the `Add` button. 
-  
-  ![Add a service credential.](tutorials/images/img0051.png)
-  
-  Your credentials are added to the Service credentials table.
-  
-  g. Click `View credentials` under Actions. 
-  
-  ![View all service credentials.](tutorials/images/img0052.png)
-  
-  The details for the service credentials appear:
-  
-  ![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
+   d. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
+
+   e. (Optional) Add inline configuration parameters.
+
+   f. Click the `Add` button. 
+
+   ![Add a service credential.](tutorials/images/img0051.png){: caption="Figure 3. Add a service credentials" caption-side="bottom"}
+
+   Your credentials are added to the Service credentials table.
    
-4.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
+   g. Click `View credentials` under Actions. 
+   
+   ![View all service credentials.](tutorials/images/img0052.png){: caption="Figure 4. View all service credentials" caption-side="bottom"}
+   
+   The details for the service credentials appear:
+   
+   ![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png){: caption="Figure 5. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 	If you're using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step.
 	```python
@@ -192,7 +193,7 @@ Verify that you have what you need to start the tutorial from the following list
   ```
   {: codeblock}
 
-2. Use Python code to 'step' through the data and convert it into JSON documents.
+2. Use Python code to "step" through the data and convert it into JSON documents.
   Each document is stored in the database:
 
   ```python

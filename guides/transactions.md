@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-06"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
@@ -35,6 +35,7 @@ and delivery tracking information.
 Relational databases offer high consistency, which means that application developers can build their applications to a database's strengths. This practice includes using joins between collections,
 enumerations to record the state of an object,
 and database transactions to guarantee atomic operations.
+{: shortdesc}
 
 {{site.data.keyword.cloudantfull}} favors availability over consistency.
 It's a high-availability,

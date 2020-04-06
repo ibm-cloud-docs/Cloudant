@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-31"
+lastupdated: "2020-04-08"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -202,7 +202,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 
    a. Verify the status of the database node.
 
-      ```curl
+      ```sh
       curl -X GET http://localhost:5984
       ```
       {: codeblock}

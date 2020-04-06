@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-27"
+lastupdated: "2020-04-08"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -87,7 +87,8 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 2.  On {{site.data.keyword.cloudant_short_notm}} service page, click **Launch**.
     The `Databases tab` opens.
     
-  ![databases tab](../images/tabs.png)
+  ![Databases tab](../images/tabs.png): caption="Figure 1. Databases tab" caption-side="bottom"}
+
 4.  Click **`Create Database`**.
 5.  Enter `query-demo` and click **Create**.
 
@@ -259,7 +260,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
 
   The `query-demo` database was populated with five records. You can see the records from the Table view in the following screen capture:
 
-  ![Sample documents](../images/docs1.png)     
+  ![Sample documents](../images/docs1.png): caption="Figure 2. Sample documents" caption-side="bottom"}     
 
 ## Creating an index to query the database
 {: #creating-an-index-to-query-the-database}
@@ -356,7 +357,7 @@ If no available defined index matches the specified query, then {{site.data.keyw
 3. Click **Create Index**. 
   The index was created. You can see the index in the following screen capture:
 
-  ![Query index](../images/query-index1.png)
+  ![Query index](../images/query-index1.png): caption="Figure 3. Query index" caption-side="bottom"}
 
 
 
@@ -437,7 +438,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
 
   The query results display. You can see them from the Table view in the following screen capture:
 
-  ![Query 1 results](../images/dashboard_query1_results.png)
+  ![Query 1 results](../images/dashboard_query1_results.png): caption="Figure 4. Results from the first query" caption-side="bottom"}
 
 ### Running a query with two fields
 {: #running-a-query-with-two-fields}
@@ -548,7 +549,7 @@ The extra details look like the following example:
 
   The query results display. You can see them from the Table view in the following screen capture:
 
-  ![Query 2 results](../images/dashboard_query2_results.png)
+  ![Query 2 results](../images/dashboard_query2_results.png): caption="Figure 5. Results from second query" caption-side="bottom"}
 
 ### Running a query with operators
 {: #running-a-query-with-operators}
@@ -662,6 +663,6 @@ values that are specified in the `sort` parameter.
 
   The query results display. You can see them from the Table view in the following screen capture:
 
-  ![Query 3 results](../images/dashboard_query3_results.png)
+  ![Query 3 results](../images/dashboard_query3_results.png): caption="Figure 6. Results from third query" caption-side="bottom"}
 
 For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=cloudant-overview#overview).

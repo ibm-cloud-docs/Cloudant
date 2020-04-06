@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-08"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -56,7 +56,7 @@ As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
-![Slider](../images/migrate2.gif)
+![Slider](../images/migrate2.gif){: caption="Figure 1. Slider" caption-side="bottom"}
 
 The amount that you can change the throughput capacity is limited to a maximum of 10 units per change with a maximum of one change per hour. Notice the "change limit" point on the slider. Changes downward are unlimited in size, but still subject to the time limit.
 {: tip}
@@ -70,23 +70,23 @@ If you exceed your quota of reads, writes, and global queries in a given second,
 
 If you're using {{site.data.keyword.cloudant_short_notm}}, go to the {{site.data.keyword.cloud_notm}} dashboard, and click the menu icon then **Resource List** to see all your service instances. 
 
-![Cloud dash](../images/ibmclouddashboard.png)
+![Cloud dash](../images/ibmclouddashboard.png){: caption="Figure 2. Cloud dash" caption-side="bottom"}
 
 You can also drill down into a specific instance and look at the Plan tab for more information. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan don't have a highlighted plan. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
 
-![Standard dash](../images/ibmcloud_instance_standard_plan.png)
+![Standard dash](../images/ibmcloud_instance_standard_plan.png){: caption="Figure 3. Standard dash" caption-side="bottom"}
 
 You can also open the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click the **Account** tab. A Lite plan looks like the following example:
 
-![Lite plan](../images/migrate1.png)
+![Lite plan](../images/migrate1.png){: caption="Figure 4. Lite plan" caption-side="bottom"}
 
 If you're using a legacy `cloudant.com` account, you can log in to your {{site.data.keyword.cloudant_short_notm}} Dashboard, and go to the Account tab. A legacy `cloudant.com` Shared plan has a Usage tab with graphs and billing estimates for the current month, like the following example:
 
-![Shared plan](../images/cloudantcom_sharedplan_usage.png)
+![Shared plan](../images/cloudantcom_sharedplan_usage.png){: caption="Figure 5. Shared plan" caption-side="bottom"}
 
 A `cloudant.com` Enterprise user on a dedicated cluster doesn't have the Usage tab in their Account tab. It looks like the following example:
 
-![Enterprise plan](../images/cloudantcom_enterpriseplan_account.png)
+![Enterprise plan](../images/cloudantcom_enterpriseplan_account.png){: caption="Figure 6. Enterprise plan" caption-side="bottom"}
 
 If your Account tab already indicates that you're on the Standard plan, you don't need to read any further. You're already on a paid SLA-backed {{site.data.keyword.cloudant_short_notm}} service. No further action is required.
 
@@ -100,7 +100,7 @@ Migrate from the free Lite plan to the Standard plan by following these steps:
 3.  Select the {{site.data.keyword.cloudant_short_notm}} instance that you want to migrate. 
 4.  Select the **Plan** tab on the menu. 
 5.  From the list of pricing plans, select the **Standard** check box. 
-![Lite](../images/migrate3.png)
+![Standard plan](../images/migrate3.png){: caption="Figure 7. Standard plan" caption-side="bottom"}
 6.  Click **Upgrade**.
     All of your existing data is kept for you.
 
@@ -127,7 +127,7 @@ If you haven't signed up already, [sign up for an {{site.data.keyword.cloud_notm
 
 After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then click `Databases` and `Cloudant`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
 
-![Add {{site.data.keyword.cloudant_short_notm}} instance](../tutorials/images/img0003.png)
+![Add {{site.data.keyword.cloudant_short_notm}} instance](../tutorials/images/img0003.png){: caption="Figure 8. Add {{site.data.keyword.cloudant_short_notm instance" caption-side="bottom"}
 
 ### Step 3. Find out whether your application is ready for {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -145,7 +145,7 @@ Set up continuous replications from your existing service to your {{site.data.ke
 
 Alternatively, check out the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) tool, which is a command-line utility that helps you coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. It sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 
-![`couchreplicate`](https://raw.githubusercontent.com/glynnbird/couchreplicate/HEAD/img/couchreplicate.gif)
+![`couchreplicate`](https://raw.githubusercontent.com/glynnbird/couchreplicate/HEAD/img/couchreplicate.gif){: caption="Figure 9. `couchreplicate`" caption-side="bottom"}
 
 Verify that all your data replicates to the new service and that indexes are built.
 

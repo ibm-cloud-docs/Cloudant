@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-08"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -83,9 +83,7 @@ colon characters.
 {: #ids-in-non-partitioned-databases}
 
 For non-partitioned databases, the `_id` field is either created by you, or
-generated automatically as a [UUID ![External link
-icon](../images/launch-glyph.svg "External link
-icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window}
+generated automatically as a [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window}{: external}
 by {{site.data.keyword.cloudant_short_notm}}.
 
 If you choose to specify the document `_id` field, it must be limited to no more than 7168 characters (7k).
@@ -653,7 +651,7 @@ an original document with revision value `1-7a7e4b29f3af401e69b6f86e4c26b727`
 was modified by two separate applications.
 These modifications resulted in two separate revision branches.
 
-![Document with two revision branches](../images/fb86021a.png)
+![Document with two revision branches](../images/fb86021a.png){: caption="Figure 1. Document with two revision branches" caption-side="bottom"}
 
 Suppose that a decision is taken to purge the document branch
 that ends in revision value `4-53b84f8bf5539a7fb7f8074d1f685e5e`.
@@ -668,7 +666,7 @@ Therefore,
 document `1-7a7e4b29f3af401e69b6f86e4c26b727` is *not* removed from the database.
 The resulting document structure looks like the following diagram.
 
-![Purged document with one remaining revision branches](../images/fb86021b.png)
+![Purged document with one remaining revision branches](../images/fb86021b.png){: caption="Figure 2. Purged document with one remaining revision branches" caption-side="bottom"}
 
 A subsequent request to purge the document with revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`
 results in the removal of *all* the revisions

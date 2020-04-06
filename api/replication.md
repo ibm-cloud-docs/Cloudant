@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-08"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -275,7 +275,7 @@ See the following example instructions for using the command line to create a re
 
 ```sh
 curl -X PUT "https://$ACCOUNT.cloudant.com/_replicator/replication-doc" -H "Content-Type: application/json" -d @replication-document.json
-#assuming replication-document.json is a json file with valid replication information.
+# assuming replication-document.json is a json file with valid replication information.
 ```
 {: codeblock}
 
