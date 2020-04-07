@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-27"
+lastupdated: "2020-04-02"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -70,6 +70,7 @@ submit a `PUT` request with the following format:
 | Argument        | Description | Optional | Type | Default | Supported values |
 |-----------------|-------------|----------|------|---------|------------------|
 | `partitioned`   | Whether database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
+{: caption="Table 1. Query arguments" caption-side="top"}
 
 ### Database naming
 
@@ -120,6 +121,7 @@ Code | Description
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
 400  | Invalid database name.
 412  | Database already exists.
+{: caption="Table 2. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is created successfully:
 
@@ -204,7 +206,7 @@ The elements of the returned structure are shown in the following table:
 `sizes`               | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that is stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that is stored on the disk. Indexes aren't included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes  data that is waiting for compaction.
 `update_seq`          | An opaque string that describes the state of the database. Don't rely on this string for counting the number of updates.
 `partitioned_indexes` | A JSON object that appears only if the database is partitioned. `count` is the number of partitioned indexes. `indexes` list the type of partitioned indexes, and `limit` shows the maximum number of allowed partitioned indexes.
-
+{: caption="Table 3. Database details" caption-side="top"}
 
 See the following example (abbreviated) response that contains database details:
 
@@ -317,7 +319,7 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 `skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0
 `startkey`          | Return records, starting with the specified key.                                                | Yes      | String          |
 `startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String |
-
+{: caption="Table 4. Query string and JSON body arguments" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
@@ -381,6 +383,7 @@ The following table describes the meaning of the individual fields:
  `rows`       | Array of document objects.                                                          | Array
  `total_rows` | Number of documents in the database or view that match the parameters of the query. | Numeric
  `pdate_seq` | Current update sequence for the database.                                           | String
+{: caption="Table 5. JSON object fields" caption-side="top"}
 
 See the following example response after a request for all documents in a database:
 
@@ -454,7 +457,7 @@ The results are returned by using the following response JSON object:
 | Response JSON object    | Description | Type |
 |-------------------------|-------------|------|
 | `results` | An array of result objects - one for each query. Each result object contains the same fields as the response to a regular `_all_docs` request. | Array |
-
+{: caption="Table 6. Response JSON object" caption-side="top"}
 
 See the following example request with multiple queries:
 
@@ -610,6 +613,7 @@ These responses are combined and returned to the original requesting client.
 `since`        | Start the results from changes *after* the specified sequence identifier. For more information, see the [`since` information](#the-since-argument). | Sequence identifier or `now` | 0 
 `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` 
 `timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | Any positive number | 
+{: caption="Table 7. Query arguments for `_changes`" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
@@ -814,6 +818,7 @@ The following table describes the meaning of the individual fields:
 `last_seq` | Identifier of the last of the sequence identifiers. Currently, this identifier is the same as the sequence identifier of the last item in the `results`. | String
 `results`  | Array of changes that were made to the database. | Array
 `seq`      | Update sequence identifier. | String
+{: caption="Table 8. JSON object response fields for `_changes`" caption-side="top"}
 
 See the following example (abbreviated) response to a `_changes` request:
 
@@ -948,6 +953,7 @@ An error response uses the HTTP status code to indicate what went wrong.
 200  | Database deleted successfully.
 202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
 404  | Database doesn't exist on all of the nodes.
+{: caption="Table 9. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is deleted successfully:
 

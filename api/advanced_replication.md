@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-04-02"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -120,11 +120,12 @@ All parameters are optional.
 
 You can use the following parameters to narrow your search results:
 
-Name      | Type                    | Description                                                               | Default
-----------|-------------------------|---------------------------------------------------------------------------|-------------------
+Name | Type | Description | Default
+-----|------|-------------|---------
 `states`  | Comma-delimited strings | Includes only replication documents in the specified states.               | Return all states.
 `limit`   | Integer                 | Number of documents that are included in the search results. Maximum limit is 200. | Return all.
 `skip`    | Integer                 | Number of results to skip before the search results are returned.                | 0
+{: caption="Table 1. Query parameters for the `/_scheduler/docs` endpoint" caption-side="top"}
 
 #### The `/_scheduler/docs/_replicator/$doc_id` endpoint
 {: #the-_scheduler-docs-_replicator-doc_id-endpoint}
@@ -156,10 +157,11 @@ All parameters are optional.
 
 You can use the following parameters to narrow your search results:
 
-Name     | Type    | Description                                                          | Default
----------|---------|----------------------------------------------------------------------|-------------
+Name | Type | Description | Default
+-----|------|-------------|---------
 `limit`  | Integer | Number of jobs that are included in the search results. Maximum limit is 200. | 25
-`skip`   | Integer | Number of results to skip before search results are returned.           | 0
+`skip`   | Integer | Number of results to skip before search results are returned. | 0
+{: caption="Table 2. Query parameters for the `/_scheduler/jobs` endpoint" caption-side="top"}
 
 #### The `/_scheduler/jobs/$job_id` endpoint
 {: #the-_scheduler-jobs-_replicator-job_id-endpoint}
@@ -396,6 +398,7 @@ Field | Detail
 `_replication_id` | This field includes the internal ID assigned to the replication. It's the same ID that appears in the output from `_active_tasks`.
 `_replication_state` | The current state of the replication.
 `_replication_state_time` | An [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt){: new_window}{: external} compliant time stamp that reports when the current replication state defined in `_replication_state` was set.
+{: caption="Table 3. Replication document fields" caption-side="top"}
 
 The possible states for a `_replication_state` are shown in the following list:
 
@@ -738,12 +741,10 @@ a replication operation.
 You do these actions by sending a `POST` request directly to the `/_replicate` endpoint.
 The `POST` includes a JSON document that describes the wanted replication.
 
-Name | Description
------|------------
-Method | `POST`
-Path | `/_replicate`
-Request | Replication specification
-Roles | `_admin`
+Method - `POST`
+Path - `/_replicate`
+Request - Replication specification
+Roles - `_admin`
 
 The specification of the replication request is controlled through the JSON content of the request.
 The JSON document must include fields that define the source,
@@ -757,15 +758,16 @@ The JSON document uses the [replication document format](/docs/Cloudant?topic=cl
 
 The fields of the JSON request are shown in the following table:
 
-Field           | Purpose                                                     | Optional
-----------------|-------------------------------------------------------------|---------
-`cancel`        | Cancels the replication.                                    | Yes
-`continuous`    | Configure the replication to be continuous.                 | Yes
-`create_target` | Creates the target database.                                | Yes
-`doc_ids`       | Array of document IDs to be synchronized.                   | Yes
-`proxy`         | Address of a proxy server through which replication occurs. | Yes
-`source`        | Source database URL, including username and password.      | No
-`target`        | Target database URL, including username and password.      | No
+Field | Purpose | Optional
+------|---------|---------
+`cancel` | Cancels the replication. | Yes
+`continuous` | Configure the replication to be continuous. | Yes
+`create_target` | Creates the target database. | Yes
+`doc_ids` | Array of document IDs to be synchronized. | Yes
+`proxy` | Address of a proxy server through which replication occurs. | Yes
+`source` | Source database URL, including username and password. | No
+`target` | Target database URL, including username and password. | 
+{: caption="Table 4. Fields for the JSON request" caption-side="top"}
 
 See example instructions for using HTTP to start a replication through the `_replicate` endpoint:
 
@@ -802,6 +804,7 @@ Code  | Description
 `202` | Continuous replication request was accepted.
 `404` | Either the source or target database was not found.
 `500` | JSON specification was invalid.
+{: caption="Table 5. Status codes" caption-side="top"}
 
 ### Canceling replication by using the `/_replicate` endpoint
 {: #canceling-replication-by-using-the-_replicate-endpoint}

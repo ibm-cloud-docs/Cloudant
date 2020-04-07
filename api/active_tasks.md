@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-04-02"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -34,12 +34,10 @@ see the [Managing tasks](/docs/Cloudant?topic=cloudant-managing-tasks#managing-t
 ## Retrieving a list of active tasks
 {: #retrieving-a-list-of-active-tasks}
 
-Name | Description
------|------------
-Method | `GET`
-Path | `/_active_tasks`
-Response | List of running tasks, including the task type, name, status, and process ID
-Roles permitted | `_admin`
+Method - `GET` 
+Path - `/_active_tasks` 
+Response - List of running tasks, including the task type, name, status, and process ID. 
+Roles permitted - `_admin` 
 
 You can get a list of active tasks by using the `/_active_tasks` URL.
 The result is a JSON array of the currently running tasks,
@@ -89,6 +87,7 @@ The returned structure includes the following fields for each task:
 | `total_changes` | Total number of documents to be processed by the task. The exact meaning depends on the type of the task. |
 | `type` | Operation Type |
 | `updated_on` | Time when the last update was made to this task record. Updates are made by the job as progress occurs. The value is an integer that includes the UNIX&trade; time that uses UTC. |
+{: caption="Table 1. Fields in the returned structure" caption-side="top"}
 
 In the `type` field,
 the possible values include:
@@ -187,6 +186,7 @@ Name | Description
 `changes_done` | Number of documents compacted.
 `phase` | Reports the stage of compaction.
 `total_changes` | Number of documents in the database.
+{: caption="Table 2. Response fields for compaction tasks" caption-side="top"}
 
 In the `phase` field, the value indicates the stage that was reached by compaction:
 
@@ -206,6 +206,7 @@ Name | Description
 `source` | An obfuscated URL string that indicates the database from which the task is replicating.
 `target` | An obfuscated URL string that indicates the database to which the task is replicating.
 `user` | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user.
+{: caption="Table 3. Response fields for replication tasks" caption-side="top"}
 
 ### Specific response fields for indexing tasks
 {: #specific-response-fields-for-indexing-tasks}
@@ -215,3 +216,4 @@ Name | Description
 `changes_done` | Number of document revisions that are processed by this task. A document can have one or more revisions.
 `design_document` | The design document that includes the view or index function or functions.
 `total_changes`| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer.
+{: caption="Table 4. Response fields for indexing tasks" caption-side="top"}

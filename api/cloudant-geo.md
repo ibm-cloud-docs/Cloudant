@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-04-02"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -248,6 +248,7 @@ Field | Description
 `doc_count` | Number of documents in the geospatial index.
 `disk_size` | The size of the geospatial index, as stored on disk, in bytes.
 `data_size` | The size of the geospatial index, in bytes.
+{: caption="Table 1. Fields in JSON response" caption-side="top"}
 
 ### Example response in JSON format
 {: #example-response-in-json-format}
@@ -298,6 +299,7 @@ Parameter | Description
 `ellipse` | Specify an ellipse query with a latitude `lat`, a longitude `lon`, and two radii: `rangex` and `rangey`, both measured in meters.
 `radius`  | Specify a circle query with a latitude `lat`, a longitude `lon`, and a radius `radius` measured in meters.
 `<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter includes `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
+{: caption="Table 2. Types of query geometries" caption-side="top"}
 
 #### Example of a `bbox` query
 
@@ -371,6 +373,7 @@ Relation                | Description
                         | Case 2 - True if the intersection of the geometries is a linestring. Apply to the geometry pairs of linestring and linestring, and multilinestring and multilinestring.
 `Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a linestring, polygon, multilinestring, or multipolygon.
 `Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`.
+{: caption="Table 3. Geometric relations" caption-side="top"}
 
 #### Example of returning all geometries that are contained by a `polygon`
 
@@ -424,6 +427,7 @@ Parameter      | Description
 `limit`        |  An integer to limit the number of results returned. The default value is 100. The maximum value is 200. A value larger than 200 returns an error.
 `skip`         | Skip this number of records before {{site.data.keyword.cloudant_short_notm}} Geo search starts to return the results. The default value is 0.
 `stale=ok`     | Speeds up responses by not waiting to complete index rebuilds or updates between database cluster nodes.
+{: caption="Table 4. Parameters in the result set" caption-side="top"}
 
 #### Format parameter examples
 {: #format-parameter-examples}

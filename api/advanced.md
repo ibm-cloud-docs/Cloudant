@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-04-02"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
@@ -34,11 +34,9 @@ and other miscellaneous tasks.
 ## `GET /`
 {: #-get-}
 
-Name | Description
------|-------------
-Method | `GET`
-Path | `/`
-Response | Welcome message and version
+- **Method** - `GET`
+- **Path** - `/`
+- **Response** - Welcome message and version.
 
 Accessing the root endpoint `/` returns meta information about the cluster.
 The response is a JSON object that includes a welcome message and the version of the server.
@@ -127,7 +125,6 @@ the `/_db_updates` endpoint isn't guaranteed to return changes in the correct or
 and might include changes more than once.
 Polling modes for this endpoint work like the polling modes for the changes feed.
 
-
 | Argument | Description | Optional | Type | Default | Supported Values |
 |---------|-------------|----------|------|---------|----------------|
 | `descending` | Determines that results are returned in descending order. In other words, the most recent event appears first. By default, the oldest event is returned first. | Yes | Boolean | False | |
@@ -136,6 +133,7 @@ Polling modes for this endpoint work like the polling modes for the changes feed
 | `limit` | Maximum number of results to return. | Yes | Numeric | None |  |
 | `since` | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | Yes | String | 0 |  |
 | `timeout` | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before the response is terminated. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | Yes | Numeric |  |  | |
+{: caption="Table 1. Arguments for `/_db_updates` endpoint" caption-side="top"}
 
 See the following example request to get a list of changes to the database by using HTTP:
 
@@ -418,6 +416,7 @@ Field name      | Description
 ----------------|------------------------------------------------------------------
 `cluster_nodes` | Array of node names (strings) of the active nodes in the cluster.
 `all_nodes`     | Array of nodes names (strings) of all nodes in the cluster.
+{: caption="Table 2. Response structure for `/$DATABASE/_revs_diff` endpoint" caption-side="top"}
 
 See the following example response with node names in the cluster:
 
@@ -491,6 +490,7 @@ Field name      | Description
 ----------------|------------------------------------------------------------------
 `cluster_nodes` | Array of node names (strings) of the active nodes in the cluster.
 `all_nodes`     | Array of nodes names (strings) of all nodes in the cluster.
+{: caption="Table 3. Response structure for the `/_membership` endpoint" caption-side="top"}
 
 See the following example response to list node names in the cluster:
 
@@ -523,6 +523,8 @@ The response is a JSON object that provides a list of UUIDs.
 Argument | Description               | Optional | Type
 ---------|---------------------------|----------|------------------------------------------------------------------
 `count`  | Number of UUIDs to return | Yes      | Positive integer, greater than 0 and less than or equal to 1,000.
+the cluster.
+{: caption="Table 4. Response structure for the `/_uuids` endpoint" caption-side="top"}
 
 See the following example request for a single UUID by using HTTP:
 

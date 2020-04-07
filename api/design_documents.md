@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-04-03"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -103,6 +103,7 @@ Value  | Description           | Notes
 ---------|---------------------|------------
 `true` | Create the index as partitioned.   | Can be used only in a partitioned database.
 `false`    | Create the index as global.  | Can be used in any database.
+{: caption="Table 1. Values for the `options.partitioned` field" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
@@ -110,7 +111,7 @@ Database is partitioned? | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
-
+{: caption="Table 2. Partition settings" caption-side="top"}
 
 ## Copying a design document
 {: #copying-a-design-document}
@@ -317,6 +318,7 @@ Field    | Description
 `method` | The HTTP method that must be matched.
 `query`  | The query part of the resulting URL. This part is a JSON object that contains the key/value pairs of the query.
 `to`     | The path (relative to `/$DATABASE/_design/doc/` and not including the query part of the URL) that is the result of the rewriting step. Variables that are captured in `from` can be used in `to`. An `*` can also be used and contains everything that is captured by the pattern in `from`.
+{: caption="Table 3. Fields for the rewrite rules" caption-side="top"}
 
 See the following example JSON describing some rewrite rules:
 
@@ -347,8 +349,8 @@ See the following example rewrite rules:
 
 The following table has some more examples of rewriting URL components:
 
-Rule                                                           | URL                                       | Rewrite to                               | Tokens
----------------------------------------------------------------|-------------------------------------------|------------------------------------------|-------
+Rule | URL | Rewrite to | Tokens
+-----|-----|------------|-------
 `{"from": "/a/b", "to": "/some/"}`                             | `/$DATABASE/_design/doc/_rewrite/a/b?k=v` | `/$DATABASE/_design/doc/some?k=v`        | `k = v`
 `{"from": "/a/b", "to": "/some/:var"}`                         | `/$DATABASE/_design/doc/_rewrite/a/b`     | `/$DATABASE/_design/doc/some/b?var=b`    | `var = b`
 `{"from": "/a", "to": "/some/*"}`                              | `/$DATABASE/_design/doc/_rewrite/a`       | `/$DATABASE/_design/doc/some`            |
@@ -357,6 +359,7 @@ Rule                                                           | URL            
 `{"from": "/a/:foo/*","to": "/some/:foo/*"}`                   | `/$DATABASE/_design/doc/_rewrite/a/b/c`   | `/$DATABASE/_design/doc/some/b/c?foo=b`  | `foo = b`
 `{"from": "/a/:foo", "to": "/some", "query": { "k": ":foo" }}` | `/$DATABASE/_design/doc/_rewrite/a/b`     | `/$DATABASE/_design/doc/some/?k=b&foo=b` | `foo =:= b`
 `{"from": "/a", "to": "/some/:foo" }`                          | `/$DATABASE/_design/doc/_rewrite/a?foo=b` | `$DATABASE/_design/doc/some/b&foo=b`     | `foo = b`
+{: caption="Table 4. URL rewrite components" caption-side="top"}
 
 ## Indexes
 {: #indexes-design-docs}
