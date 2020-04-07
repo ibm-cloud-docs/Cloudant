@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-31"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -269,7 +269,8 @@ Find more information on our [Security page](/docs/Cloudant?topic=cloudant-secur
 - Improvements to internal audit facility.
 - Any constant fields that are in the selector, and are part of the index, for example, {A: {$eq: 10}}, are inserted into the sort list if they aren't already included. This method increases the chance that the best index is selected for the query, for example, index = [A, B], sort = [B], and selector = {A: 1}. The sort then becomes [A, B].
 
-<p class="tip">Only the fields that are in front of the current sort fields in the list are added.</p>
+Only the fields that are in front of the current sort fields in the list are added.
+{: tip}
 
 
 ## Build 7051 (June 29, 2018)
@@ -372,7 +373,7 @@ replicas to create.
 JavaScript.
 - Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to non-browser clients.
 
-### Query (<code>_find</code> endpoint):
+### Query (`_find` endpoint)
 {: #query-code-_find-code-endpoint}
 
 - {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}{: external}.

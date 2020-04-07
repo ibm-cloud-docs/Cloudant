@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-04-03"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -305,19 +305,20 @@ If you use a certificate that was validated by a certificate
 authority (CA), this step is not needed.
 
 
-<ol><li>If you use a self-signed certificate, confirm your certificate
-    when the following untrusted connection message opens.<br>
-<p>![Example of an untrusted connection message.](images/ssl_8a.jpg)</p> 
-</li>
-<li>Click <code>Add Exception</code> on the <code>This Connection is Untrusted</code> message.</li>
-<li>To add a security exception, perform the follow steps when the
-    Add Security Exception window opens.
-<ol type="a">
-<li>Select the <code>Permanently store this exception</code> check box so the exception is stored for future use.</li>
-<li>Click <code>Confirm Security Exception</code> to confirm the exception.</li><br>
-<p>![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg)</p>
-</ol>   
-</li></ol>
+1. If you use a self-signed certificate, confirm your certificate
+    when the following untrusted connection message opens.
+
+   ![Example of an untrusted connection message.](images/ssl_8a.jpg)
+
+2. Click `Add Exception` on the `This Connection is Untrusted` message.
+    
+   To add a security exception, perform the follow steps when the Add Security Exception window opens.
+   
+   a. Select the `Permanently store this exception` check box so the exception is stored for future use.
+
+   b. Click `Confirm Security Exception` to confirm the exception.
+
+   ![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg)
 
 #### Viewing the load balancer
 {: #viewing-the-load-balancer}
@@ -348,20 +349,28 @@ load balancer and database nodes, enable the secure communication
 on each load balancer node by making these load balancer
 configuration changes.
 
-<ol><li>Copy the <code>ca.pem</code> file to each load balancer node.
-<p>For more information about creating the <code>ca.pem</code> file, see
-    [Generating the certificate authority file for a database node](#generating-the-certificate-authority-file-for-a-database-node).</p>
+1. Copy the `ca.pem` file to each load balancer node.
+
+   For more information about creating the `ca.pem` file, see
+    [Generating the certificate authority file for a database node](#generating-the-certificate-authority-file-for-a-database-node).
     
-</li>
-<li>Update the <code>haproxy.cfg</code> file.
-<ol type="a"><li>Find the section label, and specify the appropriate host names and IP addresses.</li>
-<li>Verify that all the database nodes are included in the list.</li>
-<li>For each server, change the port from <code>5984</code> to <code>6984</code>.</li>
-<li>Add the following text to the end of each 'server' line. Enter the path for your <code>ca.pem</code> file as shown in the example. 
-<p><code>ssl verify required ca-file /path/to/ca.pem</code>
-</p></li></ol>
-<li>Save and close the <code>haproxy.cfg</code> file.</li>
-<li>Restart <b>haproxy</b>.</li></ol>
+2. Update the `haproxy.cfg` file.
+
+   a. Find the section label, and specify the appropriate host names and IP addresses.
+
+      Verify that all the database nodes are included in the list.
+   
+   b. For each server, change the port from `5984` to 6984.
+   
+   c. Add the following text to the end of each 'server' line.   Enter the path for your `ca.pem` file as shown in the example. 
+
+   ```sh
+   ssl verify required ca-file /path/to/ca.pem
+   ```
+   {: codeblock}
+
+3. Save and close the `haproxy.cfg` file.
+4. Restart `haproxy`.
 
 
 ### Configure SSL on your database nodes
@@ -460,22 +469,31 @@ The `serverX.key` and `serverX.pem` files are unique and specific to each databa
 
 Configure the database node to use the SSL security files.
 
-<ol><li>Update the <code>/opt/cloudant/etc/local.ini</code> file on each database node.
-<ol type="a"><li>Enable the <code>https</code> daemon by modifying the <code>httpsd</code> line in the <code>[daemons]</code> section.
-<p><code>[daemons]</code><br>
-<code>httpsd = {chttpd, start_link, [https]}</code>
-</p>
-</li>
-<li>Provide links to the <code>ca.pem</code>, <code>serverX.key</code> and <code>serverX.pem</code> files.
-<p><code>[ssl]</code><br>
-<code>cacert_file = /<filelocation>/ca.pem</code><br>
-<code>cert_file = /<filelocation>/serverX.pem</code><br>
-<code>key_file = /<filelocation>/serverX.key</code></p></li></ol>
-<li>Save and close the <code>/opt/cloudant/etc/local.ini</code> file.</li>
-<li>Restart {{site.data.keyword.cloudant_local_notm}} on the database node.
-</li></ol>
+1. Update the `/opt/cloudant/etc/local.ini` file on each database node.
 
-For more information about configuring {{site.data.keyword.cloudant_local_notm}} for SSL-based secure connections, see [Secure Socket Level Options](http://docs.couchdb.org/en/latest/config/http.html#secure-socket-level-options){: new_window}{: external}.
+   a. Enable the `https` daemon by modifying the `httpsd` line in the `[daemons]` section.
+
+   `[daemons]`
+
+   ```sh
+   httpsd = {chttpd, start_link, [https]}
+   ```
+   {: codeblock}
+
+   b. Provide links to the `ca.pem`, `serverX.key` and `serverX.pem` files.
+
+   ```sh
+   [ssl]
+   cacert_file = /<filelocation>/ca.pem
+   cert_file = /<filelocation>/serverX.pem
+   key_file = /<filelocation>/serverX.key
+   ```
+   {: codeblock}
+
+2. Save and close the `/opt/cloudant/etc/local.ini` file.
+3. Restart {{site.data.keyword.cloudant_local_notm}} on the database node.
+
+   For more information about configuring {{site.data.keyword.cloudant_local_notm}} for SSL-based secure connections, see [Secure Socket Level Options](http://docs.couchdb.org/en/latest/config/http.html#secure-socket-level-options){: new_window}{: external}.
 
 #### Connecting load balancer and database nodes by using SSL
 {: #connecting-lb-and-db-nodes-by-using-ssl-config-ssl-db}
@@ -485,20 +503,25 @@ load balancer and database nodes, enable the secure communication
 on each load balancer node by making these load balancer
 configuration changes.
 
-<ol><li>Copy the <code>ca.pem</code> file to each load balancer node.
-<p>For more information about creating the <code>ca.pem</code> file, see
-    [Generating the certificate authority file for a database node](#generating-the-certificate-authority-file-for-a-database-node).</p>
-    
-</li>
-<li>Update the <code>haproxy.cfg</code> file.
-<ol type="a"><li>Find the section label, and specify the appropriate host names and IP addresses.</li>
-<li>Verify that all the database nodes are included in the list.</li>
-<li>For each server, change the port from <code>5984</code> to <code>6984</code>.</li>
-<li>Add the following text to the end of each 'server' line.
-<p><code>ssl verify required ca-file /path/to/ca.pem</code>
-</p></li></ol>
-<li>Save and close the <code>haproxy.cfg<code> file.</li>
-<li>Restart <b>haproxy</b>.</li></ol>
+1. Copy the `ca.pem` file to each load balancer node.
+
+   For more information about creating the `ca.pem` file, see
+    [Generating the certificate authority file for a database node](#generating-the-certificate-authority-file-for-a-database-node).
+
+2. Update the `haproxy.cfg` file.
+
+   a. Find the section label, and specify the appropriate host names and IP addresses.
+
+   b. Verify that all the database nodes are included in the list.
+
+   c. For each server, change the port from `5984` to `6984`.
+
+   d. Add the following text to the end of each 'server' line.
+   
+   `ssl verify required ca-file /path/to/ca.pem`
+
+3. Save and close the `haproxy.cfg` file.
+4. Restart `haproxy`.
 
 ## Authenticating with LDAP
 {: #authenticating-with-ldap}
@@ -565,82 +588,82 @@ group_base_dn = dc=example,dc=com
     The default values for parameters marked '&raquo;' are only useful for testing. Change the parameter's value to match your environment.
     {: note}
 
-*   &raquo; `servers`* (127.0.0.1)
+    -   &raquo; `servers`* (127.0.0.1)
 
-    Supports one or more LDAP servers, which default to a
+        Supports one or more LDAP servers, which default to a
     single host, but might also be a comma-separated
     list.
 
-    All servers must use the same port, which is a limitation of the underlying `eldap` library.
-    {: note}
+        All servers must use the same port, which is a limitation of the underlying `eldap` library.
+        {: note}
 
-*   `port` (389)
+    -   `port` (389)
 
-    LDAP server port for decrypted communication.
+        LDAP server port for decrypted communication.
 
-*   `ssl_port` (636)
+    -   `ssl_port` (636)
 
-    LDAP server port for encrypted communication.
+        LDAP server port for encrypted communication.
 
-*   `use_ssl` (true)
+    -   `use_ssl` (true)
 
-    If true, use TLS to encrypt traffic to LDAP servers.
+        If true, use TLS to encrypt traffic to LDAP servers.
 
-*   `timeout` (5000)
+    -   `timeout` (5000)
 
-    Milliseconds to wait for a response from an LDAP
+        Milliseconds to wait for a response from an LDAP
     server before an error occurs.
 
-*   &raquo; `user_base_dn`* (ou=users,dc=example,dc=com)
+    -  &raquo; `user_base_dn`* (ou=users,dc=example,dc=com)
 
-    Defines a directory location to use during a search
+        Defines a directory location to use during a search
     for users.
 
-*   `user_classes` (person)
+    -   `user_classes` (person)
 
-    Defines which `objectClasses` indicate a particular
+        Defines which `objectClasses` indicate a particular
     entry as a user during search.
 
-*   `user_uid_attribute` (uid)
+    -   `user_uid_attribute` (uid)
 
-    Defines which attribute maps to a user name.
+        Defines which attribute maps to a user name.
 
-*   &raquo; `group_base_dn`* (ou=groups,dc=example,dc=com)
+    -   &raquo; `group_base_dn`* (ou=groups,dc=example,dc=com)
 
-    Defines a directory location to use during a search
+        Defines a directory location to use during a search
     for groups.
 
-*   `group_classes` (posixGroup)
+    -   `group_classes` (posixGroup)
 
-    Defines which `objectClasses` indicate a particular
+        Defines which `objectClasses` indicate a particular
     entry as a group during search.
 
-*   `group_member_attribute` (memberUid)
+    -   `group_member_attribute` (memberUid)
 
-    Defines which group attribute maps to user uid.
+        Defines which group attribute maps to user uid.
 
-*   `group_role_attribute` (description)
+    -   `group_role_attribute` (description)
 
-    Defines which group attribute maps to a particular
+        Defines which group attribute maps to a particular
     role.
 
-*   &raquo; `searcher_dn`* (uid=ldapsearch,ou=users,dc=example,dc=com)
+    -   &raquo; `searcher_dn`* (uid=ldapsearch,ou=users,dc=example,dc=com)
 
-    Defines the distinguished name (DN) to use while
+        Defines the distinguished name (DN) to use while
     `ldap_auth` searches for users and groups.
 
-*   &raquo; `searcher_password`* (secret)
+    -   &raquo; `searcher_password`* (secret)
 
-    Defines the password for the `searcher_dn` parameter.
+        Defines the password for the `searcher_dn` parameter.
 
-*   `user_bind_dns` ([ ])
+    -   `user_bind_dns` ([ ])
 
-    Defines one or more base DNs into which the
+        Defines one or more base DNs into which the
     authenticating user's user name can be inserted as
     the `user_uid_attribute` and used to bind to the base DN
     directly.
 
-    *The default values for this parameter are only useful for testing. Change the parameter's value to match your environment.
+        *The default values for this parameter are only useful for testing. Change the parameter's value to match your environment.
 
 ### Setting up `ldap_auth` to work with  {{site.data.keyword.cloudant_local_notm}}
 {: #setting-up-ldap_auth-to-work-with-ibm-cloudant-local}
@@ -778,7 +801,7 @@ Information about the logs for database nodes and load balancer nodes is shown i
 |----------|-----------|-----------|-----------|----------|
 | {{site.data.keyword.cloudant_short_notm}} database core logs | Contains data about events such as runtime errors, warnings, or crashes that were encountered by the {{site.data.keyword.cloudant_short_notm}} database. | `/opt/cloudant/etc/local.ini` | `/var/log/cloudant/cloudant.log` <br> `/var/log/cloudant/cloudant-crash.log` | `local2.*` <br> `/var/log/cloudant/cloudant.log` |
 | Clouseau Search Service log | Contains information after the search indexes are built and committed. Also includes service start or stop status, and any errors encountered. | `/opt/cloudant/etc/log4j.properties` | `/var/log/cloudant/clouseau.log`<br> **Note**: Uses `rsyslog` `facility` `local5`  for local logging. | `local5.*` <br> `/var/log/cloudant/clouseau.log` |
-| Metrics Service log | Contains information about service start and stop status, and any errors in the {{site.data.keyword.cloudant_short_notm}} Metrics data gathering service. | `/opt/cloudant/etc/metrics.ini` | `/var/log/cloudant/metrics.log` <br> **Note**: Uses `rsyslog` `facility` `local3` for local logging. | `local3.*` <br> `/var/log/cloudant/metrics.log` |
+| Metrics Service log | Contains information about service start and stop status, and any errors in the {{site.data.keyword.cloudant_short_notm}} Metrics data gathering service. | `/opt/cloudant/etc/metrics.ini` | `/var/log/cloudant/metrics.log` <br> **Note**: Uses `rsyslog` `facility` `local3` for local logging. | `local3.*` > `/var/log/cloudant/metrics.log` |
 | Apache CouchDB Service log | Contains information about service start or stop status, and any errors in the {{site.data.keyword.cloudant_short_notm}} Apache CouchDB. | `/opt/cloudant/etc/local.ini` | `/var/log/cloudant/cloudant-svlogd/current` | None. |
 {: caption="Table 1. Database nodes" caption-side="top"}
 
@@ -801,49 +824,71 @@ logging server and verify that it is operational. The remote
 logging server can be a separate enterprise log server that is
 used by operations for centralized logging.
 
-
 Alternatively, you might choose to use the {{site.data.keyword.cloudant_local_notm}} load
 balancer server as the remote log server to centralize the logs
 from all the nodes. Confirm or enable a remote logging server by
 following these steps.
 
-<ol>
-<li>Check whether the <code>syslog</code> daemon is running on the <code>syslog</code> server.
-<p><code>[root@lb1 tmp]# ps -ef | grep syslog</code><br>
-<code>root      6306     1  0 11:15 ?        00:00:00 /sbin/rsyslogd -i /var/run/syslogd.pid -c 5</code><br> 
-<br>
-<code>[root@lb1 tmp]# service rsyslog status</code><br>
-<code>rsyslogd (pid  6306) is running...</code></p>
-<p>If the service is not running, start <code>rsyslog</code>.<br>
-<code>service rsyslog start</code></p>
-<ol type="a">
-<li>If <code>rsyslog</code> is not already installed, install it on the remote log server.
-<ul><li>To install <code>rsyslog</code> on Debian or Ubuntu, use <code>apt-get</code>.</li>
-<li>To install <code>rsyslog</code> on Red Hat-derived Linux distributions only, use <code>yum</code>.</li>
-</ul>
-<li>Start <code>rsyslog</code>.</li>
-</ol>
-<li>Check the configuration in <code>/etc/rsyslog.conf</code>.</li>
-<li>Ensure that the <code>ModLoad</code> and <code>UDPServerRun</code> entries are not
+1. Check whether the `syslog` daemon is running on the `syslog` server.
+
+   ```sh
+   [root@lb1 tmp]# ps -ef | grep syslog
+   root      6306     1  0 11:15 ?        00:00:00 /sbin/rsyslogd -i /var/run/syslogd.pid -c 5
+   [root@lb1 tmp]# service rsyslog status
+   rsyslogd (pid  6306) is running...
+   ```
+   {: codeblock}
+
+   If the service is not running, start `rsyslog`.
+
+   `service rsyslog start`
+
+   a. If `rsyslog` is not already installed, install it on the remote log server.
+
+   - To install `rsyslog` on Debian or Ubuntu, use `apt-get`.
+   - To install `rsyslog` on Red Hat-derived Linux distributions only, use `yum`.
+
+   b. Start `rsyslog`.
+
+2. Check the configuration in `/etc/rsyslog.conf`.
+3. Ensure that the `ModLoad` and `UDPServerRun` entries are not
     commented out.
-<p><code># Provides UDP syslog reception</code><br>
-<code>$ModLoad imudp</code><br>
-<code>$UDPServerRun 514</code></p></li>
-<li>Create a file <code>cloudant.conf</code> in the <code>/etc/rsyslog.d</code> directory and add the following lines.
-<p><code>local2.*   /var/log/cloudant/cloudant.log</code><br>
-<code>local3.*   /var/log/cloudant/metrics.log</code><br>
-<code>local5.*   /var/log/cloudant/clouseau.log</code></p>
-<p>This configuration ensures that <code>rsyslog</code> receives the log messages according to the different facility configurations.</p>
-<p>**Note**: A sample of the `cloudant.conf` file is available in `/etc/rsyslog.d` on any of the database nodes.</p></li>
-<li>For the HAproxy, create a file <code>haproxy.conf</code> in the <code>/etc/rsyslog.d</code> directory. The file must contain the following line.<br>
-<code>local4.* /var/log/haproxy.log</code>
-<p>This configuration ensures that <code>rsyslog</code> receives the log messages according to the different facility configurations.</p>
-<p>**Note**: A sample of the `haproxy.conf` file is available in `/etc/rsyslog.d` on the load balancer nodes.</p>
-</li>
-<li>Restart <code>syslog</code> with the following command.<br>
-<code>service rsyslog restart</code></li>
-<li>Check that the <code>syslog</code> daemon is running, as described in step 1.</li>
-</ol>
+
+   ```sh
+   # Provides UDP syslog reception`
+   $ModLoad imudp
+   $UDPServerRun 514
+   ```
+   {: codeblock}
+
+4. Create a file `cloudant.conf` in the `/etc/rsyslog.d` directory and add the following lines.
+
+   ```sh
+   local2.*   /var/log/cloudant/cloudant.log
+   local3.*   /var/log/cloudant/metrics.log
+   local5.*   /var/log/cloudant/clouseau.log
+   ```
+   {: codeblock}
+
+   This configuration ensures that `rsyslog` receives the log messages according to the different facility configurations.
+
+   A sample of the `cloudant.conf` file is available in `/etc/rsyslog.d` on any of the database nodes.
+   {: note}
+
+4. For the HAproxy, create a file `haproxy.conf` in the `/etc/rsyslog.d` directory. The file must contain the following line.
+
+   `local4.* /var/log/haproxy.log`
+
+   This configuration ensures that `rsyslog` receives the log messages according to the different facility configurations.
+
+   A sample of the `haproxy.conf` file is available in `/etc/rsyslog.d` on the load balancer nodes.
+   {: note}
+
+5. Restart `syslog` with the following command.
+
+   `service rsyslog restart`
+
+6. Check that the `syslog` daemon is running, as described in step 1.
 
 ## Troubleshooting a remote logging configuration
 {: #troubleshooting-a-remote-logging-configuration}
@@ -852,70 +897,75 @@ If the source is configured to send log messages to a remote
 logging server, but the messages are not seen in the logs, run
 the following checks.
 
+1. Ensure that the `syslog` facility property is configured on the source by checking the source log configuration file.
 
-<ol><li>Ensure that the <code>syslog</code> facility property is configured on the source by checking the source log configuration file.
+   a. Check the configuration on the remote logging server by inspecting the `/etc/rsyslog.conf` or `/etc/rsyslog.d/*.conf` files to see where facility writes the log.
 
-<ol type="a"><li>Check the configuration on the remote logging server by inspecting the <code>/etc/rsyslog.conf</code> or <code>/etc/rsyslog.d/*.conf</code> files to see where facility writes the log.</li>
-<li>Ensure that the facility values are not in conflict with the different types of logs.
+   b. Ensure that the facility values are not in conflict with the different types of logs.
+
+   You can use different facility values from `local2` through to `local7` inclusive. For more information about facility values, see [RFC 3164](http://tools.ietf.org/html/rfc3164#section-4.1.1). See the Facility values table below that lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
+
+2. Change the logging level, on the source nodes, to `info` temporarily to generate more logging activity.
+
+3. After you complete your verification checks, remember to change the logging level back to the default or your preferred level.
+
+4. Confirm that the UDP port (default port = 514) that is used for remote logging is open on the remote syslog server.
+
+   a. Modify the port by changing the value of the `UDPServerRun` entry in the `/etc/rsyslog.conf` file.
+
+   b. Confirm that the port value is the same port that the source nodes use to send log messages.
+
+5. Verify that log messages are sent by the source node, and received by the log server, through the configured port.
+ 
+   a. Use a network monitoring tool such as `tcpdump` to check.
+
+   b. Use the tool on the source and log servers, and monitor or sniff the logging port. If you use `tcpdump` to monitor outgoing traffic on the default log port, 514, you can expect to see results similar to the following example.
     
-<p>You can use different facility values from <code>local2</code> through to <code>local7</code> inclusive. For more information about facility values, see <a href="http://tools.ietf.org/html/rfc3164#section-4.1.1" target="_blank">RFC 3164 <img src="images/launch-glyph.svg" alt="External link icon"></a>. See the Facility values table below that lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
-</p>
-</li></ol></li>
-<li>Change the logging level, on the source nodes, to <code>info</code> temporarily to generate more logging activity.</li> 
-<li>After you complete your verification checks, remember to change the logging level back to the default or your preferred level.</li>
-<li>Confirm that the UDP port (default port = 514) that is used for remote logging is open on the remote syslog server.
-
-<ol type="a"><li>Modify the port by changing the value of the <code>UDPServerRun</code> entry in the <code>/etc/rsyslog.conf</code> file.</li>
-<li>Confirm that the port value is the same port that the source nodes use to send log messages.</li>
-</ol></li>
-<li>Verify that log messages are sent by the source node, and received by the log server, through the configured port.
-<ol type="a"><li>Use a network monitoring tool such as <code>tcpdump</code> to check.</li>
-<li>Use the tool on the source and log servers, and monitor or sniff the logging port. If you use <code>tcpdump</code> to monitor outgoing traffic on the default log port, 514, you can expect to see results similar to the following example.<br>
+   ```sh
+   [root@db2 tmp]# sudo tcpdump -n -s 1500 -X port 514
     
-        <pre><code>
-        [root@db2 tmp]# sudo tcpdump -n -s 1500 -X port 514
-    
-        14:33:01.995812 IP 104.131.89.154.58467 > 104.131.35.26.syslog: SYSLOG local2.notice, length: 221
-        0x0000:  4500 00f9 0000 4000 4011 ec39 6883 599a  E.....@.@..9h.Y.
-        0x0010:  6883 231a e463 0202 00e5 4eb1 3c31 3439  h.#..c....N.&lt;149
-        .....
-        0x0090:  5d20 636c 6f75 6461 6e74 4064 6232 2e61  ].cloudant@db2.a
-        0x00a0:  6e75 6a2e 6365 6e74 6f73 2e63 6c6f 7564  nuj.centos.cloud
-        0x00b0:  616e 742d 6c6f 6361 6c2e 636f 6d20 3c30  ant-local.com.&lt;0
-        0x00d0:  6120 3130 342e 3133 312e 3335 2e32 3620  a.104.131.35.26.
-        0x00e0:  756e 6465 6669 6e65 6420 4745 5420 2f20  undefined.GET./.
-        0x00f0:  3230 3020 6f6b 2033 0a                   200.ok.3.
-        </code></pre>      
-<p>In this example, the database node logs are being monitored, by watching for traffic that is associated with the facility <code>local2</code>.</p>
+   14:33:01.995812 IP 104.131.89.154.58467 > 104.131.35.26.syslog: SYSLOG local2.notice, length: 221
+   0x0000:  4500 00f9 0000 4000 4011 ec39 6883 599a  E.....@.@..9h.Y.
+   0x0010:  6883 231a e463 0202 00e5 4eb1 3c31 3439  h.#..c....N.&lt;149
+   .....
+   0x0090:  5d20 636c 6f75 6461 6e74 4064 6232 2e61  ].cloudant@db2.a
+   0x00a0:  6e75 6a2e 6365 6e74 6f73 2e63 6c6f 7564  nuj.centos.cloud
+   0x00b0:  616e 742d 6c6f 6361 6c2e 636f 6d20 3c30  ant-local.com.&lt;0
+   0x00d0:  6120 3130 342e 3133 312e 3335 2e32 3620  a.104.131.35.26.
+   0x00e0:  756e 6465 6669 6e65 6420 4745 5420 2f20  undefined.GET./.
+   0x00f0:  3230 3020 6f6b 2033 0a                   200.ok.3.
+   ```
+   {: codeblock}
 
-<p>If you are monitoring the incoming traffic on the log server at the same time, you can expect to see results similar to the following example.
+   In this example, the database node logs are being monitored, by watching for traffic that is associated with the facility `local2`.
 
-        <pre><code>
-        [root@lb1 tmp]# sudo tcpdump -n -s 1500 -X port 514
-        tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
-        listening on eth0, link-type EN10MB (Ethernet), capture size 1500 bytes
-        14:33:02.193469 IP 104.131.89.154.58467 > 104.131.35.26.syslog: SYSLOG local2.notice, length: 221
-        0x0000:  4500 00f9 0000 4000 3f11 ed39 6883 599a  E.....@.?..9h.Y.
-        0x0010:  6883 231a e463 0202 00e5 777d 3c31 3439  h.#..c....w}&lt;149
-        ......
-        0x0070:  2032 3031 342d 3130 2d30 3320 3134 3a33  .2014-10-03.14:3
-        0x0090:  5d20 636c 6f75 6461 6e74 4064 6232 2e61  ].cloudant@db2.a
-        0x00a0:  6e75 6a2e 6365 6e74 6f73 2e63 6c6f 7564  nuj.centos.cloud
-        0x00b0:  616e 742d 6c6f 6361 6c2e 636f 6d20 3c30  ant-local.com.&lt;0
-        0x00e0:  756e 6465 6669 6e65 6420 4745 5420 2f20  undefined.GET./.
-        0x00f0:  3230 3020 6f6b 2033 0a                   200.ok.3.
-        </code></pre>
-</p>
-<p><strong>Note</strong>: Other enterprise services might be sending messages to the log server through the same port. When you verify incoming traffic on the logging server, check which node or server the message came from.</p>
-</li></ol></li>
-<li>Edit <code>/etc/rsyslog.conf</code> and disable any other default rules that can cause log duplication. Log duplication occurs when log messages are written to multiple files.</li>
-<li>If it is not configured, enable automatic log rotation by using  <code>logrotate</code>.
+   If you are monitoring the incoming traffic on the log server at the same time, you can expect to see results similar to the following example.
 
-<p>For more information about <code>logrotate</code>, see
-    <a href="http://linux.die.net/man/8/logrotate" target="_blank">logrotate<img src="images/launch-glyph.svg" alt="External link icon"></a>. Use output channel
-    scripts instead of <code>logrotate</code>. For more information, see
-    <a href="https://www.rsyslog.com/doc/v8-stable/tutorials/log_rotation_fix_size.html" target="_blank">Log rotation fix size<img src="images/launch-glyph.svg" alt="External link icon"></a>.</p>
-    </li></ol>
+   ```sh
+   [root@lb1 tmp]# sudo tcpdump -n -s 1500 -X port 514
+   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+   listening on eth0, link-type EN10MB (Ethernet), capture size 1500 bytes
+   14:33:02.193469 IP 104.131.89.154.58467 > 104.131.35.26.syslog: SYSLOG local2.notice, length: 221
+   0x0000:  4500 00f9 0000 4000 3f11 ed39 6883 599a  E.....@.?..9h.Y.
+   0x0010:  6883 231a e463 0202 00e5 777d 3c31 3439  h.#..c....w}&lt;149
+   ......
+   0x0070:  2032 3031 342d 3130 2d30 3320 3134 3a33  .2014-10-03.14:3
+   0x0090:  5d20 636c 6f75 6461 6e74 4064 6232 2e61  ].cloudant@db2.a
+   0x00a0:  6e75 6a2e 6365 6e74 6f73 2e63 6c6f 7564  nuj.centos.cloud
+   0x00b0:  616e 742d 6c6f 6361 6c2e 636f 6d20 3c30  ant-local.com.&lt;0
+   0x00e0:  756e 6465 6669 6e65 6420 4745 5420 2f20  undefined.GET./.
+   0x00f0:  3230 3020 6f6b 2033 0a                   200.ok.3.
+   ```
+   {: codeblock}
+
+   Other enterprise services might be sending messages to the log server through the same port. When you verify incoming traffic on the logging server, check which node or server the message came from.
+   {: note}
+
+6. Edit `/etc/rsyslog.conf` and disable any other default rules that can cause log duplication. Log duplication occurs when log messages are written to multiple files.
+
+7. If it is not configured, enable automatic log rotation by using  `logrotate`.
+
+   For more information, see [logrotate](http://linux.die.net/man/8/logrotate). Use output channel scripts instead of `logrotate`. For more information, see [log rotation fix size](https://www.rsyslog.com/doc/v8-stable/tutorials/log_rotation_fix_size.html). 
 
 The Facility values table lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
 
@@ -955,7 +1005,6 @@ Red Hat-derived Linux distributions use the following logs:
 Configure load balancing to eliminate downtime if a load balancer
 fails to respond.
 
-
 A load balancer node assists with distributing {{site.data.keyword.cloudant_local_notm}}
 requests to enable rapid response. It is possible for a load
 balancer node to become unavailable, for example, as part of a
@@ -972,81 +1021,87 @@ the {{site.data.keyword.cloudant_local_notm}} system.
 | 10.10.50.7 | Load balancer 1 |
 {: caption="Table 5. Example load balancer configuration" caption-side="top"}
 
-<ol><li>Perform the load balancer installation task for each of the
-    load balancer systems (Load Balancer 0 and Load Balancer 1).
-    For more information, see [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).</li>
-<li>Log in to each load balancer node as the root user.</li>
-<li>Modify the <code>haproxy.cfg</code> file to identify the front-end address.</li>
-<li>Change the following line: <br> 
-    <code>listen dbfarm 0.0.0.0:80</code>  <br>
-    to:  <br>
-    <code>listen dbfarm 10.10.50.5:80</code><br>  
-    The new IP address is that of the front-end system.</li>
-<li>Install the <code>keepalived</code> application on each load balancer node
-    as the root user.
-<ol type=a>
-<li>Install <code>keepalived</code> on CentOS or RHEL by running the command:<br>
-        <code>yum install keepalived</code>
-</li>
-<li>Install <code>keepalived</code> on Debian or Ubuntu by running the command:<br>
-        <code>apt-get install keepalived</code></li>
-</ol>
-</li>
-<li>Create a <code>/etc/keepalived/keepalived.conf</code> file on each load
-    balancer by using the following lines.
+1. Perform the load balancer installation task for each of the load balancer systems (Load Balancer 0 and Load Balancer 1).
 
-<p><pre><code>
-    ! Configuration file for keepalived<br>
-    <br>
-    global_defs {<br>
-      notification_email {<br>
-        failover@domain.com<br>
-      }<br>
-      notification_email_from lb@domain.com<br>
-      smtp_server localhost<br>
-      smtp_connect_timeout 30<br>
-    }<br>
-    <br>
-    vrrp_instance VI_1 {<br>
-       state MASTER<br>
-       interface eth1<br>
-       virtual_router_id 51<br>
-       priority 100<br>
-       advert_int 1<br>
-       authentication {<br>
-           auth_type PASS<br>
-           auth_pass 1111<br>
-       }<br>
-       virtual_ipaddress {<br>
-    10.10.50.5<br>
-        }<br>
-    }<br>
-</code></pre></p></li>
-<li>Ensure that each load balancer has a unique priority value.  
-<p>For example, Load Balancer 0 might be set to priority 100
-    while Load Balancer 1 might be set to priority 101.</p></li>
-<li>Set the <code>virtual_ipaddress</code> IP to the IP address for the
-    front-end server.</li>
-<li>Configure <code>keepalived</code> so that it runs automatically when the
-    server starts.  
-<ol type=a>
-<li>Run the <code>chkconfig keepalived</code> then <code>service keepalived start</code>
-        commands to install <code>keepalived</code> on CentOS or RHEL.</li>
-<li>Run the <code>service keepalived start</code> command to install<code>keepalived</code> on Debian or Ubuntu.</li>
-</ol>
-</li>
-<li>Verify that the front-end IP address can be accessed
-    successfully by going to the IP address in a browser.</li>
-<li>Verify that load balancing is working correctly.  
-<ol type=a>
-<li>Disconnect the highest priority load balancer.</li>
-<li>Revisit the front-end IP address.</li>
-</ol>
-</li>
-<li>Reconnect the highest priority load balancer.</li>
-<li>Disconnect the lower priority load balancer.</li>
-<li>Recheck that you can access the front-end IP address successfully by going to the IP address in a browser.</li>
-</ol>
+   For more information, see [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
+
+2. Log in to each load balancer node as the root user.
+
+3. Modify the `haproxy.cfg` file to identify the front-end address.
+
+4. Change the following line:
+
+   ```sh
+   listen dbfarm 0.0.0.0:80
+    to:
+    listen dbfarm 10.10.50.5:80
+    ```
+    {: codeblock}
+
+    The new IP address is that of the front-end system.
+
+5. Install the `keepalived` application on each load balancer node as the root user.
+
+   a. Install `keepalived` on CentOS or RHEL by running the command:
+        
+      `yum install keepalived`
+
+   b. Install `keepalived` on Debian or Ubuntu by running the command:
+        
+      `apt-get install keepalived`
+
+6. Create a `/etc/keepalived/keepalived.conf` file on each load balancer by using the following lines.
+
+   ```sh
+    ! Configuration file for keepalived
+
+    global_defs {
+      notification_email {
+        failover@domain.com
+      }
+      notification_email_from lb@domain.com
+      smtp_server localhost
+      smtp_connect_timeout 30
+    }
+    
+    vrrp_instance VI_1 {
+       state MASTER
+       interface eth1
+       virtual_router_id 51
+       priority 100
+       advert_int 1
+       authentication {
+           auth_type PASS
+           auth_pass 1111
+       }
+       virtual_ipaddress {
+    10.10.50.5
+        }
+    }
+    ```
+    {: pre}
+
+7. Ensure that each load balancer has a unique priority value.  
+
+   For example, Load Balancer 0 might be set to priority 100 while Load Balancer 1 might be set to priority 101.
+
+8. Set the `virtual_ipaddress` IP to the IP address for the front-end server.
+9. Configure `keepalived` so that it runs automatically when the server starts.  
+
+   a. Run the `chkconfig keepalived` then `service keepalived start` commands to install `keepalived` on CentOS or RHEL.
+
+   b. Run the `service keepalived start` command to install `keepalived` on Debian or Ubuntu.
+
+10. Verify that the front-end IP address can be accessed successfully by going to the IP address in a browser.
+11. Verify that load balancing is working correctly.  
+
+   a. Disconnect the highest priority load balancer.
+   
+   b. Revisit the front-end IP address.
+
+12. Reconnect the highest priority load balancer.
+13. Disconnect the lower priority load balancer.
+14. Recheck that you can access the front-end IP address successfully by going to the IP address in a browser.
 
 ## Database-level security
 {: #database-level-security}
@@ -1153,22 +1208,23 @@ Follow these steps to create the example:
 
     a. Create the `_users` database.
 
-    ```
+    ```sh
     $ curl -X PUT https://loadbalancer.example.com/_users -u admin:password
     ```
+    {: codeblock}
    
     After the database is created, you receive an `{"ok":true}` message.
 
     b. Create the `member` user.
 
-       ```sh
-       $ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:member \
-       > -H "Accept: application/json" \
-       > -H "Content-Type: application/json" \
-       > -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \
-       > -u admin:password
-       ```
-       {: codeblock}
+    ```sh
+    $ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:member \
+    > -H "Accept: application/json" \
+    > -H "Content-Type: application/json" \
+    > -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \
+    > -u admin:password
+    ```
+    {: codeblock}
        
      The password for the `member` user is specified on the fourth line.
 

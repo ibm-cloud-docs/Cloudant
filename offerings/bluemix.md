@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-31"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -95,9 +95,11 @@ Throughput provision is identified and measured as one of the following types of
 
 1.	*Reads*
     (formerly called lookups) which are described in this list. 
-    1. A read of a specific document,
+    
+    a. A read of a specific document,
     based on the `_id` of the document.
-    2. A *partitioned* query,
+    
+    b. A *partitioned* query,
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint within the `_partition` namespace in the request path,
         including the following types:
@@ -108,10 +110,12 @@ Throughput provision is identified and measured as one of the following types of
     
         The number of read operations that are consumed by a partitioned query request
         varies depending on the results returned.
+
 2.	*Writes*,
     which are creation,
     modification,
     or deletion of individual documents.
+
 3.	*Global Queries* to global indexes (formerly called queries),
         which are requests that are made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint **not** within the `_partition` namespace,
@@ -295,11 +299,16 @@ This value is the storage capacity that is included in the plan. The Lite plan h
 All Lite and Standard plans are monitored for disk space used. When you use more data than the
 plan allocates, you can expect the conditions that are described in the following table to apply:
 
-| Plan | Description|
-|------|------------|
-| Lite | <ul><li>Disk usage is capped on the Lite plan at 1 GB.</li><li>After you reach the cap, you receive a warning on the {{site.data.keyword.cloudant_short_notm}} Dashboard and can't write new data. If you try to write new data, a `402: payment required` response occurs.</li> <li>To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</li></ul> | 
-| Standard | <ul><li>If the account uses more than the 20 GB of storage that is included in the Standard plan, the excess is considered 'disk overage'. Overage causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.</li><li>The cost for the amount of disk overage is calculated on an hourly basis.</li></ul> |
-{: caption="Table 3. {{site.data.keyword.cloudant_short_notm}} plans" caption-side="top"}
+Lite plan:
+
+- Disk usage is capped on the Lite plan at 1 GB.
+- After you reach the cap, you receive a warning on the {{site.data.keyword.cloudant_short_notm}} Dashboard and can't write new data. If you try to write new data, a `402: payment required` response occurs.
+- To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.
+
+Standard plan:
+
+- If the account uses more than the 20 GB of storage that is included in the Standard plan, the excess is considered 'disk overage'. Overage causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.
+- The cost for the amount of disk overage is calculated on an hourly basis.
 
 For example, assume your Standard plan increases disk usage to 107 GB for half a day (12 hours). This change means that your instance caused overflow of 87 GB more than the 20 GB plan allocation, for 12 hours.
 As the result, you are billed an overage charge based on 87 GB x 12 hours = 1044 GB hours for that extra space.

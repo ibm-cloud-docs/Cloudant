@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-26"
+lastupdated: "2020-03-31"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -150,8 +150,10 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 
    The node status must be stopped for maintenance.
 
-2. Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binary files.<br>
-   a. Uninstall the current version by running the command.<br>
+2. Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binary files.
+
+   a. Uninstall the current version by running the command.
+
       ```sh
       cast system uninstall
       ```
@@ -160,18 +162,21 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
       This command also stops the services.
       
    b. Run the InstallShield uninstall command.
+
       ```sh
       /root/cloudant/uninstall/uninstall.bin
       ```
       {: codeblock}
 
    c. Check for {{site.data.keyword.cloudant_local_notm}} processes.
+
       ```sh
       ps -ef | grep clo
       ```
       {: codeblock}
 
    d. Stop any {{site.data.keyword.cloudant_local_notm}} processes that are running.
+
       ```sh
       kill -9 (pid)
       ```
@@ -187,6 +192,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    b. Configure these values as-is in the `dbnode.yaml` file. Use encrypted or hashed values for fields `admin`, `cloudant`, `httpd_auth` and `cookie`. Leave the `uuid` and `monitor_role` values as `open_ssl`.
    
    c. After you configure the `dbnode.yaml` file, you can distribute and use it for other database node upgrades. For example, you can get a sample of `dbnode.yaml` from `/opt/cloudant/cast/samples/dbnode.yaml` and run the following command.
+
    ```sh
    cast system install --maintenance -db -c /<path_to>/dbnode.yaml
    ```
@@ -195,13 +201,14 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 4. Check status of the database node update.
 
    a. Verify the status of the database node.
+
       ```curl
       curl -X GET http://localhost:5984
       ```
       {: codeblock}
 
-      The response shows the new version.<br>
-
+      The response shows the new version.
+      
       ```sh
       {
             "couchdb": "Welcome",
@@ -219,6 +226,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
         {: codeblock}
 
    b. Verify that the database node is in maintenance mode and is not receiving traffic on the load balancer.
+
    ```sh
    cast node maintenance
    ```
@@ -256,6 +264,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    ```
 
    b. Verify that the database node is up and available for traffic from your load balancer.
+
    ```http
    https://load_balancer/_haproxy
    ```
@@ -270,7 +279,9 @@ Upgrade each {{site.data.keyword.cloudant_local_notm}} load balancer node by fol
 these steps.
 
 1. Verify that the load balancer failover works correctly when one load balancer (in a cluster of two or more load balancers) is taken offline during an upgrade.
+
 2. Uninstall the current version by running the command.
+
    ```sh
    cast system uninstall
    ```
@@ -278,6 +289,7 @@ these steps.
 
    This command also stops the services.
 3. Run the InstallShield `uninstall` command.
+
    ```sh
    /root/cloudant/uninstall/uninstall.bin
    ```
@@ -290,12 +302,14 @@ these steps.
    b. Configure the values in the `lbnode.yaml` file.
 
    You can get a sample from `/opt/cloudant/cast/samples/lbnode.yaml` file, and run the following command to install and pass the configuration.
+
    ```sh
    cast system install -lb -c /&lt;path_to&gt;/lbnode.yaml
    ```
    {: codeblock}
       
 5. Verify that the load balancer is reachable through its URL and that all cluster nodes are listed and available to receive traffic by using this URL:  
+
    ```http
    https://upgrade_node_load_balancer/_haproxy
    ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-04-01"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -39,7 +39,7 @@ submit a `GET` request with the following format:
 
 |Parameter | Description |
 |----------|-------------|
-| Method | - Issue a partition query by using the following command:<br> `GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME`.<br> - Issue a global query by using the following command:<br> `GET /$DATABASE/_design/$DDOC/_view/$VIEW_NAME` |
+| Method | Issue a partition query by using the following command, `GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME`. Or issue a global query by using the following command, `GET /$DATABASE/_design/$DDOC/_view/$VIEW_NAME`. |
 | Request | None |
 | Response | JSON of the documents that are returned by the view. |
 | Roles permitted | `_reader` |
@@ -87,8 +87,8 @@ This table shows the supported values for the following arguments:
 
 Argument | Supported values
 ---------|-----------------
-`stale` | `ok`- Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
-`update` | `true` - Return results after updating the view.<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
+`stale` | `ok`- Allow stale views. <br/> `update_after` - Allow stale views, but update them immediately after the request.
+`update` | `true` - Return results after updating the view.<br/> `false` - Return results without updating the view. <br/> `lazy` - Return the view results without waiting for an update, but update them immediately after the request.
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}

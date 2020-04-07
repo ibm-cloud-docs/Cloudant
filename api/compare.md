@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-30"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -40,25 +40,6 @@ rewrites from the JavaScript function.
 
 For more information about a specific endpoint on a service,
 click the corresponding link.
-
-<!--
-Removed for 96973.
-<tr>
-<td><code>GET&nbsp;/\_api/v2/user/virtual\_hosts</code><p>
-<a href='vhosts.html#listing-virtual-hosts' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
-</p></td><td>List all virtual hosts.</td>
-</tr>
-<tr>
-<td><code>POST&nbsp;/\_api/v2/user/virtual\_hosts</code><p>
-<a href='vhosts.html#creating-a-virtual-host' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
-</p></td><td>Create a virtual host.</td>
-</tr>
-<tr>
-<td><code>DELETE&nbsp;/\_api/v2/user/virtual\_hosts</code><p>
-<a href='vhosts.html#deleting-a-virtual-host' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
-</p></td><td>Delete a virtual host.</td>
-</tr>
--->
 
 | Endpoint & Links | Description |
 |------------------|-------------|
