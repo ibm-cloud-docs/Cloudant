@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-27"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -291,37 +291,47 @@ directories in the following locations.
 *  The software is installed in a directory named `/opt/cloudant`.
 *  The database is installed in a directory named `/srv/cloudant`.
 
+To change the default directories, follow these steps:
 
-<ol><li>Move these directories, if needed, to another drive or
+1. Move these directories, if needed, to another drive or
     partition by creating at least one mount point for the
     {{site.data.keyword.cloudant_short_notm}} software and database directories.
-<ol type=a><li>If you want the {{site.data.keyword.cloudant_short_notm}} software and database directories on the same mount point, create one mount point for the two directories.</li>
-<li>If you want the {{site.data.keyword.cloudant_short_notm}} software and database directories on separate mount points, create two mount points, one for the software directory and another for the database directory.
-</li></ol>
-</li>
-<li>(Optional) Move the database location by running <code>cast database relocate</code>.
-<ol type=a><li>Display the help text by running the help command, <code>cast database relocate --help</code>.
-</li>
-<li>Ensure that the new directory location is owned by `cloudant:cloudant` and is applied to all database nodes with the same path and name.</li>
-</ol></li> 
-<li>Create the following {{site.data.keyword.cloudant_short_notm}} directories on at least one mount point.
-<p>To install {{site.data.keyword.cloudant_local_notm}} on a mount point, or move the
-    product to a mount point after it is installed, install
-    {{site.data.keyword.cloudant_local_notm}} on a partition other than your root partition.</p>
-<ol type=a><li>Make an {{site.data.keyword.cloudant_short_notm}} software directory named <code>/<your_mount_point>/opt/</code>.
-<p>The <code>/cloudant</code> directory is automatically appended.</p></li>
-<li>Make an {{site.data.keyword.cloudant_short_notm}} database directory named <code>/<your_mount_point>/srv/cloudant</code>.
-<p>The <code>/cloudant</code> directory is automatically appended.</p>
-<p>For example, if your mount point for both directories is <code>/export/local</code>, use the following commands to create the
-    {{site.data.keyword.cloudant_short_notm}} directories.</p>
-<p>The first command makes the {{site.data.keyword.cloudant_short_notm}} software directory on the mount point. The second command makes the {{site.data.keyword.cloudant_short_notm}} database directory on the mount point. You can put both directories on one mount point, or you can put the two directories on separate mount points.
-</p>
-<p><code>mkdir /export/local/opt/cloudant</code></p>
-<p><code>mkdir /export/local/srv/cloudant</code></p></li>
-</ol></li>
 
-<li>Install {{site.data.keyword.cloudant_local_notm}} on each database or load balancer node in your implementation. For more information, see [Installing a cluster](#installing-a-cluster-install).</li>   
-</ol>
+   a. If you want the {{site.data.keyword.cloudant_short_notm}} software and database directories on the same mount point, create one mount point for the two directories.
+   
+   b. If you want the {{site.data.keyword.cloudant_short_notm}} software and database directories on separate mount points, create two mount points, one for the software directory and another for the database directory.
+
+2. (Optional) Move the database location by running `cast database relocate`.
+
+   a. Display the help text by running the help command, `cast database relocate --help`.
+
+   b. Ensure that the new directory location is owned by `cloudant:cloudant` and is applied to all database nodes with the same path and name.
+   
+3. Create the following {{site.data.keyword.cloudant_short_notm}} directories on at least one mount point.
+
+   To install {{site.data.keyword.cloudant_local_notm}} on a mount point, or move the product to a mount point after it is installed, install {{site.data.keyword.cloudant_local_notm}} on a partition other than your root partition.
+
+   a. Make an {{site.data.keyword.cloudant_short_notm}} software directory named `/<your_mount_point>/opt/`.
+
+   The `/cloudant` directory is automatically appended.
+   
+   b. Make an {{site.data.keyword.cloudant_short_notm}} database directory named `/<your_mount_point>/srv/cloudant`.
+
+   The `/cloudant` directory is automatically appended.
+   For example, if your mount point for both directories is `/export/local`, use the following commands to create the {{site.data.keyword.cloudant_short_notm}} directories.
+   The first command makes the {{site.data.keyword.cloudant_short_notm}} software directory on the mount point. The second command makes the {{site.data.keyword.cloudant_short_notm}} database directory on the mount point. You can put both directories on one mount point, or you can put the two directories on separate mount points.
+
+   ```sh
+   mkdir /export/local/opt/cloudant
+   ```
+   {: codeblock}
+
+   ```sh
+   mkdir /export/local/srv/cloudant
+   ```
+   {: codeblock}
+
+4. Install {{site.data.keyword.cloudant_local_notm}} on each database or load balancer node in your implementation. For more information, see [Installing a cluster](#installing-a-cluster-install).
 
 ### Verifying node configuration
 {: #verifying-node-configuration}
@@ -340,30 +350,38 @@ verify that the node is named and configured correctly. The
 such as `db1.domain.com`. If the displayed host name is incorrect,
 select from the following instructions.
 
-<ol><li>If your operating system is Red Hat or CentOS, follow these steps.
-<ol type="a">
-<li>Append the following line to the <code>/etc/hosts</code> file on each node.
-<p><code>node IP address</code></p>
-<p><code>hostname</code></p>
+1. If your operating system is Red Hat or CentOS, follow these steps.
 
-<ul type="1">
-<li>Specify the external IP address for the node, <code>node IP address</code>, not the loop-back interface IP address.</li>
-<li>Specify the appropriate host name, <code>hostname</code>, such as the one in the following example.
-<p><code>107.170.185.247 db2.millay-centos65-cloudant-local.com</code></p></li></ul></li>
+   a. Append the following line to the `/etc/hosts` file on each node.
 
-<li>Confirm that the correct host name is specified in the <code>/etc/sysconfig/network</code> file.</li>
-<li>Use the <code>hostname -f</code> command to confirm that the name is correct.</li>
-<li>If the host name is correct, restart the server for the new entry to take effect. If not, correct the invalid host name.</li></ol>
-</li>
+   ```sh
+   node IP address
+   hostname
+   ```
+   {: codeblock}
 
-<li>If your operating system is Debian or Ubuntu, confirm that your DNS entries are set up correctly and follow these steps.
-<ol type=a>
-<li>In the <code>/etc/hosts</code> file, edit the line that starts with <code>127.0.1.1</code> and change the entry to suit your environment as in the following example.
-<p><code>127.0.1.1 db1.clustername.domain.net db1</code></p></li>
-<li>Edit the <code>/etc/hostname</code> file and change the content of that file to reflect the short-form host name. Do not change the fully qualified name. For example, in the previous step, the short-form host name is <code>db1</code>.
-</li>
-<li>Run the <code>sudo hostname --file /etc/hostname</code> command to update the operating system host name, based on the name that is specified in the <code>/etc/hostname</code> file.</li>
-<li>Confirm that the correct host name is specified with the <code>hostname -f</code> command. If the specified host name is incorrect, correct it and repeat the previous step.</li></ol></li></ol>
+   - Specify the external IP address for the node, `node IP address`, not the loop-back interface IP address.
+   - Specify the appropriate host name, `hostname`, such as the one in the following example.
+
+   `107.170.185.247 db2.millay-centos65-cloudant-local.com`
+
+   b. Confirm that the correct host name is specified in the `/etc/sysconfig/network` file.
+
+   c. Use the `hostname -f` command to confirm that the name is correct.
+
+   d. If the host name is correct, restart the server for the new entry to take effect. If not, correct the invalid host name.
+
+2. If your operating system is Debian or Ubuntu, confirm that your DNS entries are set up correctly and follow these steps.
+
+   a. In the `/etc/hosts` file, edit the line that starts with `127.0.1.1` and change the entry to suit your environment as in the following example.
+
+   `127.0.1.1 db1.clustername.domain.net db1`
+
+   b. Edit the `/etc/hostname` file and change the content of that file to reflect the short-form host name. Do not change the fully qualified name. For example, in the previous step, the short-form host name is `db1`.
+
+   c. Run the `sudo hostname --file /etc/hostname` command to update the operating system host name, based on the name that is specified in the `/etc/hostname` file.
+
+   d. Confirm that the correct host name is specified with the `hostname -f` command. If the specified host name is incorrect, correct it and repeat the previous step.
 
 You can configure your database nodes for either local logging or remote logging to a separate syslog logging server. The default setting is local, but the local setting is recommended only in test environments. In a production environment, you must use remote logging to ensure optimum system performance. If you want to set up logging, see [Configuring logging](/docs/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-logging).
 {: note}
@@ -448,21 +466,19 @@ meets the following requirements.
 *  The {{site.data.keyword.cloudant_local_notm}} installation on RHEL/CentOS systems
    requires that you enable the EPEL repository.
 
-   *  If the repository is not already enabled on your system,
-      run this command to install and enable EPEL.
+*  If the repository is not already enabled on your system, run this command to install and enable EPEL.
 
-      ``` sh
-      sudo yum -y install epel-release
-      ```
-      {:codeblock}
+   ``` sh
+   sudo yum -y install epel-release
+   ```
+   {:codeblock}
       
-   *  When the installation is complete,
-      you can remove EPEL with this command.
+*  When the installation is complete, you can remove EPEL with this command.
 
-      ``` sh
-      sudo yum erase epel-release
-      ```
-      {:codeblock}
+   ``` sh
+   sudo yum erase epel-release
+   ```
+   {:codeblock}
 
 #### Installing {{site.data.keyword.cloudant_local_notm}} packages
 {: #installing-ibm-cloudant-local-packages}
@@ -470,37 +486,45 @@ meets the following requirements.
 To install (or uninstall) {{site.data.keyword.cloudant_local_notm}}, you must be a root
 user or use the `sudo` command.
 
-<ol>
-<li>Download the self-extracting archive file for the OS version you want to
-   install.</li>
-<li>Ensure that the self-extracting archive file has executable permissions,
-   and if not, change the mode to execute by running this command.
-<p><code>chmod +x cloudant-1.1.0-984-el6-x86_64.bin</code></p></li>
-<li>Install the {{site.data.keyword.cloudant_local_notm}} packages (<code>cloudant-<em>version</em>-<em>os</em>-<em>arch</em>.bin</code>) and install CAST.
-<ol type="a"><li>To install the {{site.data.keyword.cloudant_local_notm}} packages by using an interactive wizard, run the following command.
-<p><code>./cloudant-1.1.0-984-el6-x86_64.bin</code></p></li>
-<li>To install the {{site.data.keyword.cloudant_local_notm}} packages (<code>cloudant-<em>version</em>-<em>os</em>-<em>arch</em>.bin</code>) silently, and implicitly accept the {{site.data.keyword.IBM_notm}} License Agreement, run the following command. The properties file you specify determines whether this instance of {{site.data.keyword.cloudant_local_notm}} is used for production or development purposes.
-<p><code>./cloudant-1.1.0-984-el6-x86_64.bin -- -s</code></p></li></ol></li>
-</ol>
+1. Download the self-extracting archive file for the OS version you want to install.
+2. Ensure that the self-extracting archive file has executable permissions, and if not, change the mode to execute by running this command.
+
+   `chmod +x cloudant-1.1.0-984-el6-x86_64.bin`
+
+3. Install the {{site.data.keyword.cloudant_local_notm}} packages (`cloudant-<version>-<os>-<arch>.bin`) and install CAST.
+
+   a. To install the {{site.data.keyword.cloudant_local_notm}} packages by using an interactive wizard, run the following command.
+
+   `./cloudant-1.1.0-984-el6-x86_64.bin`
+
+4. To install the {{site.data.keyword.cloudant_local_notm}} packages (`cloudant-<version>-<os>-<arch>.bin`) silently, and implicitly accept the {{site.data.keyword.IBM_notm}} License Agreement, run the following command. The properties file you specify determines whether this instance of {{site.data.keyword.cloudant_local_notm}} is used for production or development purposes.
+
+   `./cloudant-1.1.0-984-el6-x86_64.bin -- -s`
 
 ### Installing the first database node
 {: #installing-the-first-database-node}
 
 Install and configure the first database node in the cluster.
 
-<ol><li>Run the CAST installation command to install the first
+1. Run the CAST installation command to install the first
    database node of the cluster.
-<p><pre>
-   cast system install -p dbadmin_password -db
-</pre></p>
-    <p>Here are the options for the first database node:
-    <ol><li>`-db` or `--dbnode` is the flag to install a database node.</li>
-    <li>`-p` or `--password` is an optional flag to specify the database admin password. If you don't provide a password, the password defaults to `pass`.</li></ol>
-</p></li>
-<li>Run the <code>export</code> command to export configuration values to a file.
-<pre>cast cluster export cluster_dbnode.yaml</pre>
-<p><strong>Note</strong>: For each additional database node in the cluster, you must use the same configuration file. To join the nodes together into a cluster, the configuration file must be the same on each host and contain the same passwords and cookie values for each user.</p></li>
-<li>Copy the resulting <code>cluster_dbnode.yaml</code> file to a place that is accessible when you install more database nodes.</li></ol>
+
+   `cast system install -p dbadmin_password -db`
+
+   Here are the options for the first database node:
+   
+   a. `-db` or `--dbnode` is the flag to install a database node.
+   
+   b. `-p` or `--password` is an optional flag to specify the database admin password. If you don't provide a password, the password defaults to `pass`.
+
+2. Run the `export` command to export configuration values to a file.
+   
+   `cast cluster export cluster_dbnode.yaml`
+
+   For each additional database node in the cluster, you must use the same configuration file. To join the nodes together into a cluster, the configuration file must be the same on each host and contain the same passwords and cookie values for each user.
+   {: note}
+
+3. Copy the resulting `cluster_dbnode.yaml` file to a place that is accessible when you install more database nodes.
 
 ### Installing additional database nodes
 {: #installing-additional-database-nodes}
@@ -610,12 +634,12 @@ Install and configure each load balancer node in the cluster by
 following these steps.
 
 1. Install a load balancer node by running the following command:
-    ```sh
-    cast system install -lb
-    ```
-    {: codeblock}
+   ```sh
+   cast system install -lb
+   ```
+   {: codeblock}
 
-    The options for the load balancer node are `-lb` or `--lbnode`, which is the flag to install a load   balancer node. 
+   The options for the load balancer node are `-lb` or `--lbnode`, which is the flag to install a load   balancer node. 
 
 2. Copy the load balancer node configuration file, `/opt/cloudant/cast/samples/lbnode.yaml`.
 3. Update the host name and IP address values for each database node in the cluster under the Nodes section of the configuration file.
@@ -678,10 +702,13 @@ This implementation is not recommended for a production environment.
 
    * `-db` or `--dbnode`
      Flag to install a database node.
+
    * `-lb` or `--lbnode`
-     Flag to install a load balancer node.<br>
+     Flag to install a load balancer node.
+
    * `-p` or `--password`
      (Optional) Flag to set the database admin password. If you do not provide a password, the password defaults to `pass`.
+
 2. Run the following command to initialize the single node cluster:
    ```sh
    cast cluster init
@@ -722,44 +749,48 @@ Before you begin, you must configure access to the following external repositori
 
 For Red Hat and CentOS platforms, you must bundle the dependencies and transfer them to the offline system.
 
-<ol>
-<li>Log in to your Red Hat online system to install the Red Hat dependencies.
-<ol type="a"> 
-<li>Install the EPEL repository.
-<p><code>yum install epel-release</code>
-</p></li>
-<li>Run the {{site.data.keyword.cloudant_short_notm}} Self-Extracting Archive. See [Installing {{site.data.keyword.cloudant_local_notm}} packages](#installing-ibm-cloudant-local-packages).
-<p><code>./cloudant-<version>-<os>-<arch>.bin</code>
-</p></li>
-</ol>
-</li>
-<li>Bundle the dependencies into a compressed (tar) file by running the following commands.
-<p>
-<pre><code>yum install createrepo
-mkdir cloudant-deps
-yum reinstall -y --downloadonly --downloaddir=cloudant-deps cloudant-dbnode cloudant-lbnode iptables-services python2-pip
-createrepo cloudant-deps
-tar -czvf cloudant-deps.tar.gz cloudant-deps</code></pre>
-</p></li>
-<li>Copy the file to the offline system.
-<p>
-<code>cp cloudant-deps.tar.gz offline.system.com:/tmp</code></p></li>
-<li>Log in to the offline system.</li>
-<li>Set up the repository for the {{site.data.keyword.cloudant_short_notm}} dependencies.
-<p>
-<pre><code>cd /tmp
-tar -xvf cloudant-deps.tar.gz
-<br>
-echo "[cloudant-deps]" >> /etc/yum.repos.d/cloudant-deps.repo
-echo "name=IBM, Cloudant Dependencies" >> /etc/yum.repos.d/cloudant-deps.repo
-echo "baseurl=file:///tmp/cloudant-deps" >> /etc/yum.repos.d/cloudant-deps.repo
-echo "enabled = 1" >> /etc/yum.repos.d/cloudant-deps.repo<
-echo "gpgcheck = 0" >> /etc/yum.repos.d/cloudant-deps.repo
-<br>
-yum clean all</code></pre>
-</p>
-</li></ol>
+1. Log in to your Red Hat online system to install the Red Hat dependencies.
 
+   a. Install the EPEL repository.
+
+   `yum install epel-release`
+
+   b. Run the {{site.data.keyword.cloudant_short_notm}} Self-Extracting Archive. See [Installing {{site.data.keyword.cloudant_local_notm}} packages](#installing-ibm-cloudant-local-packages).
+
+   `./cloudant-<version>-<os>-<arch>.bin`
+
+2. Bundle the dependencies into a compressed (tar) file by running the following commands.
+
+   ```sh
+   yum install createrepo
+   mkdir cloudant-deps
+   yum reinstall -y --downloadonly --downloaddir=cloudant-deps cloudant-dbnode cloudant-lbnode iptables-services python2-pip
+   crexaterepo cloudant-deps
+   tar -czvf cloudant-deps.tar.gz cloudant-deps
+   ```
+   {: codeblock}
+
+3. Copy the file to the offline system.
+
+   `cp cloudant-deps.tar.gz offline.system.com:/tmp`
+   
+4. Log in to the offline system.
+
+5. Set up the repository for the {{site.data.keyword.cloudant_short_notm}} dependencies.
+
+   ```sh
+   cd /tmp
+   tar -xvf cloudant-deps.tar.gz
+
+   echo "[cloudant-deps]" >> /etc/yum.repos.d/cloudant-deps.repo
+   echo "name=IBM, Cloudant Dependencies" >> /etc/yum.repos.d/cloudant-deps.repo
+   echo "baseurl=file:///tmp/cloudant-deps" >> /etc/yum.repos.d/cloudant-deps.repo
+   echo "enabled = 1" >> /etc/yum.repos.d/cloudant-deps.repo<
+   echo "gpgcheck = 0" >> /etc/yum.repos.d/cloudant-deps.repo
+
+   yum clean all
+   ```
+   {: codeblock}
 
 #### Installing SUSE dependencies
 {: #installing-suse-dependencies}
@@ -767,38 +798,56 @@ yum clean all</code></pre>
 You must bundle the SUSE dependencies and transfer them to the
 offline system.
 
-<ol>
-<li>Log in to your SUSE online system to install the SUSE dependencies.
-<ol type="a">
-<li>Download <code>pip-9.0.1.tar.gz</code> file from <a href="https://pypi.org/project/pip/" target="_blank">PiPI <img src="images/launch-glyph.svg" alt="External link icon"></a>.</li>
-<li>Install <code>python-pip</code>.
-<p><pre><code>tar -xvf pip-9.0.1.tar.gz
-cd pip-9.0.1.tar.gz
-python setup.py install</code></pre>
-</p></li>
-<li>Run the {{site.data.keyword.cloudant_short_notm}} self-extracting archive.
-<p><code>./cloudant-&lt;version&gt;-&lt;os&gt;-&lt;arch&gt;.bin</code></p></li>
-</ol>
-<li>Download and bundle the dependencies into a compressed (tar) file by running the following commands.
-<p><pre><code>zypper -n install createrepo
-mkdir cloudant-deps
-zypper --pkg-cache-dir=cloudant-deps download java-1_7_0-openjdk java-1_7_0-openjdk-headless java-1_7_0-openjdk-devel curl rsyslog lcms2 timezone-java python-setuptools python-base python-pip python-setuptools
-createrepo cloudant-deps
-tar -czvf cloudant-deps.tar.gz cloudant-deps</code></pre</p></li>
-<li>Copy the compressed (tar) file to the offline system.
-<p><pre><code>scp cloudant-deps.tar.gz <var>offline.system.com</var>:/tmp
-scp pip-9.0.1.tar.gz <var>offline.system.com</var>:/tmp</code></pre></p></li>
-<li>Log in to the offline system.</li>
-<li>Set up the repository for the {{site.data.keyword.cloudant_short_notm}} dependencies.
-<p><pre><code>cd /tmp
-tar -xvf cloudant-deps.tar.gz
-zypper -n addrepo —no-gpgcheck /tmp/cloudant-deps cloudant-deps
-zypper refresh
-zypper install python-pip
-tar -xvf pip-9.0.1.tar.gz
-cd pip-9.0.1
-python setup.py install</code></pre></p></li>
-</ol>
+1. Log in to your SUSE online system to install the SUSE dependencies.
+
+   a. Download `pip-9.0.1.tar.gz` file from [PiPI](https://pypi.org/project/pip/).
+
+   b. Install `python-pip`.
+
+   ```sh
+   tar -xvf pip-9.0.1.tar.gz
+   cd pip-9.0.1.tar.gz
+   python setup.py install
+   ```
+   {: codeblock}
+   
+   c. Run the {{site.data.keyword.cloudant_short_notm}} self-extracting archive.
+
+   `./cloudant-<version>-<os>-<arch>.bin`
+
+2. Download and bundle the dependencies into a compressed (tar) file by running the following commands.
+
+   ```sh
+   zypper -n install createrepo
+   mkdir cloudant-deps
+   zypper --pkg-cache-dir=cloudant-deps download java-1_7_0-openjdk java-1_7_0-openjdk-headless java-1_7_0-openjdk-devel curl rsyslog lcms2 timezone-java python-setuptools python-base python-pip python-setuptools
+   createrepo cloudant-deps
+   tar -czvf cloudant-deps.tar.gz cloudant-deps
+   ```
+   {: codeblock}
+
+3. Copy the compressed (tar) file to the offline system.
+
+   ```sh
+   cloudant-deps.tar.gz <offline.system.com>:/tmp
+   scp pip-9.0.1.tar.gz <offline.system.com>:/tmp
+    ```
+   {: codeblock}
+
+4. Log in to the offline system.
+5. Set up the repository for the {{site.data.keyword.cloudant_short_notm}} dependencies.
+
+   ```sh
+   cd /tmp
+   tar -xvf cloudant-deps.tar.gz
+   zypper -n addrepo —no-gpgcheck /tmp/cloudant-deps cloudant-deps
+   zypper refresh
+   zypper install python-pip
+   tar -xvf pip-9.0.1.tar.gz
+   cd pip-9.0.1
+   python setup.py install
+   ```
+   {: codeblock}
 
 #### Installing Ubuntu dependencies
 {: #installing-ubuntu-dependencies}
@@ -820,7 +869,7 @@ Retrieve the Ubuntu dependencies from the Ubuntu online system.
 
 3.  Run the self-extracting archive.
     
-    <code>./cloudant-&lt;version&gt;-&lt;os&gt;-&lt;arch&gt;.bin</code>
+    `./cloudant-<version>-<os>-<arch>.bin`
 
 4.  Retrieve the remaining dependencies that are required by the self-extracting archive/CAST tool.
     
@@ -939,7 +988,7 @@ you must run the self-extracting archive.
     ```
     {:codeblock}
 
-4.  Only perform this step on an Ubuntu system.</cmd>
+4.  Only perform this step on an Ubuntu system.
     
     ``` sh
     cd /tmp
@@ -1008,32 +1057,29 @@ was successfully installed on each load balancer.
 
 4.  Enter your database administration credentials at the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
-    When you successfully authenticate to the {{site.data.keyword.cloudant_local_notm}}
-     Dashboard, your installation is complete.
+   When you successfully authenticate to the {{site.data.keyword.cloudant_local_notm}} Dashboard, your installation is complete.
     
 ## Uninstalling {{site.data.keyword.cloudant_local_notm}}
 {: #uninstalling-ibm-cloudant-local}
 
 Uninstall {{site.data.keyword.cloudant_local_notm}} with the `cast system uninstall` command.
 
-<ol>
-<li>Stop the database node before you run the <code>cast system uninstall</code> command.
-<p><code>cast node stop</code></p></li>
-<li>To uninstall {{site.data.keyword.cloudant_local_notm}}, log in with the same user
-    ID that you used during your first installation.
-    For example, if you installed {{site.data.keyword.cloudant_local_notm}} as the
-    root user, you must uninstall {{site.data.keyword.cloudant_local_notm}} as the
-    root user.</li>
-<li>Run the <code>cast system uninstall</code> command to uninstall {{site.data.keyword.cloudant_local_notm}} services and the CAST tool.
-    <p><code>cast system uninstall</code></p></li>
-<li>Verify that no processes are running. If any processes are running, reboot the system to clean up hanging processes.
-<ol type="a">
-<li>Log in as the root user or a user with sudo privileges.</li>
-<li>Run the <code>sudo reboot</code> command.
-<p><code>sudo reboot</code></p>
-</li>
-</ol><p>{{site.data.keyword.cloudant_local_notm}} is uninstalled.</p>
-</li>
-</ol>
+1. Stop the database node before you run the `cast system uninstall` command.
+
+   `cast node stop`
+
+2. To uninstall {{site.data.keyword.cloudant_local_notm}}, log in with the same user ID that you used during your first installation.For example, if you installed {{site.data.keyword.cloudant_local_notm}} as the root user, you must uninstall {{site.data.keyword.cloudant_local_notm}} as the root user.
+
+3. Run the `cast system uninstall` command to uninstall {{site.data.keyword.cloudant_local_notm}} services and the CAST tool.
+
+   `cast system uninstall`
+
+3. Verify that no processes are running. If any processes are running, reboot the system to clean up hanging processes.
+
+   a. Log in as the root user or a user with sudo privileges.
+
+   b. Run the `sudo reboot` command.
+
+4. {{site.data.keyword.cloudant_local_notm}} is uninstalled.
 
 

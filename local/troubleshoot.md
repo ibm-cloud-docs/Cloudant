@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-04-03"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -431,19 +431,24 @@ To collect log files from different nodes, port 22 must be open.
 Edit the `mustgather.ini` file and update the information on the
 node where you want to run the tool.
 
-<ol>
-<li>Open the <code>mustgather.ini</code> file.</li>
-<li>Update the following information on the node where you want to
-    run the tool.
-<ol type=a>
-<li>Update the nodes in the <code>[cluster]</code> section of the file
-        with the information for your cluster nodes.
-<p><strong>Note</strong>: Specify multiple nodes in the cluster by entering a comma-separated node name. The node name can either be the host name or the IP address. If you specify a host name, make sure to update the <code>hosts</code> file as shown in the example.</p>
-<p><pre><code>nodes: db1.cloudant-local.com,db2.cloudant-local.com,db3.cloudant-local.com,lb1.cloudant-local.com</code></pre>
-<pre><code>nodes: 192.168.1.100,192.168.1.101,192.168.1.102,192.168.1.103</code></pre></li>
-<li>(Optional) Update the other information in the <code>[cluster]</code> section.</li>
-</ol></li>
-</ol>
+1. Open the `mustgather.ini` file.
+2. Update the following information on the node where you want to run the tool.
+
+   a. Update the nodes in the `[cluster]` section of the file with the information for your cluster nodes.
+
+   b. Specify multiple nodes in the cluster by entering a comma-separated node name. The node name can either be the host name or the IP address. If you specify a host name, make sure to update the `hosts` file as shown in the example.
+
+   ```sh
+   nodes: db1.cloudant-local.com,db2.cloudant-local.com,db3.cloudant-local.com,lb1.cloudant-local.com
+   ```
+   {: codeblock}
+
+   ```sh
+   nodes: 192.168.1.100,192.168.1.101,192.168.1.102,192.168.1.103
+   ```
+   {: codeblock}
+
+   (Optional) Update the other information in the `[cluster]` section.
 
 ### Running the MustGather tool
 {: #running-the-mustgather-tool}
@@ -454,15 +459,18 @@ tool to collect your system data and send it to {{site.data.keyword.IBM_notm}} S
 You must have root privileges to run the MustGather tool.
 {: important}
 
-<ol>
-<li>Run the MustGather tool by using the following command.
-<ol type=a>
-<li>Add the root SSH private keys to all nodes, including
-        database nodes and load-balancer nodes.</li>
-<li>Copy the SSH public keys to the
-        <code>/root/.ssh/authorized_keys</code> file.</li>
-<li>Turn off <code>StrictHostChecking</code>.
-<p><pre><code>mustgather --help
+1. Run the MustGather tool by using the following command.
+
+   a. Add the root SSH private keys to all nodes, including
+        database nodes and load-balancer nodes.
+
+   b. Copy the SSH public keys to the
+        `/root/.ssh/authorized_keys` file.
+
+   c. Turn off `StrictHostChecking`.
+
+   ``` sh
+    mustgather --help
     usage: mustgather [-h] [-n NODES] [-o OUTPUT_DIR]
                    
     mustgather - Gathers diagnostic data for an {{site.data.keyword.cloudant_short_notm}} cluster.
@@ -470,27 +478,32 @@ You must have root privileges to run the MustGather tool.
     -h, --help       Show this help message and exit.
     -n  NODES        Comma-separated list of host names for the cluster nodes that you can configure as the list of nodes for MustGather to use.
     -k KEY_FILE      The SSH private key file. If the SSH key is not in the default ~/.ssh directory, you can specify this option, for example, ~/sample/id_rsa.
-    -o  OUTPUT_DIR   Directory where the output tar file is created.</code></pre></p></li></ol>
-</li>
-<li>Run the MustGather tool with option <code>-n</code> or option <code>-o</code>.
+    -o  OUTPUT_DIR   Directory where the output tar file is created.
+    ```
+    {: pre}
 
-<ol type=a>
-<li>Update the <code>mustgather.ini</code> file to specify the nodes with
-        option <code>-n</code>. 
-<ul><li>Specify the <code>-n</code> option the first time you run the
-            MustGather tool.</li>
-<li>Do not specify option <code>-n</code> for any subsequent runs
+2. Run the MustGather tool with option `-n` or option `-o`.
+
+   a. Update the `mustgather.ini` file to specify the nodes with
+        option `-n`. 
+
+   - Specify the `-n` option the first time you run the
+            MustGather tool.
+
+   - Do not specify option `-n` for any subsequent runs
             unless the node information changes from the previous
-            run.</li></ul>
-</li>
-<li>Update the <code>mustgather.ini</code> file to specify the nodes with
-        option <code>-o</code>.
-<ul><li>The <code>mustgather.tar</code> file is saved to the output
-           directory when option <code>-o</code> is specified.</li>
-<li>The <code>mustgather.tar</code> file is saved to the current
-            directory when option <code>-o</code> is not specified.</li></ul></li></ol>
-<li>After you run the tool, send the <code>tar</code> file to IBM support.</li>
-</ol>
+            run.
+
+   b. Update the `mustgather.ini` file to specify the nodes with
+        option `-o`.
+
+   - The `mustgather.tar` file is saved to the output
+           directory when option `-o` is specified.
+
+   - The `mustgather.tar` file is saved to the current
+            directory when option `-o` is not specified.
+            
+3. After you run the tool, send the `tar` file to {{site.data.keyword.IBM_notm}} support.
 
 ## Monitor cluster health with Weatherreport
 {: #monitor-cluster-health-with-weatherreport}
@@ -574,14 +587,17 @@ $ /opt/cloudant/bin/weatherreport --help
 ### `memory_use`
 {: #-memory_use-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 You can check the amount of free RAM on a dbcore node with `memory_use`.
 
-*What does an error for this check mean?*<br/>
+*What does an error for this check mean?*
+
 A node is running out of RAM. The `oom` might stop dbcore
 soon, which can cause externally visible errors.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 It is worth attending to this problem quickly. You can
 check the memory graphs in the metrics application to
 see how urgent it is and whether memory use is
@@ -702,7 +718,8 @@ processes as you can see in the following list.
 #### `couch_db_updater`
 {: #-couch_db_updater-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This check monitors the message queues of the various
 `couch_db_updater` processes. These processes manage
 access to a logical database; one `couch_db_updater`
@@ -714,7 +731,8 @@ failing or backed up `couch_db_updater` process is likely
 to cause externally visible problems and must be acted
 upon.
 
-*How can I confirm the failure?*<br/>
+*How can I confirm the failure?*
+
 SSH to the node where the failure occurred and create
 the following function in a remsh.
 
@@ -756,7 +774,8 @@ Next, get a list of PIDs.
 This command returns a list of PIDs with long > 1000
 message queues.
 
-*How can I remediate the failure?*<br/>
+*How can I remediate the failure?*
+
 It is worthwhile to be patient in remediating this type
 of failure because it is possible for the processes to
 recover on their own. If you observe a process with a
@@ -774,7 +793,8 @@ remsh command to stop all backed-up CouchDB updaters.
 ```
 {: codeblock}
 
-*How can I verify the remediation?*<br/>
+*How can I verify the remediation?*
+
 Confirm that the list of backed up CouchDB updaters is
 empty.
 
@@ -787,7 +807,8 @@ empty.
 #### `couch_file`
 {: #-couch_file-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This check monitors the message queues of the various
 couch_file processes. These processes manage access to a logical database. One `couch_file` process exists for each open database shard, and one `couch_file` process exists for each open view shard.
 
@@ -796,7 +817,8 @@ to process messages as fast as it receives them. When
 this problem occurs, you must stop the process because
 the process might not recover.
 
-*How can I confirm the failure?*<br/>
+*How can I confirm the failure?*
+
 SSH to the node where the failure occurred and create
 the following function in a remsh.
 
@@ -837,7 +859,8 @@ queues.
 ```
 {: codeblock}
 
-*How can I remediate the failure?*<br/>
+*How can I remediate the failure?*
+
 In remsh, run this command to stop all processes in the
 list.
 
@@ -847,7 +870,8 @@ list.
 ```
 {: codeblock}
 
-*How can I verify the remediation?*<br/>
+*How can I verify the remediation?*
+
 Use the same remsh function that you used to identify
 the tired processes. This command returns an empty list.
 
@@ -857,25 +881,29 @@ the tired processes. This command returns an empty list.
 ```
 {: codeblock}
 
-*When do I escalate the page?*<br/>
+*When do I escalate the page?*
+
 If you are paged multiple times for a cluster, that is,
 the issue is recurring, escalate the page.
 
 #### `couch_server`
 {: #-couch_server-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This function checks whether the `couch_server` message
 queues are growing larger, which indicates that they are
 backing up.
 
-*What does it mean when it fails?*<br/>
+*What does it mean when it fails?*
+
 The `couch_server` is on the critical path for many RPC
 calls. The overall effect of a backed up `couch_server` is
 dramatically increased latency on a subset of requests.
 For example, requests that are on a critical path.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 First, use the metrics application and check whether the
 incident is ongoing or a spike. If it is a spike that is
 subsiding, no further action is required. If it is not
@@ -889,7 +917,8 @@ exit(whereis(couch_server), kill). src
 #### `ddoc_cache_opener`
 {: #-ddoc_cache_opener-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 The `ddoc_cache_opener` message queue is backing up. Use
 this command from a remsh to monitor the queue directly.
 
@@ -898,11 +927,13 @@ process_info(whereis(ddoc_cache_opener), message_queue_len).
 ```
 {: codeblock}
 
-*What does it means when it fails?*<br/>
+*What does it means when it fails?*
+
 If it continues to back up, the server might not be able
 to process HTTP requests.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 If the message_queue size is not recovering on its own,
 restart the ddoc_cache_opener process.
 
@@ -917,11 +948,13 @@ support.
 #### `global_changes_server`
 {: #-global_changes_server-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This command check monitors the number of messages in
 the `global_changes_server` message queue.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 Check the logs for entries that mention
 `erlang.message_queues.global_changes_server`. If the
 total does not drop to zero, an ongoing problem exists.
@@ -952,17 +985,20 @@ message queue size is not decreasing, contact support.
 ### `mem3_shards`
 {: #-mem3_shards-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 The length of the `mem3_shards` message queue. The
 `mem3_shards` process acts as a cache of the `/dbs`
 database.
 
-*What does it mean when it fails?*<br/>
+*What does it mean when it fails?*
+
 As it is a cache, the node probably still functions
 correctly, although more slowly, as it reads from the
 disk more often.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 You can watch the increase on the node by using the
 following process.
 
@@ -1005,7 +1041,8 @@ If it is still increasing, call support.
 ### `rexi_server`
 {: #-rexi_server-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This check monitors the number of messages in the
 various `rexi_server` message queues. Depending on cluster
 configuration, this process might be a single Erlang
@@ -1016,7 +1053,8 @@ These processes manage all inter-node communication. If
 inter-node communication is not processing their
 mailboxes correctly, communication is delayed.
 
-*How do I confirm the failure?*<br/>
+*How do I confirm the failure?*
+
 SSH to the node where the failure occurred and create
 the following function in a remsh.
 
@@ -1055,7 +1093,8 @@ This function returns a list of
 of the message queue length values exceeds the alert
 threshold.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 As indicated previously, you can configure rexi
 communication patterns in two ways. You probably need to
 switch over to the newer server-per-node configuration.
@@ -1087,7 +1126,8 @@ something similar, which is expected. They are restarted
 as a fail-safe measure, and attempting to do so multiple
 times does not have a negative impact.
 
-*How can I verify that it is fixed?*<br/>
+*How can I verify that it is fixed?*
+
 Run `ShowRexiServerMailboxes().` again and see whether the
 size is decreasing. If the cluster is already using the
 server-per-node configuration, but the problem persists,
@@ -1096,12 +1136,14 @@ contact support.
 #### `custodian`
 {: #-custodian-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This function checks the number of shard replicas that
 are currently reachable for all shard ranges for any
 database that is equal to the default N, usually 3.
 
-*How is it checked?*<br/>
+*How is it checked?*
+
 A program that is called Custodian runs on every
 database node in the cluster and inspects the `dbs`
 database. Documents in the `dbs` database are referred to
@@ -1116,7 +1158,8 @@ situations occur.
     shard table.
 *   A shard is mapped to an unavailable node.
 
-*What does it mean when it fails?*<br/>
+*What does it mean when it fails?*
+
 If n < N, it means that a database has shards that are
 under protected, with fewer than N replicas available in
 one or more shards ranges in one or more databases. If n > N,
@@ -1142,7 +1185,8 @@ following issues.
 *   One or more shards have an N value greater than the
     default N.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 Make sure that the problem is not caused by a server
 that is disabled, unreachable, or not connected to the
 other nodes. If that is not the case, contact support.
@@ -1150,17 +1194,20 @@ other nodes. If that is not the case, contact support.
 #### `disk`
 {: #-disk-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This function checks whether the `/` and `/srv` file systems
 are writable.
 
-*How is it checked?*<br/>
+*How is it checked?*
+
 This check is done by writing a temporary file to `/tmp`
 and `/srv/sensu` and making sure that it succeeds. A
 failure of any kind or a 15-second timeout causes the
 check to fail.
 
-*What does it mean when it breaks?*<br/>
+*What does it mean when it breaks?*
+
 The file system has most likely become read-only. A
 read-only file system can cause dbcore to run in a
 degraded mode that affects the rest of the cluster (if
@@ -1174,7 +1221,8 @@ system to be remounted as read-only.
 If the disk is mounted read/write and enough space is
 available, the file system uses the pool of free inodes.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 To check the mount status, use `mount`. In the following
 example, `rw` indicates mounted read/write, `ro` read-only.
 
@@ -1228,16 +1276,19 @@ solution.
 #### `ioq`
 {: #-ioq-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This check monitors the number of requests that are
 waiting to be processed by IOQ.
 
-*What does it mean when it fails?*<br/>
+*What does it mean when it fails?*
+
 The IOQ has numerous pending requests, but it is not
 necessarily stuck. To check, look at the volume of IOQ
 requests being processed in the metrics application.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 Verify that the situation is not caused by a sudden
 "spike" in activity. Look for a relatively slow growth
 in pending requests. If you see growth, do the following
@@ -1279,14 +1330,16 @@ why IOQ failed.
 #### `search`
 {: #-search-}
 
-*What does it check?*<br/>
+*What does it check?*
+
 This check monitors whether clouseau is running on the
 node. Clouseau acts as a wrapper around the Lucene
 library that does the generation, updating and querying
 of search indexes at the shard level. If clouseau is not
 running, the node cannot serve search requests.
 
-*How can I fix it?*<br/>
+*How can I fix it?*
+
 Try disconnecting clouseau; it automatically reconnects.
 
 ``` sh

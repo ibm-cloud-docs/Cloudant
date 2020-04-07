@@ -992,7 +992,7 @@ store the field in the index by using the `store: true` option.
 See the following example that uses HTTP to search with highlighting enabled:
 
 ```http
-GET /movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=["movie_name"]&highlight_pre_tag="<b>"&highlight_post_tag="</b>"&highlights_size=30&highlights_number=2 HTTP/1.1
+GET /movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=["movie_name"]&highlight_pre_tag=""&highlight_post_tag=""&highlights_size=30&highlights_number=2 HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
@@ -1001,7 +1001,7 @@ Authorization: ...
 See the following example that uses the command line to search with highlighting enabled:
 
 ```sh
-curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\"<b>\"&highlight_post_tag=\"</b>\"&highlights_size=30&highlights_number=2"
+curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\" \"&highlight_post_tag=\" \"&highlights_size=30&highlights_number=2"
 ```
 {: codeblock}
 
@@ -1011,8 +1011,8 @@ See the following example of highlighted search results:
 {
     "highlights": {
         "movie_name": [
-            " on the <b>Azazel</b> Orient Express",
-            " <b>Azazel</b> manuals, you"
+            " on the Azazel Orient Express",
+            " Azazel manuals, you"
         ]
     }
 }

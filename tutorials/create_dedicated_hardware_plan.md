@@ -37,35 +37,47 @@ plan instance by creating one or more Standard plan instances on it, and managin
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
 
-1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
+1.  Log in to your {{site.data.keyword.cloud_notm}} account.
+
     The {{site.data.keyword.cloud_notm}} dashboard can be found by using the following website:
     [`https://cloud.ibm.com/`](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your username name and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:
+    
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click `Databases` from the menu and `Cloudant` from the list of database services.<br/>
-     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
+2.  Click `Databases` from the menu and `Cloudant` from the list of database services.
 
-3.  Select the `Dedicated Hardware` plan from the list of pricing plans:<br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)
+ 
+3.  Select the `Dedicated Hardware` plan from the list of pricing plans:
+
     ![Pricing plans](images/pricing_plan.png)
     
-4.  Complete the following parameters: <br/>
-    -   Select the region where you want to deploy from the drop-down menu (at the beginning of the page). For Dedicated hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.<br/>
-    -   Enter a service name.<br/>
-    -   Select a resource group.</br>
-    -   (Optional) Add a tag.</br>
-    -   Select a key management service instance. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. Note that in order to BYOK with Key Protect you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.</br>
+4.  Complete the following parameters: 
+
+    -   Select the region where you want to deploy from the drop-down menu (at the beginning of the page). For Dedicated hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
+    
+    -   Enter a service name.
+    
+    -   Select a resource group.
+    
+    -   (Optional) Add a tag.
+    
+    -   Select a key management service instance. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. Note that in order to BYOK with Key Protect you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.
+    
     -   Select a disk encryption key. Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default).  
-    -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.<br/>
-    -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
+
+    -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.
+    
+    -   Select `yes` or `no` to answer whether HIPAA is required.
 
     HIPAA is only valid for US locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only created upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. For more information, see [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
     {: note}
 
     ![Configure dedicated hardware](images/select_deployment_location.png)
         
-5.  Click the `Create` button to start the provisioning process. <br/>
+5.  Click the `Create` button to start the provisioning process. 
 
     Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click the **Create** button.
     {: note}
@@ -78,34 +90,48 @@ plan instance by creating one or more Standard plan instances on it, and managin
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
 
-1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
+1.  Log in to your {{site.data.keyword.cloud_notm}} account.
+
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your username and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:
+    
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click `Databases` from the menu and `Cloudant` from the list of database services.<br/>
-     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
-    The page for creating a service appears.<br/>  
+2.  Click `Databases` from the menu and `Cloudant` from the list of database services.
 
-3.  Click `Standard` from the pricing plans. <br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)
+    
+    The page for creating a service appears.  
+
+3.  Click `Standard` from the pricing plans. 
+
     ![Standard pricing plan](images/standard_pricing_plan.png)
     
     You can't provision a Lite plan instance on a Dedicated Hardware environment.
     {: tip}
     
-4.  Complete the following parameters: <br/>
-    -   Specify the region where you want to deploy (at the beginning of the page). <br/>
-    -   Enter a service name.<br/>
-    -   Select a resource group. </br>
+4.  Complete the following parameters: 
+
+    -   Specify the region where you want to deploy (at the beginning of the page). 
+    
+    -   Enter a service name.
+    
+    -   Select a resource group. 
+    
     -   Add a tag. 
-    -   Select an authentication method.</br>
-    -   Select an environment, which is where the Standard plan instance deploys. By default, the Standard plan instance deploys on a multi-tenant environment in the location defined by the region parameter. Any Dedicated Hardware environment instances that are deployed in the {{site.data.keyword.cloud_notm}} account that the provisioning user has permissions to view display in the drop-down. Choosing a Dedicated Hardware plan instance in the drop-down menu results in the Standard plan instance being deployed on that Dedicated Hardware plan instance in whatever location it resides.</br>
+
+    -   Select an authentication method.
+    
+    -   Select an environment, which is where the Standard plan instance deploys. By default, the Standard plan instance deploys on a multi-tenant environment in the location defined by the region parameter. Any Dedicated Hardware environment instances that are deployed in the {{site.data.keyword.cloud_notm}} account that the provisioning user has permissions to view display in the drop-down. Choosing a Dedicated Hardware plan instance in the drop-down menu results in the Standard plan instance being deployed on that Dedicated Hardware plan instance in whatever location it resides.
+    
     ![Configure standard instance](images/select_environment.png)
     
-5.  Click the `Create` button.<br/>
-    After a few seconds, the instance is provisioned on the environment you selected.<br/>
+5.  Click the `Create` button.
+
+    After a few seconds, the instance is provisioned on the environment you selected.
+    
     ![Provision standard instance](images/create_button_provision_standard.png)
     
 6.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard 
