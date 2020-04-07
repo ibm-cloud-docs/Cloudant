@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-04-06"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -146,6 +146,7 @@ Field | Description
 `PLAN_NAME` | Lite plan or Standard plan.
 `LOCATION` | The location where you want to deploy includes: AP North, Germany, Global, Sydney, United Kingdom, US East, or US South. 
 `legacyCredentials` | Defaults to true. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. 
+{: caption="Table 1. Basic command format fields" caption-side="top"}
 
 For more information about choosing an authentication method, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
 {: important}
@@ -195,6 +196,7 @@ Field | Description
 `NAME` | Arbitrary name that you give the service credentials. 
 `ROLE_NAME` | This field currently allows the Manager role only.
 `SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance. 
+{: caption="Table 2. Fields to create credentials" caption-side="top"}
 
 If you want to create credentials for the `cs20170517a` instance of
 an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you create these credentials by using a command similar to the one in the following example:

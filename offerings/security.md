@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-14"
+lastupdated: "2020-04-06"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -76,7 +76,7 @@ TLS | {{site.data.keyword.cloudant_short_notm}} requires the use of TLS 1.2+. Th
 Endpoints | All {{site.data.keyword.cloudant_short_notm}} instances are provided with external endpoints that are publically accessible. Dedicated Hardware environments created after 1 January 2019 outside of the EU-managed cloud also add internal endpoints for all Standard plan instances deployed on them. Using internal endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Service Endpoint documentation](https://cloud.ibm.com/docs/resources?topic=resources-service-endpoints){:new_window}{: external} for more details on enabling Service Endpoints for your {{site.data.keyword.cloud}} account.
 IP whitelisting | {{site.data.keyword.cloudant_short_notm}} customers who have a dedicated {{site.data.keyword.cloudant_short_notm}} environment can whitelist IP addresses to restrict access to only specified servers and users. IP whitelisting isn't available for any {{site.data.keyword.cloud_notm}} Public Lite/Standard plans that are deployed on multi-tenant environments. Open a support ticket to request IP whitelists for a specified set of IP or IP ranges. IP whitelists apply to both the {{site.data.keyword.cloudant_short_notm}} API and Dashboard, so be mindful to include any administrator IPs that need to access the {{site.data.keyword.cloudant_short_notm}} Dashboard directly. 
 CORS | Enable CORS support for specific domains by using the {{site.data.keyword.cloudant_short_notm}} Dashboard or API. For more information, see the [CORS API documentation](/docs/Cloudant?topic=cloudant-cors#cors){:new_window}.
-
+{: caption="Table 1. {{site.data.keyword.cloudant_short_notm}} security features" caption-side="top"}
 <!--
 > **Note**: Your data is visible to the {{site.data.keyword.cloudant_short_notm}} 
 > worldwide team. If you don’t 
@@ -109,3 +109,4 @@ Feature | Description
 --------|------------
 Redundant and durable data storage | By default, {{site.data.keyword.cloudant_short_notm}} saves to disk three copies of every document to three different nodes in a cluster. Saving the copies ensures that a working failover copy of your data is always available, regardless of failures.
 Data replication and export | You can replicate your databases continuously between clusters in different data centers, or to an on-premises {{site.data.keyword.cloudant_short_notm}} Local cluster, or Apache CouchDB. Another option is to export data from {{site.data.keyword.cloudant_short_notm}} (in JSON format) to other locations or sources (such as your own data center) for added data redundancy.
+{: caption="Table 2. {{site.data.keyword.cloudant_short_notm}} data quality and availability features" caption-side="top"}

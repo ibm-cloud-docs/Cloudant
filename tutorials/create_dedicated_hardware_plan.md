@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-31"
+lastupdated: "2020-04-06"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -152,6 +152,7 @@ Field | Description
 `SERVICE_NAME` | `cloudantnosqldb`
 `PLAN_NAME` | `dedicated-hardware`
 `REGION` |  The major region where you want to deploy, for example, us-south, us-east, or eu-gb. 
+{: caption="Table 1. Basic command format" caption-side="top"}
 
 See the following example command: 
 
@@ -168,6 +169,7 @@ Parameter | Description
 `hipaa` | Either `true` or `false`. 
 `kms_instance_crn` | An optional parameter that must be set to the CRN of the Key Protect instance housing the encryption key for BYOK. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to BYOK with Key Protect, supply the CRN of the Key Protect instance that holds the encryption key. Otherwise, do not supply this parameter in the CLI, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. Note that in order to BYOK with Key Protect, ensure {{site.data.keyword.cloudant_short_notm}} has been authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.
 `kms_key_crn` | This parameter is required if you use the `kms_instance_crn` parameter. Otherwise, it must not be supplied in the CLI command. The `kms_key_crn` parameter is set to the CRN of the encryption key stored in the Key Protect instance defined by the `kms_instance_crn` parameter. 
+{: caption="Table 2. Additional parameters" caption-side="top"}
 
 See the following example command: 
 
@@ -190,6 +192,7 @@ Field | Description
 `SERVICE_NAME` | `cloudantnosqldb`
 `PLAN_NAME` | `standard`
 `REGION` |  The region where you want to deploy, for example, us-south, us-east, or eu-gb. 
+{: caption="Table 3. Basic command format" caption-side="top"}
 
 See the following example command: 
 
@@ -204,6 +207,7 @@ Parameter | Description
 ----------|------------
 `environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. 
 `legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) for more details on choosing an authentication method.
+{: caption="Table 4. Additional parameters" caption-side="top"}
 
 See the following example command: 
 
@@ -238,6 +242,7 @@ Field | Description
 `ROLE_NAME` | This field currently allows the Manager role only.
 `SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance.
 `service-endpoints` | An optional parameter to populate the URL field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this parameter to populate the URL with an external endpoint that is publicly accessible. Applies only to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. If the environment doesn't support internal endpoints, the result is a 400 error. 
+{: caption="Table 5. Basic command format" caption-side="top"}
 
 If you want to create credentials for the `cs20170517a` instance of
 an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you can create these credentials by using a command similar to the following example:

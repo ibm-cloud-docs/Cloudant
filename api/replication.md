@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-04-06"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -159,6 +159,7 @@ Field Name | Required | Description
 `since_seq` | no | Override the incremental nature of replication. For more information, see the [`since_seq`](#the-since_seq-field) documentation.
 `use_checkpoints` | no | Indicate whether to create checkpoints. Checkpoints greatly reduce the time and resources that are needed for repeated replications. Setting this field to `false` removes the requirement for write access to the `source` database. Defaults to `true`.
 `user_ctx` | no | An object that contains the user name and optionally an array of roles, for example: `"user_ctx": {"name": "jane", "roles": ["admin"]} `. This object is needed for the replication to show up in the output of `/_active_tasks`.
+{: caption="Table 1. Replication document format" caption-side="top"}
 
 Optionally, replication documents can have a user-defined `_id`.
 {: note}
@@ -501,6 +502,7 @@ Field             | Purpose
 `ok`              | Replication status.
 `session_id`      | Unique session ID.
 `source_last_seq` | The last sequence number read from source database.
+{: caption="Table 2. Fields in a single replication response" caption-side="top"}
 
 The `history` array contains the following information:
 
@@ -517,6 +519,7 @@ Field                | Purpose
 `session_id`         | Session ID for this replication operation.
 `start_last_seq`     | First sequence number in changes stream.
 `start_time`         | Date and Time replication operation started.
+{: caption="Table 3. Fields in the `history` array" caption-side="top"}
 
 See the following example instructions for using HTTP to request a single replication:
 

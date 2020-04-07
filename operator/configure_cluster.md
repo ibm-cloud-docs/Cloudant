@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2020-03-19"
+  years: 2019, 2020
+lastupdated: "2020-04-06"
 
 keywords: operator, field reference
 
@@ -104,7 +104,7 @@ The `size` parameter refers to the number of database nodes deployed in the Apac
 | `memory`       | Memory size to request for each database node.       | `1`        |
 | `cpu`          | CPU allocation to request for each database node.    | `1`        |
 | `environment`  | CouchDB configuration.                                |            |
-
+{: caption="Table 1. CouchDB parameters" caption-side="top"}
 
 ### CouchDB configuration field reference
 {: #couchdb-configuration-field-reference}
@@ -127,3 +127,4 @@ Update the `adminPassword` to a password of your choosing. We recommend that you
 | `requireValidUser`                   | Require valid user for all requests.                                                                                                                                                                                                                                | `true` *      | [CouchDB documentation](https://docs.couchdb.org/en/stable/config/auth.html#chttpd/require_valid_user){: new_window}{: external}                          |
 | `tls`                                | Enable TLS support.                                                                                                                                                                                                                                                 | `true`        |                                                                                                        |
 | `maxHttpRequestSize`                 | Maximum size of HTTP requests (bytes).                                                                                                                                                                                                                              | `67108864` *  | [CouchDB documentation](https://docs.couchdb.org/en/stable/config/http.html#httpd/max_http_request_size){: new_window}{: external}                        
+{: caption="Table 2. YAML file environment section" caption-side="top"}

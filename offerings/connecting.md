@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-06"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
@@ -105,6 +105,7 @@ Field | Purpose
 `iam_apikey_name` | ID of the IAM API key.
 `iam_role_crn` | The IAM role that the IAM API key has.
 `iam_serviceid_crn`	| The CRN of the service ID.
+{: caption="Table 1. Service credential fields" caption-side="top"}
 
 ## Authentication
 {: #authentication-overview}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-31"
+lastupdated: "2020-04-06"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -354,6 +354,7 @@ Limit | Maximum Size
 Individual Document Size | 1 MB
 Single Attachment Size | 10 MB
 Request Body Size | 11 MB
+{: caption="Table 4. Maximum size limits for JSON documents and requests" caption-side="top"}
 
 If you exceed these limits, a [413 response](/docs/Cloudant?topic=cloudant-http#http-status-codes) alerts you.
 

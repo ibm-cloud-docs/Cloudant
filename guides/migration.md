@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-06"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -37,6 +37,7 @@ Plan | Description
 {{site.data.keyword.cloudant_short_notm}} Shared Plan | A legacy pay-as-you-go, multi-tenant {{site.data.keyword.cloudant_short_notm}} service. The `cloudant.com` Shared plan was retired on March 2018. The {{site.data.keyword.cloudant_short_notm}} Shared plan was deprecated for new signups in October 2016 and is being retired in Q4 2018.
 {{site.data.keyword.cloudant_localfull}} | The self-hosted, packaged installation of {{site.data.keyword.cloudant_short_notm}}.
 Apache CouchDB | The self-hosted, open source database on which {{site.data.keyword.cloudant_short_notm}} is based.
+{: caption="Table 1. {{site.data.keyword.cloudant_short_notm}} plans" caption-side="top"}
 
 ## What are the benefits of the {{site.data.keyword.cloudant_short_notm}} Lite and Standard plans?
 {: #what-are-the-benefits-of-the-ibm-cloudant-lite-and-standard-plans-}
@@ -49,6 +50,7 @@ Reads per second | The rate at which simple document fetches are performed, for 
 Writes per second | The rate at which data is written to the database. API calls dealing with document creation, update, or deletion count as 'writes'.
 Global Queries per second | The rate at which the database is queried by using global indexes, typically by accessing the `_find` endpoint or by using secondary MapReduce, search, or geospatial indices.
 Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices.
+{: caption="Table 2. Capacity metrics" caption-side="top"}
 
 As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you're "kicking the tires" of the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage for ~USD$76.65 per month. You can buy extra storage, which is charged by the GB.
 

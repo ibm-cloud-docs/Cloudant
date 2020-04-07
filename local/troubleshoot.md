@@ -1413,7 +1413,7 @@ specific shard.
 {: #compact-a-shard-and-reduce-its-size-}
 
 ``` sh
-durep -x -hs 5000M /srv | less
+durep -x -hs 5000M /srv less
 ```
 {: codeblock}
 
