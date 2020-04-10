@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-23"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -309,7 +309,7 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 `endkey`            | Stop returning records when the specified key is reached.                                       | Yes      | String          |
 `endkey_docid` | Stop returning records when the specified document ID is reached. If `endkey` isn't set, this argument is ignored. | Yes | String |
 `include_docs`      | Include the full content of the documents in the return.                                        | Yes      | Boolean         | False
-`inclusive_end`     | Include rows whose key equals the '`endkey`' value.                                             | Yes      | Boolean         | True
+`inclusive_end`     | Include rows whose key equals the "`endkey`" value.                                             | Yes      | Boolean         | True
 `key`               | Return only documents with IDs that match the specified key.                                    | Yes      | String          |
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings |
 `limit`             | Limit the number of returned documents to the specified number.                                 | Yes      | Numeric         |
@@ -856,7 +856,7 @@ See the following example (abbreviated) response to a `_changes` request:
 	To be sure that all changes are reported for your specified sequence,
 	it might be necessary to go further back into the shard's history to find a suitable starting point.
 	The changes are then reported from that starting point.
-	This 'rolling back' might give the appearance of duplicate updates,
+	This "rolling back" might give the appearance of duplicate updates,
 	or updates that are apparently before the specified `since` value.
 -	`_changes` reported by a shard are always presented in order.
 	But the ordering between all the contributing shards might appear to be different.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-10"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-04-10 -->
 
 # CORS
 {: #cors}
@@ -42,9 +42,9 @@ CORS might be a good solution in the following use cases.
 	To make this access possible,
 	add `https://www.example.com` to your list of allowed origins.
 	The effect is that scripts that are loaded from this domain are then
-	permitted to make AJAX requests to your {{site.data.keyword.cloudant_short_notm}} databases.
+	permitted to make Ajax requests to your {{site.data.keyword.cloudant_short_notm}} databases.
 	By using HTTP authorization with CORS requests,
-	users of your application can only access their database.
+	users of your application can access only their database.
 2.	You want to allow third parties access to your database.
 	For example, if you have a database that includes product information
 	and you want to give sales partners access to the information from JavaScript running on their domain,
@@ -96,11 +96,11 @@ Method | Path                        | Description
 ## JSON format
 {: #json-format}
 
--	**enable_cors** - Boolean value to turn CORS on and off.
--	**allow_credentials** - Boolean value to allow authentication credentials.
+-	`enable_cors` - Boolean value to turn CORS on and off.
+-	`allow_credentials` - Boolean value to allow authentication credentials.
 	If set to true,
 	browser requests must be done by using `withCredentials = true`.
--	**origins** - An array of strings that contain allowed origin domains.
+-	`origins` - An array of strings that contain allowed origin domains.
 	You have to specify the full URL including the protocol.
 	It is recommended that only the HTTPS protocol is used.
 	Subdomains count as separate domains,

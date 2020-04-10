@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-10"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-16 -->
+<!-- Acrolinx: 2020-04-10 -->
 
 # Plans and provisioning
 {: #ibm-cloud-public}
@@ -62,7 +62,7 @@ Storage usage is checked daily. If you exceed your 1-GB storage limit, requests 
 
 If you want to store more than one GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
-You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you cannot create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, the following message displays, "You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
+You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you can't create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, you see the following message, "You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
 
 ### Standard plan
 {: #standard-plan}
@@ -137,7 +137,7 @@ The measurement of throughput is a simple count of the number of events of each 
 per second,
 where the second is a *sliding* window.
 
-If your account exceeds the number of throughput events provisioned for the plan, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number provisioned.
+If your account exceeds the number of throughput events that are provisioned for the plan, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number that are provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
 For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 read events during a consecutive period of 1,000 milliseconds (1 second). Subsequent read requests made during the sliding 1,000-millisecond period
@@ -154,7 +154,7 @@ the Java&trade; library generates a
 [`TooManyRequestsException`](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window}{: external} response.
 
 By default,
-the supported client libraries do not automatically retry
+the supported client libraries don't automatically retry
 a request when a `429` response is received.
 
 It's better to ensure that your application handles `429` responses correctly.
@@ -208,7 +208,7 @@ occurs based on parts of the selector that can't be satisfied by the index.
 Therefore, these results mean that the rows read value, and consumed read units, can be
 higher than the number of eventual results you receive.
 
-In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row returned by the
+In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row that is returned by the
 underlying index so it can execute further filtering required by the
 selector and passed to the query.
 
@@ -311,7 +311,7 @@ Standard plan:
 - The cost for the amount of disk overage is calculated on an hourly basis.
 
 For example, assume your Standard plan increases disk usage to 107 GB for half a day (12 hours). This change means that your instance caused overflow of 87 GB more than the 20 GB plan allocation, for 12 hours.
-As the result, you are billed an overage charge based on 87 GB x 12 hours = 1044 GB hours for that extra space.
+As the result, you're billed an overage charge based on 87 GB x 12 hours = 1044 GB hours for that extra space.
 
 Overage is calculated by using the maximum number of GB more than the plan allocation during a particular hour within the billing cycle.
 
@@ -361,7 +361,7 @@ If you exceed these limits, a [413 response](/docs/Cloudant?topic=cloudant-http#
 We recommend that you store binary attachments, or large JSON blobs, 
 in object storage and save a link to the location in an {{site.data.keyword.cloudant_short_notm}} JSON document.   
 
-When you replicate, documents or attachments that exceed these limits do not 
+When you replicate, documents or attachments that exceed these limits don't 
 replicate to the target database. For more information about how to detect replication
 errors, see [Replication errors](/docs/Cloudant?topic=cloudant-replication-api#replication-errors).
 
@@ -422,7 +422,7 @@ Support is provided when you purchase *{{site.data.keyword.cloud_notm}} Standard
 
 For more information about support plans, see the [{{site.data.keyword.cloud_notm}} Standard Support plans](https://www.ibm.com/cloud/support#944376){: new_window}{: external}. For more information about support, see the [{{site.data.keyword.IBM_notm}} support guide](https://www.ibm.com/support/home/pages/support-guide/){: new_window}{: external}.
 
-The support systems that are used for {{site.data.keyword.cloudant_short_notm}} do not offer features for the protection of content that contains Healthcare Information, health data, Protected Health Information, or data that is subject to more regulatory requirements. As such, the Client must not enter or provide such data.
+The support systems that are used for {{site.data.keyword.cloudant_short_notm}} don't offer features for the protection of content that contains Healthcare Information, health data, Protected Health Information, or data that is subject to more regulatory requirements. As such, the Client must not enter or provide such data.
 {: note}
 
 ## Provisioning an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}

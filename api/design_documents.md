@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-23"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-10 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Design documents
 {: #design-documents}
@@ -49,49 +49,49 @@ To distinguish between them,
 standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
-A design document's ID never contains a partition key regardless of the
-database's partitioning type. The partition key isn't included because the indexes that are contained within a design document apply to all partitions in a partitioned database.
+A design document's ID never includes a partition key regardless of the
+database's partitioning type. The partition key isn't included because the indexes that are included within a design document apply to all partitions in a partitioned database.
 
 If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and re-creates the index from scratch. If you need to change a design document for a larger database, have a look at the [Design document management guide](/docs/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
 {: note}
 
 A design document's structure includes the following parts:
 
--	**`_id`** - Design document ID. This ID is *always* prefixed `_design` and *never* contains a partition key, regardless of database partitioning type.
+-	**`_id`** - Design document ID. This ID is *always* prefixed `_design` and *never* includes a partition key, regardless of database partitioning type.
 -	**`_rev`** - Design document revision
--	**options** - Contains options for this design document.
-    -   **partitioned (optional, boolean)**: Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
--	**views (optional)** - An object that describes MapReduce views.
-	-	**viewname** (one for each view): View Definition.
-		-	**map** - Map Function for the view.
-		-	**reduce (optional)** - Reduce Function for the view.
--	**indexes (optional)** - An object that describes search indexes.
-	-	**index name** (one for each index): Index definition.
-		-	**analyzer** - Object that describes the analyzer to be used or an object with the following fields:
-			-	**name**: Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
-			-	**stopwords (optional)** - An array of stop words.
+-	**Options** - Contains options for this design document.
+    -   **Partitioned (optional, boolean)** - Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
+-	**Views (optional)** - An object that describes MapReduce views.
+	-	**Viewname** (one for each view) - View Definition.
+		-	**Map** - Map Function for the view.
+		-	**Reduce (optional)** - Reduce Function for the view.
+-	**Indexes (optional)** - An object that describes search indexes.
+	-	**Index name** (one for each index) - Index definition.
+		-	**Analyzer** - Object that describes the analyzer to be used or an object with the following fields:
+			-	**Name** - Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
+			-	**Stopwords (optional)** - An array of stop words.
 				Stop words are words that must not be indexed.
 				If this array is specified,
 				it overrides the default list of stop words.
 				The default list of stop words depends on the analyzer.
 				The standard analyzer includes the following list of stop words:
 				`a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
-			-	**default (for the per field analyzer)** - default language to use if no language is specified for the field.
-			-	**fields (for the per field analyzer)** - An object that specifies which language to use to analyze each field of the index.
+			-	**Default (for the per field analyzer)** - default language to use if no language is specified for the field.
+			-	**Fields (for the per field analyzer)** - An object that specifies which language to use to analyze each field of the index.
 				Field names in the object correspond to field names in the index, that is, the first parameter of the index function.
 				The values of the fields are the languages to be used, for example `english`.
-		-	**index** - Function that handles the indexing.
--	**rewrites (optional, disallowed when `partitioned` is `true`)** - Rewrite functions.
-	-	**function name** (one for each function): Function definition.
--	**lists (optional, disallowed when `partitioned` is `true`)** - List functions.
-	-	**function name** (one for each function): Function definition.
--	**shows (optional, disallowed when `partitioned` is `true`)** - Show functions.
-	-	**function name** (one for each function): Function definition.
--	**updates (optional, disallowed when `partitioned` is `true`)** - Update functions.
-	-	**function name** (one for each function): Function definition.
--	**filters (optional, disallowed when `partitioned` is `true`)** - Filter functions.
-	-	**function name** (one for each function): Function definition.
--	**validate_doc_update (optional, disallowed when `partitioned` is `true`)** - Update validation function.
+		-	**Index** - Function that handles the indexing.
+-	**Rewrites (optional, disallowed when `partitioned` is `true`)** - Rewrite functions.
+	-	**Function name** (one for each function) - Function definition.
+-	**Lists (optional, disallowed when `partitioned` is `true`)** - List functions.
+	-	**Function name** (one for each function) - Function definition.
+-	**Shows (optional, disallowed when `partitioned` is `true`)** - Show functions.
+	-	**Function name** (one for each function) - Function definition.
+-	**Updates (optional, disallowed when `partitioned` is `true`)** - Update functions.
+	-	**Function name** (one for each function) - Function definition.
+-	**Filters (optional, disallowed when `partitioned` is `true`)** - Filter functions.
+	-	**Function name** (one for each function) - Function definition.
+-	**Validate_doc_update (optional, disallowed when `partitioned` is `true`)** - Update validation function.
 
 ### The `options.partitioned` field
 
@@ -127,7 +127,7 @@ Copying a design document doesn't automatically reconstruct the view indexes. Li
 {: note}
 
 The following example requests that {{site.data.keyword.cloudant_short_notm}} copy the design document `recipes` to the new design document `recipelist`,
-and produces a response that contains the ID and revision of the new document.
+and produces a response that includes the ID and revision of the new document.
 
 See the following example command to copy a design document by using HTTP:
 
@@ -268,7 +268,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=2-ac58d589b37d01
 ```
 {: codeblock}
 
-See the following example response that contains the deleted document ID and revision:
+See the following example response that includes the deleted document ID and revision:
 
 ```json
 {
@@ -304,7 +304,7 @@ An important use of design documents is for creating views. For more information
 ## Rewrite rules
 {: #rewrite-rules}
 
-A design document can contain rules for URL rewriting, by using an array in the `rewrites` field.
+A design document can include rules for URL rewriting, by using an array in the `rewrites` field.
 Requests that match the rewrite rules must have a URL path that starts with `/$DATABASE/_design/doc/_rewrite`.
 
 Design documents with `options.partitioned` set to `true` can't contain a `rewrites` field.
@@ -314,10 +314,10 @@ Each rule is a JSON object with four fields:
 
 Field    | Description
 ---------|------------
-`from`   | A path relative to `/$DATABASE/_design/doc/_rewrite`, used to match URLs to rewrite rules. Path elements that start with a `:` are treated as variables, and match any string that doesn't contain a `/`. An `*` can appear only at the end of the string, and matches any string - including slashes.
+`from`   | A path relative to `/$DATABASE/_design/doc/_rewrite`, used to match URLs to rewrite rules. Path elements that start with a `:` are treated as variables and match any string that doesn't contain a `/`. An `*` can appear only at the end of the string, and matches any string - including slashes.
 `method` | The HTTP method that must be matched.
-`query`  | The query part of the resulting URL. This part is a JSON object that contains the key/value pairs of the query.
-`to`     | The path (relative to `/$DATABASE/_design/doc/` and not including the query part of the URL) that is the result of the rewriting step. Variables that are captured in `from` can be used in `to`. An `*` can also be used and contains everything that is captured by the pattern in `from`.
+`query`  | The query part of the resulting URL. This part is a JSON object that includes the key/value pairs of the query.
+`to`     | The path (relative to `/$DATABASE/_design/doc/` and not including the query part of the URL) that is the result of the rewriting step. Variables that are captured in `from` can be used in `to`. An `*` can also be used and includes everything that is captured by the pattern in `from`.
 {: caption="Table 3. Fields for the rewrite rules" caption-side="top"}
 
 See the following example JSON describing some rewrite rules:
@@ -351,14 +351,14 @@ The following table has some more examples of rewriting URL components:
 
 Rule | URL | Rewrite to | Tokens
 -----|-----|------------|-------
-`{"from": "/a/b", "to": "/some/"}`                             | `/$DATABASE/_design/doc/_rewrite/a/b?k=v` | `/$DATABASE/_design/doc/some?k=v`        | `k = v`
-`{"from": "/a/b", "to": "/some/:var"}`                         | `/$DATABASE/_design/doc/_rewrite/a/b`     | `/$DATABASE/_design/doc/some/b?var=b`    | `var = b`
-`{"from": "/a", "to": "/some/*"}`                              | `/$DATABASE/_design/doc/_rewrite/a`       | `/$DATABASE/_design/doc/some`            |
-`{"from": "/a/*", "to": "/some/*}`                             | `/$DATABASE/_design/doc/_rewrite/a/b/c`   | `/$DATABASE/_design/doc/some/b/c`        |
-`{"from": "/a", "to": "/some/*"}`                              | `/$DATABASE/_design/doc/_rewrite/a`       | `/$DATABASE/_design/doc/some`            |
-`{"from": "/a/:foo/*","to": "/some/:foo/*"}`                   | `/$DATABASE/_design/doc/_rewrite/a/b/c`   | `/$DATABASE/_design/doc/some/b/c?foo=b`  | `foo = b`
+`{"from": "/a/b", "to": "/some/"}` | `/$DATABASE/_design/doc/_rewrite/a/b?k=v` | `/$DATABASE/_design/doc/some?k=v`        | `k = v`
+`{"from": "/a/b", "to": "/some/:var"}` | `/$DATABASE/_design/doc/_rewrite/a/b`     | `/$DATABASE/_design/doc/some/b?var=b`    | `var = b`
+`{"from": "/a", "to": "/some/*"}` | `/$DATABASE/_design/doc/_rewrite/a`       | `/$DATABASE/_design/doc/some`            |
+`{"from": "/a/*", "to": "/some/*}` | `/$DATABASE/_design/doc/_rewrite/a/b/c`   | `/$DATABASE/_design/doc/some/b/c`        |
+`{"from": "/a", "to": "/some/*"}` | `/$DATABASE/_design/doc/_rewrite/a`       | `/$DATABASE/_design/doc/some`            |
+`{"from": "/a/:foo/*","to": "/some/:foo/*"}` | `/$DATABASE/_design/doc/_rewrite/a/b/c`   | `/$DATABASE/_design/doc/some/b/c?foo=b`  | `foo = b`
 `{"from": "/a/:foo", "to": "/some", "query": { "k": ":foo" }}` | `/$DATABASE/_design/doc/_rewrite/a/b`     | `/$DATABASE/_design/doc/some/?k=b&foo=b` | `foo =:= b`
-`{"from": "/a", "to": "/some/:foo" }`                          | `/$DATABASE/_design/doc/_rewrite/a?foo=b` | `$DATABASE/_design/doc/some/b&foo=b`     | `foo = b`
+`{"from": "/a", "to": "/some/:foo" }` | `/$DATABASE/_design/doc/_rewrite/a?foo=b` | `$DATABASE/_design/doc/some/b&foo=b`     | `foo = b`
 {: caption="Table 4. URL rewrite components" caption-side="top"}
 
 ## Indexes
@@ -377,7 +377,7 @@ you must ensure that two conditions are true:
 1.	You defined the document as a design document when you started the `_id` with `_design/`.
 2.	You created a [search index](/docs/Cloudant?topic=cloudant-search#search) within the document where you 
 	[updated](/docs/Cloudant?topic=cloudant-documents#update) the document with the appropriate field
-	or [created](/docs/Cloudant?topic=cloudant-documents#create-document) a new document that contains the search index.
+	or [created](/docs/Cloudant?topic=cloudant-documents#create-document) a new document that includes the search index.
 
 As soon as the search index design document exists and the index is built,
 you can make queries by using it.
@@ -411,7 +411,7 @@ You can add any query parameters to the request that would normally be used for 
 
 Instead of using a MapReduce index, you can also use `_all_docs`.
 
-The result of a list function isn't stored. This fact means the function is executed every time that a request is made. As a consequence,
+The result of a list function isn't stored. This fact means that the function is executed every time that a request is made. As a consequence,
 it's more efficient to use MapReduce functions. For web and mobile applications, consider whether any computations that are done in a list function would be better placed in the application tier.
 {: note}
 
@@ -429,7 +429,7 @@ List functions require two arguments:
 
 The `head` argument identifies the documents to be processed by the list function.
 
-The `req` argument contains additional information about the request. It enables you to create list functions that are more dynamic
+The `req` argument includes more information about the request. With this argument, you can create list functions that are more dynamic
 because they're based on additional factors such as query parameters or the user context.
 
 The values within the `req` argument are similar to the following [query parameters](/docs/Cloudant?topic=cloudant-query#ibm-cloudant-query-parameters).
@@ -559,7 +559,7 @@ Show functions require two arguments: `doc`, and [`req`](#req).
 
 `doc` is the document that is requested by the show function.
 
-The `req` argument contains additional information about the request. With this argument, you can create show functions that are more dynamic
+The `req` argument includes more information about the request. With this argument, you can create show functions that are more dynamic
 because they're based on additional factors such as query parameters or the user context.
 
 The `req` argument corresponds to the argument used in a list function.
@@ -644,14 +644,14 @@ then `doc` is the document corresponding to that ID.
 If no ID is provided,
 `doc` is `null`.
 
-The `req` argument contains additional information about the request. With this argument, you can create update handlers that are more dynamic
+The `req` argument includes more information about the request. With this argument, you can create update handlers that are more dynamic
 because they're based on additional factors such as query parameters or the user context.
 
 The `req` argument corresponds to that used in a [list function](#list-functions).
 
 Update handler functions must return an array of two elements.
 The first element is the document to save,
-or `null` if you do not want to save the document.
+or `null` if you don't want to save the document.
 The second element is the response body.
 
 The following two methods query update handlers:
@@ -750,10 +750,10 @@ the [changes feed](/docs/Cloudant?topic=cloudant-databases#get-changes).
 They work by applying tests to each of the objects included in the changes feed.
 
 If any of the function tests fail,
-the object is 'removed' or 'filtered' from the feed.
+the object is "removed" or "filtered" from the feed.
 If the function returns a `true` result when applied to a change,
 the change remains in the feed.
-In other words, filter functions 'remove' or 'ignore' changes that you do not want to monitor.
+In other words, filter functions "remove" or "ignore" changes that you don't want to monitor.
 
 Filter functions can also be used to modify a [replication task](/docs/Cloudant?topic=cloudant-advanced-replication#filtered-replication-adv-repl).
 {: tip}
@@ -762,7 +762,7 @@ Filter functions require two arguments: `doc` and [`req`](#req).
 
 The `doc` argument represents the document that is tested for filtering.
 
-The `req` argument contains more information about the request.
+The `req` argument includes more information about the request.
 With this argument, you can create filter functions that are more dynamic
 because they're based on additional factors such as query parameters or the user context.
 
@@ -773,7 +773,7 @@ only the `doc` parameter is used.
 
 The `req` argument corresponds to the argument that is used in a [list function](#list-functions).
 
-See the following example design document that contains a filter function:
+See the following example design document that includes a filter function:
 
 ```json
 {
@@ -858,10 +858,10 @@ function(doc, req){
 
 A number of predefined filter functions are available:
 
-*	[`_design`](#the-_design-filter): accepts only changes to design documents.
-*	[`_doc_ids`](#the-_doc_ids-filter): accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-_selector-filter): accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/docs/Cloudant?topic=cloudant-query#selector-syntax) that is used for [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
-*	[`_view`](#the-_view-filter): with this function, you can use an existing [map function](/docs/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
+*	[`_design`](#the-_design-filter) - accepts only changes to design documents.
+*	[`_doc_ids`](#the-_doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
+*	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/docs/Cloudant?topic=cloudant-query#selector-syntax) that is used for [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
+*	[`_view`](#the-_view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
 {: #the-_design-filter}
@@ -994,7 +994,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector"
 ```
 {: codeblock}
 
-See the following example JSON document that contains the selector expression to use during filtering:
+See the following example JSON document that includes the selector expression to use during filtering:
 
 ```json
 {
@@ -1097,7 +1097,7 @@ Design documents with `options.partitioned` set to `true` can't contain a `valid
 {: tip}
 
 Update validators determine whether a document must be written to disk when insertions and updates are attempted.
-They do not require a query because they implicitly run during this process.
+They don't require a query because they implicitly run during this process.
 If a change is rejected,
 the update validator responds with a custom error.
 
@@ -1111,7 +1111,7 @@ Argument  | Purpose
 `userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`.
 {: caption="Table 10. Arguments for the update validator" caption-side="top"}
 
-Update validators do not apply when a design document is updated by an admin user. This practice ensures that admins can never accidentally lock themselves out.
+Update validators don't apply when a design document is updated by an admin user. This practice ensures that admins can never accidentally lock themselves out.
 {: tip}
 
 See the following example design document with an update validator:
@@ -1159,10 +1159,10 @@ including the view index,
 view index size,
 and status of the design document and associated view index information.
 
--	**Method**: `GET /db/_design/design-doc/_info`
--	**Request**: None
--	**Response**: JSON that contains the design document information.
--	**Roles permitted**: `_reader`
+-	**Method** - `GET /db/_design/design-doc/_info`
+-	**Request** - None
+-	**Response** - JSON that contains the design document information.
+-	**Roles permitted** - `_reader`
 
 See the following example of retrieving information about the `recipesdd` design document from within the `recipes` database by using HTTP:
 
@@ -1180,17 +1180,17 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info"
 
 The JSON response includes the following individual fields:
 
--	**name**: Name or ID of design document.
--	**view_index**: View Index
-	-	**compact_running**: Indicates whether a compaction routine is running on the view.
-	-	**disk_size**: Size in bytes of the view as stored on disk.
-	-	**language**: Language that is used for defining views.
-	-	**purge_seq**: The purge sequence that was processed.
-	-	**signature**: MD5 signature of the views for the design document.
-	-	**update_seq**: The update sequence of the corresponding database that was indexed.
-	-	**updater_running**: Indicates whether the view is being updated.
-	-	**waiting_clients**: Number of clients that are waiting on views from this design document.
-	-	**waiting_commit**: Indicates whether the underlying database has outstanding commits that need to process. 
+-	**name** - Name or ID of design document.
+-	**view_index** - View Index
+	-	**compact_running** - Indicates whether a compaction routine is running on the view.
+	-	**disk_size** - Size in bytes of the view as stored on disk.
+	-	**language** - Language that is used for defining views.
+	-	**purge_seq** - The purge sequence that was processed.
+	-	**signature** - MD5 signature of the views for the design document.
+	-	**update_seq** - The update sequence of the corresponding database that was indexed.
+	-	**updater_running** - Indicates whether the view is being updated.
+	-	**waiting_clients** - Number of clients that are waiting on views from this design document.
+	-	**waiting_commit** - Indicates whether the underlying database has outstanding commits that need to process. 
 
 See the following example response in JSON format:
 
@@ -1218,10 +1218,10 @@ See the following example response in JSON format:
 The `_search_info` endpoint returns information about a specified search
 that is defined within a specific design document.
 
--	**Method**: `GET /db/_design/design-doc/_search_info/yourSearch`
--	**Request**: None
--	**Response**: JSON that contains information about the specified search.
--	**Roles permitted**: `_reader`
+-	**Method** - `GET /db/_design/design-doc/_search_info/yourSearch`
+-	**Request** - None
+-	**Response** - JSON that contains information about the specified search.
+-	**Roles permitted** - `_reader`
 
 See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using HTTP:
 
@@ -1239,14 +1239,14 @@ curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/descripti
 
 The JSON structure includes the following individual fields:
 
--	**name**: Name or ID of the Search within the design document.
--	**search_index**: The Search Index
-	-	**pending_seq**: The sequence number of changes in the database that reached the Lucene index,
+-	**name** - Name or ID of the Search within the design document.
+-	**search_index** - The Search Index
+	-	**pending_seq** - The sequence number of changes in the database that reached the Lucene index,
 		both in memory and on disk.
-	-	**doc_del_count**: Number of deleted documents in the index.
-	-	**doc_count**: Number of documents in the index.
-	-	**disk_size**: The size of the index on disk, in bytes.
-	-	**committed_seq**: The sequence number of changes in the database that were committed
+	-	**doc_del_count** - Number of deleted documents in the index.
+	-	**doc_count** - Number of documents in the index.
+	-	**disk_size** - The size of the index on disk, in bytes.
+	-	**committed_seq** - The sequence number of changes in the database that were committed
 		to the Lucene index on disk.
 
 See the following example response in JSON format:

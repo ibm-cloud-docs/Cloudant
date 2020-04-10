@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-04-10"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2020-04-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}
@@ -33,8 +33,8 @@ redundant data storage doesn't protect against mistakes when data is changed.
 {: shortdesc}
 
 If you're new to the subject and want to understand where backup fits in
-with the other features that {{site.data.keyword.cloudant_short_notm}} offers
-to support Disaster Recovery (DR) and High Availability (HA) requirements, review the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup). 
+with the other features that {{site.data.keyword.cloudantfull}} offers
+to support Disaster Recovery (DR) and High Availability (HA) requirements, review the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup). 
 {: note}
 
 ## Introducing CouchBackup
@@ -46,7 +46,7 @@ and is open source.
 It's a `node.js` library,
 and you can install it on [Npm](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
 
-The CouchBackup package includes the library and two command-line tools:
+The CouchBackup package includes the library and two command line tools:
 
 1. `couchbackup`, which dumps the JSON data from a database to a backup text file.
 2. `couchrestore`, which restores data from a backup text file to a database.
@@ -116,7 +116,7 @@ The CouchBackup tools have the following limitations:
 * Backups aren't precise "point-in-time" snapshots.
   The reason is that the documents in the database are retrieved in batches,
   but other applications might be updating documents at the same time.
-  Consequently, data in the database can change between the times when the first and last batches are read.
+  Therefore, data in the database can change between the times when the first and last batches are read.
 * Index definitions that are held in design documents are backed up,
   but the content of indexes isn't backed up.
   This limitation means that when data is restored,
@@ -128,20 +128,20 @@ The CouchBackup tools have the following limitations:
 {: #using-the-tools}
 
 The [Npm page](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}
-details the basics of using the command-line tools for backup and restore of data.
+details the basics of using the command line tools for backup and restore of data.
 The following examples show how to put those details into practice
 by describing the use of the tools for specific tasks.
 
 The CouchBackup package provides two ways of using its core functions.
 
-* The command-line tools can be embedded into standard UNIX&trade; command pipelines.
+* The command line tools can be embedded into standard UNIX&trade; command pipelines.
   For many scenarios,
   a combination of `cron` and simple shell scripting of the `couchbackup` application is sufficient.
 * A library usable from node.js.
   The library allows more complicated backup processes to be created and deployed,
   such as determining dynamically which databases must be backed up.
 
-Use either the command-line backup tool,
+Use either the command line backup tool,
 or the library with application code,
 to enable backup from {{site.data.keyword.cloudant_short_notm}} databases as part of more complicated situations.
 A useful scenario is scheduling backups by using `cron`,
@@ -154,16 +154,15 @@ for long-term retention.
 
 Two requirements frequently occur:
 
-* Saving disk space,
-  by ['zipping' the backup](#compressing-a-backup-file) file as it's created.
-* Creating a backup of a database automatically, at [regular intervals](#hourly-or-daily-backups-that-use-cron-).
+* Saving disk space by ['zipping' the backup](#compressing-a-backup-file) file as it's created.
+* Creating a backup of a database automatically at [regular intervals](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compressing a backup file
 {: #compressing-a-backup-file}
 
 The `couchbackup` tool can write a backup file to disk directly,
 or stream the backup to `stdout`.
-Streaming to `stdout` enables data to be transformed before it's written to disk.
+Streaming to `stdout` enables data to be transformed before being written to disk.
 This feature is used to compress data within the stream.
 
 ```sh
@@ -191,7 +190,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
 It's straightforward to extend the pipeline if you want to transform the data in other ways.
 For example,
 you might want to encrypt the data before it's written to disk.
-You might also want to write the data directly to an object store service by using their command-line tools.
+You might also want to write the data directly to an object store service by using their command line tools.
 
 ### Hourly or daily backups that use `cron`
 {: #hourly-or-daily-backups-that-use-cron-}
@@ -231,7 +230,7 @@ You can modify the cron pattern to run hourly, daily, weekly, or monthly backups
 ## Using CouchBackup as a library
 {: #using-couchbackup-as-a-library}
 
-The `couchbackup` and `couchrestore` command-line tools are wrappers around a library
+The `couchbackup` and `couchrestore` command line tools are wrappers around a library
 that can be used in your own node.js applications.
 
 The library is useful for more complicated scenarios,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-30"
+lastupdated: "2020-04-23"
 
 keywords: curl samples, reference
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # API reference overview
 {: #api-reference-overview}
@@ -56,7 +56,7 @@ You can supply the username and password data for a request in three ways.
 	```
 	{: pre}
 
-	You can then define an 'alias' that enables the curl command to apply the control file,
+	You can then define an "alias" that enables the curl command to apply the control file,
 	for example:
 
 	`alias acurl="curl -s --config <full_path_and_name_of_config_file> "`

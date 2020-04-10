@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-23"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-24 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Search
 {: #search}
@@ -162,7 +162,7 @@ The `index` function requires the name of the data field to index as the second 
 However,
 if that data field doesn't exist for the document,
 an error occurs.
-The solution is to use an appropriate 'guard clause' that checks if the field exists.
+The solution is to use an appropriate "guard clause" that checks if the field exists.
 This clause contains the expected type of data,
 *before* any attempt to create the corresponding index.
 
@@ -203,7 +203,7 @@ if (typeof doc.min_length === 'number') {
 
 Use a generic guard clause test to ensure that the type of the candidate data field is defined.
 
-See the following example of a 'generic' guard clause:
+See the following example of a "generic" guard clause:
 
 ```javascript
 if (typeof doc.min_length) !== 'undefined') {

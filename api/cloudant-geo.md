@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-23"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-18 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # {{site.data.keyword.cloudant_short_notm}} Geospatial
 {: #cloudant-nosql-db-geospatial}
@@ -86,7 +86,7 @@ follow these steps:
 1. Select the database that contains spatially indexed data.
 2. Select the Design Documents menu.
 3. Select the design document that contains the definition of the spatial index.
-   A 'Geospatial Indexes' menu appears for the spatial index.
+   A "Geospatial Indexes" menu appears for the spatial index.
 4. Select the Geospatial Index for your data.
    A map view appears, showing a small selection of the spatial features contained within the index.
 5. To see a JSON view of the index, click the corresponding map view button.

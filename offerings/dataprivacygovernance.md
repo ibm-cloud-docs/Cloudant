@@ -21,12 +21,12 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Data privacy and governance
 {: #data-privacy-and-governance}
 
-*(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance Update was originally published April 20, 2016.)*
+*(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance Update was originally published 20 April 2016.)*
 
 As a pioneer in the provision of a fully managed and globally distributable Database-as-a-Service,
 {{site.data.keyword.cloudant_short_notm}} allows customers to locate data in any
@@ -46,7 +46,7 @@ the Safe Harbour agreement,
 to ensure "[unbroken data flows between the European Union and the United States](http://www.ibm.com/ibm/ibmgra/safe_harbor_10062015.html){: new_window}{: external}".
 
 {{site.data.keyword.IBM_notm}} prepared an EU Model Clauses agreement for {{site.data.keyword.cloudant_short_notm}} customers
-to facilitate the transfer of personal data outside of the EU
+to facilitate the transfer of personal data outside the EU
 in accordance with the EU data privacy laws.
 EU Model clauses are relevant to all customers
 that send personal information about EU citizens to {{site.data.keyword.cloudant_short_notm}}.

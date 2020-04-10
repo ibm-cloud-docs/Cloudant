@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-23"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -22,7 +22,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Replication
 {: #replication-api}
@@ -31,7 +31,7 @@ subcollection: cloudant
 {: shortdesc}
 
 Any change that occurred in the source database is reproduced in the target database.
-You can create replications between any number of databases, either continuously or as a 'one off' task.
+You can create replications between any number of databases, either continuously or as a "one off" task.
 
 Depending on your application requirements,
 you use replication to share and aggregate state and content.
@@ -42,7 +42,7 @@ you must replicate in both directions.
 Complete this process by replicating from `database1` to `database2`,
 and separately from `database2` to `database1`.
 
-First, when replication finishes, all active documents in the source database also exist in the destination or 'target' database. Second, documents deleted from the source database are also removed from the destination database (if they exist there). 
+First, when replication finishes, all active documents in the source database also exist in the destination or "target" database. Second, documents deleted from the source database are also removed from the destination database (if they exist there). 
 
 ## Replication operation
 {: #replication-operation}
@@ -221,7 +221,7 @@ See the following example error response if the selector is not valid:
 If you do not want to replicate the entire contents of a database,
 you can specify a "replication sequence value" in the `since_seq` field.
 
-The replication sequence value indicates how far to step 'through' a database,
+The replication sequence value indicates how far to step "through" a database,
 for example as part of a replication.
 Setting the contents of the `since_seq` field to this value ensures that the replication starts from that point,
 rather than from the very beginning.
@@ -382,7 +382,7 @@ by using the replication scheduler.
 More details about using the scheduler are available in the [advanced replication information](/docs/Cloudant?topic=cloudant-advanced-replication#replication-status) 
 
 If you monitor the `_active_tasks` and find that the state of a replication is not changing,
-you might have a 'stalled' replication.
+you might have a "stalled" replication.
 If you are sure that the replication stalled,
 contact {{site.data.keyword.cloudant_short_notm}} support for assistance.
 
@@ -486,7 +486,7 @@ See the following example response after an active task request, including singl
 {: #single-replication}
 
 Replication of a database means that the two databases,
-the 'source' and the 'target',
+the "source" and the "target",
 are synchronized.
 By default,
 the replication process occurs one time,

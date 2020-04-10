@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-27"
+lastupdated: "2020-04-28"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Deprecations
 {: #deprecations}
@@ -29,10 +29,10 @@ subcollection: cloudant
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {: shortdesc}
 
-## Replaced deprecated database information fields (March 6, 2020 or later)
+## Replaced deprecated database information fields (6 March 2020 or later)
 {: #replaced-dbinfo-size-fields}
 
-The following changes will be coming March 6, 2020 or later and might cause compatibility issues.
+The following changes will be coming 6 March 2020 or later and might cause compatibility issues.
 {: important}
 
 Calls to `GET /{db}` were replaced by the following fields:
@@ -52,20 +52,20 @@ Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 | `disk_size` | `sizes.file` | 
 {: caption="Table 1. New fields to replace deprecated design doc information fields" caption-side="top"}
 
-## Replaced `queries` parameter (March 6, 2020 or later)
+## Replaced `queries` parameter (6 March 2020 or later)
 {: #replaced-queries-parameter}
 
-The following changes will be coming March 6, 2020 or later and might cause compatibility issues.
+The following changes will be coming 6 March 2020 or later and might cause compatibility issues.
 {: important}
 
-The `queries` parameter for performing multiple view queries in a single request will no longer be accepted as a URL parameter for `GET /{db}/_design/{ddoc}/_view/{view}` or a request body parameter for `POST /{db}/_design/{ddoc}/_view/{view}`. It is replaced with the endpoint `POST /{db}/_design/{ddoc}/_view/{view}/queries` where it is supplied as a `queries` request body parameter.
+The `queries` parameter for performing multiple view queries in a single request will no longer be accepted as a URL parameter for `GET /{db}/_design/{ddoc}/_view/{view}` or a request body parameter for `POST /{db}/_design/{ddoc}/_view/{view}`. It's replaced with the endpoint `POST /{db}/_design/{ddoc}/_view/{view}/queries` where it's supplied as a `queries` request body parameter.
 
 You can also make multiple queries with the following new endpoints: 
 
 - `POST /{db}/_all_docs/queries`
 - `POST /{db}/_design_docs/queries`
 
-## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
+## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (7 February 2018)
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
 
 To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
@@ -76,9 +76,9 @@ extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the d
 ### Extracting {{site.data.keyword.dashdbshort_notm}} login information for stopped warehouse jobs
 {: #extracting-db2-warehouse-on-cloud-login-information-for-stopped-warehouse-jobs}
 
-Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need the URL and credentials. This information is located in the warehouser document. 
+Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need the URL and credentials. This information is located in the `warehouser` document. 
 
-To retrieve information from the warehouser document, you must run the following curl command:
+To retrieve information from the `warehouser` document, you must run the following curl command:
 
 ```sh
 curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID"
@@ -86,13 +86,13 @@ curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID"
 
 For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
 
-Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to DB2:
+Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the `warehouser` document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to DB2:
 
 ```sh
 curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
 ```
 
-*Example response when you search for information in the warehouser document:*
+*Example response when you search for information in the `warehouser` document:*
 
 ```http
 {
@@ -109,12 +109,12 @@ The information that is returned in the previous example is described in the fol
 
 | Field | Description |
 |-------|-------------|
-| `_id` | ID of the _warehouser document |
+| `_id` | ID of the `_warehouser` document |
 | `dashboard_url` | URL of the {{site.data.keyword.dashdbshort_notm}} console |
 | `dynamite_token` | DB2 password |
-| `target` | DB2 JDBC connection URL, only used if the value for `dashboard_url` is null |
+| `target` | DB2 JDBC connection URL, only used if the value for `dashboard_url` is null. |
 | `dynamite_user` | DB2 user name |
-{: caption="Table 3. Response from a search for information in the warehouser document" caption-side="top"}
+{: caption="Table 3. Response from a search for information in the `warehouser` document" caption-side="top"}
 
 To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.
        
@@ -136,7 +136,7 @@ by replacing `eval()` calls with the calls from the
 ## Removed support for virtual hosts (vhosts) (4 December 2017)
 {: #disabled-vhosts-december-4-2017}
 
-- On 4 December 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was removed in favor of HTTPS only. As a result of turning off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
+- On 4 December 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was replaced by HTTPS only. After turning off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
 
 ## Error handling
 {: #error-handling}
@@ -158,7 +158,7 @@ in the request body is ignored while the parameter in the request URL is respect
 ## Revised error message
 {: #revised-error-message}
 
-- The error message that occurs when you try to put a document attachment with a non-existent revision changed to a 409 error with the following information:
+- The error message that occurs when you try to put a document attachment with a non-existent revision that is changed to a 409 error with the following information:
 
 	```
 	{"error":"not_found","reason":"missing_rev"}
@@ -172,7 +172,7 @@ The `X-Frame-Options` setting is a response header that controls whether an HTTP
 You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned.
  
 This change might impact customers who are accessing the database directly from the browser. If you see the error message, "X-Frame-Options: DENY", 
-and it is breaking your service, you must enable CORS, [Setting the CORS configuration](/docs/Cloudant?topic=cloudant-cors#setting-the-cors-configuration). After you enable CORS, add the value of the HOST header that you send in the request 
+and it's breaking your service, you must enable CORS, [Setting the CORS configuration](/docs/Cloudant?topic=cloudant-cors#setting-the-cors-configuration). After you enable CORS, add the value of the HOST header that you send in the request 
 to the list of allowed `origins`.
 
 ## `dbcopy` (4 February 2016)
@@ -180,4 +180,4 @@ to the list of allowed `origins`.
 
 - The `dbcopy` feature can cause problems under some circumstances.
   Information about the feature was removed from the documentation.
-  Use of `dbcopy` is strongly discouraged.
+  Use of `dbcopy` is discouraged.
