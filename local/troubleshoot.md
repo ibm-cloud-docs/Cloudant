@@ -316,7 +316,7 @@ and display the Metrics application.
 
 The following screen capture shows the data that appears on the Metrics application for Database Read/Write Rate and Document Read/Write Rate in graph form.
 
-![Example shows the graphical information that is displayed for database and document read/write rates.](images/metrics_webapp.jpg)
+![Example shows the graphical information that is displayed for database and document read/write rates.](images/metrics_webapp.jpg){: caption="Figure 1. Example shows the graphical information that is displayed for database and document read/write rates" caption-side="bottom"}
 
 
 #### Adding non-administrator users

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-08"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -88,7 +88,7 @@ and consists of seven distinct states:
   
 The transition between these states is illustrated in the following diagram:
 
-![Replication Scheduler states](../images/fb85704.png "Replication Scheduler states")
+![Replication Scheduler states](../images/fb85704.png "Replication Scheduler states"){: caption="Figure 1. Replication Scheduler states" caption-side="bottom"}
 
 The scheduler introduces two new endpoints:
 

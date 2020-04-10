@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-12"
+lastupdated: "2020-04-08"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -29,6 +29,7 @@ subcollection: cloudant
 {{site.data.keyword.cloudant_short_notm}} Search is the free-text search technology that is built into the {{site.data.keyword.cloudantfull}} database that is powered by [Apache Lucene](http://lucene.apache.org/){: new_window}{: external}. 
 
 When you create an {{site.data.keyword.cloudant_short_notm}} Search index, you must consider which fields from your documents need to be indexed, and how they are to be indexed.
+{: shortdesc}
 
 One aspect of the indexing process is the choice of analyzer. An analyzer is code that can have the following effect:
 
@@ -46,7 +47,7 @@ If you want to see the effect of each analyzer, use the [{{site.data.keyword.clo
 
 To look at each analyzer in turn, we can pass the following string to each analyzer to measure the effect:
 
-```plaintext
+```sh
 "My name is Chris Wright-Smith. I live at 21a Front Street, Durham, UK - my email is chris7767@aol.com."
 ```
 {: screen}
@@ -145,7 +146,7 @@ The English analyzer changes the string in the following ways:
 
 Language-specific analyzers make the most changes to the source data. See the following two examples: 
 
-```plaintext
+```sh
 The quick brown fox jumped over the lazy dog.
 {"tokens":["quick","brown","fox","jump","over","lazi","dog"]}
 
@@ -208,7 +209,7 @@ If possible, choose the first option use the following guidelines:
 
 Providing a good search experience depends on the alignment of your users' search needs with structure in the data. Throwing lots of unstructured data at an indexing engine gets you only so far; if you can add further structure to unstructured data, then the search experience benefits since fewer "false positives" are returned. Let's take an example:
 
-```plaintext
+```sh
 "Edinson Cavani scored two superb goals as Uruguay beat Portugal to set up a World Cup quarter-final meeting with France. Defeat for the European champions finished Cristiano Ronaldo's hopes of success in Russia just hours after Lionel Messi and Argentina were knocked out, beaten 4-3 by Les Bleus."
 
 Source: BBC News https://www.bbc.co.uk/sport/football/44439361
@@ -229,7 +230,7 @@ From this snippet, I would manually extract the following "entities":
 
 Entity extraction is the process of locating known entities (given a database of such entities) and storing the entities in the search engine instead of, or as well as, the source text. The [Watson Natural Language and Understanding API](https://www.ibm.com/watson/services/natural-language-understanding/) can be fed raw text and returns entities it knows about (you can provide your own entity model for your domain-specific application):
 
-![Analyzers](../images/analyzers.png)
+![Analyzers](../images/analyzers.png){: caption="Figure 1. Analyzers" caption-side="bottom"}
 
 As well as entities, the API can also place the article in a hierarchy of categories. In this case, Watson suggests the following categories:
 

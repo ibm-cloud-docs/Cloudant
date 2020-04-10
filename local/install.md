@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-09"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -212,8 +212,7 @@ implementation.
 *  Three database nodes that are identified as DB1, DB2, and DB3.
 *  Two load balancers that are identified as LB1 and LB2.
 
-![Example illustrates the communication paths and ports that are
-  used by the components of {{site.data.keyword.cloudant_local_notm}}.](images/cloudant_architecture.jpg)
+![Example illustrates the communication paths and ports that are used by the components of {{site.data.keyword.cloudant_local_notm}}.](images/cloudant_architecture.jpg){: caption="Figure 1. Example illustrates the communication paths and ports that are used by the components of {{site.data.keyword.cloudant_local_notm}}" caption-side="bottom"}
   
 ### Single-node implementation requirements
 {: #single-node-implementation-requirements}
