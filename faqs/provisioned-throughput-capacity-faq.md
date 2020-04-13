@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-13"
 
 keywords: read, write, global query, throughput, operation type, event, reject request, retry, provision, capacity
 
@@ -20,12 +20,15 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
 <!-- Acrolinx: 2020-02-14 -->
 
 # Provisioned throughput capacity model FAQ
 {: #faq-provisioned-throughput-capacity-model}
+{: faq}
+{: support}
 
 {{site.data.keyword.cloudantfull}} calculates your provisioned throughput capacity based on these operation types: *Read*, *Write*, and *Global Query*. 
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-04-13"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -20,12 +20,15 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
 <!-- Acrolinx: 2020-03-17 -->
 
 # Authenticating with {{site.data.keyword.cloudant_short_notm}} FAQ
 {: #faq-authenticating-cloudant}
+{: faq}
+{: support}
 
 {{site.data.keyword.cloud}} Identity and Access Management (IAM) combines managing user identities, services, and access control into one approach. {{site.data.keyword.cloudantfull}} integrates with {{site.data.keyword.cloud_notm}} Identity and Access Management. 
 {: shortdesc}

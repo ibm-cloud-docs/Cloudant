@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-04-13"
 
 keywords: capacity settings, capacity limit, exceed limit, usage data
 
@@ -20,12 +20,15 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
 <!-- Acrolinx: 2020-02-13 -->
 
 # Pricing FAQ
 {: #faq-pricing}
+{: faq}
+{: support}
 
 {{site.data.keyword.cloudantfull}} pricing is based on the provisioned throughput capacity that you set for your instance, and the amount of data storage you use. With {{site.data.keyword.cloudant_short_notm}}, you can increase or decrease your provisioned throughput capacity as needed, and pay pro-rated hourly. The provisioned throughput capacity is a reserved number of reads per second, writes per second, and global queries per second allocated to an instance. The throughput capacity setting is the maximum usage level for a given second.
 {: shortdesc} 

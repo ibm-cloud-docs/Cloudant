@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-04-13"
 
 keywords: availability zones, single-zone region, multi-zone region, lite plan, standard plan
 
@@ -20,12 +20,15 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
 <!-- Acrolinx: 2020-03-13 -->
 
 # Availability zones FAQ
 {: #faq-availability-zones}
+{: faq}
+{: support}
 
 You can create an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
