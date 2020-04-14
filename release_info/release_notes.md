@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-31"
+lastupdated: "2020-04-14"
 
-keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
+keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
 subcollection: cloudant
 
@@ -67,6 +67,11 @@ Review the changes on the Deprecations page:
 
 - The fields used by `GET /{db}` and `GET /{db}/_design/{ddoc}/_info` were replaced with new fields. For more information, see the [Deprecations](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-dbinfo-size-fields) page.
 - The `?queries` parameter was replaced by `POST /{db}/_design/{ddoc}/_view/{view}/queries`. For more information, see the [Deprecations](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter) page.
+
+## Build 8152 (April 2020)
+{: #build-8152-04-2020}
+
+- Bug fixes.
 
 ## Build 8142 (March 2020)
 {: #build-8142-03-2020}
