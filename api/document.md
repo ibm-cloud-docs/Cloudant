@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-10"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -747,6 +747,9 @@ Field  | Description             | Type             | Optional
 -------|-------------------------|------------------|---------
 `docs` | Bulk Documents Document | Array of objects | no
 {: caption="Table 2. Basic bulk request structure" caption-side="top"}
+
+Avoid using the `new_edits` field. By default, if there are conflicts, document updates fail and return an error to the client. However, this option applies document revisions without checking for conflicts, so it is very easy to accidentally end up with a large number of conflicts.
+{: note}
 
 Each `docs` array object has the following structure:
 
