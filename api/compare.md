@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-10"
+lastupdated: "2020-04-14"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -103,8 +103,8 @@ click the corresponding link.
 | `GET /{db}/_design/{ddoc}/_list/{func}/{view}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-design-documents#list-functions), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/ddoc/render.html#get--db-_design-ddoc-_list-func-view), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#get--db-_design-ddoc-_list-func-view) | Apply the list function for the view function from the same design document.<br>The result of a list function isn't stored. For that reason, the function is executed every time that a request is made. |
 | `POST /{db}/_design/{ddoc}/_list/{func}/{view}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-design-documents), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/ddoc/render.html#post--db-_design-ddoc-_list-func-view), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#post--db-_design-ddoc-_list-func-view) | Apply the list function for the view function from the same design document. |
 | `ANY /{db}/_design/{ddoc}/_rewrite/{path}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-design-documents#rewrite-rules), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/ddoc/rewrites.html#any--db-_design-ddoc-_rewrite-path), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/ddoc/rewrites.html#any--db-_design-ddoc-_rewrite-path) | Rewrite the specified path by rules defined in the specified design document. |
-| `GET /{db}/_design/{ddoc}/_search_info/{index}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-search#search-index-metadata) | Obtain information about a search that is specified within a specific design document. |
-| `GET /{db}/_design/{ddoc}/_search/{index}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-search#queries) | Query an index. |
+| `GET /{db}/_design/{ddoc}/_search_info/{index}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-search#search-index-metadata), [CouchDB 2.x](https://docs.couchdb.org/en/stable/api/ddoc/search.html#db-design-design-doc-search-info-index-name) | Obtain information about a search that is specified within a specific design document. |
+| `GET /{db}/_design/{ddoc}/_search/{index}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-search#queries), [CouchDB 2.x](https://docs.couchdb.org/en/stable/api/ddoc/search.html#db-design-design-doc-search-index-name)| Query an index. |
 | `POST /{db}/_design/{ddoc}/_search/{index}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-search#posting-search-queries) | Query an index. |
 | `GET /{db}/_design/{ddoc}/_show/{func}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-design-documents#show-functions), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/ddoc/render.html#get--db-_design-ddoc-_show-func), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#get--db-_design-ddoc-_show-func) | Apply the show function for null document. |
 | `POST /{db}/_design/{ddoc}/_show/{func}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-design-documents#show-functions), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/ddoc/render.html#post--db-_design-ddoc-_show-func), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#post--db-_design-ddoc-_show-func) | Apply the show function for null document. |
