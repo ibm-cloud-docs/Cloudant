@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-04-13"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -20,11 +20,15 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:support: data-reuse='support'}
+{:faq: data-hd-content-type='faq'}
 
 <!-- Acrolinx: 2020-02-10 -->
 
 # Resource Groups FAQ
 {: #faq-ibm-cloud-resource-groups}
+{: faq}
+{: support}
 
 Since 16 July 2018, new {{site.data.keyword.cloudantfull}} resource instances are provisioned into resource groups, rather than Cloud Foundry spaces. 
 {: shortdesc}

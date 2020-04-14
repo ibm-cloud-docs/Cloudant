@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-07"
+lastupdated: "2020-04-13"
 
 keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency
 
@@ -20,12 +20,15 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
 <!-- Acrolinx: 2019 -->
 
 # Document versioning and conflicts FAQ
 {: #faq-document-versioning-conflicts}
+{: faq}
+{: support}
 
 When you use distributed databases, copies of your data might be stored in multiple locations. Keeping this data in sync is important. However, your work environment might prevent your users from updating documents with their changes immediately, or even replicating to the database. 
 
