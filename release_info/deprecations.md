@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-16"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -64,7 +64,6 @@ You can also make multiple queries with the following new endpoints:
 
 - `POST /{db}/_all_docs/queries`
 - `POST /{db}/_design_docs/queries`
-- `POST /{db}/_local_docs/queries`
 
 ## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
