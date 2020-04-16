@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-14"
+lastupdated: "2020-04-16"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -76,13 +76,13 @@ Review the changes on the Deprecations page:
 ## Build 8142 (March 2020)
 {: #build-8142-03-2020}
 
-- New endpoints were added to allow you to post multiple queries: `POST /{db}/_all_docs/queries`, `POST /{db}/_design_docs/queries`, and `POST /{db}/_local_docs/queries`.
+- New endpoints were added to allow you to post multiple queries: `POST /{db}/_all_docs/queries` and `POST /{db}/_design_docs/queries`.
 - The `disk_size` and `data_size` fields were retired from the database info object returned by `GET /{db}`. 
-- The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs`, `_design_docs`, and `_local_docs` endpoints. Specify a `keys` object when `POST`ing to these endpoints.
+- The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs` and `_design_docs`endpoints. Specify a `keys` object when `POST`ing to these endpoints.
 - The `/{db}/_changes` feed immediately returns headers now, even when there are no changes available. This process prevents client blocking.
 - Negative and non-integer heartbeat values now return a `400 Bad Request` response status code.
 - Allow specifying separate proxies for both the source and target in a replication via `source_proxy` and `target_proxy` keys.  
-- The `POST` view functionality now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, `/{db}/_local_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
+- The `POST` view functionality now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
 - Replication `"info"` errors are now JSON objects. Previously, they were strings. 
 - A compatibility change was made to support replication with future databases that contain per-document access control fields.
 - Add a warning to the `_find` endpoint if a large number of document scans were required to generate a result.

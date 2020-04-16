@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-16"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -552,7 +552,7 @@ Transfer-Encoding: chunked
 ```
 {: codeblock}
 
-Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and `/$DATABASE/_design_docs/queries`, which is similar to `/$DATABASE/_all_docs/queries`. 
+Multiple queries are also supported in `/$DATABASE/_design_docs/queries`, which is similar to `/$DATABASE/_all_docs/queries`. 
 {: note}
 
 ### Send multiple view queries to a database by using `_view`
