@@ -27,22 +27,6 @@ Cloudant
 		couchdb/comparison.md
 		couchdb/install.md
 		couchdb/support.md
-
-	{: .topicgroup}
-	Cloudant Local
-		local/overview-local.md
-		local/whats-new.md
-		local/install.md
-		local/configure.md
-		local/maintenance.md
-		local/troubleshoot.md
-		local/upgrade.md
-		local/support.md
-
-	{: .topicgroup}
-	Other offerings
-		offerings/bluemix_dedicated.md
-		offerings/cloudant.com.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
@@ -88,6 +72,22 @@ Cloudant
 		libraries/client-libraries.md
 		libraries/supported.md
 		libraries/thirdparty.md
+
+	{: .topicgroup}
+	Cloudant Local
+		local/overview-local.md
+		local/whats-new.md
+		local/install.md
+		local/configure.md
+		local/maintenance.md
+		local/troubleshoot.md
+		local/upgrade.md
+		local/support.md
+
+	{: .topicgroup}
+	Other offerings
+		offerings/bluemix_dedicated.md
+		offerings/cloudant.com.md
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
