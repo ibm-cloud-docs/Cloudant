@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2020-04-15"
+lastupdated: "2020-04-20"
 
 keywords: videos
 
@@ -1141,4 +1141,4 @@ Embrace eventual consistency - don't try and make Cloudant consistent.
 
 Note: Cloudant products based of CouchDB 4 may have a different consistency model.
 
-That's the end of this course. For more information please consult our documentation and our blog.
+That's the end of this course. For more information, consult our documentation and our blog.

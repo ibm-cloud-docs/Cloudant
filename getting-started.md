@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-09"
+lastupdated: "2020-04-20"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -57,7 +57,7 @@ Verify that you have what you need to start the tutorial from the following list
 	
 2. Verify that your version matches the most recent version. The result looks something like this:
 	  ```sh
-	  Python 3.7.4
+	  Python 3.8.1
 	  ```
 	  {: screen}
 
@@ -94,7 +94,6 @@ Verify that you have what you need to start the tutorial from the following list
     {: codeblock}
   
   ![Python 3 interactive shell](tutorials/images/python3.png){: caption="Figure 1. Python 3 interactive shell" caption-side="bottom"}
-
 
 2.  Run the `import` statements of the {{site.data.keyword.cloudant_short_notm}}
 	Client Library components to enable your Python application to connect to
