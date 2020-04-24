@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-23"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -39,16 +39,16 @@ to work with the database.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your user name and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button. 
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button.
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
 2.  Click `Databases` in the left navigation and `Cloudant` from the list of database       services:
 
-    ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} Databases services" caption-side="bottom"}
+    ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
 
-3.  In the service configuration window, select a region and pricing plan. 
+3.  In the service configuration window, select a region and pricing plan.
 
     ![{{site.data.keyword.cloudant_short_notm}} region and pricing plan](images/img0005.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} region and pricing plan" caption-side="bottom"}
 
@@ -70,7 +70,7 @@ to work with the database.
 
    a. Click the `New credential` button.
 
-   ![Create new service credentials](images/img0050.png){: caption="Figure 6. Create new service credentials" caption-side="bottom"}
+   ![Create new service credentials.](images/img0050.png){: caption="Figure 6. Create new service credentials" caption-side="bottom"}
 
    b. Enter a name for the new credential in the Add new credential window. See image.
 
@@ -78,9 +78,9 @@ to work with the database.
 
    d. (Optional) Create a service ID or have one automatically generated for you. 
 
-   e. (Optional) Add inline configuration parameters. This parameter is not used by {{site.data.keyword.cloudant_short_notm}} service credentials, so ignore it. 
+   e. (Optional) Add inline configuration parameters. This parameter isn't used by {{site.data.keyword.cloudant_short_notm}} service credentials, so ignore it. 
 
-   f. Click the `Add` button. 
+   f. Click the `Add` button.
 
    ![Add a service credential](images/img0051.png){: caption="Figure 7. Add a service credential" caption-side="bottom"}
  
@@ -88,11 +88,11 @@ to work with the database.
 
    g. Click `View credentials` under Actions.
 
-   ![View all service credentials](images/img0052.png){: caption="Figure 8. View all service credentials" caption-side="bottom"}
+   ![View all service credentials.](images/img0052.png){: caption="Figure 8. View all service credentials" caption-side="bottom"}
 
 7.  The details for the service credentials appear:
 
-    ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png){: caption="Figure 9. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 9. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you *must* supply and use your own service credentials.
 {: note}
@@ -146,11 +146,11 @@ At any time, you can find the credentials for a service that is associated with 
 3.  To see the credentials that are required to access the service,
     click `View Credentials`:
 
-    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0052.png){: caption="Figure 12. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0052.png){: caption="Figure 12. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 4.  The details for the service credentials appear:
 
-    ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png){: caption="Figure 13. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 13. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
 {: note}
