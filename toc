@@ -138,6 +138,13 @@ Cloudant
 		guides/replication_guide.md
 		guides/search-analyzers.md
 		guides/backup-guide-using-replication.md
+
+	{: .topicgroup}
+	Enhancing security for IBM Cloudant
+	    security/access-iam.md
+		security/secure-connection.md
+		security/secure-data.md
+		security/audit-events.md
 	{: .navgroup-end}
 
 {: .navgroup id="help"}	
