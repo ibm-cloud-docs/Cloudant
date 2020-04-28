@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-27"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -132,8 +132,6 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to re
 similar to this one is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 
 by replacing `eval()` calls with the calls from the 
 [expr-eval library](https://github.com/silentmatt/expr-eval){: new_window}{: external}.
-For more information, you can also read this 
-[post](https://silentmatt.com/javascript-expression-evaluator/){: new_window}{: external}.
 
 ## Removed support for virtual hosts (vhosts) (4 December 2017)
 {: #disabled-vhosts-december-4-2017}
