@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-04-27"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -27,13 +27,13 @@ subcollection: cloudant
 {: #how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-}
 
 Since 16 July 2018, new {{site.data.keyword.cloudantfull}} resource instances are provisioned into
-resource groups, rather than Cloud Foundry spaces. Common questions received by {{site.data.keyword.cloudant_short_notm}} support regarding this transition are described here.
+resource groups, rather than Cloud Foundry spaces. {{site.data.keyword.cloudant_short_notm}} support received the following common questions during this transition.
 {: shortdesc}
 
 ## How do I migrate an existing instance to a resource group?
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
 
 You can migrate {{site.data.keyword.cloudant_short_notm}} instances on the following plans:
 
@@ -61,7 +61,7 @@ New Standard plan instances are provisioned into resource groups. In order to
 provision these instances onto a Dedicated Hardware instance, you must first migrate the Dedicated
 Hardware instance into a resource group.
 
-For more information about how to do this migration, see [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}{: external}.
+For more information about how to do this migration, see [migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}{: external}.
 
 Once the Dedicated Hardware instance is migrated to a resource group, it
 displays in the Location drop-down menu when you provision Standard plans.
