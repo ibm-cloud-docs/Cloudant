@@ -30,13 +30,13 @@ This tutorial demonstrates how to create a database, populate it
 with documents, create an index, and use the index to query the database.
 {: shortdesc}
 
-Exercises for both the ![command line icon](../images/CommandLineIcon.png) *command line*
+Exercises for both the ![Command-line icon](../images/CommandLineIcon.png) *Command line*
 and ![Dashboard icon](../images/DashboardIcon.png) *{{site.data.keyword.cloud}} Dashboard* are provided. The
 {{site.data.keyword.cloud_notm}} Dashboard exercises give you a visual example of each task. You can follow the links
 throughout the tutorial for more information.
 
 To begin, you create the `query-demo` database and some documents that
-contain the data for these exercises.
+include the data for these exercises.
 
 ## Assumptions
 {: ##assumptions}
@@ -47,7 +47,7 @@ Before you begin, follow these steps to prepare for the tutorial:
 2.  Log in to the
   [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/catalog/services/cloudant){: new_window}{: external}.
 3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance).
-4.  (Optional) [Create an acurl alias](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
+4.  (Optional) [Create an `acurl` alias](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
 5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
   If you decide not to set up `acurl`,
   use the following URL instead of the one provided in the exercises:
@@ -98,7 +98,7 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 {: #creating-documents-in-the-database}
 
 The [documents](/docs/Cloudant?topic=cloudant-documents#documents)
-that you create in this exercise contain the data that you use to query the `query-demo` database in later exercises.
+that you create in this exercise include the data that you use to query the `query-demo` database in later exercises.
 
 ![command line icon](../images/CommandLineIcon.png)
 
@@ -271,7 +271,7 @@ the result set. An index is a way to structure data that improves retrieval time
 
 We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial, which uses Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index.
 
-When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. If it does not find a suitable index, it uses the `_all_docs` special index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields. Full table scans are expensive, and we recommend that you create an index. See a description of different types of indexes in the following list:
+When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. If it doesn't find a suitable index, it uses the `_all_docs` special index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields. Full table scans are expensive, and we recommend that you create an index. See a description of different types of indexes in the following list:
 
 *	Primary index – look up a document or list of documents by ID.  
 *	[View](/docs/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria that you can search is specified in the view's definition. Views use the MapReduce paradigm.
@@ -555,7 +555,7 @@ The extra details look like the following example:
 {: #running-a-query-with-operators}
 
 In this example, the `$eq` (equal) and `$gt` (greater than) operators are used to search
-for documents that contain the last name `Greene` and an age that is greater than `30`.
+for documents that include the last name `Greene` and an age that is greater than `30`.
 
 We use a selector expression like the following example:
 ```json

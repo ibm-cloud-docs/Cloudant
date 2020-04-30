@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-23"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -21,14 +21,14 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Disaster recovery and backup
 {: #disaster-recovery-and-backup}
 
 Your data is important and valuable.
-You want to protect your data,
-to help ensure it is secure,
+You want to protect your data
+to help ensure it's secure,
 available,
 and maintains integrity.
 {{site.data.keyword.cloudantfull}} provides several ways to protect your data and help keep your applications operational.
@@ -44,34 +44,30 @@ This document provides an overview of the automatic capabilities and supported t
 ## Types and levels of protection
 {: #types-and-levels-of-protection}
 
-The type of protection you might want depends on the problem you are trying to solve.
+The type of protection you might want depends on the problem you're trying to solve.
 
 For example,
 you might want to have a high level of data availability so that you can still access your data,
 even if a limited amount of hardware within the system failed.
-This is a 'High Availability' (HA) requirement.
-It means providing the best possible continuous data availability after a hardware failure.
+This requirement is necessary for "High Availability" (HA).
+It means that you provide the best possible continuous data availability after a hardware failure.
 Different HA techniques tolerate different levels of failure before operations are affected.
 
-Alternatively,
-you might want to have easy and quick ways of backing-up and restoring data.
+You might want to have quick and easy ways of backing up and restoring data.
 For example,
 after a severe or extensive hardware failure,
-you want to be able to make all the data available on an alternative system
+you want the ability to make all the data available on an alternative system
 as quickly as possible.
-This is a 'Disaster Recovery' (DR) requirement.
-A disaster generally means that a database is no longer available in one or more locations.
+This requirement is necessary for "Disaster Recovery" (DR).
+A disaster generally means a database is no longer available in one or more locations.
 For example,
-a power outage might cause all systems in a database cluster to fail.
-Alternatively,
-a large-scale network failure might mean that systems in a cluster cannot be contacted,
+a power outage might cause all systems in a database cluster to fail, or a large-scale network failure might mean systems in a cluster can't be contacted,
 even though they continue to work correctly.
 
 Addressing your HA or DR requirements often begins by simplifying the problem into more generic requirements.
 When you identify your requirements,
 you can apply the tools and features that help solve the generic needs.
-When put together,
-the tools and features can then address your HA or DR requirements.
+Together, the tools and features can address your HA or DR requirements.
 
 Different tools and features provide different levels of protection. The different features might be more or less suitable for your specific HA or DR requirement.
 {: tip}
@@ -80,31 +76,30 @@ Different tools and features provide different levels of protection. The differe
 
 1.	Data redundancy within a single region, also known as [In-region automatic data redundancy](#in-region-automatic-data-redundancy).
 2.	Cross-region data redundancy and failover, also known as [Cross-region redundancy for disaster recovery](#cross-region-redundancy-for-disaster-recovery).
-3.	Point in time snapshot backup for point-in-time restore, by using 'traditional' [Database backup and recovery](#database-backup-and-recovery).
+3.	Point-in-time backup for point-in-time restores that use "traditional" [database backup and recovery](#database-backup-and-recovery).
 
 ## In-region automatic data redundancy
 {: #in-region-automatic-data-redundancy}
 
 Within a single {{site.data.keyword.cloudant_short_notm}} account,
 data is stored in triplicate by using internal and automatic processes.
-You do not need to do anything to enable this internal data replication.
+You don't need to do anything to enable this internal data replication.
 
 In-region data redundancy enables high availability protection.
 Specifically,
 in-region data redundancy provides protection for your data against hardware failure within the region.
 When a hardware unit within the region fails,
 only the copy of your data that is stored on that unit is no longer available.
-Your applications remain usable because {{site.data.keyword.cloudant_short_notm}} automatically routes requests to the copies of your data
+Your applications stay usable because {{site.data.keyword.cloudant_short_notm}} automatically routes requests to the copies of your data
 that are still available on other hardware units within the region.
 Meanwhile,
 automatic monitoring of systems detects the hardware unit failure,
 prompting action and subsequent restoration of full redundancy.
 
-{{site.data.keyword.cloudant_short_notm}} accounts are located within a single region.
-This characteristic means that all the data that you store within your account is stored across separate servers,
-each of which is hosted within that single region.
+{{site.data.keyword.cloudant_short_notm}} accounts are located within a single region, which means the data that you store within your account is stored across separate servers,
+each of which is hosted within that single region. 
 
-In-region automatic data redundancy is limited to:
+In-region automatic data redundancy is limited to the following functions:
 
 1.	Providing protection within a single region only.
 2.	Maintaining current data.
@@ -112,22 +107,20 @@ In-region automatic data redundancy is limited to:
 To provide protection across more than the single region associated with your account,
 use [Cross-region redundancy for disaster recovery](#cross-region-redundancy-for-disaster-recovery).
 
-To provide protection for the 'history' of your data,
-for example to enable auditing of changes that are made to data by applications,
-use data snapshots that are created by [Database backup and recovery](#database-backup-and-recovery) tools.
+To provide protection for the "history" of your data,
+use data snapshots that are created by [database backup and recovery](#database-backup-and-recovery) tools. For example, you can enable auditing of changes that are made to data by applications.
 
-In summary,
-in-region data redundancy enables a High Availability capability
-by providing tolerance for failures that affect single systems within the region.
+In-region data redundancy enables a High Availability capability
+that provides tolerance for failures that affect single systems within the region.
 
 ## Cross-region redundancy for disaster recovery
 {: #cross-region-redundancy-for-disaster-recovery}
 
 The {{site.data.keyword.cloudant_short_notm}} replication feature helps you build a flexible disaster recovery capability into your applications.
 The main way to enable disaster recovery is to use {{site.data.keyword.cloudant_short_notm}} replication to create redundancy across regions.
-The result is that your application is able to tolerate the situation where one or more region is not available.
+The result is that your application can tolerate the situation where one or more regions isn't available.
 
-The basic steps in creating cross-region redundancy are:
+The basic steps in creating cross-region redundancy are included in the following list:
 
 1.  Create {{site.data.keyword.cloudant_short_notm}} accounts in two or more regions.
 2.  Create databases in each region as needed.
@@ -140,15 +133,15 @@ consider the following points:
 
 * Applications can send requests to the database hosted nearest to their physical location.
   This use of proximity can reduce network latency and improve response times.
-  This configuration is referred to as an 'Active-Active' method.
-  It is characterized by the concurrent use of multiple copies of data.
+  This configuration is referred to as an "Active-Active" method.
+  It's characterized by the concurrent use of multiple copies of data.
   Applications that work within an active-active configuration must have
   a [strategy for handling conflicts](/docs/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts) to avoid problems with multiple copies of data.
 * Applications can request data from a single region by default.
-  If the region is not available,
+  If the region isn't available,
   the application can switch to requesting data from another region.
-  This configuration is referred to as an 'Active-Passive' method.
-  It is characterized by the active use of one set of data only at a time.
+  This configuration is referred to as an "Active-Passive" method.
+  It's characterized by the active use of one set of data only at a time.
 * An application might use a hybrid configuration,
   where a single account is used for all data write requests,
   and other locations as used exclusively for read-only requests.
@@ -156,18 +149,14 @@ consider the following points:
 * In a disaster scenario,
   your application must reroute data requests to access the accounts
   that are hosted in the regions that are still online.
-  This requirement means that your application must be able to detect the loss of a region,
+  This requirement means that your application must detect the loss of a region,
   and then reroute data requests.
 
 In summary,
 cross-region redundancy is similar to a high availability capability,
 but applies to failures that affect an entire region.
-However,
-configuring your applications to work correctly with cross-redundancy configurations provides a true disaster recovery capability.
-The reason is that the applications can continue working if the data in one region is not available for an amount of time.
-{{site.data.keyword.cloudant_short_notm}} replication helps ensure data synchronization between regions.
-However,
-your applications must be able to 'fail over' to copies of your data that are stored in other regions.
+Configuring your applications to work correctly with cross-redundancy configurations provides a true disaster recovery capability because the applications can continue working if the data in one region isn't available for an amount of time.
+{{site.data.keyword.cloudant_short_notm}} replication helps ensure data synchronization between regions. Your applications must "failover" to copies of your data that is stored in other regions.
 
 ## Database backup and recovery
 {: #database-backup-and-recovery}
@@ -177,35 +166,33 @@ your applications must be able to 'fail over' to copies of your data that are st
 However,
 both of these capabilities focus on maintaining access only to the *current* copy of your data.
 
-In practice,
-people and applications can make mistakes and change data in unintended ways.
+People and applications can make mistakes and change data in unintended ways.
 The applications themselves can implement some protection,
 but sometimes undesirable changes get through.
-In this case,
-it is useful to be able to restore data from a previous point in time.
+It's useful to be able to restore data from a previous point in time.
 Database backups support this requirement.
 
 In addition to protecting your data with high availability and disaster recovery features,
 consider dumping your database data to a separate location at periodic,
 regular intervals.
-Ensure that you check and test the backups for confidence that they are complete and correct.
+Ensure you check and test the backups for confidence that they're complete and correct.
 
-{{site.data.keyword.cloudant_short_notm}} supports tools that helps you dump the JSON content in databases to a file,
+{{site.data.keyword.cloudant_short_notm}} supports tools that help you dump the JSON content in databases to a file,
 and later restore databases from those files.
 
 Specifically,
-the tools supported by {{site.data.keyword.cloudant_short_notm}} help you to:
+the tools that are supported by {{site.data.keyword.cloudant_short_notm}} help you to perform the following tasks:
 
-*	Backup complete databases to a file,
+*	Backup complete databases to a file that is
 	suitable for further processing and off-site storage.
 *	Restore complete databases from a previous state that is contained in your backup file.
 
-The tools supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
+The tools that are supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
 {: tip}
 
-*	`_security` settings are not backed up by the tools.
-*	Attachments are not backed up by the tools.
-*	Backups are not precisely accurate "point-in-time" snapshots.
+*	`_security` settings aren't backed up by the tools.
+*	Attachments aren't backed up by the tools.
+*	Backups aren't precisely accurate "point-in-time" snapshots.
 	The reason is that the documents in the database are retrieved in batches,
 	but other applications might be updating documents at the same time.
 	Therefore,
@@ -221,14 +208,14 @@ The tools supported by {{site.data.keyword.cloudant_short_notm}} have the follow
 You can develop applications that build on basic {{site.data.keyword.cloudant_short_notm}} functions and supported tools
 to enable more complex data protection strategies.
 
-Example scenarios include:
+Example scenarios include those in the following list:
 
 *	Restoring single documents from previous states.
-*	Storing multiple previous document states, to allow for restores from long in the past.
+*	Storing multiple previous document states to allow for restores from older backups.
 *	Migrating older data to cheaper storage, for more cost-effective retention.
 
-The backup tools consist of an open source node.js command line application and library.
-It is available on [NPM](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
+The backup tools consist of an open source node.js command-line application and library.
+It's available on [NPM](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
 
 For ideas and examples that show how to integrate the tools into your data protection strategy,
 see the [{{site.data.keyword.cloudant_short_notm}} backup and recovery guide](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

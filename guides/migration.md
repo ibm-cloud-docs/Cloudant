@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-16"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-08-14 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Migrating to {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
@@ -127,7 +127,7 @@ If you haven't signed up already, [sign up for an {{site.data.keyword.cloud_notm
 
 After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then click `Databases` and `Cloudant`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
 
-![Add {{site.data.keyword.cloudant_short_notm}} instance](../tutorials/images/img0003.png){: caption="Figure 8. Add {{site.data.keyword.cloudant_short_notm instance" caption-side="bottom"}
+![Add {{site.data.keyword.cloudant_short_notm}} instance](../tutorials/images/img0003.png){: caption="Figure 8. Add {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
 
 ### Step 3. Find out whether your application is ready for {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}

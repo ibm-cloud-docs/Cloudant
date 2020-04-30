@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-10"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-07-02 -->
+<!-- Acrolinx: 2020-04-10 -->
 
 # Connecting
 {: #connecting}
@@ -41,7 +41,7 @@ subcollection: cloudant
 shown in both the URL field of the Service Credentials that are generated for the instance, and in the **Account** > **Settings** tab of the 
 {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
-Therefore, all {{site.data.keyword.cloudant_short_notm}} HTTP endpoints must be accessed over TLS and prefaced by `https://`.
+All {{site.data.keyword.cloudant_short_notm}} HTTP endpoints must be accessed over TLS and prefaced by `https://`.
 
 The publicly facing external endpoint is shown in the following example:
 
@@ -57,7 +57,7 @@ outside the EU-managed environment. The {{site.data.keyword.cloud_notm}} interna
 
 `https://USERNAME.private.cloudantnosqldb.appdomain.cloud`
 
-Where the USERNAME is the service name of the service instance user in the URL. This field also serves as the admin username
+In the previous example, USERNAME is the service name of the service instance user in the URL. This field also serves as the admin username
 when you use {{site.data.keyword.cloudant_short_notm}} legacy authentication. An example USERNAME is 
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be 
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud. 
@@ -97,8 +97,8 @@ Field | Purpose
 ------|--------
 `username` | The service name of the service instance user in the URL. This field also serves as the admin username. 
 `password` | The legacy credentials password that is required for applications to access the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen. 
-`host` | The host name that is used by applications to locate the service instance. This field only displays if the `Use both legacy credentials and IAM` option is chosen. 
-`port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. This field only displays if the `Use both legacy credentials and IAM` option is chosen. 
+`host` | The host name that is used by applications to locate the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen. 
+`port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. This field displays only if the `Use both legacy credentials and IAM` option is chosen. 
 `url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy username and password. 
 `apikey` | The IAM API key. 
 `iam_apikey_description` | Description of the IAM API key. 
@@ -128,11 +128,11 @@ You can open the {{site.data.keyword.cloudant_short_notm}} Dashboard for your in
 the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either the `Launch` or `Launch Cloudant Dashboard`
 button to open the dashboard in a new browser tab. You can do the following tasks by using the {{site.data.keyword.cloudant_short_notm}} Dashboard:
 
-- Monitor your current consumption of the instance
-- Perform CRUD (create, read, update, delete) on {{site.data.keyword.cloudant_short_notm}} databases, documents, and indexes
-- Set up and view replication jobs
-- View active tasks
-- View and update account information like provisioned throughput capacity, announcements, CORS, and settings
+- Monitor your current consumption of the instance.
+- Perform CRUD (create, read, update, delete) on {{site.data.keyword.cloudant_short_notm}} databases, documents, and indexes.
+- Set up and view replication jobs.
+- View active tasks.
+- View and update account information like provisioned throughput capacity, announcements, CORS, and settings.
 
 ## Programmatic access
 {: #programmatic-access}
@@ -140,12 +140,12 @@ button to open the dashboard in a new browser tab. You can do the following task
 ### Command line (curl)
 {: #command-line-curl-}
 
-You can leverage the curl command line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API. 
+You can leverage the curl command-line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API. 
 
-For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see the [API reference overview](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). In the API reference examples, you will find details on supplying a username and 
+For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see the [API reference overview](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). In the API reference examples, you find details on supplying a username and 
 password to access the {{site.data.keyword.cloudant_short_notm}} API with curl.
 
-If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. Then, you pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. For more information, see [Passing an 
+If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. You pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. For more information, see [Passing an 
 {{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window}{: external} 
 tutorial. 
 

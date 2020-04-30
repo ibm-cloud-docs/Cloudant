@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-23"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-23 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Views (MapReduce)
 {: #views-mapreduce}
@@ -35,7 +35,7 @@ Views are written by using JavaScript functions. Learn more about the simplest v
 
 Views are mechanisms for working with document content in databases.
 A view can selectively filter documents and speed up searching for content.
-It can be used to 'pre-process' the results before they're returned to the client.
+It can be used to "pre-process" the results before they're returned to the client.
 
 Views are simply JavaScript functions, which are defined within the `views` field of a design document.
 When you use a view,
@@ -203,7 +203,7 @@ A reduce function must accept,
 as input,
 results emitted by its corresponding map function,
 as well as results returned by the reduce function itself.
-The latter case is referred to as a 'rereduce'.
+The latter case is referred to as a "rereduce".
 
 Reduce functions are passed three arguments in the following order:
 
@@ -242,7 +242,7 @@ suitable for both the `value` field of the final view,
 and as a member of the `values` array that is passed to the reduce function.
 
 Often,
-reduce functions can be written to handle rereduce calls without any extra code,
+reduce functions can be written to handle re-reduce calls without any extra code,
 like the summation function in the earlier example.
 In such cases,
 the `rereduce` argument can be ignored.

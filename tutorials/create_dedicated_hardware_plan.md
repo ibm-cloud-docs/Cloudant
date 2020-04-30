@@ -1,7 +1,6 @@
 ---
 
 copyright:
-  years: 2015, 2020
 lastupdated: "2020-04-23"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
@@ -21,7 +20,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-23 -->
+<!-- Acrolinx: 2020-04-13 -->
 
 # Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}
 {: #creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud}
@@ -65,7 +64,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
     
     -   Select a key management service instance. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.
     
-    -   Select a disk encryption key. Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default).  
+    -   Select a disk encryption key. Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance that is chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default).  
 
     -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.
     
@@ -74,7 +73,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
     HIPAA is only valid for US locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only created upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. For more information, see [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
     {: note}
 
-    ![Configure dedicated hardware](images/select_deployment_location.png){: caption="Figure 4. Configure dedicated hardware" caption-side="bottom"}
+    ![Resource configuration page](images/select_deployment_location.png){: caption="Figure 4. Resource configuration page" caption-side="bottom"}
         
 5.  Click the `Create` button to start the provisioning process. 
 
@@ -125,7 +124,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
     
     -   Select an environment, which is where the Standard plan instance deploys. By default, the Standard plan instance deploys on a multi-tenant environment in the location defined by the region parameter. Any Dedicated Hardware environment instances that are deployed in the {{site.data.keyword.cloud_notm}} account that the provisioning user has permissions to view display in the drop-down. If you select  a Dedicated Hardware plan instance from the drop-down menu, a Standard plan instance deploys on that Dedicated Hardware plan instance in the location where it resides.
     
-    ![Configure standard instance](images/select_environment.png){: caption="Figure 9. Configure standard instance" caption-side="bottom"}
+    ![Resource configuration page](images/select_environment.png){: caption="Figure 9. Resource configuration page" caption-side="bottom"}
     
 5.  Click the `Create` button.
 
@@ -160,7 +159,7 @@ ibmcloud resource service-instance-create $NAME $SERVICE_NAME $PLAN_NAME $REGION
 ```
 {: codeblock}
 
-{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances take four additional parameters:
+{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances take four more parameters:
 
 Parameter | Description
 ----------|------------
@@ -221,7 +220,7 @@ ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantn
 Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
 must have the necessary credentials.
 
-Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
+Service credentials are valuable. If anyone or any application gains access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
 {: important}
 
 For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).

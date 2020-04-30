@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-13"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials
 
@@ -37,7 +37,7 @@ more in the following text.
 {: shortdesc}
 
 Alternatively, you can create a *non-partitioned* database. This type of
-database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
+database might be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
 
 {{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term
 database performance where the data model allows for logical partitioning
@@ -60,7 +60,7 @@ Before you read this document, you must understand the
 {: #non-partitioned-databases}
 
 A non-partitioned database is the older type of {{site.data.keyword.cloudant_short_notm}} database, and the one
-that will be familiar if you have used CouchDB or {{site.data.keyword.cloudant_short_notm}} previously.
+that is familiar if you have used CouchDB or {{site.data.keyword.cloudant_short_notm}} previously.
 
 Within a non-partitioned database, documents are distributed to shards in an
 arbitrary manner based on a transformation of their document ID. Therefore, no real relation exists between a document's ID and the shard it ends up on. Documents
@@ -97,20 +97,20 @@ the choice of a partition key is important. A partition key must have:
 - No hot spots - avoid designing a system that makes one partition handle a high
   proportion of the workload. If the work is evenly distributed around the
   partitions, the database performs more smoothly.
-- Repeating - If each partition key is unique, there will be one document per
+- Repeating - If each partition key is unique, there is one document per
   partition. To get the best out of partitioned databases, there must be
   multiple documents per partition - documents that logically belong together.
 
 Let's look at some use cases and some good and bad choices for a partition key.
 
-| Use case                   | Description                 | Partition Key | Effectiveness                                                                                                  |
+| Use Case                   | Description                 | Partition Key | Effectiveness                                                                                                  |
 |----------------------------|-----------------------------|---------------|------------------------------------------------------------------------------------------------------------------|
-| E-commerce system - orders | One document per order     | order_id      | Neutral - one document per partition is fine, but it doesn't provide the benefits of Partition Queries.          |
-| E-commerce system - orders | One document per order     | user_id       | Good - all of a user's orders will be kept together.                                                             |
-| E-commerce system - orders | One document per order      | status        | Bad - grouping orders by a handful of status values (provisional, paid, refunded, cancelled) creates too few over-large partitions.  |
-| Blogging platform          | One document per blog post | author_id     | Good - if many authors participate. Easy to query each author's posts.                                     |
-| IOT - sensor readings      | One document per reading    | device_id     | Good - if there are many devices, make sure that one device is not producing many more readings than the others. |
-| IOT - sensor readings      | One document per reading    | date          | Bad - current readings cause a "hot spot" on the current date's partition.                                  |
+| E-commerce system - orders | One document per order     | `order_id`      | Neutral - one document per partition is fine, but it doesn't provide the benefits of Partition Queries.          |
+| E-commerce system - orders | One document per order     | `user_id`       | Good - all of a user's orders will be kept together.                                                             |
+| E-commerce system - orders | One document per order      | `status`        | Bad - grouping orders by a handful of status values (provisional, paid, refunded, cancelled) creates too few over-large partitions.  |
+| Blogging platform          | One document per blog post | `author_id`    | Good - if many authors participate. Easy to query each author's posts.                                     |
+| IOT - sensor readings      | One document per reading    | `device_id`     | Good - if there are many devices, make sure that one device isn't producing many more readings than the others. |
+| IOT - sensor readings      | One document per reading    | `date`          | Bad - current readings cause a "hot spot" on the current date's partition.                                  |
 {: caption="Table 1. Good and bad choices for a partition key" caption-side="top"}
 
 Some use cases exist where there isn't a viable choice for a partition key.
@@ -121,8 +121,8 @@ normal non-partitioned database must be used instead.
 ## Querying
 {: #querying}
 
-This section describes {{site.data.keyword.cloudant_short_notm}}'s query types that are available for global and partition queries. It also provides a brief overview of the
-underlying querying mechanism that allows you to select the query mechanism that
+{{site.data.keyword.cloudant_short_notm}}'s query types are available for global and partition queries. We also provide a brief overview of the
+underlying querying mechanism that you use to select the query mechanism that
 is best for each query your application needs to make.
 
 ### Global querying
@@ -169,9 +169,9 @@ unlike global queries.
 
 ## Partitioned databases tutorials
 
-We have two worked examples of using Partitioned Databases:
+You can see two examples of using partitioned databases:
 
-1. Read about [Partitioned Databases and Node.js](https://blog.cloudant.com/2019/05/24/Partitioned-Databases-with-Cloudant-Libraries.html){: new_window}{: external} in this blog article that includes how to create a partitioned database, search, views, and a global index. 
+1. Read about [partitioned databases and Node.js](https://blog.cloudant.com/2019/05/24/Partitioned-Databases-with-Cloudant-Libraries.html){: new_window}{: external} in this blog article that includes how to create a partitioned database, search, views, and a global index. 
 2. Read the following example about using views and the `_all_docs` endpoint.
 
 ## Example. Partitioning IoT reading data
@@ -217,16 +217,15 @@ efficient, so partitioning the data by piece of infrastructure makes a lot more
 sense than by ID. This practice would allow all the devices for a specific piece of
 infrastructure to be efficiently queried as a group.
 
-For the rare queries by device, there are two approaches:
+For the rare queries by device, we use two approaches:
 
-1. Build a global index that is keyed by device and query this. This is more effective
+1. Build a global index that is keyed by device and query it. This approach is more effective
     if queries to individual devices are rare and not repeated.
 2. Build a global index-mapping device to infrastructure, then issue partition
-    queries to the infrastructure partition. This makes sense if repeated
-    queries to specific devices are used as the mapping can be cached; we assume
-    this is the case for our application.
+    queries to the infrastructure partition. This approach makes sense if repeated
+    queries to specific devices are used as the mapping can be cached. This approach is used for our application.
 
-Let's take a look at how this works out. Let's look at four queries:
+Let's look at how this approach works out. Let's look at four queries:
 
 1. Readings for all time for a piece of infrastructure.
 1. Readings for today for a piece of infrastructure.
@@ -236,8 +235,8 @@ Let's take a look at how this works out. Let's look at four queries:
 ### Creating the database
 {: #creating-the-database}
 
-We'll use a database that is called `readings` and an account called
-`acme`. To create this as a partitioned database, pass `true` as the
+We use a database that is called `readings` and an account called
+`acme`. To create a partitioned database, pass `true` as the
 `partitioned` argument to the database creation request:
 
 ```
@@ -274,7 +273,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### Creating indexes
 {: #creating-indexes}
 
-For the queries described previously, we'll need two indexes:
+For the queries described previously, we need two indexes:
 
 1. A global index-mapping device ID to infrastructure ID.
 2. A partitioned index-mapping device ID to reading.
@@ -301,8 +300,7 @@ this document would look something like this:
 ```
 {: codeblock}
 
-Assuming the previous document in `./view.json`, this document is uploaded to the database
-using:
+Assuming the previous document in `./view.json`, this document is uploaded to the database by using:
 
 ```
 curl -XPOST "https://acme.cloudant.com/readings" -d @view.json
@@ -403,7 +401,7 @@ curl -XGET \
 This query needs to use the partitioned `timestamped-readings` index. We can
 issue a query to the partition to get the readings for today:
 
-##### Find recent readings with query.json, assuming today is 13 Dec 2018
+##### Find recent readings with query.json, assuming today is 13 December 2018
 
 ```json
 {
@@ -426,14 +424,14 @@ curl -XPOST \
 #### Finding the infrastructure ID for a device
 {: #finding-the-infrastructure-id-for-a-device}
 
-The two queries we've yet to perform are:
+The two queries we've yet to perform are shown in the following list:
 
 1. Readings for all time for a specific device.
 2. Readings for today for a specific device.
 
 For these two queries, we need to find the partition for the devices by using the
 global `by-device` index. Then, we can query the individual partition for
-readings. While we might have used a global index to query for the readings for
+readings. While we might use a global index to query for the readings for
 individual devices, the mapping from device to infrastructure ID is highly
 cache-able. It never changes! So this approach allows us to mostly use
 the cheaper and more efficient partitioned query for most requests.
