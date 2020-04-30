@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-13"
+lastupdated: "2020-04-23"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-13 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Creating an {{site.data.keyword.cloudant_short_notm}} Query
 {: #creating-an-ibm-cloudant-query}
@@ -65,7 +65,7 @@ is the database that we use in this tutorial.
 In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created by using the steps in [Authorized curl: `acurl`](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, replace the command in the tutorial with the command you want to use, along with the parameters required by your command, such as username and password.
 {: tip}
 
-![Command-line icon](../images/CommandLineIcon.png)
+![command line icon](../images/CommandLineIcon.png)
 
 1.  Create a database by running this command:
   ``` sh
@@ -100,7 +100,7 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 The [documents](/docs/Cloudant?topic=cloudant-documents#documents)
 that you create in this exercise include the data that you use to query the `query-demo` database in later exercises.
 
-![Command-line icon](../images/CommandLineIcon.png)
+![command line icon](../images/CommandLineIcon.png)
 
 1.  Copy the sample text to a data file named `bulkcreate.dat` to create five documents:
   ```json
@@ -281,7 +281,7 @@ If no available defined index matches the specified query, then {{site.data.keyw
 {: tip}
 
 
-![Command-line icon](../images/CommandLineIcon.png)
+![command line icon](../images/CommandLineIcon.png)
 
 1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
@@ -381,7 +381,7 @@ For anything but the most simple query, add the JSON to a data file and run it f
 This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query uses the `query-index` to find the
 `lastname` and filters the results in memory to find the `firstname`.   
 
-![Command-line icon](../images/CommandLineIcon.png)
+![command line icon](../images/CommandLineIcon.png)
 
 1.  Copy the following sample JSON into a data file named `query1.dat`.
   ```json
@@ -475,7 +475,7 @@ The extra details look like the following example:
 ```  
 {: codeblock}
 
-![Command-line icon](../images/CommandLineIcon.png)
+![command line icon](../images/CommandLineIcon.png)
 
 1.  Copy the sample JSON into a data file named `query2.dat`.
   ```json
@@ -584,7 +584,7 @@ values that are specified in the `sort` parameter.
 ```  
 {: codeblock}
 
-![Command-line icon](../images/CommandLineIcon.png)
+![command line icon](../images/CommandLineIcon.png)
 
 1.  Copy the following sample JSON to a file named `query3.dat`.
   ```json

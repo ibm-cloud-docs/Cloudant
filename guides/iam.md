@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-23"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -167,13 +167,13 @@ values, and look like the following example:
 
 Each value in the previous JSON example must be interpreted as follows:
 
-- `apikey`: IAM API key.
-- `iam_apikey_description`: Description of IAM API key.
-- `iam_apikey_name`: ID of IAM API key.
-- `iam_role_crn`: The IAM role that the IAM API key has.
-- `iam_serviceid_crn`: The CRN of service ID.
-- `url`: {{site.data.keyword.cloudant_short_notm}} service URL.
-- `username`: The internal {{site.data.keyword.cloudant_short_notm}} account name.
+- `apikey` - IAM API key.
+- `iam_apikey_description` - Description of IAM API key.
+- `iam_apikey_name` - ID of IAM API key.
+- `iam_role_crn` - The IAM role that the IAM API key has.
+- `iam_serviceid_crn` - The CRN of service ID.
+- `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
+- `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
 When you select *Use both legacy credentials and IAM*, the service credentials that are generated contain both IAM and Legacy credentials, and look like the following example:
 
@@ -195,20 +195,19 @@ When you select *Use both legacy credentials and IAM*, the service credentials t
 
 Each value in the previous JSON example must be interpreted as follows:
 
-- `apikey`: IAM API key.
-- `host`: {{site.data.keyword.cloudant_short_notm}} service host name.
-- `iam_apikey_description`: Description of IAM API key.
-- `iam_apikey_name`: ID of IAM API key.
-- `iam_role_crn`: The IAM role that the IAM API key has.
-- `iam_serviceid_crn`: The CRN of service ID.
-- `password`: The {{site.data.keyword.cloudant_short_notm}} Legacy credential password.
-- `port`: {{site.data.keyword.cloudant_short_notm}} service port.
-- `url`: {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} Legacy credentials.
-- `username`: The {{site.data.keyword.cloudant_short_notm}} Legacy credential username.
+- `apikey` - IAM API key.
+- `host` - {{site.data.keyword.cloudant_short_notm}} service host name.
+- `iam_apikey_description` - Description of IAM API key.
+- `iam_apikey_name` - ID of IAM API key.
+- `iam_role_crn` - The IAM role that the IAM API key has.
+- `iam_serviceid_crn` - The CRN of service ID.
+- `password` - The {{site.data.keyword.cloudant_short_notm}} Legacy credential password.
+- `port` - {{site.data.keyword.cloudant_short_notm}} service port.
+- `url` - {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} Legacy credentials.
+- `username` - The {{site.data.keyword.cloudant_short_notm}} Legacy credential username.
 
-Note the included `username` and `password` are always equivalent to IAM's
-Manager credentials and so use of *Use both legacy credentials and IAM* is
-insecure when used with Reader, Writer, Monitor or Checkpointer IAM roles.
+`username` and `password` are always equivalent to IAM's Manager credentials and so use of *Use both legacy credentials and IAM* is insecure when used with Reader, Writer, Monitor, or Checkpointer IAM roles.
+{: note}
 
 ## Must I use *Use only IAM* or *Use both legacy credentials and IAM*?
 {: #must-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
@@ -216,7 +215,7 @@ insecure when used with Reader, Writer, Monitor or Checkpointer IAM roles.
 If possible, *Use only IAM* is preferred. The major advantages for using
 {{site.data.keyword.cloud_notm}} IAM are shown in the following list:
 
-- Management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling rather than
+- Managing access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling rather than
   a combination of {{site.data.keyword.cloud_notm}} and {{site.data.keyword.cloudant_short_notm}}-specific credential management.
 - Credentials can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
 
@@ -411,7 +410,7 @@ See the results in the following example:
 ## Removing {{site.data.keyword.cloudant_short_notm}} legacy credentials from an instance
 {: #removing-legacy-credentials}
 
-{{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. For security purposes, you can request to remove the {{site.data.keyword.cloudant_short_notm}} legacy credentials so that only IAM authentication can be used for the instance. The correct process to remove legacy credentials is as follows:
+{{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. For security purposes, you can request to remove the {{site.data.keyword.cloudant_short_notm}} legacy credentials so that only IAM authentication can be used for the instance. The correct process to remove legacy credentials is shown in the following list:
 
 1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide.
 
@@ -620,9 +619,9 @@ Manager is inclusive of all actions of Reader and Writer, and Writer is inclusiv
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
 
-The following table describes the available IAM actions and roles. For fine-grained authorization, there are the roles of Manager, Reader, Writer, Monitor, and Checkpointer.
+The following table describes the available IAM actions and roles. For fine-grained authorization, the roles include Manager, Reader, Writer, Monitor, and Checkpointer.
 
-When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.  
+When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** select *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.  
 {: important}
 
 | Method | Endpoint | Action name |
@@ -661,7 +660,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `GET/HEAD` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.read` |
 | `PUT` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.write` |
 | `GET/HEAD` | `/$DATABASE/_shards` | `cloudantnosqldb.database-shards.read` |
-| `COPY` (Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` |
+| `COPY` (Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` or `cloudantnosqldb.data-document.write` |
 | `GET` | `/_membership` | `cloudantnosqldb.cluster-membership.read` |
 | `POST` | `/$DATABASE/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` |
 | `PUT` | `/_users` | `cloudantnosqldb.users-database.create`  |
@@ -678,13 +677,13 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `POST` | `/_users/` | `cloudantnosqldb.users.write` |
 | `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
 | `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
-| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` |
+| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `DELETE` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
 | `DELETE` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-| `COPY` (Depends on write document type.) | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` |
+| `COPY` (Depends on write document type.) | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` or `cloudantnosqldb.data-document.write` |
 | `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
 | `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
 | `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |
@@ -723,7 +722,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 |--------|----------|-------------|
 | `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
 | `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
-| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` |
+| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `DELETE` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
@@ -844,7 +843,7 @@ While design documents can contain update functions, users cannot call them.
 ## Troubleshooting
 {: #troubleshooting}
 
-If you have trouble using IAM to authenticate when you make requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
+If you have trouble authenticating with IAM when you make requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
 
 ### Ensure that your account is IAM enabled
 {: #ensure-your-account-is-iam-enabled}
