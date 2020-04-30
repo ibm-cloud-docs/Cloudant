@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-04-23"
 
 keywords: create, read, read many, update, delete, tombstone documents, database compaction, bulk operations, quorum, ttl
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-09 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Documents
 {: #documents}
@@ -32,14 +32,12 @@ Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
 
-If you are using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/docs/Cloudant?topic=cloudant-http#http-status-codes).
+If you're using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 {: tip}
 
 {{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](/docs/Cloudant?topic=cloudant-cap-theorem#cap-theorem) model for data.
-This model means that under some conditions,
-it is possible that if your application writes or updates a document,
-followed immediately by a read of the same document,
-older document content is retrieved.
+If you use the eventually consistent model, it's possible, under some conditions, to retrieve older document content. For example, older content is retrieved when your application writes or updates a document followed immediately by a read of the same document.
+
 In other words,
 your application would see the document content as it was *before* the write or update occurred.
 For more information about this model,
@@ -67,16 +65,16 @@ each document is defined as part of the document ID as detailed in the next sect
 #### IDs in partitioned databases
 {: #ids-in-partitioned-databases}
 
-When using a partitioned database, the document ID specifies both the *partition key* and the *document key*. These are specified by splitting the document ID
+When using a partitioned database, the document ID specifies both the *partition key* and the *document key*. These keys are specified by splitting the document ID
 into two parts separated by a colon:
 
 ```
 $PARTITION_KEY:$DOCUMENT_KEY
 ```
 
-The `$PARTITION_KEY` may be the same between documents. The `$DOCUMENT_KEY`
+The `$PARTITION_KEY` might be the same between documents. The `$DOCUMENT_KEY`
 must be unique within each partition. That is, overall the entire document
-ID must be unique within a database. A document key may contain further
+ID must be unique within a database. A document key might contain further
 colon characters.
 
 #### IDs in non-partitioned databases
@@ -95,7 +93,7 @@ As with partitioned databases, the document ID must be unique within a database.
 {: #field-name-restrictions}
 
 Field names that begin with the underscore character (`_`) are reserved in {{site.data.keyword.cloudant_short_notm}}.
-This rule means that you cannot normally have your own field names that begin with an underscore.
+This rule means that you can't normally have your own field names that begin with an underscore.
 For example,
 the field `example` would be accepted,
 but the field `_example` would result in a `doc_validation` error message.
@@ -121,7 +119,7 @@ but the field `_example` would result in a `doc_validation` error message.
 
 However,
 if the field name is for an object *nested within* the document,
-it is possible to use an underscore prefix for the field name.
+you can use an underscore prefix for the field name.
 
 #### Example of JSON document that attempts to create a field with an underscore prefix, nested within an object
 
@@ -205,7 +203,7 @@ The response is a JSON document that contains the ID of the created document,
 the revision string,
 and `"ok": true`.
 
-If you did not provide an `_id` field,
+If you didn't provide an `_id` field,
 {{site.data.keyword.cloudant_short_notm}} generates one automatically as a
 [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window}{: external}.
 
@@ -223,7 +221,7 @@ response that contains a description of the error.
 ```
 {: codeblock}
 
-If the write [quorum](#quorum-writing-and-reading-data) cannot be met during an attempt to create a document, a [`202` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) is returned.
+If the write [quorum](#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) is returned.
 {: tip}
 
 ## Read
@@ -232,9 +230,9 @@ If the write [quorum](#quorum-writing-and-reading-data) cannot be met during an 
 To retrieve a document,
 send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 
-Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of a partition key part and a document key part.
+Recall that for a partitioned database the `$DOCUMENT_ID` is formed of a partition key part and a document key part.
 
-If you do not know the `_id` for a particular document,
+If you don't know the `_id` for a particular document,
 you can [query the database](/docs/Cloudant?topic=cloudant-databases#get-documents) for all documents.
 
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
@@ -257,7 +255,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID"
 {: codeblock}
 
 The response contains the document that you requested,
-or a description of the error if the document cannot be retrieved.
+or a description of the error if the document can't be retrieved.
 
 ### Example response of retrieving a document
 
@@ -285,18 +283,18 @@ All parameters are *optional*.
 
 Name                | Type | Description | Default
 --------------------|------|-------------|--------
-`attachments`       | boolean | Includes attachments bodies in response. | false
-`att_encoding_info` | boolean | Includes encoding information in attachment stubs if the particular attachment is compressed. | false
-`atts_since`        | array of revision strings | Includes attachments only since specified revisions. Does not include attachments for specified revisions. | []
-`conflicts`         | boolean | Includes information about conflicts in document. | false
-`deleted_conflicts` | boolean | Includes information about deleted conflicted revisions. | false
-`latest`            | boolean | Forces retrieval of the most recent 'leaf' revision, no matter what revision was requested. | false
-`local_seq`         | boolean | Includes last update sequence number for the document. | false
-`meta`              | boolean | Acts same as specifying the `conflicts`, `deleted_conflicts` and `open_revs` query parameters. | false
-`open_revs`         | array or `all` | Retrieves documents of specified leaf revisions. Additionally, it accepts the value `all` to return all leaf revisions. | []
-`rev`               | string | Retrieves document of specified revision. | -
-`revs`              | boolean | Includes list of all known document revisions. | false
-`revs_info`         | boolean | Includes detailed information for all known document revisions. | false
+`attachments`       | Boolean | Includes attachments bodies in response. | False
+`att_encoding_info` | Boolean | Includes encoding information in attachment stubs if the particular attachment is compressed. | False
+`atts_since`        | Array of revision strings | Includes attachments only since specified revisions. Doesn't include attachments for specified revisions. | []
+`conflicts`         | Boolean | Includes information about conflicts in document. | False
+`deleted_conflicts` | Boolean | Includes information about deleted conflicted revisions. | False
+`latest`            | Boolean | Forces retrieval of the most recent "leaf" revision, no matter what revision was requested. | False
+`local_seq`         | Boolean | Includes last update sequence number for the document. | False
+`meta`              | Boolean | Same as specifying the `conflicts`, `deleted_conflicts`, and `open_revs` query parameters. | False
+`open_revs`         | Array or `all` | Retrieves documents of specified leaf revisions. Additionally, it accepts the value `all` to return all leaf revisions. | []
+`rev`               | String | Retrieves document of specified revision. | -
+`revs`              | Boolean | Includes list of all known document revisions. | False
+`revs_info`         | Boolean | Includes detailed information for all known document revisions. | False
 {: caption="Table 1. Query parameters" caption-side="top"}
 
 ## Read many
@@ -313,11 +311,11 @@ To update a document,
 send a `PUT` request with the updated JSON content *and* the latest `_rev` value
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 You can also use this `PUT` method to create a document,
-in which case you do not need to supply the most recent `_rev` value.
+in which case you don't need to supply the most recent `_rev` value.
 
-Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of a partition key part and a document key part.
+Recall that for a partitioned database the `$DOCUMENT_ID` is formed from a partition key part and a document key part.
 
-If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/Cloudant?topic=cloudant-http#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/Cloudant?topic=cloudant-http#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) is returned.
 {: note}
 
 Any document update can lead to a conflict, especially when you replicate updated documents. For more information about avoiding and resolving conflicts, see the [Document versioning and MVCC guide](/docs/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
@@ -358,7 +356,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID" \
 ```
 {: codeblock}
 
-Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of a partition key part and a document key part.
+Recall that for a partitioned database the `$DOCUMENT_ID` is formed from a partition key part and a document key part.
 
 The response contains the ID and the new revision of the document,
 or an error message if the update failed.
@@ -384,10 +382,10 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
-If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/Cloudant?topic=cloudant-http#http-status-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) is returned.
+If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/Cloudant?topic=cloudant-http#http-status-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) is returned.
 {: note}
 
-{{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document. Instead, it leaves a [tombstone](#tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
+{{site.data.keyword.cloudant_short_notm}} doesn't completely delete the specified document. Instead, it leaves a [tombstone](#tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
 creating new documents and deleting them increases the disk space usage of a database. They might also increase the query time for the primary index, which is used to look up documents by their ID.
 {: note}
 
@@ -437,17 +435,17 @@ db.destroy($JSON._id, $REV, function (err, body, headers) {
 ```
 {: codeblock}
 
-## 'Tombstone' documents
+## "Tombstone" documents
 {: #tombstone-documents}
 
-Tombstone documents are small documents that are retained in place within a database when the original document is deleted.
+Tombstone documents are small documents that are kept in place within a database when the original document is deleted.
 Their purpose is to allow the deletion to be replicated.
 
 When the replication completes,
 the tombstones are no longer required.
-Automatic compaction helps ensure that only the minimal amount of data is retained and transferred during replication.
+Automatic compaction helps ensure that only the minimal amount of data is kept and transferred during replication.
 Nevertheless,
-tombstone documents are not automatically removed ('d').
+tombstone documents aren't automatically removed ("d").
 
 Over time,
 as documents are created and deleted,
@@ -458,7 +456,7 @@ and to the query time for the primary index.
 To reduce these effects,
 you might want to remove the tombstones.
 
-### Simple removal of 'tombstone' documents
+### Simple removal of "tombstone" documents
 {: #simple-removal-of-tombstone-documents}
 
 To remove tombstones manually,
@@ -468,11 +466,11 @@ do the following steps:
 	The new database is intended to hold all documents *except* the tombstone documents.
 2.	Set up a [filtered replication](/docs/Cloudant?topic=cloudant-advanced-replication#filtered-replication-adv-repl) to
 	replicate documents from the original database to the new database.
-	Configure the filter so that documents with the '`_deleted`' attribute are not replicated.
+	Configure the filter so that documents with the "`_deleted`" attribute aren't replicated.
 3.	When replication is complete,
 	switch your application logic to use the new database.
 4.	Verify that your applications work correctly with the new database.
-	When you are satisfied that everything is working correctly,
+	When you're satisfied that everything is working correctly,
 	you might want to delete the old database.
 
 In general, try to design and implement your applications to do the minimum necessary amount of deletion.
@@ -494,15 +492,15 @@ In general, try to design and implement your applications to do the minimum nece
 {: #advanced-removal-of-tombstone-documents}
 
 The [simple removal technique](#simple-removal-of-tombstone-documents) works well,
-if documents are not being updated in the source database while the replication takes place.
+if documents aren't being updated in the source database while the replication takes place.
 
 If updates *are* made during replication,
-it is possible that a complete document is replicated to the target database as normal,
-but is also deleted from the source database,
+it's possible that a complete document is replicated to the target database as normal,
+and is also deleted from the source database,
 leaving a tombstone.
-The problem is that the tombstone is not replicated across to the target database,
-because it is excluded by the filter.
-As a result,
+The problem is that the tombstone is not replicated across to the target database 
+because it's excluded by the filter.
+Therefore,
 the document that was deleted from the source database is not deleted from the target database,
 causing an inconsistency.
 
@@ -530,7 +528,7 @@ if the user is not authorized to make the update,
 an `unauthorized` error object is returned,
 along with an explanatory error message.
 Similarly,
-if the requested update is not allowed for some reason (such as when some mandatory fields are absent from the new document),
+if the requested update is not allowed for some reason, such as when some mandatory fields are absent from the new document,
 then a `forbidden` error object is returned,
 again with an explanatory error message.
 
@@ -541,15 +539,15 @@ a suitable `validate_doc_update` function would work as follows:
 	the function allows the change by returning.
 	The reason is that the update affected a document that was copied to the target database during the replication,
 	but then changed in the source database during the replication.
-	It is possible that the change was a `DELETE`,
+	It's possible that the change was a `DELETE`,
 	resulting in a tombstone record in the target database.
 	The tombstone record is removed by a subsequent replication process at some point in the future.
 2.	If the target database does *not* have a copy of the current document,
-	*and* the update document has the `_deleted` property (indicating that it is a tombstone),
+	*and* the update document has the `_deleted` property (indicating that it's a tombstone),
 	then the update must be a tombstone *and* it was encountered before,
 	so the update must be rejected.
 3.	Finally,
-	if the function did not return or throw an error,
+	if the function didn't return or throw an error,
 	allow the update to replicate to the target database,
 	as some other condition applies.
 
@@ -585,7 +583,7 @@ To use a `validate_doc_update` function to remove tombstone documents:
 5.	When replication is complete,
 	switch your application logic to use the new database.
 6.	Verify that your applications work correctly with the new database.
-	When you are satisfied that everything is working correctly,
+	When you're satisfied that everything is working correctly,
 	you might want to delete the old database.
 
 A variation for using the `validate_doc_update` function to remove tombstone documents if possible.
@@ -604,15 +602,12 @@ without tombstone documents,
 a deletion might not replicate correctly to a mobile device,
 with the result that documents might never be deleted from the device.
 
-If you re-create a database,
-for example to be a new target for a replication,
-any clients that use the target database as a server *must* work through *all* the changes again,
-because the database sequence numbers are likely to be different.
+If you recreate a database, for example, as a new target for a replication, any clients that use the target database as a server *must* work through *all* the changes again because the database sequence numbers are likely to be different. 
 
-If you are using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
+If you're using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects that result from having the function present on the client.
 {: tip}
 
-[{{site.data.keyword.cloudant_short_notm}} Sync](/docs/Cloudant?topic=cloudant-supported-client-libraries#mobile-supported) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
+[{{site.data.keyword.cloudant_short_notm}} Sync](/docs/Cloudant?topic=cloudant-supported-client-libraries#mobile-supported) libraries don't replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
 {: note}
 
@@ -635,11 +630,11 @@ A special case of bulk operations is the [`_bulk_get`](#the-_bulk_get-endpoint) 
 ### Bulk request structure
 {: #bulk-request-structure}
 
-For both inserts and updates the basic structure of the JSON document in the request is the same:
+For both inserts and updates, the basic structure of the JSON document in the request is the same as in the following table:
 
 Field  | Description             | Type             | Optional
 -------|-------------------------|------------------|---------
-`docs` | Bulk Documents Document | Array of objects | no
+`docs` | Bulk documents document | Array of objects | No
 {: caption="Table 2. Basic bulk request structure" caption-side="top"}
 
 Avoid using the `new_edits` field. By default, if there are conflicts, document updates fail and return an error to the client. However, this option applies document revisions without checking for conflicts, so it is very easy to accidentally end up with a large number of conflicts.
@@ -649,12 +644,12 @@ Each `docs` array object has the following structure:
 
 Field      | Description                           | Type    | Optional 
 -----------|---------------------------------------|---------|---------
-`_id`      | Document ID                           | String  | Optional only for new documents. Otherwise, it is mandatory.
+`_id`      | Document ID                           | String  | Optional only for new documents. Otherwise, it's mandatory.
 `_rev`     | Document revision                     | String  | Mandatory for updates and deletes, not used for new documents.
 `_deleted` | Whether the document must be deleted. | Boolean | Yes, the default value is `false`.
 {: caption="Table 3. Structure of the `docs` array object" caption-side="top"}
 
-Recall that for a partitioned database the `_id` field will be formed of
+Recall that for a partitioned database the `_id` field is formed from
 a partition key part and a document key part.
 
 #### Example of using HTTP to create, update, or delete multiple documents
@@ -730,8 +725,8 @@ you get an array with detailed information for each document in the request.
 
 Code | Description
 -|-
-`201` | The request did succeed, but this success does not imply all documents were updated. Inspect the response body to determine the status of each requested change, and [address any problems](#bulk-document-validation-and-conflict-errors).
-`202` | For at least one document, the write [quorum](#quorum-writing-and-reading-data) was not met.
+`201` | The request did succeed, but this success doesn't imply all documents were updated. Inspect the response body to determine the status of each requested change, and [address any problems](#bulk-document-validation-and-conflict-errors).
+`202` | For at least one document, the write [quorum](#quorum-writing-and-reading-data) wasn't met.
 {: caption="Table 4. HTTP status codes" caption-side="top"}
 
 #### Example response from a bulk request
@@ -1033,11 +1028,11 @@ one for each document in the original submission.
 The returned JSON structure must be examined
 to ensure that all of the documents that were submitted in the original request were successfully added to the database.
 
-The structure of the returned information is as follows:
+The structure of the returned information is shown in the following tables:
 
 Field  | Description             | Type
 -------|-------------------------|-----
-`docs` | Bulk Documents Document | Array of objects
+`docs` | Bulk documents document | Array of objects
 {: caption="Table 5. Structure of JSON returned" caption-side="top"}
 
 Each `docs` array object has the following structure:
@@ -1058,7 +1053,7 @@ The error is one of [`conflict`](#conflict) or [`forbidden`](#forbidden).
 
 The document as submitted is in conflict.
 If you used the default bulk transaction mode,
-then the new revision was not created.
+then the new revision wasn't created.
 You must resubmit the document to the database.
 
 Conflict resolution of documents added by using the bulk docs interface is identical
@@ -1096,9 +1091,9 @@ The `_bulk_get` endpoint is similar to the [`_all_docs`](/docs/Cloudant?topic=cl
 but returns information about the requested documents only.
 
 Like the `_bulk_docs` endpoint,
-a JSON document supplied in the request includes an array that identifes all the documents of interest.
+a JSON document supplied in the request includes an array that identifies all the documents of interest.
 
-#### Example of using HTTP to do a bulk get of document information
+#### Example of using HTTP to run a bulk get of document information
 
 ```http
 POST /$DATABASE/_bulk_get HTTP/1.1
@@ -1106,7 +1101,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-#### Example of using the command line for a bulk get
+#### Example of using the command line to run a bulk get
 
 ```sh
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
@@ -1169,30 +1164,29 @@ curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
 {: #quorum-writing-and-reading-data}
 
 In a distributed system,
-it is possible that a request might take some time to complete.
-A 'quorum' mechanism is used to help determine when a request,
+it's possible that a request might take some time to complete.
+A "quorum" mechanism is used to help determine when a request,
 such as a write or read,
 completes successfully.
 
-For help to understand quorum settings and their implications on dedicated {{site.data.keyword.cloudant_short_notm}} systems,
+For more information about quorum settings and their implications on dedicated {{site.data.keyword.cloudant_short_notm}} systems,
 contact {{site.data.keyword.cloudant_short_notm}} support.
 
-## TTL - time to live
+## Time to live
 {: #ttl-time-to-live}
 
-[Time to Live](https://en.wikipedia.org/wiki/Time_to_live){: new_window}{: external} (TTL) is a property of data,
+[Time to live](https://en.wikipedia.org/wiki/Time_to_live){: new_window}{: external} (TTL) is a property of data,
 where after a relative amount of time,
 or at an absolute time,
-the data is deemed to be expired.
+the data is considered expired.
 The data itself might be deleted or moved to an alternative (archive) location.
 
 {{site.data.keyword.cloudant_short_notm}} does *not* support Time to Live functions.
 
-The reason is that {{site.data.keyword.cloudant_short_notm}} documents are only 'soft' deleted,
+The reason is that {{site.data.keyword.cloudant_short_notm}} documents are only "soft" deleted,
 not deleted.
 The soft deletion involves replacing the original document with a [smaller record](#tombstone-documents).
-This small record or 'tombstone' is required for replication purposes;
-it helps ensure that the correct revision to use can be identified during replication.
+This small record or "tombstone" is required for replication purposes. It helps ensure that the correct revision to use can be identified during replication.
 
 If the TTL capability was available in {{site.data.keyword.cloudant_short_notm}},
 the resulting potential increase in short-lived documents and soft deletion records

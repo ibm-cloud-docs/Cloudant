@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-23"
 
 keywords: authorization, roles, permissions, view permissions, modify permissions, _users database, API keys, create API key, use API key, delete API key, _admin, _reader, _writer, _design, _replicator, _security, assign role
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Authorization
 {: #authorization}
@@ -32,7 +32,7 @@ This decision is called authorization.
 {: shortdesc}
 
 When you authenticate with the {{site.data.keyword.cloudantfull}} system,
-it 'knows' who you are.
+it "knows" who you are.
 The next question is, what tasks are you allowed to do?
 
 You might create a complete list of all the possible tasks that you can do,
@@ -46,7 +46,7 @@ The various tasks can be grouped into collections that are typical of some gener
 For example,
 the task of creating or deleting a database is characteristic of someone with an administrative role.
 Similarly,
-the task or creating or updating a document is characteristic of someone with a 'writing' role.
+the task or creating or updating a document is characteristic of someone with a "writing" role.
 
 Rather than explicitly listing every task you can do,
 you're given one or more roles.
@@ -79,7 +79,7 @@ To fulfill this requirement,
 the user's account is granted the `_reader` and `_writer` roles,
 but not the `_admin` role.
 
-A number of 'focused' roles are also available.
+A number of "focused" roles are also available.
 These provide permissions for specific API endpoints.
 The focused role permissions are similar to the core role permissions,
 but apply *only* to the specific API endpoint.
@@ -474,7 +474,7 @@ the API key is only useful when:
 -   Assigned to a database.
 -   Assigned permissions for working with the database.
 
-To 'delete' an API key,
+To "delete" an API key,
 remove it from the database.
 All the permissions that were previously assigned to the API key for it to work with that database are then removed.
 
@@ -483,7 +483,7 @@ All the permissions that were previously assigned to the API key for it to work 
 
 1.	Click `Databases` > `Permissions`.
 2.	Hover over the API key you would like to delete.
-3.	Click the '`X`' that appears when you hover over the API key.
+3.	Click the "`X`" that appears when you hover over the API key.
 
 ### To remove an API key by using the {{site.data.keyword.cloudant_short_notm}} API
 {: #to-remove-an-api-key-by-using-the-cloudant-nosql-db-api}

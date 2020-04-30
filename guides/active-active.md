@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-28"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -301,7 +301,7 @@ consider the following possible options:
   rather than a modification to the application settings.
   Many proxies can balance the load,
   based on user-defined health checks.
-* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} or [Dyn Traffic Director](http://dyn.com/traffic-director/){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
+* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} or [Dyn Traffic Director](http://dyn.com/traffic-director/){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
   This option requires a `CNAME` definition that routes to
   different {{site.data.keyword.cloudant_short_notm}} accounts,
   based on a health check or latency rule.

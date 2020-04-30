@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-30"
+lastupdated: "2020-04-23"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-18 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Query
 {: #query}
@@ -414,7 +414,7 @@ The `partial_filter_selector` field replaces the `selector` field, previously on
 
 See the following example query:
 
-```
+```json
 {
   "selector": {
     "status": {
@@ -424,6 +424,8 @@ See the following example query:
   }
 }
 ```
+{: codeblock}
+
 Without a partial index, this query requires a full index scan to find
 all the documents of `type`:`user` that don't have a status of `archived`.
 This situation occurs because a normal index can be used to match contiguous rows,
@@ -436,7 +438,7 @@ To improve response time, you can create an index that excludes documents
 with `status`: { `$ne`: `archived` } at index time by using the 
 `partial_filter_selector` field shown in the following example:
 
-```
+```json
 POST /db/_index HTTP/1.1
 Content-Type: application/json
 Content-Length: 144
@@ -455,9 +457,12 @@ Host: localhost:5984
   "type" : "json"
 }
 ```
+{: codeblock}
+
 Partial indexes aren't currently used by the query planner unless specified
 by a `use_index` field, so you must modify the original query:
-```
+
+```json
 {
   "selector": {
     "status": {
@@ -468,6 +473,8 @@ by a `use_index` field, so you must modify the original query:
   "use_index": "type-not-archived"
 }
 ```
+{: codeblock}
+
 Technically, you don't need to include the filter on the `status` field in the
 query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of partial indexes).
 
@@ -572,7 +579,7 @@ Design documents aren't returned by `_find`.
 -	`selector` - JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
 -	`limit` (optional, `default: 25`) - Maximum number of results returned. The `type: text` indexes are limited to 200 results when queried.
--	`skip` (optional, `default: 0`) - Skip the first 'n' results, where 'n' is the value that is specified.
+-	`skip` (optional, `default: 0`) - Skip the first "n" results, where "n" is the value that is specified.
 -	`sort` (optional, `default: []`) - JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
 -	`fields` (optional, `default: null`) - JSON array that uses
@@ -696,7 +703,7 @@ See the following example of a simple selector for a full_text index:
 You can create more complex selector expressions by combining operators.
 However,
 for {{site.data.keyword.cloudant_short_notm}} Query indexes of type `json`,
-you can't use 'combination' or 'array logical' operators such as `$regex` as the *basis* of a query.
+you can't use "combination" or "array logical" operators such as `$regex` as the *basis* of a query.
 Only the equality operators such as `$eq`,
 `$gt`,
 `$gte`,
@@ -791,8 +798,8 @@ The exact implicit operator is determined by the structure of the selector expre
 
 The two implicit operators are shown in the following list:
 
--	'Equality'
--	'And'
+-	"Equality"
+-	"And"
 
 In a selector,
 any field that contains a JSON value, but that has no operators in it,
@@ -1697,7 +1704,7 @@ See the following example of simple sort syntax:
 ```
 {: codeblock}
 
-See the following example of simple sort, assuming default direction of 'ascending' for both fields:
+See the following example of simple sort, assuming default direction of "ascending" for both fields:
 
 ```json
 [
@@ -2102,7 +2109,7 @@ which is an example of the expanded array indexing.
 #### Corresponding Lucene query explained
 {: #corresponding-lucene-query-explained}
 
-The '#' comments aren't valid Lucene syntax, but help explain the query construction.
+The "#" comments aren't valid Lucene syntax, but help explain the query construction.
 
 ```javascript
 (

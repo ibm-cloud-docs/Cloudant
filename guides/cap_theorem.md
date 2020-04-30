@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # CAP Theorem
 {: #cap-theorem}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-04-23"
 
 keywords: account, ping, ping account, cors, connect to your cloudant account
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # Account
 {: #account}
@@ -41,7 +41,7 @@ If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: new
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspelled your account name,
-you might get a [503 'service unavailable' error](/docs/Cloudant?topic=cloudant-http#http-status-codes).
+you might get a [503 "service unavailable" error](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 
 See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using HTTP:
 
