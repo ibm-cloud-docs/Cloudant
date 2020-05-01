@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-20"
+lastupdated: "2020-05-01"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -109,6 +109,9 @@ Verify that you have what you need to start the tutorial from the following list
 
    a. In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
 
+   Remember to create a service instance first. You can see instructions in the second bullet of the [Before you begin](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#prereqs) section. 
+   {: note}
+
    b. In the menu, click `Service credentials`.
 
    c. Click the `New credential` button.
@@ -117,7 +120,7 @@ Verify that you have what you need to start the tutorial from the following list
   
    d. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
 
-   e. (Optional) Add inline configuration parameters.
+   e. (Optional) Click Advanced options, and add inline configuration parameters.
 
    f. Click the `Add` button. 
 
@@ -125,7 +128,7 @@ Verify that you have what you need to start the tutorial from the following list
 
    Your credentials are added to the Service credentials table.
    
-   g. Click `View credentials` under Actions. 
+   g. Click the twistie to the left of your service credential. 
    
    ![View all service credentials.](tutorials/images/img0052.png){: caption="Figure 4. View all service credentials" caption-side="bottom"}
    
@@ -264,11 +267,11 @@ A full retrieval also includes the data within a document.
     ```json
     [
         {
+            "id": "14be111aac74534cf8d390eaa57db888",
+            "key": "14be111aac74534cf8d390eaa57db888",
             "value": {
                 "rev": "1-106e76a2612ea13468b2f243ea75c9b1"
-            },
-            "id": "14be111aac74534cf8d390eaa57db888",
-            "key": "14be111aac74534cf8d390eaa57db888"
+            }
         }
     ]
     ```
@@ -325,7 +328,7 @@ Follow these steps to see your database and documents on the {{site.data.keyword
     The {{site.data.keyword.cloud_notm}} dashboard can be found at: cloud.ibm.com. After you authenticate with your user name and password, you're presented with the IBM Cloud dashboard.
 2.  Click **Services** in the Resource summary pane to see your {{site.data.keyword.cloudant_short_notm}} service instances. 
 3.  Click the service instance whose details you want to see.
-4.  Click **Launch Cloudant Dashboard**. 
+4.  Click **Launch Dashboard**. 
     When the dashboard opens, you can see the databases that are associated with your service.
 
 
