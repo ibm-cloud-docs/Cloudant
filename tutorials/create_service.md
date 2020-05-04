@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-05-14"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -43,7 +43,7 @@ to work with the database.
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
-2.  Click `Databases` in the left navigation and `Cloudant` from the list of database       services:
+2.  Type `Cloudant` in the Search bar and click to open it:
 
     ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
@@ -105,20 +105,20 @@ Service credentials are valuable. If anyone or any application has access to the
 {{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service credentials tab for your instance. For more information, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)
  and [legacy authentication](/docs/Cloudant?topic=cloudant-authentication#authentication) document for details about using either style of authentication.
 
-The service credentials include the following fields:
+The service credentials include the following fields, as well as designating the fields that only display if you select the `Use both legacy credentials and IAM` option:
 
-Field | Purpose
-------|--------
-`username` | The service name of the service instance user in the URL. This field also serves as the admin user name. 
-`password` | The legacy credentials password that is required for applications to access the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen. 
-`host` | The host name that is used by applications to locate the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen. 
-`port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. This field displays only if the `Use both legacy credentials and IAM` option is chosen. 
-`url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password. 
-`apikey` | The IAM API key. 
-`iam_apikey_description` | Description of the IAM API key. 
-`iam_apikey_name` | ID of the IAM API key.
-`iam_role_crn` | The IAM role that the IAM API key has.
-`iam_serviceid_crn`	| The CRN of the service ID.
+Field | Purpose | Legacy-auth enabled
+------|---------|--------------------
+`username` | The service name of the service instance user in the URL. This field also serves as the admin user name. | 
+`password` | The legacy credentials password that is required for applications to access the service instance. | X
+`host` | The host name that is used by applications to locate the service instance. | X
+`port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. | X
+`url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. | X (If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password.) 
+`apikey` | The IAM API key. | 
+`iam_apikey_description` | Description of the IAM API key. | 
+`iam_apikey_name` | ID of the IAM API key. | 
+`iam_role_crn` | The IAM role that the IAM API key has. | 
+`iam_serviceid_crn`	| The CRN of the service ID. | X
 {: caption="Table 1. Service credential fields" caption-side="top"}
 
 To create an application that can access your service instance, you need these credentials.
