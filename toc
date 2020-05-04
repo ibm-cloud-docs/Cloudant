@@ -60,7 +60,9 @@ Cloudant
 	{: .topicgroup}
 	offerings/at-events.md
 	offerings/log-analysis.md
+	offerings/platform-metrics.md
 	offerings/responsibilities.md
+	offerings/platform-metrics.md
 
 	{: .topicgroup}
 	Sample apps
