@@ -23,7 +23,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2020-03-17 -->
 
-# Activity Tracker events
+# Activity Tracker integration
 {: #at_events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with the {{site.data.keyword.cloudantfull}} service in {{site.data.keyword.cloud}}.
