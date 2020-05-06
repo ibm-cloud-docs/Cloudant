@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-05-06"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -46,14 +46,14 @@ To check that Python is installed,
 run the following command at a prompt:
 
 ```sh
-python --version
+python3 --version
 ```
 {: pre}
 
 You must get a result similar to the following example:
 
 ```
-Python 2.7.12
+Python 3.8.1
 ```
 {: codeblock}
 
@@ -190,7 +190,7 @@ It's helpful to check that the database was created successfully:
 
 ```python
 if myDatabaseDemo.exists():
-    print "'{0}' successfully created.\n".format(databaseName)
+    print("'{0}' successfully created.\n".format(databaseName))
 ```
 {: codeblock}
 
@@ -242,7 +242,7 @@ for document in sampleData:
 
     # Check that the document exists in the database.
     if newDocument.exists():
-        print "Document '{0}' successfully created.".format(number)
+        print("Document '{0}' successfully created.".format(number))
 ```
 {: codeblock}
 
@@ -269,7 +269,7 @@ we request the first document that is retrieved from the database:
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs)
-print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
+print("Retrieved minimal document:\n{0}\n".format(result_collection[0]))
 ```
 {: codeblock}
 
@@ -312,7 +312,7 @@ we request the first document that is retrieved from the database:
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
-print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
+print("Retrieved minimal document:\n{0}\n".format(result_collection[0]))
 ```
 {: codeblock}
 
@@ -366,7 +366,7 @@ and then display the results:
 
 ```python
 response = client.r_session.get(end_point, params=params)
-print "{0}\n".format(response.json())
+print("{0}\n".format(response.json()))
 ```
 {: codeblock}
 
@@ -426,9 +426,9 @@ This step is shown in the following sample Python code:
 try :
     client.delete_database(databaseName)
 except CloudantException:
-    print "There was a problem deleting '{0}'.\n".format(databaseName)
+    print("There was a problem deleting '{0}'.\n".format(databaseName))
 else:
-    print "'{0}' successfully deleted.\n".format(databaseName)
+    print("'{0}' successfully deleted.\n".format(databaseName))
 ```
 {: codeblock}
 
@@ -486,7 +486,7 @@ sampleData = [
 ]
 
 # Start the demo.
-print "===\n"
+print("===\n")
 
 # Use the {{site.data.keyword.cloudant_short_notm}} library to create an {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
@@ -501,10 +501,10 @@ myDatabaseDemo = client.create_database(databaseName)
 
 # Check that the database now exists.
 if myDatabaseDemo.exists():
-    print "'{0}' successfully created.\n".format(databaseName)
+    print("'{0}' successfully created.\n".format(databaseName))
 
 # Space out the results.
-print "----\n"
+print("----\n")
 
 # 3.  Storing a small collection of data as documents within the database.
 
@@ -531,25 +531,25 @@ for document in sampleData:
 
     # Check that the document exists in the database.
     if newDocument.exists():
-        print "Document '{0}' successfully created.".format(number)
+        print("Document '{0}' successfully created.".format(number))
 
 # Space out the results.
-print "----\n"
+print("----\n")
 
 # 4.  Retrieving a complete list of the documents.
 
 # Simple and minimal retrieval of the first
 # document in the database.
 result_collection = Result(myDatabaseDemo.all_docs)
-print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
+print("Retrieved minimal document:\n{0}\n".format(result_collection[0]))
 
 # Simple and full retrieval of the first
 # document in the database.
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
-print "Retrieved full document:\n{0}\n".format(result_collection[0])
+print("Retrieved full document:\n{0}\n".format(result_collection[0]))
 
 # Space out the results.
-print "----\n"
+print("----\n")
 
 # Use an {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
@@ -563,10 +563,10 @@ params = {'include_docs': 'true'}
 response = client.r_session.get(end_point, params=params)
 
 # Display the response content
-print "{0}\n".format(response.json())
+print("{0}\n".format(response.json()))
 
 # Space out the results.
-print "----\n"
+print("----\n")
 
 # All done.
 # Time to tidy up.
@@ -577,9 +577,9 @@ print "----\n"
 try :
     client.delete_database(databaseName)
 except CloudantException:
-    print "There was a problem deleting '{0}'.\n".format(databaseName)
+    print("There was a problem deleting '{0}'.\n".format(databaseName))
 else:
-    print "'{0}' successfully deleted.\n".format(databaseName)
+    print("'{0}' successfully deleted.\n".format(databaseName))
 
 # 6.  Closing the connection to the service instance.
 
@@ -587,7 +587,7 @@ else:
 client.disconnect()
 
 # Finish the demo.
-print "===\n"
+print("===\n")
 
 # Say good-bye.
 exit()
