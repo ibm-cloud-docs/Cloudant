@@ -327,6 +327,10 @@ Using `include_docs=true` might have [performance implications](/docs/Cloudant?t
 When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
 {: note}
 
+When you use the `keys` argument, the `value` attribute will be a JSON object with the current `_rev` of the document and a `_deleted` attribute if the revision
+is deleted. The `doc` attribute will only be populated if you specified `include_docs=true` and will be `null` if the document is deleted.
+{: note}
+
 See the following example that uses HTTP to list all documents in a database:
 
 ```http
