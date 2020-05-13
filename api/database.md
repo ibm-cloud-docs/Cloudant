@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-05-13"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -325,6 +325,10 @@ Using `include_docs=true` might have [performance implications](/docs/Cloudant?t
 {: important}
 
 When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
+{: note}
+
+When you use the `keys` argument and the revision
+is deleted, the `value` attribute returned is a JSON object with the current `_rev` of the document and a `_deleted` attribute. The `doc` attribute is only populated if you specified `include_docs=true` in the request and is `null` if the document is deleted.
 {: note}
 
 See the following example that uses HTTP to list all documents in a database:
