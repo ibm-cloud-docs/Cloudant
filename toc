@@ -122,6 +122,7 @@ Cloudant
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_backup.md
+		tutorials/create_dashboard.md
 
 	{: .topicgroup}
 	Recovery and backup
