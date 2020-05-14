@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-11"
+lastupdated: "2020-05-18"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -437,7 +437,7 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
 
 - {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents that are stored within the `_users` database.
   User documents must be structured and populated to comply with
-  [Apache Software Foundation CouchDB requirements](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}{: external}.
+  [Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: new_window}{: external}.
 
 ## Build 5638 (11 October 2016)
 {: #build-5638-october-11-2016}

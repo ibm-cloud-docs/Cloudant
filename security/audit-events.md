@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-29"
+lastupdated: "2020-05-14"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -147,10 +147,10 @@ If the `events` field is missing, then a response similar to the following is re
 
 
 ## List of events
-{: #at_actions}
+{: #at_actions-ma}
 
 ### Management events
-{: #at_actions_management}
+{: #at_actions_management-ma}
 
 Action | Description
 -------|------------
@@ -164,7 +164,7 @@ Action | Description
 {: caption="Table 1. Management actions that generate events" caption-side="top"}
 
 ### Data events
-{: #at_actions_data}
+{: #at_actions_data-ma}
 
 Action | Description
 -------|------------
@@ -210,7 +210,7 @@ Action | Description
 {: caption="Table 2. Data actions that generate events" caption-side="top"}
 
 ## Viewing events
-{: #at_ui}
+{: #at_ui_ma}
 
 Events are available in the Dallas, Frankfurt, Tokyo, Sydney, and London locations. 
 
