@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-05-14"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -155,7 +155,7 @@ require_once('./src/Sag.php');
 - [CRUD](https://github.com/cloudant/haengematte/tree/master/php){: new_window}{: external}.
 
 ## Python
-{: #python}
+{: #python-tp}
 
 ### Unsupported libraries and frameworks for Python
 {: #unsupported-libraries-and-frameworks-for-python}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-29"
+lastupdated: "2020-05-14"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -32,7 +32,7 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){: new_window}{: external}.
 
 ## Types of events
-{: #at_event_types}
+{: #at_event_types-at}
 
 {{site.data.keyword.cloudant_short_notm}} forwards two types of events to {{site.data.keyword.at_full_notm}}:
 
@@ -62,13 +62,13 @@ By default, only management events are sent to {{site.data.keyword.at_full_notm}
 You can also use an {{site.data.keyword.cloudant_short_notm}} API to change event types that are sent. See details in the following section. 
 
 ### API to view and change event types
-{: #at_event_types_api}
+{: #at_event_types-at}
 
 The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
 {: note}
 
 #### `GET /_api/v2/user/activity_tracker/events`
-{: #at_event_types_api_get}
+{: #at_event_types_api_get-at}
 
 The `/_api/v2/user/activity_tracker/events` endpoint returns an `events` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance. 
 
@@ -89,7 +89,7 @@ See the following example response that shows both management and data event typ
 {: codeblock}
 
 #### `POST /_api/v2/user/activity_tracker/events`
-{: #at_event_types_api_post}
+{: #at_event_types_api_post-at}
 
 Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field. This field includes an array of event types that update the event types that are sent. See the two possible options for the JSON object that is passed to the endpoint:
 
@@ -147,10 +147,10 @@ If the `events` field is missing, then a response similar to the following is re
 
 
 ## List of events
-{: #at_actions}
+{: #at_actions-at}
 
 ### Management events
-{: #at_actions_management}
+{: #at_actions_management-at}
 
 Action | Description
 -------|------------
@@ -164,7 +164,7 @@ Action | Description
 {: caption="Table 1. Management actions that generate events" caption-side="top"}
 
 ### Data events
-{: #at_actions_data}
+{: #at_actions_data-at}
 
 Action | Description
 -------|------------
@@ -210,7 +210,7 @@ Action | Description
 {: caption="Table 2. Data actions that generate events" caption-side="top"}
 
 ## Viewing events
-{: #at_ui}
+{: #at_ui-at}
 
 Events are available in the Dallas, Frankfurt, Tokyo, Sydney, and London locations. 
 

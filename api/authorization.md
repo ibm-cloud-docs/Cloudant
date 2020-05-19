@@ -514,7 +514,7 @@ You can use the
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
 User documents that are stored in the `_users` database must be structured and populated to comply with
-[Apache Software Foundation CouchDB requirements](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}{: external}.
+[Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: new_window}{: external}.
 
 You can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
 To disable {{site.data.keyword.cloudant_short_notm}} security,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-27"
+lastupdated: "2020-05-18"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -78,7 +78,7 @@ the system must become more sophisticated.
 ## Tradeoffs in partition tolerance
 {: #tradeoffs-in-partition-tolerance}
 
-A database that prioritizes consistency and partition tolerance commonly employs a [master-slave](http://en.wikipedia.org/wiki/Master/slave_(technology)
+A database that prioritizes consistency and partition tolerance commonly employs a [master-slave](http://en.wikipedia.org/wiki/Master/slave_(technology))
 setup,
 where one node of the many in the system is elected leader.
 Only the leader approves data writes,
