@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-05-19"
 
 keywords: authorization, roles, permissions, view permissions, modify permissions, _users database, API keys, create API key, use API key, delete API key, _admin, _reader, _writer, _design, _replicator, _security, assign role
 
@@ -462,6 +462,12 @@ do the following steps:
 For an example of this process,
 see the blog article:
 [Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts](https://dx13.co.uk/articles/2016/04/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts/){: new_window}{: external}.
+
+Now a request can be made with the API key as shown in the following example:
+```sh
+curl -u$APIKEY:$APIPASSWORD -X GET "https://$ACCOUNT.cloudant.com/$DATABASE/" \
+```
+{: codeblock}
 
 ## Deleting API keys
 {: #deleting-api-keys}
