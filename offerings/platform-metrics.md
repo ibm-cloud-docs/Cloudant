@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-04"
+lastupdated: "2020-05-14"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 
@@ -19,14 +19,14 @@ keywords: Sysdig, monitoring, platform metrics, observability page
 {:deprecated: .deprecated}
 
 # Sysdig Monitoring integration
-{: #monitor-sysdig}
+{: #monitor-sysdig-pm}
 
 {{site.data.keyword.mon_full}} is a third-party, cloud-native, and container-intelligent management system that you can include as part of your {{site.data.keyword.cloud}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM}}.
 {:shortdesc}
 
 
 ## Platform metrics overview
-{: #platform_metrics}
+{: #platform_metrics-pm}
 
 You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics. 
 * To configure the Sysdig instance, you must turn on the *platform metrics* configuration setting. 
@@ -36,7 +36,7 @@ To monitor platform metrics, check that the {{site.data.keyword.mon_full_notm}} 
 {: important}
 
 ## Enabling platform metrics from the {{site.data.keyword.cloud_notm}} dashboard
-{: #enable_platform_metrics}
+{: #enable_platform_metrics-pm}
 
 Complete the following steps to configure platform metrics:
 
@@ -109,10 +109,10 @@ Complete the following steps to launch the Sysdig web UI from the *Observability
     Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.cloudant_short_notm}} instance.  
 
 ## {{site.data.keyword.cloudant_short_notm}} metrics dictionary
-{: #metrics_dictionary}
+{: #metrics_dictionary-pm}
 
 ### HTTP request count
-{: #ibm_cloudant_http_requests_total}
+{: #ibm_cloudant_http_requests_total-pm}
 
 The number of HTTP requests made against an {{site.data.keyword.cloudant_short_notm}} instance:
 
@@ -125,7 +125,7 @@ The number of HTTP requests made against an {{site.data.keyword.cloudant_short_n
 {: caption="Table 1. HTTP request count metric metadata" caption-side="top"}
 
 ### Rate-limited operations
-{: #ibm_cloudant_rate_limited_operations}
+{: #ibm_cloudant_rate_limited_operations-pm}
 
 The number of operations that were rate-limited:
 
@@ -141,7 +141,7 @@ The number of operations that were rate-limited:
 {: attributes}
 
 ### Global Attributes
-{: global-attributes}
+{: global-attributes-pm}
 
 The following attributes are available for segmenting all the metrics listed previously:
 
@@ -166,7 +166,7 @@ The following attributes are available for segmenting one or more attributes as 
 {: caption="Table 4. More attributes" caption-side="top"}
 
 ## {{site.data.keyword.cloudant_short_notm}} dashboards dictionary
-{: #dashboards_dictionary}
+{: #dashboards_dictionary-pm}
 
 The following table outlines the pre-defined dashboards that you can use to monitor {{site.data.keyword.cloudant_short_notm}} metrics:
 

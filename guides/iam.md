@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-05-14"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -841,7 +841,7 @@ While design documents can contain rewrite handlers, users cannot call them.
 While design documents can contain update functions, users cannot call them.
 
 ## Troubleshooting
-{: #troubleshooting}
+{: #troubleshooting-iam}
 
 If you have trouble authenticating with IAM when you make requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
 

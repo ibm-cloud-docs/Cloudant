@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-29"
+lastupdated: "2020-05-14"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
@@ -35,7 +35,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## Endpoints
-{: #endpoints}
+{: #endpoints-sc}
 
 {{site.data.keyword.cloudant_short_notm}} is accessed through HTTP API endpoints. The endpoints for an instance are 
 shown in both the URL field of the Service Credentials that are generated for the instance, and in the **Account** > **Settings** tab of the 
@@ -66,7 +66,7 @@ For more information about how to block pubic network connectivity via IP whitel
 {: note}
 
 ## Service credentials
-{: #service-credentials}
+{: #service-credentials-sc}
 
 To generate service credentials for {{site.data.keyword.cloudant_short_notm}} via the {{site.data.keyword.cloud_notm}}
 Dashboard, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) tutorial. To generate service credentials from 
@@ -108,7 +108,7 @@ Field | Purpose
 {: caption="Table 1. Service credential fields" caption-side="top"}
 
 ## Authentication
-{: #authentication-overview}
+{: #authentication-overview-sc}
 
 {{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either 
 `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials in the 
@@ -122,7 +122,7 @@ The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access
 {: important}
 
 ## {{site.data.keyword.cloudant_short_notm}} Dashboard
-{: #ibm-cloudant-dashboard}
+{: #ibm-cloudant-dashboard-sc}
 
 You can open the {{site.data.keyword.cloudant_short_notm}} Dashboard for your instance by going to the Manage tab of 
 the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either the `Launch` or `Launch Cloudant Dashboard`
@@ -135,10 +135,10 @@ button to open the dashboard in a new browser tab. You can do the following task
 - View and update account information like provisioned throughput capacity, announcements, CORS, and settings
 
 ## Programmatic access
-{: #programmatic-access}
+{: #programmatic-access-sc}
 
 ### Command line (curl)
-{: #command-line-curl-}
+{: #command-line-curl-sc}
 
 You can leverage the curl command line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API. 
 
@@ -153,7 +153,7 @@ You can't use an IAM API key directly to authenticate against {{site.data.keywor
 {: note}
 
 ### Client libraries
-{: #client-libraries-overview}
+{: #client-libraries-overview-sc}
 
 {{site.data.keyword.cloudant_short_notm}} has official client libraries for Java&trade;, Node.js, Python, Swift, and Mobile. For more information, see the [client libraries documentation](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries) to access the libraries, and see examples for connecting to an {{site.data.keyword.cloudant_short_notm}}
 instance from each. 

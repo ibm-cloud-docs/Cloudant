@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-27"
+lastupdated: "2020-05-18"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -123,7 +123,7 @@ npm install cloudant
 A supported library for working with {{site.data.keyword.cloudant_short_notm}} by using Python is
 available in the GitHub repository [`cloudant/python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external}.
 
-Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see instructions for the [requirements files](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}{: external}.
+Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see instructions for the [requirements files](https://github.com/cloudant/python-cloudant/blob/master/requirements.txt){: new_window}{: external}.
 {: tip}
 
 Download the current library from [pypi.python.org](https://pypi.python.org/pypi/cloudant/){: new_window}{: external}.
