@@ -6,7 +6,7 @@ lastupdated: "2020-03-19"
 
 keywords: tier-1 physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

@@ -6,7 +6,7 @@ lastupdated: "2020-05-18"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

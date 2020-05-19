@@ -6,7 +6,7 @@ lastupdated: "2020-04-13"
 
 keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -41,7 +41,7 @@ As a result, the copies of a document might have different updates. "Conflicts" 
 {: #what-eventual-consistency}
 {: faq}
 
-{{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem), which means {{site.data.keyword.cloudant_short_notm}} must make sure no differences between nodes exist. These inconsistencies can happen when out-of-date documents are synchronized.
+{{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=Cloudant-cap-theorem#cap-theorem), which means {{site.data.keyword.cloudant_short_notm}} must make sure no differences between nodes exist. These inconsistencies can happen when out-of-date documents are synchronized.
 
 It's important for {{site.data.keyword.cloudant_short_notm}} databases to have concurrent read and write access. MVCC enables that capability. MVCC is a form of [optimistic concurrency control](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}{: external} that makes read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because database locking isn't necessary for read and write operations.  At the same time, MVCC enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
@@ -68,7 +68,7 @@ function (doc) {
 ```
 {: codeblock}
 
-If you want to find conflicts within multiple documents in a database, write a [view](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce).
+If you want to find conflicts within multiple documents in a database, write a [view](/docs/services/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce).
 
 ## What happens if I ignore conflicts? 
 {: #what-if-ignore-conflicts}
@@ -86,7 +86,7 @@ If you don't check for conflicts, or don't fix them, your {{site.data.keyword.cl
 
 After you find a conflict, follow these four steps to resolve it.
 
-1.  [Get](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#get-conflicting-revisions-mvcc) the conflicting revisions.
-2.  [Merge](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#merge-the-changes-mvcc) them into your application or ask the owner what to do.
-3.  [Upload](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#upload-the-new-revision-mvcc) the new revision.
-4.  [Delete](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#delete-old-revisions-mvcc) old revisions.
+1.  [Get](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#get-conflicting-revisions-mvcc) the conflicting revisions.
+2.  [Merge](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#merge-the-changes-mvcc) them into your application or ask the owner what to do.
+3.  [Upload](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#upload-the-new-revision-mvcc) the new revision.
+4.  [Delete](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#delete-old-revisions-mvcc) old revisions.

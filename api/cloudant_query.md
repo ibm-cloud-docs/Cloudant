@@ -6,7 +6,7 @@ lastupdated: "2020-04-23"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -104,7 +104,7 @@ See the following example of returned JSON, confirming that the index was create
 
 | Field | Description | 
 |-------|-------------|
-| `index` | fields: A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
+| `index` | fields: A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=Cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
 | `ddoc` (optional) | Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document. |
 | `type` (optional) | Can be `json` or `text`. Defaults to `json`. Geospatial indexes will be supported in the future. | 
 | `name` (optional) | Name of the index. If no name is provided, a name is generated automatically. |
@@ -273,7 +273,7 @@ Key        | Description
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
-the index can be queried by using the `$text` operator. For more information, see the [Search documentation](/docs/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
+the index can be queried by using the `$text` operator. For more information, see the [Search documentation](/docs/Cloudant?topic=Cloudant-search#analyzers) for alternative analyzers.
 You might choose an alternative analyzer when documents are indexed in languages other than English,
 or when you have other special requirements for the analyzer, such as matching email addresses.
 
@@ -361,7 +361,7 @@ such as wildcards,
 fuzzy matches,
 or proximity detection.
 For more information,
-see the [Search documentation](/docs/Cloudant?topic=cloudant-search#search).
+see the [Search documentation](/docs/Cloudant?topic=Cloudant-search#search).
 The `$text` operator applies to all strings found in the document.
 If you place this operator in the context of a field name, it's invalid.
 
@@ -431,7 +431,7 @@ all the documents of `type`:`user` that don't have a status of `archived`.
 This situation occurs because a normal index can be used to match contiguous rows,
 and the `$ne` operator can't guarantee that.
 
-[{{site.data.keyword.cloudant_local_notm}}](/docs/Cloudant?topic=cloudant-ibm-cloudant-local-overview) doesn't support partial indexes.
+[{{site.data.keyword.cloudant_local_notm}}](/docs/Cloudant?topic=Cloudant-ibm-cloudant-local-overview) doesn't support partial indexes.
 {: note}
 
 To improve response time, you can create an index that excludes documents 
@@ -495,7 +495,7 @@ Design documents are regular documents that have an ID starting with `_design/`.
 They can be retrieved and modified in the same way as any other document,
 although these actions aren't usually necessary when you use {{site.data.keyword.cloudant_short_notm}} Query.
 
-For more information, see [Design documents](/docs/Cloudant?topic=cloudant-design-documents#design-documents).
+For more information, see [Design documents](/docs/Cloudant?topic=Cloudant-design-documents#design-documents).
 
 ### Response body format for listing all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #response-body-format-for-listing-all-IBM-cloudant-query-indexes}
@@ -1192,7 +1192,7 @@ Object        | `$exists` | Boolean              | Check whether the field exist
 Array         | `$in`     | Array of JSON values | The document field must exist in the list provided.
               | `$nin`    | Array of JSON values | The document field must not exist in the list provided.
               | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields can't match this condition.
-Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/Cloudant?topic=cloudant-http#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
+Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/Cloudant?topic=Cloudant-http#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 {: caption="Table 10. Condition operator argument requirements" caption-side="top"}
 
@@ -1597,7 +1597,7 @@ The `$mod` operator matches documents where the expression (`field % Divisor == 
 and only when the document field is an integer.
 The Divisor and Remainder must be integers.
 They can be positive or negative integers.
-A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/Cloudant?topic=cloudant-http#http-status-codes).
+A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/Cloudant?topic=Cloudant-http#http-status-codes).
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: new_window}{: external}. Both the [Erlang `rem` modulo operator](http://erlang.org/doc/reference_manual/expressions.html){: new_window}{: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: new_window}{: external},

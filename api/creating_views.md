@@ -6,7 +6,7 @@ lastupdated: "2020-04-23"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -188,7 +188,7 @@ then results can be reduced to a single value or by year,
 month,
 or day.
 
-For more information, see [Using views](/docs/Cloudant?topic=cloudant-using-views#using-views).
+For more information, see [Using views](/docs/Cloudant?topic=Cloudant-using-views#using-views).
 
 ## Reduce functions
 {: #reduce-functions}
@@ -384,7 +384,7 @@ Views are stored in design documents.
 So,
 to store a view,
 we simply store the function definition within a design document.
-A design document can be [created or updated](/docs/Cloudant?topic=cloudant-design-documents#creating-or-updating-a-design-document)
+A design document can be [created or updated](/docs/Cloudant?topic=Cloudant-design-documents#creating-or-updating-a-design-document)
 just like any other document.
 
 To store a view definition,

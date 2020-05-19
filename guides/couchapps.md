@@ -6,7 +6,7 @@ lastupdated: "2020-01-23"
 
 keywords: couchapp, 3-tier application
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -61,8 +61,8 @@ When is each appropriate?
 
 -   Your server only provides an API to {{site.data.keyword.cloudant_short_notm}} anyway.
 -   You're OK with {{site.data.keyword.cloudant_short_notm}}'s
-    [cookie-based authentication](/docs/Cloudant?topic=cloudant-authentication#cookie-authentication).
--   You're OK with {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/Cloudant?topic=cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db)
+    [cookie-based authentication](/docs/Cloudant?topic=Cloudant-authentication#cookie-authentication).
+-   You're OK with {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/Cloudant?topic=Cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db)
     databases to manage users and permissions.
 -   You don't need to schedule cronjobs or other regular tasks.
 
@@ -80,4 +80,4 @@ read [Managing applications on {{site.data.keyword.cloudant_short_notm}}](https:
 
 You can write your server layer by using whatever technologies work best
 for you.
-A list of libraries that work with {{site.data.keyword.cloudant_short_notm}} is available on the [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries) page.
+A list of libraries that work with {{site.data.keyword.cloudant_short_notm}} is available on the [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries) page.

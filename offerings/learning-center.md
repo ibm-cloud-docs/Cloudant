@@ -6,7 +6,7 @@ lastupdated: "2020-04-28"
 
 keywords: videos
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

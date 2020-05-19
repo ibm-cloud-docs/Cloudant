@@ -6,7 +6,7 @@ lastupdated: "2020-03-17"
 
 keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -40,7 +40,7 @@ The BLOB holds data that includes the following information:
 
 Examples of BLOBs would be images and multimedia.
 
-If you include the attachment as an [inline](/docs/Cloudant?topic=cloudant-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
+If you include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
 The content type corresponds to a [MIME type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}.
@@ -51,13 +51,13 @@ you specify the attachment MIME type as `image/jpeg`.
 It's a good idea to keep attachments small in size and number because attachments can impact performance.
 {: important}
 
-Attachments aren't permitted on documents in [`_replicator`](/docs/Cloudant?topic=cloudant-replication-api#replication-document-format) or [`_users`](/docs/Cloudant/api?topic=cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db) databases.
+Attachments aren't permitted on documents in [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#replication-document-format) or [`_users`](/docs/Cloudant/api?topic=Cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db) databases.
 {: important}
 
 ## Create / update
 {: #create-update}
 
-To create a new attachment at the same time as creating a new document, include the attachment as an [inline](/docs/Cloudant?topic=cloudant-attachments#inline) component of the JSON content.
+To create a new attachment at the same time as creating a new document, include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-attachments#inline) component of the JSON content.
 
 To create a new attachment on an existing document,
 or to update an attachment on a document,
@@ -176,7 +176,7 @@ To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you don't supply the most recent `_rev`,
-the response is a [409 error](/docs/Cloudant?topic=cloudant-http#http-status-codes).
+the response is a [409 error](/docs/Cloudant?topic=Cloudant-http#http-status-codes).
 
 See the following example of deleting an attachment by using HTTP:
 

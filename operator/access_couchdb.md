@@ -6,7 +6,7 @@ lastupdated: "2020-03-23"
 
 keywords: port forward, openshift route
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

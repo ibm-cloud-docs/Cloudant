@@ -6,7 +6,7 @@ lastupdated: "2020-02-21"
 
 keywords: troubleshoot, view logs, adjust log level
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

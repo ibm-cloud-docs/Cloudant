@@ -6,7 +6,7 @@ lastupdated: "2020-04-06"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -31,15 +31,15 @@ If you haven't used {{site.data.keyword.cloudantfull}} or NoSQL databases in gen
 
 You can find more information about {{site.data.keyword.cloudant_short_notm}} in the following sections: 
 
-- [Client Libraries](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries)
-- [API Reference](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)
-- [Guides](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
+- [Client Libraries](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries)
+- [API Reference](/docs/Cloudant?topic=Cloudant-api-reference-overview#api-reference-overview)
+- [Guides](/docs/Cloudant?topic=Cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
 
 To access {{site.data.keyword.cloudant_short_notm}},
-you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan),
+you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/Cloudant?topic=Cloudant-ibm-cloudant.com#enterprise-plan),
 or an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/login).
 
 ## HTTP API
@@ -51,7 +51,7 @@ All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} ar
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
-For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/Cloudant?topic=cloudant-http#http) in the API reference.
+For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/Cloudant?topic=Cloudant-http#http) in the API reference.
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
@@ -106,7 +106,7 @@ If the client (such as some web browsers) doesn't support using these HTTP metho
 {: #method-not-allowed-error}
 
 If you use an unsupported HTTP request type with a URL that doesn't support the specified type,
-a [405](/docs/Cloudant?topic=cloudant-http#http-status-codes) error is returned that lists the supported HTTP methods, as shown in the following example.
+a [405](/docs/Cloudant?topic=Cloudant-http#http-status-codes) error is returned that lists the supported HTTP methods, as shown in the following example.
 
 #### Example error message in response to an unsupported request
 
@@ -130,7 +130,7 @@ and audio,
 are called BLOBs (Binary Large OBjects),
 and can be stored as attachments associated with documents.
 
-More information about JSON can be found in the [JSON Guide](/docs/Cloudant?topic=cloudant-json#json).
+More information about JSON can be found in the [JSON Guide](/docs/Cloudant?topic=Cloudant-json#json).
 
 ## Distributed systems
 {: #distributed-systems}
@@ -146,12 +146,12 @@ you just add more machines.
 This method is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
 
 For more information about {{site.data.keyword.cloudant_short_notm}} and distributed system concepts,
-see the [CAP Theorem](/docs/Cloudant?topic=cloudant-cap-theorem#cap-theorem) guide.
+see the [CAP Theorem](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem) guide.
 
 ## Replication
 {: #replication-basics}
 
-[Replication](/docs/Cloudant?topic=cloudant-replication-api#replication-api) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
+[Replication](/docs/Cloudant?topic=Cloudant-replication-api#replication-api) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
 [CouchDB](http://couchdb.apache.org/){: new_window}{: external},
 [PouchDB](http://pouchdb.com/){: new_window}{: external},
 and other distributed databases.

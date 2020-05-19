@@ -6,7 +6,7 @@ lastupdated: "2020-04-08"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

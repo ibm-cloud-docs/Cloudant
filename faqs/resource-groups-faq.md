@@ -6,7 +6,7 @@ lastupdated: "2020-04-13"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

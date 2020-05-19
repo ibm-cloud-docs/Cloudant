@@ -6,7 +6,7 @@ lastupdated: "2020-04-06"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -60,7 +60,7 @@ Python 2.7.12
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 {: #python-client-library-for-ibm-cloudant}
 
-An [officially supported library](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported) is included to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}}. Use the instructions provided to install it. 
+An [officially supported library](/docs/Cloudant?topic=Cloudant-supported-client-libraries#python-supported) is included to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}}. Use the instructions provided to install it. 
 
 To check that the client library installed successfully,
 run the following command at a prompt:
@@ -82,7 +82,7 @@ cloudant==2.3.1
 ### Creating an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #creating-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-The process for creating a suitable service instance is described in [this tutorial](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+The process for creating a suitable service instance is described in [this tutorial](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).
 
 Ensure that you have the following Service Credentials available for your service instance:
 
@@ -95,7 +95,7 @@ Field      | Purpose
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 {: caption="Table 1. Service credentials" caption-side="top"}
 
-For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
 ## Context
 {: #context}
@@ -136,7 +136,7 @@ from cloudant.result import Result, ResultByKey
 ```
 {: codeblock}
 
-The application must have the [Service Credentials](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials) for the service:
+The application must have the [Service Credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials) for the service:
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
@@ -348,7 +348,7 @@ from within a Python application.
 In this example code,
 we again request a list of all the documents,
 including their content.
-However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/Cloudant?topic=cloudant-databases#get-documents).
+However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/Cloudant?topic=Cloudant-databases#get-documents).
 
 First,
 we identify the endpoint to contact,

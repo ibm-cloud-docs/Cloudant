@@ -6,7 +6,7 @@ lastupdated: "2020-03-31"
 
 keywords: query, response content-type, attachments, disabled javascript constructors, active tasks, views, design documents, authentication, user documents, replication, result set
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

@@ -6,7 +6,7 @@ lastupdated: "2020-05-18"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

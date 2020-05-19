@@ -6,7 +6,7 @@ lastupdated: "2020-04-08"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -557,7 +557,7 @@ authentication credentials include user name admin and password
 pass. You must create a user in your LDAP database that has both
 `_admin` and `server_admin` roles and whose credentials match the
 credentials set in the `metrics.ini` file. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Metrics
-application](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#ibm-cloudant-metrics-application).
+application](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#ibm-cloudant-metrics-application).
 
 ### Configuring LDAP authentication
 {: #configuring-ldap-authentication}
@@ -1022,7 +1022,7 @@ the {{site.data.keyword.cloudant_local_notm}} system.
 
 1. Perform the load balancer installation task for each of the load balancer systems (Load Balancer 0 and Load Balancer 1).
 
-   For more information, see [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
+   For more information, see [Installing load balancer nodes](/docs/Cloudant?topic=Cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
 
 2. Log in to each load balancer node as the root user.
 
@@ -1678,7 +1678,7 @@ You can use Linux network configuration commands,
 such as `iptables` and `yast`, 
 or {{site.data.keyword.cloudant_local_notm}}'s Cluster Admin and Support Tool (CAST).
 
-For more information, see [{{site.data.keyword.cloudant_local_notm}} architecture and ports](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#ibm-cloudant-local-architecture-and-ports).
+For more information, see [{{site.data.keyword.cloudant_local_notm}} architecture and ports](/docs/Cloudant?topic=Cloudant-install-ibm-cloudant-local#ibm-cloudant-local-architecture-and-ports).
 
 Running the CAST firewall command enables the firewall on your server if it is not already on. As a result, you might be locked out of your SSH session if you do not open the SSH ports first. If you use SUSE Linux Enterprise Server (SLES) platform, you must take special precautions and ensure SSH port 22 is open before you run the CAST firewall commands. These ports are not open by default on this platform. From the command line, you can run the commands in the following example to open the SSH ports on SLES platform. 
 {: tip}

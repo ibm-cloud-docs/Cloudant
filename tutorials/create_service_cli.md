@@ -6,7 +6,7 @@ lastupdated: "2020-04-06"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -103,13 +103,13 @@ The following example describes how to log in. If you use a federated user ID, i
 ## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-See the [Plans](/docs/Cloudant?topic=cloudant-ibm-cloud-public#plans) section of the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
+See the [Plans](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#plans) section of the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
 {: pre}
 
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}{: external} guide.
+{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}{: external} guide.
 
 First, set your target resource group and region as shown in [General CLI (ibmcloud) commands](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window}{: external} under `ibmcloud target` by using the following format:
 
@@ -148,7 +148,7 @@ Field | Description
 `legacyCredentials` | Defaults to true. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. 
 {: caption="Table 1. Basic command format fields" caption-side="top"}
 
-For more information about choosing an authentication method, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+For more information about choosing an authentication method, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
 {: important}
 
 In this example, we want to create an instance of an {{site.data.keyword.cloudant_short_notm}} service by using the `Lite` plan. The instance name is `cs20170517a` in the US-South location and uses IAM credentials only. You create this instance by using a command similar to the following example:
@@ -179,7 +179,7 @@ must have the necessary credentials.
 Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
 {: important}
 
-For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}.
 
 The basic command format to create credentials for a service instance
 within {{site.data.keyword.cloud_notm}} is shown in the following example:
@@ -286,7 +286,7 @@ Now, you're finished with the following tasks:
 2.  Created credentials for the {{site.data.keyword.cloudant_short_notm}} service instance.
 3.  Retrieved the service instance credentials so that they can be used by your application.
 
-For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window} tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created in this tutorial.
+For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window} tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created in this tutorial.
 
 ## (Optional) Tidying up afterward
 {: #-optional-tidying-up-afterward}

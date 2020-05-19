@@ -6,7 +6,7 @@ lastupdated: "2020-04-06"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -129,7 +129,7 @@ While in distributed databases, data is spread around a cluster of servers, and 
 
 To create a unique identifier for use in your application,
 such as an `order_id`,
-call the [`GET _uuids` endpoint](/docs/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) on the {{site.data.keyword.cloudant_short_notm}} API.
+call the [`GET _uuids` endpoint](/docs/Cloudant?topic=Cloudant-advanced-api#-get-_uuids-) on the {{site.data.keyword.cloudant_short_notm}} API.
 The database generates an identifier for you.
 The same endpoint can be used to generate multiple IDs by adding a `count` parameter,
 for example, `/_uuids?count=10`.
@@ -193,7 +193,7 @@ function (doc) {
 ```
 {: codeblock}
 
-Use the built-in [`_sum` reducer](/docs/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
+Use the built-in [`_sum` reducer](/docs/Cloudant?topic=Cloudant-views-mapreduce#built-in-reduce-functions)
 to produce output as a ledger of payment events.
 
 ### Example of using the built-in `_sum` reducer, which is queried with `?reduce=false`

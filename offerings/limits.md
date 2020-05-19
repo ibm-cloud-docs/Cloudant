@@ -6,7 +6,7 @@ lastupdated: "2019-11-14"
 
 keywords: databases, indexes, request payload, request timeouts, query
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

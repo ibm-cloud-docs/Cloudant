@@ -6,7 +6,7 @@ lastupdated: "2020-03-24"
 
 keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

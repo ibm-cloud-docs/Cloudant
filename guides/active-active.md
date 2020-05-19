@@ -6,7 +6,7 @@ lastupdated: "2020-04-28"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 {: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
 
-The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
+The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 explains that one way to enable disaster recovery is to use
 {{site.data.keyword.cloudantfull}} replication to create redundancy across regions.
 {: shortdesc}
@@ -55,7 +55,7 @@ Remember these important facts:
 ## Before you begin an active-active deployment
 {: #before-you-begin-an-active-active-deployment}
 
-For an active-active deployment, a strategy for managing conflicts must be in place, so be sure to understand how [replication](/docs/Cloudant?topic=cloudant-replication-api#replication-api) and [conflicts](/docs/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc) work before you consider this architecture.
+For an active-active deployment, a strategy for managing conflicts must be in place, so be sure to understand how [replication](/docs/Cloudant?topic=Cloudant-replication-api#replication-api) and [conflicts](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc) work before you consider this architecture.
 {: note}
 
 Email support@cloudant.com if you need help with how to model data to handle conflicts effectively.
@@ -86,7 +86,7 @@ After these accounts are created, follow these steps:
 ## Step 1. Create your databases
 {: #step-1-create-your-databases}
 
-[Create the databases](/docs/Cloudant?topic=cloudant-databases#create-database) that you want to replicate between
+[Create the databases](/docs/Cloudant?topic=Cloudant-databases#create-database) that you want to replicate between
 within each account.
 
 In this example,
@@ -104,7 +104,7 @@ curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ## Step 2. Create an API key for your replications
 {: #step-2-create-an-api-key-for-your-replications}
 
-It's a good idea to use an [API key](/docs/Cloudant?topic=cloudant-authorization#api-keys) for continuous replications.
+It's a good idea to use an [API key](/docs/Cloudant?topic=Cloudant-authorization#api-keys) for continuous replications.
 The advantage is that if your primary account details change,
 for example after a password reset,
 your replications can continue unchanged.
@@ -138,14 +138,14 @@ Take careful note of the password. It'sn't possible to retrieve the password lat
 ## Step 3. Grant access permission
 {: #step-3-grant-access-permission}
 
-Give the API Key [permission](/docs/Cloudant?topic=cloudant-authorization#modifying-permissions)
+Give the API Key [permission](/docs/Cloudant?topic=Cloudant-authorization#modifying-permissions)
 to read and to write on both databases.
 
 If you also need to replicate indexes,
 assign admin permissions.
 
 Use the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or see the [authorization](/docs/Cloudant?topic=cloudant-authorization#authorization) information
+or see the [authorization](/docs/Cloudant?topic=Cloudant-authorization#authorization) information
 for details of how to grant permissions programmatically.
 
 ## Step 4. Set up replications
@@ -253,7 +253,7 @@ A simple test of whether a failover is required would be to
 use the main database endpoint as a 'heartbeat.
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
-[details about the database](/docs/Cloudant?topic=cloudant-databases#getting-database-details).
+[details about the database](/docs/Cloudant?topic=Cloudant-databases#getting-database-details).
 If no response is received,
 it might indicate that a failover is necessary.
 
@@ -270,7 +270,7 @@ but the read load is distributed among the replicas.
 ## Step 7. Next steps
 {: #step-7-next-steps}
 
-* Consider monitoring the [replications](/docs/Cloudant?topic=cloudant-advanced-replication#advanced-replication) between the databases.
+* Consider monitoring the [replications](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication) between the databases.
   Use the data to determine whether your configuration might be optimized further.
 *	Consider how your design documents and indexes are deployed and updated.
   You might find it more efficient to automate these tasks.
@@ -335,7 +335,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 * Do any replications need restarting?
 * How many pending changes are still waiting for replication into the database?
 
-More information on [monitoring replication status](/docs/Cloudant?topic=cloudant-advanced-replication#replication-status)
+More information on [monitoring replication status](/docs/Cloudant?topic=Cloudant-advanced-replication#replication-status)
 is available.
 
 If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
@@ -345,6 +345,6 @@ If a database is being changed continuously, the replication status is unlikely 
 {: #indexes}
 
 * Are the indexes sufficiently up to date?
-  Verify that indexes are updated by using the [active tasks](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks) endpoint.
+  Verify that indexes are updated by using the [active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
 * Test the level of 'index readiness' by sending a query to the index,
   and deciding whether it returns within an acceptable time.

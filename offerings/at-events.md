@@ -6,7 +6,7 @@ lastupdated: "2020-05-14"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -64,7 +64,7 @@ You can also use an {{site.data.keyword.cloudant_short_notm}} API to change even
 ### API to view and change event types
 {: #at_event_types-at}
 
-The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
+The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
 {: note}
 
 #### `GET /_api/v2/user/activity_tracker/events`

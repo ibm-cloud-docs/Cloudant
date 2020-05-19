@@ -6,7 +6,7 @@ lastupdated: "2020-02-13"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -26,10 +26,10 @@ subcollection: cloudant
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
 
-You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
+You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=Cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
 {: shortdesc} 
 
-[{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=cloudant-query) and [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the _bookmark_ received in the first response to the second request.
+[{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query) and [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=Cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the _bookmark_ received in the first response to the second request.
 
 Now, we can see a better way to page through a large document set. 
 
@@ -235,7 +235,7 @@ We can now see how to do that with code.
 ### How can I use {{site.data.keyword.cloudant_short_notm}} Query to search?
 {: #use-cloudant-query-search}
 
-First, we search for all the cities in the US. We're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-query), so the operation is specified as a block of JSON:
+First, we search for all the cities in the US. We're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query), so the operation is specified as a block of JSON:
 
 ```js
 {
@@ -246,7 +246,7 @@ First, we search for all the cities in the US. We're using [{{site.data.keyword.
 }
 ```
 
-It's passed to {{site.data.keyword.cloudant_short_notm}} by using the [/db/_find](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-query#selector-syntax) API endpoint: 
+It's passed to {{site.data.keyword.cloudant_short_notm}} by using the [/db/_find](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#selector-syntax) API endpoint: 
 
 ```sh
 curl -X POST \
@@ -318,18 +318,18 @@ We feed the bookmark from the first response into the second request for the nex
 ### How does {{site.data.keyword.cloudant_short_notm}} Search work?
 {: #how-cloudant-search-works}
 
-Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
+Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
 
 ```sh
 curl "$URL/cities/_search/search/_search/freetext?q=country:US&bookmark=g1AAAAA-eJzLYW"
 ```
 
-See the documentation about [query parameters](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-search#query-parameters-search) for further details.
+See the documentation about [query parameters](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-search#query-parameters-search) for further details.
 
 ### Do MapReduce views accept bookmarks?
 {: #mapreduce-views-accept-bookmarks}
 
-No. MapReduce views don't accept a `bookmark`. Use the [skip and limit](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-using-views) to page through results.
+No. MapReduce views don't accept a `bookmark`. Use the [skip and limit](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-using-views) to page through results.
 
 ### Can I jump straight to page X of the results?
 {: #jump-page-x-results}

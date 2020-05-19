@@ -6,7 +6,7 @@ lastupdated: "2020-02-06"
 
 keywords: access, status, resource
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

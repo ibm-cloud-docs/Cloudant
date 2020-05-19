@@ -6,7 +6,7 @@ lastupdated: "2020-03-19"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -67,7 +67,7 @@ or from where content might be accessed,
 for delivering and supporting a Cloud Service,
 is available at [www.ibm.com/cloud/datacenters](http://www.ibm.com/cloud/datacenters){: new_window}{: external}.
 
-For more information about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance, see [Compliance](/docs/Cloudant?topic=cloudant-compliance#compliance).
+For more information about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance, see [Compliance](/docs/Cloudant?topic=Cloudant-compliance#compliance).
 Similar information can be found for these IaaS business partners:
 
 - [Amazon](https://aws.amazon.com/compliance/){: new_window}{: external}

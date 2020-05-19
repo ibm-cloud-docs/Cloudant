@@ -6,7 +6,7 @@ lastupdated: "2020-04-10"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -35,7 +35,7 @@ if independent updates are made to different copies of documents,
 the effect might be to introduce disagreement or "conflicts" as to what is the correct, definitive content for the document.
 
 {{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
-It warns you by returning a [`409` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) to a problematic update request.
+It warns you by returning a [`409` response](/docs/Cloudant?topic=Cloudant-http#http-status-codes) to a problematic update request.
 However,
 a `409` response might not be received if the database update is requested on a
 system that isn't currently connected to the network.
@@ -87,7 +87,7 @@ function (doc) {
 ```
 
 To find conflicts for multiple documents in a database,
-write a [view](/docs/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce).
+write a [view](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce).
 Using a map function such as the example provided,
 you can find all the revisions for every document with a conflict.
 

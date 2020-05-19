@@ -6,7 +6,7 @@ lastupdated: "2020-03-19"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # Replication incrementals
 {: #replication-incrementals}
 
-The content in the Replication incrementals guide includes older or "deprecated" guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster recovery and backup](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide.
+The content in the Replication incrementals guide includes older or "deprecated" guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster recovery and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide.
 {: deprecated}
 
 Database backups protect your data against potential loss or corruption.
@@ -51,7 +51,7 @@ a backup can preserve the state of your database at a selected time.
 {: #incremental-backups}
 
 If you're an Enterprise customer,
-a daily incremental backup capability is available. For more information, see [Disaster recovery and backup](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+a daily incremental backup capability is available. For more information, see [Disaster recovery and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
 If you're not an Enterprise customer,
 or you prefer to create your own backups,
@@ -107,7 +107,7 @@ do the following steps:
 3.  Search for the `recorded_seq` field of the first element
     in the history array that is found in the checkpoint document.
 4.  Replicate to the new incremental backup database,
-    setting the [`since_seq` field](/docs/Cloudant?topic=cloudant-replication-api#the-since_seq-field)
+    setting the [`since_seq` field](/docs/Cloudant?topic=Cloudant-replication-api#the-since_seq-field)
     in the replication document to the value of the `recorded_seq` field found in the previous step.
 
 By definition, if you use the `since_seq` option, it bypasses the normal checkpointing facility. Use `since_seq` with caution. 
@@ -513,5 +513,5 @@ Make sure that your replication jobs don't begin at the same time.
 
 Replication and backups can be tricky.
 If you get stuck,
-check out the [replication guide](/docs/Cloudant?topic=cloudant-replication-guide#replication-guide),
+check out the [replication guide](/docs/Cloudant?topic=Cloudant-replication-guide#replication-guide),
 or email support@cloudant.com.

@@ -6,7 +6,7 @@ lastupdated: "2020-04-06"
 
 keywords: operator, field reference
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

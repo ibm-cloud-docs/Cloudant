@@ -6,7 +6,7 @@ lastupdated: "2020-04-09"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -382,7 +382,7 @@ select from the following instructions.
 
    d. Confirm that the correct host name is specified with the `hostname -f` command. If the specified host name is incorrect, correct it and repeat the previous step.
 
-You can configure your database nodes for either local logging or remote logging to a separate syslog logging server. The default setting is local, but the local setting is recommended only in test environments. In a production environment, you must use remote logging to ensure optimum system performance. If you want to set up logging, see [Configuring logging](/docs/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-logging).
+You can configure your database nodes for either local logging or remote logging to a separate syslog logging server. The default setting is local, but the local setting is recommended only in test environments. In a production environment, you must use remote logging to ensure optimum system performance. If you want to set up logging, see [Configuring logging](/docs/Cloudant?topic=Cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-logging).
 {: note}
 
 ### Load balancer prerequisites

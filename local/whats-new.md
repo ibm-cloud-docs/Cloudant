@@ -6,7 +6,7 @@ lastupdated: "2019-08-26"
 
 keywords: new features, updates
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

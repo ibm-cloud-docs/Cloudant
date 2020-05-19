@@ -6,7 +6,7 @@ lastupdated: "2020-04-06"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -31,7 +31,7 @@ Audit logs are available for {{site.data.keyword.cloudant_short_notm}}. You can 
 ## IBM Cloudant for IBM Cloud
 {: #audit-logs-ibm-cloud}
 
-Users of {{site.data.keyword.cloudant_short_notm}} can use {{site.data.keyword.at_full}} to access audit logs for the service. {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the {{site.data.keyword.cloud_notm}} Auditing Data Federation (CADF) standard. For more information, see the [{{site.data.keyword.at_full_notm}} events](/docs/services/Cloudant?topic=cloudant-at_events){: new_window}.
+Users of {{site.data.keyword.cloudant_short_notm}} can use {{site.data.keyword.at_full}} to access audit logs for the service. {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the {{site.data.keyword.cloud_notm}} Auditing Data Federation (CADF) standard. For more information, see the [{{site.data.keyword.at_full_notm}} events](/docs/services/Cloudant?topic=Cloudant-at_events){: new_window}.
 
 ## {{site.data.keyword.cloudant_short_notm}} not in {{site.data.keyword.cloud_notm}}
 {: #audit-logs-not-ibm-cloud}

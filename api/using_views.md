@@ -6,7 +6,7 @@ lastupdated: "2020-04-06"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -210,7 +210,7 @@ a 'fingerprint' of the view definition is created whenever the design document i
 If the fingerprint changes,
 then the view indexes are rebuilt.
 
-View index rebuilds occur when you change any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt. If you want to change a design document for a larger database, have a look at the [Design document management guide](/docs/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
+View index rebuilds occur when you change any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt. If you want to change a design document for a larger database, have a look at the [Design document management guide](/docs/Cloudant?topic=Cloudant-design-document-management#managing-changes-to-a-design-document).
 {: tip}
 
 If the database was updated recently,
@@ -720,7 +720,7 @@ See the example (abbreviated) response, returning the full document for each rec
 ## Sending several queries to a view
 {: #sending-several-queries-to-a-view}
 
-Sending multiple queries to a view using a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` has been deprecated with [Send multiple view queries to a database by using _view](/docs/services/Cloudant?topic=cloudant-databases#send-multiple-view-queries-to-a-database-by-using-_view).
+Sending multiple queries to a view using a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` has been deprecated with [Send multiple view queries to a database by using _view](/docs/services/Cloudant?topic=Cloudant-databases#send-multiple-view-queries-to-a-database-by-using-_view).
 
-For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter).
+For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=Cloudant-deprecations#replaced-queries-parameter).
 {: deprecated}

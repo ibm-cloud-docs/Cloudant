@@ -6,7 +6,7 @@ lastupdated: "2020-04-08"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -195,7 +195,7 @@ Setting *Q* for databases is not enabled for {{site.data.keyword.cloudant_short_
 {: note}
 
 If you attempt to set the *Q* value where it is not available,
-the result is a [`403` response](/docs/Cloudant?topic=cloudant-http#http-status-codes) with a JSON body
+the result is a [`403` response](/docs/Cloudant?topic=Cloudant-http#http-status-codes) with a JSON body
 similar to the following example:
 
 ```json
@@ -243,7 +243,7 @@ because the coordinator can return a response more quickly.
 The reason is that the coordinator must wait only for a single response
 from any one of the replicas that host the appropriate shard.
 
-If you reduce the *R* value, it increases the likelihood that the response that is returned is not based on the most up-to-date data because of the [eventual consistency](/docs/Cloudant?topic=cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default *R* value helps mitigate this effect.
+If you reduce the *R* value, it increases the likelihood that the response that is returned is not based on the most up-to-date data because of the [eventual consistency](/docs/Cloudant?topic=Cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default *R* value helps mitigate this effect.
 {: note}
 
 The default value for *R* is *2*.

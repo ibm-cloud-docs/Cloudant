@@ -6,7 +6,7 @@ lastupdated: "2020-04-10"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

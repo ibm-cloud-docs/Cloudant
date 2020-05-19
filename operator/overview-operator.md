@@ -6,7 +6,7 @@ lastupdated: "2020-04-03"
 
 keywords: compare
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

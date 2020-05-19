@@ -6,7 +6,7 @@ lastupdated: "2020-04-08"
 
 keywords: upgrade, database node, load balancer node, cluster
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -182,7 +182,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
       ```
       {: codeblock}
 
-3. Install the database node by using the steps in [Installing the first database node](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-the-first-database-node).
+3. Install the database node by using the steps in [Installing the first database node](/docs/Cloudant?topic=Cloudant-install-ibm-cloudant-local#installing-the-first-database-node).
 
    Ensure that when you run the `cast system install` command you start the node with a maintenance mode flag and pass the current cluster configuration to your `dbnode.yaml` file.
    {: note}
@@ -247,7 +247,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
         
    The response lists all the cluster nodes.
 
-   d. Check the health of the database node by using the Weatherreport application, [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+   d. Check the health of the database node by using the Weatherreport application, [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
 
 5. Bring the database node out of maintenance mode and check its availability.
 
@@ -295,7 +295,7 @@ these steps.
    ```
    {: codeblock}
 
-4. Install the new {{site.data.keyword.cloudant_local_notm}} packages and start the upgraded node, [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
+4. Install the new {{site.data.keyword.cloudant_local_notm}} packages and start the upgraded node, [Installing load balancer nodes](/docs/Cloudant?topic=Cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
 
    a. Find the load balancer node's current credentials, cluster nodes, host name, and IP addresses in the current version of the `/etc/haproxy/haproxy.cfg` file.
 

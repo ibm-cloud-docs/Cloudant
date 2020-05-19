@@ -6,7 +6,7 @@ lastupdated: "2019-11-14"
 
 keywords: apache couchdb, support, extension
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 

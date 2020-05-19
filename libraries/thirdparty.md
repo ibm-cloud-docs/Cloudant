@@ -6,7 +6,7 @@ lastupdated: "2020-05-14"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -214,4 +214,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-For more information, see the [API Reference](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) about meteor-couchdb APIs. 
+For more information, see the [API Reference](/docs/Cloudant?topic=Cloudant-api-reference-overview#api-reference-overview) about meteor-couchdb APIs. 

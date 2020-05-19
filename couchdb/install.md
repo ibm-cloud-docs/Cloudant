@@ -6,7 +6,7 @@ lastupdated: "2020-02-05"
 
 keywords: apache couchdb, support, extension, containers
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -53,7 +53,7 @@ See the [Apache CouchDB Product overview](https://access.redhat.com/containers/#
 
 ### Operator
 
-The [Operator for Apache CouchDB](/docs/Cloudant?topic=cloudant-apache-couchdb-operator) deploys and manages Apache CouchDB clusters on Kubernetes. 
+The [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator) deploys and manages Apache CouchDB clusters on Kubernetes. 
 
 ### Helm Chart
 

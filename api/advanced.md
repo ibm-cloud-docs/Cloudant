@@ -6,7 +6,7 @@ lastupdated: "2020-04-02"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
@@ -116,7 +116,7 @@ This endpoint is only available to customers with dedicated system accounts.
 {: note}
 
 The `/_db_updates` endpoint returns a list of changes to databases,
-similar to a global [changes feed](/docs/Cloudant?topic=cloudant-databases#get-changes).
+similar to a global [changes feed](/docs/Cloudant?topic=Cloudant-databases#get-changes).
 Changes can be either updates to an existing database,
 creation of a new database,
 or deletion of a database.
