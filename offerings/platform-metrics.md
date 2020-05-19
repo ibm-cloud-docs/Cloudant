@@ -2,9 +2,11 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-14"
+lastupdated: "2020-05-19"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
+
+subcollection: Cloudant
 
 ---
 
