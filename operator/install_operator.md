@@ -186,45 +186,6 @@ To install the Operator, follow these steps:
   ```
   {: codeblock}
 
-### Using Red Hat Certified Containers
-{: #install-the-operator-openshift}
-
-By default, the Operator for Apache CouchDB pulls images from DockerHub. You can optionally elect to pull images from a private registry, for example, the Red Hat Container catalog. The CouchDB containers hosted in the Red Hat catalog are identical to those containers hosted in Docker Hub. Follow these steps to create and configure `imagePullSecrets`. 
-
-1. Create a Registry Secret, such as an `imagePullSecrets` that the OpenShift container runtime can use to pull the images. 
-
-   We recommended that you use a registry token that is created through the [Red Hat Portal](https://access.redhat.com/terms-based-registry/){: new_window}{: external} for the credentials. The following example command shows how to create an `imagePullSecrets` called `rh-catalog`.
-
-  ```
-  oc create secret docker-registry rh-catalog --docker-server=registry.connect.redhat.com \
-  --docker-username=<registry-service-account-username> --docker-password=<registry-service-account-password>
-  ```
-  {: codeblock}
-
-2. Instruct the deployment to use the `rh-catalog` secret by running the following command:
-
-  ```
-  oc set env deployment couchdb-operator --namespace my-couchdb REGISTRY_SECRET=rh-catalog
-
-  oc patch deployment couchdb-operator --namespace my-couchdb -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"rh-catalog"}]}}}}'
-  ```
-  {: codeblock}
-
-  The operator deployment requires the `imagePullSecrets` that was created previously to be associated with it. You might need to wait a few minutes for OpenShift to create the operator deployment in response to the `Subscription`.
-  
-  This process changes the image that is used by the operator itself and triggers a redeploy.
-
-3. Update the image references in the `couchdb-release` ConfigMap, which gets auto-created on first-run, by running the following command:
-
-  ```
-  oc edit configmap couchdb-release --namespace my-couchdb
-  ```
-  {: codeblock}
-
-4. Replace `ibmcom` with `registry.connect.redhat.com/ibm` in the `images` section, and save. 
-
-  Existing `CouchDBCluster` deployments aren't updated.
-
 ## Installing the Operator on Red Hat OpenShift version 4
 {: #install-the-operator-openshift-4}
 
