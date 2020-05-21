@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-08-26"
+  years: 2015, 2020
+lastupdated: "2020-05-21"
 
-keywords: new features, updates
+keywords: new features, updates, not supported
 
 subcollection: Cloudant
 

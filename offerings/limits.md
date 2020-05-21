@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-14"
+  years: 2019, 2020
+lastupdated: "2020-05-21"
 
 keywords: databases, indexes, request payload, request timeouts, query
 
