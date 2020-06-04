@@ -41,7 +41,7 @@ You can't exceed the reserved capacity for either reads or writes. If you do, an
 
 Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** tab to view and change the provisioned throughput capacity, and see the hourly and approximate monthly costs for each setting. See an example slider in the following image:
 
-![Capacity slider](../images/Manage_Capacity_Slider_TE.png){: caption="Figure 1. Capacity slider" caption-side="bottom"}
+![Capacity slider](../images/manage_capacity_slider_te.png){: caption="Figure 1. Capacity slider" caption-side="bottom"}
 
 
 ## Data Storage
