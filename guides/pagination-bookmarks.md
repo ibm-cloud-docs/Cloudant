@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-06-23"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -21,10 +21,14 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-13 -->
+<!-- Acrolinx: 2020 -->
+
 
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
+
+The pagination approach has been changed for {{site.data.keyword.cloudantfull}} on Transaction Engine. For more information, see how {{site.data.keyword.cloudant_short_notm}} on Transaction Engine uses [pagination and bookmarks](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks-te).
+{: important}
 
 You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=Cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
 {: shortdesc} 
@@ -41,7 +45,7 @@ If you use the `GET //_all_docs` endpoint to fetch documents in bulk, then you m
 ## What is the `_all_docs` endpoint?
 {: #what-is-the_all_docs_endpoint}
 
-The `GET /<db>/_all_docs` is used to fetch data from an {{site.data.keyword.cloudantfull}} database's _primary index_, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data that is requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
+The `GET /$DATABASE/_all_docs` is used to fetch data from an {{site.data.keyword.cloudant_short_notm}} database's _primary index_, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data that is requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
 
 ```javascript
 curl "$URL/mydb/_all_docs"
@@ -192,7 +196,7 @@ GET /mydb/_all_docs?limit=10&startkey="frog%00"
 ## Pagination of views
 {: #pagination-of-views}
 
-MapReduce views, secondary indexes, which are defined by key/value pairs that are produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /<db>/_design/<ddoc>/_view/<view>` endpoint instead. You can define your query in the following ways:
+MapReduce views, secondary indexes, which are defined by key/value pairs that are produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /$DATABASE/_design/$DDOC/_view/$VIEW` endpoint instead. You can define your query in the following ways:
 
 - Spool all the data from a view with no parameters.
 - Include document bodies by supplying `include_docs=true`.
@@ -222,7 +226,7 @@ The `startkey_docid` parameter works only if a `startkey` is supplied and where 
 ### How do {{site.data.keyword.cloudant_short_notm}} bookmarks work? 
 {: #how-do-cloudant-bookmarks-work}
 
-It's this sort of access pattern that {{site.data.keyword.cloudantfull}} *bookmarks* are built for. Here's how it works:
+It's this sort of access pattern that {{site.data.keyword.cloudant_short_notm}} *bookmarks* are built for. Here's how it works:
 
 - Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, "find me the first 10 cities where the country is 'US'".
 - {{site.data.keyword.cloudant_short_notm}} provides an array of ten {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
