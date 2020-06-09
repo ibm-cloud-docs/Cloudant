@@ -47,28 +47,30 @@ to work with the database.
 
     ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
-3.  In the service configuration window, select an offering and a region.
+3.  Select an offering and an environment.
 
-    ![{{site.data.keyword.cloudant_short_notm}} region and pricing plan](images/img0005a.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} region and pricing plan" caption-side="bottom"}
+    ![{{site.data.keyword.cloudant_short_notm}} region and pricing plan](images/img0005a.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} offering and environment" caption-side="bottom"}
 
-4.   Enter an instance name. (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `IAM` or `IAM and legacy credentials`. For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. To create the service, click the `Create` button:
+4.   Enter an instance name. (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `IAM` or `IAM and legacy credentials`. For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
+
+5. To create the service, click the `Create` button:
 
     ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials.](images/img0005b.png){: caption="Figure 4. {{site.data.keyword.cloudant_short_notm}} service name and credentials" caption-side="bottom"}
 
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
 
-5.  Select your pricing plan. (See the capacity in the table that follows.)
+6.  Select your pricing plan. (See the capacity in the table that follows.)
 
     ![Select your pricing plan.](images/img0005c.png){: caption="Figure 5. Pricing plans and capacity" caption-side="bottom"}
 
     After you click `Create`, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, "Provision in progress." 
 
-6. When the status changes to Active, click the instance, then click the `Service Credentials` tab to create the connection information that your application needs to connect to the instance. 
+7. When the status changes to Active, click the instance, then click the `Service Credentials` tab to create the connection information that your application needs to connect to the instance. 
 
     ![Create the {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0007.png){: caption="Figure 6. Create {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
-7.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
+8.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
 
    a. Click the `New credential` button.
 
@@ -92,7 +94,7 @@ to work with the database.
 
    ![View all service credentials.](images/img0052.png){: caption="Figure 9. View all service credentials" caption-side="bottom"}
 
-8.  The details for the service credentials appear:
+9.  The details for the service credentials appear:
 
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 10. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
