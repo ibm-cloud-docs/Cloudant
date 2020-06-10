@@ -168,18 +168,6 @@ Action | Description
 
 Action | Description
 -------|------------
-`cloudantnosqldb.sapi.lastactivity` | View last activity timestamp for the instance.
-`cloudantnosqldb.sapi.usercors` | View or update CORS settings.
-`cloudantnosqldb.sapi.userccmdiagnostics` | View provisioned throughput capacity usage.
-`cloudantnosqldb.sapi.userinfo` | View metadata about the instance.
-`cloudantnosqldb.sapi.userplan` | View the plan of the instance.
-`cloudantnosqldb.sapi.usage-data-volume` | View the data volume.
-`cloudantnosqldb.sapi.usage-requests` | View the number of requests.
-`cloudantnosqldb.sapi.supportattachments` | Attach files to support tickets in the Cloudant Dashboard.
-`cloudantnosqldb.sapi.supporttickets` | View or update support tickets in the Cloudant Dashboard.
-`cloudantnosqldb.capacity-throughput.read` | View the provisioned throughput capacity allocated.
-`cloudantnosqldb.current-throughput.read` | View the current consumption of provisioned throughput capacity used.
-`cloudantnosqldb.limits-throughput.read` | View the limits to provisioned throughput capacity.
 `cloudantnosqldb.account-meta-info.read` | View metadata about the instance.
 `cloudantnosqldb.account-up.read` | Read the `_up` endpoint.
 `cloudantnosqldb.account-all-dbs.read` | Read a list of all databases.
