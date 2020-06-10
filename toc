@@ -66,16 +66,18 @@ Cloudant
 	{: .topicgroup}
 	offerings/at-events.md
 	offerings/log-analysis.md
-	offerings/platform-metrics.md
 	offerings/responsibilities.md
 	offerings/platform-metrics.md
 
 	{: .topicgroup}
 	Sample apps
-		[Offline First shopping list](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
-		[iOS game with Core ML and Watson Visual Recognition](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
-	
-	{: .topicgroup}
+		[Offline First shopping list](https://developer.ibm.com/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
+		[Create a climate rating system on the IBM Cloud](https://developer.ibm.com/tutorials/provision-a-couchdb-instance-using-cloudant-cfc-starter-kit-2/)
+		[Serverless web application and API](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-api-webapp#serverless-api-webapp)
+		[Mobile application with serverless backend](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend)
+		[Gather, visualize, and analyze IoT data](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-gather-visualize-analyze-iot-data#gather-visualize-analyze-iot-data)
+
+{: .topicgroup}
 	Libraries
 		libraries/client-libraries.md
 		libraries/supported.md
