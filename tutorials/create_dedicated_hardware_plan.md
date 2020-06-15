@@ -1,7 +1,8 @@
 ---
 
 copyright:
-lastupdated: "2020-04-23"
+  years: 2017, 2020
+lastupdated: "2020-05-06"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
