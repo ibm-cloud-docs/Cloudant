@@ -168,8 +168,6 @@ Action | Description
 
 Action | Description
 -------|------------
-`cloudantnosqldb.account-meta-info.read` | View metadata about the instance.
-`cloudantnosqldb.account-up.read` | Read the `_up` endpoint.
 `cloudantnosqldb.account-all-dbs.read` | Read a list of all databases.
 `cloudantnosqldb.account-dbs-info.read` | Read metadata about a database.
 `cloudantnosqldb.account-active-tasks.read` | Read `_active_tasks`.
@@ -185,7 +183,6 @@ Action | Description
 `cloudantnosqldb.database-info.read` | Read database metadata.
 `cloudantnosqldb.account-search-analyze.execute` | Read search index statistics and size.
 `cloudantnosqldb.account-db-updates.read` | Read `_db_updates` endpoint.
-`cloudantnosqldb.cluster-uuids.execute` | Read `_uuids` endpoint.
 `cloudantnosqldb.database-ensure-full-commit.execute` | Post to `_ensure_full_commit` endpoint.
 `cloudantnosqldb.any-document.read` | Read a JSON document.
 `cloudantnosqldb.data-document.write` | Write a JSON document.
