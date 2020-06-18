@@ -76,6 +76,10 @@ The new pricing model allows a number of _read_ and _write_ units per second to 
 
 {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture continues to encrypt all data at rest and over the HTTPS API. In addition, encryption of all data values of both primary and indexed data occurs within the database prior to storing on disk. 
 
+## Plans
+
+Instances provisioned with the new `Standard on Transaction Engine` plan are deployed using the new architecture, while instances on the `Lite` and `Standard` plan are deployed on the "Classic" architecture. Users cannot change plans between architectures, therefore plan changes from `Standard on Transaction Engine` to `Lite` or `Standard` are not allowed. (Users will receive a `BXNUI0112E: The plan could not be updated` message upon attempting plan change.) Users who wish to migrate between architectures should spin up a new instance and replicate the data between them. 
+
 ## Feature Parity between {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine vs "Classic" architecture
 
 Not all {{site.data.keyword.cloudant_short_notm}} features currently available in the Cloudant "classic" architecture will be available in the new `Standard on Transaction Engine` plan. Customers should evaluate their requirements and choose the appropriate plan for their use case. Additional upcoming features will land solely on the Transaction Engine architecture related to scalability, security, and compliance so it is recommended to use this plan whenever feasible. 
