@@ -90,6 +90,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Max Document ID Length | 7168 bytes | 512 bytes |
 | Max Indexed Key Length | Not applicable | 8000 bytes |
 | Max Indexed Value Length | Not applicable | 64000 bytes |
+| Max Docs in Bulk Doc Request | Not applicable | 2000 docs |
 | Attachment Size | 10 MB | Not applicable |
 | Request Size | 11 MB | 64 MB |
 | Request Timeout | 60 s | 5 s |
