@@ -64,7 +64,6 @@ Cloudant
 		api/monitoring.md
 	
 	{: .topicgroup}
-	offerings/at-events.md
 	offerings/log-analysis.md
 	offerings/responsibilities.md
 	offerings/platform-metrics.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-14"
+lastupdated: "2020-06-23"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -62,7 +62,7 @@ By default, only management events are sent to {{site.data.keyword.at_full_notm}
 You can also use an {{site.data.keyword.cloudant_short_notm}} API to change event types that are sent. See details in the following section. 
 
 ### API to view and change event types
-{: #at_event_types-at}
+{: #at_event_types-view-change}
 
 The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
 {: note}
