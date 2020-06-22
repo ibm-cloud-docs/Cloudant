@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-22"
+lastupdated: "2020-06-18"
 
 keywords: 
 
@@ -64,7 +64,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 |---------|----------|--------------------------|
 | Tenancy | Multi-tenant or Dedicated | Multi-tenant | 
 | Conflicts | Quorum-based eventually consistent | No write conflicts in region | 
-| Consistency | Eventually consistent | Doc Writes & Cloudant Query index are strongly consistent |
+| Consistency | Eventually consistent | Doc Writes & Cloudant Query indexes are strongly consistent |
 | Sharding | Choose at database creation time | Auto shard-splitting | 
 | Authentication | Legacy & IAM | IAM-only |
 | Replication | Yes | Yes, as source or target.<br>Mediator needs to be on a "Classic" instance. |
@@ -85,10 +85,12 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 
 | Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic" | {{site.data.keyword.cloudant_short_notm}}<br>on Transaction Engine |
 |---------|----------|--------------------------|
+| Max Database Size | ~5TB | 100TB+ |
 | Max Document Size | 1 MB | 1 MB | 
-| Max Document ID Length | 7168 bytes | 4096 bytes |
+| Max Document ID Length | 7168 bytes | 512 bytes |
 | Max Indexed Key Length | Not applicable | 8000 bytes |
 | Max Indexed Value Length | Not applicable | 64000 bytes |
+| Max Docs in Bulk Doc Request | Not applicable | 2000 docs |
 | Attachment Size | 10 MB | Not applicable |
 | Request Size | 11 MB | 64 MB |
 | Request Timeout | 60 s | 5 s |
@@ -112,11 +114,11 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Multi-tenant) | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Dedicated Hardware) | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|--------------------------|-------------------------------|
 | Locations/Data Sovereignty | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul<br>Amsterdam<br>Hong Kong<br>Melbourne<br>Milan<br>Montreal<br>Oslo<br>Paris<br>Queretaro<br>San Jose<br>Sao Paulo<br>Singapore<br>Toronto | Dallas |
-| Authentication | Legacy & IAM | Legacy & IAM | |
+| Authentication | Legacy & IAM | Legacy & IAM | IAM-only |
 | IP Whitelisting | No | Yes | No |
 | Service Endpoints | Public | Public and private | Public |
-| At-Rest Encryption<br>(Environment data volume) | Yes | Yes | Yes |
-| At-Rest Encryption<br>(Key (DEK) per database) | No | No | Yes |
+| At-Rest Encryption<br>(Key per data volume) | Yes | Yes | Yes |
+| Native In-Database Encryption<br>(Key (DEK) per database) | No | No | Yes |
 | Data Value Encryption | No | No | Yes |
 | BYOK with Key Protect | No | Yes | No |
 | Bare Metal Isolation | No | Yes | No |

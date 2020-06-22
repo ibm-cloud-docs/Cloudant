@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-12"
+lastupdated: "2020-06-18"
 
 keywords: recommendations
 
@@ -26,17 +26,17 @@ subcollection: Cloudant
 # Overview
 {: #overview-te}
 
-{{site.data.keyword.cloudantfull}} has a new `Standard on Transaction Engine` plan. Instances provisioned with this plan are deployed on the new architecture underpinned by a Transaction Engine. The new architecture aims to provide the best of both non-relational and relational data stores combining scale, fault tolerance, consistency, security, and speed at optimal cost. The Transaction Engine architecture is compared to the "Classic" architecture for clarity in the documentation.  
+{{site.data.keyword.cloudantfull}} has a new architecture option, underpinned by a Transaction Engine. The new architecture aims to provide the best of both non-relational and relational data stores combining scale, fault tolerance, consistency, security, and speed at optimal cost. The Transaction Engine architecture is compared to the "Classic" architecture for clarity in the documentation. Instances provisioned with the new `Standard on Transaction Engine` plan are deployed using the new architecture, while instances on the `Lite` and `Standard` plan are deployed on the "Classic" architecture.
 
 The key features that {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture provides are the following: 
 
-- In-region consistency - An application can safely read its own writes and can operate conflict-free with in-region writes.
-- Synchronous secondary index building: {{site.data.keyword.cloudant_short_notm}} Query indexes are updated in the same database transaction as write operations.
+- In-region strong consistency - An application can safely read its own writes and can operate conflict-free with in-region writes. {{site.data.keyword.cloudant_short_notm}} "Classic" is eventually consistent, and an application may see old values of data for a small period after updates. {{site.data.keyword.cloudant_short_notm}} on Transaction Engine is guaranteed not to happen -- once Cloudant acknowledges a write, within a region no reader will ever see the old value when reading a document.
+- Synchronous secondary index building: {{site.data.keyword.cloudant_short_notm}} Query indexes are updated in the same database transaction as write operations. Therefore, just as for documents, a reader of {{site.data.keyword.cloudant_short_notm}} Query indexes will never see an old value.
 - Data durability - The new architecture maintains all data being stored in triplicate, data stored across a region's availability zones where available.
 - Provisioned throughput capacity: Provision the capacity, based only on the read and write capacities (i.e. reads and writes per second) that your application needs. Scale up and down using the API as required. Global queries now scale with the read capacity.
 - Scalability - Global queries and data volumes scale linearly. Database sharding is automatic.
 - Cost - Store 4X the amount of data and perform upwards of 20X the amount of global queries at the same cost as in Classic.
-- In-database encryption - Data values are encrypted both in primary data and indexed data within the database, with a unique encryption key per database.
+- In-database encryption - {{site.data.keyword.cloudant_short_notm}} on Transaction Engine adds additional native in-database encryptionin addition to storage volume encryption. Data values are encrypted both in primary data and indexed data within the database, with a unique encryption key per database. 
 - Database recovery - API's are provided to allow database-level recovery for accidental deletions within a time window.
 
 Now, we further elaborate on the benefits of using {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
@@ -74,7 +74,11 @@ The new pricing model allows a number of _read_ and _write_ units per second to 
 ## Security
 {: #security-overview-te}
 
-{{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture continues to encrypt all data at rest and over the HTTPS API. In addition, encryption of all data values of both primary and indexed data occurs within the database prior to storing on disk. This encryption ensures finer-grained control over who can access the contents.
+{{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture continues to encrypt all data at rest and over the HTTPS API. In addition, encryption of all data values of both primary and indexed data occurs within the database prior to storing on disk. 
+
+## Plans
+
+Instances provisioned with the new `Standard on Transaction Engine` plan are deployed using the new architecture, while instances on the `Lite` and `Standard` plan are deployed on the "Classic" architecture. Users cannot change plans between architectures, therefore plan changes from `Standard on Transaction Engine` to `Lite` or `Standard` are not allowed. (Users will receive a `BXNUI0112E: The plan could not be updated` message upon attempting plan change.) Users who wish to migrate between architectures should spin up a new instance and replicate the data between them. 
 
 ## Feature Parity between {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine vs "Classic" architecture
 
