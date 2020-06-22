@@ -72,7 +72,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "source" : "https://$USERNAME1:$PASSWORD1.example.com/db",
+  "source" : "https://$USERNAME1:$PASSWORD1@example.com/db",
   "target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
 }
 ```
