@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-06-24"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -30,6 +30,9 @@ Use views to search for content within a database that matches specific criteria
 The criteria are specified within the view definition,
 or supplied as arguments when you use the view.
 {: shortdesc}
+
+In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, it has the designation, <font color="red"><code>TXE</code></font>.
+{: important}
 
 ## Querying a view
 {: #querying-a-view}
@@ -64,6 +67,7 @@ subset that is indicated in the table.
 
 Argument         | Description | Optional | Type | Default | Supported values | Partition query
 -----------------|-------------|----------|------|---------|------------------|-----------------
+`bookmark` <br/> <font color="red"><code>TXE</code></font> | A bookmark to navigate to a specific page. | Yes | String | | |
 `conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes | Boolean | False || No
 `descending`     | Return the documents in "descending by key" order. | Yes | Boolean | False | | Yes
 `endkey`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes
@@ -74,7 +78,8 @@ Argument         | Description | Optional | Type | Default | Supported values | 
 `inclusive_end`  | Include rows with the specified `endkey`. | Yes | Boolean | True | | Yes
 `key`            | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON strings or arrays | | | Yes
 `keys`           | Return only documents that match the specified keys. Keys are JSON values, and must be URL encoded. | Yes | Array of JSON strings or arrays | || Yes
-`limit`          | Limit the number of returned documents to the specified count. | Yes | Numeric | | | Yes
+`limit` [^transaction-engine] | Limit the number of returned documents to the specified count. | Yes | Numeric | | | Yes
+`page_size` <br/> <font color="red"><code>TXE</code></font> | Specify the number of returned documents in the result.  | Yes | Numeric | | |
 `reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes
 `skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes
 `stable`         | Prefer view results from a 'stable' set of shards. The results are from a view that is less likely to be updated soon. | Yes | Boolean | False | | No
@@ -84,13 +89,15 @@ Argument         | Description | Optional | Type | Default | Supported values | 
  `update`        | Ensure that the view is updated before results are returned. | Yes | String | `true` | Yes
 {: caption="Table 2. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
+[^transaction-engine]: For Transaction Engine, the `limit` parameter restricts the total number of returned documents.
+
 This table shows the supported values for the following arguments:
 
 Argument | Supported values
 ---------|-----------------
 `stale`  | `ok`- Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
 `update` | `true` - Return results after updating the view.<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
-{: caption="Table 2. Supported values" caption-side="top"}
+{: caption="Table 3. Supported values" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
@@ -271,7 +278,7 @@ Option   | Purpose                                                              
 ---------|---------------------------------------------------------------------------------------------------------------------------------------|--------------
 `stable` | Determine whether view results are obtained from a consistent or 'stable' set of shards. Possible values include `true`, and `false`. | `false`
 `update` | Determine whether the view is updated before the results are returned. Possible values include `true`, `false`, and `lazy`.           | `true`
-{: caption="Table 3. Parameter default values" caption-side="top"}
+{: caption="Table 4. Parameter default values" caption-side="top"}
 
 The defaults are suitable for most applications. For better performance and
 availability, use `stable=false&update=false`. For better result stability
@@ -315,7 +322,7 @@ allow controlling the two orthogonal behaviors that are caused by `stale` separa
 `false`  | `stable=false`, `update=true`
 `ok`  | `stable=true`, `update=false`
 `update_after`  | `stable=false`, `update=lazy`
-{: caption="Table 4. `stale` option replacement" caption-side="top"}
+{: caption="Table 5. `stale` option replacement" caption-side="top"}
 
 ## Sorting returned rows
 {: #sorting-returned-rows}
@@ -337,7 +344,7 @@ Text (lowercase)                                                                
 Text (uppercase)                                                                                  |
 Arrays (according to the values of each element, by using the order given in this table)          |
 Objects (according to the values of keys, in key order by using the order given in this table)    | Last
-{: caption="Table 5. Order of returned rows" caption-side="top"}
+{: caption="Table 6. Order of returned rows" caption-side="top"}
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 

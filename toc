@@ -26,6 +26,7 @@ Cloudant
 		transaction-engine/overview-te.md
 		transaction-engine/feature-compare.md
 		transaction-engine/pricing-te.md
+		transaction-engine/pagination.md
 
 	{: .topicgroup}
 	Apache CouchDB

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-06-24"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2020 -->
 
 # Databases
 {: #databases}
@@ -29,6 +29,9 @@ subcollection: Cloudant
 {{site.data.keyword.cloudantfull}} databases contain JSON objects.
 These JSON objects are called [documents](/docs/Cloudant?topic=Cloudant-documents#documents).
 {: shortdesc}
+
+In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, it has the designation, <font color="red"><code>TXE</code></font>.
+{: important}
 
 All documents must be contained in a database. Also, learn more about [partitioned databases](/docs/Cloudant?topic=Cloudant-databases#partitioned-databases-database).
 
@@ -303,6 +306,7 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 
  Argument | Description  | Optional | Type | Default 
 ----------|--------------|----------|------|---------
+`bookmark` <br/> <font color="red"><code>TXE</code></font> | A bookmark to navigate to a specific page. | Yes | String |
 `conflicts`         | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes      | Boolean         | False
 `deleted_conflicts` | Returns information about deleted conflicted revisions.                                         | Yes      | Boolean         | False
 `descending`        | Return the documents in descending key order.                                                   | Yes      | Boolean         | False
@@ -312,8 +316,9 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 `inclusive_end`     | Include rows whose key equals the "`endkey`" value.                                             | Yes      | Boolean         | True
 `key`               | Return only documents with IDs that match the specified key.                                    | Yes      | String          |
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings |
-`limit`             | Limit the number of returned documents to the specified number.                                 | Yes      | Numeric         |
+`limit` [^transaction-engine] | Limit the number of returned documents to the specified number.                       | Yes      | Numeric         |
 `meta`              | Short-hand combination of all three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False
+`page_size` <br/> <font color="red"><code>TXE</code></font> | Specify the number of returned documents in the result.                                                   | Yes      | Numeric
 `r`                 | Specify the [read quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2
 `revs_info`         | Includes detailed information for all known document revisions.                                 | Yes      | Boolean         | False
 `skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0
@@ -321,15 +326,17 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 `startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String |
 {: caption="Table 4. Query string and JSON body arguments" caption-side="top"}
 
-Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
-{: important}
+[^transaction-engine]: For Transaction Engine, the `limit` parameter restricts the total number of returned documents.
 
-When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
-{: note}
+### Notes
+{: #get-documents-notes}
 
-When you use the `keys` argument and the revision
+1. Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
+
+2. When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require multiple strings to list the keys you want.
+
+3. When you use the `keys` argument and the revision
 is deleted, the `value` attribute returned is a JSON object with the current `_rev` of the document and a `_deleted` attribute. The `doc` attribute is only populated if you specified `include_docs=true` in the request and is `null` if the document is deleted.
-{: note}
 
 See the following example that uses HTTP to list all documents in a database:
 
