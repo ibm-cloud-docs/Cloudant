@@ -185,7 +185,7 @@ If the `events` field is missing, then a response similar to the following is re
 ```
 {: codeblock}
 
-It can take up to 5 minutes for the change to be reflected in the events seen in {{site.data.keyword.at_full_notm}.
+It can take up to 5 minutes for the change to be reflected in the events seen in {{site.data.keyword.at_full_notm}}.
 {: note}
 
 
