@@ -37,15 +37,15 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 {{site.data.keyword.cloudant_short_notm}} forwards two types of events to {{site.data.keyword.at_full_notm}}:
 
 - **Management Events** are administrative events that impact the state of an  {{site.data.keyword.cloudant_short_notm}} instance, such as the following management events:
-  - Creating or deleting a database. 
+  - Creating or deleting a database.
   - Updating security settings.
   - Creating a replication job.
-  - Creating an index. 
+  - Creating an index.
 - **Data Events** are all the other events that are involved with interacting with {{site.data.keyword.cloudant_short_notm}}, such as the following events:
   - Reading or writing JSON documents.
-  - Reading a list of databases. 
+  - Reading a list of databases.
   - Viewing monitoring endpoints.
-  - Authenticating against the service.  
+  - Authenticating against the service.
 
 
 By default, only management events are automatically collected and sent to the {{site.data.keyword.at_full_notm}} service.
@@ -61,22 +61,22 @@ You must configure each {{site.data.keyword.cloudant_short_notm}} instance to co
 ### Configuring data events through the {{site.data.keyword.cloud_notm}} UI
 {: #at_event_configure_ui}
 
-You can change what types of events are sent to {{site.data.keyword.at_full_notm}} in the {{site.data.keyword.cloud_notm}} Dashboard by following these steps: 
+You can change what types of events are sent to {{site.data.keyword.at_full_notm}} in the {{site.data.keyword.cloud_notm}} Dashboard by following these steps:
 
 1. Go to the Resource list, and select an {{site.data.keyword.cloudant_short_notm}} instance.
 
-   The Manage page opens. 
+   The Manage page opens.
 
-2. Click **Overview**.  
+2. Click **Overview**.
 3. On the Deployment Details page, find Activity Tracker event types.
 4. Select the appropriate type, either **Management** or **Management & Data**, from the drop-down menu.
-5. Click **Save**. 
+5. Click **Save**.
 
 
 ### Configuring data events by using the {{site.data.keyword.cloudant_short_notm}} API
 {: #at_event_configure_api}
 
-You can use the {{site.data.keyword.cloudant_short_notm}} API to manage the configuration of Activity Tracker events. 
+You can use the {{site.data.keyword.cloudant_short_notm}} API to manage the configuration of Activity Tracker events.
 
 The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
 {: important}
@@ -84,7 +84,7 @@ The API to view and change the event types requires {{site.data.keyword.IBM_notm
 #### Check what event types are configured for an {{site.data.keyword.cloudant_short_notm}} instance
 {: #at_event_configure_api_get}
 
-The `/_api/v2/user/activity_tracker/events` endpoint returns an `events` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance. 
+The `/_api/v2/user/activity_tracker/events` endpoint returns an `events` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance.
 
 See the following example request by using HTTP:
 
@@ -104,9 +104,9 @@ See the following example request by using cURL. Complete the following steps:
 
 2. Get the external endpoint that is associated with the {{site.data.keyword.cloudant_short_notm}} instance.
 
-    a. Go to the Resource list. 
-    b. Select the {{site.data.keyword.cloudant_short_notm}} instance. 
-    c. In the *Manage* section, select **Overview**. 
+    a. Go to the Resource list.
+    b. Select the {{site.data.keyword.cloudant_short_notm}} instance.
+    c. In the *Manage* section, select **Overview**.
        You can find the external endpoint in the *Deployment details* section.
 
 3. Run a cURL command to get the information:
@@ -139,7 +139,7 @@ When you check what events are enabled, you get one of the following responses:
 {: #at_event_configure_api_post}
 
 
-You can configure data events by sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint and passing a JSON object with an `events` field. 
+You can configure data events by sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint and passing a JSON object with an `events` field.
 
 See the following example request by using a cURL command:
 
@@ -165,7 +165,7 @@ The following example response shows that the update was accepted:
 ```
 {: codeblock}
 
-If the `events` field includes invalid event types, then a response similar to the following is returned: 
+If the `events` field includes invalid event types, then a response similar to the following is returned:
 
 ```json
 {
@@ -175,7 +175,7 @@ If the `events` field includes invalid event types, then a response similar to t
 ```
 {: codeblock}
 
-If the `events` field is missing, then a response similar to the following is returned: 
+If the `events` field is missing, then a response similar to the following is returned:
 
 ```json
 {
@@ -184,6 +184,9 @@ If the `events` field is missing, then a response similar to the following is re
 }
 ```
 {: codeblock}
+
+It can take up to 5 minutes for the change to be reflected in the events seen in {{site.data.keyword.at_full_notm}.
+{: note}
 
 
 ## List of events
@@ -196,6 +199,10 @@ Action | Description
 -------|------------
 `cloudantnosqldb.database.create` | Create a database.
 `cloudantnosqldb.database.delete` | Delete a database.
+`cloudantnosqldb.replicator-database.create` | Create `_replicator` database.
+`cloudantnosqldb.replicator-database.delete` | Delete `_replicator` database.
+`cloudantnosqldb.users-database.create` | Create `_users` database.
+`cloudantnosqldb.users-database.delete` | Delete `_users` database.
 `cloudantnosqldb.database-security.read` | Read a security document.
 `cloudantnosqldb.database-security.write` | A create, update, or delete of a security document.
 `cloudantnosqldb.replication.read` | Read a replication document.
@@ -239,7 +246,7 @@ Action | Description
 
 Events are available in the Dallas, Frankfurt, Tokyo, Sydney, and London locations. For more information, see [{{site.data.keyword.cloud_notm}} services locations](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-cloud_services_locations).
 
-Management events that are generated by an instance of the {{site.data.keyword.cloudant_short_notm}} service are automatically collected and forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location. 
+Management events that are generated by an instance of the {{site.data.keyword.cloudant_short_notm}} service are automatically collected and forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
 
 You must enable data events for the {{site.data.keyword.cloudant_short_notm}} instance to be able to view them through the {{site.data.keyword.at_full_notm}} instance that is available in the same location as your {{site.data.keyword.cloudant_short_notm}} instance.
 
