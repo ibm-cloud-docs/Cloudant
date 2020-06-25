@@ -38,6 +38,7 @@ Cloudant
 
 	{: .navgroup id="reference"}
     basics/basics.md
+	offerings/responsibilities.md
 
 	{: .topicgroup}
 	API Reference
@@ -65,9 +66,10 @@ Cloudant
 		api/monitoring.md
 	
 	{: .topicgroup}
-	offerings/log-analysis.md
-	offerings/responsibilities.md
-	offerings/platform-metrics.md
+	Observability
+		offerings/log-analysis.md
+		offerings/at-integration.md
+		offerings/platform-metrics.md
 
 	{: .topicgroup}
 	Sample apps

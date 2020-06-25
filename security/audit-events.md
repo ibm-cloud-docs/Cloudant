@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-23"
+lastupdated: "2020-06-25"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -24,7 +24,7 @@ subcollection: Cloudant
 <!-- Acrolinx: 2020-03-17 -->
 
 # Auditing events
-{: #auditing_events-for-cloudant}
+{: #at_events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with the {{site.data.keyword.cloudantfull}} service in {{site.data.keyword.cloud}}.
 {: shortdesc}
