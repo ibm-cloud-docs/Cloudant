@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-06-25"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -149,7 +149,7 @@ With this check, you can query against the value of the `foo` field.
 ```javascript
 function(doc) {
 	if (doc.foo) {
-		emit(doc._id, doc.foo);
+		emit(doc.foo);
 	}
 }
 ```
@@ -196,14 +196,142 @@ For more information, see [Using views](/docs/Cloudant?topic=Cloudant-using-view
 Design documents with `options.partitioned` set to `true` can't contain custom JavaScript reduce functions. Only built-in reduces are allowed. 
 {: tip}
 
-If a view has a reduce function,
-it's used to produce aggregate results for that view.
-A reduce function is passed a set of intermediate values and combines them to a single value.
-A reduce function must accept,
-as input,
-results emitted by its corresponding map function,
-as well as results returned by the reduce function itself.
-The latter case is referred to as a "rereduce".
+### No reducer
+{: #no-reducer}
+
+A view definition inside a design document is permitted to have no reduce attribute, indicating that no query-time aggregation will be performed.
+
+```json
+{
+    "views" : {
+        "hadtraining" : {
+            "map" : "function(employee) { if(employee.training) { emit(employee.number); } }"
+        }
+    }
+}
+```
+{: codeblock}
+
+The above map function generates a secondary index suitable for selection only. The index is always ordered by the key (the emit function's first parameter) - in this case `employee.number`. This view is ideal for fetching documents by a known employee number or ranges of employee numbers.
+
+### Built-in reduce functions
+{: #built-in-reduce-functions}
+
+For performance reasons,
+a few simple reduce functions are built in.
+Whenever possible,
+you must use one of these functions instead of writing your own.
+
+To use one of the built-in functions,
+put its name into the `reduce` field of the view object in your design document.
+
+```json
+{
+    "views" : {
+        "sumSalary" : {
+            "map" : "function(doc) {  emit(doc.department, doc.salary); }",
+	    "reduce": "_sum"
+        }
+    }
+}
+```
+{: codeblock}
+
+The above MapReduce view creates an index keyed on the employee department and whose value is the employee's salary. As the reducer is `_sum`, the view will output the total salaries for the selection of data queried. It is suitable for calculating the total salaries of all employees, the total salaries of a single department or salary totals grouped by department.
+
+The numeric reducers `_stats`/`_sum` act upon the value (the emit function's second parameter) which can be a number, array, or object. Consider the following MapReduce definition:
+
+```json
+{
+    "views" : {
+        "statsReadingsObject" : {
+            "map" : "function(doc) {  emit(doc.date, { price: doc.price, tax: doc.tax }); }",
+	    "reduce": "_sum"
+        }
+    }
+}
+```
+{: codeblock}
+
+The view is keyed on a sale's date, and the value is an object containing two values: price and tax. The `_sum` reduce will calculate totals for each attribute of the object that it finds:
+
+```json
+{"rows":[
+{"key":null,"value":{"tax":7.32,"price":157.25}}
+]}
+```
+{: codeblock}
+
+or add `?group=true` when querying the view. The output is grouped and summed by a unique key, in this case, `date`:
+
+```json
+{"rows":[
+{"key":"2020-06-25","value":{"price":49.75,"tax":4.56}},
+{"key":"2020-06-26","value":{"price":51.25,"tax":1.62}},
+{"key":"2020-06-27","value":{"price":56.25,"tax":1.14}}
+]}
+```
+{: codeblock}
+
+The numeric reducers will also calculate multiple reductions when the value of an index is an array of numbers:
+
+```json
+{
+    "views" : {
+        "statsReadingsArray" : {
+            "map" : "function(doc) { emit(doc.date, [doc.temperature, doc.pressure]); }",
+	    "reduce": "_stats"
+        }
+    }
+}
+```
+{: codeblock}
+
+The above definition calculates statistics on the numerical values it finds in the array emitted as the index's value, with the values returned as an array in the same order as supplied in the map function:
+
+```json
+{"rows":[
+{"key":"2020-06-25","value":[{"sum":49.75,"count":3,"min":15.25,"max":17.25,"sumsqr":827.6875},{"sum":4.56,"count":3,"min":1.42,"max":1.62,"sumsqr":6.9512}]},
+{"key":"2020-06-26","value":[{"sum":51.25,"count":1,"min":51.25,"max":51.25,"sumsqr":2626.5625},{"sum":1.62,"count":1,"min":1.62,"max":1.62,"sumsqr":2.6244}]},
+{"key":"2020-06-27","value":[{"sum":56.25,"count":1,"min":56.25,"max":56.25,"sumsqr":3164.0625},{"sum":1.14,"count":1,"min":1.14,"max":1.14,"sumsqr":1.2996}]}
+]}
+
+```
+{: codeblock}
+
+The `_count` reducer simply counts the number of key/value pairs emitted into the index.
+
+```json
+{"rows":[
+{"key":"2020-06-25","value":3},
+{"key":"2020-06-26","value":1},
+{"key":"2020-06-27","value":1}
+]}
+```
+{: codeblock}
+
+The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as opposed to the numeric reducers which act upon the index's _value_.
+
+```json
+{"rows":[
+{"key":null,"value":3685292}
+]}
+```
+{: codeblock}
+
+Function | Description
+---------|------------
+`_count` | Produces the row count for a specific key. The values can be any valid JSON.
+`_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
+`_sum`   | Produces the sum of all values for a key. The values must be numeric.
+`_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: new_window}{: external} algorithm.
+{: caption="Table 1. Built-in reduce functions" caption-side="top"}
+
+
+## Custom reduce functions
+{: #custom-reduce-functions}
+
+Most customers find the built in reducers are sufficient to perform aggregations on the view key/value pairs emitted from their Map functions, but for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
 
 Reduce functions are passed three arguments in the following order:
 
@@ -211,9 +339,18 @@ Reduce functions are passed three arguments in the following order:
 -	`values`
 -	`rereduce`
 
+If a view has a custom JavaScript reduce function,
+it is used to produce aggregate results for that view.
+A reduce function is passed a set of intermediate values and combines them to a single value.
+A reduce function must accept,
+as input,
+results emitted by its corresponding map function,
+as well as results returned by the reduce function itself.
+The latter case is referred to as a "rereduce".
+
 A description of the reduce functions is shown in the following example.
 
-### Example of a reduce function
+### Example of a custom reduce function
 
 ```javascript
 function (keys, values, rereduce) {
@@ -247,25 +384,6 @@ like the summation function in the earlier example.
 In such cases,
 the `rereduce` argument can be ignored.
 
-### Built-in reduce functions
-{: #built-in-reduce-functions}
-
-For performance reasons,
-a few simple reduce functions are built in.
-Whenever possible,
-you must use one of these functions instead of writing your own.
-
-To use one of the built-in functions,
-put its name into the `reduce` field of the view object in your design document.
-
-Function | Description
----------|------------
-`_count` | Produces the row count for a specific key. The values can be any valid JSON.
-`_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
-`_sum`   | Produces the sum of all values for a key. The values must be numeric.
-`_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: new_window}{: external} algorithm.
-{: caption="Table 1. Built-in reduce functions" caption-side="top"}
-
 By feeding the results of `reduce` functions back into the `reduce` function,
 MapReduce can split up the analysis of huge data sets into discrete,
 parallel tasks,
@@ -274,6 +392,7 @@ which can be completed much faster.
 When you use the built-in reduce function, if the input is invalid, the `builtin_reduce_error` error is
 returned. More detailed information about the failure is provided in the `reason` field. The
 original data that caused the error is returned in the `caused_by` field.
+
 
 #### Example of the reply
 
