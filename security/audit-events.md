@@ -208,6 +208,8 @@ Action | Description
 `cloudantnosqldb.replication.read` | Read a replication document.
 `cloudantnosqldb.replication.write` | A create, update, or delete of a replication document.
 `cloudantnosqldb.design-document.write` | A create, update, or delete of a `_design` document.
+`cloudantnosqldb.users.write` | Create, update or delete a `_users` document.
+`cloudantnosqldb.volumes.update` | A change in state of the {{site.data.keyword.keymanagementservicefull}} key protecting dedicated hardware environment.
 {: caption="Table 1. Management actions that generate events" caption-side="top"}
 
 ### Data events
