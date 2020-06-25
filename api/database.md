@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-06-25"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -175,28 +175,10 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE"
 ```
 {: codeblock}
 
-<!--
-
-### Example of using JavaScript to get database details
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-
-account.db.get($DATABASE, function (err, body, headers) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 The elements of the returned structure are shown in the following table:
 
- Field    | Description 
-----------|-------------
+Field    | Description 
+---------|-------------
 `compact_running`     | Set to true if the database compaction routine is operating on this database.
 `db_name`             | The name of the database.
 `disk_format_version` | The version of the physical format that is used for the data when it's stored on disk.
@@ -304,8 +286,8 @@ send a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs`.
 
 The `_all_docs` endpoint accepts the following query string and JSON body arguments:
 
- Argument | Description  | Optional | Type | Default 
-----------|--------------|----------|------|---------
+Argument | Description  | Optional | Type | Default 
+---------|--------------|----------|------|---------
 `bookmark` <br/> <font color="red"><code>TXE</code></font> | A bookmark to navigate to a specific page. | Yes | String |
 `conflicts`         | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes      | Boolean         | False
 `deleted_conflicts` | Returns information about deleted conflicted revisions.                                         | Yes      | Boolean         | False
@@ -388,12 +370,12 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?keys=["somekey","someoth
 The response is a JSON object that contains all documents in the database that match the parameters.
 The following table describes the meaning of the individual fields:
 
- Field        | Description         | Type 
+Field        | Description         | Type 
 -------------|---------------------|------
- `offset`     | Offset where the document list started.                                             | Numeric, Null (The type can be `null` when `keys` are specified.)
- `rows`       | Array of document objects.                                                          | Array
- `total_rows` | Number of documents in the database or view that match the parameters of the query. | Numeric
- `pdate_seq` | Current update sequence for the database.                                           | String
+`offset`     | Offset where the document list started.                                             | Numeric, Null (The type can be `null` when `keys` are specified.)
+`rows`       | Array of document objects.                                                          | Array
+`total_rows` | Number of documents in the database or view that match the parameters of the query. | Numeric
+`pdate_seq` | Current update sequence for the database.                                           | String
 {: caption="Table 5. JSON object fields" caption-side="top"}
 
 See the following example response after a request for all documents in a database:
@@ -835,7 +817,7 @@ These responses are combined and returned to the original requesting client.
 
 The `_changes` endpoint accepts several optional query arguments:
 
- Argument       | Description | Supported values | Default 
+Argument       | Description | Supported values | Default 
 ----------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False 
 `descending`   | Return the changes in sequential order. | Boolean | False 
@@ -1046,7 +1028,7 @@ The response from a `_changes` request is a JSON object that contains
 a list of the changes that were made to documents within the database.
 The following table describes the meaning of the individual fields:
 
- Field      | Description | Type  
+Field      | Description | Type  
 ------------|-------------|-------
 `changes`  | An array that lists the changes that were made to the specific document. | Array
 `deleted`  | Boolean indicating whether the corresponding document was deleted. If present, it always has the value `true`. | Boolean
@@ -1054,7 +1036,7 @@ The following table describes the meaning of the individual fields:
 `last_seq` | Identifier of the last of the sequence identifiers. Currently, this identifier is the same as the sequence identifier of the last item in the `results`. | String
 `results`  | Array of changes that were made to the database. | Array
 `seq`      | Update sequence identifier. | String
-{: caption="Table 8. JSON object response fields for `_changes`" caption-side="top"}
+{: caption="Table 15. JSON object response fields for `_changes`" caption-side="top"}
 
 See the following example (abbreviated) response to a `_changes` request:
 
@@ -1184,12 +1166,12 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 If deletion succeeds, you get a [200 or 202 response](/docs/Cloudant?topic=Cloudant-http#http-status-codes){: new_window}.
 An error response uses the HTTP status code to indicate what went wrong.
 
- Code | Description 
+Code | Description 
 ------|-------------
 200  | Database deleted successfully.
 202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
 404  | Database doesn't exist on all of the nodes.
-{: caption="Table 9. HTTP status codes" caption-side="top"}
+{: caption="Table 16. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is deleted successfully:
 
