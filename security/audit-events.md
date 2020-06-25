@@ -24,7 +24,7 @@ subcollection: Cloudant
 <!-- Acrolinx: 2020-03-17 -->
 
 # Auditing events
-{: #auditing_events-for-cloudant}
+{: #at_events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with the {{site.data.keyword.cloudantfull}} service in {{site.data.keyword.cloud}}.
 {: shortdesc}
@@ -208,6 +208,8 @@ Action | Description
 `cloudantnosqldb.replication.read` | Read a replication document.
 `cloudantnosqldb.replication.write` | A create, update, or delete of a replication document.
 `cloudantnosqldb.design-document.write` | A create, update, or delete of a `_design` document.
+`cloudantnosqldb.users.write` | Create, update or delete a `_users` document.
+`cloudantnosqldb.volumes.update` | A change in state of the {{site.data.keyword.keymanagementservicefull}} key protecting dedicated hardware environment.
 {: caption="Table 1. Management actions that generate events" caption-side="top"}
 
 ### Data events
