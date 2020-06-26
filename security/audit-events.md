@@ -104,9 +104,9 @@ See the following example request by using cURL. Complete the following steps:
 
 2. Get the external endpoint that is associated with the {{site.data.keyword.cloudant_short_notm}} instance.
 
-    a. Go to the Resource list.
-    b. Select the {{site.data.keyword.cloudant_short_notm}} instance.
-    c. In the *Manage* section, select **Overview**.
+    a. Go to the Resource list. </br>
+    b. Select the {{site.data.keyword.cloudant_short_notm}} instance.</br>
+    c. In the *Manage* section, select **Overview**.</br>
        You can find the external endpoint in the *Deployment details* section.
 
 3. Run a cURL command to get the information:
