@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-06-26"
 
 keywords: videos
 
@@ -915,7 +915,7 @@ PouchDB is commonly used to create offline first apps which collect data even wh
 
 Bear in mind that replication may not always be required. If your application needs to store data and then write it to Cloudant later, then replication isn't strictly speaking required. All that is required is that data is stored on the device and bulk written to Cloudant when the connection is restored.
 
-As replication is a one way operation, if a master-master setup is required between two Cloudants in different regions, then two replications in opposite directions are required.
+As replication is a one way operation, if a primary-primary setup is required between two Cloudants in different regions, then two replications in opposite directions are required.
 
 Changes occurring on the London side are sent to Dallas, and vice versa.
 

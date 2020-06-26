@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-18"
+lastupdated: "2020-06-26"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -78,8 +78,7 @@ the system must become more sophisticated.
 ## Tradeoffs in partition tolerance
 {: #tradeoffs-in-partition-tolerance}
 
-A database that prioritizes consistency and partition tolerance commonly employs a [master-slave](http://en.wikipedia.org/wiki/Master/slave_(technology))
-setup,
+A database that prioritizes consistency and partition tolerance commonly employs a primary-secondary setup,
 where one node of the many in the system is elected leader.
 Only the leader approves data writes,
 while all secondary nodes replicate data from the leader to handle reads.
@@ -89,7 +88,7 @@ the remainder elects a new leader.
 This election process differs between systems,
 and might be a source of [significant problems](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}{: external}.
 
-{{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a master-master setup,
+{{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a primary-primary setup,
 such that every node can accept both writes and reads to its portion of your data.
 Multiple nodes include copies of each portion of your data.
 Each node copies data with other nodes.
