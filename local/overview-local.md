@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-14"
+lastupdated: "2020-06-26"
 
 keywords: features, information
 
@@ -48,7 +48,7 @@ You can complete the following tasks after you install {{site.data.keyword.cloud
 
 *  Distribute readable and writable copies of data to multiple
    locations or devices.
-*  Synchronize data continuously through filtered, multi-master
+*  Synchronize data continuously through filtered, multi-primary
    replication.
 *  Store data of any structure as self-describing JSON documents.
    Moreover, users can read from and write to the closest

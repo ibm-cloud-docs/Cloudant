@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-06-26"
 
 keywords: 
 
@@ -115,7 +115,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 |---------|----------|--------------------------|-------------------------------|
 | Locations/Data Sovereignty | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul<br>Amsterdam<br>Hong Kong<br>Melbourne<br>Milan<br>Montreal<br>Oslo<br>Paris<br>Queretaro<br>San Jose<br>Sao Paulo<br>Singapore<br>Toronto | Dallas |
 | Authentication | Legacy & IAM | Legacy & IAM | IAM-only |
-| IP Whitelisting | No | Yes | No |
+| IP allowlisting | No | Yes | No |
 | Service Endpoints | Public | Public and private | Public |
 | At-Rest Encryption<br>(Key per data volume) | Yes | Yes | Yes |
 | Native In-Database Encryption<br>(Key (DEK) per database) | No | No | Yes |

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-14"
+lastupdated: "2020-06-26"
 
-keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
+keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
 subcollection: Cloudant
 
@@ -62,7 +62,7 @@ when you use {{site.data.keyword.cloudant_short_notm}} legacy authentication. An
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be 
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud. 
 
-For more information about how to block pubic network connectivity via IP whitelisting, see [Secure access control](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-security#secure-access-control).
+For more information about how to block pubic network connectivity via IP allowlisting, see [Secure access control](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-security#secure-access-control).
 {: note}
 
 ## Service credentials
