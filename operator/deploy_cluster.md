@@ -128,7 +128,6 @@ metadata:
   name: example
   namespace: my-couchdb
 spec:
-  version: "2.3.1"
   size: 3
   disk: 1Gi
   memory: 1Gi
@@ -140,7 +139,7 @@ END
 ```
 {: codeblock}
 
-Behind the scenes, this command creates a CouchDB Cluster and exposes it as a `ClusterIP` service `example.my-couchdb.svc` on port `5984`.
+Behind the scenes, this command creates a CouchDB Cluster and exposes it as a `ClusterIP` service `example.my-couchdb.svc` on port `443`.
 
 ### Checking the status of the deployment
 {: #check-status-deployment-cluster-kubernetes}
@@ -167,7 +166,7 @@ Spec:
   Memory:            1Gi
   Size:              3
   Storage Class:
-  Version:           2.3.1
+  Version:           3.1.0
 Status:
   Formation Generation:  3
   Observed Generation:   2
@@ -181,7 +180,7 @@ You must be able to see a new `ClusterIP` service, `example` in the `my-couchdb`
 ```
 kubectl get service example -n my-couchdb
 NAME                           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE
-example                        ClusterIP   172.21.248.198   <none>        5984/TCP    8m
+example                        ClusterIP   172.21.248.198   <none>        443/TCP    8m
 ```
 {: codeblock}
 
@@ -218,7 +217,6 @@ metadata:
   name: example
   namespace: my-couchdb
 spec:
-  version: "2.3.1"
   size: 3
   disk: 1Gi
   memory: 1Gi
@@ -230,7 +228,7 @@ END
 ```
 {: codeblock}
 
-Behind the scenes, this command creates a CouchDB Cluster and exposes it as a `ClusterIP` service `example.my-couchdb.svc` on port `5984`.
+Behind the scenes, this command creates a CouchDB Cluster and exposes it as a `ClusterIP` service `example.my-couchdb.svc` on port `443`.
 
 ### Checking the status of the deployment
 {: #checking-status-deployment-cluster-openshift}
@@ -257,7 +255,7 @@ Spec:
   Memory:            1Gi
   Size:              3
   Storage Class:
-  Version:           2.3.1
+  Version:           3
 Status:
   Formation Generation:  3
   Observed Generation:   2
@@ -271,6 +269,6 @@ You must be able to see a new `ClusterIP` service, `example` in the `my-couchdb`
 ```
 oc get service example -n my-couchdb
 NAME                           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE
-example                        ClusterIP   172.21.248.198   <none>        5984/TCP    8m
+example                        ClusterIP   172.21.248.198   <none>        443/TCP    8m
 ```
 {: codeblock}

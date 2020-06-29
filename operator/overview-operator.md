@@ -73,7 +73,7 @@ The default configuration for each database is eight shards (Q=8) and three shar
 ## Supported Apache CouchDB Versions
 {: #couchdb-supported-versions}
 
-The currently supported Apache CouchDB version is [Apache CouchDB 2.3.1](https://docs.couchdb.org/en/2.3.1/){: new_window}{: external}.
+The currently supported Apache CouchDB version is [Apache CouchDB 3.1.0](https://docs.couchdb.org/en/3.1.0/){: new_window}{: external}.
  
 ## Using the Operator
 {: #using-operator}
