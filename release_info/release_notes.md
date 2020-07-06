@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-18"
+lastupdated: "2020-07-06"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -225,7 +225,7 @@ Review the changes on the Deprecations page:
 
 - Improve Mango Query so that mixed clusters return correct results during upgrades.
 - Add a downgrade function to support future cluster purge releases.
-- Improve search black list.
+- Improve search blocklist.
 
 ## Build 7276 (18 September 2018)
 {: #build-7276-september-18-2018}
