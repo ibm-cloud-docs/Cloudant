@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-07-06"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -42,7 +42,7 @@ Click **Calculate cost** and **Save**. Now, click **Review estimate**. Expand th
 
 You can launch the {{site.data.keyword.cloudant_short_notm}} **Dashboard** > **Account** > **Capacity** tab to view and change the provisioned throughput capacity and see the hourly and approximate monthly costs: 
 
-![Slider](../images/migrate2.gif){: caption="Figure 4. Slider" caption-side="bottom"}
+![Slider](https://cloud.ibm.com/media/docs/videos/Cloudant/migrate2.gif){: caption="Figure 4. Slider" caption-side="bottom"}
 
 ## Pricing examples 
 {: #pricing-examples}
