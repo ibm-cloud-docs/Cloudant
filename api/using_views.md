@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-07-08"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -321,8 +321,8 @@ allow controlling the two orthogonal behaviors that are caused by `stale` separa
 ---------|-----------------------------------------------
 `false`  | `stable=false`, `update=true`
 `ok`  | `stable=true`, `update=false`
-`update_after`  | `stable=false`, `update=lazy`
-{: caption="Table 5. `stale` option replacement" caption-side="top"}
+`update_after`  | `stable=true`, `update=lazy`
+{: caption="Table 5. Stale option replacement" caption-side="top"}
 
 ## Sorting returned rows
 {: #sorting-returned-rows}
