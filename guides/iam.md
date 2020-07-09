@@ -616,7 +616,7 @@ The following table lists the available IAM service roles for {{site.data.keywor
 
 Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader.
 
-For more information, see [Platform management roles](/docs/iam?topic=iam-userroles#platformroles).
+For more information, see [Platform management roles](/docs/iam?topic=iam-userroles#platformroles){: new_window}{: external}.
 
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
