@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-14"
+lastupdated: "2020-07-09"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -615,6 +615,8 @@ The following table lists the available IAM service roles for {{site.data.keywor
 {: caption="Table 2. IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
 Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader.
+
+For more information, see [Platform management roles](/docs/iam?topic=iam-userroles#platformroles).
 
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
