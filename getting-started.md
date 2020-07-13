@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-07-13"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -33,7 +33,7 @@ and populate that database with a simple collection of data. You can retrieve da
 
 For more information, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
 
-- [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/node?topic=nodejs-cloudant){: new_window}{: external}
+- [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/node?topic=node-cloudant){: new_window}{: external}
 - [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/swift?topic=swift-getting-started){: new_window}{: external}
 - [Python and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-getting-started-python#add_database-python){: new_window}{: external}
 

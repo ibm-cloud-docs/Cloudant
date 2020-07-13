@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-07-13"
 
 keywords: log analysis, integration 
 
@@ -44,12 +44,13 @@ Deployment Region | LogDNA Region
 ## Provisioning {{site.data.keyword.la_full_notm}}
 {: #provisioning-logdna}
 
-Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}, but in order to access it you have to [provision a Log Analysis service](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service to receive {{site.data.keyword.cloud_notm}} service logs](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-config_svc_logs){: new_window}{: external}.
+Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}, but in order to access it you have to [provision a Log Analysis service](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service to receive {{site.data.keyword.cloud_notm}} service logs](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs){: new_window}{: external}.
 
-This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account that have {{site.data.keyword.la_full_notm}} integration to send logs to your {{site.data.keyword.la_full_notm}} service. [A list of the integrated services is available](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-cloud_services#cloud_services){: new_window}{: external}.
+This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account that have {{site.data.keyword.la_full_notm}} integration to send logs to your {{site.data.keyword.la_full_notm}} service. [A list of the integrated services is available](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-cloud_services#cloud_services){: new_window}{: external}.
 {: .tip}
 
-{{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it only offers streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=LogDNA-service_plans){: new_window}{: external}.
+{{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it only offers streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-service_plans)
+){: new_window}{: external}.
 
 ### HIPAA 
 {: #hipaa_logdna}
@@ -97,4 +98,4 @@ Log lines | Description
 The `request` and `transfer` timings are included in `response`.  
 {: note}
 
-{{site.data.keyword.la_full_notm}} offers [searching](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-view_logs#view_logs_step5){: new_window}{: external} to help you navigate your logs. [Export](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-export#export){: new_window}{: external} and [archive](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.
+{{site.data.keyword.la_full_notm}} offers [searching](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step5){: new_window}{: external} to help you navigate your logs. [Export](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-export#export){: new_window}{: external} and [archive](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.

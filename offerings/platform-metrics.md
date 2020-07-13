@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-07-13"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 
@@ -99,7 +99,7 @@ Complete the following steps to launch the Sysdig web UI from the {{site.data.ke
 
 Complete the following steps to launch the Sysdig web UI from the *Observability* page:
 
-1. [Launch the Sysdig web UI](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Sysdig-launch).
+1. [Launch the Sysdig web UI](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-launch).
 2. Click **DASHBOARDS**.
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
