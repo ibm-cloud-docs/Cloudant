@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-07-13"
 
 keywords: recommendations
 
@@ -69,7 +69,7 @@ MapReduce indexes are still built in the background, in the same way as {{site.d
 
 ## Scalability and cost
 
-The new pricing model allows a number of _read_ and _write_ units per second to be provisioned. The number of reads and writes consumed by each API call is listed in the [pricing](/docs/services/Cloudant?topic=cloudant-pricing-te) guide, but it rewards bulk API operations that fetch or modify several documents over their piecemeal equivalents. This pricing model makes it much cheaper to run query-based workloads, especially if efficient secondary indexes are used to complement each query. Storage costs one-fourth less in the new Transaction Engine architecture than in Classic. Re-sharding is automatic and doesn't require user input at database creation time.
+The new pricing model allows a number of _read_ and _write_ units per second to be provisioned. The number of reads and writes consumed by each API call is listed in the [pricing](/docs/Cloudant?topic=Cloudant-pricing-te) guide, but it rewards bulk API operations that fetch or modify several documents over their piecemeal equivalents. This pricing model makes it much cheaper to run query-based workloads, especially if efficient secondary indexes are used to complement each query. Storage costs one-fourth less in the new Transaction Engine architecture than in Classic. Re-sharding is automatic and doesn't require user input at database creation time.
 
 ## Security
 {: #security-overview-te}
