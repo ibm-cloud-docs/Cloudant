@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-13"
+lastupdated: "2020-07-17"
 
 keywords: log analysis, integration 
 
@@ -98,4 +98,5 @@ Log lines | Description
 The `request` and `transfer` timings are included in `response`.  
 {: note}
 
-{{site.data.keyword.la_full_notm}} offers [searching](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step5){: new_window}{: external} to help you navigate your logs. [Export](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-export#export){: new_window}{: external} and [archive](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.
+{{site.data.keyword.la_full_notm}} offers [searching](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step5){: new_window}{: external} 
+to help you navigate your logs. [Export](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-export#export){: new_window}{: external} and [archive](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.
