@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-13"
+lastupdated: "2020-07-20"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 
@@ -26,6 +26,20 @@ subcollection: Cloudant
 {{site.data.keyword.mon_full}} is a third-party, cloud-native, and container-intelligent management system that you can include as part of your {{site.data.keyword.cloud}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM}}.
 {:shortdesc}
 
+Currently, {{site.data.keyword.mon_full}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
+
+Deployment Region | Sysdig Region
+----------|-----------
+`Dallas` | `Dallas`
+`Frankfurt` | `Frankfurt`
+`London` | `London`
+`Tokyo` | `Tokyo`
+`Seoul` | Not available currently
+`Sydney` | `Sydney`
+`Washington DC` | `Washington DC`
+`Chennai` | Not available currently
+{: caption="Table 1. Sysdig regions" caption-side="top"}
+
 
 ## Platform metrics overview
 {: #platform_metrics-pm}
@@ -46,18 +60,18 @@ Complete the following steps to configure platform metrics:
 
     The {{site.data.keyword.cloud_notm}} dashboard opens. 
     
-2. Click **View resources**.
+2. Click **View all** in the Resource summary section of the dashboard.
 
 3. In the *Services* section, click the {{site.data.keyword.cloud_notm}} instance that you plan to monitor. 
 
     The {{site.data.keyword.cloud_notm}} UI *Manage* page opens.
 
-4. Click the Overflow menu, and select **Add monitoring** to configure *platform metrics* in the region of your {{site.data.keyword.cloud_notm}} instance.
+4. Click **Actions** > **Add monitoring** to configure *platform metrics* in the region of your {{site.data.keyword.cloud_notm}} instance.
 
     If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics. 
     {: note}
     
-    ![Monitoring menu](../images/monitoring_add.png)
+    ![Monitoring menu](../images/monitoring_add.png){: caption="Figure 1. Add monitoring" caption-side="bottom"}
 
 6. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
@@ -82,15 +96,15 @@ Complete the following steps to launch the Sysdig web UI from the {{site.data.ke
 
     The {{site.data.keyword.cloud_notm}} dashboard opens. 
     
-2. Click **View resources**.
+2. Click **View all** in the Resource summary section of the dashboard.
 
 3. In the *Services* section, click the {{site.data.keyword.cloudant_short_notm}} instance that you plan to monitor. 
 
     The {{site.data.keyword.cloudant_short_notm}} *Manage* page opens.
 
-4. Click the Overflow menu, and select **Monitoring**.
+4. Click the **Actions** menu, and select **Monitoring**.
 
-    ![Monitoring menu](../images/monitoring_menu.png)
+    ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 
     A new tab in your browser opens and displays the *Default* dashboard named ** {{site.data.keyword.cloudant_short_notm}} ** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -99,14 +113,14 @@ Complete the following steps to launch the Sysdig web UI from the {{site.data.ke
 
 Complete the following steps to launch the Sysdig web UI from the *Observability* page:
 
-1. [Launch the Sysdig web UI](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-launch).
+1. [Launch the Sysdig web UI](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-launch).
 2. Click **DASHBOARDS**.
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
 
     To access your deployment's Sysdig dashboard from Sysdig, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
 
-    ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png)
+    ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
     Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.cloudant_short_notm}} instance.  
 
@@ -124,7 +138,7 @@ The number of HTTP requests made against an {{site.data.keyword.cloudant_short_n
 | `Metric Type` | `counter` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance, Service instance name` |
-{: caption="Table 1. HTTP request count metric metadata" caption-side="top"}
+{: caption="Table 2. HTTP request count metric metadata" caption-side="top"}
 
 ### Rate-limited operations
 {: #ibm_cloudant_rate_limited_operations-pm}
@@ -137,7 +151,7 @@ The number of operations that were rate-limited:
 | `Metric Type` | `counter` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance, Service instance name, Cloudant operation type` |
-{: caption="Table 2. Rate-limited operations metric metadata" caption-side="top"}
+{: caption="Table 3. Rate-limited operations metric metadata" caption-side="top"}
 
 ## Attributes for Segmentation
 {: attributes}
@@ -154,7 +168,7 @@ The following attributes are available for segmenting all the metrics listed pre
 | `Resource` | `ibm_resource` | The resource being measured by the service, typically an identifying name or GUID. |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service generating this metric. |
-{: caption="Table 3. Global attributes" caption-side="top"}
+{: caption="Table 4. Global attributes" caption-side="top"}
 
 ### Additional Attributes
 {: additional-attributes}
@@ -168,7 +182,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance which isn't necessarily a unique value depending on the name provided by the user. |
 | `Resource group name` | `ibm_resource_group_name` | The resource group name provides the user-provided name of the resource group where the service instance was created. |
 | `Resource group` | `ibm_resource_group_id` | The unique id of the resource group where the service instance was created. |
-{: caption="Table 4. More attributes" caption-side="top"}
+{: caption="Table 5. More attributes" caption-side="top"}
 
 ## {{site.data.keyword.cloudant_short_notm}} dashboards dictionary
 {: #dashboards_dictionary-pm}
@@ -178,7 +192,7 @@ The following table outlines the pre-defined dashboards that you can use to moni
 | Dashboard name        | Description    |
 |-----------------------|----------------|
 | `IBM Cloudant`   | The default dashboard that opens when you launch Sysdig web UI from your service instance UI. |
-{: caption="Table 5. Pre-defined dashboards" caption-side="top"}
+{: caption="Table 6. Pre-defined dashboard" caption-side="top"}
 
 The *Default* dashboard cannot be changed.
 {: important}

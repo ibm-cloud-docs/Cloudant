@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-17"
+lastupdated: "2020-07-20"
 
 keywords: log analysis, integration 
 
@@ -34,11 +34,13 @@ Currently, {{site.data.keyword.la_full_notm}} integration is available for {{sit
 Deployment Region | LogDNA Region
 ----------|-----------
 `Dallas` | `Dallas`
-`London` | `London`
 `Frankfurt` | `Frankfurt`
+`London` | `London`
 `Tokyo` | `Tokyo`
-`Sydney` | `Sydney`
 `Seoul` | `Seoul`
+`Sydney` | `Sydney`
+`Washington DC` | `Washington DC`
+`Chennai` | Not available currently
 {: caption="Table 1. Log Analysis regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.la_full_notm}}
@@ -67,13 +69,13 @@ Once logs are being live-streamed, each log can be expanded to a detailed view b
 
 The expanded view has some handy, color-coded fields to help you parse your logs. 
 
-Line identifiers | Description
+Line Identifiers | Description
 -----------------|------------
 `Source` | The region the logs are being sent from.
-`App` | The CRN of your database deployment sending the logs. 
+`App` | The CRN of your database deployment sending the logs.
 {: caption="Table 2. Line identifiers" caption-side="top"}
 
-Log lines | Description
+Log Lines | Description
 ----------|------------
 `accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment. 
 `httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a given resource.
