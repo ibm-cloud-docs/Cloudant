@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-26"
+lastupdated: "2020-07-16"
 
 keywords: 
 
@@ -86,14 +86,19 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic" | {{site.data.keyword.cloudant_short_notm}}<br>on Transaction Engine |
 |---------|----------|--------------------------|
 | Max Database Size | ~5TB | 100TB+ |
+| Max Database Name Length | 238 bytes | 256 bytes | 
 | Max Document Size | 1 MB | 1 MB | 
 | Max Document ID Length | 7168 bytes | 512 bytes |
 | Max Indexed Key Length | Not applicable | 8000 bytes |
 | Max Indexed Value Length | Not applicable | 64000 bytes |
-| Max Docs in Bulk Doc Request | Not applicable | 2000 docs |
 | Attachment Size | 10 MB | Not applicable |
 | Request Size | 11 MB | 64 MB |
 | Request Timeout | 60 s | 5 s |
+| Max Docs in Bulk Doc Request | Not applicable | 2000 docs |
+| Max Docs in Bulk Get Request | Not applicable | 2000 docs |
+| Max Value for Skip Parameter | Not applicable | 2000 |
+| Max Number of Keys to All Docs | Not applicable | 2000 |
+| Max Queries in Queries Request | Not applicable | 2000 | 
 | Results - MapReduce | Unlimited | 2000 |
 | Results - Cloudant Query (json type) | Unlimited | 2000 | 
 
