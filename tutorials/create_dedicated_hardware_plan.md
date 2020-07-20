@@ -1,7 +1,7 @@
 ---
 
 copyright:
-lastupdated: "2020-07-14"
+lastupdated: "2020-07-20"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -78,8 +78,11 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     c. Select a key management service instance. 
     
-       All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.
-    
+       All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Access (IAM)** and choose **Authorizations**.
+
+       When you configure service-to-service authorizations, remember that the authorization works at the account level, not the resource group level. 
+       {: important}
+
     d. Select a disk encryption key.  
 
        Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance that is chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default).  
