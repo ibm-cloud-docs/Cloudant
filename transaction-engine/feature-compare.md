@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-07-22"
 
 keywords: 
 
@@ -111,7 +111,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Cross-region HA/DR | User-managed replications to another instance | User-managed replications to another instance |
 | Database recovery API | No | Yes<br>within 48 hours |
 | Backups (self-managed) | Self-managed with couchbackup | Self-managed with couchbackup |
-| Instance Reclamation | IBM Cloud 7 day reclamation<br>(instance-level deletions) | IBM Cloud 7 day reclamation<br>(instance-level deletions) |
+| Instance Reclamation | {{site.data.keyword.cloud_notm}} 7 day reclamation<br>(instance-level deletions) | IBM Cloud 7 day reclamation<br>(instance-level deletions) |
 
 ## Security
 {: #security-feature-compare}
@@ -136,5 +136,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | EU Supported | Yes<br>Upon request | Yes<br>Upon request | No |
 | GDPR | Yes | Yes | Yes |
 | HIPAA | No | Yes | No |
-| SOC2 Type 2 | Yes | Yes | No |
 | ISO27001 | Yes | Yes | No |
+| PCI | Yes | Yes | No |
+| SOC2 Type 2 | Yes | Yes | No |
+
