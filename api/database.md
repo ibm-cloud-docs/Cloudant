@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-06-25"
+lastupdated: "2020-07-21"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -30,7 +30,7 @@ subcollection: Cloudant
 These JSON objects are called [documents](/docs/Cloudant?topic=Cloudant-documents#documents).
 {: shortdesc}
 
-In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, it has the designation, <font color="red"><code>TXE</code></font>.
+In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
 
 All documents must be contained in a database. Also, learn more about [partitioned databases](/docs/Cloudant?topic=Cloudant-databases#partitioned-databases-database).
@@ -288,7 +288,7 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 
 Argument | Description  | Optional | Type | Default 
 ---------|--------------|----------|------|---------
-`bookmark` <br/> <font color="red"><code>TXE</code></font> | A bookmark to navigate to a specific page. | Yes | String |
+`bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String |
 `conflicts`         | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes      | Boolean         | False
 `deleted_conflicts` | Returns information about deleted conflicted revisions.                                         | Yes      | Boolean         | False
 `descending`        | Return the documents in descending key order.                                                   | Yes      | Boolean         | False
@@ -300,7 +300,7 @@ Argument | Description  | Optional | Type | Default
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings |
 `limit` [^transaction-engine] | Limit the number of returned documents to the specified number.                       | Yes      | Numeric         |
 `meta`              | Short-hand combination of all three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False
-`page_size` <br/> <font color="red"><code>TXE</code></font> | Specify the number of returned documents in the result.                                                   | Yes      | Numeric
+`page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.                                                   | Yes      | Numeric
 `r`                 | Specify the [read quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2
 `revs_info`         | Includes detailed information for all known document revisions.                                 | Yes      | Boolean         | False
 `skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0
