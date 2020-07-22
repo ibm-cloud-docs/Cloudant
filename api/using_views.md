@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-08"
+lastupdated: "2020-07-21"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -31,7 +31,7 @@ The criteria are specified within the view definition,
 or supplied as arguments when you use the view.
 {: shortdesc}
 
-In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, it has the designation, <font color="red"><code>TXE</code></font>.
+In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag, ![TXE tag](../images/txe_icon.svg).
 {: important}
 
 ## Querying a view
@@ -67,7 +67,7 @@ subset that is indicated in the table.
 
 Argument         | Description | Optional | Type | Default | Supported values | Partition query
 -----------------|-------------|----------|------|---------|------------------|-----------------
-`bookmark` <br/> <font color="red"><code>TXE</code></font> | A bookmark to navigate to a specific page. | Yes | String | | |
+`bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | | |
 `conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes | Boolean | False || No
 `descending`     | Return the documents in "descending by key" order. | Yes | Boolean | False | | Yes
 `endkey`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes
@@ -79,7 +79,7 @@ Argument         | Description | Optional | Type | Default | Supported values | 
 `key`            | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON strings or arrays | | | Yes
 `keys`           | Return only documents that match the specified keys. Keys are JSON values, and must be URL encoded. | Yes | Array of JSON strings or arrays | || Yes
 `limit` [^transaction-engine] | Limit the number of returned documents to the specified count. | Yes | Numeric | | | Yes
-`page_size` <br/> <font color="red"><code>TXE</code></font> | Specify the number of returned documents in the result.  | Yes | Numeric | | |
+`page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.  | Yes | Numeric | | |
 `reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes
 `skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes
 `stable`         | Prefer view results from a 'stable' set of shards. The results are from a view that is less likely to be updated soon. | Yes | Boolean | False | | No
