@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-24"
+lastupdated: "2020-07-28"
 
 keywords: create index, create query, run query, fields, operators, monitor instance
 
@@ -44,14 +44,14 @@ Before you begin, follow these steps to prepare for the tutorial:
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
     
-2. Create a service instance on {{site.data.keyword.cloud_notm}} by following the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud) tutorial.
+2. Create a service instance on {{site.data.keyword.cloud_notm}} by following the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud) tutorial.
 
 Now, we can review the available features in {{site.data.keyword.cloudant_short_notm}}, and create queries against the database you create.  
 
 ## Creating a database
 {: #creating-a-database-dt}
 
-In this exercise, you create the `dashboard-demo` [database](/docs/Cloudant?topic=cloudant-databases#create-database), which 
+In this exercise, you create the `dashboard-demo` [database](/docs/Cloudant?topic=Cloudant-databases#create-database), which 
 is the database that we use in this tutorial.
 
 1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create Database**.
@@ -69,7 +69,7 @@ is the database that we use in this tutorial.
 ## Adding documents to the database
 {: #creating-documents-in-the-database-dt}
 
-The [documents](/docs/Cloudant?topic=cloudant-documents#documents)
+The [documents](/docs/Cloudant?topic=Cloudant-documents#documents)
 that you create in this exercise include the data that you use to query the `dashboard-demo` database in later exercises.
 
 1.  Click **Create Document**. 
@@ -167,7 +167,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     ![Query results](../images/dashboard_query1_results.png){: caption="Figure 3. Results from the query" caption-side="bottom"}
 
-For more information on queries, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-using-an-ibm-cloudant-query) tutorial or the API reference about [{{site.data.keyword.cloudant_short_notm}} Query](/docs/services/Cloudant?topic=cloudant-query).
+For more information on queries, see [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference about [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query#query).
 
 ## Replicating a database
 {: #replicate-database-dt}
