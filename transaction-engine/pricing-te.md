@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-07-29"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -32,6 +32,7 @@ subcollection: Cloudant
 2. The amount of data storage consumed.
 
 ## Provisioned Throughput Capacity
+{: #provisioned-throughput-capacity-te}
 
 You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads/sec and 50 writes/sec, and pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in another words, the ability to do a certain amount of reads per second or writes per second. There is no separate global query capacity in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a certain amount of read capacity units and write capacity units will be submitted for usage.  So at the minimum capacity setting in a given hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours will be submitted. Further accumulation of Capacity Unit Hours quantities will occur for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
 
