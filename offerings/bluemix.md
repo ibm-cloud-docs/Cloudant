@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-17"
+lastupdated: "2020-07-27"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -43,7 +43,7 @@ within a US location, you can optionally select a [HIPAA](https://en.wikipedia.o
 -compliant configuration.
 
 ## Plans
-{: #plans}
+{: #plans-and-provisioning}
 
 You can select which plan to use when you
 [provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud).
