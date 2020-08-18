@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-08-28"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -20,6 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:video: .video}
 
 <!-- Acrolinx: 2020-04-23 -->
 
@@ -56,7 +57,7 @@ As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
-![Slider](https://cloud.ibm.com/media/docs/videos/Cloudant/migrate2.gif){: caption="Figure 1. Slider" caption-side="bottom"}
+![Slider](../images/migrate2.mp4){: video controls loop}{: caption="Figure 1. Slider" caption-side="bottom"}
 
 The amount that you can change the throughput capacity is limited to a maximum of 10 units per change with a maximum of one change per hour. Notice the "change limit" point on the slider. Changes downward are unlimited in size, but still subject to the time limit.
 {: tip}
@@ -145,7 +146,7 @@ Set up continuous replications from your existing service to your {{site.data.ke
 
 Alternatively, check out the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) tool, which is a command-line utility that helps you coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. It sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 
-![`couchreplicate`](https://raw.githubusercontent.com/glynnbird/couchreplicate/HEAD/img/couchreplicate.gif){: caption="Figure 9. `couchreplicate`" caption-side="bottom"}
+![Slider](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 9. couchreplicate" caption-side="bottom"}
 
 Verify that all your data replicates to the new service and that indexes are built.
 

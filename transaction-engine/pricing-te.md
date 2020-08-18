@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-07-29"
+  years: 2020
+lastupdated: "2020-08-27"
 
-keywords: pricing examples, data usage, ibm cloud usage dashboard
+keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
 subcollection: Cloudant
 
@@ -20,13 +20,20 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:video: .video}
 
-<!-- Acrolinx: 2020-03-18 -->
+<!-- Acrolinx: 2020 -->
 
 # Pricing
 {: #pricing-te}
 
-{{site.data.keyword.cloudantfull}} Standard on Transaction Engine plan is pro-rated hourly and priced based on two things:
+[{{site.data.keyword.cloudantfull}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-overview-te) is the latest incarnation of the {{site.data.keyword.cloudant_short_notm}} JSON document store running as a service in {{site.data.keyword.cloud}}. It differs from the "Classic" {{site.data.keyword.cloudant_short_notm}} product, as a glance at the [feature comparison chart](/docs/Cloudant?topic=Cloudant-feature-comparison) will show, but it also has a different pricing model.
+
+{{site.data.keyword.cloudant_short_notm}} Transaction Engine's pricing structure is closely aligned with the performance characteristics of the database. In other words, database operations that are cheap (in terms of the number of read/write units they consume) are relatively easy for the database to execute and are performant and scalable. 
+
+This document explores the implicit *incentives* that the pricing model is presenting to the developer. If you follow incentives you'll get fast, scalable performance at the lowest price.
+
+{{site.data.keyword.cloudant_short_notm}} Standard on Transaction Engine plan is pro-rated hourly and priced based on two things:
 
 1. The provisioned throughput capacity that you allocate for your instance.
 2. The amount of data storage consumed.
@@ -213,3 +220,79 @@ Current and historical usage bills can be seen in the {{site.data.keyword.cloud_
 In the following example, a quantity of 0 Gigabyte Hours reflects that the instance never exceeded 25 GB for the month. Additionally, you will see the total accumulation of read capacity unit hours and write capacity unit hours submitted at that point in the month.  As an example, an instance with 100 read/sec and 100 writes/sec for a month with 730 hours would have 730,000 read capacity unit hours and 730,000 write capacity unit hours submitted by the end of the month.
 
 ![Usage example](../images/usage_te_example.png){: caption="Figure 2. Usage example" caption-side="bottom"}
+
+## More explanation about how pricing works
+{: #how-does-pricing-work-on-cloudant-txe}
+
+To add to what has been previously said, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and can change up and down over time, either by altering the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or via an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
+
+![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
+
+Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units depending on how complex it is, so it's in your interest to try to achieve your application's goals while consuming the fewest units as possible.
+
+This chart shows the cost of common {{site.data.keyword.cloudant_short_notm}} operations, with a color-coded guide to how the price is calculated:
+
+![Cloudant Transaction Engine pricing](../images/txe_pricing.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} Transaction Engine pricing" caption-side="bottom"}
+
+Let's unpack this diagram and draw out the incentives that {{site.data.keyword.cloudant_short_notm}} has baked into the product and which *best practices* you are being driven towards.
+
+### Bulk over piecemeal API calls
+{: #bulk-over-piecemeal-api-calls}
+
+Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends one read/write unit to "open the transaction" with the underlying key/value store (indicated by a red square on the diagram). This means all of the API calls that write, update, delete, or fetch a single document cost two units each - one to open the transaction the other to perform the database operation. The bulk APIs are cheaper because a database transaction is opened once and is able to service several reads/writes.
+
+- If you have more than one document to fetch by their id, use `GET /db/_all_docs?keys=["id1","id2"...]` instead of fetching them individually.
+- If you have more than one document to insert/update/delete, use `POST /db/_bulk_docs` instead of an API call per document.
+
+### Indexing is important for {{site.data.keyword.cloudant_short_notm}} Query
+{: #indexing-is-important-for-cloudant-query}
+
+Using the `POST /db/_find` endpoint to query a database becomes very expensive if the query is not backed by a supporting secondary index. The query isn't charged on the number of documents returned but on the *number of documents scanned* to get the answer. If a query has to churn through hundreds of "cancelled" orders before finding the "completed" orders it needs, then the query is more expensive than it need be and may exhaust your provisioned read allocation.
+
+The best practice is to [create indexes](/docs/Cloudant?topic=Cloudant-query#creating-an-index) on the fields your query is searching for. A query that exactly aligns with a secondary index will only consume one read unit per returned document. Creating the right index for your data takes skill. Read some advice on [index design and optimization](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html).
+
+### Deleting databases is the cleanest way to purge old unwanted data
+{: #delete-databases-to-purge-unwanted-date}
+
+Deleting a single document with `DELETE /db/id?rev=<rev>` costs 2 write units. It's cheaper per document to use `POST /db/_bulk_docs` to do multiple deletions, but the most efficient way to purge many documents in bulk is to delete entire databases.
+
+The "time-boxed databases" approach detailed in the [Time-series Data Storage](https://blog.cloudant.com/2019/04/08/Time-series-data-storage.html) blog has merit in all flavors of {{site.data.keyword.cloudant_short_notm}}, allowing older data to be cleanly archived and deleted with full recovery of disk space.
+
+### The fewer indexes the better
+{: #the-fewer-indexes-the-better}
+
+Writes and bulk writes are charged not only on the number of documents written but the number of {{site.data.keyword.cloudant_short_notm}} Query secondary indexes defined, as each document write will need to be processed and written out into each index. The more indexes you have, the more expensive each write costs, so the fewer indexes the better. There is technique for using [a handful of indexes that service many use-cases](https://blog.cloudant.com/2019/05/10/Optimal-Cloudant-Indexing.html) that is worth exploring.
+
+### Using the `_id` field as a free index
+{: #using-the-_id-field-as-a-free-index}
+
+Storing data in the `_id` field rather than by using {{site.data.keyword.cloudant_short_notm}}'s auto-generated ids can give you a "free" index for range querying, as shown in the following list:
+
+- [Use a time-sortable id](https://blog.cloudant.com/2018/08/24/Time-sortable-document-ids.html) to get time-ordered documents.
+- Although there is no "partitioned databases" feature in {{site.data.keyword.cloudant_short_notm}}, Transaction Engine you can use ids of the form `<deviceid>:<time-sortable-id>` to create a database sorted by device id and time without secondary indexing. Judicious use of `startkey`/`endkey` with the `GET /db/_all_docs` will allow the retrieval of readings from a known device id in date order.
+- If you have something unique about each document in your own domain, then use that instead of an auto-generated id.
+
+### Using `?include_docs=true` with MapReduce adds expense
+{: #?include_docs=true-and-mapreduce-adds-expense}
+
+Fetching keys and values from a MapReduce view is cheap (1 read unit to open the transaction and one read unit per *one hundred* key/values). Adding `?include_docs=true` to fetch the associated document body adds additional expense of one read unit per document fetched.
+
+### Projecting data into a MapReduce view
+{: #projecting-data-into-a-mapreduce-view}
+
+The very cheapest thing that {{site.data.keyword.cloudant_short_notm}} Transaction Engine does is reading key/values from a MapReduce view. This incentivizes you to *project* data into the index's value to avoid having to use `?include_docs=true`. See the following example:
+
+```js
+function (doc) {
+  // create an index keyed on userId/date whose value is a part of the document as an object
+  emit([doc.userId, doc.date], { status: doc.status, description: doc.description })
+}
+```
+{: codeblock}
+
+Fetching data from a view like this is fast, cheap, and scalable.
+
+### Bulk operations have a limit of 2000 documents
+{: #bulk-operations-limit-2000-documents}
+
+{{site.data.keyword.cloudant_short_notm}} Transaction Engine returns a maximum of 2000 documents or view rows at at a time. Use the `page_size` parameter and the `bookmark` parameter to page through a result set and only ask for the documents needed. Read about [pagination in {{site.data.keyword.cloudant_short_notm}} Transaction Engine](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks-te).
