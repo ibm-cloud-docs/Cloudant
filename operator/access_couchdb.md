@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-08-17"
 
 keywords: port forward, openshift route
 
@@ -32,7 +32,7 @@ The CouchDB cluster is exposed via a `ClusterIP` service only. To access the dep
 ### Port-forward
 {: #port-forward-access-couchdb}
 
-Assuming TLS is enabled for CouchDB (the default behaviour), you can expose the service locally on your machine by port-forwarding with `kubectl`:
+Assuming TLS is enabled for CouchDB (the default behavior), you can expose the service locally on your machine by port-forwarding with `kubectl`:
 
 ```
 kubectl port-forward svc/<couchdb name> 8443:443 -n <namespace>

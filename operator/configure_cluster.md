@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-08-18"
 
 keywords: operator, field reference
 
@@ -32,9 +32,9 @@ The Operator for Apache CouchDB allows for user-defined configuration parameters
 ## CouchDB versions
 {: #couchdb-versions}
 
-IBM maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2) and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3) versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) called `couchdb-release`. The mapping is updated when a new version of the operator is deployed - they are static for any given version of the operator.
+{{site.data.keyword.IBM}} maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2){: new_window}{: external} and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3){: new_window}{: external} versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/){: new_window}{: external} called `couchdb-release`. The mapping is updated when a new version of the operator is deployed. The mappings are static for any given version of the operator.
 
-All `CouchDBCluster` resources managed by an operator are updated to match the set of images referenced in the ConfigMap according to their version. Upgrades are performed in place using a rolling update to minimise service interruption.
+All `CouchDBCluster` resources managed by an operator are updated to match the set of images referenced in the ConfigMap according to their version. Upgrades are performed in place using a rolling update to minimize service interruption.
 
 By default, a `CouchDBCluster` will use the `3.x` images. If you want to use version `2.3.1` explicitly, you can set the `spec.version` field:
 
@@ -53,7 +53,7 @@ Users of CouchDB 2 are strongly encouraged to upgrade to CouchDB 3 by either rem
 ## Cluster size and scaling
 {: #couchdb-sizing}
 
-By default, a `CouchDBCluster` will deployed with 3 database nodes. This can be overridden by specifying the `spec.size ` field. Since CouchDB will store 3 replicas of each shard, it is recommended to use multiples of `3` for this value. Also note that this must be less than or equal to the number of nodes in the Kubernetes cluster because the operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
+By default, a `CouchDBCluster` will be deployed with 3 database nodes. This can be overridden by specifying the `spec.size ` field. Since CouchDB stores 3 replicas of each shard, it is recommended to use multiples of `3` for this value. Also note that this must be less than or equal to the number of nodes in the Kubernetes cluster because the operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
 
 Scaling CouchDB clusters is not supported. Whilst the `CouchDBCluster` resource allows the `size` to be changed, it is strongly recommended that you do not alter this after the initial deployment. The operator *does not* perform any data rebalancing to take advantage of additional CouchDB nodes and does not prevent data loss in the event that nodes are removed.
 
@@ -67,13 +67,13 @@ spec:
 ```
 {: codeblock}
 
-For development and testing purposes, the `spec.devMode` field can be set to `true`. This disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (e.g. [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/) / [CodeReady containers](https://developers.redhat.com/products/codeready-containers)).
+For development and testing purposes, the `spec.devMode` field can be set to `true`. This disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/){: new_window}{: external} / [CodeReady containers](https://developers.redhat.com/products/codeready-containers){: new_window}{: external}.
 
 
 ## Persistant storage
 {: #couchdb-storage}
 
-Persistant storage can be attached by specifying the `spec.storageClass` field. To work with the CouchDB Operator, storage classes must support
+Persistant storage can be attached by specifying the `spec.storageClass` field. To work with the CouchDB Operator, storage classes must support the following:
 
  * Dynamic volume provisioning.
  * `ReadWriteOnce` access modes.
@@ -84,22 +84,23 @@ This maps to the following preferred options for common public cloud environment
 
 |Provider |Type|Storage Class|Docs|
 |---------|----|---------|----|
-|IBM Cloud|IBM Block Storage|ibm-block-*  |[Docs](https://cloud.ibm.com/docs/containers?topic=containers-block_storage)
-|AWS      |Elastic Block Storage|aws-ebs      |[Docs](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#aws-definition_dynamic-provisioning)|
-|Azure    |Azure Disk|default or managed-premium|[Docs](https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk)|
+|IBM Cloud|IBM Block Storage|ibm-block-*  |[Docs](https://cloud.ibm.com/docs/containers?topic=containers-block_storage){: new_window}{: external}
+|AWS      |Elastic Block Storage|aws-ebs      |[Docs](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#aws-definition_dynamic-provisioning){: new_window}{: external}|
+|Azure    |Azure Disk|default or managed-premium|[Docs](https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk){: new_window}{: external}|
 
-For GCE, Persistent Disk can be used but a [storage class](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#gce-persistentdisk-storage-class_dynamic-provisioning) must be manually created to support dynamic provisioning.
+For GCE, Persistent Disk can be used but a [storage class](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#gce-persistentdisk-storage-class_dynamic-provisioning){: new_window}{: external} must be manually created to support dynamic provisioning.
 
 For on-premise deployments, the following storage providers meet these requirements:
 
- * [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html)
- * [Ceph RBD](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html)
- * [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs)
- * [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume)
+ * [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
+ * [Ceph RBD](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
+ * [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: new_window}{: external}
+ * [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: new_window}{: external}
 
 ### Changing the pod UID/GID
+{: #change-pod-uid-gid}
 
-Unless overridden by the environment (e.g. OpenShift will set these automatically), the `CouchDBCluster` uses the following UID/GID settings in the pod `securityContext`:
+Unless overridden by the environment (for example, OpenShift sets these automatically), the `CouchDBCluster` uses the following UID/GID settings in the pod `securityContext`:
 
 ```
 securityContext:
@@ -168,7 +169,7 @@ spec:
 ```
 {: codeblock}
 
-The `init` container will use the same resource requests as the `mgmt` container.
+The `init` container uses the same resource requests as the `mgmt` container.
 
 
 ### CouchDBCluster field reference
@@ -181,7 +182,7 @@ The CouchDBCluster field reference section defines the major parameters on how A
 | Name           | Description                                          | Default    |
 |----------------|------------------------------------------------------|------------|
 | `version`      | CouchDB version.                                     | `3`    |
-| `size`         | CouchDB cluster size                                 | `3`        |
+| `size`         | CouchDB cluster size.                                 | `3`        |
 | `storageClass` | Storage class for database provisioned volume claims. | `emptyDir` |
 | `disk`         |                                                      | `10Gi`     |
 | `memory`       | Memory size (in GB) to request for each database node. | `1`        |
@@ -196,7 +197,7 @@ The CouchDBCluster field reference section defines the major parameters on how A
 ## CouchDB configuration
 {: #couchdb-configuration}
 
-CouchDB configuration options are exposed through the `spec.environment` field. For example,
+CouchDB configuration options are exposed through the `spec.environment` field, as shown in the following example:
 
 ```
 apiVersion: couchdb.databases.cloud.ibm.com/v1
