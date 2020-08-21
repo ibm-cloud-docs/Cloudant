@@ -2,11 +2,11 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-08-21"
 
 keywords: create index, create query, run query, fields, operators, monitor instance
 
-subcollection: cloudant
+subcollection: Cloudant
 
 ---
 
