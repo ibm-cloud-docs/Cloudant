@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-08-21"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -61,7 +61,7 @@ This encoding gives us a base64 character sequence as output.
 The command to base64-encode some data is similar to the following example:
 
 ```python
-python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
+python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".encode("utf-8")).decode("utf-8"))'
 ```
 {: codeblock}
 
@@ -71,14 +71,14 @@ For example,
 if you use the command:
 
 ```python
-python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
+python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".encode("utf-8")).decode("utf-8"))'
 ```
 {: codeblock}
 
 You then get the following output:
 
 ```
-bXl1c2VybmFtZTpteXBhc3N3b3Jk
+NTFkZGM5YTAtZmE2MC00M2Q1LTgyNmJeKGNmYjBhNTVkMzFiLWJsdWVtaXguY2xvdWRhbnQuY29tOjY4ODIyZGQ5YTU5YzNhZjA1NDY5YzRhMGRjODUzZjVhYjQzMmQxMDI0NTFiNTQ0ZTUxZjA5MjkwODU2NDcxNWM=
 ```
 {: codeblock}
 

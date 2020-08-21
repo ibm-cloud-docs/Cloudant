@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-08-21"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -136,7 +136,9 @@ from cloudant.result import Result, ResultByKey
 ```
 {: codeblock}
 
-The application must have the [Service Credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials) for the service:
+The application must have the [Service Credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials) for the service.
+
+You can use Classic credentials:
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
@@ -144,6 +146,15 @@ servicePassword = "49c0c343d225623956157d94b25d574586f26d1211e8e589646b4713d5de4
 serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {: codeblock}
+
+Or you can connect to your {{site.data.keyword.cloudant_short_notm}} account by using an IAM API key:
+
+```json
+client = Cloudant.iam(ACCOUNT_NAME, API_KEY, connect=True)
+```
+{: codeblock}
+
+Copy `username` from your service credentials, and replace the `ACCOUNT_NAME` in the previous example. For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
 The service credentials that are illustrated
     were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloud_notm}}.
