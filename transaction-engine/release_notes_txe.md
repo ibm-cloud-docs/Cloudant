@@ -30,14 +30,14 @@ Changes and updates to {{site.data.keyword.cloudantfull}} Transaction Engine tha
 {: shortdesc}
 
 ## New features
-{: #txe-new-features}
+{: #new-features-txe}
 
 See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine.
 
 ## Build 2.77 (August 2020)
 {: #build-2.77-august-2020}
 
-- Bug fixes. 
+- Fixed dashboard access for {{site.data.keyword.cloudant_short_notm}} Transaction Engine instances.
 
 ## Build 2.75 (August 2020)
 {: #build-2.75-august-2020}
