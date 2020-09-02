@@ -40,7 +40,7 @@ Deployment Region | LogDNA Region
 `Seoul` | `Seoul`
 `Sydney` | `Sydney`
 `Washington DC` | `Washington DC`
-`Chennai` | Not available currently
+`Chennai` | `Chennai`
 {: caption="Table 1. Log Analysis regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.la_full_notm}}
