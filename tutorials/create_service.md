@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-09"
+lastupdated: "2020-08-28"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -53,16 +53,16 @@ to work with the database.
 
 4.   Enter an instance name. (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `IAM` or `IAM and legacy credentials`. For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
 
-5. To create the service, click the `Create` button:
+5.  Select your pricing plan. (See the capacity in the table that follows.)
+
+    ![Select your pricing plan.](images/img0005c.png){: caption="Figure 5. Pricing plans and capacity" caption-side="bottom"}
+
+6. To create the service, click the `Create` button:
 
     ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials.](images/img0005b.png){: caption="Figure 4. {{site.data.keyword.cloudant_short_notm}} service name and credentials" caption-side="bottom"}
 
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
-
-6.  Select your pricing plan. (See the capacity in the table that follows.)
-
-    ![Select your pricing plan.](images/img0005c.png){: caption="Figure 5. Pricing plans and capacity" caption-side="bottom"}
 
     After you click `Create`, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, "Provision in progress." 
 
@@ -148,7 +148,7 @@ At any time, you can find the credentials for a service that is associated with 
     ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png){: caption="Figure 11. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
 
 3.  To see the credentials that are required to access the service,
-    click `View Credentials`:
+    click the chevron:
 
     ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0052.png){: caption="Figure 12. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
