@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-23"
+lastupdated: "2020-09-03"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -40,7 +40,7 @@ Now, we can see a better way to page through a large document set.
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views}
 
-If you use the `GET //_all_docs` endpoint to fetch documents in bulk, then you might have seen the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using this `skip`/`limit` pattern to iterate through a result set works, but it gets progressively slower the larger the value of `skip`. 
+If you use the `GET /$DATABASE/_all_docs` endpoint to fetch documents in bulk, then you might have seen the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using this `skip`/`limit` pattern to iterate through a result set works, but it gets progressively slower the larger the value of `skip`. 
 
 ## What is the `_all_docs` endpoint?
 {: #what-is-the_all_docs_endpoint}
