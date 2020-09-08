@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-20"
+lastupdated: "2020-09-08"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 
@@ -34,10 +34,10 @@ Deployment Region | Sysdig Region
 `Frankfurt` | `Frankfurt`
 `London` | `London`
 `Tokyo` | `Tokyo`
-`Seoul` | Not available currently
+`Seoul` | `Tokyo`
 `Sydney` | `Sydney`
 `Washington DC` | `Washington DC`
-`Chennai` | Not available currently
+`Chennai` | `Tokyo`
 {: caption="Table 1. Sysdig regions" caption-side="top"}
 
 
