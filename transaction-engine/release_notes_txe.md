@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-21"
+lastupdated: "2020-09-09"
 
-keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77
+keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79
 
 subcollection: Cloudant
 
@@ -33,6 +33,14 @@ Changes and updates to {{site.data.keyword.cloudantfull}} Transaction Engine tha
 {: #new-features-txe}
 
 See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine.
+
+## Build 2.79 (September 2020)
+{: #build-2.79-september-2020}
+
+- Remove empty entries from `_active_tasks`.
+- Fix the order of results for page_size-based pagination for views.
+- Remove completed Couch jobs from `_active_tasks`.
+- Improve performance of view builds when there are no emits from JavaScript function.
 
 ## Build 2.77 (August 2020)
 {: #build-2.77-august-2020}
