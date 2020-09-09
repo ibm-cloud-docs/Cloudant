@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-22"
+lastupdated: "2020-08-25"
 
 keywords: tier-1 physical system, hipaa, iso, pci, soc 2 type 2 certification, gdpr
 
@@ -71,9 +71,9 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 ## PCI
 {: #pci}
 
-{{site.data.keyword.cloudant_short_notm}} multi-tenant Lite and Standard plan instances, along with Standard plan instances deployed on Dedicated Hardware plan environments, are compliant with the Payment Card Industry Data Security Standard (PCI DSS). {{site.data.keyword.cloud_notm}} completes annual PCI DSS assessments using an approved Qualified Security Assessor (QSA), and the resulting Attestations of Compliance (AOCs) and Service Responsibility Matrix guides are available upon client request. Auditors reviewed {{site.data.keyword.cloudant_short_notm}} for compliance under PCI DSS version 3.2.1 at Service Provider Level 1. 
+{{site.data.keyword.cloudant_short_notm}} multi-tenant Lite and Standard plan instances, along with Standard plan instances deployed on Dedicated Hardware plan environments, are compliant with the Payment Card Industry Data Security Standard (PCI DSS). {{site.data.keyword.cloud_notm}} completes annual PCI DSS assessments using an approved Qualified Security Assessor (QSA), and the resulting Attestations of Compliance (AOCs) and Service Responsibility Matrix guides are available upon customer request. Auditors reviewed {{site.data.keyword.cloudant_short_notm}} for compliance under PCI DSS version 3.2.1 at Service Provider Level 1. 
 
-Clients are responsible for the storing, processing, and transmission of their cardholder data, and can create cardholder data environments (CDEs) that can store, transmit, or process cardholder data by using {{site.data.keyword.cloudant_short_notm}}. Clients can use the {{site.data.keyword.cloud_notm}} AOCs and SRM guides when seeking their own PCI DSS certifications. It is the responsibility of the client to document and operate CDEs and applications built using {{site.data.keyword.cloud_notm}} Platform services in a PCI DSS-compliant manner. 
+Customers are responsible for the storing, processing, and transmission of their cardholder data, and can create cardholder data environments (CDEs) that can store, transmit, or process cardholder data by using {{site.data.keyword.cloudant_short_notm}}. Customers can use the {{site.data.keyword.cloud_notm}} AOCs and SRM guides when seeking their own PCI DSS certifications. It is the responsibility of the customer to document and operate CDEs and applications built using {{site.data.keyword.cloud_notm}} Platform services in a PCI DSS-compliant manner. 
 
 {{site.data.keyword.cloudant_short_notm}} documentation on [service security](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#service-security) and [deletion of data](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data) covers methods to manage cardholder data within the environment in accordance with PCI requirements. It is the customer’s responsibility to familiarise themselves with these processes and to manage data retention and removal from the service according to the customer’s policies. To facilitate this no cardholder data should be used in a {{site.data.keyword.cloudant_short_notm}} document ID and if PAN data are to be stored in {{site.data.keyword.cloudant_short_notm}} they should be rendered unreadable (in accordance with PCI requirement 3.4) before transmission to the {{site.data.keyword.cloudant_short_notm}} service.
 
@@ -88,7 +88,7 @@ by the American Institute of Certified Public Accountants (AICPA) Trust Services
 The Trust Services Principles define adequate control systems and establish industry standards 
 for service providers such as {{site.data.keyword.cloud_notm}} to safeguard their customers' data and information.
 
-You can request an SOC 2 Type 2 report from the customer portal 
+You can request an SOC 2 Type 2 report from the Customer portal 
 or contact your sales representative. Alternatively, you can open 
 a support ticket with 
 [{{site.data.keyword.cloud_notm}} support](https://www.ibm.com/cloud/support){: new_window}{: external} 
