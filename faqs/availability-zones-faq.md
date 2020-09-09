@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-13"
+lastupdated: "2020-09-09"
 
 keywords: availability zones, single-zone region, multi-zone region, lite plan, standard plan
 

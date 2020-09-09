@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-09-09"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors

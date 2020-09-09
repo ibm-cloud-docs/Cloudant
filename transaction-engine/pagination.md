@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-09-09"
 
 keywords: _all_docs endpoint, page_size, bookmarks, query, search, paging, mapreduce views
 

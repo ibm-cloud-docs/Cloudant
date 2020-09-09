@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-20"
+lastupdated: "2020-09-09"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 

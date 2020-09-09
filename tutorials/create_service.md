@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-28"
+lastupdated: "2020-09-09"
 
 keywords: create service instance, service credentials, locate service credentials
 

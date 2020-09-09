@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-09-09"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 

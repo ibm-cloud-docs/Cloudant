@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-13"
+lastupdated: "2020-09-09"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 

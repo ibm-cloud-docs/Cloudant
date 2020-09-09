@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-09-09"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 

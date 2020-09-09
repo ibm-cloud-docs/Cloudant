@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-09-09"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 

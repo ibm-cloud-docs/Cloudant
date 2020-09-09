@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-30"
+lastupdated: "2020-09-09"
 
 keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery
 

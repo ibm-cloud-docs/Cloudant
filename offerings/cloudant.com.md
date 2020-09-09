@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-09-09"
 
 keywords: enterprise plan, database-as-a-service
 

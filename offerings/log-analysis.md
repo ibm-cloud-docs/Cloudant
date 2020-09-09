@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-20"
+lastupdated: "2020-09-09"
 
 keywords: log analysis, integration 
 

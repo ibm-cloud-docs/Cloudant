@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-27"
+lastupdated: "2020-09-09"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 

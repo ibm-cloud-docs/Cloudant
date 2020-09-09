@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-09-09"
 
 keywords: basic authentication, cookie authentication, request cookie, delete cookie, get cookie
 

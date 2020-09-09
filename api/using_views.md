@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-21"
+lastupdated: "2020-09-09"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 

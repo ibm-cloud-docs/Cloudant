@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-10"
+lastupdated: "2020-09-09"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 

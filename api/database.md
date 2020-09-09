@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-21"
+lastupdated: "2020-09-09"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 

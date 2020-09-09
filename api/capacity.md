@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-09-09"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 

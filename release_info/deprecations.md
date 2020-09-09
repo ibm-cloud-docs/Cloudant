@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-09-09"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 

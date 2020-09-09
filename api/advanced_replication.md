@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-09-09"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 

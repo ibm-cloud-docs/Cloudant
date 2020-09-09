@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-09"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 

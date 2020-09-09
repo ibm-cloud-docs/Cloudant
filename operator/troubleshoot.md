@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-21"
+lastupdated: "2020-09-09"
 
 keywords: troubleshoot, view logs, adjust log level
 
