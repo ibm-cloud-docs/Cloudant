@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-09-09"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 

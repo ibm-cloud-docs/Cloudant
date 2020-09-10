@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-09-09"
 
 keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 

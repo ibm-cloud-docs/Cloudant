@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-25"
+lastupdated: "2020-09-09"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 

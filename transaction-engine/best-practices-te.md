@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-13"
+lastupdated: "2020-09-09"
 
 keywords: query, secondary index, primary index, organizing documents, organizing databases
 

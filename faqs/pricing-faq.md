@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-13"
+lastupdated: "2020-09-09"
 
 keywords: capacity settings, capacity limit, exceed limit, usage data
 

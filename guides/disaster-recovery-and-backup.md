@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-09-09"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 

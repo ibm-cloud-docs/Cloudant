@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-09-09"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
