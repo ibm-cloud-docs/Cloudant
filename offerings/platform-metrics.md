@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-15"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 
@@ -31,7 +31,6 @@ Currently, {{site.data.keyword.mon_full}} integration is available for {{site.da
 Deployment Region | Sysdig Region
 ----------|-----------
 `Dallas` | `Dallas`
-`Frankfurt` | `Frankfurt`
 `London` | `London`
 `Tokyo` | `Tokyo`
 `Seoul` | `Tokyo`
