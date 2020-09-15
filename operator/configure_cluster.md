@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-15"
 
 keywords: operator, field reference
 
@@ -70,10 +70,10 @@ spec:
 For development and testing purposes, the `spec.devMode` field can be set to `true`. This disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/){: new_window}{: external} / [CodeReady containers](https://developers.redhat.com/products/codeready-containers){: new_window}{: external}.
 
 
-## Persistant storage
+## Persistent storage
 {: #couchdb-storage}
 
-Persistant storage can be attached by specifying the `spec.storageClass` field. To work with the CouchDB Operator, storage classes must support the following:
+Persistent storage can be attached by specifying the `spec.storageClass` field. To work with the CouchDB Operator, storage classes must support the following:
 
  * Dynamic volume provisioning.
  * `ReadWriteOnce` access modes.
