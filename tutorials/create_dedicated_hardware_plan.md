@@ -1,7 +1,7 @@
 ---
 
 copyright:
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -87,14 +87,14 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
        Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance that is chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default).  
 
-   ![Configure the Host](images/img0005f.png){: caption="Figure 6. Configure the Host" caption-side="bottom"}
+   ![Configure the Host](images/img0005f.png){: caption="Figure 5. Configure the Host" caption-side="bottom"}
         
 6.  Click the `Create` button to start the provisioning process. 
 
     Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click the **Create** button.
     {: note}
 
-    ![Provision dedicated hardware](images/create_button_provision.png){: caption="Figure 7. Provision dedicated hardware" caption-side="bottom"}
+    ![Provision dedicated hardware](images/create_button_provision.png){: caption="Figure 6. Provision dedicated hardware" caption-side="bottom"}
 
     During provisioning, a spinning wheel appears next to the instance in your {{site.data.keyword.cloud_notm}} dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     {: note}   
@@ -111,15 +111,15 @@ After your instance is created, you must create a Standard plan on it by selecti
     After you authenticate with your username and password,
     you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button shown in the following image.
     
-    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 8. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
+    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 7. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
 2.  Type `Cloudant` in the Search bar and click to open it:
 
-    ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 9. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"} 
+    ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 8. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"} 
 
 3.  Select an offering. 
 
-    ![{{site.data.keyword.cloudant_short_notm}} offerings](images/img0005.png){: caption="Figure 10. {{site.data.keyword.cloudant_short_notm}} offering" caption-side="bottom"}
+    ![{{site.data.keyword.cloudant_short_notm}} offerings](images/img0005.png){: caption="Figure 9. {{site.data.keyword.cloudant_short_notm}} offering" caption-side="bottom"}
     
     You can't provision a Lite plan instance on a Dedicated Hardware environment.
     {: tip}
@@ -133,16 +133,16 @@ After your instance is created, you must create a Standard plan on it by selecti
     
     b. Click **Select existing host**.
 
-    ![Select an existing host](images/img0005g.png){: caption="Figure 12. Select an existing host" caption-side="bottom"}
+    ![Select an existing host](images/img0005g.png){: caption="Figure 10. Select an existing host" caption-side="bottom"}
 
     c. Select the dedicated environment you created from the **Dedicated environment to provision the account** drop-down menu. 
        The screen capture shows the example environment, `Dedicated Hardware Environment (staging)`.
 
-    ![Select your dedicated environment](images/img0005h.png){: caption="Figure 12. Select your dedicated environment" caption-side="bottom"}    
+    ![Select your dedicated environment](images/img0005h.png){: caption="Figure 11. Select your dedicated environment" caption-side="bottom"}    
     
     d. Select the appropriate {{site.data.keyword.cloud_notm}} region. 
 
-    ![Select an environment](images/img0005d2.png){: caption="Figure 11. Select an {{site.data.keyword.cloud_notm}} region" caption-side="bottom"}
+    ![Select an environment](images/img0005d2.png){: caption="Figure 12. Select an {{site.data.keyword.cloud_notm}} region" caption-side="bottom"}
 
 5.  Configure the {{site.data.keyword.cloudant_short_notm}} instance: 
 
@@ -155,13 +155,13 @@ After your instance is created, you must create a Standard plan on it by selecti
     d. Select an authentication method. 
        The Standard plan is the only plan for the Dedicated Hardware environment. 
 
-    ![Configure the {{site.data.keyword.cloudant_short_notm}} instance](images/img0005e.png){: caption="Figure 12. Configure the {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
+    ![Configure the {{site.data.keyword.cloudant_short_notm}} instance](images/img0005e.png){: caption="Figure 13. Configure the {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
     
 6.  Click the `Create` button.
 
     After a few seconds, the instance is provisioned on the environment you selected.
     
-    ![Provision standard instance](images/create_button_provision_standard.png){: caption="Figure 13. Provision standard instance" caption-side="bottom"}
+    ![Provision standard instance](images/create_button_provision_standard.png){: caption="Figure 14. Provision standard instance" caption-side="bottom"}
     
 7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard 
     as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: 
 
@@ -56,6 +56,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Bandwidth | Included | Included |
 | Proration | Hourly<br>(Dedicated Hardware is daily.) | Hourly |
 | Standard Plan Minimum Cost | ~$75/month | ~$22/month | 
+{: caption="Table 1. Pricing" caption-side="top"}
 
 ## Features and functions
 {: #features-and-functions}
@@ -79,6 +80,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Logging with LogDNA | Yes | Yes |
 | Activity Tracker with LogDNA | Yes | Yes |
 | Monitoring with Sysdig | Yes | Yes |
+{: caption="Table 2. Features and functions" caption-side="top"}
 
 ## Limits
 {: #limits-feature-compare}
@@ -101,6 +103,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Max Queries in Queries Request | Not applicable | 2000 | 
 | Results - MapReduce | Unlimited | 2000 |
 | Results - Cloudant Query (JSON type) | Unlimited | 2000 | 
+{: caption="Table 3. Limits" caption-side="top"}
 
 ## HA, DR, and Backup
 {: #hadr-feature-compare}
@@ -112,6 +115,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Database recovery API | No | Yes<br>(within 48 hours) |
 | Backups (self-managed) | Self-managed with couchbackup | Self-managed with couchbackup |
 | Instance Reclamation | {{site.data.keyword.cloud_notm}} 7-day reclamation<br>(instance-level deletions) | IBM Cloud 7-day reclamation<br>(instance-level deletions) |
+{: caption="Table 4. HA, DR, and Backup" caption-side="top"}
 
 ## Security
 {: #security-feature-compare}
@@ -127,6 +131,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | Data Value Encryption | No | No | Yes |
 | BYOK with Key Protect | No | Yes | No |
 | Bare Metal Isolation | No | Yes | No |
+{: caption="Table 5. Security" caption-side="top"}
 
 ## Compliance
 {: #compliance-feature-compare}
@@ -139,4 +144,4 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | ISO27001 | Yes | Yes | No |
 | PCI | Yes | Yes | No |
 | SOC2 Type 2 | Yes | Yes | No |
-
+{: caption="Table 6. Compliance" caption-side="top"}

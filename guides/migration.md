@@ -146,7 +146,7 @@ Set up continuous replications from your existing service to your {{site.data.ke
 
 Alternatively, check out the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) tool, which is a command-line utility that helps you coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. It sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 
-![Slider](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 9. Couch replicate tool" caption-side="bottom"}
+![Couch replicate tool](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 9. Couch replicate tool" caption-side="bottom"}
 
 Verify that all your data replicates to the new service and that indexes are built.
 
