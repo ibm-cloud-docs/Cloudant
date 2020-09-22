@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -155,8 +155,7 @@ place their definitions in separate design documents.
 This behavior doesn't apply to Lucene search indexes. They can be altered within the same design document without invalidating other unchanged indexes in the same document.
 {: note}
 
-![Illustration of design document version change](../images/DesDocMan02.png)
-{: caption="Figure 2. Illustration of design document version change" caption-side="bottom"}
+![Illustration of design document version change](../images/DesDocMan02.png){: caption="Figure 2. Illustration of design document version change" caption-side="bottom"}
 
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}

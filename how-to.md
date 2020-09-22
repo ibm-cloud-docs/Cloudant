@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-22"
 
 keywords: tutorials, recovery and backup, guides, links to documentation, about 
 
@@ -41,6 +41,7 @@ Tutorial | Description
 [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud){: new_window} | A tutorial that describes how to use the Python programming language to create an {{site.data.keyword.cloudant_short_notm}} database in your {{site.data.keyword.cloud_notm}} service instance, and populate the database with a simple collection of data.
 [Creating an {{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query#creating-an-ibm-cloudant-query){: new_window}| A tutorial that describes how to create a database, populate it with documents, create an index, and use the index to query the database.
 [Creating a backup](/docs/Cloudant?topic=Cloudant-creating-a-backup#creating-a-backup){: new_window} | A tutorial that describes how to use the CouchBackup command-line utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. 
+{: caption="Table 1. Tutorials" caption-side="top"}
 
 ## Recovery and backup
 {: #recovery-and-backup}
@@ -50,7 +51,7 @@ Guide | Description
 [Disaster recovery and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window} | An overview of the automatic capabilities and supported tools that are offered by {{site.data.keyword.cloudant_short_notm}}. 
 [Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/Cloudant?topic=Cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery){: new_window} | A guide that explains that one way to enable disaster recovery is to use [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} replication to create redundancy across regions.
 [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window} | A guide that describes how to use the backup and recovery tool, CouchBackup. 
-
+{: caption="Table 2. Recovery and backup" caption-side="top"}
 
 ## Guides
 {: #guides}
@@ -73,6 +74,5 @@ Guide | Description
 [Migrating to {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-migrating-to-ibm-cloudant-on-ibm-cloud#migrating-to-ibm-cloudant-on-ibm-cloud){: new_window} | A guide that describes how to migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}}.
 [Replication guide](/docs/Cloudant?topic=Cloudant-replication-guide#replication-guide){: new_window} | A guide that introduces {{site.data.keyword.cloudant_short_notm}}’s replication functions, discusses common use cases, and shows how to make your application replicate successfully.
 [Replication incrementals](/docs/Cloudant?topic=Cloudant-replication-incrementals#replication-incrementals){: new_window} | A guide that describes how to create and restore incremental backups. 
-
- 
+{: caption="Table 3. Guides" caption-side="top"}
 

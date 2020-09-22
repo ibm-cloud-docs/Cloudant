@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: databases, indexes, request payload, request timeouts, query
 
@@ -36,7 +36,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudant_short_notm}} da
 |--|--|
 |Database size|Unlimited|
 |Partition size|10 GB|
-
+{: caption="Table 1. Limits for databases" caption-side="top"}
 
 ## Indexes
 {: #indexes-overview}
@@ -45,6 +45,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudant_short_notm}} da
 |--|--|
 |Number of global indexes|Unlimited|
 |Number of partition indexes|10|
+{: caption="Table 2. Limits for indexes" caption-side="top"}
 
 ## Request payload
 {: #request-payload-overview}
@@ -54,6 +55,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudant_short_notm}} da
 |Total request size|10 MB|
 |Document size|1 MB|
 |Attachment size|10 MB|
+{: caption="Table 3. Limits for request payload" caption-side="top"}
 
 ## Request timeouts
 {: #request-timeouts}
@@ -62,7 +64,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudant_short_notm}} da
 |--|--|
 |Default|60 seconds|
 |`_partition/*` |5 seconds|
-
+{: caption="Table 4. Limits for request timeouts" caption-side="top"}
 
 ## Query
 {: #query-results}
@@ -73,3 +75,4 @@ Limits that pertain to the usage of {{site.data.keyword.cloudant_short_notm}} da
 |`_partition/*` default|2000|
 |`_search`|200|
 |`_find` by using `text` index|200|
+{: caption="Table 5. Limits for query results" caption-side="top"}

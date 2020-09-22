@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -226,13 +226,13 @@ In the following example, a quantity of 0 Gigabyte Hours reflects that the insta
 
 To add to what has been previously said, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and can change up and down over time, either by altering the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or via an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
-![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
+![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
 
 Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units depending on how complex it is, so it's in your interest to try to achieve your application's goals while consuming the fewest units as possible.
 
 This chart shows the cost of common {{site.data.keyword.cloudant_short_notm}} operations, with a color-coded guide to how the price is calculated:
 
-![Cloudant Transaction Engine pricing](../images/txe_pricing.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} Transaction Engine pricing" caption-side="bottom"}
+![Cloudant Transaction Engine pricing](../images/txe_pricing.png){: caption="Figure 4. {{site.data.keyword.cloudant_short_notm}} Transaction Engine pricing" caption-side="bottom"}
 
 Let's unpack this diagram and draw out the incentives that {{site.data.keyword.cloudant_short_notm}} has baked into the product and which *best practices* you are being driven towards.
 

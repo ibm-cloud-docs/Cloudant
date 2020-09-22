@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -91,7 +91,7 @@ Plan | Storage included | Overage limit
 -----|------------------|--------------
 Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1-GB limit, or upgrade to a higher plan.
 Standard | 20 GB | Additional storage costs $0.0014 per GB per hour, which is approximately $1/GB per month.
-{: caption="Table 3. Pricing for data overage" caption-side="top"}
+{: caption="Table 1. Pricing for data overage" caption-side="top"}
 
 ## {{site.data.keyword.cloud_notm}} Usage Dashboard 
 {: #usage-dashboard}
