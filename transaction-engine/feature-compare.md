@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-23"
 
 keywords: 
 
@@ -122,7 +122,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 
 | Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Multi-tenant) | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Dedicated Hardware) | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|--------------------------|-------------------------------|
-| Locations/Data Sovereignty | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul<br>Amsterdam<br>Hong Kong<br>Melbourne<br>Milan<br>Montreal<br>Oslo<br>Paris<br>Queretaro<br>San Jose<br>Sao Paulo<br>Singapore<br>Toronto | Dallas |
+| Locations/Data Sovereignty | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul<br>Amsterdam<br>Hong Kong<br>Milan<br>Montreal<br>Oslo<br>Paris<br>Queretaro<br>San Jose<br>Sao Paulo<br>Singapore<br>Toronto | Dallas |
 | Authentication | Legacy and IAM | Legacy and IAM | IAM-only |
 | IP allowlisting | No | Yes | No |
 | Service Endpoints | Public | Public and private | Public |
