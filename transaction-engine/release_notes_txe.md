@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-22"
 
-keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79
+keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80
 
 subcollection: Cloudant
 
@@ -33,6 +33,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} Transaction Engine tha
 {: #new-features-txe}
 
 See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine.
+
+## Build 2.80 (September 2020)
+{: #build-2.80-september-2020}
+
+- Bug fixes.
 
 ## Build 2.79 (September 2020)
 {: #build-2.79-september-2020}
