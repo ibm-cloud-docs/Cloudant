@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-22"
 
 keywords: port forward, openshift route
 
@@ -97,4 +97,4 @@ In the previous example, you can access the Apache CouchDB API at `https://<exam
 ### Credentials
 {: #credentials-cluster-couchdb}
 
-The `CouchDBCluster` is configured with a cluster admin account, `admin`. The password is specified at deployment time by using the `environment.adminPassword` field. Further, non-admin users can be added by using the [`_users` database](https://docs.couchdb.org/en/3.1.0/intro/security.html#authentication-database){: new_window}{: external}.
+The `CouchDBCluster` is configured with a cluster admin account, `admin`. The password is specified at deployment time by using the `environment.adminPassword` field. Further, non-admin users can be added by using the [`_users` database](https://docs.couchdb.org/en/3.1.1/intro/security.html#authentication-database){: new_window}{: external}.
