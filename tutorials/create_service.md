@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-23"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -86,17 +86,17 @@ to work with the database.
 
    f. Click the `Add` button.
 
-   ![Add a service credential](images/img0051.png){: caption="Figure 9. Add a service credential" caption-side="bottom"}
+   ![Add a service credential](images/img0051.png){: caption="Figure 8. Add a service credential" caption-side="bottom"}
  
    Your new credential appears after the table.
 
    g. Click the chevron next to your credential.
 
-   ![View all service credentials.](images/img0052.png){: caption="Figure 10. View all service credentials" caption-side="bottom"}
+   ![View all service credentials.](images/img0052.png){: caption="Figure 9. View all service credentials" caption-side="bottom"}
 
 9.  The details for the service credentials appear:
 
-    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 11. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 10. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you *must* supply and use your own service credentials.
 {: note}
@@ -138,23 +138,23 @@ At any time, you can find the credentials for a service that is associated with 
     After you authenticate with your user name and password,
     you're presented with the {{site.data.keyword.cloud_notm}} dashboard:
 
-    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 12. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
+    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 11. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
 2.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
     service instance that was created earlier in this tutorial,
     called `Cloudant-o7`. Click the **Menu** icon > **Resource List**, and the corresponding row:
 
-    ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png){: caption="Figure 13. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
+    ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png){: caption="Figure 12. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
 
 3.  To see the credentials that are required to access the service,
     click the chevron:
 
-    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0052.png){: caption="Figure 14. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0052.png){: caption="Figure 13. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 4.  The details for the service credentials appear:
 
-    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 15. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 14. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
 {: note}
