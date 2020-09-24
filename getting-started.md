@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-24"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -367,7 +367,7 @@ client.disconnect()
 For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
 see the main [{{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external} site.
 
-For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-overview#overview).
+For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant).
 
 ## Appendix. Complete Python code listing
 {: #appendix-complete-python-code-listing}
