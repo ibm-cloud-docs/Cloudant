@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-24"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -665,4 +665,4 @@ values that are specified in the `sort` parameter.
 
   ![Query 3 results](../images/dashboard_query3_results.png){: caption="Figure 6. Results from third query" caption-side="bottom"}
 
-For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-overview#overview).
+For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant).
