@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-02"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -164,7 +164,7 @@ consume.
 | Write 5 documents using `_bulk_docs` to a database with no Mango indexes. | 1 unit to open the transaction. </br>5 units to write the document. </br>6 units total. |
 | Write a single document by using `POST /{DB}/{ID}` (whether creating or updating the document) to a database with two Mango indexes that each emit a single row per document. | </br>1 unit to open the transaction. </br>1 unit to write the document. </br>2 units to write two Mango index rows (1 per index). </br>4 units total. |
 | Write 5 documents using `_bulk_docs` to a database with two Mango indexes that each emit a single row per document. | 1 unit to open the transaction. </br>5 units to write the document. </br>10 units to write two Mango index rows (1 per index).</br>16 units total. |
-{: caption="Table 2. Example write units" caption-side="top"}
+{: caption="Table 1. Example write units" caption-side="top"}
 {: #units-example2}
 {: tab-title="Write units"}
 {: tab-group="Units-examples"}
@@ -208,7 +208,7 @@ What about pricing for data overage? How does that work?
 Plan | Storage Included | Overage Limit
 -----|------------------|--------------
 Standard on Transaction Engine | 25 GB | Additional storage costs $0.000342 per GB per hour, which is approximately $0.25/GB per month.
-{: caption="Table 3. Data overage pricing" caption-side="top"}
+{: caption="Table 2. Data overage pricing" caption-side="top"}
 
 ## {{site.data.keyword.cloud_notm}} Usage Dashboard
 {: #usage-dashboard-te}
