@@ -32,8 +32,8 @@ Cloudant
 	Apache CouchDB
 		couchdb/overview-couchdb.md
 		couchdb/comparison.md
-		couchdb/install.md
-		couchdb/support.md
+		couchdb/install-couchdb.md
+		couchdb/support-couchdb.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
