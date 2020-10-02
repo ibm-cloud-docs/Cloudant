@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-02"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -84,7 +84,7 @@ The API to view and change the event types requires {{site.data.keyword.IBM_notm
 #### Check what event types are configured for an {{site.data.keyword.cloudant_short_notm}} instance
 {: #at_event_configure_api_get}
 
-The `/_api/v2/user/activity_tracker/events` endpoint returns an `events` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance.
+The `/_api/v2/user/activity_tracker/events` endpoint returns a `types` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance.
 
 See the following example request by using HTTP:
 
@@ -139,7 +139,7 @@ When you check what events are enabled, you get one of the following responses:
 {: #at_event_configure_api_post}
 
 
-You can configure data events by sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint and passing a JSON object with an `events` field.
+You can configure data events by sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint and passing a JSON object with a `types` field.
 
 See the following example request by using a cURL command:
 
@@ -165,7 +165,7 @@ The following example response shows that the update was accepted:
 ```
 {: codeblock}
 
-If the `events` field includes invalid event types, then a response similar to the following is returned:
+If the `types` field includes invalid event types, then a response similar to the following is returned:
 
 ```json
 {
@@ -175,7 +175,7 @@ If the `events` field includes invalid event types, then a response similar to t
 ```
 {: codeblock}
 
-If the `events` field is missing, then a response similar to the following is returned:
+If the `types` field is missing, then a response similar to the following is returned:
 
 ```json
 {
