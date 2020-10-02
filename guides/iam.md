@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-02"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -759,7 +759,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 4. Writer role actions and mapping" caption-side="top"}
+{: caption="Table 3. Writer role actions and mapping" caption-side="top"}
 {: #writer-role}
 {: tab-title="Writer"}
 {: tab-group="Roles-simple"}
@@ -796,7 +796,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 5. Reader role actions and mapping" caption-side="top"}
+{: caption="Table 3. Reader role actions and mapping" caption-side="top"}
 {: #reader-role}
 {: tab-title="Reader"}
 {: tab-group="Roles-simple"}
@@ -815,7 +815,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
-{: caption="Table 6. Monitor role actions and mapping" caption-side="top"}
+{: caption="Table 3. Monitor role actions and mapping" caption-side="top"}
 {: #monitor-role}
 {: tab-title="Monitor"}
 {: tab-group="Roles-simple"}
@@ -824,7 +824,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-{: caption="Table 7. Checkpointer role actions and mapping" caption-side="top"}
+{: caption="Table 3. Checkpointer role actions and mapping" caption-side="top"}
 {: #checkpointer-role}
 {: tab-title="Checkpointer"}
 {: tab-group="Roles-simple"}
