@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-02"
 
 keywords: videos
 
@@ -21,6 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:script: data-hd-video='script'}
+{:video: .video}
 
 <!-- Acrolinx: 2020-04-24 -->
 
@@ -37,13 +38,10 @@ You can use the [playlist](https://www.youtube.com/playlist?list=PLJa_sXrJUZb-Y4
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} eighteen-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="courseintroduction" title="{{site.data.keyword.cloudant_short_notm}} Course Introduction" type="text/html" width="560" height="315" src="https://www.youtube.com/embed/W1oYiDNpMo4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://www.youtube.com/embed/W1oYiDNpMo4){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Introduction to {{site.data.keyword.cloudant_short_notm}} video script
 {: #cloudant-course-intro-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -81,13 +79,10 @@ That's the end of this part. The next part is called The Document.
 
 Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents work. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="thedocument" title="The Document" type="text/html" width="560" height="315" src="https://youtube.com/embed/xaL1DZuXjtk" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![The Document](https://www.youtube.com/embed/xaL1DZuXjtk){: video output="iframe" data-script="#the-document-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Document video script
 {: #the-document-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -171,13 +166,10 @@ That's the end of this part. The next part is called "The Document id".
 
 Learn how `_ids` work in {{site.data.keyword.cloudant_short_notm}}, how they are different from relational databases, and how you can define your own `_id`. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="theid" title="The _id" type="text/html" width="560" height="315" src="https://youtube.com/embed/sI7xqIveoSY" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![The `_id`](https://www.youtube.com/embed/sI7xqIveoSY){: video output="iframe" data-script="#the-_id-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The _id video script
 {: #the-_id-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -218,13 +210,10 @@ That's the end of this part. The next part is called "The rev token".
 
 Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token when you add, edit, or delete a document. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="therevtoken" title="The rev token" type="text/html" width="560" height="315" src="https://youtube.com/embed/A38jW_hpYFo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![The rev token](https://www.youtube.com/embed/A38jW_hpYFo){: video output="iframe" data-script="#the-rev-token-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The rev token video script
 {: #the-rev-token-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -281,9 +270,7 @@ That's the end of this part. The next part is called "Authentication".
 
 Learn how Legacy authentication and IAM authentication work. You can also learn how {{site.data.keyword.cloudant_short_notm}} generates credentials, and how the three official {{site.data.keyword.cloudant_short_notm}} libraries handle authentication. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="authentication" title="Authentication" type="text/html" width="560" height="315" src="https://youtube.com/embed/Q9UAG42oYhM" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Authentication](https://www.youtube.com/embed/Q9UAG42oYhM){: video output="iframe" data-script="#authentication-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Authentication video script
 {: #authentication-video-script}
@@ -334,13 +321,10 @@ That's the end of this part. The next part is called "The dashboard".
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} Dashboard and what it has to offer, as well as an introduction into how to use it. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="thedashboard" title="The Dashboard" type="text/html" width="560" height="315" src="https://youtube.com/embed/JxwiomhMKd8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![The Dashboard](https://www.youtube.com/embed/JxwiomhMKd8){: video output="iframe" data-script="#the-dashboard-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Dashboard video script
 {: #the-dashboard-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -387,13 +371,10 @@ That's the end of this part. The next part is called "HTTP API Basics".
 
 Learn how to use the command line to make HTTP requests and to add, edit, and delete documents. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="httpapibasics" title="HTTP API Basics" type="text/html" width="560" height="315" src="https://youtube.com/embed/1149M3qcLIw" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![HTTP API Basics](https://www.youtube.com/embed/1149M3qcLIw){: video output="iframe" data-script="#http-api-basics-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### HTTP API Basics video script
 {: #http-api-basics-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -507,13 +488,10 @@ That's the end of this part. The next part is called "The Bulk API"
 
 Learn how to use two API calls to perform all the basic {{site.data.keyword.cloudant_short_notm}} operations while also acting on more than one document per API call.
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="thebulkapi" title="The Bulk API" type="text/html" width="560" height="315" src="https://youtube.com/embed/aNEXKIXMWLY" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![The Bulk API](https://www.youtube.com/embed/aNEXKIXMWLY){: video output="iframe" data-script="#the-bulk-api-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Bulk API video script
 {: #the-bulk-api-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -548,13 +526,10 @@ That's the end of this part. The next part is called "Accessing Cloudant program
 
 Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="accessingcloudantprogrammatically" title="Accessing Cloudant Programmatically" type="text/html" width="560" height="315" src="https://youtube.com/embed/1YdJKw7GhXY" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Accessing Cloudant Programmatically](https://www.youtube.com/embed/1YdJKw7GhXY){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Accessing Cloudant Programmatically video script
 {: #accessing-cloudant-programmatically-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -599,13 +574,10 @@ That's the end of this part. The next part is called "Querying".
 
 Learn the different ways to query data in {{site.data.keyword.cloudant_short_notm}}.
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="querying" title="Querying" type="text/html" width="560" height="315" src="https://youtube.com/embed/x3SWtdzJfdU" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Querying](https://www.youtube.com/embed/x3SWtdzJfdU){: video output="iframe" data-script="#querying-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Querying video script
 {: #querying-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -682,13 +654,10 @@ That's the end of this part. The next part is called "Indexing"
 
 Learn how indexing can speed up your query process. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="indexing" title="Indexing" type="text/html" width="560" height="315" src="https://youtube.com/embed/SofWmZBfXKk" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Indexing](https://www.youtube.com/embed/SofWmZBfXKk){: video output="iframe" data-script="#indexing-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Indexing video script
 {: #indexing-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -746,13 +715,10 @@ That's the end of this part. The next part is called "MapReduce".
 
 Learn about MapReduce, which is another way to configure secondary indexes.
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="mapreduce" title="MapReduce" type="text/html" width="560" height="315" src="https://youtube.com/embed/EhX72EJh9PE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![MapReduce](https://www.youtube.com/embed/EhX72EJh9PE){: video output="iframe" data-script="#mapreduce-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### MapReduce video script
 {: #mapreduce-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -829,13 +795,10 @@ That's the end of this part. The next part is called "Dates"
 
 Learn about different options for storing a date, or date and time value.
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="dates" title="Dates" type="text/html" width="560" height="315" src="https://youtube.com/embed/FqgqvMXMPbI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Dates](https://www.youtube.com/embed/FqgqvMXMPbI){: video output="iframe" data-script="#dates-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Dates video script
 {: #dates-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -869,13 +832,10 @@ That's the end of this part. The next part is called "Replication".
 
 Learn what replication means in {{site.data.keyword.cloudant_short_notm}}, as well as different types of replication and how they work. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="replication" title="Replication" type="text/html" width="560" height="315" src="https://youtube.com/embed/vt-bsuKvVJI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Replication](https://www.youtube.com/embed/vt-bsuKvVJI){: video output="iframe" data-script="#replication-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Replication video script
 {: #replication-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -938,13 +898,10 @@ That's the end of this part. The next part is called "Partitioned databases".
 
 Learn how partitioned databases work in {{site.data.keyword.cloudant_short_notm}}, how to assign documents to specific shards, and why partitioned databases improve performance, cost, and scalability. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="partitioneddatabases" title="Partitioned Databases" type="text/html" width="560" height="315" src="https://youtube.com/embed/cniDi-j3F-4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Partitioned databases](https://www.youtube.com/embed/cniDi-j3F-4){: video output="iframe" data-script="#partitioned-databases-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Partitioned databases video script
 {: #partitioned-databases-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -997,13 +954,10 @@ That's the end of this part. The next part is called "Cloudant Search".
 
 Learn how to use Cloudant Search, as well as Lucene query language and faceting. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="cloudantsearch" title="Cloudant Search" type="text/html" width="560" height="315" src="https://youtube.com/embed/ZDS9Hr-_x8g" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Cloudant Search](https://www.youtube.com/embed/ZDS9Hr-_x8g){: video output="iframe" data-script="#cloudant-search-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Cloudant Search video script
 {: #cloudant-search-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -1054,13 +1008,10 @@ That's the end of this part. The next part is called "Geospatial".
 
 Learn how to use geospatial indexes to query data, which is unique to {{site.data.keyword.cloudant_short_notm}}. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="geospatial" title="Geospatial" type="text/html" width="560" height="315" src="https://youtube.com/embed/uP9bIHweP4c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Geospatial](https://www.youtube.com/embed/uP9bIHweP4c){: video output="iframe" data-script="#geospatial-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Geospatial video script
 {: #geospatial-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
@@ -1086,13 +1037,10 @@ That's the end of this part. The next part is called "Under the hood"
 
 Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized. 
 
-<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="underthehood" title="Under the hood" type="text/html" width="560" height="315" src="https://youtube.com/embed/h_DqYJpUmGQ" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
+![Under the hood](https://www.youtube.com/embed/h_DqYJpUmGQ){: video output="iframe" data-script="#under-the-hood-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Under the hood video script
 {: #under-the-hood-video-script}
-{: script}
 {: notoc}
 
 Welcome to the Introduction to Cloudant course, an eighteen part video series that gives you an overview of the IBM Cloudant databases-as-a-service.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-01"
 
 keywords: features, information
 
@@ -61,13 +61,3 @@ You can complete the following tasks after you install {{site.data.keyword.cloud
 Go to the [{{site.data.keyword.IBM_notm}} Support Portal](https://www.ibm.com/support/home/product/M988263L18030X20/Cloudant_Data_Layer_Local_Edition){:new_window}{: external} and search for {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition. From here, you can find technotes, download fixes,
 and access other support information.
 
-## Documentation for previous versions
-{: #documentation-for-previous-versions}
-
-You can download a PDF version of earlier {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition documentation here. 
-
-- <a href="http://public.dhe.ibm.com/cloud/bluemix/cloudant/Cloudant_Local_v1.0.0.3.pdf" download="Cloudant_Local_v1.0.0.3.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.3 <alt="Download PDF."></a>
-
-- <a href="http://public.dhe.ibm.com/cloud/bluemix/cloudant/Cloudant_Local_v1.0.0.4.pdf" download="Cloudant_Local_v1.0.0.4.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.4 <alt="Download PDF."></a>
-
-- <a href="http://public.dhe.ibm.com/cloud/bluemix/cloudant/Cloudant_Local_v1.0.0.5.pdf" download="Cloudant_Local_v1.0.0.5.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.5 <alt="Download PDF."></a>
