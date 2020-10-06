@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-05"
 
 keywords: create index, create query, run query, fields, operators, monitor instance
 
@@ -26,21 +26,21 @@ subcollection: Cloudant
 # Using the {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #using-the-ibm-cloudant-dashboard}
 
-This tutorial demonstrates different functions available in the {{site.data.keyword.cloudantfull}} dashboard. For example, you learn how to create a database, populate it
+This tutorial demonstrates different tasks available in the {{site.data.keyword.cloudantfull}} dashboard. For example, you learn how to create a database, populate it
 with documents, replicate a database, sort active tasks, review your account, and view support ticket.
 {: shortdesc}
 
 ## Before you begin
 {: ##before-you-begin-dt}
 
-Before you begin, follow these steps to prepare for the tutorial:
+Before you begin, follow these steps to prepare for the tutorial.
 
 1.  Log in to your {{site.data.keyword.cloud}} account.
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your user name and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button.
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button. 
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
     
@@ -54,11 +54,11 @@ Now, we can review the available features in {{site.data.keyword.cloudant_short_
 In this exercise, you create the `dashboard-demo` [database](/docs/Cloudant?topic=Cloudant-databases#create-database), which 
 is the database that we use in this tutorial.
 
-1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create Database**.
+1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
 
    The Create database window opens. 
 
-2. Enter the Database name `dashboard-demo`.
+2. Enter the database name `dashboard-demo`.
 
 3. Select **Non-partitioned**, and click **Create**.
 
@@ -72,7 +72,7 @@ is the database that we use in this tutorial.
 The [documents](/docs/Cloudant?topic=Cloudant-documents#documents)
 that you create in this exercise include the data that you use to query the `dashboard-demo` database in later exercises.
 
-1.  Click **Create Document**. 
+1.  Click **Create document**. 
 
     The New Document window opens.
 
@@ -140,9 +140,9 @@ that you create in this exercise include the data that you use to query the `das
   ```
   {: codeblock}
 
-  You populated the `dashboard-demo` with five records. You can see the records from the Table view in the following screen capture:
+  You populated the `dashboard-demo` with five documents. You can see the documents from the Table view in the following screen capture:
 
-   ![Sample documents](../images/docs1.png){: caption="Figure 2. Sample documents" caption-side="bottom"} 
+   ![Example documents shown in the Table view.](../images/docs1.png){: caption="Figure 2. Sample documents" caption-side="bottom"} 
 
 ### Running a simple query
 {: #running-a-simple-query-dt}
@@ -167,12 +167,12 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     ![Query results](../images/dashboard_query1_results.png){: caption="Figure 3. Results from the query" caption-side="bottom"}
 
-For more information on queries, see [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference about [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query#query).
+For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query#query).
 
 ## Replicating a database
 {: #replicate-database-dt}
 
-When you replicate a database, it synchronizes the state of two databases: source and target. A replication copies all the changes that happened in the source database to the target database. If a document is deleted from the source database, it's also deleted from the target database.
+When you replicate a database, it synchronizes the state of two databases: source and target. A replication copies all the changes that happened in the source database to the target database. When a document is deleted from the source database, the document is also deleted from the target database.
 
 For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replication-api#replication-operation) in the API reference.
 
@@ -182,7 +182,7 @@ To create a replication job, follow these steps:
 
 2. Click **New Replication**. 
 
-   The Job configuration page opens.  
+   The Job configuration page opens. 
 
    ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 4. Job configuration page" caption-side="bottom"} 
    
@@ -191,9 +191,9 @@ To create a replication job, follow these steps:
 
 3. Enter the following information for your replication job:
 
-   Source:
+   *Source*
       - Type - Select **Remote database**.
-      - Name - Enter the Database URL:
+      - Name - Enter the database URL:
         ```http
         https://examples.cloudant.com/query-movies
         ``` 
@@ -201,16 +201,16 @@ To create a replication job, follow these steps:
 
       - Authentication - Leave as `None`.
 
-   Target: 
+   *Target* 
       - Type - Select **New local database**.
       - New database - Enter the name for the new database, **`query-movies`**. 
-      - New database options - Leave Partitioned unchecked.
+      - New database options - Do not select the Partitioned option.
       - Authentication - Select **IAM Authentication**. 
       - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
         
         For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
-   Options:
+   *Options*
      - Replication type - Leave as `One time`. 
      - Replication document - Leave as `Custom ID (optional)`. 
 
@@ -222,7 +222,7 @@ To create a replication job, follow these steps:
 
    ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 6. Status of your replication job" caption-side="bottom"} 
 
-5. See the Completed status when your job finishes. 
+5. See the status when your job finishes. 
 
    ![Completed job status](images/complete-status.png){: caption="Figure 7. Completed job status" caption-side="bottom"} 
 
@@ -239,7 +239,7 @@ The Active tasks page displays a list of all running tasks. When you monitor you
 
    The Active Tasks page opens. 
 
-   ![Monitor active tasks](images/active-tasks-page.png){: caption="Figure 9. Monitor active tasks" caption-side="bottom"} 
+   ![Monitor active tasks.](images/active-tasks-page.png){: caption="Figure 9. Monitor active tasks" caption-side="bottom"} 
 
 2. Navigate to task-specific information by clicking the associated tab. 
 
@@ -251,21 +251,21 @@ Monitor your usage with a graph that shows your throughput by reads, writes, and
 1. Click the **Monitoring** tab in the left navigation. 
 
    The Monitoring page opens to the Current Operations tab. 
-   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.
+   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
-   ![Current Operations tab](images/current-operations-tab.png){: caption="Figure 10. Current Operations tab" caption-side="bottom"}
+   ![Current Operations tab opens.](images/current-operations-tab.png){: caption="Figure 10. Current Operations tab" caption-side="bottom"}
 
 2. Click the **Denied Requests** tab. 
 
-   Review the number of denied requests from a given second that are shown by the number of "429: too many requests." responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests broken down by reads, writes, and global queries.
+   Review the number of denied requests from a given second that are shown by the number of "429: too many requests." responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
-   ![Denied Requests tab](images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab" caption-side="bottom"}
+   ![Denied Requests tab opens.](images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab" caption-side="bottom"}
 
 3. Click the **Storage** tab.
 
    Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 
-   ![Storage tab](images/storage-tab.png){: caption="Figure 12. Storage tab" caption-side="bottom"}
+   ![Storage tab opens.](images/storage-tab.png){: caption="Figure 12. Storage tab" caption-side="bottom"}
 
 For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).
 

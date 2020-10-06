@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-10-06"
 
 keywords: operator, field reference
 
@@ -32,11 +32,11 @@ The Operator for Apache CouchDB allows for user-defined configuration parameters
 ## CouchDB versions
 {: #couchdb-versions}
 
-{{site.data.keyword.IBM}} maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2){: new_window}{: external} and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3){: new_window}{: external} versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/){: new_window}{: external} called `couchdb-release`. The mapping is updated when a new version of the operator is deployed. The mappings are static for any given version of the operator.
+{{site.data.keyword.IBM}} maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2){: new_window}{: external} and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3){: new_window}{: external} versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){: new_window}{: external} called `couchdb-release`. The mapping is updated when a new version of the operator is deployed. The mappings are static for a specific version of the operator.
 
-All `CouchDBCluster` resources managed by an operator are updated to match the set of images referenced in the ConfigMap according to their version. Upgrades are performed in place using a rolling update to minimize service interruption.
+All `CouchDBCluster` resources that are managed by an operator are updated to match the set of images that are referenced in the configmap according to their version. Upgrades are performed in place by using a rolling update to minimize service interruption.
 
-By default, a `CouchDBCluster` will use the `3.x` images. If you want to use version `2.3.1` explicitly, you can set the `spec.version` field:
+By default, a `CouchDBCluster` uses the `3.x` images. If you want to use version `2.3.1` explicitly, you can set the `spec.version` field:
 
 ```
 apiVersion: couchdb.databases.cloud.ibm.com/v1
@@ -48,14 +48,14 @@ spec:
 ```
 {: codeblock}
 
-Users of CouchDB 2 are strongly encouraged to upgrade to CouchDB 3 by either removing the deprecated `spec.version` field or setting it to `3`. This upgrade can be performed in place, though it's recommended to take a backup first.
+Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the deprecated `spec.version` field or setting it to `3`. This upgrade can be performed in place, though we recommend that you take a backup first.
 
 ## Cluster size and scaling
 {: #couchdb-sizing}
 
-By default, a `CouchDBCluster` will be deployed with 3 database nodes. This can be overridden by specifying the `spec.size ` field. Since CouchDB stores 3 replicas of each shard, it is recommended to use multiples of `3` for this value. Also note that this must be less than or equal to the number of nodes in the Kubernetes cluster because the operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
+By default, a `CouchDBCluster` is deployed with three database nodes. This number can be overridden by specifying the `spec.size ` field. Since CouchDB stores three replicas of each shard, it is recommended to use multiples of `3` for this value. Also, this number must be less than or equal to the number of nodes in the Kubernetes cluster because the operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
 
-Scaling CouchDB clusters is not supported. Whilst the `CouchDBCluster` resource allows the `size` to be changed, it is strongly recommended that you do not alter this after the initial deployment. The operator *does not* perform any data rebalancing to take advantage of additional CouchDB nodes and does not prevent data loss in the event that nodes are removed.
+Scaling CouchDB clusters is not supported. While the `CouchDBCluster` resource allows the `size` to be changed, it is recommended that you do not alter the size after the initial deployment. The operator *does not* perform any data rebalancing to take advantage of additional CouchDB nodes and does not prevent data loss when nodes are removed.
 
 ```
 apiVersion: couchdb.databases.cloud.ibm.com/v1
@@ -67,30 +67,31 @@ spec:
 ```
 {: codeblock}
 
-For development and testing purposes, the `spec.devMode` field can be set to `true`. This disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/){: new_window}{: external} / [CodeReady containers](https://developers.redhat.com/products/codeready-containers){: new_window}{: external}.
+For development and testing purposes, the `spec.devMode` field can be set to `true`. This setting disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/){: new_window}{: external} or [CodeReady containers](https://developers.redhat.com/products/codeready-containers){: new_window}{: external}.
 
 
 ## Persistent storage
 {: #couchdb-storage}
 
-Persistent storage can be attached by specifying the `spec.storageClass` field. To work with the CouchDB Operator, storage classes must support the following:
+Persistent storage can be attached by specifying the `spec.storageClass` field. To work with the CouchDB Operator, storage classes must support the following options:
 
  * Dynamic volume provisioning.
  * `ReadWriteOnce` access modes.
  * `volumeBindingMode: WaitForFirstConsumer` (zone-local storage)
- * POSIX filesystem compatibility (e.g. not NFS).
+ * POSIX file system compatibility (for example, not NFS).
 
-This maps to the following preferred options for common public cloud environments:
+These options map to the following preferred options for common public cloud environments:
 
 |Provider |Type|Storage Class|Docs|
 |---------|----|---------|----|
-|IBM Cloud|IBM Block Storage|ibm-block-*  |[Docs](https://cloud.ibm.com/docs/containers?topic=containers-block_storage){: new_window}{: external}
-|AWS      |Elastic Block Storage|aws-ebs      |[Docs](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#aws-definition_dynamic-provisioning){: new_window}{: external}|
-|Azure    |Azure Disk|default or managed-premium|[Docs](https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk){: new_window}{: external}|
+|IBM Cloud|IBM Block Storage|`ibm-block-*` |[{{site.data.keyword.IBM}} Docs](https://cloud.ibm.com/docs/containers?topic=containers-block_storage){: new_window}{: external}
+|AWS      |Elastic Block Storage|`aws-ebs`      |[Red Hat OpenShift Docs](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#aws-definition_dynamic-provisioning){: new_window}{: external}|
+|Azure    |Azure Disk|`default` or `managed-premium`|[Kubernetes Docs](https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk){: new_window}{: external}|
+{: caption="Table 1. Options for common public cloud environments" caption-side="top"}
 
 For GCE, Persistent Disk can be used but a [storage class](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#gce-persistentdisk-storage-class_dynamic-provisioning){: new_window}{: external} must be manually created to support dynamic provisioning.
 
-For on-premise deployments, the following storage providers meet these requirements:
+For on-premises deployments, the following storage providers meet these requirements:
 
  * [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
  * [Ceph RBD](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
@@ -100,7 +101,7 @@ For on-premise deployments, the following storage providers meet these requireme
 ### Changing the pod UID/GID
 {: #change-pod-uid-gid}
 
-Unless overridden by the environment (for example, OpenShift sets these automatically), the `CouchDBCluster` uses the following UID/GID settings in the pod `securityContext`:
+Unless overridden by the environment (for example, OpenShift sets these values automatically), the `CouchDBCluster` uses the following UID/GID settings in the pod `securityContext`:
 
 ```
 securityContext:
@@ -110,7 +111,7 @@ securityContext:
 ```
 {: codeblock}
 
-In most cases, the default values combined with a dynamic provisioner will configure the correct file permissions for persistent volumes.
+In most cases, the default values that are combined with a dynamic provisioner configure the correct file permissions for persistent volumes.
 
 To override the defaults, you can specify `runAsUser` and `fsGroup` in the  `spec.securityContext`:
 
@@ -130,12 +131,12 @@ spec:
 `securityContext.runAsGroup` is not configurable - it is always `root(0)`.
 
 
-## Resource requests / limits
+## Resource requests and limits
 {: #couchdb-resources}
 
-For most use cases, the `spec.cpu` and `spec.memory` fields can be used to specify the database CPU and memory allocations. These fields correspond to the resource requests for the database container. By default, there are no resource limits.
+For most use cases, the `spec.cpu` and `spec.memory` fields can be used to specify the database CPU and memory allocations. These fields correspond to the resource requests for the database container. By default, no resource limits are set. 
 
-If per-container resource requests / limits are required, you can specify these explicitly in the `spec.resources` field:
+If per-container resource requests and limits are required, you can specify these limits explicitly in the `spec.resources` field.
 
 ```
 apiVersion: couchdb.databases.cloud.ibm.com/v1
@@ -176,7 +177,6 @@ The `init` container uses the same resource requests as the `mgmt` container.
 {: #couchdb-cluster-field-reference}
 
 The CouchDBCluster field reference section defines the major parameters on how Apache CouchDB deploys in the Kubernetes environment.
-
 {: note} 
 
 | Name           | Description                                          | Default    |
@@ -188,10 +188,10 @@ The CouchDBCluster field reference section defines the major parameters on how A
 | `memory`       | Memory size (in GB) to request for each database node. | `1`        |
 | `cpu`          | CPU allocation to request for each database node.    | `1`        |
 | `environment`  | CouchDB configuration.                               |            |
-| `resources`    | Container-level resource requests / limits.          |            |
+| `resources`    | Container-level resource requests and limits.          |            |
 | `securityContext`  | Pod security context overrides.                  |            |
 | `devMode`      | Enable development settings.                         | `false`    |
-{: caption="Table 1. CouchDB parameters" caption-side="top"}
+{: caption="Table 2. CouchDB parameters" caption-side="top"}
 
 
 ## CouchDB configuration
@@ -215,7 +215,7 @@ spec:
 ### CouchDB configuration field reference
 {: #couchdb-configuration-field-reference}
 
-The CouchDB configuration field reference section refers to the top level in the environment section of the YAML file, and defines the parameters on how Apache CouchDB itself operates. For more detailed information and definitions of the supported nested parameters, see the [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/index.html){: new_window}{: external}.
+The CouchDB configuration field reference section refers to the environment section of the YAML file, and defines the parameters on how Apache CouchDB itself operates. For more information, see the [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/index.html){: new_window}{: external} to learn more detailed information and definitions of the supported nested parameters.
 
 Update the `adminPassword` to a password of your choosing. We recommend that you keep the default values for the other parameters unless your specific workload warrants a specific configuration.
 
@@ -243,10 +243,10 @@ Update the `adminPassword` to a password of your choosing. We recommend that you
 |                                      |                                                                                                                                                                                                                                                                     |               |                                                                                                        |
 | `dreyfus`                            | CouchDB’s search subsystem can be configured via the dreyfus configuration section.                                                                                                                                                                                 |               | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/query-servers.html#search){: new_window}{: external}                |
 |                                      |                                                                                                                                                                                                                                                                     |               |                                                                                                        |
-| `ken`                                | The daemon responsible for automatically kicking off background jobs to keep secondary indexes “warm”.                                                                                                                                                              |               | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/indexbuilds.html#ken){: new_window}{: external}                |
+| `ken`                                | The daemon responsible for automatically starting background jobs to keep secondary indexes “warm”.                                                                                                                                                              |               | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/indexbuilds.html#ken){: new_window}{: external}                |
 |                                      |                                                                                                                                                                                                                                                                     |               |                                                                                                        |
-| `smoosh`                             | An automated, event-driven daemon that continuously re-prioritizes the database and secondary index files on each node and automatically compacts the files that will recover the most free space.                                                                  |               | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/compaction.html#smoosh){: new_window}{: external}                |
+| `smoosh`                             | An automated, event-driven daemon that continuously reprioritizes the database and secondary index files on each node and automatically compacts the files that recover the most free space.                                                                  |               | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/compaction.html#smoosh){: new_window}{: external}                |
 |                                      |                                                                                                                                                                                                                                                                     |               |                                                                                                        |
 | `reshard`                            | Resharding configuration.                                                                                                                                                                                                                                           |               | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/resharding.html){: new_window}{: external}                |
 | `maxHttpRequestSize`                 | Maximum size of HTTP requests (bytes).                                                                                                                                                                                                                              | `67108864` *  | [CouchDB documentation](https://docs.couchdb.org/en/stable/config/http.html#httpd/max_http_request_size){: new_window}{: external}                        
-{: caption="Table 2. YAML file environment section" caption-side="top"}
+{: caption="Table 3. YAML file environment section" caption-side="top"}
