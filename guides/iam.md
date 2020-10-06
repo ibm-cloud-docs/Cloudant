@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-10-14"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -33,7 +33,7 @@ approach to managing user identities, services, and access control.
 ## Introduction
 {: #introduction-iam}
 
-This document describes {{site.data.keyword.cloudantfull}}'s integration with {{site.data.keyword.cloud_notm}} Identity and
+This document describes the integration of {{site.data.keyword.cloudantfull}} with {{site.data.keyword.cloud_notm}} Identity and
 Access Management. It discusses the differences between {{site.data.keyword.cloudant_short_notm}}'s Legacy
 access controls and {{site.data.keyword.cloud_notm}} IAM's access controls. Next, it looks at the advantages and disadvantages of each
 to help you decide which to use. Then, we discuss how to use IAM within
@@ -80,13 +80,13 @@ credentials or username and password combinations also includes {{site.data.keyw
 ## Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
 {: #enabling-iam-with-ibm-cloudant}
 
-All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July 2018 or later are provisioned in Resource Groups and are enabled with {{site.data.keyword.cloud_notm}} IAM. Optionally, you can choose to also enable the {{site.data.keyword.cloudant_short_notm}} legacy authentication mechanism.  When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, choose from the following available authentication methods:
+All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July 2018 or later are provisioned in Resource Groups and are enabled with {{site.data.keyword.cloud_notm}} IAM. Optionally, you can choose to also enable the {{site.data.keyword.cloudant_short_notm}} legacy authentication mechanism.  When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, choose from the available authentication methods in the following list:
 
-1. **Use both legacy credentials and IAM**: This mode means that both IAM and Legacy credentials can be used to access the account. In particular, both IAM and Legacy sets of credentials are provided to all applications bound to the account and service credentials generated.
+1. **Use both legacy credentials and IAM**: This mode means that both IAM and legacy credentials can be used to access the account. In particular, both IAM and legacy sets of credentials are provided to all applications bound to the account and service credentials generated.
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
-When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
 {: important}
 
 {{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
@@ -123,7 +123,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
 ```
 {: codeblock}
 
-When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
 {: important}
 
 To provision an instance as *Use both legacy credentials and IAM*, run the following command:
@@ -149,8 +149,7 @@ service instance. Generating service credentials this way creates a service cred
 Next, you can see what the service credential JSON looks like and what
 each value means.
 
-When you select *Use only IAM*, service credentials that are generated contain only IAM
-values, and look like the following example:
+When you select *Use only IAM*, service credentials that are generated contain only IAM values, as shown in the following example:
 
 ```json
 {
@@ -165,7 +164,7 @@ values, and look like the following example:
 ```
 {: codeblock}
 
-Each value in the previous JSON example must be interpreted as follows:
+Each value in the previous JSON example must be interpreted by using the values in this example:
 
 - `apikey` - IAM API key.
 - `iam_apikey_description` - Description of IAM API key.
@@ -175,7 +174,7 @@ Each value in the previous JSON example must be interpreted as follows:
 - `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
 - `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
-When you select *Use both legacy credentials and IAM*, the service credentials that are generated contain both IAM and Legacy credentials, and look like the following example:
+When you select *Use both legacy credentials and IAM*, the service credentials that are generated contain both IAM and legacy credentials, as shown in the following example:
 
 ```json
 {
@@ -193,7 +192,7 @@ When you select *Use both legacy credentials and IAM*, the service credentials t
 ```
 {: codeblock}
 
-Each value in the previous JSON example must be interpreted as follows:
+Each value in the previous JSON example must be interpreted by using the values in this example:
 
 - `apikey` - IAM API key.
 - `host` - {{site.data.keyword.cloudant_short_notm}} service host name.
@@ -206,7 +205,7 @@ Each value in the previous JSON example must be interpreted as follows:
 - `url` - {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} Legacy credentials.
 - `username` - The {{site.data.keyword.cloudant_short_notm}} Legacy credential username.
 
-`username` and `password` are always equivalent to IAM's Manager credentials and so use of *Use both legacy credentials and IAM* is insecure when used with Reader, Writer, Monitor, or Checkpointer IAM roles.
+`username` and `password` are always equivalent to the IAM `Manager` credentials. Therefore, the use of *Use both legacy credentials and IAM* is insecure when used with `Reader`, `Writer`, `Monitor`, or `Checkpointer` IAM roles.
 {: note}
 
 ## Must I use *Use only IAM* or *Use both legacy credentials and IAM*?
@@ -221,7 +220,7 @@ If possible, *Use only IAM* is preferred. The major advantages for using
 
 Further description of the advantages and disadvantages of each approach follows.
 
-When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.   
+When you use IAM roles other than `Manager` such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.   
 {: important}
 
 ### Advantages and disadvantages of the two access control mechanisms
@@ -239,12 +238,12 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 - Easy-to-rotate credentials.
 - Activity Tracker logs capture individual humans and services.
 - IAM federates with other identity systems, like enterprise LDAP repositories.
-- Fine-grained permissions (for example, Reader, Writer, Monitor, Checkpointer).
+- Fine-grained permissions (for example, `Reader`, `Writer`, `Monitor`, or `Checkpointer`).
 
 #### Disadvantages of IAM mode
 {: #disadvantages-iam-mode}
 
-- If you are not using {{site.data.keyword.cloudant_short_notm}}'s supported libraries, application changes are likely to be required to use IAM's API keys and access tokens.
+- If you are not using the supported libraries from {{site.data.keyword.cloudant_short_notm}}, application changes are likely to be required to use IAM's API keys and access tokens.
 - No database-level permissions (yet).
 - Some endpoints are unavailable. For more information, see [Unavailable endpoints](#unavailable-endpoints).
 - No way to specify a database as "public", that is, not requiring an authorized user to access.
@@ -283,19 +282,19 @@ Ensure that you select the specified instance, either the Source or Target.
 
    a. Click **Service credentials** and click **New credential**.
 
-   b. Name the new credential `replicator-source`, and select the Manager role.
+   b. Name the new credential `replicator-source`, and select the `Manager` role.
 
 	 c. Click **Add**, and make note of its `apikey`, which is under View Credentials in the Actions column.
 
 3. Repeat steps 2 through 2.c. for the Target instance.
 
-   a. Create a credential called `replicator-target` with the Manager role.
+   a. Create a credential called `replicator-target` with the `Manager` role.
 
    b. Make note of its IAM API key, which is under View Credentials in the Actions column.
 
 4. Select the Source instance, and click **Service credentials** and **New credential**.
 
-   a. Name the new credential `apiaccess`, and select the Manager role. 
+   a. Name the new credential `apiaccess`, and select the `Manager` role. 
 
    b. Make note of the actual IAM API key under View Credentials in the Actions column.
 
@@ -427,7 +426,7 @@ See the results in the following example:
 
 Now, we discuss how to use {{site.data.keyword.cloudant_short_notm}} with
 service instances through IAM authentication. It uses the
-details from the Service Credentials JSON example previously mentioned.
+details from the Service Credentials JSON example shown previously.
 
 {{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey){: new_window}{: external} documentation for more details.
 
@@ -441,12 +440,12 @@ service instances:
 
 | Library | Recommended |
 |---------|-------------|
-| [java-cloudant](https://github.com/cloudant/java-cloudant){: new_window}{: external} | 2.13.0+ |
-| [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external} | 2.3.0+ |
-| [python-cloudant](https://github.com/cloudant/python-cloudant){: new_window}{: external} | 2.9.0+ |
-| [couchbackup](https://github.com/cloudant/couchbackup/){: new_window}{: external} | 2.3.1+ |
-| [CDTDatastore](https://github.com/cloudant/cdtdatastore/){: new_window}{: external} | 2.0.3+ |
-| [sync-android](https://github.com/cloudant/sync-android/){: new_window}{: external} | 2.2.0+ |
+| [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external} | 2.13.0+ |
+| [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external} | 2.3.0+ |
+| [`python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external} | 2.9.0+ |
+| [`couchbackup`](https://github.com/cloudant/couchbackup/){: new_window}{: external} | 2.3.1+ |x
+| [`CDTDatastore`](https://github.com/cloudant/cdtdatastore/){: new_window}{: external} | 2.0.3+ |
+| [`sync-android`](https://github.com/cloudant/sync-android/){: new_window}{: external} | 2.2.0+ |
 {: caption="Table 1. Recommended client library version" caption-side="top"}
 
 The code snippets in the next three sections require these versions.
@@ -454,7 +453,7 @@ The code snippets in the next three sections require these versions.
 ### Java
 {: #java-iam}
 
-Requires [java-cloudant](https://github.com/cloudant/java-cloudant){: new_window}{: external}, 2.13.0+.
+Requires [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external}, 2.13.0+.
 
 Use the `iamApiKey()` method to create a database client with an IAM API key:
 
@@ -485,7 +484,7 @@ public class App
 ### Node.js
 {: #node.js}
 
-Requires [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}, 2.3.0+.
+Requires [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}, 2.3.0+.
 
 Use the `iamauth` plug-in to create a database client with an IAM API key:
 
@@ -511,7 +510,7 @@ cloudant.db.list(function(err, body) {
 ### Python
 {: #python}
 
-Requires [python-cloudant](https://github.com/cloudant/python-cloudant){: new_window}{: external}, 2.9.0+.
+Requires [`python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external}, 2.9.0+.
 
 Use the `Cloudant.iam(account_name, api_key, **kwargs)` method to create a
 database client with an IAM API key:
@@ -537,7 +536,7 @@ is then included in the `Authorization` HTTP header to the service. When the
 access token expires, the client must handle getting a new one from the IAM
 token service.
 
-As stated previously, if you use {{site.data.keyword.cloud_notm}} IAM, it requires that you first exchange an {{site.data.keyword.IBM_notm}} API key for a time-limited access token, and then use the token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API.
+As stated earlier, if you use {{site.data.keyword.cloud_notm}} IAM, it requires that you first exchange an {{site.data.keyword.IBM_notm}} API key for a time-limited access token. After that, you can use the token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API.
 
 In Python, an example might look like:
 
@@ -607,23 +606,23 @@ The following table lists the available IAM service roles for {{site.data.keywor
 
 | Role | Description |
 |--------|----------|
-| Manager | Includes the ability to access all endpoints and perform all administrative functions on an instance, such as creating databases, changing capacity, reading and writing data and indexes, and accessing the Dashboard. |
-| Writer | Includes the ability to read and write to all databases and documents, but not able to create indexes. |
-| Reader | Includes the ability to read all databases and documents, but not able to write new documents or create indexes. |
-| Monitor | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler ` endpoints. |
-| Checkpointer | Includes the ability to write replication checkpointer `_local` documents. Required on source databases during replication. |
+| `Manager` | Includes the ability to access all endpoints and perform all administrative functions on an instance, such as creating databases, changing capacity, reading and writing data and indexes, and accessing the Dashboard. |
+| `Writer` | Includes the ability to read and write to all databases and documents, but not able to create indexes. |
+| `Reader` | Includes the ability to read all databases and documents, but not able to write new documents or create indexes. |
+| `Monitor` | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler ` endpoints. |
+| `Checkpointer` | Includes the ability to write replication checkpointer `_local` documents. Required on source databases during replication. |
 {: caption="Table 2. IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
-Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader.
+`Manager` is inclusive of all actions of `Reader` and `Writer`, and `Writer` is inclusive of all actions of `Reader`.
 
 For more information, see [Platform management roles](/docs/account?topic=account-userroles#platformroles){: new_window}{: external}.
 
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
 
-The following table describes the available IAM actions and roles. For fine-grained authorization, the roles include Manager, Reader, Writer, Monitor, and Checkpointer.
+The following table describes the available IAM actions and roles. For fine-grained authorization, the roles include `Manager`, `Reader`, `Writer`, `Monitor`, and `Checkpointer`.
 
-When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** select *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.  
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** select *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.  
 {: important}
 
 | Method | Endpoint | Action name |
@@ -715,7 +714,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 {: class="simple-tab-table"}
-{: caption="Table 3. Manager role actions and mapping" caption-side="top"}
+{: caption="Table 3. `Manager` role actions and mapping" caption-side="top"}
 {: #manager-role}
 {: tab-title="Manager"}
 {: tab-group="Roles-simple"}
@@ -759,7 +758,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 3. Writer role actions and mapping" caption-side="top"}
+{: caption="Table 3. `Writer` role actions and mapping" caption-side="top"}
 {: #writer-role}
 {: tab-title="Writer"}
 {: tab-group="Roles-simple"}
@@ -796,7 +795,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 3. Reader role actions and mapping" caption-side="top"}
+{: caption="Table 3. `Reader` role actions and mapping" caption-side="top"}
 {: #reader-role}
 {: tab-title="Reader"}
 {: tab-group="Roles-simple"}
@@ -815,7 +814,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
-{: caption="Table 3. Monitor role actions and mapping" caption-side="top"}
+{: caption="Table 3. `Monitor` role actions and mapping" caption-side="top"}
 {: #monitor-role}
 {: tab-title="Monitor"}
 {: tab-group="Roles-simple"}
@@ -824,7 +823,7 @@ When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or C
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-{: caption="Table 3. Checkpointer role actions and mapping" caption-side="top"}
+{: caption="Table 3. `Checkpointer` role actions and mapping" caption-side="top"}
 {: #checkpointer-role}
 {: tab-title="Checkpointer"}
 {: tab-group="Roles-simple"}

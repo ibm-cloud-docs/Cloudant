@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-13"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -29,11 +29,8 @@ subcollection: Cloudant
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {: shortdesc}
 
-## Replaced deprecated database information fields (6 March 2020 or later)
+## Replaced deprecated database information fields
 {: #replaced-dbinfo-size-fields}
-
-The following changes will be coming 6 March 2020 or later and might cause compatibility issues.
-{: important}
 
 Calls to `GET /{db}` were replaced by the following fields:
 
@@ -42,7 +39,7 @@ Calls to `GET /{db}` were replaced by the following fields:
 | `data_size` | `sizes.active` |
 | `disk_size` | `sizes.file` |
 | `other.data_size` | `sizes.external` |
-{: caption="Table 1. New fields to replace deprecated database information fields" caption-side="top"}
+{: caption="Table 1. Database information fields" caption-side="top"}
 
 Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 
@@ -50,15 +47,12 @@ Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 |-----------|----------|
 | `data_size` | `sizes.external` |
 | `disk_size` | `sizes.file` | 
-{: caption="Table 1. New fields to replace deprecated design doc information fields" caption-side="top"}
+{: caption="Table 1. Design doc information fields" caption-side="top"}
 
-## Replaced `queries` parameter (6 March 2020 or later)
+## Replaced `queries` parameter
 {: #replaced-queries-parameter}
 
-The following changes will be coming 6 March 2020 or later and might cause compatibility issues.
-{: important}
-
-The `queries` parameter for performing multiple view queries in a single request will no longer be accepted as a URL parameter for `GET /{db}/_design/{ddoc}/_view/{view}` or a request body parameter for `POST /{db}/_design/{ddoc}/_view/{view}`. It's replaced with the endpoint `POST /{db}/_design/{ddoc}/_view/{view}/queries` where it's supplied as a `queries` request body parameter.
+The `queries` parameter for performing multiple view queries in a single request is no longer accepted as a URL parameter for `GET /{db}/_design/{ddoc}/_view/{view}` or a request body parameter for `POST /{db}/_design/{ddoc}/_view/{view}`. The parameter was replaced with the endpoint `POST /{db}/_design/{ddoc}/_view/{view}/queries` and is supplied as a `queries` request body parameter.
 
 You can also make multiple queries with the following new endpoints: 
 
@@ -86,7 +80,7 @@ curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID"
 
 For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
 
-Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the `warehouser` document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to DB2:
+Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the `warehouser` document's name. `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to DB2.
 
 ```sh
 curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
@@ -114,13 +108,13 @@ The information that is returned in the previous example is described in the fol
 | `dynamite_token` | DB2 password |
 | `target` | DB2 JDBC connection URL, only used if the value for `dashboard_url` is null. |
 | `dynamite_user` | DB2 user name |
-{: caption="Table 3. Response from a search for information in the `warehouser` document" caption-side="top"}
+{: caption="Table 3. Fields from the previous example response" caption-side="top"}
 
 To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.
        
 1. From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
 
-  To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
+  To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the Postfix `login`, you can sign in with the following URL, `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
   {: note}
 
 2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
@@ -144,7 +138,7 @@ by replacing `eval()` calls with the calls from the
 - If you rely on 500 replies for your application, you might have issues. To fix the problem, 
 update your application to rely on 400 responses. 
 
-- If you don't handle reduce overflow errors as part of a row in the response body, 
+- If you don't take care of reduce overflow errors as part of a row in the response body, 
 issues occur. To fix this problem, change the application to handle the errors 
 from view requests.  
 
@@ -152,7 +146,7 @@ from view requests.
 {: #incompatibility-between-couchdb-version-1-6-and-ibm-cloudant-version-2-0-0}
 
 - An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
-in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
+in the request body is ignored. However, the parameter in the request URL is respected. In recent versions of 
 {{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body isn't ignored.
 
 ## Revised error message
@@ -167,7 +161,7 @@ in the request body is ignored while the parameter in the request URL is respect
 ## X-Frame-Options setting (17 August 2017)
 {: #x-frame-options-setting}
 
-The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent clickjacking.
+The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent click jacking.
 
 You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned.
  

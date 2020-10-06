@@ -113,7 +113,7 @@ Cloudant
 		operator/configure_cluster.md
 		operator/deploy_cluster.md
 		operator/access_couchdb.md
-		operator/troubleshoot.md
+		operator/troubleshoot-operator.md
 
 	{: .topicgroup}
 	Tutorials
