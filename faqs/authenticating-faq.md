@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-07"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -72,7 +72,7 @@ To create an instance as *Use only IAM*, run the following command:
 ```sh
 ibmcloud resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
-    -p {"legacyCredentials": false}
+    -p '{"legacyCredentials": false}'
 ```
 {: codeblock}
 
