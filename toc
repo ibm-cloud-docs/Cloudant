@@ -108,6 +108,7 @@ Cloudant
 {: .topicgroup}
 	Operator for Apache CouchDB
 		operator/overview-operator.md
+		operator/release_notes_operator.md
 		operator/install_operator.md
 		operator/configure_cluster.md
 		operator/deploy_cluster.md
