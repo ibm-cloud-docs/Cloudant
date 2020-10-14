@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-14"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -29,6 +29,9 @@ subcollection: Cloudant
 Data can be copied from one database to another in the same {{site.data.keyword.cloudantfull}} account,
 across accounts and across data centers.
 {: shortdesc}
+
+In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
+{: important}
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
 using [{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external}
@@ -395,7 +398,11 @@ See the following example response that requests the status of a replication:
     "_replication_state_time": "2014-12-01T15:19:01+00:00",
     "_replication_id": "4514b08cb4c2ded7da9ab04a87182ceb"
 }
+
 ```
+
+The `triggered` and `error` states will not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
+
 {: codeblock}
 
 When you replicate, if any documents or attachments exceed the maximum limit on the target, replication fails. Each document write failure increases the replication statistic count in `doc_write_failures`. For this reason, you are urged to monitor that field.
