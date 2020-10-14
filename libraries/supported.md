@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-12"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2020-10-12 -->
 
 # Supported client libraries
 {: #supported-client-libraries}
@@ -32,7 +32,7 @@ You can find information on supported client libraries, such as mobile, Node.js,
 ## Mobile
 {: #mobile-supported}
 
-The {{site.data.keyword.cloudantfull}} Sync library is used to store,
+The {{site.data.keyword.cloudantfull}} sync library is used to store,
 index,
 and query local JSON data on a mobile device.
 The library can also synchronize data between many devices.
@@ -42,10 +42,10 @@ both in the local device and the remote database.
 
 Two versions are available:
 
-- [{{site.data.keyword.cloudant_short_notm}} Sync - Android / Java&trade;SE](https://github.com/cloudant/sync-android){: new_window}{: external}.
-- [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore)](https://github.com/cloudant/CDTDatastore){: new_window}{: external}.
+- [{{site.data.keyword.cloudant_short_notm}} sync - Android / Java&trade;SE](https://github.com/cloudant/sync-android){: new_window}{: external}.
+- [{{site.data.keyword.cloudant_short_notm}} sync - iOS (CDTDatastore)](https://github.com/cloudant/CDTDatastore){: new_window}{: external}.
 
-An [overview](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} of {{site.data.keyword.cloudant_short_notm}} Sync is available, as well as details about {{site.data.keyword.cloudant_short_notm}} Sync resources.
+An [overview](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} of {{site.data.keyword.cloudant_short_notm}} sync is available, as well as details about {{site.data.keyword.cloudant_short_notm}} sync resources.
 s
 ## Java
 {: #java-supported}
@@ -89,15 +89,15 @@ npm install cloudant
 ```
 {: codeblock}
 
-### Libraries and frameworks for node.js
+### Libraries and frameworks for Node.js
 {: #libraries-and-frameworks-for-node-js}
 
-#### Supported library for node.js
+#### Supported library for Node.js
 {: #supported-library-for-node-js}
 
 - [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external} ([npm](https://www.npmjs.com/package/@cloudant/cloudant){: new_window}{: external}).
 
-#### Unsupported libraries and frameworks for node.js
+#### Unsupported libraries and frameworks for Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-supported}
 
 - [Sag-JS](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser.
@@ -108,7 +108,7 @@ npm install cloudant
 - [Cane_passport](https://github.com/ddemichele/cane_passport){: new_window}{: external} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
 - [Express-Cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window}{: external} - a template for Node.js Express framework that also uses PouchDB and Grunt.
 
-### Examples and tutorials for node.js
+### Examples and tutorials for Node.js
 {: #examples-and-tutorials-for-node-js}
 
 - [Create, read, update, and delete](https://github.com/cloudant/haengematte/tree/master/nodejs){: new_window}{: external}.

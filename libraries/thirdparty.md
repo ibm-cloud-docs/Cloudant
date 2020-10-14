@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-12"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -53,7 +53,6 @@ install-package mycouch.cloudant
 - [Relax](https://github.com/arobson/Relax){: new_window}{: external}.
 - [Hammock](http://code.google.com/p/relax-net/){: new_window}{: external}.
 - [EasyCouchDB](https://github.com/hhariri/EasyCouchDB){: new_window}{: external}.
-- `WDK.API.CouchDB` from [Kanapes IDE](http://kanapeside.com/){: new_window}{: external}.
 
 ### Examples and tutorials for C# / .NET
 {: #examples-and-tutorials-for-c-net}

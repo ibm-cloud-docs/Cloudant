@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-13"
 
 keywords: apache couchdb, support, extension
 
@@ -21,12 +21,12 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-10-06 -->
 
 # Support
 {: #apache-couchdb-support}
 
-You can find support for questions with Apache CouchDB in the following locations.
+You can find support for questions with Apache CouchDB by using chat and the documentation as described in the following sections.
 {: shortdesc}
 
 ## Chat

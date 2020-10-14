@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-11 -->
+<!-- Acrolinx: 2020-10-12 -->
 
 # Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}
 {: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
@@ -82,7 +82,7 @@ cloudant==2.3.1
 ### Creating an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #creating-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-The process for creating a suitable service instance is described in [this tutorial](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+The process for creating a suitable service instance is described in [this tutorial](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud).
 
 Ensure that you have the following Service Credentials available for your service instance:
 

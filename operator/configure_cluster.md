@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-19 -->
+<!-- Acrolinx: 2020-10-06 -->
 
 # Configuring a CouchDB cluster
 {: #configure-couchdb-cluster}
@@ -32,7 +32,7 @@ The Operator for Apache CouchDB allows for user-defined configuration parameters
 ## CouchDB versions
 {: #couchdb-versions}
 
-{{site.data.keyword.IBM}} maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2){: new_window}{: external} and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3){: new_window}{: external} versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){: new_window}{: external} called `couchdb-release`. The mapping is updated when a new version of the operator is deployed. The mappings are static for a specific version of the operator.
+{{site.data.keyword.IBM}} maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2){: new_window}{: external} and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3){: new_window}{: external} versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){: new_window}{: external} called `couchdb-release`. The mapping is updated when a new version of the operator is deployed. The mappings are static for any given version of the operator.
 
 All `CouchDBCluster` resources that are managed by an operator are updated to match the set of images that are referenced in the configmap according to their version. Upgrades are performed in place by using a rolling update to minimize service interruption.
 
@@ -48,7 +48,7 @@ spec:
 ```
 {: codeblock}
 
-Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the deprecated `spec.version` field or setting it to `3`. This upgrade can be performed in place, though we recommend that you take a backup first.
+Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the deprecated `spec.version` field or setting it to `3`. This upgrade can be performed in place, though we recommend you take a backup first.
 
 ## Cluster size and scaling
 {: #couchdb-sizing}
@@ -67,7 +67,7 @@ spec:
 ```
 {: codeblock}
 
-For development and testing purposes, the `spec.devMode` field can be set to `true`. This setting disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/){: new_window}{: external} or [CodeReady containers](https://developers.redhat.com/products/codeready-containers){: new_window}{: external}.
+For development and testing purposes, the `spec.devMode` field can be set to `true`. This setting disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KIND](https://kind.sigs.k8s.io/docs/user/quick-start/){: new_window}{: external} or [CodeReady containers](https://developers.redhat.com/products/codeready-containers){: new_window}{: external}.
 
 
 ## Persistent storage
@@ -101,7 +101,7 @@ For on-premises deployments, the following storage providers meet these requirem
 ### Changing the pod UID/GID
 {: #change-pod-uid-gid}
 
-Unless overridden by the environment (for example, OpenShift sets these values automatically), the `CouchDBCluster` uses the following UID/GID settings in the pod `securityContext`:
+Unless overridden by the environment (For example, OpenShift sets these values automatically.), the `CouchDBCluster` uses the following UID/GID settings in the pod `securityContext`:
 
 ```
 securityContext:

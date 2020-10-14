@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-10-06 -->
 
 # Support
 {: #ibm-cloudant-local-support}

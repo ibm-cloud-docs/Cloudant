@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-05"
+lastupdated: "2020-10-13"
 
 keywords: create index, create query, run query, fields, operators, monitor instance
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2020-10-05 -->
 
 # Using the {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #using-the-ibm-cloudant-dashboard}
