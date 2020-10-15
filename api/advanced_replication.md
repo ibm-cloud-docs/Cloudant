@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-14"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -36,6 +36,9 @@ You can learn about advanced replication concepts and tasks, such as the ones in
 You might also find it helpful to review details of the underlying
 [replication protocol](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window}{: external},
 and review the [advanced methods](/docs/Cloudant?topic=Cloudant-advanced-api#advanced-api) material.
+
+In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
+{: important}
 
 ## Replication database maintenance
 {: #replication-database-maintenance}
@@ -85,7 +88,9 @@ and consists of seven distinct states:
   This state means that no further attempt is made to replicate by using this replication task.
   The failure might be caused in several different ways,
   for example, if the source or target URLs aren't valid.
-  
+
+The `error` and `initializing` states do not exist on Transaction Engine. ![TXE tag](../images/txe_icon.svg) 
+
 The transition between these states is illustrated in the following diagram:
 
 ![Replication Scheduler states](../images/fb85704.png "Replication Scheduler states"){: caption="Figure 1. Replication Scheduler states" caption-side="bottom"}
@@ -403,8 +408,11 @@ Field | Detail
 The possible states for a `_replication_state` are shown in the following list:
 
 -	`completed` - The replication completed successfully.
--	`error` - An error occurred during replication.
+-	`error` - An error occurred during replication. Replication will be periodically retried.
 -	`triggered` - The replication started. It's now in progress.
+-   `failed` - The replication has failed with an error. Replication will not be retried in this state.
+
+The `triggered` and `error` states will not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
 
 See the following example replication document before it's `PUT` into the `_replicator` database:
 
