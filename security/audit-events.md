@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-10-20"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -135,7 +135,7 @@ When you check what events are enabled, you get one of the following responses:
 
 
 
-#### Configure data events for a {{site.data.keyword.cloudant_short_notm}} instance
+#### Configure data events for an {{site.data.keyword.cloudant_short_notm}} instance
 {: #at_event_configure_api_post}
 
 
@@ -197,17 +197,31 @@ It can take up to 5 minutes for the change to be reflected in the events seen in
 
 Action | Description
 -------|------------
+`cloudantnosqldb.account-status.configure` | Set the status of an instance
+`cloudantnosqldb.account-status.read` | Get the status of an instance
+`cloudantnosqldb.activity-tracker-event-types.read` | Get the configured event types of an instance
+`cloudantnosqldb.activity-tracker-event-types.write` | Configure the event types for an instance
+`cloudantnosqldb.capacity-throughput.read` | Get the current provisioned throughput capacity settings for an instance
+`cloudantnosqldb.capacity-throughput.write` | Set the provisioned throughput capacity settings for an instance
+`cloudantnosqldb.csp.capture` | Indicates a Content Security Policy failure when accessing the Cloudant Dashboard
 `cloudantnosqldb.database.create` | Create a database.
 `cloudantnosqldb.database.delete` | Delete a database.
+`cloudantnosqldb.ibm-cloud-account-status.configure` | Set the status of an instance
+`cloudantnosqldb.ibm-cloud-account-status.read` | Get the status of an instance
+`cloudantnosqldb.legacy-credentials.revoke` | Revoke all legacy credentials and make IAM the only authentication method of an instance
 `cloudantnosqldb.replicator-database.create` | Create `_replicator` database.
 `cloudantnosqldb.replicator-database.delete` | Delete `_replicator` database.
 `cloudantnosqldb.users-database.create` | Create `_users` database.
 `cloudantnosqldb.users-database.delete` | Delete `_users` database.
 `cloudantnosqldb.database-security.read` | Read a security document.
 `cloudantnosqldb.database-security.write` | A create, update, or delete of a security document.
+`cloudantnosqldb.design-document.write` | A create, update, or delete of a `_design` document.
 `cloudantnosqldb.replication.read` | Read a replication document.
 `cloudantnosqldb.replication.write` | A create, update, or delete of a replication document.
-`cloudantnosqldb.design-document.write` | A create, update, or delete of a `_design` document.
+`cloudantnosqldb.sapi.apikeys` | Create a legacy Cloudant API key for an instance
+`cloudantnosqldb.sapi.db-security` | Read or write a database's security document
+`cloudantnosqldb.sapi.usercors` | Set and get the CORS settings for an instance
+`cloudantnosqldb.sapi.userplan` | Get or set plan and plan settings of an instance
 `cloudantnosqldb.users.write` | Create, update or delete a `_users` document.
 `cloudantnosqldb.volumes.update` | A change in state of the {{site.data.keyword.keymanagementservicefull}} key protecting dedicated hardware environment.
 {: caption="Table 1. Management actions that generate events" caption-side="top"}
@@ -217,31 +231,42 @@ Action | Description
 
 Action | Description
 -------|------------
+`cloudantnosqldb.any-document.read` | Read a JSON document.
 `cloudantnosqldb.account-all-dbs.read` | Read a list of all databases.
 `cloudantnosqldb.account-dbs-info.read` | Read metadata about a database.
+`cloudantnosqldb.account-db-updates.read` | Read `_db_updates` endpoint.
+`cloudantnosqldb.account-search-analyze.execute` | Read search index statistics and size.
+`cloudantnosqldb.account-uuids.read` | Read `_uuids` endpoint.
 `cloudantnosqldb.account-active-tasks.read` | Read `_active_tasks`.
-`cloudantnosqldb.users-database-info.read` | Read `_users` database information.
-`cloudantnosqldb.users.read` | Read `_users` database documents.
+`cloudantnosqldb.current-throughput.read` | Get the current consumption of the provisioned throughput capacity for an instance
+`cloudantnosqldb.database-ensure-full-commit.execute` | Post to `_ensure_full_commit` endpoint.
+`cloudantnosqldb.database-info.read` | Read database metadata.
+`cloudantnosqldb.data-document.write` | Write a JSON document.
 `cloudantnosqldb.iam-session.read` | Read IAM session.
 `cloudantnosqldb.iam-session.write` | Write IAM session.
 `cloudantnosqldb.iam-session.delete` | Delete IAM session.
-`cloudantnosqldb.session.read` | Read {{site.data.keyword.cloudant_short_notm}} legacy auth session.
-`cloudantnosqldb.session.write` | Write {{site.data.keyword.cloudant_short_notm}} legacy auth session.
-`cloudantnosqldb.session.delete` | Delete {{site.data.keyword.cloudant_short_notm}} legacy auth session.
-`cloudantnosqldb.replicator-database-info.read` | Read `_replicator` database information.
-`cloudantnosqldb.database-info.read` | Read database metadata.
-`cloudantnosqldb.account-search-analyze.execute` | Read search index statistics and size.
-`cloudantnosqldb.account-db-updates.read` | Read `_db_updates` endpoint.
-`cloudantnosqldb.database-ensure-full-commit.execute` | Post to `_ensure_full_commit` endpoint.
-`cloudantnosqldb.any-document.read` | Read a JSON document.
-`cloudantnosqldb.data-document.write` | Write a JSON document.
+`cloudantnosqldb.ibmid-login.authenticate` | Complete IAM authentication on the Cloudant Dashboard
+`cloudantnosqldb.ibmid-login.receive` | Part of the Cloudant Dashboard login with IAM authentication
+`cloudantnosqldb.ibmid-login.start` | Initiate Cloudant Dashboard login with IAM authentication
 `cloudantnosqldb.local-document.write` | Write a `_local` document.
-`cloudantnosqldb.users-design-document.write` | Write a `_design` document.
-`cloudantnosqldb.users-local-document.write` | Write a `_local` document to the `_users` database.
+`cloudantnosqldb.replicator-database-info.read` | Read `_replicator` database information.
 `cloudantnosqldb,replicator-design-document.write` | Write a `_design` document to the `_replicator` database.
 `cloudantnosqldb.replicator-local-document.write` | Write a `_local` document to the `_replicator` database.
-`cloudantnosqldb.account-uuids.read` | Read `_uuids` endpoint.
+`cloudantnosqldb.sapi.lastactivity` | Get the last active time of an instance. Used internally by the IBM Cloud platform.
+`cloudantnosqldb.sapi.supportattachments` | Attach file to support ticket
+`cloudantnosqldb.sapi.supporttickets` | Create, read and delete support tickets
+`cloudantnosqldb.sapi.usage-data-volume` | Get the data usage of an instance.
+`cloudantnosqldb.sapi.userccmdiagnostics` | Get history of throughput consumption and 429 requests for the past five seconds
+`cloudantnosqldb.sapi.userinfo` | Get metadata of an instance
+`cloudantnosqldb.session.delete` | Delete {{site.data.keyword.cloudant_short_notm}} legacy auth session.
+`cloudantnosqldb.session.read` | Read {{site.data.keyword.cloudant_short_notm}} legacy auth session.
+`cloudantnosqldb.session.write` | Write {{site.data.keyword.cloudant_short_notm}} legacy auth session.
+`cloudantnosqldb.users.read` | Read `_users` database documents
+`cloudantnosqldb.users-database-info.read` | Read `_users` database information.
+`cloudantnosqldb.users-design-document.write` | Write a `_design` document.
+`cloudantnosqldb.users-local-document.write` | Write a `_local` document to the `_users` database.
 {: caption="Table 2. Data actions that generate events" caption-side="top"}
+
 
 ## Viewing events
 {: #at_ui_ma}
