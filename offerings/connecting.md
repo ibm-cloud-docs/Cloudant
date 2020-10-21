@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-21"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -45,17 +45,16 @@ All {{site.data.keyword.cloudant_short_notm}} HTTP endpoints must be accessed ov
 
 The publicly facing external endpoint is shown in the following example:
 
-`https://USERNAME.cloudant.com`
+`https://$USERNAME.cloudant.com`
 
 All instances created after 1 January 2019 include an `appdomain.cloud` domain endpoint. The publicly facing 
 external endpoint is shown in the following example:
 
-`https://USERNAME.cloudantnosqldb.appdomain.cloud`
+`https://$USERNAME.cloudantnosqldb.appdomain.cloud`
 
-Internal endpoints are added to all instances deployed on Dedicated Hardware environments that are created after 1 January 2019
-outside the EU-managed environment. The {{site.data.keyword.cloud_notm}} internal network endpoint is shown in the following example:
+Private (internal) endpoints are added to all instances deployed on Dedicated Hardware plan environments. The {{site.data.keyword.cloud_notm}} private (internal) network endpoint is shown in the following example:
 
-`https://USERNAME.private.cloudantnosqldb.appdomain.cloud`
+`https://$USERNAME.private.cloudantnosqldb.appdomain.cloud`
 
 In the previous example, USERNAME is the service name of the service instance user in the URL. This field also serves as the admin username
 when you use {{site.data.keyword.cloudant_short_notm}} legacy authentication. An example USERNAME is 
