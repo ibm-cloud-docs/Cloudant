@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-20"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -86,7 +86,7 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
-When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions. 
 {: important}
 
 {{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
@@ -221,7 +221,7 @@ If possible, *Use only IAM* is preferred. The major advantages for using
 
 Further description of the advantages and disadvantages of each approach follows.
 
-When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.   
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
 {: important}
 
 ### Advantages and disadvantages of the two access control mechanisms
@@ -621,7 +621,7 @@ Manager is inclusive of all actions of Reader and Writer, and Writer is inclusiv
 
 The following table describes the available IAM actions and roles. For fine-grained authorization, you can use the roles of `Manager`, `Reader`, `Writer`, `Monitor`, or `Checkpointer`.
 
-When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.  
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions. 
 {: important}
 
 | Method | Endpoint | Action name |
@@ -630,6 +630,18 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` |
 | `PUT` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.write` |
 | `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` |
+| `GET` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.read` |
+| `POST` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.write`|
+| `POST` | `/_api/v2/api_keys` | `cloudantnosqldb.sapi.apikeys` |
+| `GET/POST` | `/_api/v2/user/config/cors/` | `cloudantnosqldb.sapi.usercors` |
+| `GET/PUT` | `/_api/v2/user/plan` | `cloudantnosqldb.sapi.userplan` |
+| `GET` | `/_api/v2/user/ccm_diagnostics` | `cloudantnosqldb.sapi.userccmdiagnostics` |
+| `GET` | `/_api/v2/user/last_activity` | `cloudantnosqldb.sapi.lastactivity` |
+| `GET` | `/_api/v2/support/tickets/$CASEID/files/$ATTACHMENTID` | `cloudantnosqldb.sapi.supportattachments` |
+| `GET/POST`| `/_api/v2/support/tickets` | `cloudantnosqldb.sapi.supporttickets` |
+| `GET/PUT/DELETE`|  `/_api/v2/support/tickets/$CASEID` |`cloudantnosqldb.sapi.supporttickets` |
+| `GET`| `/_api/v2/user` |`cloudantnosqldb.sapi.userinfo` |
+| `GET` | `/_api/v2/usage/data_volume` and `/_api/v2/usage/$YEAR/$MONTH` | `cloudantnosqldb.sapi.usage-data-volume` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 | `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` |
 | `GET/HEAD` | `/_replicator` | `cloudantnosqldb.replicator-database-info.read ` |
@@ -720,6 +732,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
+| `GET` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.read` |
 | `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
 | `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or`cloudantnosqldb.design-document.write` or`cloudantnosqldb.local-document.write` |
 | `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or`cloudantnosqldb.design-document.write` and/or`cloudantnosqldb.local-document.write` |
@@ -765,6 +778,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
+| `GET` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.read` |
 | `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
 | `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
 | `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |
@@ -802,6 +816,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
+|`GET` | `/_api/v2/usage/data_volume` and `/_api/v2/usage/$YEAR/$MONTH` | `cloudantnosqldb.sapi.usage-data-volume` |
 | `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` |
 | `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
@@ -835,10 +850,11 @@ The following endpoints are unavailable to requests authorized with IAM:
 
 - HTTP rewrite handlers - `/db/_design/design-doc/_rewrite/path`. 
 
-While design documents can contain rewrite handlers, users cannot call them.
+While design documents can contain rewrite handlers, users cannot call them. 
+
 - Update handlers - `POST /db/_design/ddoc/_update/func`. 
 
-While design documents can contain update functions, users cannot call them.
+While design documents can contain update functions, users cannot call them. 
 
 ## Troubleshooting
 {: #troubleshooting-ai}
