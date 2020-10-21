@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-07"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -435,27 +435,17 @@ details from the Service Credentials JSON example shown previously.
 ### Required client library versions
 {: #required-client-library-versions}
 
-At minimum, use the following client library versions with IAM-enabled {{site.data.keyword.cloudant_short_notm}}
-service instances:
+IAM connectivity is available in the latest release of all supported client libraries. For more information, see [Client libraries](/docs/Cloudant?topic=Cloudant-client-libraries).
 
-| Library | Recommended |
-|---------|-------------|
-| [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external} | 2.13.0+ |
-| [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external} | 2.3.0+ |
-| [`python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external} | 2.9.0+ |
-| [`couchbackup`](https://github.com/cloudant/couchbackup/){: new_window}{: external} | 2.3.1+ |x
-| [`CDTDatastore`](https://github.com/cloudant/cdtdatastore/){: new_window}{: external} | 2.0.3+ |
-| [`sync-android`](https://github.com/cloudant/sync-android/){: new_window}{: external} | 2.2.0+ |
-{: caption="Table 1. Recommended client library version" caption-side="top"}
-
-The code snippets in the next three sections require these versions.
-
-### Java
+#### Java
 {: #java-iam}
 
-Requires [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external}, 2.13.0+.
+The following links provide the latest supported versions of our legacy and beta libraries:
 
-Use the `iamApiKey()` method to create a database client with an IAM API key:
+- [`java-cloudant`](https://github.com/cloudant/java-cloudant/releases/latest){: new_window}{: external}
+- [`cloudant-java-sdk`](https://github.com/IBM/cloudant-java-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
+
+Use the `iamApiKey()` method to create a database client with an IAM API key. The following example uses `java-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Java (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=java#authentication).
 
 ```java
 package com.mycompany.app;
@@ -481,12 +471,15 @@ public class App
 ```
 {: codeblock}
 
-### Node.js
+#### Node.js
 {: #node.js}
 
-Requires [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}, 2.3.0+.
+The following links provide the latest supported versions of our legacy and beta libraries:
 
-Use the `iamauth` plug-in to create a database client with an IAM API key:
+- [`node-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
+- [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
+
+Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `node-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node.js (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=java#authentication).
 
 ```js
 var Cloudant = require('@cloudant/cloudant');
@@ -507,13 +500,16 @@ cloudant.db.list(function(err, body) {
 ```
 {: codeblock}
 
-### Python
+#### Python
 {: #python}
 
-Requires [`python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external}, 2.9.0+.
+The following links provide the latest supported versions of our legacy and beta libraries:
+
+- [`python-cloudant`](https://github.com/cloudant/python-cloudant/releases/latest){: new_window}{: external}
+- [`cloudant-python-sdk`](https://github.com/IBM/cloudant-python-sdk/releases/latest){: new_window}{: external}
 
 Use the `Cloudant.iam(account_name, api_key, **kwargs)` method to create a
-database client with an IAM API key:
+database client with an IAM API key. The following example uses `python-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Python (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=java#authentication).
 
 ```python
 from cloudant.client import Cloudant
@@ -526,6 +522,13 @@ client = Cloudant.iam(
 print client.all_dbs()
 ```
 {: codeblock}
+
+## Go
+{: #go-iam}
+
+The new {{site.data.keyword.cloudant_short_notm}} SDK for Go![BETA tag](../images/beta_icon.png) library is a supported beta client library.
+
+For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Go (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication).
 
 ### Access by using HTTP client
 {: #access-by-using-http-client}

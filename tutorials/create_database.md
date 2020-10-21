@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-30"
+lastupdated: "2020-12-04"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -126,7 +126,8 @@ warning or error conditions that are encountered by your own applications.
 ## Connecting to an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library components to connect to the service instance.
+A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library. This supported library is discussed on the [client libraries](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) page. 
+
 These components are identified as normal `import` statements:
 
 ```python
