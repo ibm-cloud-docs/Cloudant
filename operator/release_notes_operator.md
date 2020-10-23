@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-23"
 
 keywords: couchdb, operator, release notes
 
@@ -28,6 +28,16 @@ subcollection: Cloudant
 
 Changes and updates to Operator for Apache CouchDB that are grouped by version number.
 {: shortdesc}
+
+## v1.3.0 (23 October 2020)
+{: #v1.3.0}
+
+ - Updates CouchDB to [3.1.1](https://docs.couchdb.org/en/latest/whatsnew/3.1.html#version-3-1-1).
+ - Improves logging output for `runit`.
+
+*Bug fixes*
+ - CouchDB no longer stops when the search container restarts.
+ - Fixes missing `findmnt` error in the `mgmt` container.
 
 ## v1.2.1 (15 September 2020)
 {: #v1.2.1}
