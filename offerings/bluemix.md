@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-10-21"
+lastupdated: "2020-10-26"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -222,6 +222,20 @@ selector and passed to the query.
 
 Using appropriate indexes is key for reducing read consumption for partitioned
 {{site.data.keyword.cloudant_short_notm}} Query queries.
+
+### Consumption of read and write operations by replication
+{: #consumption-of-read-and-write-operations-by-replication}
+
+[Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with hitting the provisioned throughput capacity limits set for the instance.  
+
+When using the default parameters and replicating a database with a large backlog of documents to replicate, a single replication job consumes upwards of 2500-3000 reads/sec on the source database and a small amount of writes/sec on the target database. Users can reduce the approximate read throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+
+| `http_connections` | `worker_processes` | Approximate reads/sec on source database |
+|------------------|------------------|-------------------------------------|
+| 2 | 1 | 200 | 
+| 6 | 2 | 1000 |
+| 12 | 3 | 2000 | 
+| 20 | 4 | 3000 (This is the default.) |
 
 ### Viewing and changing capacity
 {: #viewing-and-changing-capacity}

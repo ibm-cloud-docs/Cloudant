@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-26"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -133,6 +133,22 @@ document writes and to build newly created indexes of any type.
       be read and added to the index. We suggest that you create only one new index
       at a time to allow each new index to be built in a timely manner. If you attempt to build several new indexes in parallel, it is likely to cause
       problems where indexes fall behind writes.
+
+## Replication
+{: #replication-throughput-te}
+
+[Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with hitting the provisioned throughput capacity limits set for the instance.  
+
+When using the default parameters and replicating a database with a large backlog of documents to replicate, a single replication job consumes upwards of 650 reads/sec on the source database and batches of 500-1000 writes/sec on the target database. Users can reduce the approximate read and write throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+
+| `http_connections` | `worker_processes` | Approximate reads/sec on source database |
+|------------------|------------------|-------------------------------------|
+| 2 | 1 | 35 | 
+| 6 | 2 | 170 |
+| 12 | 3 | 360 | 
+| 20 | 4 | 650 (This is the default.) |
+
+Write capacity consumed on the target database can be adjusted using the `worker_batch_size` parameter. The default is 500 documents in a batch write, and this parameter can be adjusted down to reduce the peak write throughput seen on the batch writes. 
 
 ## Examples
 {: #request-examples-te}
