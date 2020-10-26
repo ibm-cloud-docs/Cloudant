@@ -30,6 +30,9 @@ Views are used to obtain data stored within a database.
 Views are written by using JavaScript functions. Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. 
 {: shortdesc}
 
+In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
+{: important}
+
 ## View concepts
 {: #view-concepts}
 
@@ -333,6 +336,8 @@ Function | Description
 
 Most customers find the built in reducers are sufficient to perform aggregations on the view key/value pairs emitted from their Map functions, but for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
 
+Custom JavaScript reduce functions are not supported on Transaction Engine. ![TXE tag](../images/txe_icon.svg)
+
 Reduce functions are passed three arguments in the following order:
 
 -	`keys`
@@ -429,6 +434,8 @@ original data that caused the error is returned in the `caused_by` field.
 {: #map-and-reduce-function-restrictions}
 
 Map and reduce function restrictions are described here.
+
+Custom JavaScript reduce functions are not supported on Transaction Engine. ![TXE tag](../images/txe_icon.svg)
 
 ### Referential transparency
 {: #referential-transparency}

@@ -74,7 +74,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Partition Queries` | Yes | No |
 | `Cloudant Query`<br>(JSON type) | Yes | Yes |
 | `Cloudant Query`<br>(Text type) | Yes | No |
-| `MapReduce` | Yes | Map-side JS functions<br>No reduces |
+| `MapReduce` | Yes | Map-side JS functions and built-in reduce functions<br>No custom JS reduces |
 | `Search` | Yes | No |
 | `Geospatial` | Yes | No |
 | `Logging with LogDNA` | Yes | Yes |
