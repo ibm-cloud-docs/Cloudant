@@ -100,7 +100,9 @@ Cloudant
 	Other offerings
 		offerings/bluemix_dedicated.md
 		offerings/cloudant.com.md
+	[API & SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction)
 	{: .navgroup-end}
+
 
 	{: .navgroup id="howto"}
 	how-to.md
