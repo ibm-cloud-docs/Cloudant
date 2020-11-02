@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-11-02"
 
 keywords: couchdb, operator, release notes
 
@@ -28,6 +28,16 @@ subcollection: Cloudant
 
 Changes and updates to Operator for Apache CouchDB that are grouped by version number.
 {: shortdesc}
+
+## v1.4.0 (30 October 2020)
+{: #v1.4.0}
+
+This bug fix release addresses an issue that occurs during upgrades to operator versions *1.2* and *1.3*, whereby pods can get into an unrecoverable state. An upgrade to version *1.4* forces the images to upgrade to the supported version, which resolves this problem.
+
+*Bug fixes*
+ - Fixes syntax error in `pre_stop` script.
+ - Fixes resource leak in health check.
+ - Fixes symlink creation error when init container is restarted.
 
 ## v1.3.0 (23 October 2020)
 {: #v1.3.0}
