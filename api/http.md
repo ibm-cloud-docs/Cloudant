@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-11-03"
 
 keywords: http headers, response headers, http status codes
 
@@ -262,12 +262,12 @@ Code                                    | Meaning
 `405 - Resource Not Allowed`            | A request was made by using an invalid HTTP request type for the URL requested. For example, you requested a `PUT` when a `POST` is required. Errors of this type can also be triggered by invalid URL strings.
 `406 - Not Acceptable`                  | The requested content type is not supported by the server.
 `409 - Conflict`                        | Request resulted in an update conflict.
-`412 - Precondition Failed`             | The request headers from the client and the capabilities of the server do not match.
-`413 - Request Entity Too Large`        | The maximum request body size for an API request sent to {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud}} is 1 MB.
+`412 - Precondition Failed`             | The request headers from the client and the capabilities of the server do not match. Alternatively, a request to create a database was denied because the database already exists. 
+`413 - Request Entity Too Large`        | The request size exceeded the [limit](/docs/Cloudant?topic=Cloudant-limits#request-payload-overview) for the {{site.data.keyword.cloudant_short_notm}} API.
 `415 - Bad Content Type`                | The content types supported, and the content type of the information that was requested or submitted, indicate that the content type is not supported.
 `416 - Requested Range Not Satisfiable` | The range that is specified in the request header cannot be satisfied by the server.
-`417 - Expectation Failed`              | When you send documents in bulk, the bulk-load operation fails.
+`417 - Expectation Failed`              | Returned if the unsupported `all_or_nothing` option is used when sending documents in bulk.
 `429 - Too Many Requests`               | The user sent too many requests in a specific amount of time. More information is available in the corresponding [RFC 6585](https://tools.ietf.org/html/rfc6585#page-3){: new_window}{: external}.
-`500 - Internal Server Error`           | The request was invalid, either because the supplied JSON was invalid, or invalid information was supplied as part of the request. Alternatively, a replication was canceled while in progress.
-`503 - Service Unavailable`             | The request could not be processed. Seeing this response follow an {{site.data.keyword.cloudant_short_notm}} request might indicate a misspelled {{site.data.keyword.cloudant_short_notm}} account name.
+`500 - Internal Server Error`           | The request could not be completed by the server. This could be due to an internal error or in some cases invalid data in the request. Alternatively, a replication was canceled while in progress.
+`503 - Service Unavailable`             | The request could not be processed. Seeing this response might indicate a misspelled {{site.data.keyword.cloudant_short_notm}} account name.
 {: caption="Table 1. HTTP status codes" caption-side="top"}
