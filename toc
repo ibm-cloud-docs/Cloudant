@@ -79,11 +79,8 @@ Cloudant
 		[Mobile application with serverless backend](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend)
 		[Gather, visualize, and analyze IoT data](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-gather-visualize-analyze-iot-data#gather-visualize-analyze-iot-data)
 
-{: .topicgroup}
-	Libraries
-		libraries/client-libraries.md
-		libraries/supported.md
-		libraries/thirdparty.md
+	{: .topicgroup}
+	libraries/client-libraries.md
 
 	{: .topicgroup}
 	Cloudant Local
