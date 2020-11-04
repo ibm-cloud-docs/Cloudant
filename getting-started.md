@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-20"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -84,7 +84,7 @@ Verify that you have what you need to start the tutorial from the following list
   
     For more information about the Python library, see the [supported platforms](/docs/Cloudant?topic=Cloudant-supported-client-libraries#python-supported) documentation. 
 
-## Step 1. Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
+## Step 1. Connecting to your service instance
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
 1.	Run the `python3` command to start the Python interactive shell.
@@ -114,7 +114,7 @@ Verify that you have what you need to start the tutorial from the following list
 
    b. In the menu, click `Service credentials`.
 
-   c. Click the `New credential` button.
+   c. Click the `New credential` button. 
 
    ![Create new service credentials.](tutorials/images/img0050.png){: caption="Figure 2. Create new service credentials" caption-side="bottom"}
   
@@ -122,13 +122,13 @@ Verify that you have what you need to start the tutorial from the following list
 
    e. (Optional) Click Advanced options, and add inline configuration parameters.
 
-   f. Click the `Add` button. 
+   f. Click the `Add` button.  
 
    ![Add a service credential.](tutorials/images/img0051.png){: caption="Figure 3. Add a service credentials" caption-side="bottom"}
 
    Your credentials are added to the Service credentials table.
    
-   g. Click the twistie to the left of your service credential. 
+   g. Click the twistie to the left of your service credential.  
    
    ![View all service credentials.](tutorials/images/img0052.png){: caption="Figure 4. View all service credentials" caption-side="bottom"}
    
@@ -136,9 +136,9 @@ Verify that you have what you need to start the tutorial from the following list
    
    ![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png){: caption="Figure 5. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
-	If you're using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step.
+	If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, replace your service credentials from the previous step.
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
@@ -153,7 +153,7 @@ Verify that you have what you need to start the tutorial from the following list
 	{: codeblock}
 
 
-## Step 2. Create a database
+## Step 2. Creating a database
 {: #step-2-create-a-database}
 
 1. Define a variable in the Python application:
@@ -180,7 +180,7 @@ Verify that you have what you need to start the tutorial from the following list
   ```
   {: codeblock}
 
-## Step 3. Store a small collection of data as documents within the database
+## Step 3. Storing a small collection of data as documents within the database
 {: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. Define a collection of data:
@@ -262,7 +262,7 @@ A full retrieval also includes the data within a document.
     The `u` prefix is an indication that Python is displaying a Unicode string. 
     {: tip}
 
-    If we tidy the appearance a little, we can see that the minimal document details returned are similar to this example.
+    If we fix the appearance a little, we can see that the minimal document details returned are similar to this example.
     
     ```json
     [
@@ -277,7 +277,7 @@ A full retrieval also includes the data within a document.
     ```
     {: codeblock}
 
-    NoSQL databases like {{site.data.keyword.cloudant_short_notm}} don't always adhere to the first in first out method, which means that a document that is stored in the database isn't always the first document that is returned in a list of results.
+    NoSQL databases like {{site.data.keyword.cloudant_short_notm}} don't always adhere to the first in first out method. Therefore, a document that is stored in the database isn't always the first document that is returned in a list of results.
     {: note}
 
 * To run a full retrieval,
@@ -319,7 +319,7 @@ A full retrieval also includes the data within a document.
   {: codeblock}
 
 
-## (Optional) Step 5. See database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
+## (Optional) Step 5. Seeing database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #optional-step-5-ibm-cloudant-dashboard}
 
 Follow these steps to see your database and documents on the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
@@ -332,7 +332,7 @@ Follow these steps to see your database and documents on the {{site.data.keyword
     When the dashboard opens, you can see the databases that are associated with your service.
 
 
-## Step 6. Delete the database
+## Step 6. Deleting the database
 {: #step-6-delete-the-database}
 
 When you're finished with the database,
@@ -351,7 +351,7 @@ else:
 We included some basic error handling
 to show you how to troubleshoot and address potential issues.
 
-## Step 7. Close the connection to the service instance
+## Step 7. Closing the connection to the service instance
 {: #step-7-close-the-connection-to-the-service-instance}
 
 The final step is to disconnect the Python client application from the service instance:

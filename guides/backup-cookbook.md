@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-14"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -32,7 +32,7 @@ For example,
 redundant data storage doesn't protect against mistakes when data is changed.
 {: shortdesc}
 
-If you're new to the subject and want to understand where backup fits in
+If you're new to the subject and want to understand where back up fits in
 with the other features that {{site.data.keyword.cloudantfull}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements, review the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup). 
 {: note}
@@ -44,9 +44,9 @@ to support Disaster Recovery (DR) and High Availability (HA) requirements, revie
 The tool is called CouchBackup,
 and is open source.
 It's a `node.js` library,
-and you can install it on [Npm](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
+and you can install it on [NPM](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
 
-The CouchBackup package includes the library and two command line tools:
+The CouchBackup package includes the library and two command-line tools:
 
 1. `couchbackup`, which dumps the JSON data from a database to a backup text file.
 2. `couchrestore`, which restores data from a backup text file to a database.
@@ -66,7 +66,7 @@ couchbackup --url "https://examples.cloudant.com" --db animaldb > backup.txt
 ```
 {: codeblock}
 
-The [Npm readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: new_window}{: external} details other options,
+The [NPM readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: new_window}{: external} details other options,
 including the ones in this list:
 
 * Environment variables to set the names of the database and URL.
@@ -100,7 +100,7 @@ couchrestore --url "https://myaccount.cloudant.com" --db newanimaldb < backup.tx
 ```
 {: codeblock}
 
-The [Npm readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: new_window}{: external} provides details of other restore options.
+The [NPM readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: new_window}{: external} provides details of other restore options.
 
 The CouchBackup tools have [limitations](#limitations).
 {: important}
@@ -127,21 +127,21 @@ The CouchBackup tools have the following limitations:
 ## Using the tools
 {: #using-the-tools}
 
-The [Npm page](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}
-details the basics of using the command line tools for backup and restore of data.
+The [NPM page](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}
+details the basics of using the command-line tools for backup and restore of data.
 The following examples show how to put those details into practice
 by describing the use of the tools for specific tasks.
 
 The CouchBackup package provides two ways of using its core functions.
 
-* The command line tools can be embedded into standard UNIX&trade; command pipelines.
+* The command-line tools can be embedded into standard UNIX&trade; command pipelines.
   For many scenarios,
   a combination of `cron` and simple shell scripting of the `couchbackup` application is sufficient.
-* A library usable from node.js.
+* A library usable from Node.js.
   The library allows more complicated backup processes to be created and deployed,
   such as determining dynamically which databases must be backed up.
 
-Use either the command line backup tool,
+Use either the command-line backup tool,
 or the library with application code,
 to enable backup from {{site.data.keyword.cloudant_short_notm}} databases as part of more complicated situations.
 A useful scenario is scheduling backups by using `cron`,
@@ -162,7 +162,7 @@ Two requirements frequently occur:
 
 The `couchbackup` tool can write a backup file to disk directly,
 or stream the backup to `stdout`.
-Streaming to `stdout` enables data to be transformed before being written to disk.
+Streaming to `stdout` enables data to be transformed before it is written to disk.
 This feature is used to compress data within the stream.
 
 ```sh
@@ -190,7 +190,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
 It's straightforward to extend the pipeline if you want to transform the data in other ways.
 For example,
 you might want to encrypt the data before it's written to disk.
-You might also want to write the data directly to an object store service by using their command line tools.
+You might also want to write the data directly to an object store service by using their command-line tools.
 
 ### Hourly or daily backups that use `cron`
 {: #hourly-or-daily-backups-that-use-cron-}
@@ -230,8 +230,8 @@ You can modify the cron pattern to run hourly, daily, weekly, or monthly backups
 ## Using CouchBackup as a library
 {: #using-couchbackup-as-a-library}
 
-The `couchbackup` and `couchrestore` command line tools are wrappers around a library
-that can be used in your own node.js applications.
+The `couchbackup` and `couchrestore` command-line tools are wrappers around a library
+that can be used in your own Node.js applications.
 
 The library is useful for more complicated scenarios,
 for example:
@@ -244,7 +244,7 @@ for example:
   your application can detect and address any error at the earliest opportunity.
 
 For more information,
-see the [Npm page](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
+see the [NPM page](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
 
 The following script sample shows how to combine the `couchbackup` library
 with use of {{site.data.keyword.IBM}} Cloud Object Storage.
