@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-14"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -27,7 +27,7 @@ subcollection: Cloudant
 # Migrating to {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-[{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external}'s database-as-a-service offering is a JSON document store that runs on multi-tenant clusters. The service is available with a choice of geographical locations with predictable costs, scalability, and a service level agreement (SLA).
+The [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external} database-as-a-service offering is a JSON document store that runs on multi-tenant clusters. The service is available with a choice of geographical locations with predictable costs, scalability, and a service level agreement (SLA).
 {: shortdesc}
 
 This document describes how to migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} from one of the following plans:
@@ -69,7 +69,7 @@ If you exceed your quota of reads, writes, and global queries in a given second,
 ## Which type of {{site.data.keyword.cloudant_short_notm}} plan do I have?
 {: #which-type-of-ibm-cloudant-plan-do-i-have-}
 
-If you're using {{site.data.keyword.cloudant_short_notm}}, go to the {{site.data.keyword.cloud_notm}} dashboard, and click the menu icon then **Resource List** to see all your service instances. 
+If you're using {{site.data.keyword.cloudant_short_notm}}, go to the {{site.data.keyword.cloud_notm}} dashboard, and click the menu icon then **Resource List** to see all your service instances.  
 
 ![Cloud dash](../images/ibmclouddashboard.png){: caption="Figure 2. Cloud dash" caption-side="bottom"}
 
@@ -101,7 +101,7 @@ Migrate from the free Lite plan to the Standard plan by following these steps:
 3.  Select the {{site.data.keyword.cloudant_short_notm}} instance that you want to migrate. 
 4.  Select the **Plan** tab on the menu. 
 5.  From the list of pricing plans, select the **Standard** check box. 
-![Standard plan](../images/migrate3.png){: caption="Figure 7. Standard plan" caption-side="bottom"}
+![Standard plan](../images/migrate3.png){: caption="Figure 7. Standard plan" caption-side="bottom"} 
 6.  Click **Upgrade**.
     All of your existing data is kept for you.
 
@@ -126,9 +126,9 @@ If you haven't signed up already, [sign up for an {{site.data.keyword.cloud_notm
 ### Step 2. Create an {{site.data.keyword.cloudant_short_notm}} instance
 {: #step-2-create-an-ibm-cloudant-instance}
 
-After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then click `Databases` and `Cloudant`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
+After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then click `Databases` and `Cloudant`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).  
 
-![Add {{site.data.keyword.cloudant_short_notm}} instance](../tutorials/images/img0003.png){: caption="Figure 8. Add {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
+![Add {{site.data.keyword.cloudant_short_notm}} instance.](../tutorials/images/img0003.png){: caption="Figure 8. Add {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
 
 ### Step 3. Find out whether your application is ready for {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -146,7 +146,7 @@ Set up continuous replications from your existing service to your {{site.data.ke
 
 Alternatively, check out the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) tool, which is a command-line utility that helps you coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. It sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 
-![Couch replicate tool](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 9. Couch replicate tool" caption-side="bottom"}
+![Couch replication tool](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 9. Couch replicate tool" caption-side="bottom"}
 
 Verify that all your data replicates to the new service and that indexes are built.
 

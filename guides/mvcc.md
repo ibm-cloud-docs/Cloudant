@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-14"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -58,7 +58,7 @@ The two main uses of the revision number are to help:
 You must specify the previous `_rev` when you [update a document](/docs/Cloudant?topic=Cloudant-documents#update)
 or else your request fails and returns a [409 error](/docs/Cloudant?topic=Cloudant-http#http-status-codes).
 
-`_rev` must not be used to build a version control system because it is an internal value used by the server. Therefore, older revisions of a document are transient, and removed regularly.
+`_rev` must not be used to build a version control system because it is an internal value that is used by the server. Therefore, older revisions of a document are transient, and removed regularly.
 {: note}
 
 However, you can query a particular revision by using its `_rev`, but
@@ -84,7 +84,7 @@ The response contains a `_conflicts` array with all conflicting revisions.
 To find conflicts for multiple documents in a database,
 write a view.
 
-The following map function is is an example that emits all conflicting revisions for every document that has a conflict.
+The following map function is an example that emits all conflicting revisions for every document that has a conflict.
 
 See the following example of a map function to find documents with a conflict:
 
@@ -127,7 +127,7 @@ The first version of a document might look like the following example:
 {: codeblock}
 
 As the document doesn't have a description yet,
-someone might add one:.
+someone might add one.
 
 See the second version of the document, which is created by adding a description:
 
@@ -163,7 +163,7 @@ The difference in document versions results in a conflict.
 ### Get conflicting revisions
 {: #get-conflicting-revisions-mvcc}
 
-You identify documents with with conflicts by using the `conflicts=true` option.
+You identify documents with conflicts by using the `conflicts=true` option.
 
 See the following example of finding documents with conflicts:
 
@@ -172,7 +172,7 @@ http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
 {: codeblock}
 
-See the following example response that shows conflicting revisions affecting documents:
+See the following example response that shows conflicting revisions that affect documents:
 
 ```json
 {
@@ -186,15 +186,14 @@ See the following example response that shows conflicting revisions affecting do
 ```
 {: codeblock}
 
-The version with the changed price has been chosen arbitrarily as the latest version of the document
-and the conflict with another version is noted by providing the ID of that other version in the `_conflicts` array.
-In most cases this array has only one element,
-but there might be many conflicting revisions.
+The version with the changed price was chosen arbitrarily as the latest version of the document. The conflict with another version is noted by providing the ID of that other version in the `_conflicts` array.
+In most cases, this array has only one element,
+but many conflicting revisions might exist.
 
 ### Merge the changes
 {: #merge-the-changes-mvcc}
 
-To compare the revisions to see what has been changed,
+To compare the revisions to see what changed,
 your application gets all of the versions from the database.
 
 See the following example commands to retrieve all versions of a document from the database:
@@ -212,9 +211,9 @@ it is easy to merge them.
 For more complex conflicts,
 other resolution strategies might be required:
 
-*   Time based: use the first or last edit.
-*   User intervention: report conflicts to users and let them decide on the best resolution.
-*   Sophisticated algorithms: for example, 3-way merges of text fields.
+*   Time based - use the first or last edit.
+*   User intervention - report conflicts to users and let them decide on the best resolution.
+*   Sophisticated algorithms - for example, 3-way merges of text fields.
 
 For a practical example of how to implement a merge of changes,
 see this project with [sample code](https://github.com/glynnbird/deconflict){: new_window}{: external}.
@@ -258,6 +257,6 @@ curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6
 ```
 {: codeblock}
 
-At this point,
+Now,
 conflicts affecting the document are resolved.
-You can verify this by `GET`ting the document again with the `conflicts` parameter set to `true`.
+You can verify the status by `GET`ting the document again with the `conflicts` parameter set to `true`.

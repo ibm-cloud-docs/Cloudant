@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-14"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -28,7 +28,7 @@ subcollection: Cloudant
 
 The GDPR seeks to create a harmonized data protection law framework across the EU. It aims 
 to give citizens back the control of their personal data, while it imposes strict rules on 
-those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
+those who host and ‘process’ this data, anywhere in the world. The Regulation also introduces 
 rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
 
@@ -51,7 +51,7 @@ You can find information about auditing in [Audit logging](/docs/Cloudant?topic=
 The following categories of Personal Data are supported by {{site.data.keyword.cloudant_short_notm}} 
 for GDPR:
 
-**Personal Data**, for example:
+**Personal Data**
  * Identity and civil status
  * Personal life
  * Professional life
@@ -59,7 +59,7 @@ for GDPR:
  * Connectivity and device data
 
 **Sensitive Personal Data**, which is restricted to:
-  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: new_window}{: external}
+  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: new_window}{: external}.
 
 If you're storing healthcare data, you *must* complete the following tasks:
  - Notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
@@ -110,7 +110,7 @@ visible to our operations and support teams (see the following paragraph).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
 you must encrypt or otherwise protect (pseudonymize) your data before you send it to us. Do not use PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
-since PI are always visible and written to the access logs.
+since PI is always visible and written to the access logs.
 
 ## Data locations
 {: #data-locations}
@@ -192,7 +192,7 @@ Compaction is done as a background process across
 the storage tier. Databases are always being compacted. It isn't guaranteed that the data compacted is the 
 data that you deleted or changed.
 
-{{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
+{{site.data.keyword.cloudant_short_notm}} is accepting the *Right to be forgotten* requests via 
 the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external}. 
 When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request, 
 explicitly triggers database compaction, and verifies that compaction occurred.
@@ -242,7 +242,7 @@ doesn't remove log lines that include document `_id` values.
 ### What about deleting a database?
 {: #what-about-deleting-a-database-}
 
-Deleting a database adds it to a trash can for up to 48 hours after which it's removed from the 
+Deleting a database adds it to a trash can for up to 48 hours after which the database is removed from the 
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
 *responsibility of the customer*. You must ensure that all copies of your 
 database are removed from your system. For more information, see 

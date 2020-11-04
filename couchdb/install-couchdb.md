@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-14"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -33,9 +33,9 @@ The current GA release is Apache CouchDB version 2.3.1. For more information, se
 
 The [Download CouchDB](http://couchdb.apache.org/#download){: new_window}{: external} site contains links to install CouchDB on the following platforms:
 
-- Windows (x86)
+- Windows&trade; (x86)
 - macOS
-- Linux: Debian/Ubuntu/RHEL/CentOS
+- Linux&trade; - Debian/Ubuntu/RHEL/CentOS
 
 ## Containers
 {: #containers}
@@ -57,4 +57,4 @@ The [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-o
 
 ### Helm Chart
 
-An Apache CouchDB helm chart along with documentation is available on [Helm Hub](https://hub.helm.sh/charts/couchdb/couchdb){: new_window}{: external}. 
+An Apache CouchDB Helm chart along with documentation is available on [Helm Hub](https://hub.helm.sh/charts/couchdb/couchdb){: new_window}{: external}. 

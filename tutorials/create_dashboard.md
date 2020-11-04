@@ -40,7 +40,7 @@ Before you begin, follow these steps to prepare for the tutorial.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your user name and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button. 
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button.  
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
     
@@ -182,7 +182,7 @@ To create a replication job, follow these steps:
 
 2. Click **New Replication**. 
 
-   The Job configuration page opens. 
+   The Job configuration page opens.  
 
    ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 4. Job configuration page" caption-side="bottom"} 
    
@@ -212,21 +212,21 @@ To create a replication job, follow these steps:
 
    *Options*
      - Replication type - Leave as `One time`. 
-     - Replication document - Leave as `Custom ID (optional)`. 
+     - Replication document - Leave as `Custom ID (optional)`.  
 
     ![Replication configuration page](images/job-configuration.png){: caption="Figure 5. Replication configuration page" caption-side="bottom"}
 
 4. Click **Start Replication**. 
 
-   The Replication page opens where you can see that your replication job is running. 
+   The Replication page opens where you can see that your replication job is running.  
 
    ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 6. Status of your replication job" caption-side="bottom"} 
 
-5. See the status when your job finishes. 
+5. See the status when your job finishes.  
 
    ![Completed job status](images/complete-status.png){: caption="Figure 7. Completed job status" caption-side="bottom"} 
 
-6. Check that the database was created on the Databases page. 
+6. Check that the database was created on the Databases page.  
 
    ![Databases page](images/databases.png){: caption="Figure 8. Databases page" caption-side="bottom"} 
 
@@ -237,7 +237,7 @@ The Active tasks page displays a list of all running tasks. When you monitor you
 
 1. Click **Active Tasks** in the left menu. 
 
-   The Active Tasks page opens. 
+   The Active Tasks page opens.  
 
    ![Monitor active tasks.](images/active-tasks-page.png){: caption="Figure 9. Monitor active tasks" caption-side="bottom"} 
 
@@ -251,19 +251,19 @@ Monitor your usage with a graph that shows your throughput by reads, writes, and
 1. Click the **Monitoring** tab in the left navigation. 
 
    The Monitoring page opens to the Current Operations tab. 
-   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
+   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.  
 
-   ![Current Operations tab opens.](images/current-operations-tab.png){: caption="Figure 10. Current Operations tab" caption-side="bottom"}
+   ![Current Operations tab opens.](images/current-operations-tab.png){: caption="Figure 10. Current Operations tab opens" caption-side="bottom"}
 
 2. Click the **Denied Requests** tab. 
 
-   Review the number of denied requests from a given second that are shown by the number of "429: too many requests." responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
+   Review the number of denied requests from a given second that are shown by the number of "429: too many requests." responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.  
 
-   ![Denied Requests tab opens.](images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab" caption-side="bottom"}
+   ![Denied Requests tab opens.](images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab opens" caption-side="bottom"}
 
 3. Click the **Storage** tab.
 
-   Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
+   Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed.  
 
    ![Storage tab opens.](images/storage-tab.png){: caption="Figure 12. Storage tab" caption-side="bottom"}
 
