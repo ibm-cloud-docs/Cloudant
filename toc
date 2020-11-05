@@ -37,13 +37,12 @@ Cloudant
     {: .navgroup-end}
 
      {: .navgroup id="tutorial"}
-    tutorials/create_service.md
+    tutorials/locate-service-credentials.md
     tutorials/create_service_cli.md
     tutorials/create_dedicated_hardware_plan.md
     tutorials/create_database.md
     tutorials/create_query.md
     tutorials/create_backup.md
-    tutorials/create_dashboard.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}

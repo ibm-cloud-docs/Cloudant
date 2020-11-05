@@ -2,449 +2,372 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-11-06"
 
-keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
+keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
 subcollection: Cloudant
+
+content-type: tutorial
+services: Cloudant
+account-plan: lite 
+completion-time: 20m
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:screen: .screen}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:step: data-tutorial-type='step'}
 
 <!-- Acrolinx: 2020-03-11 -->
 
 # Getting started with {{site.data.keyword.cloudant_short_notm}}
 {: #getting-started-with-cloudant}
+{: toc-content-type="tutorial"}
+{: toc-services="Cloudant"}
+{: toc-completion-time="20m"}
 
-In this {{site.data.keyword.cloudantfull}} getting started tutorial,
-we use Python to create an {{site.data.keyword.cloudant_short_notm}} database
-and populate that database with a simple collection of data. You can retrieve data by using queries or API endpoints. 
+In this {{site.data.keyword.cloudantfull}} getting started tutorial, we use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance, and find essential information to enable your application to work with the database. With the {{site.data.keyword.cloudant_short_notm}} dashboard, we learn how to perform different tasks, such as how to create a database, populate a database with documents, replicate a database, and so on. 
 {: shortdesc}
 
-For more information, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
+You can also create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, retrieve data by using queries or API endpoints, and many other tasks from the command line. For more information, see the [API and SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction).
 
-- [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/node?topic=node-cloudant){: new_window}{: external}
-- [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/swift?topic=swift-getting-started){: new_window}{: external}
-- [Python and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/cloud-foundry?topic=cloud-foundry-getting-started-python){: new_window}{: external}
+## Objectives
+{: #objectives-get-started}
 
-For more language-specific tutorials, see [Get started by deploying your first app](https://cloud.ibm.com/docs/home/build){: new_window}{: external}.
+- Create a service instance
+- Create an {{site.data.keyword.cloudant_short_notm}} service credential
+- Open the {{site.data.keyword.cloudant_short_notm}} dashboard
+- Create a database
+- Add JSON documents to the database and run a query
+- Replicate a database
+- Monitor active tasks
+- Monitor with {{site.data.keyword.cloudant_short_notm}}
 
-## Before you begin
-{: #prereqs}
+## Creating a service instance
+{: #creating-an-ibm-cloudant-instance-on-ibm-cloud}
+{: step}
 
-Verify that you have what you need to start the tutorial from the following list:
+1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click the `Create resource` button.
 
-- [An {{site.data.keyword.cloud}} account](https://cloud.ibm.com){: new_window}{: external}
-- [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
-- Verify that you have the  most current version of the [Python programming language](https://www.python.org/){: new_window}{: external}:
+    ![{{site.data.keyword.cloud_notm}} dashboard](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
-
-1.  To check the Python version installed on your machine, run the following command:
-    ```sh
-	  python3 --version
-	  ```
-	  {: pre}
-	
-2. Verify that your version matches the most recent version. The result looks something like this:
-	  ```sh
-	  Python 3.8.1
-	  ```
-	  {: screen}
-
-    - The Cloudant Python library enables your Python applications to work with {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
-	
-3.	To check that the client library is already installed, run the following command at a prompt:	
-    ```sh
-	  pip3 freeze
-	  ```
-	  {: pre}
-	
-	  You see a list of all the Python modules that are installed on your system. Review the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
-
-	  ```
-	  cloudant==<version>
-	  ```
-	  {: screen}
-	
-4.  If the `cloudant` module isn't installed, install it by using a command similar to the following one.
-	  ```sh
-	  pip3 install cloudant
-	  ```
-	  {: pre}
-  
-    For more information about the Python library, see the [supported platforms](/docs/Cloudant?topic=Cloudant-supported-client-libraries#python-supported) documentation. 
-
-## Step 1. Connecting to your service instance
-{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
-
-1.	Run the `python3` command to start the Python interactive shell.
-    ```python
-    python3
-    ```
-    {: codeblock}
-  
-  ![Python 3 interactive shell](tutorials/images/python3.png){: caption="Figure 1. Python 3 interactive shell" caption-side="bottom"}
-
-2.  Run the `import` statements of the {{site.data.keyword.cloudant_short_notm}}
-	Client Library components to enable your Python application to connect to
-	the {{site.data.keyword.cloudant_short_notm}} service instance.
-	```python
-	from cloudant.client import Cloudant
-	from cloudant.error import CloudantException
-	from cloudant.result import Result, ResultByKey
-	```
-	{: codeblock}
-
-2.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
-
-   a. In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
-
-   Remember to create a service instance first. You can see instructions in the second bullet of the [Before you begin](/docs/services/Cloudant?topic=Cloudant-getting-started-with-cloudant#prereqs) section. 
-   {: note}
-
-   b. In the menu, click `Service credentials`.
-
-   c. Click the `New credential` button. 
-
-   ![Create new service credentials.](tutorials/images/img0050.png){: caption="Figure 2. Create new service credentials" caption-side="bottom"}
-  
-   d. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
-
-   e. (Optional) Click Advanced options, and add inline configuration parameters.
-
-   f. Click the `Add` button.  
-
-   ![Add a service credential.](tutorials/images/img0051.png){: caption="Figure 3. Add a service credentials" caption-side="bottom"}
-
-   Your credentials are added to the Service credentials table.
-   
-   g. Click the twistie to the left of your service credential.  
-   
-   ![View all service credentials.](tutorials/images/img0052.png){: caption="Figure 4. View all service credentials" caption-side="bottom"}
-   
-   The details for the service credentials appear:
-   
-   ![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png){: caption="Figure 5. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
-
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
-
-	If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, replace your service credentials from the previous step.
-	```python
-	client = Cloudant("<username>", "<password>", url="<url>")
-	client.connect()
-	```
-	{: codeblock}
-	
-	If you're using IAM authentication, replace your service credentials from the previous step.
-	```python
-	client = Cloudant.iam("<username>", "<apikey>")
-	client.connect()
-	```
-	{: codeblock}
-
-
-## Step 2. Creating a database
-{: #step-2-create-a-database}
-
-1. Define a variable in the Python application:
-  ```python
-  database_name = "<your-database-name>"
-  ```
-  {: codeblock}
-
-  ... where `<your-database-name>` is the name you would like to give your database. 
-
-  The database name must begin with a letter and can include only lowercase characters (a-z), numerals (0-9), and any of the following characters `_`, `$`, `(`, `)`, `+`, `-`, and `/`.
-  {: important}
-
-2. Create the database:
-  ```python
-  my_database = client.create_database(database_name)
-  ```
-  {: codeblock}
-
-3. Confirm that the database was created successfully:
-  ```python
-  if my_database.exists():
-      print(f"'{database_name}' successfully created.")
-  ```
-  {: codeblock}
-
-## Step 3. Storing a small collection of data as documents within the database
-{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
-
-1. Define a collection of data:
-  ```python
-  sample_data = [
-      [1, "one", "boiling", 100],
-      [2, "two", "hot", 40],
-      [3, "three", "warm", 20],
-      [4, "four", "cold", 10],
-      [5, "five", "freezing", 0]
-    ]
-  ```
-  {: codeblock}
-
-2. Use Python code to "step" through the data and convert it into JSON documents.
-  Each document is stored in the database:
-
-  ```python
-  # Create documents by using the sample data.
-  # Go through each row in the array
-  for document in sample_data:
-    # Retrieve the fields in each row.
-    number = document[0]
-    name = document[1]
-    description = document[2]
-    temperature = document[3]
-    #
-    # Create a JSON document that represents
-    # all the data in the row.
-    json_document = {
-        "numberField": number,
-        "nameField": name,
-        "descriptionField": description,
-        "temperatureField": temperature
-    }
-    #
-    # Create a document by using the database API.
-    new_document = my_database.create_document(json_document)
-    #
-    # Check that the document exists in the database.
-    if new_document.exists():
-        print(f"Document '{number}' successfully created.")
-  ```
-  {: codeblock}
-
-  Notice that we check to ensure that each document is successfully created.
-  {: tip}
-
-## Step 4. Retrieve data through queries
-{: #step-4-retrieve-data-through-queries}
-
-A small collection of data was stored as documents within the database.
-You can do a minimal or full retrieval of that data from the database.
-A minimal retrieval includes the basic data about a document.
-A full retrieval also includes the data within a document.
-
-* To run a minimal retrieval, follow these steps:
-  1. First, request a list of all documents within the database.
-    ```python
-    result_collection = Result(my_database.all_docs)
-    ```      
-    {: codeblock}
-
-    This list is returned as an array.
-
-  2. Display the content of an element in the array.
-    ```python
-    print(f"Retrieved minimal document:\n{result_collection[0]}\n")
-    ```
-    {: codeblock}
-
-    The result is similar to the following example:
-    
-    ```
-    [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
-    ```
-    {: screen}
-    
-    The `u` prefix is an indication that Python is displaying a Unicode string. 
-    {: tip}
-
-    If we fix the appearance a little, we can see that the minimal document details returned are similar to this example.
-    
-    ```json
-    [
-        {
-            "id": "14be111aac74534cf8d390eaa57db888",
-            "key": "14be111aac74534cf8d390eaa57db888",
-            "value": {
-                "rev": "1-106e76a2612ea13468b2f243ea75c9b1"
-            }
-        }
-    ]
-    ```
-    {: codeblock}
-
-    NoSQL databases like {{site.data.keyword.cloudant_short_notm}} don't always adhere to the first in first out method. Therefore, a document that is stored in the database isn't always the first document that is returned in a list of results.
+    The {{site.data.keyword.cloud_notm}} dashboard can be found at:
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
+    After you authenticate with your user name and password,
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. 
     {: note}
+    
+2.  Type `Cloudant` in the Search bar, and click to open it:
 
-* To run a full retrieval,
-  request a list of all documents within the database,
-  and provide the `include_docs` option to specify that the document content must also be returned.
-  ```python
-  result_collection = Result(my_database.all_docs, include_docs=True)
-  print(f"Retrieved full document:\n{result_collection[0]}\n")
-  ```
-  {: codeblock}
-  
-  The result is similar to the following example:
-  ```
-  [{u'value': {u'rev': u'1-7130413a8c7c5f1de5528fe4d373045c'}, u'id': u'0cfc7d902f613d5fdb7b7818e262353b', u'key': u'0cfc7d902f613d5fdb7b7818e262353b', u'doc': {u'temperatureField': 40, u'descriptionField': u'hot', u'numberField': 2, u'nameField': u'two', u'_id': u'0cfc7d902f613d5fdb7b7818e262353b', u'_rev': u'1-7130413a8c7c5f1de5528fe4d373045c'}}]
-  ```
-  {: screen}
-  
-  If we tidy the appearance a little, we can see that the full document details we got back are similar to this example.
-  
+    ![{{site.data.keyword.cloud_notm}} database services](/tutorials/images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
+
+3.  Select an offering and an environment.
+
+    ![{{site.data.keyword.cloudant_short_notm}} region and pricing plan](/tutorials/images/img0005a.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} offering and environment" caption-side="bottom"}
+
+4.   Enter an instance name. </br>
+    (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. </br>
+    Add a tag if you like. </br>
+    The authentication methods that are available include `IAM` or `IAM and legacy credentials`.</br> 
+    For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
+
+5.  Select your pricing plan. </br>
+    See the capacity in the table that follows.
+
+    ![Select your pricing plan.](tutorials/images/img0005c.png){: caption="Figure 4. Pricing plans and capacity" caption-side="bottom"}
+
+6. To create the service, click the `Create` button:
+
+    ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials.](tutorials/images/img0005b.png){: caption="Figure 5. {{site.data.keyword.cloudant_short_notm}} service name and credentials" caption-side="bottom"}
+
+    The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+    {: important}
+
+    After you click `Create`, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, "Provision in progress." 
+
+7. When the status changes to Active, click the instance, and click the `Service Credentials` tab. 
+
+    ![Create the {{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0007.png){: caption="Figure 6. Create {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+
+The service credentials in this example was defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
+{: note}
+
+## Creating an {{site.data.keyword.cloudant_short_notm}} service credential
+{: #creating-service-credential}
+{: step}
+
+1.  To create the connection information that your application needs to connect to the instance, click the `New credential` button.
+
+    ![Create new service credentials.](tutorials/images/img0050.png){: caption="Figure 7. Create new service credentials" caption-side="bottom"}
+
+2.  Enter a name for the new credential in the Add new credential window. 
+
+3.  Accept the Manager role.
+
+4.  (Optional) Create a service ID or have one automatically generated for you. 
+
+5.  (Optional) Add inline configuration parameters. This parameter isn't used by {{site.data.keyword.cloudant_short_notm}} service credentials, so ignore it. 
+
+6.  Click the `Add` button.
+
+    ![Add a service credential](tutorials/images/img0051.png){: caption="Figure 8. Add a service credential" caption-side="bottom"}
+ 
+    Your new credential appears in the table.
+
+For more information about how to find your service credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
+
+## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} dashboard
+{: #using-the-ibm-cloudant-dashboard}
+{: step}
+
+Open your {{site.data.keyword.cloudant_short_notm}} service instance by following these steps.
+
+1.  Go to the {{site.data.keyword.cloud_notm}} dashboard. 
+    
+2.  Click **Services** in the Resource list.
+
+3.  From the Services section, click the `Cloudant-o7` instance you created in the first step, and click **Launch Dashboard**.
+    The {{site.data.keyword.cloudant_short_notm}} dashboard opens.
+
+Now, we can create a database, and run queries against that database.  
+
+## Creating a database
+{: #creating-a-database-dt}
+{: step}
+
+In this exercise, you create the `dashboard-demo` [database](/docs/Cloudant?topic=Cloudant-databases#create-database), which 
+is the database that we use in this tutorial.
+
+1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
+
+   The Create database window opens. 
+
+2. Enter the database name `dashboard-demo`.
+
+3. Select **Non-partitioned**, and click **Create**.
+
+   The `dashboard-demo` database opens automatically.
+
+  Now, we can create some documents. 
+
+## Adding documents to the database
+{: #creating-documents-in-the-database-dt}
+{: step}
+
+The [documents](/docs/Cloudant?topic=Cloudant-documents#documents)
+that you create in this exercise include the data that you use to query the `dashboard-demo` database in later exercises.
+
+1.  Click **Create document**. 
+
+    The New Document window opens.
+
+2.  Copy the following sample text and replace the existing text in the new document.
+
+  *This example is the first sample document*:
   ```json
-  [
-    {
-      "value": {
-        "rev": "1-7130413a8c7c5f1de5528fe4d373045c
-      },
-      "id": "0cfc7d902f613d5fdb7b7818e262353b",
-      "key": "0cfc7d902f613d5fdb7b7818e262353b",
-      "doc": {
-        "temperatureField": 40,
-        "descriptionField": "hot",
-        "numberField": 2,
-        "nameField": "two",
-        "_id": "0cfc7d902f613d5fdb7b7818e262353b",
-        "_rev": "1-7130413a8c7c5f1de5528fe4d373045c"
-      }
-    }
-  ]
+  {
+    "firstname": "Sally",
+    "lastname": "Brown",
+    "age": 16,
+    "location": "New York City, NY",
+    "_id": "doc1"
+  }
   ```
   {: codeblock}
 
+3.  Repeat steps 1 and 2 to add the remaining documents to the database.
 
-## (Optional) Step 5. Seeing database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
-{: #optional-step-5-ibm-cloudant-dashboard}
+  *This example is the second sample document*:
+  ```json
+  {
+    "firstname": "John",
+    "lastname": "Brown",
+    "age": 21,
+    "location": "New York City, NY",
+    "_id": "doc2"
+  }
+  ```
+  {: codeblock}
 
-Follow these steps to see your database and documents on the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
+  *This example is the third sample document*:
+  ```json
+  {
+    "firstname": "Greg",
+    "lastname": "Greene",
+    "age": 35,
+    "location": "San Diego, CA",
+    "_id": "doc3"
+  }
+  ```
+  {: codeblock}
 
-1.  Log in to your {{site.data.keyword.cloud_notm}} account.
-    The {{site.data.keyword.cloud_notm}} dashboard can be found at: cloud.ibm.com. After you authenticate with your user name and password, you're presented with the IBM Cloud dashboard.
-2.  Click **Services** in the Resource summary pane to see your {{site.data.keyword.cloudant_short_notm}} service instances. 
-3.  Click the service instance whose details you want to see.
-4.  Click **Launch Dashboard**. 
-    When the dashboard opens, you can see the databases that are associated with your service.
+  *This example is the fourth sample document*:
+  ```json
+  {
+    "firstname": "Anna",
+    "lastname": "Greene",
+    "age": 44,
+    "location": "Baton Rouge, LA",
+    "_id": "doc4"
+  }
+  ```
+  {: codeblock}
 
+  *This example is the fifth sample document*:
+  ```json
+  {
+    "firstname": "Lois",
+    "lastname": "Brown",
+    "age": 33,
+    "location": "New York City, NY",
+    "_id": "doc5"
+  }
+  ```
+  {: codeblock}
 
-## Step 6. Deleting the database
-{: #step-6-delete-the-database}
+  You populated the `dashboard-demo` with five documents. You can see the documents from the Table view in the following screen capture:
 
-When you're finished with the database,
-it can be deleted.
+   ![Example documents shown in the Table view.](images/docs1.png){: caption="Figure 2. Sample documents" caption-side="bottom"} 
 
-```python
-try:
-    client.delete_database(database_name)
-except CloudantException:
-    print(f"There was a problem deleting '{database_name}'.\n")
-else:
-    print(f"'{database_name}' successfully deleted.\n")
-```
-{: codeblock}
+### Running a simple query
+{: #running-a-simple-query-dt}
+{: step}
 
-We included some basic error handling
-to show you how to troubleshoot and address potential issues.
+This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query finds documents based on the `lastname` and the `firstname`.   
 
-## Step 7. Closing the connection to the service instance
-{: #step-7-close-the-connection-to-the-service-instance}
+1.  Click the **Query** tab.
+2.  Copy the following sample JSON and replace the existing text in the new query window:
+  ```json
+   {
+      "selector": {
+            "lastname" : "Greene",
+            "firstname" : "Anna"            
+         }        
+   }
+  ```
+  {: codeblock}
 
-The final step is to disconnect the Python client application from the service instance:
+3.  Click **`Run Query`**.
 
-```python
-client.disconnect()
-```
-{: codeblock}
+    The query results display. You can see them from the Table view in the following screen capture:
 
-## Next steps
-{: #next-steps}
+    ![Query results](images/dashboard_query1_results.png){: caption="Figure 3. Results from the query" caption-side="bottom"}
 
-For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
-see the main [{{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external} site.
+For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query#query).
 
-For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant).
+## Replicating a database
+{: #replicate-database-dt}
+{: step}
 
-## Appendix. Complete Python code listing
-{: #appendix-complete-python-code-listing}
+When you replicate a database, it synchronizes the state of two databases: source and target. A replication copies all the changes that happened in the source database to the target database. When a document is deleted from the source database, the document is also deleted from the target database.
 
-The complete Python code listing is as follows. 
-Remember to replace the `<username>`,
-`<password>`, `<url>`, and `<apikey>` values with your service credentials.
-Similarly,
-replace the `<yourDatabaseName>` value with the name for your database.
+For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replication-api#replication-operation) in the API reference.
 
-```python
-from cloudant.client import Cloudant
-from cloudant.error import CloudantException
-from cloudant.result import Result
+To create a replication job, follow these steps:
 
-# {{site.data.keyword.cloudant_short_notm}} Legacy authentication
-client = Cloudant("<username>", "<password>", url="<url>")
-client.connect()
+1. Click the **Replication** tab.
 
-# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
-# client = Cloudant.iam("<username>", "<apikey>")
-# client.connect()
+2. Click **New Replication**. 
 
-database_name = "<your-database-name>"
+   The Job configuration page opens.  
 
-my_database = client.create_database(database_name)
+   ![Job configuration page](tutorials/images/replication-config-page-blank.png){: caption="Figure 4. Job configuration page" caption-side="bottom"} 
+   
+   Additionally, you can create a replication from the Databases page by clicking the **Replicate** button in the Actions column.
+   {: note} 
 
-if my_database.exists():
-    print(f"'{database_name}' successfully created.")
+3. Enter the following information for your replication job:
 
-sample_data = [
-    [1, "one", "boiling", 100],
-    [2, "two", "hot", 40],
-    [3, "three", "warm", 20],
-    [4, "four", "cold", 10],
-    [5, "five", "freezing", 0]
-]
+   *Source*
+      - Type - Select **Remote database**.
+      - Name - Enter the database URL:
+        ```http
+        https://examples.cloudant.com/query-movies
+        ``` 
+        {: codeblock}
 
-# Create documents using the sample data.
-# Go through each row in the array
-for document in sample_data:
-    # Retrieve the fields in each row.
-    number = document[0]
-    name = document[1]
-    description = document[2]
-    temperature = document[3]
+      - Authentication - Leave as `None`.
 
-    # Create a JSON document that represents
-    # all the data in the row.
-    json_document = {
-        "numberField": number,
-        "nameField": name,
-        "descriptionField": description,
-        "temperatureField": temperature
-    }
+   *Target* 
+      - Type - Select **New local database**.
+      - New database - Enter the name for the new database, **`query-movies`**. 
+      - New database options - Do not select the Partitioned option.
+      - Authentication - Select **IAM Authentication**. 
+      - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
+        
+        For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
-    # Create a document using the Database API.
-    new_document = my_database.create_document(json_document)
+   *Options*
+     - Replication type - Leave as `One time`. 
+     - Replication document - Leave as `Custom ID (optional)`.  
 
-    # Check that the document exists in the database.
-    if new_document.exists():
-        print(f"Document '{number}' successfully created.")
+    ![Replication configuration page](tutorials/images/job-configuration.png){: caption="Figure 5. Replication configuration page" caption-side="bottom"}
 
-result_collection = Result(my_database.all_docs)
+4. Click **Start Replication**. 
 
-print(f"Retrieved minimal document:\n{result_collection[0]}\n")
+   The Replication page opens where you can see that your replication job is running.  
 
-result_collection = Result(my_database.all_docs, include_docs=True)
-print(f"Retrieved full document:\n{result_collection[0]}\n")
+   ![Status of your replication job](tutorials/images/status-replication-jobs.png){: caption="Figure 6. Status of your replication job" caption-side="bottom"} 
 
-try:
-    client.delete_database(database_name)
-except CloudantException:
-    print(f"There was a problem deleting '{database_name}'.\n")
-else:
-    print(f"'{database_name}' successfully deleted.\n")
+5. See the status when your job finishes.  
 
-client.disconnect()
-```
-{: codeblock}
+   ![Completed job status](tutorials/images/complete-status.png){: caption="Figure 7. Completed job status" caption-side="bottom"} 
+
+6. Check that the database was created on the Databases page.  
+
+   ![Databases page](tutorials/images/databases.png){: caption="Figure 8. Databases page" caption-side="bottom"} 
+
+## Monitoring active tasks
+{: #monitoring-active-tasks-dt}
+{: step}
+
+The Active tasks page displays a list of all running tasks. When you monitor your system's performance, this list can help you find potential issues. You can see a list of active tasks, which includes compaction, replication, and indexing. For more information, see the [Managing tasks](/docs/Cloudant?topic=Cloudant-managing-tasks) guide. 
+
+If your instance does not have any active tasks, you can return to the previous step, delete the query-movies database, and then replicate it again. If you open the Active Tasks page immediately, you can see your replication. 
+{: tip}
+
+1. Click **Active Tasks** in the left menu. 
+
+   The Active Tasks page opens.  
+
+   ![Monitor active tasks.](tutorials/images/active-tasks-page.png){: caption="Figure 9. Monitor active tasks" caption-side="bottom"} 
+
+2. Navigate to task-specific information by clicking the associated tab. 
+
+## Monitoring with {{site.data.keyword.cloudant_short_notm}}
+{: #monitoring-with-cloudant-dt}
+{: step}
+
+Monitor your usage with a graph that shows your throughput by reads, writes, and global queries. You can see your current operations, denied requests, and storage usage. 
+
+Since your service instance is for demonstration purposes only, this page is not populated with data. However, you can see what monitoring information is available to you. 
+
+1. Click the **Monitoring** tab in the left navigation. 
+
+   The Monitoring page opens to the Current Operations tab. 
+   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.  
+
+   ![Current Operations tab opens.](tutorials/images/current-operations-tab.png){: caption="Figure 10. Current Operations tab opens" caption-side="bottom"}
+
+2. Click the **Denied Requests** tab. 
+
+   Review the number of denied requests from a given second that are shown by the number of "429: too many requests." responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.  
+
+   ![Denied Requests tab opens.](tutorials/images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab opens" caption-side="bottom"}
+
+3. Click the **Storage** tab.
+
+   Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed.  
+
+   ![Storage tab opens.](tutorials/images/storage-tab.png){: caption="Figure 12. Storage tab" caption-side="bottom"}
+
+For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).
