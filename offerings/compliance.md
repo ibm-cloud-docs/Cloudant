@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-11-05"
 
 keywords: tier-1 physical system, hipaa, iso, pci, soc 2 type 2 certification, gdpr
 
@@ -71,7 +71,7 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 ## PCI
 {: #pci}
 
-{{site.data.keyword.cloudant_short_notm}} multi-tenant Lite and Standard plan instances, along with Standard plan instances that are deployed on Dedicated Hardware plan environments, are compliant with the Payment Card Industry Data Security Standard (PCI DSS). {{site.data.keyword.cloud_notm}} completes annual PCI DSS assessments by using an approved Qualified Security Assessor (QSA), and the resulting Attestations of Compliance (AOCs) and Service Responsibility Matrix guides are available upon customer request. Auditors reviewed {{site.data.keyword.cloudant_short_notm}} for compliance under PCI DSS version 3.2.1 at Service Provider Level 1. 
+{{site.data.keyword.cloudant_short_notm}} multi-tenant Lite, Standard, and Standard on Transaction Engine plan instances, along with Standard plan instances that are deployed on Dedicated Hardware plan environments, are compliant with the Payment Card Industry Data Security Standard (PCI DSS). {{site.data.keyword.cloud_notm}} completes annual PCI DSS assessments by using an approved Qualified Security Assessor (QSA), and the resulting Attestations of Compliance (AOCs) and Service Responsibility Matrix guides are available upon customer request. Auditors reviewed {{site.data.keyword.cloudant_short_notm}} for compliance under PCI DSS version 3.2.1 at Service Provider Level 1. 
 
 Customers are responsible for the storing, processing, and transmission of their cardholder data, and can create cardholder data environments (CDEs) that can store, transmit, or process cardholder data by using {{site.data.keyword.cloudant_short_notm}}. Customers can use the {{site.data.keyword.cloud_notm}} AOCs and SRM guides when they seek their own PCI DSS certifications. It is the responsibility of the customer to document and operate CDEs and applications that are built by using {{site.data.keyword.cloud_notm}} Platform services in a PCI DSS-compliant manner. 
 
