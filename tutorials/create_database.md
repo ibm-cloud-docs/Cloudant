@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-11-06"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2020-10-12 -->
 
-# Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}
+# Creating and populating a database
 {: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
 
 This tutorial shows you how to use the [Python programming language](https://www.python.org/){: new_window}{: external} to

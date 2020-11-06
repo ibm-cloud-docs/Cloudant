@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-11-06"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2020-04-23 -->
 
-# Creating an {{site.data.keyword.cloudant_short_notm}} Query
+# Using {{site.data.keyword.cloudant_short_notm}} Query
 {: #creating-an-ibm-cloudant-query}
 
 This tutorial demonstrates how to create a database, populate it
