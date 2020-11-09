@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-11-09"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -55,7 +55,7 @@ If you're using a Windows&trade; computer, you can specify your username and pas
 First, we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
 This encoding gives us a base64 character sequence as output.
 
-`$ACCOUNT` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+`$ACCOUNT` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 {: note}
 
 The command to base64-encode some data is similar to the following example:

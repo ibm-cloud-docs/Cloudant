@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-03"
+lastupdated: "2020-11-09"
 
 keywords: develop applications, supported library, mobile, java, node.js, python, swift, go
 
@@ -30,14 +30,7 @@ Client libraries are the tools that you use to develop your own applications
 to work with {{site.data.keyword.cloudantfull}} databases.
 {: shortdesc}
 
-The following client libraries are formally supported by {{site.data.keyword.cloudant_short_notm}}:
-
--	[Java&trade;](#java-supported)
--	[Node.js](#node-js-supported)
--	[Python](#python-supported)
-- [Go](#go-supported) 
--	[Mobile](#mobile-supported)
--	[Swift](#swift)
+The following client libraries are formally supported by {{site.data.keyword.cloudant_short_notm}}: Java&trade;, Node.js, Python, Go, Mobile, and Swift.
 
 A supported library is one where you can contact {{site.data.keyword.cloudant_short_notm}} if you come across a specific,
 reproducible problem in the current version of the library.

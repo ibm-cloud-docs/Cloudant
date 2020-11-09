@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-10"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -348,4 +348,4 @@ To run the query, follow these steps:
     ```
     {: codeblock}
 
-Now, you know how to extract data from your database by using {{site.data.keyword.cloudant_short_notm}} Query. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-overview#overview).
+Now you know how to extract data from your database by using {{site.data.keyword.cloudant_short_notm}} Query. For more information, see the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).
