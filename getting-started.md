@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-09"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -102,7 +102,7 @@ The service credentials in this example was defined when a demonstration {{site.
 {: note}
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} service credential
-{: #creating-service-credential}
+{: #step-2-creating-service-credential}
 {: step}
 
 1.  To create the connection information that your application needs to connect to the instance, click the `New credential` button.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-09"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -50,7 +50,7 @@ by using the {{site.data.keyword.cloud_notm}} CLI.
 To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. Install the tools by following the [Getting started with the {{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started){: new_window}{: external} tutorial.
 
 ## Logging in to your {{site.data.keyword.cloud_notm}} account
-{: #logging-in-service-create-cli}
+{: #logging-in-to-your-ibm-cloud-account}
 {: step}
 
 The following example describes how to log in. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: new_window}{: external} under `ibmcloud login`. 

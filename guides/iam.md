@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-11-09"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -415,9 +415,9 @@ See the results in the following example:
 
 2. Update your application to use IAM authentication instead of {{site.data.keyword.cloudant_short_notm}} legacy authentication.
 
-3. Generate [new service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance) as needed.
+3. Generate [new service credentials](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#step-2-creating-service-credential) as needed.
 
-4. Open a new {{site.data.keyword.cloud_notm}} support case that requests the removal of {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+4. Open a new {{site.data.keyword.cloud_notm}} support case that requests the removal of {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
 5. After support replies that the legacy credentials were removed, any service credentials that were created before removal contain legacy username and password details that no longer work. It is recommended to remove any of these service credential entries.
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-09"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -164,7 +164,7 @@ After your instance is created, you must create a Standard plan on it by selecti
 7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard 
     as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
-    For more information, see [how to locate your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials){: new_window}. 
+    For more information, see [how to locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials){: new_window}. 
     
 ## Provisioning a Dedicated Hardware plan instance with the {{site.data.keyword.cloud_notm}} CLI
 {: #provisioning-a-dedicated-hardware-plan-instance-with-the-ibm-cloud-cli}

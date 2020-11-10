@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-09"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -60,7 +60,7 @@ Python 3.8.1
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 {: #python-client-library-for-ibm-cloudant}
 
-An [officially supported library](/docs/Cloudant?topic=Cloudant-supported-client-libraries#python-supported) is included to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}}. Use the instructions provided to install it. 
+An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}}. Use the instructions provided to install it. 
 
 To check that the client library installed successfully,
 run the following command at a prompt:
@@ -95,7 +95,7 @@ Field      | Purpose
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 {: caption="Table 1. Service credentials" caption-side="top"}
 
-For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
 ## Context
 {: #context}

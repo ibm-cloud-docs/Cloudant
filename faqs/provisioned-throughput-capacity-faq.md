@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-11-09"
 
 keywords: read, write, global query, throughput, operation type, event, reject request, retry, provision, capacity
 
@@ -48,5 +48,5 @@ For example, if you have a Standard plan instance that limits you to 200 reads p
 When you exceed the number of allowed events, {{site.data.keyword.cloudant_short_notm}} generates a [*`429` Too Many Requests*](/docs/services/Cloudant?topic=Cloudant-http#http-status-codes)
 response. You must make sure ahead of time that your applications can handle `429` responses. 
 
-If you use the most recent versions of the [client libraries](/docs/services/Cloudant?topic=Cloudant-supported-client-libraries) that {{site.data.keyword.cloudant_short_notm}} supports, you can set up your applications to handle `429` responses. This step is important because most client libraries don't automatically attempt to retry a request when a `429` response occurs. You need to verify that your application handles `429` responses correctly because {{site.data.keyword.cloudant_short_notm}} limits the number of retries. Regularly exceeding the number of requests indicates that you need to move to a different plan. 
+If you use the most recent versions of the [client libraries](/docs/Cloudant?topic=Cloudant-client-libraries) that {{site.data.keyword.cloudant_short_notm}} supports, you can set up your applications to handle `429` responses. This step is important because most client libraries don't automatically attempt to retry a request when a `429` response occurs. You need to verify that your application handles `429` responses correctly because {{site.data.keyword.cloudant_short_notm}} limits the number of retries. Regularly exceeding the number of requests indicates that you need to move to a different plan. 
 
