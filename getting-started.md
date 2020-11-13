@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-13"
+lastupdated: "2020-11-16"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -98,10 +98,10 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
 
     ![Create the {{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0007.png){: caption="Figure 6. Create {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
-The service credentials in this example was defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
+The service credentials in this example were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
 {: note}
 
-## Creating an {{site.data.keyword.cloudant_short_notm}} service credential
+## Creating a service credential
 {: #step-2-creating-service-credential}
 {: step}
 
@@ -123,7 +123,16 @@ The service credentials in this example was defined when a demonstration {{site.
  
     Your new credential appears in the table.
 
-For more information about how to find your service credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
+7.  To see the credentials that are required to access the service,
+    click the chevron:
+
+    ![Viewing the service credentials.](tutorials/images/img0052.png){: caption="Figure 11. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+
+    The details for the service credentials open:
+
+    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0009.png){: caption="Figure 12. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+
+For more information about the fields in your credentials, see [Understanding your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#the-service-credentials).
 
 ## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} dashboard
 {: #using-the-ibm-cloudant-dashboard}
