@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-13"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -123,7 +123,7 @@ The service credentials in this example was defined when a demonstration {{site.
  
     Your new credential appears in the table.
 
-For more information about how to find your service credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
+For more information about how to find your service credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
 
 ## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} dashboard
 {: #using-the-ibm-cloudant-dashboard}

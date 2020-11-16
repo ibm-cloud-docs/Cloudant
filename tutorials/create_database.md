@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-13"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -95,7 +95,7 @@ Field      | Purpose
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 {: caption="Table 1. Service credentials" caption-side="top"}
 
-For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
+For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
 
 ## Context
 {: #context}
