@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-11-17"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -38,6 +38,12 @@ Some of these protection features are automatic.
 For other forms of protection,
 {{site.data.keyword.cloudant_short_notm}} provides you with supported tools that
 help you to create your own high availability and disaster recovery capabilities.
+
+
+The {{site.data.keyword.cloud}} Service has Business Continuity plans in place to provide for the recovery of the Cloud Service within hours in the event of a disaster. 
+
+You are responsible for your data backup, and associated recovery of your content.
+{: important}
 
 This document provides an overview of the automatic capabilities and supported tools that are offered by {{site.data.keyword.cloudant_short_notm}}.
 
