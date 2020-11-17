@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-16"
+lastupdated: "2020-11-17"
 
 keywords: public isolation for cloudant, compute isolation for cloudant, cloudant architecture, workload isolation in cloudant
 
@@ -32,18 +32,18 @@ Review the following sample architecture for {{site.data.keyword.cloudantfull}},
 
 {{site.data.keyword.cloudant_short_notm}} is a multi-tenant-capable database system with mechanisms in place to distribute any shared resources like CPU or I/O fairly amongst the active tenants. {{site.data.keyword.cloudant_short_notm}} implements isolation in the database layer itself, and not by relying on containers. Instances are isolated from each other for access control, meaning that it is not possible to read or write data in one instance from another. 
 
-{{site.data.keyword.cloudant_short_notm}} has three plans offering different isolation levels that can be used to meet your requirements: 
+Workload isolation is an important consideration for many customers. To enable you to select the best {{site.data.keyword.cloudant_short_notm}} plan choice for your workload isolation requirements, see the following architectural information: 
 
-1.  Standard on Transaction Engine plan, which offers our most cost-effective and robust isolation suitable for all use-cases, including regulated use-cases.
+1.  Standard on Transaction Engine plan, which offers our most cost-effective and robust isolation.
 
-2.  Standard and Lite plans on Multi-Tenant Hardware, which offer excellent isolation that is suitable for most workloads.
+2.  Standard and Lite plans on Multi-Tenant Hardware, which offer excellent isolation.
 
-3.  Standard plan provisioned on a Dedicated Hardware plan instance, which offers improved isolation over Standard on Multi-Tenant Hardware. Use this for use-cases not able to use Standard on Transaction Engine, including regulated use-cases. 
+3.  Standard plan provisioned on a Dedicated Hardware plan instance, which offers improved isolation over Standard on Multi-Tenant Hardware. 
 
 ### Standard on Transaction Engine
 {: #standard-txe}
 
-The Standard on Transaction Engine plan uses improved compute and storage layer technologies to provide strong security guarantees and resource isolation while using a shared underlying infrastructure. The plan has provisioned throughput rate-limiting applied, along with other resource and access isolation mechanisms within the database layer itself. The plan is able to provide the security and resource separation required for regulated workloads and is the recommended plan for all workloads. 
+The Standard on Transaction Engine plan uses improved compute and storage layer technologies to provide strong security guarantees and resource isolation while using a shared underlying infrastructure. The plan has provisioned throughput rate-limiting applied, along with other resource and access isolation mechanisms within the database layer itself. 
 
 ![Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard on Transaction Engine plan](../images/Isolation-Standard-TXE.svg){: caption="Figure 1. Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard on Transaction Engine plan" caption-side="bottom"} 
 
