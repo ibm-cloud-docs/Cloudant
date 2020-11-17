@@ -39,6 +39,10 @@ For other forms of protection,
 {{site.data.keyword.cloudant_short_notm}} provides you with supported tools that
 help you to create your own high availability and disaster recovery capabilities.
 
+The IBM Cloud Service has Business Continuity plans in place to provide for the recovery of the Cloud Service within hours in the event of a disaster. 
+
+You are responsible for your own data backup, and associated recovery of your content.
+
 This document provides an overview of the automatic capabilities and supported tools that are offered by {{site.data.keyword.cloudant_short_notm}}.
 
 ## Types and levels of protection
