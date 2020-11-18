@@ -90,6 +90,7 @@ Cloudant
     {: .topicgroup}
     Enhancing security for IBM Cloudant
         security/access-iam.md
+        security/architecture-workload-isolation.md
         security/secure-connection.md
         security/secure-data.md
         security/audit-events.md
