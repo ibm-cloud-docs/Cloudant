@@ -40,6 +40,8 @@
         "creating service credential for Cloudant",
         "find apikey for Cloudant",
         "create apikey in Cloudant",
+		"Where i can see My cloudant ID",
+		"view my cloudant ID",
         "creating Cloudant service credentials",
         "finding service credentials for Cloudant",
         "getting service credentials for Cloudant"
@@ -83,9 +85,7 @@
         "documents returned by Cloudant the most current",
         "documents returned by Cloudant the latest version",
         "docs with latest version in Cloudant",
-        "doc conflict in Cloudant",
-        "document conflicts within Cloudant",
-        "know whether there's a document conflict in Cloudant",
+        "latest document version in Cloudant",
         "current document returned within Cloudant"
     ],
     "how-identify-document-conflict": [
@@ -93,8 +93,13 @@
         "identify a document with a conflict in Cloudant",
         "identify a Cloudant document with a conflict",
         "Cloudant returns a 409 response",
+		"Cloudant giving a 409 error",
         "find document conflicts in Cloudant",
         "finding document conflicts in Cloudant",
+		"identify a conflict in a Cloudant document",
+		"doc conflict in Cloudant",
+        "document conflicts within Cloudant",
+        "know whether there's a document conflict in Cloudant",
         "viewing a document with a conflict in Cloudant",
         "409 response given for Cloudant",
         "409 error in Cloudant"
@@ -146,6 +151,9 @@
         "do conflicted documents harm performance",
         "what issues caused by conflicted documents",
         "typical issues caused by conflicted Cloudant docs",
+		"worry about conflicted documents in Cloudant",
+		"impact on performance with conflicted documents",
+		"ignore conflicts in Cloudant",
         "what performance issue caused by conflicted documents",
         "issues in Cloudant with conflicts in documents",
         "do document conflicts harm performance"
@@ -157,6 +165,8 @@
         "use of views for Cloudant Dbs",
         "search using views in Cloudant databases",
         "searching in Cloudant databases",
+		"views to pre-calculate results in Cloudant",
+		"view to precalculate results for Cloudant",
         "searching through Cloudant databases",
         "should I use views in Cloudant database"
     ],
@@ -206,6 +216,8 @@
         "cloudant blocked my account from storing new data",
         "exceed the capacity limit in Cloudant",
         "exceed the 1GB storage limit in Cloudant",
+		"exceeding configured capacity within Cloudant",
+		"exceeded configured capacity in Cloudant",
         "amount of storage in Cloudant",
         "how much storage comes with Standard plan",
         "is storage free with Cloudant",
@@ -238,6 +250,8 @@
         "account exceeded the total number of events",
         "429 Too Many Requests response in Cloudant",
         "account exceeds the total number of events",
+		"exceeding throughput capacity for Cloudant",
+		"exceeded throughput capacity in Cloudant",
         "HTTP status code 429 Too Many Requests",
         "error message 429 in Cloudant",
         "429 Too Many Requests response in Cloudant"
@@ -256,6 +270,8 @@
         "Cloudant migration process cause any downtime",
         "Cloudant migration cause any downtime",
         "any down time during Cloudant migration",
+		"amount of downtime when migrating Cloudant",
+		"down time migrating Cloudant",
         "downtime occur when you migrate a Cloudant instance",
         "downtime when migrating a Cloudant instance",
         "Cloudant migrating cause any downtime"
@@ -273,6 +289,8 @@
         "can't create new Standard plan instances on my Dedicated Hardware instances",
         "unable to create Cloudant instances onto a Dedicated Hardware instance",
         "can't I create Cloudant instances onto a Dedicated Hardware instance",
+		"unable to create a new Cloudant standard plan",
+		"unable to create Cloudant standard plan",
         "can't provision Cloudant instances to a Dedicated Hardware instance",
         "can not create Cloudant on my edicated hardware",
         "trying to create Cloudant on my Dedicated hardware",
