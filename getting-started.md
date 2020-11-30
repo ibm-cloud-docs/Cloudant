@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-16"
+lastupdated: "2020-11-30"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -132,7 +132,7 @@ The service credentials in this example were defined when a demonstration {{site
 
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0009.png){: caption="Figure 12. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
-For more information about the fields in your credentials, see [Understanding your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#the-service-credentials).
+For more information about the fields in your credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
 ## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} dashboard
 {: #using-the-ibm-cloudant-dashboard}
@@ -313,7 +313,7 @@ To create a replication job, follow these steps:
       - Authentication - Select **IAM Authentication**. 
       - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
         
-        For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+        For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
    *Options*
      - Replication type - Leave as `One time`. 
