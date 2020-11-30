@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-17"
 
 keywords: compare couchdb and cloudant
 
@@ -46,7 +46,8 @@ The following table shows the feature and function differences that you must be 
 | Partition queries    | No     | No | Yes | Yes | No |
 | Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops. | Yes |
 | Selector on changes feed    | No     | Yes | Yes | Yes | Yes |
-| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-pricing-te#provisioned-throughput-capacity) settings |
+| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-pricing-te#provisioned-throughput-capacity-te)
+settings |
 | Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB | 64 MB |
 | Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB | Not applicable |
 | Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} |  [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-) |

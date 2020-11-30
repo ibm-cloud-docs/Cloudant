@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-15"
+lastupdated: "2020-12-17"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 
@@ -74,7 +74,7 @@ Complete the following steps to configure platform metrics:
 
 6. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
-   After you provision the Sysdig instance, the *Observabvility* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
+   After you provision the Sysdig instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
    {: note}
 
 
@@ -84,7 +84,7 @@ Complete the following steps to configure platform metrics:
 To monitor {{site.data.keyword.cloudant_short_notm}} metrics, you must launch the Sysdig web UI instance that is enabled for platform metrics in the region where your {{site.data.keyword.cloud_notm}} instance is available.
 {: important}
 
-There are different options to launch the Sysdig web UI and monitor metrics that are described in the following section.
+You can use different options to launch the Sysdig web UI and monitor metrics that are described in the following section.
 
 ### Launching Sysdig web UI from the {{site.data.keyword.cloudant_short_notm}} dashboard
 {: #view_metrics_opt1}
@@ -101,11 +101,11 @@ Complete the following steps to launch the Sysdig web UI from the {{site.data.ke
 
     The {{site.data.keyword.cloudant_short_notm}} *Manage* page opens.
 
-4. Click the **Actions** menu, and select **Monitoring**.
+4. Click the **Actions** menu, and select **Monitoring**. 
 
     ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 
-    A new tab in your browser opens and displays the *Default* dashboard named ** {{site.data.keyword.cloudant_short_notm}} ** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
+    A new tab opens in your browser and displays the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance. 
 
 ### Launching Sysdig web UI from the Observability page
 {: #view_metrics_opt2}
@@ -117,7 +117,7 @@ Complete the following steps to launch the Sysdig web UI from the *Observability
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
 
-    To access your deployment's Sysdig dashboard from Sysdig, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
+    To access your deployment's Sysdig dashboard from Sysdig, it's in the sidebar, under {{site.data.keyword.IBM_notm}}. 
 
     ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
@@ -158,18 +158,18 @@ The number of operations that were rate-limited:
 ### Global Attributes
 {: global-attributes-pm}
 
-The following attributes are available for segmenting all the metrics listed previously:
+The following attributes are available for segmenting all the metrics that are listed previously:
 
 | Attribute | Name | Description |
 |-----------|----------------|-----------------------|
 | `Cloud Type` | `ibm_ctype` | The cloud type is a value of public, dedicated, or local. |
 | `Location` | `ibm_location` | The location of the monitored resource, which can be a region, data center, or global. |
-| `Resource` | `ibm_resource` | The resource being measured by the service, typically an identifying name or GUID. |
+| `Resource` | `ibm_resource` | The resource that is measured by the service, typically an identifying name, or GUID. |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
-| `Service name` | `ibm_service_name` | Name of the service generating this metric. |
+| `Service name` | `ibm_service_name` | Name of the service that generates this metric. |
 {: caption="Table 4. Global attributes" caption-side="top"}
 
-### Additional Attributes
+### More Attributes
 {: additional-attributes}
 
 The following attributes are available for segmenting one or more attributes as described in the previous reference. See the individual metrics for segmentation options in the following table:
@@ -177,10 +177,10 @@ The following attributes are available for segmenting one or more attributes as 
 | Attribute | Name | Description |
 |-----------|----------------|-----------------------|
 | `Cloudant operation type` | `ibm_cloudant_operation_type` | The Cloudant billable operation type. |
-| `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance the metric is associated with. |
-| `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance which isn't necessarily a unique value depending on the name provided by the user. |
+| `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance that the metric is associated with. |
+| `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value that depends on the name that is provided by the user. |
 | `Resource group name` | `ibm_resource_group_name` | The resource group name provides the user-provided name of the resource group where the service instance was created. |
-| `Resource group` | `ibm_resource_group_id` | The unique id of the resource group where the service instance was created. |
+| `Resource group` | `ibm_resource_group_id` | The unique ID of the resource group where the service instance was created. |
 {: caption="Table 5. More attributes" caption-side="top"}
 
 ## {{site.data.keyword.cloudant_short_notm}} dashboards dictionary

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-15"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -30,14 +30,14 @@ Views are used to obtain data stored within a database.
 Views are written by using JavaScript functions. Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. 
 {: shortdesc}
 
-In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
+In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
 
 ## View concepts
 {: #view-concepts}
 
 Views are mechanisms for working with document content in databases.
-A view can selectively filter documents and speed up searching for content.
+A view can selectively filter documents and speed-up searching for content.
 It can be used to "pre-process" the results before they're returned to the client.
 
 Views are simply JavaScript functions, which are defined within the `views` field of a design document.
@@ -73,9 +73,9 @@ Using the `emit` function in a view function makes it easy to produce a list
 in response to running a query by using the view.
 The list consists of key and value pairs,
 where the key helps you identify the specific document and the value provides just the precise detail you want.
-The list also includes metadata such as the number of key:value pairs returned.
+The list also includes metadata such as the number of `key:value` pairs returned.
 
-The document `_id` is automatically included in each of the key:value pair result records. The document `_id` is included to make it easier for the client to work with the results.
+The document `_id` is automatically included in each of the `key:value` pair result records. The document `_id` is included to make it easier for the client to work with the results.
 {: note}
 
 ### Example of a simple view by using a map function
@@ -202,7 +202,7 @@ Design documents with `options.partitioned` set to `true` can't contain custom J
 ### No reducer
 {: #no-reducer}
 
-A view definition inside a design document is permitted to have no reduce attribute, indicating that no query-time aggregation will be performed.
+A view definition inside a design document is permitted to have no reduce attribute, indicating that no query-time aggregation is performed.
 
 ```json
 {
@@ -215,7 +215,7 @@ A view definition inside a design document is permitted to have no reduce attrib
 ```
 {: codeblock}
 
-The above map function generates a secondary index suitable for selection only. The index is always ordered by the key (the emit function's first parameter) - in this case `employee.number`. This view is ideal for fetching documents by a known employee number or ranges of employee numbers.
+The previous map function generates a secondary index suitable for selection only. The index is always ordered by the key (the emit function's first parameter) - in this case `employee.number`. This view is ideal for fetching documents by a known employee number or ranges of employee numbers.
 
 ### Built-in reduce functions
 {: #built-in-reduce-functions}
@@ -226,7 +226,7 @@ Whenever possible,
 you must use one of these functions instead of writing your own.
 
 To use one of the built-in functions,
-put its name into the `reduce` field of the view object in your design document.
+put the name into the `reduce` field of the view object in your design document.
 
 ```json
 {
@@ -240,7 +240,7 @@ put its name into the `reduce` field of the view object in your design document.
 ```
 {: codeblock}
 
-The above MapReduce view creates an index keyed on the employee department and whose value is the employee's salary. As the reducer is `_sum`, the view will output the total salaries for the selection of data queried. It is suitable for calculating the total salaries of all employees, the total salaries of a single department or salary totals grouped by department.
+The previous MapReduce view creates an index that is keyed on the employee department and whose value is the employee's salary. As the reducer is `_sum`, the view outputs the total salaries for the selection of data queried. It is suitable for calculating the total salaries of all employees, the total salaries of a single department or salary totals grouped by department.
 
 The numeric reducers `_stats`/`_sum` act upon the value (the emit function's second parameter) which can be a number, array, or object. Consider the following MapReduce definition:
 
@@ -256,7 +256,7 @@ The numeric reducers `_stats`/`_sum` act upon the value (the emit function's sec
 ```
 {: codeblock}
 
-The view is keyed on a sale's date, and the value is an object containing two values: price and tax. The `_sum` reduce will calculate totals for each attribute of the object that it finds:
+The view is keyed on a sale's date, and the value is an object that contains two values: price and tax. The `_sum` reduce will calculate totals for each attribute of the object that it finds:
 
 ```json
 {"rows":[
@@ -265,7 +265,7 @@ The view is keyed on a sale's date, and the value is an object containing two va
 ```
 {: codeblock}
 
-or add `?group=true` when querying the view. The output is grouped and summed by a unique key, in this case, `date`:
+Or add `?group=true` when querying the view. The output is grouped and summed by a unique key, in this case, `date`:
 
 ```json
 {"rows":[
@@ -276,7 +276,7 @@ or add `?group=true` when querying the view. The output is grouped and summed by
 ```
 {: codeblock}
 
-The numeric reducers will also calculate multiple reductions when the value of an index is an array of numbers:
+The numeric reducers also calculate multiple reductions when the value of an index is an array of numbers:
 
 ```json
 {
@@ -290,7 +290,7 @@ The numeric reducers will also calculate multiple reductions when the value of a
 ```
 {: codeblock}
 
-The above definition calculates statistics on the numerical values it finds in the array emitted as the index's value, with the values returned as an array in the same order as supplied in the map function:
+The previous definition calculates statistics on the numerical values it finds in the array that is emitted as the index's value. The values are returned as an array in the same order as supplied in the map function:
 
 ```json
 {"rows":[
@@ -302,7 +302,7 @@ The above definition calculates statistics on the numerical values it finds in t
 ```
 {: codeblock}
 
-The `_count` reducer simply counts the number of key/value pairs emitted into the index.
+The `_count` reducer simply counts the number of `key/value` pairs that are emitted into the index.
 
 ```json
 {"rows":[
@@ -313,7 +313,7 @@ The `_count` reducer simply counts the number of key/value pairs emitted into th
 ```
 {: codeblock}
 
-The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as opposed to the numeric reducers which act upon the index's _value_.
+The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as opposed to the numeric reducers that act upon the index's _value_.
 
 ```json
 {"rows":[
@@ -334,7 +334,7 @@ Function | Description
 ## Custom reduce functions
 {: #custom-reduce-functions}
 
-Most customers find the built in reducers are sufficient to perform aggregations on the view key/value pairs emitted from their Map functions, but for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
+Most customers find that built-in reducers are sufficient to perform aggregations on the view `key/value` pairs emitted from their Map functions. However, for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
 
 Custom JavaScript reduce functions are not supported on Transaction Engine. ![TXE tag](../images/txe_icon.svg)
 
@@ -384,7 +384,7 @@ suitable for both the `value` field of the final view,
 and as a member of the `values` array that is passed to the reduce function.
 
 Often,
-reduce functions can be written to handle re-reduce calls without any extra code,
+reduce functions can be written to handle rereduce calls without any extra code,
 like the summation function in the earlier example.
 In such cases,
 the `rereduce` argument can be ignored.
@@ -442,7 +442,7 @@ Custom JavaScript reduce functions are not supported on Transaction Engine. ![TX
 
 The map function must be referentially transparent. Referential transparency means that
 an expression can be replaced with the same value without changing the result, in this
-case, a document, and a key/value pair. Because of referential transparency,
+case, a document, and a `key/value` pair. Because of referential transparency,
 {{site.data.keyword.cloudant_short_notm}} views can be updated
 incrementally and reindex only the delta since the last update.
 
@@ -450,7 +450,7 @@ incrementally and reindex only the delta since the last update.
 {: #commutative-and-associative-properties}
 
 In addition to referential transparency, the reduce function must also have commutative
-and associative properties for the input. These properties makes it possible for the MapReduce
+and associative properties for the input. These properties make it possible for the MapReduce
 function to reduce its own output and produce the same response, for example:
 
 `f(Key, Values) == f(Key, [ f(Key, Values) ] )`
@@ -464,9 +464,9 @@ at query time.
 ### Document partitioning
 {: #document-partitioning}
 
-Due to sharding, there are no guarantees that the output of any two specific map functions will pass to
-the same instance of a reduce call. You must not rely on any ordering. Your
-reduce function must consider all the values that are passed to it and return the correct
+Due to sharding, we offer no guarantees that the output of any two specific map functions pass to
+the same instance of a reduce call. You must not rely on any ordering. The
+reduce function you use must consider all the values that are passed to it and return the correct
 answer irrespective of ordering. {{site.data.keyword.cloudant_short_notm}} is also guaranteed to call your reduce
 function with `rereduce=true` at query time even if it didn't need to do so when
 it built the index. It's essential that your function works correctly in that
@@ -488,7 +488,7 @@ faster than `log(num_rows_processed)`. If you ignore this restriction,
 {{site.data.keyword.cloudant_short_notm}} does not automatically throw an error,
 but B-tree performance degrades
 dramatically. If your view works correctly with small data sets but quits
-working when more data is added, you might have violated the growth rate
+working when more data is added, your view might violate the growth rate
 characteristic restriction.
 
 ### Execution environment

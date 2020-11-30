@@ -33,7 +33,7 @@ approach to managing user identities, services, and access control.
 {: #introduction-iam-ai}
 
 This document describes the integration of {{site.data.keyword.cloudantfull}} with {{site.data.keyword.cloud_notm}} Identity and
-Access Management. It discusses the differences between {{site.data.keyword.cloudant_short_notm}}'s Legacy
+Access Management. It discusses the differences between {{site.data.keyword.cloudant_short_notm}}'s legacy
 access controls and {{site.data.keyword.cloud_notm}} IAM's access controls. Next, it looks at the advantages and disadvantages of each
 to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and by using HTTP calls. Finally, we end with a reference
@@ -45,11 +45,11 @@ For more information, see an overview of [IAM](https://cloud.ibm.com/docs/iam/in
 - Manage available credentials.
 - Use IAM access policies that allow and revoke access to {{site.data.keyword.cloudant_short_notm}} service instances.
 
-## Differences between {{site.data.keyword.cloudant_short_notm}} Legacy and IAM access controls
+## Differences between {{site.data.keyword.cloudant_short_notm}} legacy access controls and IAM access controls
 {: #differences-between-ibm-cloudant-legacy-and-iam-access-controls-ai}
 
 The following section provides a brief overview of the differences between {{site.data.keyword.cloudant_short_notm}}
-Legacy and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
+legacy access controls and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
 
 ### {{site.data.keyword.cloud_notm}} Identity and Access Management
 {: #ibm-cloud-identity-and-access-management-ai}
@@ -60,7 +60,7 @@ Legacy and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
 - IAM API keys can be granted access to account management functions, like
   creating new databases.
 
-### {{site.data.keyword.cloudant_short_notm}} Legacy
+### {{site.data.keyword.cloudant_short_notm}} legacy access controls
 {: #ibm-cloudant-legacy-ai}
 
 - Unique to {{site.data.keyword.cloudant_short_notm}}.
@@ -73,15 +73,15 @@ Legacy and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
 {: #api-key-notes-ai}
 
 In this document, wherever API keys are mentioned it refers to IAM API keys.
-{{site.data.keyword.cloudant_short_notm}} Legacy also has a concept of API keys, and any discussion about {{site.data.keyword.cloudant_short_notm}} Legacy
+{{site.data.keyword.cloudant_short_notm}} legacy access controls also have a concept of API keys, and any discussion about {{site.data.keyword.cloudant_short_notm}} legacy
 credentials or username and password combinations also includes {{site.data.keyword.cloudant_short_notm}} API keys.
 
 ## Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
 {: #enabling-iam-with-ibm-cloudant-ai}
 
-All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July 2018 or later are provisioned in Resource Groups and are enabled with {{site.data.keyword.cloud_notm}} IAM. Optionally, you can choose to also enable the {{site.data.keyword.cloudant_short_notm}} Legacy authentication mechanism.  When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, choose from the following available authentication methods.
+All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July 2018 or later are provisioned in Resource Groups and are enabled with {{site.data.keyword.cloud_notm}} IAM. Optionally, you can choose to also enable the {{site.data.keyword.cloudant_short_notm}} legacy authentication mechanism.  When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, select one of the following authentication methods.
 
-1. **Use both legacy credentials and IAM**: This mode means that both IAM and legacy credentials can be used to access the account. In particular, both IAM and legacy sets of credentials are provided to all applications bound to the account and service credentials generated.
+1. **Use both Legacy credentials and IAM**: This mode means that both IAM and legacy credentials can be used to access the account. In particular, both IAM and legacy sets of credentials are provided to all applications bound to the account and service credentials generated.
 2. **Use only IAM**: This mode means that only IAM credentials are provided by using Service binding and
     credential generation.
 
@@ -97,7 +97,7 @@ Use of {{site.data.keyword.cloudant_short_notm}} API keys alongside IAM is possi
 {{site.data.keyword.cloudant_short_notm}} API keys and permissions are not visible or manageable by using the IAM policy interface, rendering
 holistic access management impossible.
 
-The choice between *Use only IAM* or *Use both legacy credentials and IAM* affects the following factors:
+The choice between *Use only IAM* or *Use both Legacy credentials and IAM* affects the following factors:
 
 1. Whether legacy {{site.data.keyword.cloudant_short_notm}} account-level credentials are available to manage databases and other
     account-level actions.
@@ -200,16 +200,16 @@ Each value in the previous JSON example must be interpreted by using the followi
 - `iam_apikey_name` - ID of IAM API key.
 - `iam_role_crn` - The IAM role that the IAM API key has.
 - `iam_serviceid_crn` - The CRN of service ID.
-- `password` - The {{site.data.keyword.cloudant_short_notm}} Legacy credential password.
+- `password` - The {{site.data.keyword.cloudant_short_notm}} legacy credential password.
 - `port` - {{site.data.keyword.cloudant_short_notm}} service port.
-- `url` - {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} Legacy credentials.
-- `username` - The {{site.data.keyword.cloudant_short_notm}} Legacy credential username.
+- `url` - {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} legacy credentials.
+- `username` - The {{site.data.keyword.cloudant_short_notm}} legacy credential username.
 
 Note the included `username` and `password` are always equivalent to IAM's
-Manager credentials. Therefore, the use of *Use both Legacy credentials and IAM* is
+Manager credentials. Therefore, the use of *Use both legacy credentials and IAM* is
 insecure when used with `Reader`, `Writer`, `Monitor`, or `Checkpointer` IAM roles.
 
-## Must I use *Use only IAM* or *Use both Legacy credentials and IAM*?
+## Must I use *Use only IAM* or *Use both legacy credentials and IAM*?
 {: #must-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-ai}
 
 If possible, *Use only IAM* is preferred. The major advantages for using
@@ -248,13 +248,13 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 - Some endpoints are not available. For more information, see [unavailable endpoints](#unavailable-endpoints).
 - No way to specify a database as "public", that is, not requiring an authorized user to access.
 
-#### Advantages of Legacy mode
+#### Advantages of legacy mode
 {: #advantages-legacy-mode-ai}
 
 - No need to change existing applications or client library dependencies.
 - Database-level permissions.
 
-#### Disadvantages of Legacy mode
+#### Disadvantages of legacy mode
 {: #disadvantages-legacy-mode-ai}
 
 - No account-level API keys; must use `root` credentials to manage databases.
@@ -406,10 +406,10 @@ See the results in the following example:
 ```
 {: codeblock}
 
-## Removing {{site.data.keyword.cloudant_short_notm}} Legacy credentials from an instance
+## Removing {{site.data.keyword.cloudant_short_notm}} legacy credentials from an instance
 {: #removing-legacy-credentials-ai}
 
-{{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. For security purposes, you can request to remove the {{site.data.keyword.cloudant_short_notm}} Legacy credentials so that only IAM authentication can be used for the instance. The correct process to remove legacy credentials is shown in the following steps:
+{{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. For security purposes, you can request to remove the {{site.data.keyword.cloudant_short_notm}} legacy credentials so that only IAM authentication can be used for the instance. The correct process to remove legacy credentials is shown in the following steps:
 
 1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication that is enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide.
 
@@ -669,7 +669,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/HEAD` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.read` |
 | `PUT` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.write` |
 | `GET/HEAD` | `/$DATABASE/_shards` | `cloudantnosqldb.database-shards.read` |
-| `COPY`<br>(Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or`cloudantnosqldb.local-document.write` and/or`cloudantnosqldb.data-document.write` |
+| `COPY`<br>(Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` +   `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` either or both `cloudantnosqldb.data-document.write` |
 | `GET` | `/_membership` | `cloudantnosqldb.cluster-membership.read` |
 | `POST` | `/$DATABASE/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` |
 | `PUT` | `/_users` | `cloudantnosqldb.users-database.create`  |
@@ -685,14 +685,14 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/_users/_bulk_docs` | `cloudantnosqldb.users.write` |
 | `POST` | `/_users/` | `cloudantnosqldb.users.write` |
 | `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
-| `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or`cloudantnosqldb.design-document.write` or`cloudantnosqldb.local-document.write` |
-| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or`cloudantnosqldb.design-document.write` and/or`cloudantnosqldb.local-document.write` |
+| `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
+| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` either or both `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `DELETE` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
 | `DELETE` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-| `COPY`<br>(Depends on write document type.) | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or`cloudantnosqldb.local-document.write` and/or`cloudantnosqldb.data-document.write` |
+| `COPY`<br>(Depends on write document type.) | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` either or both `cloudantnosqldb.data-document.write` |
 | `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
 | `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
 | `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |
@@ -732,7 +732,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.read` |
 | `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
 | `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
-| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` |
+| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` either or both `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `DELETE` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
 | `PUT` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |

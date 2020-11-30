@@ -54,7 +54,7 @@ The Operator for Apache CouchDB uses TLS certificates for three purposes:
 
 Number one is mandatory and requires a TLS certificate to always be present. You can disable two and three by setting `environment.tls: false` in the `CouchDBCluster` manifest. The internal uses of the certificate don't require peer verification.
 
-The TLS certificates are stored in a Kubernetes secret called `clustername>-cert`. If your Kubernetes platform contains a supported certificate manager (currently only OpenShift certificate manager), this certificate is automatically generated. You can also provide your own certificate/CA certificate to make client verification easier.
+The TLS certificates are stored in a Kubernetes secret called `clustername>-cert`. If your Kubernetes platform contains a supported certificate manager (currently only OpenShift certificate manager), this certificate is automatically generated. You can also provide your own certificate or CA certificate to make client verification easier.
 
 #### Manually specifying a TLS Secret
 {: #specifying-tls-secret-cluster-kubernetes}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-15"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -86,7 +86,7 @@ Enterprise Cluster, we store the following information about you:
 The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 If you have an account that is provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
-{{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data that was previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} processes limited customer PI in the course of running the service and optimizing 
 the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers. Monitoring 
@@ -147,7 +147,7 @@ customer upon request.
 ### Technical and Organizational Measures
 {: #technical-and-organizational-measures}
 
-Technical and Organisational Measures (TOMs) are employed by {{site.data.keyword.cloudant_short_notm}} 
+Technical and Organizational Measures (TOMs) are employed by {{site.data.keyword.cloudant_short_notm}} 
 to ensure the security of 
 Personal Data. {{site.data.keyword.cloudant_short_notm}} holds externally audited certifications for the controls {{site.data.keyword.cloudant_short_notm}} employs. 
 Certification details and attestation reports (that is, ISO and SOC2) can be provided to the 
@@ -242,7 +242,7 @@ doesn't remove log lines that include document `_id` values.
 ### What about deleting a database?
 {: #what-about-deleting-a-database-}
 
-Deleting a database adds it to a trash can for up to 48 hours after which the database is removed from the 
+Deleting a database adds it to a trash can for up to 48 hours. After which time, the database is removed from the 
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
 *responsibility of the customer*. You must ensure that all copies of your 
 database are removed from your system. For more information, see 

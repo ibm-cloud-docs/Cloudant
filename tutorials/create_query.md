@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-15"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -42,14 +42,14 @@ Here you run the commands from the command line, but you can also complete these
 ## Before you begin
 {: ##before-you-begin-qt}
 
-Before you begin, follow these tutorials to create an instance, and then create and populate a database:
+Before you begin, follow these tutorials to create an instance, and then create and populate a database.
 
 1. [Create an {{site.data.keyword.cloudant_short_notm}} instance](/docs/Cloudant/getting-started.html#creating-an-ibm-cloudant-instance-on-ibm-cloud).
 2. [Create a database](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
 3. [Populate the database](/docs/services/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#storing-a-small-collection-of-data-as-documents-within-the-database).
 4. (Optional) [Create an `acurl` alias](/docs/Cloudant?topic=Cloudant-authorized-curl-acurl-#authorized-curl-acurl-). </br>
 
-If you decide not to set up `acurl`, use the following URL with `curl` instead of the one provided in the exercises: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`.
+If you decide not to set up `acurl`, use the following URL with `curl` instead of the one provided in the exercises, `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`.
 
 The `acurl` alias is more secure. It prevents someone from reading your password over your shoulder as you type. It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
 {: important}
