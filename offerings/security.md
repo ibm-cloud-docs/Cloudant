@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-26"
+lastupdated: "2020-12-01"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -25,10 +25,6 @@ subcollection: Cloudant
 
 # Security
 {: #security}
-
-
-## {{site.data.keyword.cloudant_short_notm}} DBaaS data protection and security
-{: #ibm-cloudant-dbaas-data-protection-and-security}
 
 Protecting application data for large-scale web and mobile apps can be complex,
 especially with distributed and NoSQL databases.

@@ -13,7 +13,7 @@ Cloudant
     offerings/learning-center.md
 
     {: .topicgroup}
-    Security and Compliance
+    Security & compliance
         offerings/security.md
         offerings/compliance.md
         offerings/dataprivacygovernance.md
@@ -92,6 +92,7 @@ Cloudant
         security/access-iam.md
         security/architecture-workload-isolation.md
         security/secure-connection.md
+        security/manage-scc.md
         security/secure-data.md
         security/audit-events.md
     {: .navgroup-end}
