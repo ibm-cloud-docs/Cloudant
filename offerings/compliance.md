@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-05"
+lastupdated: "2020-12-01"
 
 keywords: tier-1 physical system, hipaa, iso, pci, soc 2 type 2 certification, gdpr
 
