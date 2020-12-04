@@ -95,7 +95,7 @@ Field      | Purpose
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 {: caption="Table 1. Service credentials" caption-side="top"}
 
-For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
+For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
 ## Context
 {: #context}
@@ -137,7 +137,7 @@ from cloudant.result import Result, ResultByKey
 ```
 {: codeblock}
 
-The application must have the [Service Credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials) for the service.
+The application must have the [Service Credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials) for the service.
 
 You can use Classic credentials:
 
@@ -155,7 +155,7 @@ client = Cloudant.iam(ACCOUNT_NAME, API_KEY, connect=True)
 ```
 {: codeblock}
 
-Copy `username` from your service credentials, and replace the `ACCOUNT_NAME` in the previous example. For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+Copy `username` from your service credentials, and replace the `ACCOUNT_NAME` in the previous example. For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
 The service credentials that are illustrated
     were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloud_notm}}.
