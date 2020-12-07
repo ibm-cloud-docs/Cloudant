@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-21"
+lastupdated: "2020-11-16"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -153,5 +153,5 @@ You can't use an IAM API key directly to authenticate against {{site.data.keywor
 ### Client libraries
 {: #client-libraries-overview}
 
-{{site.data.keyword.cloudant_short_notm}} has official client libraries for Java&trade;, Node.js, Python, Swift, and Mobile. For more information, see the [client libraries documentation](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries) to access the libraries, and see examples for connecting to an {{site.data.keyword.cloudant_short_notm}}
+{{site.data.keyword.cloudant_short_notm}} has official, supported client libraries for Java&trade;, Node.js, Python, Swift, Go, and Mobile. For more information, see the [client libraries documentation](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries) to access the libraries, and see examples for connecting to an {{site.data.keyword.cloudant_short_notm}}
 instance from each. 

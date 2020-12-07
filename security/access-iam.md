@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-07"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -18,7 +18,6 @@ subcollection: Cloudant
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-{:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
 <!-- Acrolinx: 2020-10-06 -->
@@ -436,25 +435,17 @@ details from the [Service credential JSON examples for each option](#service-cre
 ### Required client library versions
 {: #required-client-library-versions-ai}
 
-At minimum, use the following client library versions with IAM-enabled {{site.data.keyword.cloudant_short_notm}}
-service instances:
+IAM connectivity is available in the latest release of all supported client libraries. For more information, see [Client libraries](/docs/Cloudant?topic=Cloudant-client-libraries).
 
-| Library | Recommended |
-|---------|-------------|
-| [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external} | 2.13.0+ |
-| [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external} | 2.3.0+ |
-| [`python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external} | 2.9.0+ |
-| [`couchbackup`](https://github.com/cloudant/couchbackup/){: new_window}{: external} | 2.3.1+ |
-| [`CDTDatastore`](https://github.com/cloudant/cdtdatastore/){: new_window}{: external} | 2.0.3+ |
-| [`sync-android`](https://github.com/cloudant/sync-android/){: new_window}{: external} | 2.2.0+ |
-{: caption="Table 1. Recommended client library version" caption-side="top"}
+The code snippets in the next few sections require supported client libraries. 
 
-The code snippets in the next three sections require these versions.
-
-### Java
+#### Java
 {: #java-ai}
 
-Requires [java-cloudant](https://github.com/cloudant/java-cloudant){: new_window}{: external}, 2.13.0+.
+The following links provide the latest supported version of our legacy and beta libraries:
+
+- [`java-cloudant`](https://github.com/cloudant/java-cloudant/releases/latest){: new_window}{: external}
+- [`cloudant-java-sdk`](https://github.com/IBM/cloudant-java-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png) 
 
 Use the `iamApiKey()` method to create a database client with an IAM API key:
 
@@ -482,10 +473,13 @@ public class App
 ```
 {: codeblock}
 
-### Node.js
+#### Node.js
 {: #node.js-ai}
 
-Requires [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}, 2.3.0+.
+The following links provide the latest supported version of our legacy and beta libraries:
+
+- [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
+- [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png) 
 
 Use the `iamauth` plug-in to create a database client with an IAM API key:
 
@@ -508,10 +502,13 @@ cloudant.db.list(function(err, body) {
 ```
 {: codeblock}
 
-### Python
+#### Python
 {: #python-ai}
 
-Requires [python-cloudant](https://github.com/cloudant/python-cloudant){: new_window}{: external}, 2.9.0+.
+The following links provide the latest supported version of our legacy and beta libraries:
+
+- [`python-cloudant`](https://github.com/cloudant/python-cloudant/releases/latest){: new_window}{: external}
+- [`cloudant-python-sdk`](https://github.com/IBM/cloudant-python-sdk/releases/latest){: new_window}{: external} 
 
 Use the `Cloudant.iam(account_name, api_key, **kwargs)` method to create a
 database client with an IAM API key:
@@ -725,7 +722,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 {: class="simple-tab-table"}
-{: caption="Table 3. `Manager` role actions and mapping" caption-side="top"}
+{: caption="Table 3. Manager role actions and mapping" caption-side="top"}
 {: #manager-role}
 {: tab-title="Manager"}
 {: tab-group="Roles-simple"}
@@ -770,7 +767,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 3. `Writer` role actions and mapping" caption-side="top"}
+{: caption="Table 3. Writer role actions and mapping" caption-side="top"}
 {: #writer-role}
 {: tab-title="Writer"}
 {: tab-group="Roles-simple"}
@@ -808,7 +805,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 3. `Reader` role actions and mapping" caption-side="top"}
+{: caption="Table 3. Reader role actions and mapping" caption-side="top"}
 {: #reader-role}
 {: tab-title="Reader"}
 {: tab-group="Roles-simple"}
@@ -828,7 +825,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
-{: caption="Table 3. `Monitor` role actions and mapping" caption-side="top"}
+{: caption="Table 3. Monitor role actions and mapping" caption-side="top"}
 {: #monitor-role}
 {: tab-title="Monitor"}
 {: tab-group="Roles-simple"}
@@ -837,7 +834,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-{: caption="Table 3. `Checkpointer` role actions and mapping" caption-side="top"}
+{: caption="Table 3. Checkpointer role actions and mapping" caption-side="top"}
 {: #checkpointer-role}
 {: tab-title="Checkpointer"}
 {: tab-group="Roles-simple"}

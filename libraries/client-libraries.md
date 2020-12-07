@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-04"
 
 keywords: develop applications, supported library, mobile, java, node.js, python, swift, go
 
@@ -35,9 +35,6 @@ The following client libraries are formally supported by {{site.data.keyword.clo
 A supported library is one where you can contact {{site.data.keyword.cloudant_short_notm}} if you come across a specific,
 reproducible problem in the current version of the library.
 
-In this documentation, when a library is a supported beta client library, you see this tag ![BETA tag](../images/beta_icon.png).
-{: important}
-
 ## Java
 {: #java-supported}
 
@@ -46,13 +43,13 @@ The `java-cloudant` library is the official {{site.data.keyword.cloudant_short_n
 To install the `java-cloudant` library, see 
 [Installation and Usage](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}{: external} about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
 
-Or to install the {{site.data.keyword.cloudant_short_notm}} SDK for Java![BETA tag](../images/beta_icon.png) library, see [Installation](https://github.com/ibm/cloudant-java-sdk#installation) about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
+Or to install the {{site.data.keyword.cloudant_short_notm}} SDK for Java library, see [Installation](https://github.com/ibm/cloudant-java-sdk#installation) about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
 
 ### Library for Java
 {: #supported-library-for-java}
 
 - [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external}.
-- [{{site.data.keyword.cloudant_short_notm}} SDK for Java![BETA tag](../images/beta_icon.png)](https://github.com/IBM/cloudant-java-sdk){: new_window}{: external}
+- [{{site.data.keyword.cloudant_short_notm}} SDK for Java](https://github.com/IBM/cloudant-java-sdk){: new_window}{: external}
 
 ## Node.js
 {: #node-js-supported}
@@ -66,7 +63,7 @@ npm install @cloudant/cloudant
 ```
 {: codeblock}
 
-Or install the [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js![BETA tag](../images/beta_icon.png)](https://www.npmjs.com/package/@ibm-cloud/cloudant){: new_window}{: external} library with npm.
+Or install the [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js](https://www.npmjs.com/package/@ibm-cloud/cloudant){: new_window}{: external} library with npm.
 
 ```sh
 npm install @ibm-cloud/cloudant
@@ -77,25 +74,22 @@ npm install @ibm-cloud/cloudant
 {: #supported-library-for-node-js}
 
 - [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}
-- [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js![BETA tag](../images/beta_icon.png)](https://github.com/IBM/cloudant-node-sdk){: new_window}{: external}
+- [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js](https://github.com/IBM/cloudant-node-sdk){: new_window}{: external}
   
 
 ## Python
 {: #python-supported}
 
-The `python` library is the official {{site.data.keyword.cloudant_short_notm}} library for Python. The new {{site.data.keyword.cloudant_short_notm}} SDK for Python![BETA tag](../images/beta_icon.png) library is a supported beta client library.
+The `cloudant` library is the official {{site.data.keyword.cloudant_short_notm}} library for Python. The new {{site.data.keyword.cloudant_short_notm}} SDK for Python![BETA tag](../images/beta_icon.png) library is a supported beta client library.
 
-Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see instructions for the [requirements files](https://github.com/cloudant/python-cloudant/blob/master/requirements.txt){: new_window}{: external}.
-{: tip}
-
-Install the [`python`](https://pypi.org/project/cloudant){: new_window}{: external} library by running `pip` as shown in the following example:
+Install the [`cloudant`](https://pypi.org/project/cloudant){: new_window}{: external} library by running `pip` as shown in the following example:
 
 ```sh
 pip install cloudant
 ```
 {: codeblock}
 
-Or install the [{{site.data.keyword.cloudant_short_notm}} SDK for Python![BETA tag](../images/beta_icon.png)](https://pypi.org/project/ibmcloudant/){: new_window}{: external} library by running `pip` or `easy_install` as shown in the following example:
+Or install the [{{site.data.keyword.cloudant_short_notm}} SDK for Python](https://pypi.org/project/ibmcloudant/){: new_window}{: external} library by running `pip` or `easy_install` as shown in the following example:
 
 ```sh
 pip install --upgrade "ibmcloudant>=0.0.27"
@@ -115,14 +109,14 @@ For more information, see the [python.org](https://www.python.org/about/){: new_
 {: #python-library-cl}
 
 - [`python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external}
-- [{{site.data.keyword.cloudant_short_notm}} SDK for Python![BETA tag](../images/beta_icon.png)](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external}
+- [{{site.data.keyword.cloudant_short_notm}} SDK for Python](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external}
 
 ## Go
 {: #go-supported}
 
 The new {{site.data.keyword.cloudant_short_notm}} SDK for Go![BETA tag](../images/beta_icon.png) library is a supported beta client library.
 
-Install the [{{site.data.keyword.cloudant_short_notm}} SDK for Go![BETA tag](../images/beta_icon.png)](https://pkg.go.dev/mod/github.com/IBM/cloudant-go-sdk){: new_window}{: external} library by running the following command:
+Install the [{{site.data.keyword.cloudant_short_notm}} SDK for Go](https://pkg.go.dev/mod/github.com/IBM/cloudant-go-sdk){: new_window}{: external} library by running the following command:
 
 ```sh
 go get -u github.com/IBM/cloudant-go-sdk/cloudantv1
@@ -132,7 +126,7 @@ go get -u github.com/IBM/cloudant-go-sdk/cloudantv1
 ### Library for Go
 {: #go-library-cl}
 
-- [`go`](https://github.com/IBM/cloudant-go-sdk){: new_window}{: external}![BETA tag](../images/beta_icon.png)
+- [{{site.data.keyword.cloudant_short_notm}} SDK for Go](https://github.com/IBM/cloudant-go-sdk){: new_window}{: external}
 
 ## Mobile
 {: #mobile-supported}
