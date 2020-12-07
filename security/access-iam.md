@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-04"
+lastupdated: "2020-12-07"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -478,7 +478,7 @@ public class App
 
 The following links provide the latest supported version of our legacy and beta libraries:
 
-- [`node-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
+- [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png) 
 
 Use the `iamauth` plug-in to create a database client with an IAM API key:

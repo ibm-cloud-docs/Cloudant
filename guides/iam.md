@@ -476,10 +476,10 @@ public class App
 
 The following links provide the latest supported versions of our legacy and beta libraries:
 
-- [`node-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
+- [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
 
-Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `node-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node.js (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=java#authentication).
+Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `nodejs-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node.js (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=java#authentication).
 
 ```js
 var Cloudant = require('@cloudant/cloudant');
