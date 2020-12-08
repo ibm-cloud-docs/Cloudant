@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-08"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -167,7 +167,7 @@ retrieve that document as normal,
 but include the `conflicts=true` parameter,
 similar to the following example:
 
-`http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
+`https://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 
 See the following example response to document retrieval that shows conflicting revisions:
@@ -213,7 +213,7 @@ We begin by retrieving a document and details of any conflicting versions.
 To start the retrieval, use a command similar to the following one,
 which also requests the `_conflicts` array:
 
-`http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
+`https://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 This retrieval gives us a current version of the document that we store,
 *and* a list of all the other conflicting documents that must also be retrieved,
@@ -221,8 +221,8 @@ for example `...rev=2-61ae00e029d4f5edd2981841243ded13` and `...rev=1-7438df87b6
 Each of these other conflicting versions is also retrieved and stored,
 for example:
 
-  `http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13`
-  `http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299`
+  `https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13`
+  `https://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299`
 
 Once you have all of the conflicting revisions of a document available,
 you can resolve the conflicts.
@@ -266,10 +266,10 @@ This fresh document is uploaded into the database.
 
 See the following example requests to delete the old revisions:
 
-```http
-DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
+```https
+DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 
-DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121
+DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121
 ```
 
 In the final step, you delete the old revisions.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-08"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -303,15 +303,15 @@ the replication proceeds as normal.
 
 See the following example request to create a target database and replicate onto it:
 
-```http
-POST http://$ACCOUNT.cloudant.com/_replicate
+```https
+POST https://$ACCOUNT.cloudant.com/_replicate
 Content-Type: application/json
 Accept: application/json
 
 {
   "create_target" : true
-  "source" : "http://$USERNAME:$PASSWORD@example.com/db",
-  "target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db",
+  "source" : "https://$USERNAME:$PASSWORD@example.com/db",
+  "target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db",
 }
 ```
 {: codeblock}
@@ -471,7 +471,7 @@ See the following example response after an active task request, including singl
     "missing_revisions_found": 17833,
     "progress": 3,
     "revisions_checked": 17833,
-    "source": "http://$ACCOUNT.cloudant.com/$DATABASE/",
+    "source": "https://$ACCOUNT.cloudant.com/$DATABASE/",
     "source_seq": 551202,
     "started_on": 1316229471,
     "target": "test_db",
@@ -542,8 +542,8 @@ See the following example JSON document that describes a single replication betw
 
 ```json
 {
-	"source" : "http://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/recipes",
-	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/recipes2"
+	"source" : "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/recipes",
+	"target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/recipes2"
 }
 ```
 {: codeblock}
@@ -619,8 +619,8 @@ See the following example JSON document that describes continuous replication be
 
 ```json
 {
-	"source" : "http://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/recipes",
-	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/recipes2", 
+	"source" : "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/recipes",
+	"target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/recipes2", 
 	"continuous": true
 }
 ```
@@ -641,8 +641,8 @@ See the following example replication request to create the target database if i
 
 ```json
 {
-	"source" : "http://$USERNAME:$PASSWORD@example.com/db",
-	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db",
+	"source" : "https://$USERNAME:$PASSWORD@example.com/db",
+	"target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db",
 	"create_target" : true,
 	"continuous" : true
 }
@@ -656,8 +656,8 @@ See the following example request to cancel the replication, providing matching 
 	"cancel" : true,
 	"continuous" : true,
 	"create_target" : true,
-	"source" : "http://$USERNAME:$PASSWORD@example.com/db",
-	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db"
+	"source" : "https://$USERNAME:$PASSWORD@example.com/db",
+	"target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db"
 }
 ```
 {: codeblock}
@@ -689,7 +689,7 @@ Content-Type: application/json
 See the following example of using the command line to send a request to start a replication:
 
 ```sh
-curl -H "Content-Type: application/json" -X POST "http://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
 # the file replication-doc.json describes the intended replication.
 ```
 {: codeblock}
@@ -727,7 +727,7 @@ Content-Type: application/json
 See the following example of using the command line to send a request to cancel a replication:
 
 ```sh
-curl -H "Content-Type: application/json" -X POST "http://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
 # where the file replication-doc.json specifies the replication task to be canceled.
 ```
 {: codeblock}

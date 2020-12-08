@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-08"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -1027,7 +1027,7 @@ was successfully installed on each load balancer.
 2.  Enter the following URL in a web browser to access the dashboard.
 
     ``` sh
-    http://<your_load_balancer_IP_address>/dashboard.html
+    https://<your_load_balancer_IP_address>/dashboard.html
     ```
     {:codeblock}
 
