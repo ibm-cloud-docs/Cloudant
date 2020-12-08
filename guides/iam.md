@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-07"
+lastupdated: "2020-12-08"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -432,12 +432,12 @@ details from the Service Credentials JSON example shown previously.
 
 {{site.data.keyword.cloudant_short_notm}}'s official client libraries handle obtaining a token from an API key for you. If you access {{site.data.keyword.cloudant_short_notm}} directly by using an HTTP client rather than an {{site.data.keyword.cloudant_short_notm}} client library, you must handle exchanging and refreshing a time-limited access token by using an IAM API key with the IAM token service. After a token expires, {{site.data.keyword.cloudant_short_notm}} returns an HTTP `401` status code.
 
-### Required client library versions
+## Required client library versions
 {: #required-client-library-versions}
 
 IAM connectivity is available in the latest release of all supported client libraries. For more information, see [Client libraries](/docs/Cloudant?topic=Cloudant-client-libraries).
 
-#### Java
+### Java
 {: #java-iam}
 
 The following links provide the latest supported versions of our legacy and beta libraries:
@@ -471,7 +471,7 @@ public class App
 ```
 {: codeblock}
 
-#### Node.js
+### Node.js
 {: #node.js}
 
 The following links provide the latest supported versions of our legacy and beta libraries:
@@ -500,7 +500,7 @@ cloudant.db.list(function(err, body) {
 ```
 {: codeblock}
 
-#### Python
+### Python
 {: #python}
 
 The following links provide the latest supported versions of our legacy and beta libraries:
@@ -523,14 +523,14 @@ print client.all_dbs()
 ```
 {: codeblock}
 
-## Go
+### Go
 {: #go-iam}
 
 The new {{site.data.keyword.cloudant_short_notm}} SDK for Go![BETA tag](../images/beta_icon.png) library is a supported beta client library.
 
 For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Go (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication).
 
-### Access by using HTTP client
+#### Access by using HTTP client
 {: #access-by-using-http-client}
 
 {{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited
