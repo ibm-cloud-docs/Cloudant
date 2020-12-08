@@ -447,7 +447,7 @@ The following links provide the latest supported version of our legacy and beta 
 - [`java-cloudant`](https://github.com/cloudant/java-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-java-sdk`](https://github.com/IBM/cloudant-java-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png) 
 
-Use the `iamApiKey()` method to create a database client with an IAM API key:
+Use the `iamApiKey()` method to create a database client with an IAM API key. The following example uses `java-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Java (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=java#authentication).
 
 ```java
 package com.mycompany.app;
@@ -481,7 +481,7 @@ The following links provide the latest supported version of our legacy and beta 
 - [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png) 
 
-Use the `iamauth` plug-in to create a database client with an IAM API key:
+Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `nodejs-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=node#authentication).
 
 ```js
 var Cloudant = require('@cloudant/cloudant');
@@ -511,7 +511,7 @@ The following links provide the latest supported version of our legacy and beta 
 - [`cloudant-python-sdk`](https://github.com/IBM/cloudant-python-sdk/releases/latest){: new_window}{: external} 
 
 Use the `Cloudant.iam(account_name, api_key, **kwargs)` method to create a
-database client with an IAM API key:
+database client with an IAM API key. The following example uses `python-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Python (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=python#authentication).
 
 ```python
 from cloudant.client import Cloudant
