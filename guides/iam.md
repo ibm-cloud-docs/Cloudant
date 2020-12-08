@@ -415,7 +415,7 @@ See the results in the following example:
 
 2. Update your application to use IAM authentication instead of {{site.data.keyword.cloudant_short_notm}} legacy authentication.
 
-3. Generate [new service credentials](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#step-2-creating-service-credential) as needed.
+3. Generate [new service credentials](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#creating-service-credentials) as needed.
 
 4. Open a new {{site.data.keyword.cloud_notm}} support case that requests the removal of {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
