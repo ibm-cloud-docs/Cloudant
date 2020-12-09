@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-09"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -32,7 +32,7 @@ those who host and ‘process’ this data, anywhere in the world. The Regulatio
 rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
 
-With the [General Data Protection Regulation](https://www.eugdpr.org/){: new_window}{: external},
+With the [General Data Protection Regulation](https://gdpr.eu/){: new_window}{: external},
 {{site.data.keyword.cloudantfull}} customers can rely on 
 the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation. Customers can 
