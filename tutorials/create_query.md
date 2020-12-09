@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-10"
+lastupdated: "2020-12-09"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -42,39 +42,21 @@ Here you run the commands from the command line, but you can also complete these
 ## Before you begin
 {: ##before-you-begin-qt}
 
-Before you begin, follow these steps to prepare for the tutorial:
+Before you begin, follow these tutorials to create an instance, and then create and populate a database:
 
-1. Create a service instance on {{site.data.keyword.cloud_notm}} by following the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/services/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud) tutorial.
+1. [Create an {{site.data.keyword.cloudant_short_notm}} instance](/docs/Cloudant/getting-started.html#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+2. [Create a database](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
+3. [Populate the database](/docs/services/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#storing-a-small-collection-of-data-as-documents-within-the-database).
+4. (Optional) [Create an `acurl` alias](/docs/Cloudant?topic=Cloudant-authorized-curl-acurl-#authorized-curl-acurl-). </br>
 
-2. Create a database to use in the tutorial by following [Creating a database within the service instance](https://test.cloud.ibm.com/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
+If you decide not to set up `acurl`, use the following URL with `curl` instead of the one provided in the exercises: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`.
 
-3. Populate the [database](/docs/services/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#storing-a-small-collection-of-data-as-documents-within-the-database). 
+The `acurl` alias is more secure. It prevents someone from reading your password over your shoulder as you type. It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
+{: important}
 
-4. (Optional) Create an [`acurl` alias](/docs/Cloudant?topic=Cloudant-authorized-curl-acurl-#authorized-curl-acurl-) to make it more secure, easier, and faster to run commands from the command line.
+Now, we're ready to learn how to run queries against the database you created in *Step 1. Create an {{site.data.keyword.cloudant_short_notm}} instance*.
 
-5. Replace the `$ACCOUNT` variable in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} dashboard. If you decide not to set up `acurl`, use the following URL instead of the one provided in the exercises:
-
-  ```sh   
-  curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"
-  ```
-  {: codeblock}  
-
-  Now, we start to create queries against the database you created in the step two. 
-
-## Creating a query
-{: #creating-a-query-qt}
-
-By using a [query](/docs/Cloudant?topic=Cloudant-query#query), you can extract your data from {{site.data.keyword.cloudant_short_notm}}. A well-written query can narrow your search and
-its results to include only the data you want.
-
-This exercise shows you how to write and run a simple query, query with two fields,
-and query with two [operators](/docs/Cloudant?topic=Cloudant-query#operators).
-You query with an operator by specifying at least one field and its corresponding value.
-The query then uses this value to search the database for matches.
-
-For anything but the most simple query, add the JSON to a data file and run it from the command line. 
-
-## Creating an index to query the database
+## Creating an index
 {: #creating-an-index-to-query-the-database-qt}
 {: step}
 
@@ -91,50 +73,56 @@ If no available defined index matches the specified query, then {{site.data.keyw
 
 To create an index, follow these steps:
 
-1.  Copy the following sample JSON data into a file named `query-demo-index.dat`.
+1.  Copy the following sample JSON data into a file named `query-demo-index.json`.
 
     ```json
       {
-        "index": {
-        "fields": [
-          "descriptionField",
-          "temperatureField"
-        ],
-        "partial_filter_selector": {
-        "descriptionField": {
-           "$eq": "hot"
-     }, 
-        "temperatureField": {
-           "$gt": 50
-         }  
-       }
-      },    
-        "ddoc": "query-demo-index",
-        "type": "json"
+      	"index": {
+      		"fields": [
+      			"descriptionField",
+      			"temperatureField"
+      		],
+      		"partial_filter_selector": {
+      			"descriptionField": {
+      				"$eq": "hot"
+      			},
+      			"temperatureField": {
+      				"$gt": 50
+      			}
+      		}
+      	},
+      	"ddoc": "query-demo-index",
+      	"type": "json"
       }
-      ```
-      {: codeblock}
+    ```
+    {: codeblock}
 
 2.  Run the following command to create an index:
+
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
 
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_index" \
         -X POST \
         -H "Content-Type: application/json" \
-        -d \@query-index.dat
+        -d \@query-demo-index.json
     ```
     {: codeblock}
 
 3.  Review the results:
 
     ```json
-      {"result":"created",
-      "id":"_design/query-demo-index",
-      "name":"490441584f9eddb8d09ef234d636b5f3b18e4ce6"}
+      {
+      	"result": "created",
+      	"id": "_design/query-demo-index",
+      	"name": "490441584f9eddb8d09ef234d636b5f3b18e4ce6"
+      }
     ```
     {: codeblock}
 
-You aren't required to create an index to run a query. However, if you don't, the following warning is included with your results as information that creating an index reduces processing and makes your queries more effective. `"warning": "No matching index found, create an index to optimize query time."`
+
+You aren't required to create an index to run a query. However, if you don't, the following warning is included with your results as an indicator that creating an index reduces processing and makes your queries more effective. `"Warning": "No matching index found, create an index to optimize query time."`
 {: tip}
 
 ## Running a simple query
@@ -145,41 +133,46 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
 To run a simple query, follow these steps: 
 
-1.  Copy the following sample JSON into a data file named `query1.dat`.
+1.  Copy the following sample JSON into a data file named `query1.json`.
 
     ```json
       {
-        "selector": {
-        "descriptionField" : "boiling"
-        }        
-      }       
+      	"selector": {
+      		"descriptionField": "boiling"
+      	}
+      }   
     ```    
     {: codeblock}
 
 2.  Run the following command to query the database:
 
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
+
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_find" \
         -X POST \
         -H "Content-Type: application/json" \
-        -d \@query1.dat
+        -d \@query1.json
     ```
     {: codeblock}
 
 3.  Review the query results:
 
     ```json
-      {  "docs": [
-        {
-          "_id":"91d1fa833d28efe15069604f98de701d","_rev":"1-f998fc7b89d4466c1e7bb204b1b00f74",
-                "numberField":1,
-                "nameField":"one",
-                "descriptionField":"boiling",
-                "temperatureField":100
-          }
-        ],
-          "bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorWBqmGKYlWhgbpxhZpKalGpoamFmaGZikWVqkpJobGKaA9HHA9BGlIwsAmn8eLw",
-          "warning": "No matching index found, create an index to optimize query time."}
+      {
+      	"docs": [{
+      		"_id": "91d1fa833d28efe15069604f98de701d",
+
+      		"_rev": "1-f998fc7b89d4466c1e7bb204b1b00f74",
+      		"numberField": 1,
+      		"nameField": "one",
+      		"descriptionField": "boiling",
+      		"temperatureField": 100
+      	}],
+      	"bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorWBqmGKYlWhgbpxhZpKalGpoamFmaGZikWVqkpJobGKaA9HHA9BGlIwsAmn8eLw",
+      	"warning": "No matching index found, create an index to optimize query time."
+      }
     ```
     {: codeblock}
 
@@ -196,10 +189,10 @@ that looks like the following example:
 
 ```json
   {
-    "selector": {
-      "descriptionField": "freezing",
-      "temperatureField": -5
-    }
+  	"selector": {
+  		"descriptionField": "freezing",
+  		"temperatureField": -5
+  	}
   }
 ```
 {: codeblock}
@@ -210,42 +203,45 @@ results include the `nameField`, `descriptionField`, and `temperatureField`, as 
 
 ```json
   {
-    ...
-    "fields" : [
-      "nameField", 
-      "descriptionField", 
-      "temperatureField"
-    ]
+  	...
+  	"fields": [
+  		"nameField",
+  		"descriptionField",
+  		"temperatureField"
+  	]
   }
 ```  
 {: codeblock}
 
 To run the query, follow these steps:
 
-1.  Copy the sample JSON into a data file named `query2.dat`.
+1.  Copy the sample JSON into a data file named `query2.json`.
 
     ```json
       {
-        "selector": {
-        "descriptionField": "freezing",
-        "temperatureField": -5
-        },
-          "fields" : [
-            "nameField", 
-            "descriptionField", 
-            "temperatureField"
-        ]
+      	"selector": {
+      		"descriptionField": "freezing",
+      		"temperatureField": -5
+      	},
+      	"fields": [
+      		"nameField",
+      		"descriptionField",
+      		"temperatureField"
+      	]
       }
     ```
     {: codeblock}
 
 2.  Run the following command to query the database:
 
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
+
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_find" \
         -X POST \
         -H "Content-Type: application/json" \
-        -d \@query2.dat
+        -d \@query2.json
     ```
     {: codeblock}
 
@@ -253,14 +249,14 @@ To run the query, follow these steps:
 
     ```json
     {
-        "docs": [
-          {
-        "nameField":"eight",
-        "descriptionField":"freezing",
-        "temperatureField":-5}
-      ],
-          "bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorpBiYGJolWaSZmaWYpFqmGBiYmKclphhappqZmRglG5uD9HHA9BGlIwsAms8eJw",
-          "warning": "No matching index found, create an index to optimize query time."}
+    	"docs": [{
+    		"nameField": "eight",
+    		"descriptionField": "freezing",
+    		"temperatureField": -5
+    	}],
+    	"bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorpBiYGJolWaSZmaWYpFqmGBiYmKclphhappqZmRglG5uD9HHA9BGlIwsAms8eJw",
+    	"warning": "No matching index found, create an index to optimize query time."
+    }
     ```
     {: codeblock}
 
@@ -277,74 +273,80 @@ We use a selector expression like the following example:
 
 ```json
   {
-   "selector": {
-      "temperatureField": {
-         "$gt": 50
-       },
-   "descriptionField": {
-       "$eq": "hot"
-      }
-   },
-   "fields": [
-      "descriptionField",
-      "temperatureField"
-   ],
-   "sort": [
-      {
-         "temperatureField": "desc"
-      }
-   ],
-   "use_index": "_design/partial-index"
+  	"selector": {
+  		"temperatureField": {
+  			"$gt": 50
+  		},
+  		"descriptionField": {
+  			"$eq": "hot"
+  		}
+  	},
+  	"fields": [
+  		"descriptionField",
+  		"temperatureField"
+  	],
+  	"sort": [{
+  		"temperatureField": "desc"
+  	}],
+  	"use_index": "_design/query-demo-index"
   }
 ```
 {: codeblock}
 
 To run the query, follow these steps:
 
-1.  Copy the following sample JSON to a file named `query3.dat`.
+1.  Copy the following sample JSON to a file named `query3.json`.
 
     ```json
       {
-        "selector": {
-        "descriptionField": {
-          "$eq": "hot"
-        },
-      "temperatureField": {
-         "$gt": 50
-      }
-        },
-          "fields": [
-            "descriptionField",
-            "temperatureField"
-        ],
-          "sort": [
-      {
-         "temperatureField": "desc"
-        }
-      ],
-        "use_index": "_design/partial-index"
+      	"selector": {
+      		"descriptionField": {
+      			"$eq": "hot"
+      		},
+      		"temperatureField": {
+      			"$gt": 50
+      		}
+      	},
+      	"fields": [
+      		"descriptionField",
+      		"temperatureField"
+      	],
+      	"sort": [{
+      		"temperatureField": "desc"
+      	}],
+      	"use_index": "_design/query-demo-index"
       }
     ```
     {: codeblock}
 
 2. Run this query:
 
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
+
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_find" \
         -X POST \
         -H "Content-Type: application/json" \
-        -d \@query3.dat
+        -d \@query3.json
     ```
     {: codeblock}
 
 3.  Review the query results:
 
     ```json
-    {"docs":[
-        {"descriptionField":"hot","temperatureField":97},
-        {"descriptionField":"hot","temperatureField":75}
-      ],
-        "bookmark": "g1AAAABbeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorJBoYmKWaWVokpZkamJtaGJskm5slmSenGhulWpibJhqC9HHA9OWATErUAGlkzsgvycoCAEsUF_A"}
+    {
+    	"docs": [{
+    			"descriptionField": "hot",
+    			"temperatureField": 97
+    		},
+    		{
+    			"descriptionField": "hot",
+    			"temperatureField": 75
+    		}
+    	],
+    	"bookmark": "g1AAAABbeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorJBoYmKWaWVokpZkamJtaGJskm5slmSenGhulWpibJhqC9HHA9OWATErUAGlkzsgvycoCAEsUF_A"
+    }
     ```
     {: codeblock}
 
