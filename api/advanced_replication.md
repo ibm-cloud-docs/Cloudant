@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-12-09"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -541,8 +541,8 @@ See example JSON for starting a filtered replication:
 
 ```json
 {
-	"source": "http://$USERNAME:$PASSWORD@example.org/example-database",
-	"target": "http://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
+	"source": "https://$USERNAME:$PASSWORD@example.org/example-database",
+	"target": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
 	"filter": "myddoc/myfilter"
 }
 ```
@@ -555,8 +555,8 @@ See example JSON for starting a filtered replication with supplied parameters:
 
 ```json
 {
-	"source": "http://$USERNAME:$PASSWORD@example.org/example-database",
-	"target": "http://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
+	"source": "https://$USERNAME:$PASSWORD@example.org/example-database",
+	"target": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
 	"filter": "myddoc/myfilter",
 	"query_params": {
 		"key": "value"
@@ -599,8 +599,8 @@ See the following example that shows replication through a proxy:
 
 ```json
 {
-	"source": "http://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
-	"target": "http://$USERNAME:$PASSWORD@example.org/example-database",
+	"source": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
+	"target": "https://$USERNAME:$PASSWORD@example.org/example-database",
 	"proxy": "http://my-proxy.com:8888"
 }
 ```
@@ -797,8 +797,8 @@ See the following example JSON document that describes the required replication:
 
 ```json
 {
-	"source": "http://$ACCOUNT:$PASSWORD@username.cloudant.com/example-database",
-	"target": "http://$ACCOUNT2:$PASSWORD2@example.org/example-target-database"
+	"source": "https://$ACCOUNT:$PASSWORD@username.cloudant.com/example-database",
+	"target": "https://$ACCOUNT2:$PASSWORD2@example.org/example-target-database"
 }
 ```
 {: codeblock}

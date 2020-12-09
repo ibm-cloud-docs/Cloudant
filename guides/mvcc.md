@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-12-08"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -167,8 +167,8 @@ You identify documents with conflicts by using the `conflicts=true` option.
 
 See the following example of finding documents with conflicts:
 
-```http
-http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
+```https
+https://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
 {: codeblock}
 
@@ -198,10 +198,10 @@ your application gets all of the versions from the database.
 
 See the following example commands to retrieve all versions of a document from the database:
 
-```http
-http://$ACCOUNT.cloudant.com/products/$_ID
-http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
-http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299
+```https
+https://$ACCOUNT.cloudant.com/products/$_ID
+https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
+https://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299
 ```
 {: codeblock}
 
