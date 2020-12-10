@@ -76,12 +76,10 @@ Cloudant
         guides/mvcc.md
         guides/transactions.md
         guides/sharding.md
-        guides/iam.md
         guides/json.md
         guides/managing_tasks.md
         guides/migration.md
         guides/multiregion.md
-        guides/resource-groups.md
         guides/pagination-bookmarks.md
         guides/replication_guide.md
         guides/search-analyzers.md
