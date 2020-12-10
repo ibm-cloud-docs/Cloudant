@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-12-10"
 
 keywords: tutorials, recovery and backup, guides, links to documentation, about 
 
@@ -35,7 +35,7 @@ The tutorials, recovery and backup instructions, and guides provide information 
 Tutorial | Description 
 ---------|-------------
 [Getting started tutorial](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant){: new_window} | A tutorial that describes how to use Python to create an {{site.data.keyword.cloudant_short_notm}} database and populate that database with a simple collection of data.
-[Creating an {{site.data.keyword.cloudant_short_notm}} instance](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} | A tutorial that describes how to create an {{site.data.keyword.cloudant_short_notm}} service instance and where to find your service credentials by using the {{site.data.keyword.cloud_notm}} dashboard.
+[Creating an {{site.data.keyword.cloudant_short_notm}} instance](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant){: new_window} | A tutorial that describes how to create an {{site.data.keyword.cloudant_short_notm}} service instance and where to find your service credentials by using the {{site.data.keyword.cloud_notm}} dashboard.
 [Creating an {{site.data.keyword.cloudant_short_notm}} instance by using the {{site.data.keyword.cloud_notm}} CLI](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} | A tutorial that describes how to create an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} CLI.
 [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} | A tutorial that describes how to create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and how to then provision one or more Standard plan instances to run on it by using either the {{site.data.keyword.cloud_notm}} catalog or the {{site.data.keyword.cloud_notm}} CLI.
 [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud){: new_window} | A tutorial that describes how to use the Python programming language to create an {{site.data.keyword.cloudant_short_notm}} database in your {{site.data.keyword.cloud_notm}} service instance, and populate the database with a simple collection of data.
