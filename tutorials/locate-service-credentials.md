@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-13"
+lastupdated: "2020-12-10"
 
 keywords: service credentials, locate service credentials
 
@@ -44,31 +44,35 @@ You can find the credentials for any service that is associated with your accoun
 - Locate your service credentials in {{site.data.keyword.cloud_notm}}
 - Understand your service credentials
 
+## Prerequisites 
+{: #prereq-locate-credentials}
+
+- Make sure you created a service instance in the {{site.data.keyword.cloud_notm}} dashboard. For more information, see [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant).
+
 ## How to find your service credentials
 {: #finding-your-service-credentials}
 {: step}
 
-1.  Go to the {{site.data.keyword.cloud_notm}} dashboard by clicking {{site.data.keyword.cloud_notm}} in the menu bar.
+1. Go to the [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/) and log in.
 
-    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 9. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
+2. Select Services from the Resource summary box. 
 
-2.  Now,
-    we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
-    service instance that we created in step 2,
-    called `Cloudant-o7`. In the Resource summary box, click **Services** and then the corresponding row:
+2. Find the service instance called `Cloudant-o7` and open it. </br> 
+   This instance is the one you created as a [prerequisite](#prereqs-locate-credentials). 
 
     ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png){: caption="Figure 10. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
 
-3.  To see the credentials that are required to access the service,
-    click the chevron:
+4. Click Service credentials in the navigation. 
+
+3. Click the chevron next to the service credentials to see the credentials that are required to access the service.
 
     ![Viewing the service credentials.](images/img0052.png){: caption="Figure 11. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
-    The details for the service credentials appear:
+    Now, you can see the service credentials:
 
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](images/img0009.png){: caption="Figure 12. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
-    The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you *must* supply and use your own service credentials.
+    The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
     {: note}
 
 ## Understanding your service credentials
