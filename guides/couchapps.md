@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-11"
 
 keywords: couchapp, 3-tier application
 
@@ -67,7 +67,7 @@ When is each appropriate?
 -   You don't need to schedule cronjobs or other regular tasks.
 
 To get started with CouchApps,
-read [Managing applications on {{site.data.keyword.cloudant_short_notm}}](https://cloudant.com/blog/app-management/){: new_window}{: external}.
+read [Build a serverless web app](https://blog.cloudant.com/2017/02/27/Online-petition-system.html){: new_window}{: external}.
 
 ## A 3-tier application is appropriate if...
 {: #a-3-tier-application-is-appropriate-if-}
@@ -80,4 +80,4 @@ read [Managing applications on {{site.data.keyword.cloudant_short_notm}}](https:
 
 You can write your server layer by using whatever technologies work best
 for you.
-A list of libraries that work with {{site.data.keyword.cloudant_short_notm}} is available on the [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries) page.
+A list of libraries that work with {{site.data.keyword.cloudant_short_notm}} is available on the [Client libraries](/docs/Cloudant?topic=Cloudant-client-libraries) page.
