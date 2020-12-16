@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-01"
 
 keywords: compare couchdb and cloudant
 
@@ -31,24 +31,24 @@ The foundation of the {{site.data.keyword.cloudant_short_notm}} managed database
 
 Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} are nearly fully API compatible, which means they can serve as drop-in replacements for each other in your application. They speak the same replication protocol so that you can seamlessly synchronize data between {{site.data.keyword.cloudant_short_notm}} and CouchDB instances. However, some differences between the fully managed cloud service {{site.data.keyword.cloudant_short_notm}} and self-managed open source Apache CouchDB still exist, which are discussed here. 
 
-For more information, see the [API comparison guide](/docs/Cloudant?topic=Cloudant-comparison-of-ibm-cloudant-and-couchdb-api-endpoints) for a detailed breakdown of the API endpoints available in Apache CouchDB 1.x, Apache CouchDB 2.x, and {{site.data.keyword.cloudant_short_notm}}.   
+For more information, see the [API comparison guide](/docs/Cloudant?topic=Cloudant-comparison-of-ibm-cloudant-and-couchdb-api-endpoints) for a detailed breakdown of the API endpoints available in Apache CouchDB 1.x, Apache CouchDB 2.x, Apache Couchdb 3.x, and {{site.data.keyword.cloudant_short_notm}}.   
 
 The following table shows the feature and function differences that you must be cognizant of when you use the Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} data layer ecosystem. 
 
-| Feature | CouchDB 1.6 | CouchDB 2.3.1 | CouchDB 3.0 | {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}} |
-|--------------|----------------|-------------|---------------------| --- |
-| Clustering    | No     | Yes | Yes | Yes |
-| Fauxton Dashboard UI    | No     | Yes | Yes | Yes |
-| MapReduce view    | Yes     | Yes | Yes | Yes |
-| Mango/{{site.data.keyword.cloudant_short_notm}} Query    | No     | Yes | Yes | Yes |
-| Full-text search    | No     | No | Yes, requires separate installer or container. | Yes |
-| Geospatial    | No     | No | No | Yes |
-| Partition queries    | No     | No | Yes | Yes |
-| Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops. |
-| Selector on changes feed    | No     | Yes | Yes | Yes |
-| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings |
-| Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB |
-| Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB |
-| Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} |
-| LDAP    | No     | No | No | No |
-{: caption="Table 1. Features and functions differences between {{site.data.keyword.cloudant_short_notm}} and CouchDB" caption-side="top"}
+| Feature | CouchDB 1.6 | CouchDB 2.3.1 | CouchDB 3.x | {{site.data.keyword.cloudant_short_notm}} | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
+|--------------|----------------|-------------|---------------------| --- | --- |
+| Clustering    | No     | Yes | Yes | Yes | Yes |
+| Fauxton Dashboard UI    | No     | Yes | Yes | Yes | Yes |
+| MapReduce view    | Yes     | Yes | Yes | Yes | Yes |
+| Mango/{{site.data.keyword.cloudant_short_notm}} Query    | No     | Yes | Yes | Yes | Yes |
+| Full-text search    | No     | No | Yes, requires separate installer or container. | Yes | No |
+| Geospatial    | No     | No | No | Yes | No |
+| Partition queries    | No     | No | Yes | Yes | No |
+| Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops. | Yes |
+| Selector on changes feed    | No     | Yes | Yes | Yes | Yes |
+| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-pricing-te#provisioned-throughput-capacity) settings |
+| Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB | 64 MB |
+| Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB | Not applicable |
+| Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} |  [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-) |
+| LDAP    | No     | No | No | No | No |
+{: caption="Table 1. Feature and function differences between {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB" caption-side="top"}

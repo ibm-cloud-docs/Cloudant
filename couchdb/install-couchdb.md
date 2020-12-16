@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-11-18"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -26,10 +26,10 @@ subcollection: Cloudant
 # Install
 {: #apache-couchdb-install}
 
-Install Apache CouchDB and download the latest version. 
-{: shortdesc}
+The following page includes installation artifacts for deploying Apache CouchDB. 
 
-The current GA release is Apache CouchDB version 2.3.1. For more information, see the [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_window}{: external}.  
+## Apache CouchDB Installers
+{: #apache-couchdb-installers-install}
 
 The [Download CouchDB](http://couchdb.apache.org/#download){: new_window}{: external} site contains links to install CouchDB on the following platforms:
 
@@ -37,24 +37,22 @@ The [Download CouchDB](http://couchdb.apache.org/#download){: new_window}{: exte
 - macOS
 - Linux&trade; - Debian/Ubuntu/RHEL/CentOS
 
-## Containers
-{: #containers}
+## Docker Hub
+{: #docker-hub-install}
 
-### Docker Hub
+The Apache CouchDB Docker image is available on [Docker Hub](https://hub.docker.com/_/couchdb){: new_window}{: external}, along with [Apache CouchDB documentation](https://docs.couchdb.org/en/stable/install/docker.html){: new_window}{: external}.
 
-The Apache CouchDB docker image is available on [Docker Hub](https://hub.docker.com/_/couchdb){: new_window}{: external}, along with [Apache CouchDB documentation](https://docs.couchdb.org/en/stable/install/docker.html){: new_window}{: external}. 
+## Red Hat Ecosystem Catalog
+{: #red-hat-ecosystem-catalog-install}
 
-### Red Hat Container catalog
+See the [Apache CouchDB Product overview](https://catalog.redhat.com/software/operators/detail/5e98734c3f398525a0ceafd6){: new_window}{: external} on the Red Hat Container catalog for Red Hat-certified images and Operator for Apache CouchDB. 
 
-See the [Apache CouchDB Product overview](https://access.redhat.com/containers/#/product/a03d4d299abe60e9){: new_window}{: external} on the Red Hat Container catalog for a Red Hat-certified image. 
+## Kubernetes Operator for Apache CouchDB
+{: #kubernetes-operator-for-apache-couchdb-install}
 
-## Kubernetes
-{: #kubernetes}
+The [Operator for Apache CouchDB documentation](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator) details how to install and use the Operator to deploy Apache CouchDB clusters on Kubernetes. The Operator for Apache CouchDB is available on [OperatorHub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} or in the [Red Hat Ecosystem Catalog](https://catalog.redhat.com/software/operators/detail/5e98734c3f398525a0ceafd6){: new_window}{: external}.
 
-### Operator
-
-The [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator) deploys and manages Apache CouchDB clusters on Kubernetes. 
-
-### Helm Chart
+## Helm Chart
+{: #helm-chart-install}
 
 An Apache CouchDB Helm chart along with documentation is available on [Helm Hub](https://hub.helm.sh/charts/couchdb/couchdb){: new_window}{: external}. 
