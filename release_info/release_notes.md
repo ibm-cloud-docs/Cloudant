@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-18"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -69,7 +69,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 - Bug fixes.
 - `Drilldown` parameters for text index searches can now be specified as a list of lists, which allows you to avoid having to define this redundantly in a single query. (Some languages don't have this facility.)
-- The `couch_index` server won't crash and log errors in the following cases: if a design document is deleted while that index is building, or when a design document is added immediately after database creation.
+- The `couch_index` server doesn't crash and log errors in the following cases: If a design document is deleted while that index is building, or when a design document is added immediately after database creation.
 - {{site.data.keyword.cloudant_short_notm}} now checks for and reports invalid parameters on database creation.
 
 ## Build 8158 (July 2020)
@@ -90,17 +90,17 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 8142 (March 2020)
 {: #build-8142-03-2020}
 
-- New endpoints were added to allow you to post multiple queries: `POST /{db}/_all_docs/queries` and `POST /{db}/_design_docs/queries`.
+- New endpoints were added so you can post multiple queries: `POST /{db}/_all_docs/queries` and `POST /{db}/_design_docs/queries`.
 - The `disk_size` and `data_size` fields were retired from the database info object returned by `GET /{db}`. 
-- The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs` and `_design_docs`endpoints. Specify a `keys` object when `POST`ing to these endpoints.
-- The `/{db}/_changes` feed immediately returns headers now, even when there are no changes available. This process prevents client blocking.
+- The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs` and `_design_docs`endpoints. Specify a `keys` object when `POST`ing to these endpoints. 
+- The `/{db}/_changes` feed immediately returns headers now, even when no changes are available. This process prevents client blocking.
 - Negative and non-integer heartbeat values now return a `400 Bad Request` response status code.
 - Allow specifying separate proxies for both the source and target in a replication via `source_proxy` and `target_proxy` keys.  
 - The `POST` view functionality now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
 - Replication `"info"` errors are now JSON objects. Previously, they were strings. 
 - A compatibility change was made to support replication with future databases that contain per-document access control fields.
-- Add a warning to the `_find` endpoint if a large number of document scans were required to generate a result.
-- Fix a bug in the `_find` endpoint whereby an error would be returned if a document matched by a text index was deleted whilst the query was being processed.  
+- Add a warning to the `_find` endpoint if multiple document scans were required to generate a result.
+- Fix a bug in the `_find` endpoint whereby an error would be returned if a document matched by a text index was deleted while the query was being processed.  
 
 
 ## Build 8126 (January 2020)
@@ -109,7 +109,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 - Bug fixes.
 - Improvements to replication error reporting - instead of a function_clause, human-readable markers are returned, for example, `bulk_docs_failed`. Stack traces are no longer included.
 - Replication job statistics, such as `docs_read`, `docs_written`, and `doc_write_failures` are preserved when replication jobs restart.
-- Replication jobs to a target endpoint using IAM Writer permissions no longer crash and continuously restart when they write design documents. Instead, the `doc_write_failures` statistic is incremented for each failed design document write. This behavior is consistent with replicating by using the legacy API-key based authentication.
+- Replication jobs to a target endpoint by using IAM Writer permissions no longer crash and continuously restart when they write design documents. Instead, the `doc_write_failures` statistic is incremented for each failed design document write. This behavior is consistent with replicating by using the legacy API-key-based authentication.
 
 ## Build 8111 (November 2019)
 {: #build-8111-november-2019}
@@ -182,7 +182,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 - This build introduces a new feature, [Partition Query](/docs/Cloudant?topic=Cloudant-database-partitioning#database-partitioning).
 - Allow `limit` when you use `POST` for search.
-- Previously, view requests by using a `limit` parameter greater than 268435456 would have the limit silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 are rejected with a `400 Bad Request` error.
+- Previously, view requests that use a `limit` parameter greater than 268435456 would have the limit silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 are rejected with a `400 Bad Request` error.
 
 ## Build 7631 (January 2019)
 {: #build-7631-january 2019}
@@ -249,8 +249,8 @@ The new replication scheduler has several improvements and enhancements. Learn m
 From today, we support TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
 
 We recommend you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
-(***In June 2019, {{site.data.keyword.cloudant_short_notm}} is retiring the use of older
-versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ will be supported.***)
+***(In June 2019, {{site.data.keyword.cloudant_short_notm}} is retiring the use of older
+versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ will be supported.)***
 
 Find more information on our [Security page](/docs/Cloudant?topic=Cloudant-security#security).
 

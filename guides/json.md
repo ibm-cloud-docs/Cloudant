@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-17"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -69,7 +69,7 @@ Numbers can be integer or floating point values.
 ## Strings
 {: #strings}
 
-Strings must be enclosed by double-quotes. Strings support Unicode characters and backslash escaping.
+Strings must be enclosed by double quotation marks. Strings support Unicode characters and backslash escaping.
 
 ### Example of a string in JSON format
 
@@ -124,7 +124,7 @@ A list of values enclosed in brackets. The values that are enclosed can be any v
 ## Objects
 {: #objects}
 
-A set of key/value pairs,
+A set of `key/value` pairs,
 such as an associative array,
 or a hash.
 The key must be a string,

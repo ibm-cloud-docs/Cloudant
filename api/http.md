@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-03"
+lastupdated: "2020-12-17"
 
 keywords: http headers, response headers, http status codes
 
@@ -44,7 +44,7 @@ you must be as specific as possible.
 ### Request headers
 {: #request-headers}
 
-The supported HTTP request headers include:
+The supported HTTP request headers are shown in the following list:
 
 *	`Accept`
 *	`Content-Type`
@@ -60,7 +60,7 @@ The format is a list of one or more MIME types,
 which are separated by colons.
 
 For the most requests,
-the accepted list should include JSON data (`application/json`).
+the accepted list must include JSON data (`application/json`).
 
 For attachments,
 you can either specify the MIME type explicitly,
@@ -70,7 +70,7 @@ If the `Accept` header is not supplied,
 then the server assumes the`*/*` MIME type,
 which means that the client accepts all formats.
 
-See the following example of sending a request without an explicit `Accept` header, or when when you specify `*/*`:
+See the following example of sending a request without an explicit `Accept` header, or when you specify `*/*`:
 
 ```http
 GET /recipes HTTP/1.1
@@ -191,18 +191,15 @@ provided the document still exists and no other errors occurred.
 {: #response-headers}
 
 Response headers are returned by the server when you send back content.
-They include a number of different fields. Many of the fields are standard HTTP response headers and have no significance with regard to how {{site.data.keyword.cloudant_short_notm}} operates.
-The list of response headers important to {{site.data.keyword.cloudant_short_notm}} is as follows.
-
-The supported HTTP response headers include:
+They include a number of different fields. Many of the fields are standard HTTP response headers and have no significance regarding how {{site.data.keyword.cloudant_short_notm}} operates.
+The supported HTTP response headers that are important to {{site.data.keyword.cloudant_short_notm}} are as shown in the following list.
 
 *	`Cache-Control`
 *	`Content-Length`
 *	`Content-Type`
 *	`Etag`
 
-The {{site.data.keyword.cloudant_short_notm}} design document API and the functions when it returns HTML (for example as part of a show or list)
-enable you to include custom HTTP headers through the `headers` field of the return object.
+When the {{site.data.keyword.cloudant_short_notm}} design document API and its functions return HTML (for example as part of a show or list), then you can include custom HTTP headers through the `headers` field of the return object.
 
 #### Cache-Control
 {: #cache-control}
@@ -256,7 +253,7 @@ Code                                    | Meaning
 `304 - Not Modified`                    | The content that is requested was not modified. This error is used with the [ETag](#etag) system to identify the version of information returned.
 `400 - Bad Request`                     | Bad request structure. The error can indicate an error with the request URL, path, or headers. Differences in the supplied MD5 hash and content also trigger this error, as this error might indicate message corruption.
 `401 - Unauthorized`                    | The item requested was not available with the supplied authorization, or authorization was not supplied.
-`402 - Payment required`                | Either the data quota on the Lite plan was exceeded, or the account is in arrears. You can delete data or upgrade to the Standard plan, or bring the account up-to-date.
+`402 - Payment required`                | Either the data quota on the Lite plan was exceeded, or the account is in arrears. You can delete data or upgrade to the Standard plan, or bring the account up to date.
 `403 - Forbidden`                       | The requested item or operation is forbidden.
 `404 - Not Found`                       | The requested resource could not be found. The content includes further information as a JSON object, if available. The structure contains two keys, `error` and `reason`, similar to the following example: `{ "error":"not_found", "reason":"no_db_file" }`
 `405 - Resource Not Allowed`            | A request was made by using an invalid HTTP request type for the URL requested. For example, you requested a `PUT` when a `POST` is required. Errors of this type can also be triggered by invalid URL strings.
@@ -264,10 +261,10 @@ Code                                    | Meaning
 `409 - Conflict`                        | Request resulted in an update conflict.
 `412 - Precondition Failed`             | The request headers from the client and the capabilities of the server do not match. Alternatively, a request to create a database was denied because the database already exists. 
 `413 - Request Entity Too Large`        | The request size exceeded the [limit](/docs/Cloudant?topic=Cloudant-limits#request-payload-overview) for the {{site.data.keyword.cloudant_short_notm}} API.
-`415 - Bad Content Type`                | The content types supported, and the content type of the information that was requested or submitted, indicate that the content type is not supported.
+`415 - Bad Content Type`                | The content type of the information that was requested or submitted is not a supported content type. 
 `416 - Requested Range Not Satisfiable` | The range that is specified in the request header cannot be satisfied by the server.
 `417 - Expectation Failed`              | Returned if the unsupported `all_or_nothing` option is used when sending documents in bulk.
 `429 - Too Many Requests`               | The user sent too many requests in a specific amount of time. More information is available in the corresponding [RFC 6585](https://tools.ietf.org/html/rfc6585#page-3){: new_window}{: external}.
 `500 - Internal Server Error`           | The request could not be completed by the server. This could be due to an internal error or in some cases invalid data in the request. Alternatively, a replication was canceled while in progress.
-`503 - Service Unavailable`             | The request could not be processed. Seeing this response might indicate a misspelled {{site.data.keyword.cloudant_short_notm}} account name.
+`503 - Service Unavailable`             | The request could not be processed. If you see this response, it might indicate a misspelled {{site.data.keyword.cloudant_short_notm}} account name.
 {: caption="Table 1. HTTP status codes" caption-side="top"}

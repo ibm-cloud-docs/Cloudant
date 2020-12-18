@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-17"
 
 keywords: log analysis, integration 
 
@@ -46,13 +46,12 @@ Deployment Region | LogDNA Region
 ## Provisioning {{site.data.keyword.la_full_notm}}
 {: #provisioning-logdna}
 
-Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}, but in order to access it you have to [provision a Log Analysis service](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service to receive {{site.data.keyword.cloud_notm}} service logs](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs){: new_window}{: external}.
+Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}. In order to access it, you have to [provision a Log Analysis service](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service to receive {{site.data.keyword.cloud_notm}} service logs](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs){: new_window}{: external}.
 
 This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account that have {{site.data.keyword.la_full_notm}} integration to send logs to your {{site.data.keyword.la_full_notm}} service. [A list of the integrated services is available](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-cloud_services#cloud_services){: new_window}{: external}.
 {: .tip}
 
-{{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it only offers streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-service_plans)
-){: new_window}{: external}.
+{{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-service_plans){: new_window}{: external}.
 
 ### HIPAA 
 {: #hipaa_logdna}
@@ -78,23 +77,23 @@ Line Identifiers | Description
 Log Lines | Description
 ----------|------------
 `accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment. 
-`httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a given resource.
+`httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a specific resource.
 `httpRequest` | The URL path for the HTTP request. 
 `bytesRead`| The size of the response body. 
 `clientIp` | The IP address of the originating request. 
 `clientPort` | The port address for the originating request. 
-`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information see, [HTTP status codes](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-http#http-status-codes).
+`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-http#http-status-codes).
 `terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: new_window}{: external}.
 `dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.  
 `dbRequest` | The database request endpoint.
 `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
 `sslVersion` | The version of Transport Layer Security that the request is using. 
 `requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public#event-types){: new_window}{: external}.
-`parsedQueryString` | A parsed version showing the breakdown of the parameters passed in the query string. If we are unable to parse the `rawQueryString`, this value will be null.
+`parsedQueryString` | A parsed version that shows the breakdown of the parameters passed in the query string. If we are unable to parse the `rawQueryString`, this value is null.
 `rawQueryString` | Full text of the query string as passed to the service.
 `logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.
 `meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}.
-`timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This only happens once during the connection's lifetime, so subsequent requests sent over the same connection will show `0` for this value. </br> `request` - The total time to get the client request. It's the time elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
+`timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value. </br> `request` - The total time to get the client request. It's the time elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
 {: caption="Table 3. Log lines" caption-side="top"}
 
 The `request` and `transfer` timings are included in `response`.  

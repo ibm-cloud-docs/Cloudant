@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-18"
 
 keywords: access, status, resource
 
@@ -32,7 +32,7 @@ Learn how to deploy a CouchDB Cluster on Kubernetes and OpenShift.
 ## Deploying a CouchDB cluster on Kubernetes
 {: #deploy-couchdb-cluster-kubernetes}
 
-In this guide, we walk through deploying a three-node CouchDB Cluster with ephemeral storage on Kubernetes.
+Now, we walk through deploying a three-node CouchDB Cluster with ephemeral storage on Kubernetes.
 
 ### Prerequisites
 {: #prerequisites-cluster-kubernetes}
@@ -54,19 +54,17 @@ The Operator for Apache CouchDB uses TLS certificates for three purposes:
 
 Number one is mandatory and requires a TLS certificate to always be present. You can disable two and three by setting `environment.tls: false` in the `CouchDBCluster` manifest. The internal uses of the certificate don't require peer verification.
 
-The TLS certificates are stored in a Kubernetes secret called `clustername>-cert`. If your Kubernetes platform contains a supported certificate manager (currently only OpenShift certificate manager), this certificate is automatically generated. You can also provide your own certificate/CA certificate to make client verification easier.
+The TLS certificates are stored in a Kubernetes secret called `clustername>-cert`. If your Kubernetes platform contains a supported certificate manager (currently only OpenShift certificate manager), this certificate is automatically generated. You can also provide your own certificate or CA certificate to make client verification easier.
 
 #### Manually specifying a TLS Secret
 {: #specifying-tls-secret-cluster-kubernetes}
 
-Management of TLS certificates is beyond the scope of this guide, but we illustrate the steps by using a self-signed certificate. If you intend to expose your CouchDB instance externally, you must replace this certificate with a certificate that can be verified by using a CA that your CouchDB clients can trust.
+Management of TLS certificates is beyond the scope of what we're discussing here, but we illustrate the steps by using a self-signed certificate. If you intend to expose your CouchDB instance externally, you must replace this certificate with a certificate that can be verified by using a CA that your CouchDB clients can trust. 
 
 ##### Create a self-signed certificate
 {: #create-a-self-signed-certificate-kubernetes}
 
-1. Install `cfssl`.
-   - MacOS: `brew install cfssl`
-   - Linux:
+1. Install `cfssl`. On MacOS, use this command, `brew install cfssl`. On Linux, use a command similar to the following:
 
      ```
      mkdir ~/bin
@@ -113,7 +111,7 @@ kubectl create secret generic --type=kubernetes.io/tls <couchdbclustername>-cert
 ```
 {: codeblock}
 
-If your secret was created by using a well-known CA, you don't need to add the ca.crt key/value.
+If your secret was created by using a well-known CA, you don't need to add the ca.crt `key/value`.
 
 ### Create a CouchDBCluster resource
 {: #create-couchdbcluster-resource-kubernetes}
@@ -187,7 +185,7 @@ example                        ClusterIP   172.21.248.198   <none>        443/TC
 ## Deploying a CouchDB Cluster on OpenShift
 {: #deploy-couchdb-cluster-openshift-cluster-openshift}
 
-In this guide, we walk through deploying a three-node CouchDB Cluster with ephemeral storage on Red Hat OpenShift.
+Now, we walk through deploying a three-node CouchDB Cluster with ephemeral storage on Red Hat OpenShift.
 
 ### Prerequisites
 {: #prerequisites-cluster-openshift}
@@ -200,7 +198,7 @@ In this guide, we walk through deploying a three-node CouchDB Cluster with ephem
 ### TLS
 {: #tls-cluster-openshift}
 
-In Red Hat Openshift, each `CouchDBCluster` automatically uses a [service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html). CouchDB clients within the OpenShift cluster must use TLS and verify the connection by using CA, which is automatically mounted to pods at `/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt` or [injecting it](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html) into a `ConfigMap`.
+In Red Hat OpenShift, each `CouchDBCluster` automatically uses a [service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html). CouchDB clients within the OpenShift cluster must use TLS and verify the connection by using CA, which is automatically mounted to pods at `/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt` or [injecting it](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html) into a `ConfigMap`.
 
 If you want to use a different certificate, you can manually create one by following the instructions in [Creating a TLS certificate](#create-tls-certificate-cluster-kubernetes).
 
