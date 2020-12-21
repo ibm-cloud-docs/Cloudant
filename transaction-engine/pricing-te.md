@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-26"
+lastupdated: "2020-12-18"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -41,20 +41,20 @@ This document explores the implicit *incentives* that the pricing model is prese
 ## Provisioned Throughput Capacity
 {: #provisioned-throughput-capacity-te}
 
-You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads/sec and 50 writes/sec, and pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a certain number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a certain number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occur for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
+You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads/sec and 50 writes/sec, and pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a specific number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a specific number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occurs for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
 
 Read and write capacity can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads/sec or writes/sec required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads/sec and 1,000 writes/sec, even if you don't need the corresponding number of writes.
 
 You can't exceed the reserved capacity for either reads or writes. If you do, an HTTP 429 status code occurs that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 
-Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** tab to view and change the provisioned throughput capacity, and see the hourly and approximate monthly costs for each setting. See an example slider in the following image:
+Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** tab to view and change the provisioned throughput capacity. See the hourly and approximate monthly costs for each setting. Here is an example of slider. 
 
 ![Capacity slider](../images/manage_capacity_slider_te.png){: caption="Figure 1. Capacity slider" caption-side="bottom"}
 
 ## Read requests
 {: #read-requests-te}
 
-Read requests read documents or execute queries on database content. A read
+Read requests execute queries or read documents on database content. A read
 request consumes read units as shown in the following list:
 
 - 1 read unit to open the request's transaction.
@@ -88,7 +88,7 @@ Write requests create, update, or delete documents. They consume write units in 
 
 Therefore, the write of a single document is amplified, in terms of write units
 that are consumed, by the amount of foreground indexing it causes. Foreground and
-background indexing is discussed next.
+background indexing are discussed next.
 
 ## Updating indexes
 {: #updating-indexes-te}
@@ -96,7 +96,7 @@ background indexing is discussed next.
 As well as serving requests, {{site.data.keyword.cloudant_short_notm}} needs to build indexes to serve queries. A
 database can contain many indexes. {{site.data.keyword.cloudant_short_notm}} updates indexes in following ways:
 
-- Foreground indexing happens within a document write transaction. It costs 1
+- Foreground indexing happens within a document write transaction. It costs one
   write unit per row that is emitted into an index. Only Mango indexes support
   foreground indexing.
 - Background indexing is further discussed later and is used in the follow way:
@@ -110,9 +110,9 @@ Background indexing is used to keep view indexes up to date with
 document writes and to build newly created indexes of any type.
 
 - Background indexing consumes indexing units.
-    - Each document read to build an index during background indexing costs 1
+    - Each document read to build an index during background indexing costs one
       indexing unit. A document is read when it is created, updated, or deleted.
-    - Each row emitted to an index during background indexing costs 1 indexing
+    - Each row emitted to an index during background indexing costs one indexing
       unit.
 - Each account includes a number of indexing units, which is set in proportion
   to the write unit throughput of an account. Indexing units are not charged for
@@ -120,7 +120,7 @@ document writes and to build newly created indexes of any type.
 - The amount of indexing unit throughput is a multiple of the write unit
   throughput for an account. It is designed to allow a moderate number of
   indexes to be kept up to date when you maintain maximum write throughput, as
-  well as a small number of new indexes to be created.
+a few new indexes to be created.
     - In the case where you have many indexes, it is possible to write
       documents fast enough to exhaust background indexing capacity, meaning
       that indexes may never "catch up" with new writes. If indexes are failing
@@ -129,7 +129,7 @@ document writes and to build newly created indexes of any type.
       provisioned for your account.
     - Creating an index of any type (Mango or view) consumes a
       large amount of indexing unit throughput while the index is initially
-      being built, which means all existing documents in a database need to
+      being built. This means all existing documents in a database need to
       be read and added to the index. We suggest that you create only one new index
       at a time to allow each new index to be built in a timely manner. If you attempt to build several new indexes in parallel, it is likely to cause
       problems where indexes fall behind writes.
@@ -139,16 +139,16 @@ document writes and to build newly created indexes of any type.
 
 [Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with hitting the provisioned throughput capacity limits set for the instance.  
 
-When using the default parameters and replicating a database with a large backlog of documents to replicate, a single replication job consumes upwards of 650 reads/sec on the source database and batches of 500-1000 writes/sec on the target database. Users can reduce the approximate read and write throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+When you use the default parameters and replicate a database with a large backlog of documents, a single replication job consumes upwards of 650 reads/sec on the source database and batches of 500-1000 writes/sec on the target database. Users can reduce the approximate read and write throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads/sec on source database |
 |------------------|------------------|-------------------------------------|
 | 2 | 1 | 35 | 
 | 6 | 2 | 170 |
 | 12 | 3 | 360 | 
-| 20 | 4 | 650 (This is the default.) |
+| 20 | 4 | 650 (This value is the default.) |
 
-Write capacity consumed on the target database can be adjusted using the `worker_batch_size` parameter. The default is 500 documents in a batch write, and this parameter can be adjusted down to reduce the peak write throughput seen on the batch writes. 
+Write capacity that is consumed on the target database can be adjusted by using the `worker_batch_size` parameter. The default is 500 documents in a batch write, and this parameter can be adjusted down to reduce the peak write throughput that is seen on the batch writes. 
 
 ## Examples
 {: #request-examples-te}
@@ -163,7 +163,7 @@ consume.
 | Query a view that returns seven results. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>1.07 read units total, which is rounded up to two read units for the request. |
 | Query a view that returns seven results and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents. </br>8.07 read units total, which is rounded up to nine read units for the request. |
 | Mango query that returns seven results and can be satisfied with an index, which is the optimal way to use Mango indexes. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents (Mango always reads the documents to return them to you). </br>8.07 read units total, which is rounded up to nine read units for the request. |
-| Mango query that returns seven results and is partially satisfied with an index but requires further processing on the documents themselves (for example, when a regex is used). The part of the query's selector that can be satisfied by using the index reads 26 rows, then 26 documents need to be read, after you apply the regex in the selector, 19 documents are discarded from the initial result set. | One unit to open the transaction. </br>26/100 = 0.26 read units to read 26 rows. </br>Twenty six units to read 26 documents (Mango always reads the documents to return them to you). </br>27.26 read units total, which is rounded up to 28 read units for the request. |
+| Mango query that returns seven results and is partially satisfied with an index but requires further processing on the documents themselves (for example, when a regex is used). The part of the query's selector that can be satisfied by using the index reads 26 rows, then 26 documents need to be read, after you apply the regex in the selector, 19 documents are discarded from the initial result set. | One unit to open the transaction. </br>26/100 = 0.26 read units to read 26 rows. </br>Twenty-six units to read 26 documents (Mango always reads the documents to return them to you). </br>27.26 read units total, which is rounded up to 28 read units for the request. |
 | Query `_all_docs` by using a `limit` of 200 and retrieves the documents by using `include_docs=true`. |One unit to open the transaction. </br>200/100 = 2 units to read 200 rows. </br>Two hundred units to read 200 documents. </br>Two hundred and three read units total. | 
 {: class="simple-tab-table"}
 {: caption="Table 1. Example read units" caption-side="top"}
@@ -173,8 +173,8 @@ consume.
 
 | Request | Unit Total |
 |---------|------------|
-| Write a single document using `POST /{DB}/{ID}` (whether creating or updating the document) to a database with no Mango indexes. | One unit to open the transaction. </br>One unit to write the document. </br>Two units total. |
-| Write five documents using `_bulk_docs` to a database with no Mango indexes. | One unit to open the transaction. </br>Five units to write the document. </br>Six units total. |
+| Write a single document that uses `POST /{DB}/{ID}` (whether creating or updating the document) to a database with no Mango indexes. | One unit to open the transaction. </br>One unit to write the document. </br>Two units total. |
+| Write five documents that use `_bulk_docs` to a database with no Mango indexes. | One unit to open the transaction. </br>Five units to write the document. </br>Six units total. |
 | Write a single document by using `POST /{DB}/{ID}` (whether creating or updating the document) to a database with two Mango indexes that each emit a single row per document. | </br>One unit to open the transaction. </br>One unit to write the document. </br>Two units to write two Mango index rows (one per index). </br>Four units total. |
 | Write five documents by using `_bulk_docs` to a database with two Mango indexes that each emit a single row per document. | One unit to open the transaction. </br>Five units to write the document. </br>Ten units to write two Mango index rows (one per index).</br>Sixteen units total. |
 {: caption="Table 1. Example write units" caption-side="top"}
@@ -241,7 +241,7 @@ In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine pla
 
 ![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
 
-Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units depending on how complex it is. It's in your interest to try to achieve your application's goals while it consumes the fewest units possible.
+Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units based on how complex it is. It's in your interest to try to achieve your application's goals while it consumes the fewest units possible.
 
 This chart shows the cost of common {{site.data.keyword.cloudant_short_notm}} operations, with a color-coded guide to how the price is calculated:
 
@@ -282,7 +282,7 @@ Writes and bulk writes are charged not only on the number of documents that are 
 Storing data in the `_id` field rather than by using {{site.data.keyword.cloudant_short_notm}}'s auto-generated IDs can give you a "free" index for range querying, as shown in the following list:
 
 - [Use a time-sortable ID](https://blog.cloudant.com/2018/08/24/Time-sortable-document-ids.html) to get time-ordered documents.
-- Although no "partitioned databases" feature exists in {{site.data.keyword.cloudant_short_notm}} Transaction Engine, you can use IDs of the form `<deviceid>:<time-sortable-id>` to create a database sorted by device ID and time without secondary indexing. Judicious use of `startkey`/`endkey` with the `GET /db/_all_docs` allows the retrieval of readings from a known device ID in date order.
+- Although no "partitioned databases" feature exists in {{site.data.keyword.cloudant_short_notm}} Transaction Engine, you can use IDs of the form `<deviceid>:<time-sortable-id>` to create a database that is sorted by device ID and time without secondary indexing. Judicious use of `startkey`/`endkey` with the `GET /db/_all_docs` allows the retrieval of readings from a known device ID in date order.
 - If you have something unique about each document in your own domain, then use that instead of an auto-generated ID.
 
 ### Using `?include_docs=true` with MapReduce adds expense

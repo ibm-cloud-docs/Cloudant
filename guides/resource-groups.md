@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-18"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -66,7 +66,7 @@ For more information about how to do this migration, see [migrating Cloud Foundr
 Once the Dedicated Hardware instance is migrated to a resource group, it
 displays in the Location drop-down menu when you provision Standard plans.
 
-## How can I migrate my Dedicated Hardware instances and the Standard plan instances hosted on them?
+## How can I migrate my Dedicated Hardware instances and the Standard plan instances that are hosted on them?
 {: #how-can-i-migrate-my-dedicated-hardware-instances-and-the-standard-plan-instances-hosted-on-them-}
 
 In theory, instances can be migrated to resource groups in any order. We recommend the following order for Dedicated Hardware instances and
@@ -75,5 +75,5 @@ the Standard plan instances that are hosted on them:
 1. Migrate Dedicated Hardware instances to a resource group. This migration allows new Standard plan instances to be created on the Dedicated Hardware.
 2. Migrate Standard instances.
 
-You can migrate Lite plan instances and Standard plan instances not hosted on Dedicated Hardware at any time.
+You can migrate Lite plan instances and Standard plan instances that are not hosted on Dedicated Hardware at any time.
 {: tip}

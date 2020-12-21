@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-07"
+lastupdated: "2020-12-18"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -54,9 +54,9 @@ subcollection: Cloudant
 {: #use-legacy-or-iam}
 {: faq}
 
-We recommend you use the *Use only IAM* mode. This mode means only IAM credentials are provided via service binding and credential generation. You gain the following advantages when you use {{site.data.keyword.cloud_notm}} IAM:
+We recommend you use the *Use only IAM* mode. This mode means that only IAM credentials are provided via service binding and credential generation. You gain the following advantages when you use {{site.data.keyword.cloud_notm}} IAM:
 
-- Managing access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling.
+- Managing access to {{site.data.keyword.cloudant_short_notm}} with the standard tooling of {{site.data.keyword.cloud_notm}}.
 - Using credentials that you can easily revoke and rotate when you use {{site.data.keyword.cloud_notm}} IAM.
 
 For more information about the advantages and disadvantages between these modes, see [Advantages and disadvantages of the two access control mechanisms](/docs/services/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#advantages-and-disadvantages-of-the-two-access-control-mechanisms).

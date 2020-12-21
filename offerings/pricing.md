@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-19"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -29,15 +29,15 @@ subcollection: Cloudant
 {{site.data.keyword.cloudantfull}} is priced based on the provisioned throughput capacity that you allocate for your instance, and the amount of data storage consumed. With {{site.data.keyword.cloudant_short_notm}}, you can scale your provisioned throughput capacity up and down, and pay pro-rated hourly. The provisioned throughput capacity is a reserved number of reads per second, writes per second, and global queries per second allocated to an instance. The throughput capacity setting is the maximum usage level for a given second. You can't exceed the reserved capacity for either reads, writes, or global queries. If you do, an HTTP 429 status code occurs that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 {: shortdesc}
 
-The following table shows example hourly pricing for various provisioned throughput capacity settings. You can toggle the capacity in granular blocks of 100 reads/sec, 50 writes/sec, and 5 global queries/sec on an hourly basis. An approximate monthly cost is also shown for each setting that assumes an average of 730 hours in a month. The prices that are shown are in USD. 
+The following table shows example hourly pricing for various provisioned throughput capacity settings. You can toggle the capacity in granular blocks of 100 reads/sec, 50 writes/sec, and 5 global queries/sec on an hourly basis. An approximate monthly cost is also shown for each setting that assumes an average of 730 hours in a month. The prices shown are in USD. 
 
 ![Pricing spreadsheet](../images/pricing_spreadsheet.png){: caption="Figure 1. Pricing spreadsheet" caption-side="bottom"}
 
-You can use the {{site.data.keyword.cloud_notm}} pricing calculator to see estimated costs in other currencies by clicking the **Add to estimate** button from the {{site.data.keyword.cloudant_short_notm}} catalog tile. Specify storage, capacity, and select the country whose currency you want to see. See the calculator in the following screen capture.
+You can use the {{site.data.keyword.cloud_notm}} pricing calculator to see estimated costs in other currencies by clicking the **Add to estimate** button from the {{site.data.keyword.cloudant_short_notm}} catalog tile. Specify storage, capacity, and select the country whose currency you want to see. See the calculator in the following screen capture. 
 
 ![Pricing calculator](../images/pricing_calculater.png){: caption="Figure 2. Pricing calculator" caption-side="bottom"}
 
-Click **Calculate cost** and **Save**. Now, click **Review estimate**. Expand the estimate to see more details. If you save multiple estimates, you can then click **Review estimate** and compare them. See a sample estimate in the following screen capture.
+Click **Calculate cost** and **Save**. Now, click **Review estimate**. Expand the estimate to see more details. If you save multiple estimates, you can then click **Review estimate** and compare them. See a sample estimate in the following screen capture. 
 
 ![Review estimate](../images/review_estimate.png){: caption="Figure 3. Review estimate" caption-side="bottom"}
 
@@ -72,7 +72,7 @@ See the following example equation:
 - Total = $76.65
 
 
-Reads, writes, and global queries can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads/sec, writes/sec, or global queries/sec required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads/sec, 500 writes/sec, and 50 global queries/sec, even if you don't need the corresponding number of writes or global queries.
+Reads, writes, and global queries can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads/sec, writes/sec, or global queries/sec required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads/sec, 500 writes/sec, and 50 global queries/sec, even if you don't need the corresponding number of writes or global queries. 
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected](../images/cloudant-gran-tuning.png){: caption="Figure 6. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected" caption-side="bottom"}
 
