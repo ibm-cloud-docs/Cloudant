@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # {{site.data.keyword.cloudant_short_notm}} basics
 {: #ibm-cloudant-basics}
 
-If you haven't used {{site.data.keyword.cloudantfull}} or NoSQL databases in general, scan this quick introduction to the basics before you read further. It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}. The rest of the documentation assumes that you know these basics.
+If you have never used {{site.data.keyword.cloudantfull}} or NoSQL databases in general, scan this quick introduction to the basics before you read further. It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}. The rest of the documentation assumes that you know these basics.
 {: shortdesc}
 
 You can find more information about {{site.data.keyword.cloudant_short_notm}} in the following sections: 
@@ -45,8 +45,7 @@ or an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/login).
 ## HTTP API
 {: #http-api}
 
-All requests to {{site.data.keyword.cloudant_short_notm}} go over the web.
-This means any system that can speak to the web can speak to {{site.data.keyword.cloudant_short_notm}}.
+All requests to {{site.data.keyword.cloudant_short_notm}} go over the web, so any system that can speak to the web can speak to {{site.data.keyword.cloudant_short_notm}}.
 All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} are really just wrappers that provide
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
@@ -99,7 +98,7 @@ For more information about how {{site.data.keyword.cloudant_short_notm}} uses HT
 
     A special method that can be used to copy documents and objects.
 
-If the client (such as some web browsers) doesn't support using these HTTP methods,
+If the client (such as some web browsers) doesn't support the use of HTTP methods,
 `POST` can be used instead with the `X-HTTP-Method-Override` request header set to the actual HTTP method.
 
 ### Method not allowed error

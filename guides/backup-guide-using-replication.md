@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -58,12 +58,7 @@ or you prefer to create your own backups,
 you can use the {{site.data.keyword.cloudant_short_notm}} replication facility to create a database backup.
 
 A simple approach is to replicate the entire database to a dated backup database.
-This method works and is easy to do.
-But if you need backups for more than one point in time,
-such as seven daily backups and four weekly ones,
-you must store a complete copy of the database in each new backup database.
-A complete copy might require significant disk usage,
-especially if your database is large.
+This method works and is easy to do, but if you need backups for more than one point in time, you must store a complete copy of the database in each new backup database. You might, for example, need seven daily backups and four weekly ones. A complete copy might require significant disk usage, especially if your database is large.
 
 As an alternative,
 incremental backups are a good solution for storing
@@ -500,8 +495,8 @@ This practice slows down the backup process and uses unnecessary amounts of disk
 Use a filter function with your replications to filter out design documents if you don't require indexes on your backup system.
 You might also use this filter function to exclude other documents that aren't wanted.
 
-### Backing up more than one databases
-{: #backing-up-multiple-databases}
+### Backing up more than one database
+{: #backing-up-multiple-database}
 
 If your application uses one database per user,
 or allows each user to create several databases,

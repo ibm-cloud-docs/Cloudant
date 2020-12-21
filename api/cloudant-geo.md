@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-23"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -298,7 +298,7 @@ Parameter | Description
 `bbox`    | Specify a bounding box with two coordinates for the lower-left and upper-right corners.
 `ellipse` | Specify an ellipse query with a latitude `lat`, a longitude `lon`, and two radii: `rangex` and `rangey`, both measured in meters.
 `radius`  | Specify a circle query with a latitude `lat`, a longitude `lon`, and a radius `radius` measured in meters.
-`<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter includes `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
+`<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
 {: caption="Table 2. Types of query geometries" caption-side="top"}
 
 #### Example of a `bbox` query
@@ -370,8 +370,8 @@ Relation                | Description
 `Q disjoint R`          | True if the two geometries of `Q` and `R` don't intersect. `disjoint` returns the exact opposite result of `intersects`.
 `Q intersects R`        | True if the two geometries of `Q` and `R` intersect. `intersects` returns the exact opposite result of `disjoint`.
 `Q overlaps R`          | Case 1 - True if the interior of both geometries intersects the interior and exterior of the other. Apply to the geometry pairs of `polygon/polygon`, `multipoint/multipoint`, and `multipolygon/multipolygon`.
-                        | Case 2 - True if the intersection of the geometries is a linestring. Apply to the geometry pairs of linestring and linestring, and multilinestring and multilinestring.
-`Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a linestring, polygon, multilinestring, or multipolygon.
+                        | Case 2 - True if the intersection of the geometries is a `linestring`. Apply to the geometry pairs of `linestring` and `linestring`, and `multilinestring` and `multilinestring`.
+`Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a `linestring`, polygon, `multilinestring`, or `multipolygon`.
 `Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`.
 {: caption="Table 3. Geometric relations" caption-side="top"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -243,7 +243,7 @@ you would set their {{site.data.keyword.cloudant_short_notm}} URL to `"https://m
 
 In an active-passive configuration,
 all instances of an application are configured to use a primary database.
-However, the application can failover to the other backup database,
+However, the application can fail over to the other backup database,
 if circumstances make it necessary.
 The failover might be implemented within the application logic itself,
 or by using a load balancer,
@@ -301,7 +301,7 @@ consider the following possible options:
   rather than a modification to the application settings.
   Many proxies can balance the load,
   based on user-defined health checks.
-* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} or [Dyn Traffic Director](http://dyn.com/traffic-director/){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
+* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
   This option requires a `CNAME` definition that routes to
   different {{site.data.keyword.cloudant_short_notm}} accounts,
   based on a health check or latency rule.

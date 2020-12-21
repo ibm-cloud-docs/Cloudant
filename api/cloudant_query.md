@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-23"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -49,13 +49,13 @@ You can create an index with one of the following types:
 -	`"type": "json"`
 -	`"type": "text"`
 
-### Creating a "type=json" index
+### Creating a `type=json` index
 {: #creating-a-type-json-index}
 
 To create a JSON index in the database `$DATABASE`,
 make a `POST` request to `/$DATABASE/_index` with a JSON object that describes the index in the request body.
 The `type` field of the JSON object must be set to `"json"`. A JSON index can be partitioned or
-global; this option is set using the `partitioned` field.
+global; this option is set by using the `partitioned` field.
 
 See the following example that uses HTTP to request an index of type `JSON`:
 
@@ -104,7 +104,7 @@ See the following example of returned JSON, confirming that the index was create
 
 | Field | Description | 
 |-------|-------------|
-| `index` | fields: A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=Cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
+| `index` | fields - A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=Cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
 | `ddoc` (optional) | Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document. |
 | `type` (optional) | Can be `json` or `text`. Defaults to `json`. Geospatial indexes will be supported in the future. | 
 | `name` (optional) | Name of the index. If no name is provided, a name is generated automatically. |
@@ -120,7 +120,7 @@ Value  | Description           | Notes
 ---------|---------------------|------------
 `true` | Create the index as partitioned.   | Can be used only in a partitioned database.
 `false`    | Create the index as global.  | Can be used in any database.
-{: caption="Table 2. The partitioned field values" caption-side="top"}
+{: caption="Table 2. Partitioned field values" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
@@ -128,7 +128,7 @@ Database is partitioned | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
-{: caption="Table 3. Settings based on whether the database is partitioned" caption-side="top"}
+{: caption="Table 3. Default partitioned value" caption-side="top"}
 
 It's important to reiterate that the default `partitioned` value is `true`
 for indexes that are created in a partitioned database. This default  value means that the index *cannot*
@@ -137,7 +137,7 @@ be used to satisfy global queries.
 
 Code | Description
 -----|------------
-200  | Index was created successfully or already existed.
+200  | Index was created successfully or existed in the database.
 400  | Bad request - the request body doesn't have the specified format.
 {: caption="Table 4. Return codes" caption-side="top"}
 
@@ -269,7 +269,7 @@ Key        | Description
 -----------|------------
 `analyzer` | Specifies the Lucene analyzer to use. The default value is `"standard"`.
 `enabled`  | Enable or disable the `default_field index`. The default value is `true`.
-{: caption="Table 5. The default_field field keys" caption-side="top"}
+{: caption="Table 5. Default_field field keys" caption-side="top"}
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
@@ -337,7 +337,7 @@ Value  | Description           | Notes
 ---------|---------------------|------------
 `true` | Create the index as partitioned.   | Can be used only in a partitioned database.
 `false`    | Create the index as global.  | Can be used in any database.
-{: caption="Table 6. The partitioned field values" caption-side="top"}
+{: caption="Table 6. Partitioned field values" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
@@ -345,7 +345,7 @@ Database is partitioned | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
-{: caption="Table 7. Settings based on whether the database is partitioned" caption-side="top"}
+{: caption="Table 7. Partitioned settings for the database" caption-side="top"}
 
 ## {{site.data.keyword.cloudant_short_notm}} Query Parameters
 {: #ibm-cloudant-query-parameters}
@@ -553,7 +553,7 @@ See the following example of a response body with two indexes:
 	for example `json`,
 	and $NAME is the name of the index.
 -	**Response Body** - JSON object that indicates successful deletion of the index,
-	or that describes any error that occured.
+	or that describes any error that occurred.
 -	**Request Body** - None
 -	**Roles** - `_writer`
 
@@ -587,7 +587,7 @@ Design documents aren't returned by `_find`.
 	Use this parameter to specify which fields of an object must be returned.
 	If this parameter is excluded,
 	the entire object is returned.
--	`r` (optional, `default: 1`) - The read quorum used when reading documents required when processing a query. The value defaults to 1, in which case, the document is read from the primary data colocated with the index. If set to a higher value, the document must also be retrieved from at least _r-1_ other primary data replicas before results can be processed. This option increases query latency as the replicas reside on separate machines. In practice, this option must rarely, if ever, changed from the default.
+-	`r` (optional, `default: 1`) - The read quorum used when reading documents that are required when processing a query. The value defaults to 1, in which case, the document is read from the primary data that is colocated with the index. If set to a higher value, the document must also be retrieved from at least _r-1_ other primary data replicas before results can be processed. This option increases query latency as the replicas reside on separate machines. In practice, this option must rarely, if ever, changed from the default.
     - `r` is **disallowed** when you make a partition query.
 -	`bookmark` (optional, `default: null`) - A string that is used to specify which page of results you require.
 	For more information, see [Pagination](#pagination_query).
@@ -1750,12 +1750,12 @@ an attempt is made to find the field type based on the selector.
 In ambiguous cases,
 the field type must be provided explicitly.
 
-Index that is used by query               | Field type requirement
+Index that is used by query               | Field type requirement 
 ------------------------------------------|-----------------------
 JSON index                                | It's not necessary to specify the type of sort fields in the query.
-Text index of all fields in all documents | Specify the type of any sort field in the query if the database contains any documents in which the sort field has one type *and also* contains some documents in which the sort field has a different type.
+Text index of all fields in all documents | Specify the sort field in the query if the database contains documents where the sort field has one type. Also, specify the sort field in the query if it contains documents where the sort field has a different type.
 Any other text index                      | Specify the type of all sort fields in the query.
-{: caption="Table 11. When to specify the field type" caption-side="top"}
+{: caption="Table 11. Time to specify the field type" caption-side="top"}
 
 A text index of all fields
 in all documents is created when you use the syntax:
@@ -2094,7 +2094,7 @@ ending in `_2e*` and `_3a*`.
 Implementing this query as two phrases instead of a single `twitter*` query prevents an accidental match
 with a field name such as `twitter_handle` or similar.
 
-The last of the three main clauses is a search for `starch` or `protein`.
+The last of the three main clauses are a search for `starch` or `protein`.
 This search is more complicated.
 The `$in` operator has some special semantics for array values that are inherited from the way MongoDB behaves.
 In particular,
