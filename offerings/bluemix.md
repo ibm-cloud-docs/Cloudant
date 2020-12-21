@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-10"
+lastupdated: "2020-12-15"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -207,7 +207,7 @@ Therefore, these results mean that the rows read value, and consumed read units,
 higher than the number of eventual results you receive.
 
 In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row that is returned by the
-underlying index so it can execute further filtering required by the
+underlying index. This way, it can execute further filtering required by the
 selector and passed to the query.
 
 | Number of results | Number of rows returned by index | Total Read consumption | Consumption for rows read | Consumption for documents read |
@@ -226,14 +226,14 @@ Using appropriate indexes is key for reducing read consumption for partitioned
 
 [Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with hitting the provisioned throughput capacity limits set for the instance.  
 
-When using the default parameters and replicating a database with a large backlog of documents to replicate, a single replication job consumes upwards of 2500-3000 reads/sec on the source database and a small amount of writes/sec on the target database. Users can reduce the approximate read throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+When you use the default parameters and replicate a database with a large backlog of documents to replicate, a single replication job consumes upwards of 2500-3000 reads/sec on the source database and a small amount of writes/sec on the target database. Users can reduce the approximate read throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads/sec on source database |
 |------------------|------------------|-------------------------------------|
 | 2 | 1 | 200 | 
 | 6 | 2 | 1000 |
 | 12 | 3 | 2000 | 
-| 20 | 4 | 3000 (This is the default.) |
+| 20 | 4 | 3000 (This value is the default.) |
 
 ### Viewing and changing capacity
 {: #viewing-and-changing-capacity}
@@ -256,7 +256,7 @@ The check mark turns yellow and says `Updating Capacity` until the target capaci
 
 ![Success message](../images/capacity-4.png){: caption="Figure 4. Success message" caption-side="bottom"}
 
-Capacity increases via the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity, which is 10,000 reads/sec, 5,000 writes/sec, and 500 global queries/sec. If you require more capacity, see **Need additional capacity?** tab on the Capacity page.
+Capacity increases via the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity, which is 10,000 reads/sec, 5,000 writes/sec, and 500 global queries/sec. If you require more capacity, see the **Need additional capacity?** tab on the Capacity page.
 {: note}
 
 #### UI - Cloud Foundry org and space
@@ -267,7 +267,7 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud
 
 To move to a different throughput capacity, select the provisioned throughput capacity that you need, then click **Update**. You're asked to confirm the change, 
 and reminded that the provisioning change can take up to 24 hours to 
-complete.
+complete. 
 
 ![Verify capacity change](../images/cloudant_capacity_change.png){: caption="Figure 6. Verify capacity change" caption-side="bottom"}
 
@@ -288,7 +288,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 ![Monitoring - Current Operations tab](../images/monitoring-current_operations.png){: caption="Figure 7. Monitoring - Current Operations tab" caption-side="bottom"}
 
-The **Denied Requests** tab shows the number of requests that were denied in a given second by showing the response, "429: too many requests." Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.
+The **Denied Requests** tab shows the number of requests that were denied in a given second by showing the response, "429: too many requests." Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries. 
 
 ![Monitoring - Denied Requests tab](../images/monitoring-denied_requests.png){: caption="Figure 8. Monitoring - Denied Requests tab" caption-side="bottom"}
 
@@ -401,7 +401,7 @@ See the drop-down menu in the {{site.data.keyword.cloud_notm}} catalog for an up
 
 &Dagger;All {{site.data.keyword.cloudant_short_notm}} instances that are deployed from the 
 {{site.data.keyword.cloud_notm}} Public Frankfurt region 
-deploy in EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}} 
+deploy into EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}} 
 account or API key that is generated 
 outside an EU-managed environment can't be granted access to an EU-managed 
 {{site.data.keyword.cloudant_short_notm}} instance. For more information, see [Enabling the EU Supported setting](https://cloud.ibm.com/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account.

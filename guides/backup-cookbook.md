@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-15"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -152,9 +152,9 @@ for long-term retention.
 ## Command line scripting examples
 {: #command-line-scripting-examples}
 
-Two requirements frequently occur:
+You frequently need to meet the following two requirements:
 
-* Saving disk space by ['zipping' the backup](#compressing-a-backup-file) file as it's created.
+* Saving disk space by ['zipping' the backup](#compressing-a-backup-file) file as you create it.
 * Creating a backup of a database automatically at [regular intervals](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compressing a backup file

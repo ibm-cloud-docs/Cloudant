@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-12-16"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -60,7 +60,7 @@ The Standard analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - Removes stop words, including "is" and "at".
-- Words that are changed to lowercase.
+- Changes words to lowercase.
 - Note how "aol.com" stays intact.
 
 ```json
@@ -86,7 +86,7 @@ The Simple analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - No stop words removed (notice "is" and "at").
-- Words that are changed to lowercase.
+- Changes words to lowercase.
 - Note how "`chris7767`" became "`chris`" and "21a" becomes "a".
 
 ```json
@@ -102,7 +102,7 @@ The Whitespace analyzer changes the string in the following ways:
 - Removes some punctuation.
 - Splits words on spaces.
 - No stop words removed (notice "is" and "at").
-- Words that stay case-sensitive.
+- Words remain case-sensitive.
 - Note how email stays intact.
 
 ```json
@@ -118,7 +118,7 @@ The Classic analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - Removes stop words (no "is" or "at").
-- Words that are changed to lowercase.
+- Changes words to lowercase.
 - Note how email stays intact.
 
 ```json
@@ -135,7 +135,7 @@ The English analyzer changes the string in the following ways:
 - Splits words based on spaces and punctuation.
 - Stems words (notice "`chris`" becomes "`chri`").
 - Removes stop words (no "is" or "at").
-- Words that are changed to lowercase.
+- Changes words to lowercase.
 - Note how email stays intact.
 
 ```json
@@ -172,7 +172,7 @@ It's likely that name fields must use an analyzer that doesn't stem words. The W
 ### Email addresses
 {: #email-addresses-sa}
 
-The built-in Email analyzer serves this purpose, which changes everything to lowercase and then behaves like the Keyword analyzer. 
+The built-in email analyzer serves this purpose, which changes everything to lowercase and then behaves like the Keyword analyzer. 
 
 ### Unique ID
 {: #unique-id}
@@ -234,8 +234,8 @@ Entity extraction is the process of locating known entities (given a database of
 
 As well as entities, the API can also place the article in a hierarchy of categories. In this case, Watson suggests the following categories:
 
-- / travel / tourist destinations / france
-- / sports / soccer
-- / sports / football
+- Travel, tourist destinations france
+- Sports, soccer
+- Sports, football
 
 When you pre-process your raw data, by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document, it provides automatic metadata about your free-text information. It can also provide an easier means to search and navigate your app.

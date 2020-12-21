@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-15"
+lastupdated: "2020-12-16"
 
 keywords: service credentials, locate service credentials
 
@@ -39,7 +39,7 @@ You can find the credentials for any service that is associated with your accoun
 {: shortdesc}
 
 ## Objectives
-{: #objectives-get-started}
+{: #objectives-locate-credentials}
 
 - Locate your service credentials in {{site.data.keyword.cloud_notm}}
 - Understand your service credentials

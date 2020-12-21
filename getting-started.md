@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-04"
+lastupdated: "2020-12-15"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -38,25 +38,25 @@ completion-time: 20m
 In this {{site.data.keyword.cloudantfull}} getting started tutorial, we use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance, and find essential information to enable your application to work with the database. With the {{site.data.keyword.cloudant_short_notm}} dashboard, we learn how to perform different tasks, such as how to create a database, populate a database with documents, replicate a database, and so on. 
 {: shortdesc}
 
-You can also create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, retrieve data by using queries or API endpoints, and many other tasks from the command line. For more information, see the [API and SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction).
+You can also create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, retrieve data by using queries or API endpoints, and many other tasks from the command line. For more information, see the [API and SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction). 
 
 ## Objectives
 {: #objectives-get-started}
 
-- Create a service instance
-- Create an {{site.data.keyword.cloudant_short_notm}} service credential
-- Open the {{site.data.keyword.cloudant_short_notm}} dashboard
-- Create a database
-- Add JSON documents to the database and run a query
-- Replicate a database
-- Monitor active tasks
-- Monitor with {{site.data.keyword.cloudant_short_notm}}
+- Create a service instance. 
+- Create an {{site.data.keyword.cloudant_short_notm}} service credential. 
+- Open the {{site.data.keyword.cloudant_short_notm}} dashboard. 
+- Create a database. 
+- Add JSON documents to the database and run a query. 
+- Replicate a database. 
+- Monitor active tasks. 
+- Monitor with {{site.data.keyword.cloudant_short_notm}}. 
 
 ## Creating a service instance
 {: #creating-an-ibm-cloudant-instance-on-ibm-cloud}
 {: step}
 
-1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click the `Create resource` button.
+1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click the `Create resource` button. 
 
     ![{{site.data.keyword.cloud_notm}} dashboard](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
@@ -107,7 +107,7 @@ The service credentials in this example were defined when a demonstration {{site
 
 1.  To create the connection information that your application needs to connect to the instance, click the `New credential` button.
 
-    ![Create new service credentials.](tutorials/images/img0050.png){: caption="Figure 7. Create new service credentials" caption-side="bottom"}
+    ![Create service credentials.](tutorials/images/img0050.png){: caption="Figure 7. Create service credentials" caption-side="bottom"}
 
 2.  Enter a name for the new credential in the Add new credential window. 
 
@@ -291,7 +291,7 @@ To create a replication job, follow these steps:
 
    ![Job configuration page](tutorials/images/replication-config-page-blank.png){: caption="Figure 4. Job configuration page" caption-side="bottom"} 
    
-   Additionally, you can create a replication from the Databases page by clicking the **Replicate** button in the Actions column.
+   Additionally, you can create a replication from the databases page by clicking the **Replicate** button in the Actions column.
    {: note} 
 
 3. Enter the following information for your replication job:
@@ -331,7 +331,7 @@ To create a replication job, follow these steps:
 
    ![Completed job status](tutorials/images/complete-status.png){: caption="Figure 7. Completed job status" caption-side="bottom"} 
 
-6. Check that the database was created on the Databases page.  
+6. Check that the database was created on the databases page.  
 
    ![Databases page](tutorials/images/databases.png){: caption="Figure 8. Databases page" caption-side="bottom"} 
 

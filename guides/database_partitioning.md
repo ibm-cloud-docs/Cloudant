@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-11-30"
 
-keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials
+keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
 subcollection: Cloudant
 
