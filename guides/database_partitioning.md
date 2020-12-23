@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-30"
+lastupdated: "2020-12-22"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -60,7 +60,7 @@ Before you read this document, you must understand the
 {: #non-partitioned-databases}
 
 A non-partitioned database is the older type of {{site.data.keyword.cloudant_short_notm}} database, and the one
-that is familiar if you have used CouchDB or {{site.data.keyword.cloudant_short_notm}} previously.
+that is familiar if you used CouchDB or {{site.data.keyword.cloudant_short_notm}} previously.
 
 Within a non-partitioned database, documents are distributed to shards in an
 arbitrary manner based on a transformation of their document ID. Therefore, no real relation exists between a document's ID and the shard it ends up on. Documents
@@ -97,23 +97,22 @@ the choice of a partition key is important. A partition key must have:
 - No hot spots - avoid designing a system that makes one partition handle a high
   proportion of the workload. If the work is evenly distributed around the
   partitions, the database performs more smoothly.
-- Repeating - If each partition key is unique, there is one document per
-  partition. To get the best out of partitioned databases, there must be
-  multiple documents per partition - documents that logically belong together.
+- Repeating - If each partition key is unique, one document per
+  partition exists. To get the best out of partitioned databases, multiple documents per partition must exist - documents that logically belong together.
 
 Let's look at some use cases and some good and bad choices for a partition key.
 
 | Use Case                   | Description                 | Partition Key | Effectiveness                                                                                                  |
 |----------------------------|-----------------------------|---------------|------------------------------------------------------------------------------------------------------------------|
 | E-commerce system - orders | One document per order     | `order_id`      | Neutral - one document per partition is fine, but it doesn't provide the benefits of Partition Queries.          |
-| E-commerce system - orders | One document per order     | `user_id`       | Good - all of a user's orders will be kept together.                                                             |
-| E-commerce system - orders | One document per order      | `status`        | Bad - grouping orders by a handful of status values (provisional, paid, refunded, cancelled) creates too few over-large partitions.  |
+| E-commerce system - orders | One document per order     | `user_id`       | Good - all of a user's orders are kept together.                                                             |
+| E-commerce system - orders | One document per order      | `status`        | Bad - grouping orders by a handful of status values (provisional, paid, refunded, cancelled) create too few over-large partitions.  |
 | Blogging platform          | One document per blog post | `author_id`    | Good - if many authors participate. Easy to query each author's posts.                                     |
-| IOT - sensor readings      | One document per reading    | `device_id`     | Good - if there are many devices, make sure that one device isn't producing many more readings than the others. |
+| IOT - sensor readings      | One document per reading    | `device_id`     | Good - if many devices exist, make sure that one device isn't producing many more readings than the others. |
 | IOT - sensor readings      | One document per reading    | `date`          | Bad - current readings cause a "hot spot" on the current date's partition.                                  |
 {: caption="Table 1. Good and bad choices for a partition key" caption-side="top"}
 
-Some use cases exist where there isn't a viable choice for a partition key.
+Some use cases exist where no viable choice for a partition key exists.
 In these situations, it's likely a non-partitioned database is the best
 choice. For example, a database of users that stores email addresses, password hashes, and last-login dates. None of these fields make for a suitable partition key, so a
 normal non-partitioned database must be used instead.
@@ -152,11 +151,10 @@ You can make partition queries to the following index types:
 - Search
 
 When you make a partition query, the database can query just the data
-within a single partition. As a partition's data resides in just one shard (with
-three replicas), the API coordination node can make a request directly
+within a single partition. A partition's data resides in just one shard (with
+three replicas). The API coordination node can make a request directly
 to servers that host that data rather than needing to combine responses from
-many servers. It's also freed from buffering the response, since there's no
-combination step to carry out. As a result, the data arrives at the client more
+many servers. The API coordination node is also free from buffering the response since it has no combination step to carry out. As a result, the data arrives at the client more
 quickly.
 
 As the size of a database increases, the number of shards
@@ -208,8 +206,7 @@ by using partitioned indexes. However, global indexes might need to be used to c
 views over multiple devices, for example, all devices on a specific piece of
 infrastructure.
 
-For illustrative purposes, let's make the scenario a bit more complicated by
-assuming that the application mostly needs to read all sensor data for a specific 
+For illustrative purposes, let's make the scenario a bit more complicated. Assume that the application mostly needs to read all sensor data for a specific 
 piece of infrastructure rather than for individual devices.
 
 In this application, we want querying by infrastructure item to be most
@@ -261,9 +258,7 @@ First, let's define a simple document format to work with:
 ```
 {: codeblock}
 
-For this document, that uses the partitioning scheme based on a piece of
-infrastructure, the document ID might include the infrastructure ID as
-the partition key, and include both device and timestamp as the document key:
+This document uses the partitioning scheme based on a piece of infrastructure. The document ID might include the infrastructure ID as the partition key, and include both device and timestamp as the document key:
 
 ```
 bridge-9876:device-123456-20181211T11:13:24.123456Z
@@ -386,8 +381,8 @@ Overall, we want to make four queries:
 {: #finding-all-readings-for-a-piece-of-infrastructure}
 
 As our partitions are infrastructure-based, we can use `_all_docs` for a
-partition. For example, query for all readings for the `bridge-1234`
-infrastructure piece by using the following command:
+partition. For example, query all readings for the `bridge-1234`
+infrastructure piece by using the following command.
 
 ```
 curl -XGET \

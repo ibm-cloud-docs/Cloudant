@@ -41,7 +41,7 @@ As a result, the copies of a document might have different updates. "Conflicts" 
 {: #what-eventual-consistency}
 {: faq}
 
-{{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=Cloudant-cap-theorem#cap-theorem), which means {{site.data.keyword.cloudant_short_notm}} must make sure no differences between nodes exist. These inconsistencies can happen when out-of-date documents are synchronized.
+{{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=Cloudant-cap-theorem#cap-theorem), which means {{site.data.keyword.cloudant_short_notm}} must ensure that no differences exist between nodes. These inconsistencies can happen when out-of-date documents are synchronized.
 
 It's important for {{site.data.keyword.cloudant_short_notm}} databases to have concurrent read and write access. MVCC enables that capability. MVCC is a form of [optimistic concurrency control](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}{: external} that makes read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because database locking isn't necessary for read and write operations.  At the same time, MVCC enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
@@ -49,13 +49,13 @@ It's important for {{site.data.keyword.cloudant_short_notm}} databases to have c
 {: #how-know-conflict}
 {: faq}
 
-You don't know. There will be times when you request a document that has a conflict. At those times, {{site.data.keyword.cloudant_short_notm}} returns the document normally, as though no conflict exists. However, the version that is returned isn't necessarily the most current version. Instead, it's selected based on an internal algorithm, which considers multiple factors. You must not assume that when documents are returned they're always the most current.
+You don't know. Sometimes you will request a document that has a conflict. At those times, {{site.data.keyword.cloudant_short_notm}} returns the document normally, as though no conflict exists. However, the version that is returned isn't necessarily the most current version. Instead, the version is selected based on an internal algorithm that considers multiple factors. You must not assume that when documents are returned they're always the most current.
 
 ## How do I identify a document with a conflict?
 {: #how-identify-document-conflict}
 {: faq}
 
-If there is a conflict with a document and you try to update it, {{site.data.keyword.cloudant_short_notm}} returns a 409 response.  If you try to update a document while you're offline, {{site.data.keyword.cloudant_short_notm}} can't check for potential conflicts, and you don't receive a 409 response. 
+If a conflict with a document exists and you try to update it, {{site.data.keyword.cloudant_short_notm}} returns a 409 response. If you try to update a document while you're offline, {{site.data.keyword.cloudant_short_notm}} can't check for potential conflicts, and you don't receive a 409 response. 
 
 When this situation happens, it's best to check for document conflicts when you're back online. If you need to find document conflicts, use the following example map function:
 
