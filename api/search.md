@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-24"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Search
 {: #search}
 
-Search indexes enable you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one or more fields from your documents. You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
+Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one or more fields from your documents. You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
 {: shortdesc}
 
 To create a search index, you add a JavaScript function to a design document in the database. An index builds after it processes one search request or after the server detects a document update. The `index` function takes the following parameters: 
@@ -69,9 +69,8 @@ Your indexing functions operate in a memory-constrained environment where the do
 
 Within a search index, don't index the same field name with more than one data type. If the 
     same field name is indexed with different data types in the same search index function, 
-    you might get an error when you query the search index that says the field "was indexed without 
-    position data". For example, don't include both of these lines in the same search index function, 
-    as they index the `myfield` field as two different data types: a string `"this is a string"` and a number `123`.
+    you might get an error. This occurs when you query the search index that says the field "was indexed without 
+    position data". For example, don't include both of these lines in the same search index function. These lines index the `myfield` field as two different data types, a string `"this is a string"` and a number `123`.
 {: note}
 
 ```json
@@ -99,7 +98,7 @@ query=color:red
 The Lucene field name `color` is the first parameter of the `index` function.
 
 The `query` parameter can be abbreviated to `q`,
-so another way of writing the query is as follows:
+so another way of writing the query is shown in the  following example.
 
 ```
 q=color:red
@@ -163,8 +162,8 @@ However,
 if that data field doesn't exist for the document,
 an error occurs.
 The solution is to use an appropriate "guard clause" that checks if the field exists.
-This clause contains the expected type of data,
-*before* any attempt to create the corresponding index.
+This clause contains the expected type of data 
+before any attempt to create the corresponding index.
 
 See the following example definition that doesn't have any validation on the type of the index data field: 
 
@@ -176,9 +175,9 @@ if (doc.min_length) {
 {: codeblock}
 
 You might use the JavaScript `typeof` operator to implement the guard clause test.
-If the field exists *and* has the expected type,
+If the field exists and has the expected type,
 the correct type name is returned. The guard clause test succeeds, which means it's safe to use the index function.
-If the field does *not* exist,
+If the field does not exist,
 you wouldn't get back the expected type of field,
 that's why you wouldn't try to index the field.
 
@@ -228,7 +227,7 @@ Analyzer     | Description
 `keyword`    | Input isn't tokenized at all.
 `simple`     | Divides text at non-letters.
 `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: new_window}{: external}.
-`whitespace` | Divides text at white-space boundaries.
+`whitespace` | Divides text at white space boundaries.
 {: caption="Table 2. Generic analyzers" caption-side="top"}
 
 See the following example analyzer document:
@@ -260,7 +259,7 @@ The name of the language is also the name of the analyzer.
 * `brazilian`
 * `catalan`
 * `cjk` (Chinese, Japanese, Korean)
-* `chinese` ([smartcn](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window}{: external})
+* `chinese` ([`smartcn`](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window}{: external})
 * `czech`
 * `danish`
 * `dutch`
@@ -275,11 +274,11 @@ The name of the language is also the name of the analyzer.
 * `indonesian`
 * `irish`
 * `italian`
-* `japanese` ([kuromoji](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window}{: external})
+* `japanese` ([`kuromoji`](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window}{: external})
 * `latvian`
 * `norwegian`
 * `persian`
-* `polish` ([stempel](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window}{: external})
+* `polish` ([`stempel`](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window}{: external})
 * `portuguese`
 * `romanian`
 * `russian`
@@ -479,7 +478,7 @@ You must enable [faceting](#faceting) before you can use the following parameter
 
 | Argument | Description | Optional | Type | Supported Values | Partition Query |
 |---------|---------|--------|--------|--------|----------|
-| `bookmark` | A bookmark that was received from a previous search. This parameter enables paging through the results. If there are no more results after the bookmark, you get a response with an empty rows array and the same bookmark, confirming the end of the result list. | `yes` | String | | Yes |
+| `bookmark` | A bookmark that was received from a previous search. This parameter enables paging through the results. If no results exist after the bookmark, you get a response with an empty rows array and the same bookmark, confirming the end of the result list. | `yes` | String | | Yes |
 | `counts` | This field defines an array of names of string fields, for which counts are requested. The response includes counts for each unique value of this field name among the documents that match the search query. [Faceting](/docs/Cloudant?topic=Cloudant-search#faceting) must be enabled for this parameter to function. | Yes | JSON | A JSON array of field names. | No |
 | `drilldown` | This field can be used several times. Each use defines a pair of a field name and a value. The search matches only documents that include the value that was provided in the named field. It differs from using `"fieldname:value"` in the `q` parameter only in that the values aren't analyzed. [Faceting](/docs/Cloudant?topic=Cloudant-search#faceting) must be enabled for this parameter to function. | No | JSON | A JSON array that includes two elements: the field name and the value. | Yes |
 | `group_field` | Field by which to group search matches. | Yes | String | A string that includes the name of a string field. Fields that include other data such as numbers, objects, or arrays can't be used. | No |
@@ -491,11 +490,11 @@ You must enable [faceting](#faceting) before you can use the following parameter
 | `highlight_number` | Number of fragments that are returned in highlights. If the search term exceeds the fragment size, then the entire search term is returned. | Yes, defaults to 1 | Numeric |  | Yes |
 | `highlight_size` | Slice up field content into number of characters, so-called fragments, and highlights matches only inside the specified fragments. | Yes, defaults to 100 characters | Numeric |  | Yes |
 | `include_docs` | Include the full content of the documents in the response. | Yes | Boolean |  | Yes |
-| `include_fields` | A JSON array of field names to include in search results. Any fields that are included must be indexed with the `store:true` option. | Yes, the default is all fields | Array of strings | | Yes |
+| `include_fields` | A JSON array of field names to include in search results. Any fields that are included must be indexed with the `store:true` option. | Yes, the default is all fields. | Array of strings | | Yes |
 | `limit` | Limit the number of the returned documents to the specified number. For a grouped search, this parameter limits the number of documents per group. | Yes | Numeric | The limit value can be any positive integer number up to and including 200. | Yes | 
 | `q` | Abbreviation for `query`. Runs a Lucene query. | No | String or Number |  | Yes |
 | `query` | Runs a Lucene query. | No | String or Number |  | Yes |
-| `ranges` | This field defines ranges for faceted, numeric search fields. The value is a JSON object where the fields names are faceted numeric search fields, and the values of the fields are JSON objects. The field names of the JSON objects are names for ranges. The values are strings that describe the range, for example `"[0 TO 10]"` | Yes | JSON | The value must be an object with fields that have objects as their values. These objects must have strings with ranges as their field values. | No |
+| `ranges` | This field defines ranges for faceted, numeric search fields. The value is a JSON object where the fields names are faceted numeric search fields, and the values of the fields are JSON objects. The field names of the JSON objects are names for ranges. The values are strings that describe the range, for example `"[0 TO 10]"`. | Yes | JSON | The value must be an object with fields that have objects as their values. These objects must have strings with ranges as their field values. | No |
 | `sort` | Specifies the sort order of the results. In a grouped search (when `group_field` is used), this parameter specifies the sort order within a group. The default sort order is relevance. | Yes | JSON | A JSON string of the form `"fieldname<type>"` or `-fieldname<type>` for descending order. The `fieldname` is the name of a String or Number field, and `type` is either a number, a string, or a JSON array of strings. The `type` part is optional, and defaults to `number`. Some examples are `"foo"`, `"-foo"`, `"bar<string>"`, `"-foo<number>"`, and `["-foo<number>","bar<string>"]`. String fields that are used for sorting must not be analyzed fields. Fields that are used for sorting must be indexed by the same indexer that is used for the search query. | Yes | 
 | `stale` | Do not wait for the index to finish building to return results. | Yes | String | OK | Yes | 
 {: caption="Table 3. Query parameters" caption-side="top"}
@@ -658,7 +657,7 @@ and return 25 rows by default.
 The number of rows that are returned can be changed
 by using the [`limit` parameter](#query-parameters-search).
 
-If the search query does *not* specify the `"group_field"` argument,
+If the search query does not specify the `"group_field"` argument,
 the response includes a bookmark.
 If this bookmark is later provided as a URL parameter,
 the response skips the rows that were seen already,

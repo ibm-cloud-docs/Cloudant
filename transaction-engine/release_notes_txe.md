@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-12-23"
 
 keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80
 
@@ -58,7 +58,7 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 - Disable non-IAM authentication and authorization methods.
   - Block write to `/_security` endpoint.
   - Block creation of `/_users` databases.
-- Fix intermittent error when recreating database instances.
+- Fix intermittent error when you re-create database instances.
 - Add `local_seq` options to views.
 - Add support for `_active_tasks`.
 

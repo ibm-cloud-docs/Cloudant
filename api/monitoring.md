@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-24"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -42,12 +42,12 @@ In what way has the system behavior changed as a result of any configuration or 
 To answer the question,
 you need data.
 The data comes from monitoring the system.
-
-Monitoring the system while it replicates can be performed using the `_active_tasks` endpoint,
+x
+Monitoring the system while it replicates can be performed by using the `_active_tasks` endpoint,
 which is described in more detail in [Active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks).
 
 For more detailed system information,
-you make use of the cluster monitoring API.
+use the cluster monitoring API.
 
 The cluster monitoring API is not available for [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](/docs/Cloudant?topic=Cloudant-ibm-cloudant-local-overview).
 {: note}
@@ -55,7 +55,7 @@ The cluster monitoring API is not available for [{{site.data.keyword.cloudant_sh
 ## Monitoring metrics overview
 {: #monitoring-metrics-overview}
 
-When monitoring the cluster,
+When you monitor the cluster,
 you can obtain data about how it is performing.
 Details such as the number of HTTP requests processed per second,
 or how many documents are processed per second,
@@ -69,7 +69,7 @@ you would direct the request to the `map_doc` endpoint.
 
 For more information, see a full list of the available [endpoints](#monitoring-endpoints).
 
-The data returned is provided in JSON format by default.
+The data is returned in JSON format by default.
 You can specify a `raw` format if you prefer.
 
 ## Syntax of the monitoring request
@@ -87,7 +87,7 @@ The fields are described in the following table:
 Field        | Meaning
 -------------|--------
 `ADMIN_USER` | The account name. The account must have administrative privileges.
-`CLUSTER`    | The cluster you are interested in.
+`CLUSTER`    | The cluster that you are interested in.
 `DURATION`   | Specifies the duration of the preferred time series query. Select from one of the following time intervals: `["5min", "30min", "1h", "12h", "24h", "1d", "3d", "7d", "1w", "1m", "3m", "6m", "12m", "1y"]`. `DURATION` must be paired with either the `START` or `END` request.
 `END`        | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the end point of a time series query that is mutually exclusive with `START`.
 `END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor.
@@ -111,7 +111,7 @@ the monitoring results are returned in [`JSON` format](#with-format=json-default
 If you prefer,
 you can choose to receive the results in [`raw` format](#with-format=raw).
 
-The results include a text string that identifies the metric stored on the server providing the API capability,
+The results include a text string that identifies the metric that is stored on the server that provides the API capability,
 for example:
 
 ```
@@ -128,8 +128,8 @@ The results include cluster-level data.
 {: #with-format=json-default}
 
 Unless you specify otherwise,
-the metric data returned is in JSON format.
-Each value returned consists of `[datapoint, timestamp]` values.
+the metric data that is returned is in JSON format.
+Each value that is returned consists of `[datapoint, timestamp]` values.
 
 #### Example monitoring request for disk use data returned in `JSON` format:*
 
@@ -138,7 +138,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=mycluste
 ```
 {: codeblock}
 
-#### Example result after requesting disk use data in `JSON` format:*
+#### Example result after you request disk use data in `JSON` format:*
 
 ```json
 [
@@ -177,7 +177,7 @@ The next two numbers are the start and end times,
 expressed as UTC epoch seconds.
 The final number is the step size in seconds.
 
-The numbers after the `|` character contain the metric data obtained from your chosen end point.
+The numbers after the `|` character contain the metric data that is obtained from your chosen end point.
 For example,
 requesting metric data from the disk use end point returns the output from a `df` command,
 with the disk use expressed as bytes stored.
@@ -189,7 +189,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=mycluste
 ```
 {: codeblock}
 
-#### Example result after requesting disk use data in `raw` format:*
+#### Example result after you request disk use data in `raw` format:*
 
 ```
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.used),1391019780,1391020080,60|344708448256.0,345318227968.0,346120126464.0,346716471296.0,175483256832.0
@@ -203,7 +203,7 @@ sumSeries(net.cloudant.mycustomer001.db*.df.srv.free),1391019780,1391020080,60|6
 To list all of the currently supported monitoring end points,
 make a request to the `monitoring` endpoint.
 
-The following table lists the supported monitoring endpoints provided by the API:
+The following table lists the supported monitoring endpoints that are provided by the API:
 
 Endpoint                                | Description
 ----------------------------------------|------------
@@ -211,9 +211,9 @@ Endpoint                                | Description
 [`disk_use`](#disk_use)                 | The disk use, as measured by a `df` command.
 [`kv_emits`](#kv_emits)                 | The number of `key:value` emits per second.
 [`map_doc`](#map_doc)                   | The number of documents processed by a map function, per second.
-[`network`](#network)                   | The octets received and transmitted.   
-[`rate/status_code`](#rate-status_code) | The rate of requests, grouped by status code.
-[`rate/verb`](#rate-verb)               | The rate of requests, grouped by HTTP verb.
+[`network`](#network)                   | The octets that are received and transmitted.   
+[`rate/status_code`](#rate-status_code) | The rate of requests, which are grouped by status code.
+[`rate/verb`](#rate-verb)               | The rate of requests, which are grouped by HTTP verb.
 [`rps`](#rps)                           | The number of reads per second.
 [`wps`](#wps)                           | The number of writes per second.
 {: caption="Table 2. Monitoring API endpoints" caption-side="top"}

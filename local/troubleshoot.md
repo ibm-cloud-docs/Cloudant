@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-24"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -97,10 +97,10 @@ failure of servers, disks, networking components, or
 related failures. When you diagnose the problem, watch
 for the following changes.
 
-*   Disk errors on cluster nodes
-*   Changes in disk operation times
-*   Unexpected volumes on one or more cluster nodes
-*   Recently unavailable cluster nodes
+*   Disk errors on cluster nodes.
+*   Changes in disk operation times.
+*   Unexpected volumes on one or more cluster nodes.
+*   Recently unavailable cluster nodes.
 
 ### Are elevated latencies isolated to a particular account, database, or request type?
 {: #are-elevated-latencies-isolated-to-a-particular-account-database-or-request-type-}
@@ -140,7 +140,7 @@ documentation about rebalancing a cluster.
 If latencies are elevated only for a specific view (or
 view group or design_doc), check whether the affected
 requests are using `stale=ok`. If they are using `stale=ok`,
-check the distribution of ushards for that view by
+check the distribution of `ushards` for that view by
 running the following command in remsh.
  
 ``` sh
@@ -148,8 +148,8 @@ running the following command in remsh.
 ```
 {: codeblock}
 
-If the ushards are not evenly distributed (meaning every
-node has the same number of ushards), you can change the
+If the `ushards` are not evenly distributed (meaning every
+node has the same number of `ushards`), you can change the
 order of the nodes for each range under `by_range`.
 
 If they are not using `stale=ok`, check for ongoing view
@@ -314,9 +314,9 @@ and display the Metrics application.
 5. When you log in to the Metrics application for the first time,
     the Metrics login page opens.
 
-The following screen capture shows the data that appears on the Metrics application for Database Read/Write Rate and Document Read/Write Rate in graph form.
+The following screen capture shows the data that appears on the Metrics application for database read/write rate and document read/write rate in graph form.
 
-![Example shows the graphical information that is displayed for database and document read/write rates.](images/metrics_webapp.jpg){: caption="Figure 1. Example shows the graphical information that is displayed for database and document read/write rates" caption-side="bottom"}
+![Example shows the graphical information that is displayed for database and document read/write rates.](images/metrics_webapp.jpg){: caption="Figure 1. Graphical information for database and document read/write rates" caption-side="bottom"}
 
 
 #### Adding non-administrator users
@@ -461,11 +461,9 @@ You must have root privileges to run the MustGather tool.
 
 1. Run the MustGather tool by using the following command.
 
-   a. Add the root SSH private keys to all nodes, including
-        database nodes and load-balancer nodes.
+   a. Add the root SSH private keys to all nodes, including database nodes and load-balancer nodes.
 
-   b. Copy the SSH public keys to the
-        `/root/.ssh/authorized_keys` file.
+   b. Copy the SSH public keys to the `/root/.ssh/authorized_keys` file.
 
    c. Turn off `StrictHostChecking`.
 
@@ -484,42 +482,35 @@ You must have root privileges to run the MustGather tool.
 
 2. Run the MustGather tool with option `-n` or option `-o`.
 
-   a. Update the `mustgather.ini` file to specify the nodes with
-        option `-n`. 
+   a. Update the `mustgather.ini` file to specify the nodes with option `-n`. 
 
-   - Specify the `-n` option the first time you run the
-            MustGather tool.
+   - Specify the `-n` option the first time you run the MustGather tool.
 
-   - Do not specify option `-n` for any subsequent runs
-            unless the node information changes from the previous
-            run.
+   - Do not specify option `-n` for any subsequent runs unless the node information changes from the previous run.
 
-   b. Update the `mustgather.ini` file to specify the nodes with
-        option `-o`.
+   b. Update the `mustgather.ini` file to specify the nodes with option `-o`.
 
-   - The `mustgather.tar` file is saved to the output
-           directory when option `-o` is specified.
+   - The `mustgather.tar` file is saved to the output directory when option `-o` is specified.
 
-   - The `mustgather.tar` file is saved to the current
-            directory when option `-o` is not specified.
+   - The `mustgather.tar` file is saved to the current directory when option `-o` is not specified.
             
 3. After you run the tool, send the `tar` file to {{site.data.keyword.IBM_notm}} support.
 
-## Monitor cluster health with Weatherreport
+## Monitor cluster health with Weather report
 {: #monitor-cluster-health-with-weatherreport}
 
-Use these instructions to use the Weatherreport utility to check
-the health of your {{site.data.keyword.cloudant_short_notm}} cluster. Weatherreport is a
+Use these instructions to use the Weather report utility to check
+the health of your {{site.data.keyword.cloudant_short_notm}} cluster. Weather report is a
 command-line application that provides information about the
 status of a dbcore node or cluster. It is useful in
 troubleshooting cluster issues, such as increased latencies, low
 disk space, or node failures.
 
 
-### Running Weatherreport
+### Running Weather report
 {: #running-weatherreport}
 
-Run the Weatherreport utility to check your cluster health. By default, Weatherreport carries out checks for the local node. If you run it with the `--all-nodes` option, the whole cluster is checked.
+Run the Weather report utility to check your cluster health. By default, Weather report carries out checks for the local node. If you run it with the `--all-nodes` option, the whole cluster is checked.
 
 1. As `root` or `cloudant` user, update that user profile file
    with the following PATH or set the PATH in your current SSH
@@ -531,23 +522,23 @@ Run the Weatherreport utility to check your cluster health. By default, Weatherr
     {: codeblock}
 
 2. SSH into a dbcore node and use this command to run
-   Weatherreport.
+   Weather report.
 
     ```sh
     /opt/cloudant/bin/weatherreport
     ```
     {: codeblock}
 
-### Weatherreport checks
+### Weather report checks
 {: #weatherreport-checks}
 
-The Weatherreport utility reviews your cluster based on the
+The Weather report utility reviews your cluster based on the
 checks you specify when you run it.
 
 ```sh
 $ /opt/cloudant/bin/weatherreport --list
 
-Weatherreport check list
+Weather report check list
 
 custodian            Shard safety/liveness checks
 disk                 Data directory permissions and atime
@@ -567,7 +558,7 @@ tcp_queues           Measure the length of tcp queues in the kernel
 ```
 {: codeblock}
 
-To run one check, you can run Weatherreport with the name of the
+To run one check, you can run Weather report with the name of the
 check as the first parameter. For instance, you can check for
 memory use issues on all nodes.
 
@@ -639,9 +630,7 @@ The second parameter to `proc_count` is the number of
 processes to show, in this case 10. So here <0.101.0> is
 using 16 MB of memory, which is typically nothing to
 worry about. It is possible for individual processes to
-use several gigabytes of memory. As a rule, if the top
-few processes are using more memory than others, it is
-worth looking into whether you can stop those processes.
+use several gigabytes of memory. As a rule, if the uppermost processes are using more memory than others, it is worth looking into whether you can stop those processes.
 
 Use `process_info` to find out what process is running.
 
@@ -690,7 +679,7 @@ lines in the provided memory information add up to the
 memory the OS is reporting for beam.smp by using `top` on
 the node. If a significant discrepancy exists, the node
 is probably leaking memory, and if the server is close
-to running out, restart cloudant with this command.
+to running out, restart {{site.data.keyword.cloudant_short_notm}} with this command.
 
 ``` sh
 sv restart cloudant
@@ -722,7 +711,7 @@ processes as you can see in the following list.
 
 This check monitors the message queues of the various
 `couch_db_updater` processes. These processes manage
-access to a logical database; one `couch_db_updater`
+access to a logical database, one `couch_db_updater`
 process exists for each open database shard and one for
 each open view shard. In general, `couch_db_updater`
 processes do not exhibit the same pathological failure
@@ -733,7 +722,7 @@ upon.
 
 *How can I confirm the failure?*
 
-SSH to the node where the failure occurred and create
+SSH to the node where the failure occurred, and create
 the following function in a remsh.
 
 ``` sh 
@@ -785,7 +774,7 @@ stop the process immediately. If not, wait a few minutes
 and see whether the system recovers.
 
 If the process does not recover on its own, run this
-remsh command to stop all backed-up CouchDB updaters.
+remsh command to stop all backed up CouchDB updaters.
 
 ``` sh 
 > [exit(Pid, kill) || Pid <- Pids].
@@ -927,7 +916,7 @@ process_info(whereis(ddoc_cache_opener), message_queue_len).
 ```
 {: codeblock}
 
-*What does it means when it fails?*
+*What does it mean when it fails?*
 
 If it continues to back up, the server might not be able
 to process HTTP requests.
@@ -1055,7 +1044,7 @@ mailboxes correctly, communication is delayed.
 
 *How do I confirm the failure?*
 
-SSH to the node where the failure occurred and create
+SSH to the node where the failure occurred, and create
 the following function in a remsh.
 
 ``` sh
@@ -1095,7 +1084,7 @@ threshold.
 
 *How can I fix it?*
 
-As indicated previously, you can configure rexi
+As indicated previously, you can configure `rexi`
 communication patterns in two ways. You probably need to
 switch over to the newer server-per-node configuration.
 
@@ -1151,7 +1140,7 @@ as shard maps or partition tables, and contain a mapping
 of database shards to nodes.
 
 Custodian raises an alarm if one of the following
-situations occur.
+situations occurs.
 
 *   Some shards have less than or more than the
     appropriate number of replicas that are listed in the
@@ -1161,7 +1150,7 @@ situations occur.
 *What does it mean when it fails?*
 
 If n < N, it means that a database has shards that are
-under protected, with fewer than N replicas available in
+under-protected, with fewer than N replicas available in
 one or more shards ranges in one or more databases. If n > N,
 it means that some shard ranges in some databases
 have too many replicas. This issue is not as serious as
@@ -1234,7 +1223,7 @@ $ mount
 ```
 {: codeblock}
 
-If `/srv` is read-only, stop dbcore to keep it from affecting the rest of the cluster. :
+If `/srv` is read-only, stop dbcore to keep it from affecting the rest of the cluster.
 
 ``` sh
 sudo sv stop cloudant
@@ -1305,8 +1294,7 @@ interactive IOQ traffic.
 ```
 {: codeblock}
 
-After you enable bypass, the pending request count
-trends downward.
+After you enable bypass, the pending request count trends downward.
 
 If the IOQ is not saturated, something else is
 happening. As the best immediate action, put the node in
@@ -1347,7 +1335,7 @@ disconnect_node('clouseau@127.0.0.1').
 ```
 {: codeblock}
 
-Next, run Weatherreport search to see whether the
+Next, run Weather report search to see whether the
 problem is fixed. You might need to repeat this cycle a
 few times. If it is still not working, try this solution
 instead.
@@ -1497,11 +1485,11 @@ task.
 The optimal values for these parameters depend on several
 factors.
 
-*   Document size
-*   Number and size of attachments
-*   Write load of the database
-*   Number of replication tasks that are running concurrently
-*   Total load of the cluster
+*   Document size.
+*   Number and size of attachments.
+*   Write load of the database.
+*   Number of replication tasks that are running concurrently.
+*   Total load of the cluster.
 
 ### High throughput, small documents
 {: #high-throughput-small-documents}
@@ -1531,11 +1519,7 @@ reason.
 ### High throughput with attachments
 {: #high-throughput-with-attachments}
 
-A database that contains documents with large or variable numbers
-of attachments requires different treatment. Increase worker
-count (`worker_processes`) and decrease the amount of work that is
-done by each worker (`worker_batch_size`) to avoid workers being
-limited to replicating one slow attachment each.
+A database that contains documents with large or variable numbers of attachments requires different treatment. Increase worker count (`worker_processes`) and decrease the amount of work that is done by each worker (`worker_batch_size`) to avoid limiting workers to replicating one slow attachment each.
 
 ``` json
 {

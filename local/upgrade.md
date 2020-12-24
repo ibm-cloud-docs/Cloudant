@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-24"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -63,7 +63,7 @@ node and a load balancer node](#overview-for-upgrading-a-database-node-and-a-loa
 When you upgrade to a new cluster, you provision new servers and
 install the new release on the {{site.data.keyword.cloudant_local_notm}} cluster. Now, you
 can replicate the data from the existing live cluster and start
-using the new cluster by following these steps.
+by using the new cluster and following these steps.
 
 1.  Build a new cluster.
 2.  Install the most recent {{site.data.keyword.cloudant_local_notm}} software on that
@@ -97,7 +97,7 @@ Follow the basic upgrade steps for a database node.
 1.  Put the database node that you want to upgrade in maintenance
     mode.
 
-2.  Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binaries.
+2.  Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binary files.
 
 3.  Install the new {{site.data.keyword.cloudant_local_notm}} packages.
 
@@ -112,7 +112,7 @@ Follow the basic upgrade steps for a load balancer node.
 1.  Confirm that load balancer failover operates correctly if one
     load balancer node is being upgraded.
 
-2.  Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binaries.
+2.  Uninstall the existing {{site.data.keyword.cloudant_local_notm}} version binary files.
 
 3.  Install the new {{site.data.keyword.cloudant_local_notm}} packages and start the upgraded
     node.
@@ -189,7 +189,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
    
    a. Find the current values of database node cluster credentials and IDs from the `local.ini`, `vm.args`, and `default.ini` files on other nodes or from the backup directories, such as `/opt/cloudant/etc.bak`.
 
-   b. Configure these values as-is in the `dbnode.yaml` file. Use encrypted or hashed values for fields `admin`, `cloudant`, `httpd_auth` and `cookie`. Leave the `uuid` and `monitor_role` values as `open_ssl`.
+   b. Configure these values as-is in the `dbnode.yaml` file. Use encrypted or hashed values for fields `admin`, `cloudant`, `httpd_auth`, and `cookie`. Leave the `uuid` and `monitor_role` values as `open_ssl`.
    
    c. After you configure the `dbnode.yaml` file, you can distribute and use it for other database node upgrades. For example, you can get a sample of `dbnode.yaml` from `/opt/cloudant/cast/samples/dbnode.yaml` and run the following command.
 

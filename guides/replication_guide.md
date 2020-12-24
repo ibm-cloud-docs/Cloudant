@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-24"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -30,7 +30,7 @@ Data can be copied from one database to another in the same {{site.data.keyword.
 across accounts and across data centers.
 {: shortdesc}
 
-In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
+In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
@@ -43,7 +43,7 @@ and can be finely tuned by using parameters.
 {{site.data.keyword.cloudant_short_notm}}’s replication protocol is compatible with a range of other databases and libraries,
 making it a great fit for Internet of Things (IoT) and mobile applications.
 
-This guide introduces {{site.data.keyword.cloudant_short_notm}}’s replication functions,
+This content introduces {{site.data.keyword.cloudant_short_notm}}’s replication functions,
 discusses common use cases,
 and shows how to make your application replicate successfully.
 
@@ -56,7 +56,7 @@ or in your server rack.
 Documents are stored in databases and can grow to any size as {{site.data.keyword.cloudant_short_notm}} shards its data across many nodes.
 Replication is the copying of data from a source database to a target database.
 The source and target databases do not need to be on the same {{site.data.keyword.cloudant_short_notm}} account,
-or even in the same data center.
+or even in the same data center. 
 
 ![Replication](../images/replication_guide_1.png){: caption="Figure 1. Replication in pictures" caption-side="bottom"}
 
@@ -84,12 +84,12 @@ For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recomm
 {: important}
 
 Using the form, define the source and target databases,
-then click `Start Replication`.
+then click `Start Replication`. 
 
 ![Running state](../images/replication_guide_3.png){: caption="Figure 3. Running state" caption-side="bottom"}
 
 The status of each replication task can be seen by clicking the `Replication` tab.
-Each job changes state from `Running` to `Completed` as it progresses.
+Each job changes state from `Running` to `Completed` as it progresses. 
 
 ![Completed state](../images/replication_guide_4.png){: caption="Figure 4. Completed state" caption-side="bottom"}
 
@@ -132,7 +132,7 @@ The decision as to which device starts replication is yours.
 Every {{site.data.keyword.cloudant_short_notm}} account has a special database that is called `_replicator`,
 into which replication jobs can be inserted.
 Add a document into the `_replicator` database to start replication.
-The document describes the replication you want,
+The document describes the replication that you want,
 and contains the following fields:
 
 Field           | Purpose
@@ -187,9 +187,8 @@ cannot be a simple list of changes that occurred after a particular date and tim
 
 The [CAP Theorem](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem) discussion makes it clear that
 {{site.data.keyword.cloudant_short_notm}} uses an 'eventually consistent' model.
-This model means that if you asked two different replicas of a database for a document,
-at the same time,
-you might get different results if one of the database copies is still waiting to finish replication.
+This model means you might get different results when you ask two different replicas of a database for a document at the same time. This can happen when one of the database copies is still waiting to finish replication. 
+
 Eventually,
 the database copies complete their replication
 so that all the changes to a document are present in each copy.
@@ -217,10 +216,7 @@ The point of agreement between database copies is identified within
 {{site.data.keyword.cloudant_short_notm}} by using the [checkpoint](#checkpoints) mechanism
 that enables replication between database copies to be synchronized.
 
-Finally,
-a consequence of the second characteristic is that the individual changes that appear in the
-list of changes might be presented in a different order
-in subsequent requests that are answered by a different database copy.
+Finally, when you look at a list of changes, they might be presented in a different order in subsequent requests. The order depends on how documents were changed between different database copies.
 In other words,
 an initial list of changes might report changes `A`,
 `B`,
@@ -239,8 +235,7 @@ might vary between two different copies of the database.
 When you request a list of changes,
 the response you get might vary depending on which database copy supplies the list.
 
-If you use the `since` option to obtain a list of changes after a specific update sequence identifier,
-you always get the list of changes after that update *and* you might also get some changes from before that update.
+The `since` option obtains a list of changes after a specific update sequence identifier. The list always includes changes after the update, but changes before the update might also be included.
 The reason is that the database copy that responds to the list request must ensure that it
 lists the changes,
 consistent with all the replicas.
@@ -272,7 +267,7 @@ It is helpful to leave the feature on if your replication is to resume efficient
 
 Admin access is necessary to insert a document into the `_replicator` database.
 The login credentials that are supplied in the source and target parameters do not require full admin permissions.
-It is sufficient if the credentials are able to:
+It is sufficient if the credentials perform the following tasks:
 
 - Write documents at the destination end.
 - Write checkpoint documents at both ends.
@@ -287,7 +282,7 @@ In general,
 - `_reader` and `_writer` access at the destination side.
 
 API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-on a per-database basis.
+on a per-database basis. 
 
 ![{{site.data.keyword.cloudant_short_notm}} users and API keys with permissions](../images/replication_guide_5.png){: caption="Figure 5. {{site.data.keyword.cloudant_short_notm}} users and API keys with permissions" caption-side="bottom"}
 
@@ -304,7 +299,7 @@ You enable this synchronization by setting up two separate replication processes
 one taking the data from A to B,
 the other taking data from B to A.
 Both replication processes work independently,
-with data moved seamlessly in both directions.
+with data moved seamlessly in both directions. 
 
 ![Two-way replication](../images/replication_guide_6.png){: caption="Figure 6. Two-way replication" caption-side="bottom"}
 
@@ -401,7 +396,7 @@ See the following example response that requests the status of a replication:
 
 ```
 
-The `triggered` and `error` states will not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
+The `triggered` and `error` states do not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
 
 {: codeblock}
 
@@ -443,11 +438,11 @@ that can communicate with {{site.data.keyword.cloudant_short_notm}},
 and that requires minimal setup.
 The following applications are included:
 
--   Backup: Replicate your data from {{site.data.keyword.cloudant_short_notm}} to your own CouchDB databases
+-   Backup - Replicate your data from {{site.data.keyword.cloudant_short_notm}} to your own CouchDB databases
     and take nightly snapshots of your data for archiving purposes.
     Send the data to a backup service such as
     [Amazon Glacier](https://aws.amazon.com/glacier/){: new_window}{: external} for safe keeping.
--   Local-first data collection: Write your data to local Apache CouchDB first,
+-   Local-first data collection - Write your data to local Apache CouchDB first,
     then replicate it to {{site.data.keyword.cloudant_short_notm}} for long-term storage,
     aggregation,
     and analysis.
@@ -471,16 +466,16 @@ db.sync(URL, { live: true });
 ```
 {: codeblock}
 
-### CloudantSync
+### {{site.data.keyword.cloudant_short_notm}} Sync
 {: #cloudantsync}
 
-[CloudantSync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} is a set of libraries
+[{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} is a set of libraries
 for iOS and Android that allows data to be stored locally in a mobile device
 and synchronized with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
 As with [PouchDB](#pouchdb),
 setting up replication requires a few lines of code.
 
-See the following example JavaScript that uses CloudantSync to enable replication:
+See the following example JavaScript that uses {{site.data.keyword.cloudant_short_notm}} Sync to enable replication:
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -492,17 +487,13 @@ replicator.start();
 ```
 {: codeblock}
 
-CloudantSync is used widely in mobile applications,
-such as iPhone and Android games,
-where the application's state is persisted to {{site.data.keyword.cloudant_short_notm}} by replication,
-but the data is also available on the device for offline use.
+{{site.data.keyword.cloudant_short_notm}} Sync is used widely in mobile applications, such as iPhone and Android games. The application's state is persisted to {{site.data.keyword.cloudant_short_notm}} by replication, but the data is also available on the device for offline use.
 
 ## Filtered replications
 {: #filtered-replications-repl-guide}
 
 It is useful to be able to remove some data during the replication process,
-when you replicate one database to another.
-Examples include:
+when you replicate one database to another, as you can see in the following examples:
 
 - Removing all traces of deleted documents, making the target database smaller than the source.
 - Segregating data into smaller chunks, such as storing UK data in one database and US data in another.
@@ -715,9 +706,9 @@ To replicate successfully, the sum of the document size and all attachment sizes
 
 Document size | Attachment size | Total size | Replicates?
 --------------|----------------------|------------|------------
-1 MB | Five 2-MB attachments | 11 MB | yes
-1 MB | One 10-MB attachment | 11 MB | yes
-0 MB | One hundred 1-MB attachments | 100 MB | no
+1 MB | Five 2-MB attachments | 11 MB | Yes
+1 MB | One 10-MB attachment | 11 MB | Yes
+0 MB | One hundred 1-MB attachments | 100 MB | No
 {: caption="Table 2. Various scenarios based on maximum HTTP request size 11 MB" caption-side="top"}
 
 Several considerations apply when you use replication.
@@ -732,7 +723,7 @@ the credentials that are supplied must have:
 * `_writer` permissions on database "b".
 
 API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](/docs/Cloudant?topic=Cloudant-authorization#creating-api-keys).
-Each key can be given individual rights that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
+Each key can be given individual permissions that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.
 If the state is not saved,
@@ -771,9 +762,9 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 If you want to cancel all replications and start with a new,
 clean `_replicator` database,
-delete then recreate the `replicator` database.
+delete then re-create the `replicator` database.
 
-See the following example that uses HTTP to remove and recreate the `_replicator` database:
+See the following example that uses HTTP to remove and re-create the `_replicator` database:
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -786,7 +777,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-See the following example that uses the command line to remove and recreate the `_replicator` database:
+See the following example that uses the command line to remove and re-create the `_replicator` database:
 
 ```sh
 curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator"
@@ -804,7 +795,7 @@ so {{site.data.keyword.cloudant_short_notm}} does not prevent you from doing cre
 However, each replication task uses up system resources.
 
 You can check your "active replications" in the {{site.data.keyword.cloudant_short_notm}} Dashboard
-to ensure that there are no unwanted replication tasks in progress.
+to ensure that no unwanted replication tasks are in progress.
 Delete any `_replicator` documents that are no longer needed.
 
 ## Tuning replication speed
@@ -819,12 +810,12 @@ Alternatively,
 you might require cluster performance to take priority,
 with replication treated as a background process.
 
-[Advanced replication API options](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication) are available, which enable an increase or decrease in the amount of computing power that is used during replication. For example:
+[Advanced replication API options](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication) are available. These options enable an increase or decrease in the amount of computing power that is used during replication, as shown in the following examples:
 
 * If your documents contain attachments, you might want to consider reducing the batch_size and increasing the worker_processes, to accommodate larger documents in smaller batches.
 * If you have many tiny documents, then you might consider increasing the [`worker_process`](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) and [`http_connections`](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) values.
 * If you want to run replication with minimal impact, setting `worker_processes` and `http_connections` to 1 might be appropriate.
-* For more details on how replication consumes provisioned throughput capacity allocated to an instance and how to adjust from the default, see [Consumption of Read and Write Operations by Replication](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#consumption-of-read-and-write-operations-by-replication) or [Consumption of Read and Write Operations by Replication for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-pricing-te#replication-throughput-te).
+* For more information, see [Consumption of Read and Write Operations by Replication](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#consumption-of-read-and-write-operations-by-replication) or [Consumption of Read and Write Operations by Replication for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-pricing-te#replication-throughput-te).
 
 For further assistance about the best configuration for your use case,
 email support@cloudant.com.
