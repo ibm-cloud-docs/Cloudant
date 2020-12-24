@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 
@@ -28,7 +28,7 @@ subcollection: Cloudant
 
 Another way to store data is to use attachments.
 Attachments are Binary Large OBject ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external})
-files included within documents.
+files that are included within documents.
 {: shortdesc}
 
 The BLOB is stored in the `_attachments` component of the document.
@@ -114,7 +114,7 @@ fs.readFile($FILEPATH, function (err, data) {
 
 The response includes the document ID and the new document revision.
 
-Attachments don't have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document it's attached to. 
+Attachments don't have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document that it's attached to. 
 {: tip}
 
 See the following example response with the document ID and new revision:

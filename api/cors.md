@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-23"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
@@ -28,7 +28,7 @@ subcollection: Cloudant
 
 [Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/){: new_window}{: external} is a mechanism that allows resources
 such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested
-from JavaScript running on a website that is loaded from another domain.
+from JavaScript. The JavaScript is running on a website that is loaded from another domain.
 {: shortdesc}
 
 These "cross-domain" requests would normally be forbidden by web browsers. The requests use the [same origin security policy](http://en.wikipedia.org/wiki/Same-origin_policy){: new_window}{: external}.
@@ -56,7 +56,7 @@ CORS might be a good solution in the following use cases.
 
 CORS is supported by all current versions of commonly used browsers.
 
-Versions of Microsoft&trade; Internet Explorer before version 10 offer partial support for CORS. Versions of Microsoft Internet Explorer before version 8 don't support CORS.
+Versions of Microsoft&trade; Internet Explorer before version 10 offer partial support for CORS. Versions of Microsoft&trade; Internet Explorer before version 8 don't support CORS.
 {: note}
 
 ## Security
@@ -77,7 +77,7 @@ To reduce the risk of man-in-the-middle attacks, follow these guidelines:
 
 -	Don't allow CORS requests from all origins.
 	In other words,
-	do not set `"origins": ["*"]` unless you're certain that:
+	do not set `"origins": ["*"]` unless you're certain that you want to meet the following conditions:
 	-	You want to allow all data in your databases to be publicly accessible.
 	-	User credentials that give permission to modify data are never used in a browser.
 -	Allow CORS requests only from HTTPS origins, not HTTP.

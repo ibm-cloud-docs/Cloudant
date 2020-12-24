@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-12-21"
 
 keywords: port forward, openshift route
 
@@ -41,7 +41,7 @@ kubectl port-forward svc/<couchdb name> 8443:443 -n <namespace>
 
 You can then access your cluster locally by pointing a client to `https://localhost:8443`. To access the CouchDB dashboard, visit `https://localhost:8443/_utils` in a web browser.
 
-If you have disabled TLS for your `CouchDBCluster` resource, you would port-forward the insecure port `5984` instead:
+If you disable TLS for your `CouchDBCluster` resource, you would port-forward the insecure port `5984` instead:
 
 ```
 kubectl port-forward svc/<couchdb name> 5984:5984 -n <namespace>

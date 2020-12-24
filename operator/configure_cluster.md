@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-12-21"
 
 keywords: operator, field reference
 
@@ -32,7 +32,7 @@ The Operator for Apache CouchDB allows for user-defined configuration parameters
 ## CouchDB versions
 {: #couchdb-versions}
 
-{{site.data.keyword.IBM}} maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2){: new_window}{: external} and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3){: new_window}{: external} versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){: new_window}{: external} called `couchdb-release`. The mapping is updated when a new version of the operator is deployed. The mappings are static for any given version of the operator.
+{{site.data.keyword.IBM}} maintains operator-compatible container images for the stable [`2.x`](https://hub.docker.com/r/ibmcom/couchdb2){: new_window}{: external} and [`3.x`](https://hub.docker.com/r/ibmcom/couchdb3){: new_window}{: external} versions of CouchDB. The operator maintains a mapping of CouchDB versions to image digests in a [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){: new_window}{: external} called `couchdb-release`. The mapping is updated when a new version of the operator is deployed. The mappings are static for a specific version of the operator.
 
 All `CouchDBCluster` resources that are managed by an operator are updated to match the set of images that are referenced in the configmap according to their version. Upgrades are performed in place by using a rolling update to minimize service interruption.
 
@@ -53,9 +53,9 @@ Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the
 ## Cluster size and scaling
 {: #couchdb-sizing}
 
-By default, a `CouchDBCluster` is deployed with three database nodes. This number can be overridden by specifying the `spec.size ` field. Since CouchDB stores three replicas of each shard, it is recommended to use multiples of `3` for this value. Also, this number must be less than or equal to the number of nodes in the Kubernetes cluster because the operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
+By default, a `CouchDBCluster` is deployed with three database nodes. This number can be overridden by specifying the `spec.size ` field. Since CouchDB stores three replicas of each shard, it is recommended to use multiples of `3` for this value. Also, this number must be less than or equal to the number of nodes in the Kubernetes cluster. The operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
 
-Scaling CouchDB clusters is not supported. While the `CouchDBCluster` resource allows the `size` to be changed, it is recommended that you do not alter the size after the initial deployment. The operator *does not* perform any data rebalancing to take advantage of additional CouchDB nodes and does not prevent data loss when nodes are removed.
+Scaling CouchDB clusters is not supported. While the `CouchDBCluster` resource allows the `size` to be changed, it is recommended that you do not alter the size after the initial deployment. The operator *does not* rebalance the  data to take advantage of additional CouchDB nodes and does not prevent data loss when nodes are removed.
 
 ```
 apiVersion: couchdb.databases.cloud.ibm.com/v1
@@ -82,11 +82,11 @@ Persistent storage can be attached by specifying the `spec.storageClass` field. 
 
 These options map to the following preferred options for common public cloud environments:
 
-|Provider |Type|Storage Class|Docs|
+|Provider |Type|Storage Class|Documentation|
 |---------|----|---------|----|
-|IBM Cloud|IBM Block Storage|`ibm-block-*` |[{{site.data.keyword.IBM}} Docs](https://cloud.ibm.com/docs/containers?topic=containers-block_storage){: new_window}{: external}
-|AWS      |Elastic Block Storage|`aws-ebs`      |[Red Hat OpenShift Docs](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#aws-definition_dynamic-provisioning){: new_window}{: external}|
-|Azure    |Azure Disk|`default` or `managed-premium`|[Kubernetes Docs](https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk){: new_window}{: external}|
+|IBM Cloud|IBM Block Storage|`ibm-block-*` |[{{site.data.keyword.IBM}} documentation](https://cloud.ibm.com/docs/containers?topic=containers-block_storage){: new_window}{: external}
+|AWS      |Elastic Block Storage|`aws-ebs`      |[Red Hat OpenShift documentation](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#aws-definition_dynamic-provisioning){: new_window}{: external}|
+|Azure    |Azure Disk|`default` or `managed-premium`|[Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk){: new_window}{: external}|
 {: caption="Table 1. Options for common public cloud environments" caption-side="top"}
 
 For GCE, Persistent Disk can be used but a [storage class](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#gce-persistentdisk-storage-class_dynamic-provisioning){: new_window}{: external} must be manually created to support dynamic provisioning.
@@ -94,7 +94,7 @@ For GCE, Persistent Disk can be used but a [storage class](https://docs.openshif
 For on-premises deployments, the following storage providers meet these requirements:
 
  * [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
- * [Ceph RBD](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
+ * [Ceph Rados Block Device](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
  * [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: new_window}{: external}
  * [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: new_window}{: external}
 

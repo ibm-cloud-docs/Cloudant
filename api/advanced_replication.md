@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-21"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -37,7 +37,7 @@ You might also find it helpful to review details of the underlying
 [replication protocol](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window}{: external},
 and review the [advanced methods](/docs/Cloudant?topic=Cloudant-advanced-api#advanced-api) material.
 
-In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
+In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
 
 ## Replication database maintenance
@@ -113,7 +113,7 @@ See the typical process for using the replication scheduler to manage and monito
 
 The `/_scheduler/docs` endpoint provides a monitoring feature.
 Use it to determine the status of a replication that is described by a replication document.
-The status of a replication can be one of seven possible states,
+The status of a replication can be 1 of 7 possible states,
 as described in the [replication scheduler](#the-replication-scheduler) section.
 
 #### Query parameters for the `/_scheduler/docs` endpoint
@@ -408,11 +408,11 @@ Field | Detail
 The possible states for a `_replication_state` are shown in the following list:
 
 -	`completed` - The replication completed successfully.
--	`error` - An error occurred during replication. Replication will be periodically retried.
+-	`error` - An error occurred during replication. Replication is periodically retried.
 -	`triggered` - The replication started. It's now in progress.
--   `failed` - The replication has failed with an error. Replication will not be retried in this state.
+-   `failed` - The replication failed with an error. Replication is not retried in this state.
 
-The `triggered` and `error` states will not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
+The `triggered` and `error` states do not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
 
 See the following example replication document before it's `PUT` into the `_replicator` database:
 
@@ -817,8 +817,7 @@ Code  | Description
 ### Canceling replication by using the `/_replicate` endpoint
 {: #canceling-replication-by-using-the-_replicate-endpoint}
 
-A replication that is triggered by `POST`ing to `/_replicate` can be canceled
-by `POST`ing the exact same JSON object but with the additional `cancel` property set to `true`.
+A replication that is triggered by `POST`ing to `/_replicate` can be canceled by `POST`ing the exact same JSON object but with the additional `cancel` property set to `true`.
 
 If a replication is canceled,
 the request that started the replication fails with [error 500 (shutdown)](/docs/Cloudant?topic=Cloudant-http#http-status-codes).
