@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-16"
+lastupdated: "2020-12-21"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -52,7 +52,7 @@ external endpoint is shown in the following example:
 
 `https://$USERNAME.cloudantnosqldb.appdomain.cloud`
 
-Private (internal) endpoints are added to all instances deployed on Dedicated Hardware plan environments. The {{site.data.keyword.cloud_notm}} private (internal) network endpoint is shown in the following example:
+Private (internal) endpoints are added to all instances deployed on Dedicated Hardware plan environments. The {{site.data.keyword.cloud_notm}} Private (internal) network endpoint is shown in the following example:
 
 `https://$USERNAME.private.cloudantnosqldb.appdomain.cloud`
 
@@ -128,7 +128,7 @@ the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can us
 button to open the dashboard in a new browser tab. You can do the following tasks by using the {{site.data.keyword.cloudant_short_notm}} Dashboard:
 
 - Monitor your current consumption of the instance.
-- Perform CRUD (create, read, update, delete) on {{site.data.keyword.cloudant_short_notm}} databases, documents, and indexes.
+- Perform create, read, update, delete (CRUD) on {{site.data.keyword.cloudant_short_notm}} databases, documents, and indexes.
 - Set up and view replication jobs.
 - View active tasks.
 - View and update account information like provisioned throughput capacity, announcements, CORS, and settings.

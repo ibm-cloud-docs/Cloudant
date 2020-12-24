@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
@@ -42,7 +42,7 @@ The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legac
 ## View the current and target provisioned throughput capacity setting
 {: #view-current-and-target-capacity-setting}
 
-Use a GET to the `_api/v2/user/capacity/throughput` endpoint to see what amount of provisioned throughput capacity is allocated to the {{site.data.keyword.cloudant_short_notm}} instance and what is the target provisioned throughput capacity. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The size of the capacity change and the amount of data stored in the {{site.data.keyword.cloudant_short_notm}} instance determines the time it takes before the current and target capacities match. The capacity change is complete when the current and target capacity is the same. 
+Use a GET to the `_api/v2/user/capacity/throughput` endpoint to see what amount of provisioned throughput capacity is allocated to the {{site.data.keyword.cloudant_short_notm}} instance and what is the target provisioned throughput capacity. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The size of the capacity change and the amount of data that is stored in the {{site.data.keyword.cloudant_short_notm}} instance determines the time that it takes before the current and target capacities match. The capacity change is complete when the current and target capacity is the same. 
 
 -   **Method** - `GET`
 -   **Path** - `_api/v2/user/capacity/throughput`
@@ -96,7 +96,7 @@ See the following example JSON response with the current and target capacity:
 ## Set the target provisioned throughput capacity setting
 {: #set-target-capacity-setting}
 
-Use a PUT to the `_api/v2/user/capacity/throughput` endpoint to set the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The amount of time it takes for the current capacity to The size of the capacity change and the amount of data stored in the {{site.data.keyword.cloudant_short_notm}} instance determines the time it takes before the current and target capacities match. 
+Use a PUT to the `_api/v2/user/capacity/throughput` endpoint to set the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. 
 
 -   **Method** - `PUT`
 -   **Path** - `_api/v2/user/capacity/throughput`

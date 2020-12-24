@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -153,13 +153,12 @@ and missed opportunities.
 Addressing high availability is vital for cloud applications.
 Otherwise,
 global database consistency stays a major bottleneck as you scale.
-Highly available applications need to maintain constant contact with their data,
-even if that data isn't the most up to date.
+Highly available applications need to maintain constant contact with their data, even if that data isn't up to date.
 That's the concept of eventual consistency,
 and it's nothing to be scared of. Sometimes, with a large scale, it's better to serve answers that aren't perfectly correct than to not serve them at all.
 
 Database systems hide the complexities of availability versus consistency in different ways,
-but they're always there.
-{{site.data.keyword.cloudant_short_notm}}, CouchDB, and other NoSQL database teams believe the best policy is to require developers to address these complexities early in the design process.
+but they always exist.
+{{site.data.keyword.cloudant_short_notm}}, CouchDB, and other NoSQL database teams believe that the best policy requires developers to address these complexities early in the design process.
 By doing the hard work up front,
 you reduce surprises because applications are ready to scale from day one.

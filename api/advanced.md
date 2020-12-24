@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
@@ -43,7 +43,7 @@ The response is a JSON object that includes a welcome message and the version of
 The `version` field includes the CouchDB version the server is compatible with.
 The `vendor.version` field includes the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
-For versions of {{site.data.keyword.cloudant_short_notm}} before version 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field includes the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
+For versions of {{site.data.keyword.cloudant_short_notm}} prior to 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field includes the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
 {: note}
 
 See the following example request to get server meta information by using HTTP:
@@ -128,7 +128,7 @@ Polling modes for this endpoint work like the polling modes for the changes feed
 | Argument | Description | Optional | Type | Default | Supported Values |
 |---------|-------------|----------|------|---------|----------------|
 | `descending` | Determines that results are returned in descending order. In other words, the most recent event appears first. By default, the oldest event is returned first. | Yes | Boolean | False | |
-| `feed` | Type of feed | Yes | String | Normal | `continuous`: Continuous (non-polling) mode, `longpoll`: Long polling mode, `normal`: default polling mode |
+| `feed` | Type of feed | Yes | String | Normal | `continuous` - Continuous (non-polling) mode, `longpoll` - Long polling mode, `normal` - default polling mode |
 | `heartbeat` | Time in milliseconds after which an empty line is sent during `longpoll` or `continuous` if no changes occurred. | Yes | Numeric | 60000 | |
 | `limit` | Maximum number of results to return. | Yes | Numeric | None |  |
 | `since` | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | Yes | String | 0 |  |
@@ -523,7 +523,6 @@ The response is a JSON object that provides a list of UUIDs.
 Argument | Description               | Optional | Type
 ---------|---------------------------|----------|------------------------------------------------------------------
 `count`  | Number of UUIDs to return | Yes      | Positive integer, greater than 0 and less than or equal to 1,000.
-the cluster.
 {: caption="Table 4. Response structure for the `/_uuids` endpoint" caption-side="top"}
 
 See the following example request for a single UUID by using HTTP:
