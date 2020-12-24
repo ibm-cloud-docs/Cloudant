@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-22"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -62,7 +62,7 @@ A design document's structure includes the following parts:
 -	**Options** - Contains options for this design document.
     -   **Partitioned (optional, boolean)** - Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
 -	**Views (optional)** - An object that describes MapReduce views.
-	-	**Viewname** (one for each view) - View Definition.
+	-	**`Viewname`** (one for each view) - View Definition.
 		-	**Map** - Map Function for the view.
 		-	**Reduce (optional)** - Reduce Function for the view.
 -	**Indexes (optional)** - An object that describes search indexes.
@@ -316,7 +316,7 @@ Field    | Description
 ---------|------------
 `from`   | A path relative to `/$DATABASE/_design/doc/_rewrite`, used to match URLs to rewrite rules. Path elements that start with a `:` are treated as variables and match any string that doesn't contain a `/`. An `*` can appear only at the end of the string, and matches any string - including slashes.
 `method` | The HTTP method that must be matched.
-`query`  | The query part of the resulting URL. This part is a JSON object that includes the key/value pairs of the query.
+`query`  | The query part of the resulting URL. This part is a JSON object that includes the `key/value` pairs of the query.
 `to`     | The path (relative to `/$DATABASE/_design/doc/` and not including the query part of the URL) that is the result of the rewriting step. Variables that are captured in `from` can be used in `to`. An `*` can also be used and includes everything that is captured by the pattern in `from`.
 {: caption="Table 3. Fields for the rewrite rules" caption-side="top"}
 
@@ -359,7 +359,7 @@ Rule | URL | Rewrite to | Tokens
 `{"from": "/a/:foo/*","to": "/some/:foo/*"}` | `/$DATABASE/_design/doc/_rewrite/a/b/c`   | `/$DATABASE/_design/doc/some/b/c?foo=b`  | `foo = b`
 `{"from": "/a/:foo", "to": "/some", "query": { "k": ":foo" }}` | `/$DATABASE/_design/doc/_rewrite/a/b`     | `/$DATABASE/_design/doc/some/?k=b&foo=b` | `foo =:= b`
 `{"from": "/a", "to": "/some/:foo" }` | `/$DATABASE/_design/doc/_rewrite/a?foo=b` | `$DATABASE/_design/doc/some/b&foo=b`     | `foo = b`
-{: caption="Table 4. URL rewrite components" caption-side="top"}
+{: caption="Table 4. Rewrite rules" caption-side="top"}
 
 ## Indexes
 {: #indexes-design-docs}
@@ -430,7 +430,7 @@ List functions require two arguments:
 The `head` argument identifies the documents to be processed by the list function.
 
 The `req` argument includes more information about the request. With this argument, you can create list functions that are more dynamic
-because they're based on additional factors such as query parameters or the user context.
+because they're based on multiple factors such as query parameters or the user context.
 
 The values within the `req` argument are similar to the following [query parameters](/docs/Cloudant?topic=Cloudant-query#ibm-cloudant-query-parameters).
 
@@ -560,7 +560,7 @@ Show functions require two arguments: `doc`, and [`req`](#req).
 `doc` is the document that is requested by the show function.
 
 The `req` argument includes more information about the request. With this argument, you can create show functions that are more dynamic
-because they're based on additional factors such as query parameters or the user context.
+because they're based on multiple factors such as query parameters or the user context.
 
 The `req` argument corresponds to the argument used in a list function.
 
@@ -645,16 +645,16 @@ If no ID is provided,
 `doc` is `null`.
 
 The `req` argument includes more information about the request. With this argument, you can create update handlers that are more dynamic
-because they're based on additional factors such as query parameters or the user context.
+because they're based on multiple factors such as query parameters or the user context.
 
-The `req` argument corresponds to that used in a [list function](#list-functions).
+The `req` argument corresponds to the one used in a [list function](#list-functions).
 
 Update handler functions must return an array of two elements.
 The first element is the document to save,
 or `null` if you don't want to save the document.
 The second element is the response body.
 
-The following two methods query update handlers:
+Use the following methods to query update handlers:
 
 Method | URL
 -------|------
@@ -764,7 +764,7 @@ The `doc` argument represents the document that is tested for filtering.
 
 The `req` argument includes more information about the request.
 With this argument, you can create filter functions that are more dynamic
-because they're based on additional factors such as query parameters or the user context.
+because they're based on multiple factors such as query parameters or the user context.
 
 For example,
 you could control aspects of the filter function tests by using dynamic values that are provided as part of the HTTP request.
@@ -973,8 +973,7 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 #### The `_selector` filter
 {: #the-_selector-filter}
 
-The `_selector` filter accepts only changes for documents that match a specified selector,
-defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
+The `_selector` filter accepts only changes for documents that match a specified selector, defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
 for [`_find`](/docs/Cloudant?topic=Cloudant-query#finding-documents-by-using-an-index).
 
 For more examples that show use of this filter,
@@ -1053,8 +1052,7 @@ See the following example response (abbreviated) after you filter by using a sel
 
 Using the `_view` filter, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
-If the map function emits any output because of processing a specific document,
-then the filter considers the document that is allowed and includes it in the list of documents that you changed.
+The map function might emit output as the result of processing a specific document. When this occurs, the filter considers the document that is allowed and includes it in the list of documents that you changed.
 
 See the following example application of the `_view` filter by using HTTP:
 
@@ -1159,10 +1157,10 @@ including the view index,
 view index size,
 and status of the design document and associated view index information.
 
--	**Method** - `GET /db/_design/design-doc/_info`
--	**Request** - None
--	**Response** - JSON that contains the design document information.
--	**Roles permitted** - `_reader`
+-	`Method` - `GET /db/_design/design-doc/_info`
+-	`Request` - None
+-	`Response` - JSON that contains the design document information.
+-	`Roles permitted` - `_reader`
 
 See the following example of retrieving information about the `recipesdd` design document from within the `recipes` database by using HTTP:
 
@@ -1180,17 +1178,17 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info"
 
 The JSON response includes the following individual fields:
 
--	**name** - Name or ID of design document.
--	**view_index** - View Index
-	-	**compact_running** - Indicates whether a compaction routine is running on the view.
-	-	**disk_size** - Size in bytes of the view as stored on disk.
-	-	**language** - Language that is used for defining views.
-	-	**purge_seq** - The purge sequence that was processed.
-	-	**signature** - MD5 signature of the views for the design document.
-	-	**update_seq** - The update sequence of the corresponding database that was indexed.
-	-	**updater_running** - Indicates whether the view is being updated.
-	-	**waiting_clients** - Number of clients that are waiting on views from this design document.
-	-	**waiting_commit** - Indicates whether the underlying database has outstanding commits that need to process. 
+-	`name` - Name or ID of design document.
+-	`view_index` - View Index
+	-	`compact_running` - Indicates whether a compaction routine is running on the view.
+	-	`disk_size` - Size in bytes of the view as stored on disk.
+	-	`language` - Language that is used for defining views.
+	-	`purge_seq` - The purge sequence that was processed.
+	-	`signature`	 - MD5 signature of the views for the design document.
+	-	`update_seq` - The update sequence of the corresponding database that was indexed.
+	-	`updater_running` - Indicates whether the view is being updated.
+	-	`waiting_clients` - Number of clients that are waiting on views from this design document.
+	-	`waiting_commit` - Indicates whether the underlying database has outstanding commits that need to process. 
 
 See the following example response in JSON format:
 
@@ -1218,10 +1216,10 @@ See the following example response in JSON format:
 The `_search_info` endpoint returns information about a specified search
 that is defined within a specific design document.
 
--	**Method** - `GET /db/_design/design-doc/_search_info/yourSearch`
--	**Request** - None
--	**Response** - JSON that contains information about the specified search.
--	**Roles permitted** - `_reader`
+-	`Method` - `GET /db/_design/design-doc/_search_info/yourSearch`
+-	`Request` - None
+-	`Response` - JSON that contains information about the specified search.
+-	`Roles permitted` - `_reader`
 
 See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using HTTP:
 
@@ -1239,14 +1237,14 @@ curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/descripti
 
 The JSON structure includes the following individual fields:
 
--	**name** - Name or ID of the Search within the design document.
--	**search_index** - The Search Index
-	-	**pending_seq** - The sequence number of changes in the database that reached the Lucene index,
+-	`name` - Name or ID of the Search within the design document.
+-	`search_index` - The Search Index
+	-	`pending_seq` - The sequence number of changes in the database that reached the Lucene index,
 		both in memory and on disk.
-	-	**doc_del_count** - Number of deleted documents in the index.
-	-	**doc_count** - Number of documents in the index.
-	-	**disk_size** - The size of the index on disk, in bytes.
-	-	**committed_seq** - The sequence number of changes in the database that were committed
+	-	`doc_del_count` - Number of deleted documents in the index.
+	-	`doc_count` - Number of documents in the index.
+	-	`disk_size` - The size of the index on disk, in bytes.
+	-	`committed_seq` - The sequence number of changes in the database that were committed
 		to the Lucene index on disk.
 
 See the following example response in JSON format:

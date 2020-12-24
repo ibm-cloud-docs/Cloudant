@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-23"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -26,10 +26,12 @@ subcollection: Cloudant
 # Install
 {: #install-ibm-cloudant-local}
 
-To install {{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}), you must ensure that your system
-meets the system requirements, plan your installation, install
-and configure a database node and load balancer node, and
-initialize a cluster.
+To install {{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}), you must follow these steps:
+
+1. Verify that your system meets the system requirements.
+2. Plan your installation. 
+3. Install and configure a database node and load balancer node.
+4. Initialize a cluster.
 {:shortdesc}
 
 ## Requirements
@@ -56,22 +58,22 @@ architecture.
 ##### Database Nodes
 {: #database-nodes-hardware-reqs}
 
-*  The minimum requirements include four cores and eight threads,
+-  The minimum requirements include four cores and eight threads,
    such as Xeon E3-1270 V2, 8 GB of RAM and 1-GB network.
-*  For larger implementations, the minimum requirements include
-   12 cores and 24 threads, such as dual Xeon E5 2620, 64 GB of
-   RAM, and local SSD drives to meet data volume requirements of
-   your usage and a 1-GB network.
+-  For larger implementations, verify that your  environment meets the minimum requirements:
+   - 12 cores and 24 threads, such as dual Xeon E5 2620 and 64 GB of RAM
+   - Local SSD drives to meet data volume requirements    for your usage
+   - 1-GB network
 
 Disk space requirements for the data vary based on how much data
 you want to store. At minimum, the standard per-node storage
 setup is as follows.
 
-*  If you use spinning disks, 4 x 600 GB 15k SAS drives in RAID 0
+-  If you use spinning disks, 4 x 600 GB 15k SAS drives in RAID 0
    can provide about 2.2 TB of usable storage.
-*  If you use solid-state drives (SSDs), 2 x 800 GB SSDs in RAID
+-  If you use solid-state drives (SSDs), 2 x 800 GB SSDs in RAID
    0 can provide about 1.5 TB of usable storage.
-*  An ext4 file system that is mounted with the noatime option is
+-  An ext4 file system that is mounted with the noatime option is
    recommended for performance reasons.
 
 A storage area network (SAN) is not recommended. If you use a centralized location to store all the database files, such as a SAN, you might lose high-availability. If the SAN goes down, all of your database nodes are unavailable. However, if all of your database nodes use directly attached storage, you can lose two-thirds of your system and remain operational.
@@ -82,13 +84,19 @@ For the operating system and {{site.data.keyword.cloudantfull}} binaries, the di
 ##### Load Balancer Nodes
 {: #load-balancer-nodes-install}
 
-*  The minimum requirements are dual-core processor and 4 GB RAM,
-   1 TB local hard disk drive with enough disk space for the OS
-   and any log files kept locally,
-   and a 1-gigabit network.
-*  For larger implementations, the minimum requirements include a
-   quad-core processor and 8 GB RAM, 1 TB local hard disk drive,
-   and a 1-gigabit network.
+The minimum requirements for load balancer nodes are shown in the following list:
+
+- Dual-core processor and 4 GB RAM,
+- 1 TB local hard disk drive with enough disk space for the OS
+- Any log files kept locally
+- 1-GB network
+
+The minimum requirements for a larger implementation are shown in the following list:
+
+- Quad-core processor
+- 8 GB RAM
+- 1 TB local hard disk drive
+- 1-GB network
 
 #### Linux on {{site.data.keyword.IBM_notm}} System z
 {: #linux-on-ibm-system-z-hardware-reqs}
@@ -100,8 +108,8 @@ requirements.
 {: #models}
 
 *  z13
-*  zEnterprise - zBC12 and zEC12
-*  zEnterprise - z114 and z196
+*  zEnterprise zBC12 and zEC12
+*  zEnterprise z114 and z196
 
 ##### Processors and Memory
 {: #processors-and-memory}
@@ -128,18 +136,18 @@ functional {{site.data.keyword.cloudant_short_notm}} cluster that ensures 24 x 7
 ##### Database Nodes
 {: #database-nodes-software-reqs}
 
-*  {{site.data.keyword.cloudant_local_notm}} must be installed on at least three database
+-  {{site.data.keyword.cloudant_local_notm}} must be installed on at least three database
    nodes for replication purposes.
-*  (Optional) {{site.data.keyword.cloudant_local_notm}} can be installed on as many other
+-  (Optional) {{site.data.keyword.cloudant_local_notm}} can be installed on as many other
    nodes as needed to scale for your business requirements.
 
 ##### Load Balancers
 {: #load-balancers-install}
 
-*  One load balancer must be installed on a server that is
+-  One load balancer must be installed on a server that is
    separate from the servers that are used in the Cloudant
    cluster.
-*  It is a good practice to install two load balancers in case
+-  It is a good practice to install two load balancers in case
    the primary load balancer fails. If a second load balancer is
    installed, you must install it on a separate server to ensure
    uninterrupted service.
@@ -157,20 +165,20 @@ The following requirements apply to the x86_64 architecture.
 ##### Debian-derived Linux distributions
 {: #debian-derived-linux-distributions}
 
-*  Ubuntu Server 12.04 (precise)
-*  Ubuntu Server 14.04 (trusty)
+-  Ubuntu Server 12.04 (precise)
+-  Ubuntu Server 14.04 (trusty)
 
 ##### Red Hat-derived Linux distributions
 {: #red-hat-derived-linux-distributions}
 
-*  Red Hat Enterprise Linux Server 6.x
-*  Red Hat Enterprise Linux Server 7.x
-*  Community ENTerprise Operating System (CentOS) 6.x
-*  Community ENTerprise Operating System (CentOS) 7.x
-*  Oracle Enterprise Linux Operating System (OEL) 6.x
-*  Oracle Enterprise Linux Operating System (OEL) 7.x
+-  Red Hat Enterprise Linux&trade; Server 6.x
+-  Red Hat Enterprise Linux&trade; Server 7.x
+-  Community ENTerprise Operating System (CentOS) 6.x
+-  Community ENTerprise Operating System (CentOS) 7.x
+-  Oracle Enterprise Linux&trade; Operating System (OEL) 6.x
+-  Oracle Enterprise Linux&trade; Operating System (OEL) 7.x
 
-    The package maintainer [changed the application binary interface](https://bugs.centos.org/view.php?id=14720#c31914) of the `js` library starting with version 1.8.5-20, which renders that version and subsequent versions incompatible with the  installer binaries. To find out which version is installed, after executing the installer (but before any `cast` commands), run the following command: `yum list js`. If the version of js.x86_64 under the heading 'Installed Packages' is 1.8.5-20.el7 or later, revert to a compatible package by *running* the following example commands as root or by using sudo. 
+    The package maintainer [changed the application binary interface](https://bugs.centos.org/view.php?id=14720#c31914) of the `js` library that starts with version 1.8.5-20, which renders that version and subsequent versions incompatible with the  installer binaries. To find out which version is installed after you execute the installer (but before any `cast` commands), run the following command: `yum list js`. If the version of js.x86_64 under the heading 'Installed Packages' is 1.8.5-20.el7 or later, revert to a compatible package by *running* the following example commands as root or by using sudo. 
     {: note}
     
     ```sh
@@ -183,13 +191,13 @@ The following requirements apply to the x86_64 architecture.
     ```
     {: codeblock}
 
-    This issue only affects database nodes.
+    This issue affects only database nodes.
     {: important}
 
 ##### SUSE Linux distributions
 {: #suse-linux-distributions}
 
-*  SUSE Linux Enterprise Server (SLES) 12
+-  SUSE Linux Enterprise Server (SLES) 12
 
 #### {{site.data.keyword.IBM_notm}} System z s390x architecture
 {: #ibm-system-z-s390x-architecture}
@@ -197,8 +205,8 @@ The following requirements apply to the x86_64 architecture.
 ##### Linux on {{site.data.keyword.IBM_notm}} System z
 {: #linux-on-ibm-system-z-supported-arch}
 
-*  Linux on {{site.data.keyword.IBM_notm}} System z - Red Hat Enterprise Linux 7.x
-*  SUSE Linux Enterprise Server (SLES) 12
+-  Linux&trade; on {{site.data.keyword.IBM_notm}} System z - Red Hat Enterprise Linux&trade; 7.x
+-  SUSE Linux&trade; Enterprise Server (SLES) 12
 
 ### {{site.data.keyword.cloudant_local_notm}} architecture and ports
 {: #ibm-cloudant-local-architecture-and-ports}
@@ -209,8 +217,8 @@ and ports.
 The following diagram shows the architecture of {{site.data.keyword.cloudant_local_notm}}
 implementation.
 
-*  Three database nodes that are identified as DB1, DB2, and DB3.
-*  Two load balancers that are identified as LB1 and LB2.
+-  Three database nodes that are identified as DB1, DB2, and DB3.
+-  Two load balancers that are identified as LB1 and LB2. 
 
 ![Example illustrates the communication paths and ports that are used by the components of {{site.data.keyword.cloudant_local_notm}}.](images/cloudant_architecture.jpg){: caption="Figure 1. Example illustrates the communication paths and ports that are used by the components of {{site.data.keyword.cloudant_local_notm}}" caption-side="bottom"}
   
@@ -251,15 +259,15 @@ installation carefully before you install the product.
 
 In particular, consider the following aspects.
 
-*  Any organizational policies that you might have regarding the
+-  Any organizational policies that you might have regarding the
    installation of software and data. For example, you might have
    a policy against installing databases on the root partition of
    a system.
-*  Current and expected storage requirements. For example, while
+-  Current and expected storage requirements. For example, while
    the target system might have enough storage space for the
    initial installation, subsequent use and data growth might
    exceed the available space.
-*  Simplification of maintenance and backup. For example, by
+-  Simplification of maintenance and backup. For example, by
    keeping the application software and data locations separate,
    it is often easier to run backup and maintenance tasks.
 
@@ -287,8 +295,8 @@ directory stores your data files.
 The packages create the {{site.data.keyword.cloudant_local_notm}} software and database
 directories in the following locations.
 
-*  The software is installed in a directory named `/opt/cloudant`.
-*  The database is installed in a directory named `/srv/cloudant`.
+-  The software is installed in a directory named `/opt/cloudant`.
+-  The database is installed in a directory named `/srv/cloudant`.
 
 To change the default directories, follow these steps:
 
@@ -407,10 +415,10 @@ balancer prerequisites.
 4. Record the following information for your primary load
    balancer (Load Balancer 1) for future reference.
 
-   *  Public DNS Name
-   *  Public IP
-   *  Private DNS Name
-   *  Private IP
+   -  Public DNS Name
+   -  Public IP
+   -  Private DNS Name
+   -  Private IP
 
    If you use a single IP address per node, complete only the "Public" lines for your primary and secondary load balancers. The "Public" IP addresses for these database nodes do not have to be public IP spaces. They are public only in the sense that they provide the actual database service. In general, this network would be a separate network segment from the "private" side of the servers, where all node-to-node and out-of-band communication takes place.
    {: note}
@@ -418,17 +426,17 @@ balancer prerequisites.
    If you use a failover load balancer, record the same
    information for your second load balancer (Load Balancer 2).
 
-   *  Public DNS Name
-   *  Public IP
-   *  Private DNS Name
-   *  Private IP
+   -  Public DNS Name
+   -  Public IP
+   -  Private DNS Name
+   -  Private IP
 
 5. Confirm that the virtual IP address is available for the load
    balancers to share. This address is the IP address that
    clients use to access the cluster. Record this IP address for
    future reference.
 
-   *  Virtual IP address
+   -  Virtual IP address
 
 ## Installing {{site.data.keyword.cloudant_local_notm}}
 {: #installing-ibm-cloudant-local-install}
@@ -453,26 +461,26 @@ Before you install {{site.data.keyword.cloudant_local_notm}}, confirm that your 
 meets the following requirements.
 
 
-*  You must be the root user, or have sudo privileges, to install
+-  You must be the root user, or have sudo privileges, to install
    {{site.data.keyword.cloudant_local_notm}}. If you are not the root user, prefix all
    commands with the `sudo` command.
 
-*  If security restrictions prevent you from accessing
+-  If security restrictions prevent you from accessing
    third-party repositories, you must download and install the
    required third-party packages before you start the
    installation.
 
-*  The {{site.data.keyword.cloudant_local_notm}} installation on RHEL/CentOS systems
+-  The {{site.data.keyword.cloudant_local_notm}} installation on RHEL/CentOS systems
    requires that you enable the EPEL repository.
 
-*  If the repository is not already enabled on your system, run this command to install and enable EPEL.
+-  If the repository is not already enabled on your system, run this command to install and enable EPEL.
 
    ``` sh
    sudo yum -y install epel-release
    ```
    {:codeblock}
       
-*  When the installation is complete, you can remove EPEL with this command.
+-  When the installation is complete, you can remove EPEL with this command.
 
    ``` sh
    sudo yum erase epel-release
@@ -510,7 +518,7 @@ Install and configure the first database node in the cluster.
 
    `cast system install -p dbadmin_password -db`
 
-   Here are the options for the first database node:
+   The first database node includes the following options:
    
    a. `-db` or `--dbnode` is the flag to install a database node.
    
@@ -525,7 +533,7 @@ Install and configure the first database node in the cluster.
 
 3. Copy the resulting `cluster_dbnode.yaml` file to a place that is accessible when you install more database nodes.
 
-### Installing additional database nodes
+### Installing multiple database nodes
 {: #installing-additional-database-nodes}
 
 You can add a database node to your cluster after the first node
@@ -538,14 +546,14 @@ cast system install -c cluster_dbnode.yaml -db
 ```
 {:codeblock}
 
-See the options for additional database nodes in the following table: 
+See the options for multiple database nodes in the following table: 
 
 | Flag | Purpose |
 |------|---------|
 | `-db` or `--dbnode` | Flag to install a database node. |
 | `-c` or `--config` | The cluster configuration file exported from the first node. 
 | `--maintenance` | Start the system in maintenance mode. |
-{: caption="Table 2. Options for additional database nodes" caption-side="top"}
+{: caption="Table 2. Options for multiple database nodes" caption-side="top"}
 
 You added a database node. Next, you must join the cluster.
 
@@ -699,13 +707,13 @@ This implementation is not recommended for a production environment.
    ```
    {: codeblock}
 
-   * `-db` or `--dbnode`
+   - `-db` or `--dbnode`
      Flag to install a database node.
 
-   * `-lb` or `--lbnode`
+   - `-lb` or `--lbnode`
      Flag to install a load balancer node.
 
-   * `-p` or `--password`
+   - `-p` or `--password`
      (Optional) Flag to set the database admin password. If you do not provide a password, the password defaults to `pass`.
 
 2. Run the following command to initialize the single node cluster:
@@ -740,8 +748,8 @@ Before you install {{site.data.keyword.cloudant_local_notm}} offline, you must m
 
 Before you begin, you must configure access to the following external repositories on the online system.
 
-*   Operating system-specific package repositories (EPEL, and so on)
-*   Python Package Index (PyPI) site
+-   Operating system-specific package repositories (EPEL, and so on)
+-   Python Package Index (PyPI) site
 
 #### Installing Red Hat dependencies
 {: #installing-red-hat-dependencies}
@@ -758,7 +766,7 @@ For Red Hat and CentOS platforms, you must bundle the dependencies and transfer 
 
    `./cloudant-<version>-<os>-<arch>.bin`
 
-2. Bundle the dependencies into a compressed (tar) file by running the following commands.
+2. Bundle the dependencies into a compressed `tar` file by running the following commands.
 
    ```sh
    yum install createrepo
@@ -814,7 +822,7 @@ offline system.
 
    `./cloudant-<version>-<os>-<arch>.bin`
 
-2. Download and bundle the dependencies into a compressed (tar) file by running the following commands.
+2. Download and bundle the dependencies into a compressed `tar` file by running the following commands.
 
    ```sh
    zypper -n install createrepo
@@ -825,7 +833,7 @@ offline system.
    ```
    {: codeblock}
 
-3. Copy the compressed (tar) file to the offline system.
+3. Copy the compressed `tar` file to the offline system.
 
    ```sh
    cloudant-deps.tar.gz <offline.system.com>:/tmp
@@ -855,7 +863,7 @@ Retrieve the Ubuntu dependencies from the Ubuntu online system.
 
 1.  Log in to the Ubuntu online system.
 
-2.  Retrieve the dependencies required by the self-extracting archive/CAST tool.
+2.  Retrieve the dependencies required by the self-extracting archive CAST tool.
     
     ``` sh
     apt-get update
@@ -870,7 +878,7 @@ Retrieve the Ubuntu dependencies from the Ubuntu online system.
     
     `./cloudant-<version>-<os>-<arch>.bin`
 
-4.  Retrieve the remaining dependencies that are required by the self-extracting archive/CAST tool.
+4.  Retrieve the remaining dependencies that are required by the self-extracting archive CAST tool.
     
     ``` sh
     apt-offline set cloudant-deps.sig --install-packages cloudant-lbnode cloudant-dbnode
@@ -936,7 +944,7 @@ You must apply these steps to each platform in your environment.
     ```
     {:codeblock}
 
-5.  Bundle the PyPI repository into a compressed (tar) file.
+5.  Bundle the PyPI repository into a compressed `tar` file.
 
     ``` sh
     tar -czvf cloudant-python-deps.tar.gz cloudant-python-deps
@@ -952,7 +960,7 @@ You must apply these steps to each platform in your environment.
 
 7.  Log in to the offline system.
 
-8.  Setup the local PyPI repository.
+8.  Set up the local PyPI repository.
 
     ``` sh
     cd /tmp
@@ -987,7 +995,7 @@ you must run the self-extracting archive.
     ```
     {:codeblock}
 
-4.  Only perform this step on an Ubuntu system.
+4.  Perform this step only on an Ubuntu system.
     
     ``` sh
     cd /tmp
@@ -1067,7 +1075,7 @@ Uninstall {{site.data.keyword.cloudant_local_notm}} with the `cast system uninst
 
    `cast node stop`
 
-2. To uninstall {{site.data.keyword.cloudant_local_notm}}, log in with the same user ID that you used during your first installation.For example, if you installed {{site.data.keyword.cloudant_local_notm}} as the root user, you must uninstall {{site.data.keyword.cloudant_local_notm}} as the root user.
+2. To uninstall {{site.data.keyword.cloudant_local_notm}}, log in with the same user ID that you used during your first installation. For example, if you installed {{site.data.keyword.cloudant_local_notm}} as the root user, you must uninstall {{site.data.keyword.cloudant_local_notm}} as the root user.
 
 3. Run the `cast system uninstall` command to uninstall {{site.data.keyword.cloudant_local_notm}} services and the CAST tool.
 

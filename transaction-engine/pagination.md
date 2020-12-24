@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-23"
 
 keywords: _all_docs endpoint, page_size, bookmarks, query, search, paging, mapreduce views
 
@@ -27,8 +27,7 @@ subcollection: Cloudant
 # Pagination and bookmarks
 {: #pagination-and-bookmarks-te}
 
-This guide only applies to {{site.data.keyword.cloudantfull}} on Transaction Engine.
-{: important}
+The content described here applies only to {{site.data.keyword.cloudantfull}} on Transaction Engine.
 
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views-te}
@@ -121,7 +120,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?page_size=10"
 ```
 {: codeblock}
 
-The response is a JSON object which could contain the `next` token.
+The response is a JSON object that could contain the `next` token.
 
 ```json
 {
@@ -145,7 +144,7 @@ The response is a JSON object which could contain the `next` token.
 
 The response includes an array of `docs`, and a `next` bookmark, which we use
 to paginate through the results in the next request. When we need page two of
-the results, we make another request passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the
+the results, we make another request that passes {{site.data.keyword.cloudant_short_notm}} the bookmark from the
 first response.
 
 See the following example that uses HTTP to get to the page by using a bookmark:
@@ -162,7 +161,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?bookmark=g1AAAAA-eJzLYWB
 ```
 {: codeblock}
 
-The response is a JSON object which can contain the `next`/`prev` tokens:
+The response is a JSON object that might contain the `next`/`prev` tokens:
 
 ```json
 {
@@ -178,7 +177,7 @@ The response is a JSON object which can contain the `next`/`prev` tokens:
 ```
 {: codeblock}
 
-**Notes**:
+**Notes**
 
 - The `prev` bookmark can be used to return to the previous page.
 - The `prev` and `next` bookmarks are optional. If no more pages are left, they are omitted. 
@@ -279,7 +278,7 @@ See the following example response for multiple queries:
 
 The `next` tokens could be used in `GET /$DATABASE/_all_docs?bookmark=...` to retrieve the next page of each query.
 
-**Notes**:
+**Notes**
 
 - The `page_size` key is forbidden in the JSON body of the request.
 
@@ -334,6 +333,6 @@ The response is a JSON object, which can contain the `next` token:
 
 The `next` token can be used in `GET /$DATABASE/_all_docs?bookmark=...` to retrieve the next page of the query.
 
-**Notes**:
+**Notes**
 
 - The `keys` parameter is not compatible with the `page_size` parameter. If you want to use `keys`, you must make sure that you are not requesting more than 2000 keys at once.

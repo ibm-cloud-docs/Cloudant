@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-22"
 
 keywords: couchapp, 3-tier application
 
@@ -59,12 +59,12 @@ When is each appropriate?
 ## A CouchApp is appropriate if...
 {: #a-couchapp-is-appropriate-if-}
 
--   Your server only provides an API to {{site.data.keyword.cloudant_short_notm}} anyway.
+-   Your server provides only an API to {{site.data.keyword.cloudant_short_notm}} anyway.
 -   You're OK with {{site.data.keyword.cloudant_short_notm}}'s
     [cookie-based authentication](/docs/Cloudant?topic=Cloudant-authentication#cookie-authentication).
 -   You're OK with {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/Cloudant?topic=Cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db)
     databases to manage users and permissions.
--   You don't need to schedule cronjobs or other regular tasks.
+-   You don't need to schedule cron jobs or other regular tasks.
 
 To get started with CouchApps,
 read [Build a serverless web app](https://blog.cloudant.com/2017/02/27/Online-petition-system.html){: new_window}{: external}.

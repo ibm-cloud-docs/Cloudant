@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-04"
+lastupdated: "2020-12-22"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -300,11 +300,7 @@ The result is similar to the following example:
 ```
 {: codeblock}
 
-The nature of NoSQL databases,
-    such as {{site.data.keyword.cloudant_short_notm}},
-    means that simple notions of the first document that is stored in a database
-    always being the first document returned in a list of results,
-    don't necessarily apply.
+In a relational database, there is a simple notion that the first document stored in a database is always the first document returned in a list of results. This notion doesn't necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}.
 {: tip}
 
 ### Full retrieval of a document

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-22"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -30,7 +30,7 @@ subcollection: Cloudant
 These JSON objects are called [documents](/docs/Cloudant?topic=Cloudant-documents#documents).
 {: shortdesc}
 
-In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag ![TXE tag](../images/txe_icon.svg).
+In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
 
 All documents must be contained in a database. Also, learn more about [partitioned databases](/docs/Cloudant?topic=Cloudant-databases#partitioned-databases-database).
@@ -45,13 +45,13 @@ The [Grouping related documents together in {{site.data.keyword.cloudant_short_n
 -	Partitioned
 -	Non-partitioned
 
-A *partitioned* database offers significant query performance and cost advantages but requires you to specify a logical partitioning of your data. The partitioning is specified as part of each document's ID. A partitioned database allows performing both global and partition queries. Partition queries target queries at a single, given document partition, meaning they need to process less data to return results. Therefore, partition queries offer significant performance advantages, and also often provide cost advantages over global queries. Global queries target the entire database, which leads to extra complexity, slower performance, and increased cost, but offer results that draw from all data.
+A partitioned database offers significant query performance and cost advantages but requires you to specify a logical partitioning of your data. The partitioning is specified as part of each document's ID. A partitioned database allows performing both global and partition queries. Partition queries target queries at a single, given document partition, meaning they need to process less data to return results. Therefore, partition queries offer significant performance advantages, and also often provide cost advantages over global queries. Global queries target the entire database, which leads to extra complexity, slower performance, and increased cost, but offer results that draw from all data.
 
-Alternatively, a *non-partitioned* database might be created. This type of database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
+Alternatively, a non-partitioned database might be created. This type of database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
 
 {{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term database performance where the data model allows for logical partitioning of documents.
 
-The partitioning type of a database is set at database creation time. When you create a database, use the `partitioned` query string parameter to set whether the database is partitioned. The default for `partitioned` is `false`, maintaining backwards compatibility.
+The partitioning type of a database is set at database creation time. When you create a database, use the `partitioned` query string parameter to set whether the database is partitioned. The default for `partitioned` is `false`, maintaining compatibility with an earlier version.
 
 The partitioning type can't be changed for an existing database.
 
@@ -72,7 +72,7 @@ submit a `PUT` request with the following format:
 
 | Argument        | Description | Optional | Type | Default | Supported values |
 |-----------------|-------------|----------|------|---------|------------------|
-| `partitioned`   | Whether database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
+| `partitioned`   | Determines if the database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
 {: caption="Table 1. Query arguments" caption-side="top"}
 
 ### Database naming
@@ -123,7 +123,7 @@ Code | Description
 201  | Database created successfully.
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
 400  | Invalid database name.
-412  | Database already exists.
+412  | Database exists.
 {: caption="Table 2. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is created successfully:
@@ -181,7 +181,7 @@ Field    | Description
 ---------|-------------
 `compact_running`     | Set to true if the database compaction routine is operating on this database.
 `db_name`             | The name of the database.
-`disk_format_version` | The version of the physical format that is used for the data when it's stored on disk.
+`disk_format_version` | The version of the physical format that is used for the data that is stored on disk.
 `disk_size`           | Size in bytes of the data as stored on the disk. Views indexes aren't included in the calculation.
 `doc_count`           | A count of the documents in the specified database.
 `doc_del_count`       | Number of deleted documents.
@@ -318,7 +318,7 @@ Argument | Description  | Optional | Type | Default
 2. When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require multiple strings to list the keys you want.
 
 3. When you use the `keys` argument and the revision
-is deleted, the `value` attribute returned is a JSON object with the current `_rev` of the document and a `_deleted` attribute. The `doc` attribute is only populated if you specified `include_docs=true` in the request and is `null` if the document is deleted.
+is deleted, the `value` attribute that is returned is a JSON object with the current `_rev` of the document and a `_deleted` attribute. The `doc` attribute is only populated if you specified `include_docs=true` in the request and is `null` if the document is deleted.
 
 See the following example that uses HTTP to list all documents in a database:
 
@@ -414,7 +414,7 @@ See the following example response after a request for all documents in a databa
 ## Send multiple queries to a database
 {: #send-multiple-queries-to-a-database}
 
-Now, we describe how to send multiple queries to a database using `_all_docs` and `_view` endpoints. 
+Now, we describe how to send multiple queries to a database by using `_all_docs` and `_view` endpoints. 
 
 ### Send multiple queries to a database by using `_all_docs`
 {: #send-multiple-queries-to-a-database-by-using-_all_docs}
@@ -436,7 +436,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries"
 ```
 {: codeblock}
 
-`POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents 
+If you `POST` to the `_all_docs/queries` endpoint, it runs multiple specified built-in view queries of all documents 
 in this database. You can use this endpoint to request multiple queries in a single request, instead 
 of multiple `POST /$DATABASE/_all_docs` requests. 
 
@@ -554,7 +554,7 @@ Multiple queries are also supported in `/$DATABASE/_design_docs/queries`, which 
 To send multiple view queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
 
-See the following example that uses HTTP to send multiple queries to a database
+See the following example that uses HTTP to send multiple queries to a database:
 
 ```http
 POST /_view/$VIEW/queries HTTP/1.1
@@ -582,7 +582,7 @@ The field names and their meaning are the same as the query parameters of a regu
 The database endpoint to view deleted databases and recover them with the undelete operation is only available with {{site.data.keyword.cloudantfull}} on Transaction Engine. This endpoint requires the IAM service role of Manager.
 {: important} 
 
-Instead of automatically and immediately removing the data and any indexes in the database after a delete operation, the undelete API capability allows you to restore the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion, after which time they are permanently deleted and cannot be recovered using this API endpoint.
+The undelete API capability does not automatically and immediately remove the data and any indexes in the database after a delete operation. Instead, the undelete API restores the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion after which time they are permanently deleted and cannot be recovered by using this API endpoint.
 
 ### `GET /_deleted_dbs`
 {: get-_deleted_dbs}
@@ -606,8 +606,8 @@ Accept –
 | `end_key` (JSON) | Alias for `endkey` parameter. |
 | `key` (JSON) | Return the databases for the specified key. |
 | `limit` (Number) | Limit the number of the returned databases to the specified Number. |
-| `skip` (Number) | Skip this number of databases before starting to return the results. Default is 0. |
-| `startkey` (JSON) | Return databases starting with the specified key. |
+| `skip` (Number) | Skip this number of databases before the results are returned. Default is 0. |
+| `startkey` (JSON) | Return databases by starting with the specified key. |
 | `start_key` (JSON) | Alias for `startkey`. |
 {: caption="Table 7. Query parameters" caption-side="top"}
 
@@ -719,7 +719,7 @@ Accept –
 ```
 {: codeblock}
 
-Where the request body parameters are as follows:
+In this case, the request body parameters are shown in the following list:
 - `timestamp` - The timestamp of the database deletion as shown in the GET `_deleted_dbs` endpoint.
 - `source` - The `db_name` of the database that was deleted as shown in the GET `_deleted_dbs` endpoint.
 - `target` - This field is optional. Defaults to the same database name as source.
@@ -745,9 +745,9 @@ Content-Type –
 
 | Response JSON object | Description |
 |----------------------|-------------|
-| `ok` (Boolean) | Operation status. Available in case of success. |
-| `error` (String) | Error type. Available if response code is 4xx. |
-| `reason` (String) | Error description. Available if response code is 4xx. |
+| `ok` (Boolean) | Operation status. Status shown when  successful. |
+| `error` (String) | Error type. Error is shown if response code is 4xx. |
+| `reason` (String) | Error description. Reason is shown if response code is 4xx. |
 {: caption="Table 9. Response JSON objects" caption-side="top"}
 
 | Code | Message |
@@ -756,17 +756,17 @@ Content-Type –
 | `400 Bad Request` | Bad Request. Invalid payload in request. |
 | `401 Unauthorized` | CouchDB Server Administrator privileges required. |
 | `404 NotFound` | Invalid deleted timestamp. |
-| `412 Precondition Failed` | Database already exists. |
+| `412 Precondition Failed` | Database exists. |
 {: caption="Table 10. HTTP request codes" caption-side="top"}
 
 ### `DELETE /_deleted_dbs/{db}`
 {: #get-_deleted_dbs-db}
 
-Send a `DELETE` request to permanently delete the database instance which was soft-deleted with the specified timestamp.
+Send a `DELETE` request to permanently delete the database instance, which was soft-deleted with the specified timestamp.
 
 | Parameters | Description |
 |------------|-------------|
-| `timestamp` | Timestamp when database was deleted |
+| `timestamp` | Timestamp when the database was deleted. |
 {: caption="Table 11. Parameters for `_deleted_dbs` endpoint" caption-side="top"}
 
 *Request headers*
@@ -788,9 +788,9 @@ Content-Type –
 
 | Response JSON object | Description |
 |----------------------|-------------|
-| `ok` (Boolean) | Operation status. Available in case of success. |
-| `error` (String) | Error type. Available if response code is 4xx. |
-| `reason` (String) | Error description. Available if response code is 4xx. |
+| `ok` (Boolean) | Operation status. Status shown when successful. |
+| `error` (String) | Error type. Error is shown if response code is 4xx. |
+| `reason` (String) | Error description. Reason is shown if response code is 4xx. |
 {: caption="Table 12. Response JSON object" caption-side="top"}
 
 | Code | Message | 
@@ -799,7 +799,7 @@ Content-Type –
 | `400 Bad Request` | Bad Request. Invalid payload in request. |
 | `401 Unauthorized` | CouchDB Server Administrator privileges required. |
 | `404 NotFound` | Invalid deleted timestamp. |
-| `412 Precondition Failed` | Database already exists. |
+| `412 Precondition Failed` | Database exists. |
 {: caption="Table 13. HTTP response codes" caption-side="top"}
 
 ## Get changes
@@ -821,16 +821,16 @@ Argument       | Description | Supported values | Default
 ----------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False 
 `descending`   | Return the changes in sequential order. | Boolean | False 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [API: GET / documentation](/docs/Cloudant?topic=Cloudant-advanced-api#-get-). | A JSON array of document IDs | 
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [API: `GET /` documentation](/docs/Cloudant?topic=Cloudant-advanced-api#-get-). | A JSON array of document IDs | 
 `feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
-`filter`       | Name of [filter function](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=Cloudant-design-documents#design-documents). | string | no filter
+`filter`       | Name of [filter function](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=Cloudant-design-documents#design-documents). | `string` | No filter.
 `heartbeat`    | If no changes occurred during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | Any positive number | No heartbeat 
 `include_docs` | Include the document as part of the result. | Boolean | False 
 `limit`        | Maximum number of rows to return. | Any non-negative number | None   
 `seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | Any positive number | 1 
-`since`        | Start the results from changes *after* the specified sequence identifier. For more information, see the [`since` information](#the-since-argument). | Sequence identifier or `now` | 0 
+`since`        | Start the results from changes after the specified sequence identifier. For more information, see the [`since` information](#the-since-argument). | Sequence identifier or `now` | 0 
 `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` 
-`timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | Any positive number | 
+`timeout`      | Wait this number of milliseconds for data, then stop the response. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | Any positive number | 
 {: caption="Table 14. Query arguments for `_changes`" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
@@ -879,14 +879,16 @@ from the behavior you expect.
 In particular,
 if you ask for a list of changes `_since` a  sequence identifier,
 you get the requested information in response.
-*But* you might also get changes that were made before the change indicated by the sequence identifier.
+But you might also get changes that were made before the change indicated by the sequence identifier.
 The reason these extra changes are included,
 along with the implications for applications,
 is explained in the
 [replication guide](/docs/Cloudant?topic=Cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
-Any application that uses the `_changes` request *must* be able to process correctly a list of changes that might: 1. Have a different order for the changes that are listed in the response, when compared with an earlier request for the same information. 2. Include changes that are considered to be before the change specified by the sequence identifier.
-{: tip}
+Any application that uses the `_changes` request must be able to process a list of changes correctly as shown in the following list:
+- A different order for the changes that are listed in the response, when compared with an earlier request for the same information.
+- Changes that occur before the change specified by the sequence identifier.
+
 
 ### The `feed` argument
 {: #the-feed-argument}
@@ -982,7 +984,7 @@ several built-in filters are available:
 ### The `since` argument
 {: #the-since-argument}
 
-Use the `since` argument to get a list of changes that occurred *after* a specified sequence identifier.
+Use the `since` argument to get a list of changes that occurred after a specified sequence identifier.
 If the `since` identifier is 0 (the default),
 or omitted,
 the request returns all changes.
@@ -995,7 +997,7 @@ if you request a list of changes twice,
 by using the same `since` sequence identifier both times,
 the order of changes in the resulting list might not be the same.
 
-You might also see some results that appear to be from *before* the `since` parameter.
+You might also see some results that appear to be from before the `since` parameter.
 The reason is that you might be getting results from a different replica of a shard (a shard replica).
 
 Shard replicas automatically and continuously replicate to each other
@@ -1090,7 +1092,7 @@ See the following example (abbreviated) response to a `_changes` request:
 
 Instead of `GET`,
 you can also use `POST` to query the changes feed.
-The only difference, if you're using `POST` *and* you're using either of the `docs_ids` or `selector` filters,
+The only difference, if you're using `POST` and you're using either of the `docs_ids` or `selector` filters,
 is that it's possible to include the `"doc_ids" : [...]` or `"selector": {...}` parts in the request body.
 All other parameters are expected to be in the query string,
 the same as using `GET`.
@@ -1111,7 +1113,7 @@ curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector"
 ```
 {: codeblock}
 
-See the following example of a JSON object `POST`ed to the `_changes` endpoint:
+When you `POST` to the `_changes` endpoint, you see an example similar to the following JSON object:
 
 ```json
 {

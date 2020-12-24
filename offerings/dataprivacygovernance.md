@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-22"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -39,9 +39,9 @@ and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance s
 To govern the movement of data from the EU to the US,
 {{site.data.keyword.cloudant_short_notm}} complied with both US-EU and US-Swiss
 [Safe Harbour Frameworks](https://www.export.gov/safeharbor_eu){: new_window}{: external}.
-Following the 2015 ruling of the European Court of Justice that
+The European Court of Justice
 [invalidated](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){: new_window}{: external}
-the Safe Harbour agreement,
+the Safe Harbour agreement in 2015. 
 {{site.data.keyword.IBM_notm}} was quick to urge policymakers to work expediently
 to ensure "[unbroken data flows between the European Union and the United States](https://ec.europa.eu/commission/presscorner/detail/en/IP_16_216){: new_window}{: external}".
 
@@ -73,15 +73,12 @@ Similar information can be found for these IaaS business partners:
 - [Amazon](https://aws.amazon.com/compliance/){: new_window}{: external}
 - [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/compliance){: new_window}{: external}
 
-Following the recent vote in favor of new
-[General Data Protection Regulations](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){: new_window}{: external},
-{{site.data.keyword.cloudant_short_notm}} customers need to be aware not only of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
-compliance against emerging data privacy standards and legislation
-but also of {{site.data.keyword.IBM_notm}}'s wider ability to provide a comprehensive suite of solutions
+The [General Data Protection Regulations](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){: new_window}{: external} were recently approved. {{site.data.keyword.cloudant_short_notm}} customers need to be aware of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
+compliance with emerging data privacy standards and legislation. 
+Customers also need to be aware of {{site.data.keyword.IBM_notm}}'s wider ability to provide a comprehensive suite of solutions
 to assist businesses of all sizes with their own internal data governance requirements.
 
-If you have further questions about the impending changes to data protection laws in Europe
-and how they are likely to impact your business,
-or would like to discuss how {{site.data.keyword.IBM_notm}} can support your information governance
-and compliance efforts,
-email the Client Success team at cdscsm@us.ibm.com. 
+Email the Client Success team at cdscsm@us.ibm.com if you need more information about any of the following issues:
+
+- Impending changes to data protection laws in Europe and how they are likely to impact your business
+- Want to discuss how {{site.data.keyword.IBM_notm}} can support your information governance and compliance efforts

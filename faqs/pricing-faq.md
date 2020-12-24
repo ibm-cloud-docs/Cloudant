@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-23"
 
 keywords: capacity settings, capacity limit, exceed limit, usage data
 
@@ -47,7 +47,7 @@ You can change your provisioned throughput capacity and see your current capacit
 
 The Lite plan includes 1 GB of storage. If you exceed the limit, {{site.data.keyword.cloudant_short_notm}} blocks your account from writing new data until you delete enough data to be under the 1-GB limit, or upgrade to a higher plan. 
 
-The first 20 GB of storage comes free with the Standard plan. You can store as much data as you want. Any storage over the 20 GB limit costs $0.0014 per GB per hour, which is approximately $1/GB per month.
+The first 20 GB of storage comes free with the Standard plan. You can store as much data as you want. Any storage over the 20 GB limit costs $0.0014 per GB per hour, which is approximately $1 per GB per month.
 
 ## Where can I see my usage data?
 {: #see-usage-data}
