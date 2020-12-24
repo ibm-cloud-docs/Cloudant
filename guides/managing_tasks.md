@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-23"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -29,17 +29,17 @@ subcollection: Cloudant
 Creating new indexes over lots of data or replicating a large database can take quite a while.
 {: shortdesc}
 
-So how can you determine whether your tasks are progressing,
-or if they've completed?
+How can you determine whether your tasks are progressing
+or completed?
 The [`_active_tasks` endpoint](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) provides information about all ongoing tasks.
 However,
 if you start numerous tasks,
 some of them might be scheduled to run later and don't show up under `_active_tasks`
 until they start.
 
-In this guide, you learn how to use the `_active_tasks` endpoint to monitor long-running tasks.
+Now, you learn how to use the `_active_tasks` endpoint to monitor long-running tasks.
 The `curl` command is used to access the endpoint.
-The `jq` command-line JSON processor is used to process the JSON response.
+The `jq` command line JSON processor is used to process the JSON response.
 
 This task-focused tutorial covers only what is essential to accomplish this task.
 For more information, see the [API reference](/docs/Cloudant?topic=Cloudant-api-reference-overview#api-reference-overview) for a complete guide to the available options.
@@ -74,8 +74,7 @@ For each search index that is built and for each design document with views that
 a new task is created for each replica and each shard in a cluster.
 
 For example,
-if there are 24 shards,
-with three replicas each,
+if 24 shards with three replicas each exist,
 and you update two search indexes,
 then 24 x 3 x 2 = 144 tasks run.
 
@@ -142,7 +141,7 @@ Estimates of the time to complete an indexing task can't be 100% right. The actu
 
 You must assume that these factors might combine to produce considerable inaccuracy in your estimate.
 
-*Example of extracting the `changes_done` field by using `jq`:*
+See the example of extracting the `changes_done` field by using `jq`:
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -156,9 +155,10 @@ To find all replication tasks,
 pipe the `curl` output to `jq`,
 and filter the documents in the array by their type field.
 
-To make it easier to select the information about a replication process from the list of active tasks,
-start the replication process by creating a document in the `_replicator` database,
-and set its `_id` field to a known value.
+Make it easier to select the information about a replication process from the list of active tasks by following these steps:
+
+1. Start the replication process by creating a document in the `_replicator` database.
+2. Set its `_id` field to a known value.
 
 ### Example of finding all replication tasks, by filtering for the `replication` type
 

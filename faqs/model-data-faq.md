@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-23"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -36,14 +36,14 @@ As always, successful modeling involves achieving a balance between ease of use 
 performance characteristics you're hoping to achieve.
 {: shortdesc}
 
-*(The FAQ for modeling data to scale is based on a blog article by Mike Rhodes: ["My top 5 tips for modeling your data to scale"](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/){: new_window}{: external}, originally published 17 December 2013.)*
+*(The FAQ for modeling data to scale is based on a blog article by Mike Rhodes: ["My top five tips for modeling your data to scale"](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/){: new_window}{: external}, originally published 17 December 2013.)*
 
 ## When must I make my documents immutable?
 {: #consider-immutable-data}
 {: faq}
 
 If you're changing the same piece of state at a rate of once per second or more, consider 
-making your documents immutable. This practice significantly lowers the chance that you create 
+making your documents immutable. This practice significantly reduces the chance that you create 
 conflicted documents.
 
 Conversely, if you're updating a specific document less than once every ten seconds, an 
@@ -83,10 +83,10 @@ more than once every ten seconds to be on the safe side.
 {: faq}
 
 Rather than using views as glorified search indexes - "get me all `person` documents" - try 
-to get the database to do the work for you. For example, rather than retrieving all 10,000 
-person documents to calculate the combined hours worked, use a view with a composite key to pre-calculate the hours worked by year, month, day, half-day, and hour by using the `_sum` built-in reduce. You save work in your application and allow the database to concentrate on serving many small requests. This method is preferable to reading huge amounts of data from disk to service a single large request.
+to get the database to do the work for you. For example, you can retrieve all 10,000 
+person documents to calculate the combined hours worked. However, it's better to use a view with a composite key to pre-calculate the hours worked by year, month, day, half-day, and hour by using the `_sum` built-in reduce. You save work in your application and allow the database to concentrate on serving many small requests. This method is preferable to reading huge amounts of data from disk to service a single large request.
 
-## Why this helps me use views to pre-calculate results?
+## Why this method helps me use views to pre-calculate results?
 {: #why-this-helps-me-use-views-to-pre-calculate-results}
 {: faq}
 
@@ -102,7 +102,7 @@ do in combining the results from each database shard.
 
 Overall, the goal is for a view request to require the minimum amount of data from each shard. This practice 
 minimizes the time that the data is in transit and being combined to form the final result. Using 
-the power of views to precompute aggregate data is one way to achieve this aim. This practice lowers the time that your application spends waiting for the request to complete.
+the power of views to precompute aggregate data is one way to achieve this aim. This practice reduces the time that your application spends waiting for the request to complete.
 
 ## How can I de-normalize my data?
 {: #how-de-normalize-my-data}
@@ -131,7 +131,7 @@ Querying the view for a specific key then provides all the documents with that t
 It all comes down to the number of HTTP requests that your application makes. There's a cost to opening HTTP connections, particularly HTTPS. While reusing connections helps, making fewer requests overall speeds up the rate that your application can process data.
 
 As a side benefit, when you use de-normalized documents and pre-computed views, you often have the 
-value that your application requires generated ahead of time, rather than being constructed while in progress at query time.
+value that your application requires generated ahead of time. Rather than it being constructed while in progress at query time.
 
 ## How can I avoid conflicts by using finer-grained documents?
 {: #how-avoid-conflicts-finer-grained-documents}
@@ -182,7 +182,7 @@ Emitting the `"patient"` field as the key in your view would then allow querying
 operations for a specific patient. Again, views are used to help knit together a full picture of 
 a specific entity from separate documents. Views help keep the number of HTTP requests low, even though we split up the data for a single-modeled entity.
 
-## How does this help me avoid conflicts?
+## How do I avoid conflicts?
 {: #how-this-helps-you-avoid-conflicts}
 {: faq}
 
@@ -197,7 +197,7 @@ tree with no or few branches: each branch needs to be followed to see whether it
 be the winning revision. Potential victors then need to be compared against each other to make 
 the final choice.
 
-{{site.data.keyword.cloudant_short_notm}} handles small numbers of branches well. After all, replication relies on the fact that documents can branch to avoid discarding data. When you reach pathological levels, however, particularly if you can't resolve the conflicts, it becomes time-consuming and memory-intensive to walk the document tree.
+{{site.data.keyword.cloudant_short_notm}} handles small numbers of branches well. After all, replication relies on the fact that documents can branch to avoid discarding data. However, when you reach pathological levels, particularly if you can't resolve the conflicts, it becomes time-consuming and memory-intensive to walk the document tree.
 
 ## How can I build in conflict resolution?
 {: #how-build-in-conflict-resolution}
@@ -214,7 +214,7 @@ How you resolve conflicts is application-specific. See the following tips for mo
 -   Avoid invariants across document fields if possible. Avoiding invariants makes it more likely that a simple
     merge operation, if you take the changed field from each conflicted document revision, is
     suitable. This practice makes simpler and more robust application code.
--   Allow documents to stand-alone. If you have to retrieve other documents to work out the correct
+-   Allow documents to stand alone. If you have to retrieve other documents to work out the correct
     resolution, it increases latency in conflict resolution. There's also a chance you get a
     version of the other documents that aren't consistent with the document you're resolving,
     making correct resolution difficult. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-22"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -135,7 +135,7 @@ Field  | Description
 `NAME` | Arbitrary name that you give to the instance.
 `SERVICE_NAME` | `cloudantnosqldb`
 `SERVICE_PLAN_NAME` |  Lite plan (`lite`), Standard plan (`standard`), or Standard Transaction Engine (`standard-transaction-engine`).
-`LOCATION` | The location where you want to deploy includes: Sydney `au-syd`, Chennai `in-che`, Osaka `jp-osa`, Tokyo `jp-tok`, Seoul `kr-seo`, Frankfurt `eu-de`, London `eu-gb`, Dallas `us-south`, Washington DC `us-east`.  
+`LOCATION` | The location where you want to deploy includes the following cities: Sydney `au-syd`, Chennai `in-che`, Osaka `jp-osa`, Tokyo `jp-tok`, Seoul `kr-seo`, Frankfurt `eu-de`, London `eu-gb`, Dallas `us-south`, Washington DC `us-east`.  
 `legacyCredentials` | Defaults to `true`. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. 
 {: caption="Table 1. Basic command format fields" caption-side="top"}
 
@@ -227,7 +227,7 @@ Now, we'll create credentials for the  `cs20170517a` instance we created in the 
   ```
   {: codeblock}
 
-2. After you receive the request to create credentials for the service instance, review the response from {{site.data.keyword.cloud_notm}} that contains a message similar to the one in the following example:
+2. After you receive the request to create credentials for the service instance, review the response from {{site.data.keyword.cloud_notm}} that contains a message similar to the one in the following example.
 
   ```sh
   Creating service key in resource group default of account John Does's Account as john.doe@email.com...
@@ -292,7 +292,7 @@ Next, you learn how to retrieve your service credentials. You need your service 
 
 Now, you've finished with the tutorial. Optionally, you can delete the service credentials or service instance as shown in the following steps. 
 
-For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window} tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created in this tutorial.
+For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window} tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created.
 
 ## (Optional) Deleting service credentials
 {: #deleting-service-create-cli}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-22"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -26,10 +26,10 @@ subcollection: Cloudant
 # Design document management
 {: #design-document-management}
 
-*Article contributed by Glynn Bird, Developer Advocate at {{site.data.keyword.cloudant_short_notm}}. Contact him at glynn@cloudant.com.*
+*Article contributed by Glynn Bird, Developer Advocate at {{site.data.keyword.cloudant_short_notm}}, glynn@cloudant.com.*
 
-{{site.data.keyword.cloudantfull}}'s scalable JSON data store has several querying mechanisms,
-all of which generate indices that are created and maintained separately to the core data.
+The scalable JSON data store for {{site.data.keyword.cloudantfull}} has several querying mechanisms,
+all of which generate indices that are created and maintained separately from the core data.
 Indexing isn't performed immediately when a document is saved.
 Instead,
 indexing is scheduled to happen later, providing a faster,
@@ -256,6 +256,7 @@ To switch to the new view, follow these steps:
 {: #move-and-switch-tooling}
 
 The command-line, Node.js, `couchmigrate` script automates the "Move and switch" procedure. It can be installed by using the following command:
+
 ```sh
 npm install -g couchmigrate
 ```

@@ -31,8 +31,7 @@ document stored in one location can't instantly update or replicate to other par
 {: shortdesc}
 
 In other words,
-if independent updates are made to different copies of documents,
-the effect might be to introduce disagreement or "conflicts" as to what is the correct, definitive content for the document.
+independent updates can be made to different copies of documents. The effect of these updates might be to introduce disagreement or "conflicts" as to what is the correct, definitive content for the document.
 
 {{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
 It warns you by returning a [`409` response](/docs/Cloudant?topic=Cloudant-http#http-status-codes) to a problematic update request.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-22"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -27,8 +27,7 @@ subcollection: Cloudant
 {: #creating-a-backup}
 
 This tutorial demonstrates how to use the 
-[CouchBackup](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external} command-line 
-utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. CouchBackup backs up 
+[CouchBackup](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external} utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. CouchBackup backs up 
 the database to a file. If the database fails, you can use the backup file to 
 restore the information to an existing database. 
 {: shortdesc}
@@ -160,7 +159,7 @@ back up and restore in later exercises.
 ## Setting an environment variable
 {: #setting-an-environment-variable}
 
-You can use environment variables or command-line options to specify the 
+You can use environment variables or options to specify the 
 URL and database for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance that you want to work 
 with CouchBackup. 
 
@@ -412,6 +411,6 @@ Restoring a backup is only supported when you restore into an empty database. If
     ```
     {: codeblock}
 
-Now, you have backed up and restored a database and created a log file. For more information, see [Disaster recovery and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup),
+You completed the backup and restore of a database and created a log file. For more information, see [Disaster recovery and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup),
 [Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/Cloudant?topic=Cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery),
 and [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).  

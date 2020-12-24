@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-23"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -214,7 +214,7 @@ Each value in the previous JSON example must be interpreted by using the values 
 If possible, *Use only IAM* is preferred. The major advantages for using
 {{site.data.keyword.cloud_notm}} IAM are shown in the following list:
 
-- Managing access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling rather than
+- Managing access to standard tooling for {{site.data.keyword.cloudant_short_notm}} rather than
   a combination of {{site.data.keyword.cloud_notm}} and {{site.data.keyword.cloudant_short_notm}}-specific credential management.
 - Credentials can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
 
@@ -319,7 +319,7 @@ curl -k -X POST \
 ```
 {: codeblock}
 
-which returns the following information (abbreviated):
+The following information (abbreviated) is returned:
 
 ```sh
 {
@@ -411,7 +411,7 @@ See the results in the following example:
 
 {{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. For security purposes, you can request to remove the {{site.data.keyword.cloudant_short_notm}} legacy credentials so that only IAM authentication can be used for the instance. The correct process to remove legacy credentials is shown in the following list:
 
-1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide.
+1. Ensure that IAM authentication is enabled for the {{site.data.keyword.cloudant_short_notm}} instance. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide.
 
 2. Update your application to use IAM authentication instead of {{site.data.keyword.cloudant_short_notm}} legacy authentication.
 
@@ -426,7 +426,7 @@ See the results in the following example:
 
 Now, we discuss how to use {{site.data.keyword.cloudant_short_notm}} with
 service instances through IAM authentication. It uses the
-details from the Service Credentials JSON example shown previously.
+details from the Service Credentials JSON example that was shown previously.
 
 {{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey){: new_window}{: external} documentation for more details.
 

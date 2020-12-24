@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-13"
+lastupdated: "2020-12-22"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -127,10 +127,10 @@ similar to this one is returned, "Call to `eval()` was blocked by CSP." You can 
 by replacing `eval()` calls with the calls from the 
 [expr-eval library](https://github.com/silentmatt/expr-eval){: new_window}{: external}.
 
-## Removed support for virtual hosts (vhosts) (4 December 2017)
+## Removed support for virtual hosts (4 December 2017)
 {: #disabled-vhosts-december-4-2017}
 
-- On 4 December 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was replaced by HTTPS only. After turning off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
+- On 4 December 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was replaced by HTTPS only. After you turn off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
 
 ## Error handling
 {: #error-handling}
