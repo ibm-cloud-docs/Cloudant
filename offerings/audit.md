@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-21"
+lastupdated: "2020-12-24"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -27,6 +27,7 @@ subcollection: Cloudant
 {: #audit-logging}
 
 Audit logs are available for {{site.data.keyword.cloudant_short_notm}}. You can find more details on how to obtain audit logs depending on whether you use {{site.data.keyword.cloudantfull}} or outside {{site.data.keyword.cloud}}.
+{: shortdesc}
 
 ## IBM Cloudant for IBM Cloud
 {: #audit-logs-ibm-cloud}
@@ -52,8 +53,6 @@ Information | Description
 `Resource` | Details about the account, database, and document accessed or query made.
 `Timestamp` | A record of the time and data of the event. 
 {: caption="Table 1. Recorded audit information" caption-side="top"}
-
-{: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:
 

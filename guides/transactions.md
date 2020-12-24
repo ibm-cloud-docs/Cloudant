@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-24"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
@@ -28,11 +28,11 @@ subcollection: Cloudant
 
 Traditionally,
 e-commerce systems are built with relational databases.
-These databases typically use a number of tables joined together to record sales,
+These databases typically use a number of tables joined to record sales,
 customer details,
 purchased products,
 and delivery tracking information.
-Relational databases offer high consistency, which means that application developers can build their applications to a database's strengths. This practice includes using joins between collections,
+Relational databases offer high consistency, which means that application developers can build their applications to a database's strengths. This practice includes joins between collections,
 enumerations to record the state of an object,
 and database transactions to guarantee atomic operations.
 {: shortdesc}
@@ -40,13 +40,12 @@ and database transactions to guarantee atomic operations.
 {{site.data.keyword.cloudantfull}} favors availability over consistency.
 It's a high-availability,
 fault-tolerant,
-distributed database that is eventually consistent, which means the customer's shopping service is always available and scalable enough
+distributed database that is eventually consistent. A distributed database means the customer's shopping service is always available and scalable enough
 to cope with many users who make purchases at the same time.
 With that in mind, your application can leverage {{site.data.keyword.cloudant_short_notm}}'s strengths and not treat it like a relational database.
 
 This discussion outlines some of the factors that are 
-involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths,
-by using concepts that are applicable to many other domains,
+involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths. {{site.data.keyword.cloudant_short_notm}} uses concepts that are applicable to many other domains,
 such as:
 
 -   Using multiple documents to represent the state of a purchase,
@@ -105,8 +104,8 @@ See the following example document that describes a purchase:
 This document provides enough data for a purchase record to render a summary of an order on a web page,
 or an email,
 without fetching more records.
-Notice key details about the order,
-in particular:
+Notice key details about the order.
+In particular, see the following details:
 
 -   The basket contains reference IDs (`product_id`) to a database of products stored elsewhere.
 -   The basket duplicates some of the product data in this record,
@@ -117,7 +116,7 @@ in particular:
 -   A unique identifier (`order_id`) is supplied with each purchase record to reference the order later. 
  
 When the customer places an order,
-typically at the point when they enter the *checkout* phase on the website,
+typically at the point when they enter the check out phase on the website,
 a purchase order record is created similar to the previous example. 
 
 ## Generating your own unique identifiers (UUIDs)
@@ -241,8 +240,8 @@ you could produce totals that are grouped by `order_id`.
 Since the view in previous example returns 0 for the order value,
 the result indicates that the order is fully paid.
 The reason is that the positive purchase order total cancels the negative payment amounts.
-Recording events as separate documents,
-that is one for the order and one for each payment,
+Recording events as separate documents, for example, 
+one for the order and one for each payment,
 is good practice in {{site.data.keyword.cloudant_short_notm}}. This practice avoids the possibility of creating conflicts when multiple processes modify the same document simultaneously.
 
 ## Adding more documents
@@ -265,7 +264,7 @@ it's not necessary to modify the core purchase document.
 
 Using {{site.data.keyword.cloudant_short_notm}} to store purchase order information allows an ordering system to be highly available and scalable. With an ordering system like this one, you can deal with large volumes of data and high rates of concurrent access.
 By modeling the data in separate documents that are only written once,
-we can ensure documents never become conflicted,
+we can ensure that documents never become conflicted,
 such as during concurrent access to the same document by separate processes.
 
 Furthermore,

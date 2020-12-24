@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-24"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -31,7 +31,7 @@ The criteria are specified within the view definition,
 or supplied as arguments when you use the view.
 {: shortdesc}
 
-In this documentation, when a feature, or an aspect of a feature, only applies to Transaction Engine, you will see this tag, ![TXE tag](../images/txe_icon.svg).
+In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag, ![TXE tag](../images/txe_icon.svg).
 {: important}
 
 ## Querying a view
@@ -96,13 +96,13 @@ This table shows the supported values for the following arguments:
 Argument | Supported values
 ---------|-----------------
 `stale`  | `ok`- Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
-`update` | `true` - Return results after updating the view.<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
+`update` | `true` - Return results after the view is updated<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
 {: caption="Table 3. Supported values" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
 
-See the example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view
+See the example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view.
 
 ```http
 GET /$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
@@ -111,7 +111,7 @@ Content-Type: application/json
 ```
 {:codeblock}
 
-See the example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view
+See the example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view.
 
 ```http
 GET /$DATABASE/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
@@ -120,7 +120,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-See the example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view
+See the example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view.
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5" \
@@ -128,7 +128,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_
 ```
 {:codeblock}
 
-See the example of using the command line to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:
+See the example of using the command line to retrieve a list of the first five documents from a database, applying the user-created `by_title` view.
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5" \
@@ -136,7 +136,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit
 ```
 {: codeblock}
 
-See the example response to the request:
+See the following example response to the request:
 
 ```json
 {
@@ -203,7 +203,7 @@ The index is populated as soon as the design document is created.
 On large databases,
 this process might take a while.
 
-The index content is updated incrementally and automatically when any one of the following three events occurs:
+The index content is updated incrementally and automatically when one of the following events occurs:
 
 -   A new document is added to the database.
 -   An existing document is deleted from the database.
@@ -232,10 +232,10 @@ before you insert or update documents.
 Creating the view definition in the design document
 causes incremental updates to the index when the documents or inserted.
 
-If speed of response is more important than having up-to-date data,
+If speed of response is more important than having up to date data,
 an alternative is to allow users to access an old version of the view index. To allow access to an old version of the view index, use the `update` query string parameter when you make a view query.
 
-If you want to save old index versions without incurring indexing overhead, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`. Or you can stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 
+If you want to save old index versions without incurring indexing processor usage, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`. Or you can stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 
 {: tip}
 
 ```json
@@ -474,7 +474,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?
 
 The `endkey` of `beta` is seen before the `startkey` of `alpha`, resulting in an empty list.
 
-See the example showing that the global view query returns no entries because `alpha` is alphabetically before `beta`. That's why the returned result is empty:
+See the example that shows the global view query returns no entries because `alpha` is alphabetically before `beta`. That's why the returned result is empty:
 
 ```json
 {
@@ -727,7 +727,7 @@ See the example (abbreviated) response, returning the full document for each rec
 ## Sending several queries to a view
 {: #sending-several-queries-to-a-view}
 
-Sending multiple queries to a view using a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` has been deprecated with [Send multiple view queries to a database by using _view](/docs/services/Cloudant?topic=Cloudant-databases#send-multiple-view-queries-to-a-database-by-using-_view).
+Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [Send multiple view queries to a database by using _view](/docs/services/Cloudant?topic=Cloudant-databases#send-multiple-view-queries-to-a-database-by-using-_view).
 
 For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=Cloudant-deprecations#replaced-queries-parameter).
 {: deprecated}

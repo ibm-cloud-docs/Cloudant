@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-02"
+lastupdated: "2020-12-23"
 
 keywords: couchdb, operator, release notes
 
@@ -60,7 +60,7 @@ This bug fix release addresses an issue that occurs during upgrades to operator 
 
 Adds a number of configuration options to the search container, enabled via v1.5.0 of the management container.
 
-This also fixes a performance regression in the search container caused by debug-level logging being enabled by default.
+This bug fix release also fixes a performance regression in the search container that is caused by debug-level logs being enabled by default.
 
 The following new, optional fields are added to the CouchDBCluster CRD:
 

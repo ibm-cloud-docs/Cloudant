@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-24"
 
 keywords: new features, updates, not supported
 
@@ -56,22 +56,22 @@ Python wheels reduce, or even eliminate, the need for you to download Python dep
 Each Python application now runs within its own virtual
 environment, eliminating version incompatibility between each application's Python modules.
 
-## Database logging
+## Database logs
 {: #database-logging}
 
-Simplified the following database logging issues.
+Simplified the following database logs issues.
 
-Database logging no longer requires a separate configuration file, but can be configured by using `.ini` files. 
+Database logs no longer requires a separate configuration file, but can be configured by using `.ini` files. 
 
 By default, the database uses syslog to log to `/var/log/cloudant/cloudant.log`, but you can direct it to other hosts by setting `syslog_host` = `your_host` in the `[log]` section of the `local.ini`.
 
 Additionally, the `cloudant.log`, `clouseau.log`, and `metrics.log` files, 
-located in `/var/log/cloudant/`, are automatically rotated using the configuration at `/etc/logrotate.d/cloudant`.
+which are located in `/var/log/cloudant/`, are automatically rotated to use the configuration at `/etc/logrotate.d/cloudant`.
 
 ## Multiple bug fixes 
 {: #multiple-bug-fixes}
 
-Implemented additional bug fixes to improve performance
+Implemented multiple bug fixes to improve performance
 and correct other issues. 
 
 ## Rolling upgrade not supported

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-05"
+lastupdated: "2020-12-24"
 
 keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits
 
@@ -28,7 +28,7 @@ subcollection: Cloudant
 
 The following tables show the differences between {{site.data.keyword.cloudantfull}} "Classic" architecture and {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
 
-The comparison tables serve as a point-in-time comparison to aid in choosing between the two plans at provisioning time. Customers must choose the plan to meet the needs of their application. Certain new features will be delivered only on {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. For this reason, we recommend you choose the {{site.data.keyword.cloudant_short_notm}} on Transaction Engine plan whenever possible.  
+The comparison tables serve as a point-in-time comparison to aid in choosing between the two plans at provisioning time. Customers must choose the plan to meet the needs of their application. Certain new features were delivered only on {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. For this reason, we recommend you choose the {{site.data.keyword.cloudant_short_notm}} on Transaction Engine plan whenever possible.  
 {: note}
 
 The comparison tables break down the features into the following categories:
@@ -74,7 +74,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Partition Queries` | Yes | No |
 | `Cloudant Query`<br>(JSON type) | Yes | Yes |
 | `Cloudant Query`<br>(Text type) | Yes | No |
-| `MapReduce` | Yes | Map-side JS functions and built-in reduce functions<br>No custom JS reduces |
+| `MapReduce` | Yes | Map-side JS functions and built-in reduce functions.<br>No custom JS reduces. |
 | `Search` | Yes | No |
 | `Geospatial` | Yes | No |
 | `Logging with LogDNA` | Yes | Yes |
@@ -91,18 +91,18 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Max Database Name Length` | 238 bytes | 256 bytes | 
 | `Max Document Size` | 1 MB | 1 MB | 
 | `Max Document ID Length` | 7168 bytes | 512 bytes |
-| `Max Indexed Key Length` | Not applicable | 8000 bytes |
-| `Max Indexed Value Length` | Not applicable | 64000 bytes |
+| `Max Indexed Key Length` | Not applicable | 8,000 bytes |
+| `Max Indexed Value Length` | Not applicable | 64,000 bytes |
 | `Attachment Size` | 10 MB | Not applicable |
 | `Request Size` | 11 MB | 64 MB |
 | `Request Timeout` | 60 s | 5 s |
-| `Max Docs in Bulk Doc Request` | Not applicable | 2000 documents |
-| `Max Docs in Bulk Get Request` | Not applicable | 2000 documents |
-| `Max Value for Skip Parameter` | Not applicable | 2000 |
-| `Max Number of Keys to All Docs` | Not applicable | 2000 |
-| `Max Queries in Queries Request` | Not applicable | 2000 | 
-| `Results - MapReduce` | Unlimited | 2000 |
-| `Results - Cloudant Query`<br>(JSON type) | Unlimited | 2000 | 
+| `Max Docs in Bulk Doc Request` | Not applicable | 2,000 documents |
+| `Max Docs in Bulk Get Request` | Not applicable | 2,000 documents |
+| `Max Value for Skip Parameter` | Not applicable | 2,000 |
+| `Max Number of Keys to All Docs` | Not applicable | 2,000 |
+| `Max Queries in Queries Request` | Not applicable | 2,000 | 
+| `Results - MapReduce` | Unlimited | 2,000 |
+| `Results - Cloudant Query`<br>(JSON type) | Unlimited | 2,000 | 
 {: caption="Table 3. Limits" caption-side="top"}
 
 ## HA, DR, and backup
@@ -113,7 +113,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `In-region HA/DR` | Data automatically stored in triplicate<br>Leverage multi-zone in regions where available | Data automatically stored in triplicate<br>Leverage multi-zone in regions where available |
 | `Cross-region HA/DR` | User-managed replications to another instance | User-managed replications to another instance |
 | `Database recovery API` | No | Yes<br>(within 48 hours) |
-| `Backups`<br>(Self-managed) | Self-managed with couchbackup | Self-managed with couchbackup |
+| `Backups`<br>(Self-managed) | Self-managed with Couch Backup | Self-managed with Couch Backup |
 | `Instance Reclamation` | {{site.data.keyword.cloud_notm}} 7-day reclamation<br>(instance-level deletions) | IBM Cloud 7-day reclamation<br>(instance-level deletions) |
 {: caption="Table 4. HA, DR, and backup" caption-side="top"}
 

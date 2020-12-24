@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-24"
 
 keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Installing the Operator
 {: #installing-the-operator}
 
-This guide demonstrates how to install the Operator on Kubernetes and Red Hat OpenShift. Three separate sections describe how to install the Operator depending on the Kubernetes flavor and version. The sections discuss the following topics:
+Learn how to install the Operator on Kubernetes and Red Hat OpenShift. Three separate sections describe how to install the Operator depending on the Kubernetes flavor and version. The sections discuss the following topics:
 
 - Installing the Operator on Kubernetes
 - Installing the Operator on Red Hat OpenShift 3.x
@@ -36,7 +36,7 @@ This guide demonstrates how to install the Operator on Kubernetes and Red Hat Op
 ## Installing the Operator on Kubernetes
 {: #installing-operator-kubernetes}
 
-This section walks through installing the Operator for Apache CouchDB on Kubernetes 1.11 or later. You can also follow the installation instructions that are found on [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} by clicking the **Install** button. 
+Now, walk through installing the Operator for Apache CouchDB on Kubernetes 1.11 or later. You can also follow the installation instructions that are found on [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} by clicking the **Install** button. 
 
 ### Prerequisites
 {: #prerequisites-operator-kubernetes}
@@ -59,7 +59,7 @@ If it isn't installed already, you must install [Operator Lifecycle Manager](htt
   ```
   {: codeblock}
 
-  For more information, see [How do I install OLM?](https://operator-framework.github.io/olm-book/docs/install-olm.html)
+  For more information, see [How do I install OLM](https://operator-framework.github.io/olm-book/docs/install-olm.html)?
 
 2. Install the operator by running the following command. 
   This Operator is installed in the "operators" namespace and is usable from all namespaces in the cluster.
@@ -69,7 +69,7 @@ If it isn't installed already, you must install [Operator Lifecycle Manager](htt
    ```
    {: codeblock}
 
-3. After the installation is complete, validate that the operator is running by using the following command:
+3. After the installation is complete, validate that the operator is running by using the following command.
 
   ```
   kubectl get csv -n operators
@@ -108,7 +108,7 @@ To install the Operator, follow these steps:
 
 2. Run the following command to create an OpenShift project for the Operator for Apache CouchDB deployment. 
 
-  Follow the rest of these steps to create a project called `my-couchdb`, which is used throughout this guide.
+  Follow the rest of these steps to create a project called `my-couchdb`.
   
   ```
   oc new-project my-couchdb
@@ -135,7 +135,7 @@ To install the Operator, follow these steps:
   
 4. Run the following command to create a subscription to the Operator for Apache CouchDB in the `my-couchdb` project.
 
-  A `Subscription` watches the Operator catalog for new releases and automatically keeps operators up-to-date.
+  A `Subscription` watches the Operator catalog for new releases and automatically keeps operators up to date.
 
   ```
   kubectl apply -f - <<END

@@ -32,7 +32,7 @@ The scalable JSON data store for {{site.data.keyword.cloudantfull}} has several 
 all of which generate indices that are created and maintained separately from the core data.
 Indexing isn't performed immediately when a document is saved.
 Instead,
-you schedule indexing to happen later giving a faster,
+indexing is scheduled to happen later, providing a faster,
 non-blocking write throughput.
 {: shortdesc}
 
@@ -120,7 +120,7 @@ each `key/value` pair is stored in a B-Tree index.
 After the index is built for the first time,
 subsequent reindexing is performed only against new and updated documents.
 Deleted documents are de-indexed.
-This time-saving process is known as *incremental MapReduce*,
+This time-saving process is known as incremental MapReduce,
 as shown in the following diagram:
 
 ![Illustration of Incremental MapReduce](../images/DesDocMan00.png){: caption="Figure 1. Illustration of Incremental MapReduce" caption-side="bottom"}
@@ -128,12 +128,12 @@ as shown in the following diagram:
 It's worth remembering the following points:
 
 -   The construction of an index happens asynchronously.
-    {{site.data.keyword.cloudant_short_notm}} confirms that our design document was saved. However, to check on the progress of the construction of our index,
-    we have to poll [`_active_tasks`](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
+    {{site.data.keyword.cloudant_short_notm}} confirms that our design document was saved. To check on the progress of the construction of our index,
+    we have to poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
 -   The more data that we have,
     the longer it takes before the index is ready.
 -   While the initial index build is in progress,
-    *any queries made against that index are blocked*.
+    any queries made against the index are blocked.
 -   Querying a view triggers the 'mapping' of any documents that aren't incrementally indexed.
     This practice ensures that we get an up-to-date view of the data.
     See the following [`stale` parameter](#the-stale-parameter) discussion
@@ -146,7 +146,7 @@ If we define several views in the same design document,
 then they're built efficiently at the same time.
 Each document is read only once,
 and passed through each view's Map function.
-If you use this approach, keep in mind that modifying a design document *invalidates all of the existing MapReduce views* that are defined in that document. The MapReduce views are rendered invalid even if some of the views stay unaltered. 
+If you use this approach, keep in mind that modifying a design document invalidates all of the existing MapReduce views that are defined in the document. This process invalidates MapReduce views even if some of the views stay unaltered. 
 
 If MapReduce views must be altered independently of each other,
 place their definitions in separate design documents. 
@@ -154,7 +154,7 @@ place their definitions in separate design documents.
 This behavior doesn't apply to Lucene search indexes. They can be altered within the same design document without invalidating other unchanged indexes in the same document. 
 {: note}
 
-![Illustration of design document version change](../images/DesDocMan02.png){: caption="Figure 2. Illustration of design document version change" caption-side="bottom"}
+![Design document version change](../images/DesDocMan02.png){: caption="Figure 2. Design document version change" caption-side="bottom"}
 
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}
@@ -165,7 +165,7 @@ instead of returning the actual timestamp result,
 we're only interested in the count of how many documents match the criteria.
 To achieve this count,
 the map function stays the same,
-but we now use a *reduce* of `_count`.
+but we now use a `reduce` of `_count`.
 The effect is that our design document looks like the following example.
 
 ## Example design document that uses a reduce function
@@ -198,13 +198,13 @@ The build also blocks incoming queries on that view until it's complete.
 
 But there's a problem...
 
-If we have an application that is accessing this view *in real time*,
+If we have an application that is accessing this view in real time,
 then we might experience a deployment dilemma:
 
 -   Version 1 of our code,
     which relied on the original design document,
     might no longer work because the old view is invalidated.
--   Version 2 of our code uses the new design document. This version can't be released immediately because the new view hasn't finished building yet. Remember the build process takes longer if the database includes many documents.
+-   Version 2 of our code uses the new design document. This version can't be released immediately because the new view isn't finished building yet. Remember the build process takes longer if the database includes many documents.
 -   A more subtle problem that affects our code is that versions 1 and 2 expect different result data from the view:
     Version 1 expects a list of matching documents,
     while version 2 expects a 'reduced' count of results.
@@ -255,7 +255,8 @@ To switch to the new view, follow these steps:
 ## "Move and switch" tooling
 {: #move-and-switch-tooling}
 
-The command-line Node.js `couchmigrate` script automates the "Move and switch" procedure. It can be installed by using the following command:
+The command-line, Node.js, `couchmigrate` script automates the "Move and switch" procedure. It can be installed by using the following command:
+
 ```sh
 npm install -g couchmigrate
 ```
@@ -304,9 +305,9 @@ but new records are added into the database,
 then the index is scheduled to be updated in the background.
 The state of the database is shown in the following diagram:
 
-![Illustration of index that is scheduled for an update.](../images/DesDocMan01.png){: caption="Figure 3. Illustration of index" caption-side="bottom"}
+![Index scheduled for update](../images/DesDocMan01.png){: caption="Figure 3. Index scheduled for update" caption-side="bottom"}
 
-When querying the view, we have the following choices:
+When querying the view, we have the following choices.
 
 -   The default behavior is to ensure that the index is up to date,
     with the latest documents in the database,
@@ -323,7 +324,7 @@ When querying the view, we have the following choices:
     without any additional reindexing.
 -   A second alternative is to add the `stale=update_after` parameter to the API call.
     This parameter means "return me the data that is already indexed, 
-    *and* then reindex any new documents."
+    and then reindex any new documents."
     In other words,
     when you query the view with `stale=update_after`,
     {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
@@ -335,9 +336,9 @@ but at the expense of freshness.
 The default behavior distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster. If you use the alternative `stale=ok` or `stale=update_after` options, these options might favor a subset of cluster nodes in order to return consistent results from across the eventually consistent set. The `stale` parameter isn't a perfect solution for all use cases. However, it can provide timely responses on fast-changing data sets if your application is happy to accept stale results. If your data's change rate is small, adding `stale=ok` or `stale=update_after` doesn't bring a performance benefit, and might unevenly distribute the load on larger clusters.
 {: note}
 
-Do not use `stale=ok` or `stale=update_after` when possible because the default behavior provides the freshest data,
+Avoid `stale=ok` or `stale=update_after` whenever possible because the default behavior provides the freshest data,
 and distributes data within the cluster.
-If it's possible to make a client app aware that a large data processing task is in progress, then the app could switch to `stale=ok` temporarily during these times. The app can revert to the default behavior afterward. An example of a large data processing task is during a regular bulk data update. 
+You can make a client app aware that a large data processing task is in progress (during a regular bulk data update, for example) by switching to `stale=ok` temporarily during these times. The app can revert to the default behavior afterward.
 
 The `stale` option is still available, but the more useful options `stable` and `update` are available and must be used instead. For more information, see [Accessing a stale view](/docs/Cloudant?topic=Cloudant-using-views#view-freshness).
 {: note}
