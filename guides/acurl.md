@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-21"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -82,7 +82,7 @@ NTFkZGM5YTAtZmE2MC00M2Q1LTgyNmJeKGNmYjBhNTVkMzFiLWJsdWVtaXguY2xvdWRhbnQuY29tOjY4
 ```
 {: codeblock}
 
-Remember your password is still stored in plain text on your computer. Base64-encoding isn't encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
+Remember that your password is still stored in plain text on your computer. Base64-encoding isn't encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
 {: note}
 
 ## Create an alias

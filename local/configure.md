@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -83,7 +83,7 @@ e is 65537 (0x10001)
     The key is 1024 bit and is stored in PEM format, which is
     readable as ASCII text.
     
-    PEM is a container format that can include just the public certificate, or it can include an entire certificate chain, including a public key, private key, and root certificates. PEM was originally developed to secure email, and the PEM acronym was derived from the phrase Privacy Enhanced Email.
+    PEM is a container format that can include just the public certificate, or it can include an entire certificate chain, including a public key, private key, and root certificates. PEM was originally developed to secure email, and the PEM acronym was derived from the phrase Privacy Enhanced email.
     {: note}
     
 2.  Generate an RSA key by using the openssl `genrsa` command.
@@ -306,7 +306,7 @@ authority (CA), this step is not needed.
 
 
 1. If you use a self-signed certificate, confirm your certificate
-    when the following untrusted connection message opens.
+    when the following untrusted connection message opens. 
 
    ![Example of an untrusted connection message.](images/ssl_8a.jpg){: caption="Figure 1. Example of an untrusted connection message" caption-side="bottom"}
 
@@ -316,9 +316,9 @@ authority (CA), this step is not needed.
    
    a. Select the `Permanently store this exception` check box so the exception is stored for future use.
 
-   b. Click `Confirm Security Exception` to confirm the exception.
+   b. Click `Confirm Security Exception` to confirm the exception. 
 
-   ![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg){: caption="Figure 2. Example shows how to add an exception for an untrusted site" caption-side="bottom"}
+   ![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg){: caption="Figure 2. Add an exception for an untrusted site" caption-side="bottom"}
 
 #### Viewing the load balancer
 {: #viewing-the-load-balancer}
@@ -330,14 +330,14 @@ an "untrusted" certificate, one of the following screens open.
 
 *   If you specified `https://cloudantlocal.cloudant.com` or a
     similar URL, a load balancer welcome message opens, similar to
-    the example.
+    the example. 
 
     ![Example of a load balancer welcome message.](images/ssl_9.jpg){: caption="Figure 3. Example of load balancer welcome message" caption-side="bottom"}
 
 *   If you specified a URL that includes the Dashboard component,
     `/dashboard.html`, the {{site.data.keyword.cloudant_short_notm}} Dashboard (or the Login screen
     for the dashboard) opens. This example shows the
-    user-specified `dashboard.html` as part of the URL.
+    user-specified `dashboard.html` as part of the URL. 
 
     ![Example of the {{site.data.keyword.cloudant_short_notm}} Dashboard Login screen.](images/20170722-dashboardlogin.jpg){: caption="Figure 4. Example of the {{site.data.keyword.cloudant_short_notm}} Dashboard Login screen" caption-side="bottom"}
 
@@ -459,7 +459,7 @@ serverX.pem
 The `serverX.key` file is the "secret" necessary to unlock self-generated certificates. Be careful to protect this file with appropriate access controls and security permissions.
 {: note}
 
-The `ca.pem` file is the certificate authority (CA) file, generated in the [Generating the certificate authority file for a database node](#generating-the-certificate-authority-file-for-a-database-node)step, or provided by a third party. The same `ca.pem` file is used by all the database nodes.
+The `ca.pem` file is the certificate authority (CA) file, generated in the [Generating the certificate authority file for a database node](#generating-the-certificate-authority-file-for-a-database-node) step, or provided by a third party. The same `ca.pem` file is used by all the database nodes.
 
 The `serverX.key` and `serverX.pem` files are unique and specific to each database node. The files were generated while
 [Generating the server certificate file for a database node](#generating-the-server-certificate-file-for-a-database-node), or provided by a third party.
@@ -480,7 +480,7 @@ Configure the database node to use the SSL security files.
    ```
    {: codeblock}
 
-   b. Provide links to the `ca.pem`, `serverX.key` and `serverX.pem` files.
+   b. Provide links to the `ca.pem`, `serverX.key`, and `serverX.pem` files. 
 
    ```sh
    [ssl]
@@ -536,8 +536,7 @@ store user data, including user names (uids), passwords, and user
 roles for accessing resources in the database. If your
 organization uses an LDAP service for access control, you can
 delegate authentication and authorization services to LDAP when
-you access an {{site.data.keyword.cloudant_local_notm}} database. The `ldap_auth` configuration
-allows you to use LDAP with {{site.data.keyword.cloudant_local_notm}}.
+you access an {{site.data.keyword.cloudant_local_notm}} database. Enable LDAP and {{site.data.keyword.cloudant_local_notm}} by using the `ldap_auth` configuration. 
 
 At a high level, when `ldap_auth` is configured, it replaces the default basic and cookie authentication and authorization. It
 ignores any administrator users who are configured in the `ini`
@@ -724,8 +723,7 @@ pattern, `$uid_attribute=$username,$user_bind_dn` (for example,
 `searcher` DN or `user_base_dn`. Instead, `ldap_auth` binds directly to
 the constructed user DNs. If the bind is successful, the bound
 connection is used again to make the same group search as
-described earlier. This technique can eliminate extra network
-round trips.
+described earlier. This technique can eliminate extra network traffic.
 
 ### Defining LDAP groups and roles
 {: #defining-ldap-groups-and-roles}
@@ -845,7 +843,7 @@ following these steps.
    a. If `rsyslog` is not already installed, install it on the remote log server.
 
    - To install `rsyslog` on Debian or Ubuntu, use `apt-get`.
-   - To install `rsyslog` on Red Hat-derived Linux distributions only, use `yum`.
+   - To install `rsyslog` on Red Hat-derived Linux&trade; distributions only, use `yum`.
 
    b. Start `rsyslog`.
 
@@ -902,7 +900,7 @@ the following checks.
 
    b. Ensure that the facility values are not in conflict with the different types of logs.
 
-   You can use different facility values from `local2` through to `local7` inclusive. For more information about facility values, see [RFC 3164](http://tools.ietf.org/html/rfc3164#section-4.1.1). See the Facility values table below that lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
+   You can use different facility values from `local2` through to `local7` inclusive. For more information about facility values, see [RFC 3164](http://tools.ietf.org/html/rfc3164#section-4.1.1). See the following Facility values table that lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
 
 2. Change the logging level, on the source nodes, to `info` temporarily to generate more logging activity.
 
@@ -964,7 +962,7 @@ the following checks.
 
 7. If it is not configured, enable automatic log rotation by using  `logrotate`.
 
-   For more information, see [logrotate](http://linux.die.net/man/8/logrotate). Use output channel scripts instead of `logrotate`. For more information, see [log rotation fix size](https://www.rsyslog.com/doc/v8-stable/tutorials/log_rotation_fix_size.html). 
+   For more information, see [`logrotate`](http://linux.die.net/man/8/logrotate). Use output channel scripts instead of `logrotate`. For more information, see [log rotation fix size](https://www.rsyslog.com/doc/v8-stable/tutorials/log_rotation_fix_size.html). 
 
 The Facility values table lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
 
@@ -993,7 +991,7 @@ Debian and Ubuntu use the following logs:
 *   `/var/log/auth.log`
 *   `/var/log/syslog`
 
-Red Hat-derived Linux distributions use the following logs:
+Red Hat-derived Linux&trade; distributions use the following logs:
 
 *   `/var/log/secure`
 *   `/var/log/messages`    
@@ -1198,10 +1196,10 @@ Follow these steps to create the example:
 
     `{"ok":true,"id":"171806ad7968475970bf5450e91a5259","rev":"1-e6accc814683c1cadf6c74b492570c42"}`
     
-    The unauthorized user was allowed to add the test document because no database-level security is in place for db2. By default, CouchDB and {{site.data.keyword.cloudant_local_notm}} allow anonymous reads and writes, which is called "admin party" mode. Many CouchDB users choose to use this approach and put their databases behind a firewall without configuring any additional database-level security.
+    The unauthorized user was allowed to add the test document because no database-level security is in place for Db2. By default, CouchDB and {{site.data.keyword.cloudant_local_notm}} allow anonymous reads and writes, which are called "admin party" mode. Many CouchDB users choose to use this approach and put their databases behind a firewall without configuring any additional database-level security.
 
 4. Create a `_users` database and two test users who are named
-    `member` and `outsider` using your administrator credentials.
+    `member` and `outsider` by using your administrator credentials.
 
 5. Replace all variables in these examples. 
 
@@ -1453,14 +1451,14 @@ Mapping of IOQ classes to class priorities is not 1:1.
 
 | IOQ class | IOQ priority | Description |
 |-----------|--------------|-------------|
-| interactive | reads, writes | IO requests related to requests made by users through the HTTP layer. |
-| db_update | writes | Interactive IO requests that are database write operations. |
-| view_update | views | IO requests related to view index builds. |
-| db_compact | compaction | IO requests related to database compactions. |
-| view_compact | compaction  | IO requests related to view compactions. |
-| internal_repl | replication | IO requests related to internal replication, that is, replication between nodes in a cluster. |
-| low | low | IO requests related to requests made by users through the HTTP layer where the `x-cloudant-priority` header is set to `low`. |
-| other | undefined | IO requests that do not fit any of the previous classes, including search IO requests. |
+| `interactive` | Reads, writes | IO requests related to requests made by users through the HTTP layer. |
+| `db_update` | Writes | Interactive IO requests that are database write operations. |
+| `view_update` | Views | IO requests related to view index builds. |
+| `db_compact` | Compaction | IO requests related to database compactions. |
+| `view_compact` | Compaction  | IO requests related to view compactions. |
+| `internal_rep`l | Replication | IO requests related to internal replication, that is, replication between nodes in a cluster. |
+| `low` | Low | IO requests related to requests made by users through the HTTP layer where the `x-cloudant-priority` header is set to `low`. |
+| `other` | Undefined | IO requests that do not fit any of the previous classes, including search IO requests. |
 {: caption="Table 6. Mapping of IOQ classes and IOQ priorities" caption-side="top"}
 
 ### Internals
@@ -1476,7 +1474,7 @@ which IO requests are enqueued. IOQ uses the following channels.
 *  Customer
 
 The Customer channel is effectively a meta-channel where each
-item in the queue represents a backend/database name combination
+item in the queue represents a backend and database name combination
 that consists of more channels.
 
 *  Interactive
@@ -1491,7 +1489,7 @@ Requests are enqueued according to the following scheme.
 *  Requests with class `interactive`, `db_update`, or `view_update` are
    enqueued into the Interactive, DB update, or View update
    channel of the relevant Customer channel for the
-   backend/database combination.
+   backend and database combination.
 *  Requests with class `other` are enqueued into the Interactive
    queue of a Customer channel that is reserved for other IOQ
    requests.
@@ -1519,14 +1517,13 @@ settings can be tuned to provide optimal performance for the
 production workload. Tuning IOQ is not always the solution to
 performance problems. You must also consider the total load on
 the cluster, the capabilities of the underlying hardware, and the
-usage patterns and design of the applications that sit on top of
-the data layer.
+usage patterns and design of the applications that sit on the data layer.
 
 #### Priorities
 {: #priorities}
 
 The default IOQ configuration gives interactive
-reads/writes and view builds a high priority (1.0) and
+reads and writes and view builds a high priority (1.0) and
 background requests a much lower priority (0.001 for
 compaction and 0.0001 for replication and low). You can
 set the priorities to other values with the `config` app
@@ -1563,7 +1560,7 @@ config:set("ioq", "replication", "0.5", \
 ```
 {: codeblock}
 
-When increasing the replication IOQ priority is
+When you increase the replication IOQ priority is
 effective, you see a change in the rate at which the
 metric decreases. It is worth experimenting with values
 as high as 1.0. However, keep an eye on HTTP request
@@ -1573,8 +1570,8 @@ of cluster performance.
 #### Compactions not completing quickly enough
 {: #compactions-not-completing-quickly-enough}
 
-If disk usage is rising on cluster nodes and there is a
-corresponding backlog in compaction work, consider
+If disk usage is rising on cluster nodes and a
+corresponding backlog in compaction work exists, consider
 increasing the compaction priority. Check the volume of
 pending changes for ongoing compaction in the logs by
 looking for `changes_pending.*compaction`.
@@ -1587,13 +1584,12 @@ config:set("ioq", "compaction", "0.5", \
 ```
 {: codeblock}
 
-Now, monitor the changes_pending metrics to see whether
-the rate at which changes are being processed has
-increased. Experiment with values as high as 1.0, if
+Now, monitor the `changes_pending` metrics to see whether
+changes processing speed increased. Experiment with values as high as 1.0, if
 necessary, and keep an eye on cluster performance.
 
-#### Interactive requests and views competing for IO resource
-{: #interactive-requests-and-views-competing-for-io-resource}
+#### Interactive requests and views compete for IO resources
+{: #interactive-requests-and-views-compete-for-io-resource}
 
 Metrics might show that read/write performance worsens
 when views are building or conversely that view build
@@ -1601,7 +1597,7 @@ performance slows when read/write load increases. If the
 performance requirements of the cluster are such that a
 particular type of request is more critical to the
 application it supports, consider reducing the other IOQ
-priorities. Here is an example.
+priorities. See the following example.
 
 ``` sh
 config:set("ioq", "views", "0.1", \
@@ -1625,9 +1621,7 @@ If performance is impacted by requests that are waiting
 in the queues, consider increasing IOQ concurrency
 (sensible values to try are 30, 50, and 100) and
 observing the resulting effect. However, be aware that
-increasing this value beyond a certain point can result
-in the disks being overloaded and overall performance
-degradation. The exact point depends on the cluster
+increasing this value beyond a certain point can overload the disks and degrade overall performance. The exact point depends on the cluster
 workload and hardware, so it is important to monitor the
 cluster when you make changes.
 
@@ -1673,14 +1667,14 @@ Generally, it is a good idea to avoid IOQ bypasses.
 {{site.data.keyword.cloudant_local_notm}} requires that specific ports must be open before the 
 load balancer and  database nodes can communicate with each other.
 If you plan to use a firewall, you must  explicitly open the 
-ports required by {{site.data.keyword.cloudant_local_notm}}.
-You can use Linux network configuration commands, 
+ports that are required by {{site.data.keyword.cloudant_local_notm}}.
+You can use Linux&trade; network configuration commands, 
 such as `iptables` and `yast`, 
 or {{site.data.keyword.cloudant_local_notm}}'s Cluster Admin and Support Tool (CAST).
 
 For more information, see [{{site.data.keyword.cloudant_local_notm}} architecture and ports](/docs/Cloudant?topic=Cloudant-install-ibm-cloudant-local#ibm-cloudant-local-architecture-and-ports).
 
-Running the CAST firewall command enables the firewall on your server if it is not already on. As a result, you might be locked out of your SSH session if you do not open the SSH ports first. If you use SUSE Linux Enterprise Server (SLES) platform, you must take special precautions and ensure SSH port 22 is open before you run the CAST firewall commands. These ports are not open by default on this platform. From the command line, you can run the commands in the following example to open the SSH ports on SLES platform. 
+Running the CAST firewall command enables the firewall on your server if it is not already on. As a result, you might be locked out of your SSH session if you do not open the SSH ports first. If you use SUSE Linux&trade; Enterprise Server (SLES) platform, you must take special precautions and ensure SSH port 22 is open before you run the CAST firewall commands. These ports are not open by default on this platform. From the command line, you can run the commands in the following example to open the SSH ports on SLES platform. 
 {: tip}
 
 ```sh

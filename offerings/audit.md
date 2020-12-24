@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -60,7 +60,7 @@ Information | Description
 - What and when databases and documents were accessed within an account, 
 and by whom.
 - What and when queries were run, and by whom.
-- What a specific principal or user accessed, updated, or deleted, and when.
+- What a specific principal or user that is accessed, updated, or deleted, and when.
 - What and when replication documents were created or deleted.
 
 To request access to the audit logs for your account, contact 

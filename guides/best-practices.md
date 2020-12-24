@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-21"
 
 keywords: query, secondary index, primary index, organizing documents, organizing databases
 
@@ -52,14 +52,14 @@ For more information, see the [Best and worst practice](https://blog.cloudant.co
 ## Organizing documents and databases
 {: #organizing-documents-and-databases}
 
-{{site.data.keyword.cloudant_short_notm}} data is organized in a hierarchy of databases and documents. A document is a JSON object with a unique identifier: its `_id`. A database is a collection of documents, with a primary index that allows documents to be retrieved by `_id` and optional secondary indexes that allow documents to be queried by other attributes in the object.
+{{site.data.keyword.cloudant_short_notm}} data is organized in a hierarchy of databases and documents. A document is a JSON object with a unique identifier: its `_id`. A database is a collection of documents with a primary index that allows documents to be retrieved by `_id`. It also has optional secondary indexes that allow documents to be queried by other attributes in the object.
 
 When developers start a project, they sometimes struggle with the following questions:
 
 - How much data can I put into a single object?
 - Must I store different document types in the same collection or one database per document type?
 
-We recommend that a document include all the data about an object that is modeled by your application, for example, a user, an order, or a product. This practice ensures you fetch the entire object from the database in one API call. {{site.data.keyword.cloudant_short_notm}} doesn't have the concept of *joins* like a relational database, so data isn't *normalized*. However, data can repeat across objects. For example, an *order* document can include a subset of the *product* documents that were purchased.
+It is important for a document to include all the data about an object that is modeled by your application, for example, a user, an order, or a product. This practice ensures you fetch the entire object from the database in one API call. {{site.data.keyword.cloudant_short_notm}} doesn't have the concept of *joins* like a relational database, so data isn't *normalized*. However, data can repeat across objects. For example, an *order* document can include a subset of the *product* documents that were purchased.
 
 It's common to store several object types in the same database: a convention is that a `type` attribute is used to denote the object type. This option is a good one if you need to perform queries that return several object types or if a database needs to be replicated to another location altogether. Otherwise, separate databases, for example, `users`, `orders`, `products`, might be better so that secondary indexes are specific to each object type.
 
@@ -84,9 +84,9 @@ For more information, see the following blog posts:
 {{site.data.keyword.cloudant_short_notm}} has a primary index on the document's `_id` attribute. This index allows documents to be retrieved by `_id` (`GET /db/id`) or a range of `_ids` (`GET /db/_all_docs?startkey="a"&endkey="z"`). By storing data in the primary key and ensuring that each `_id` is unique, the primary index can be used to fetch documents and ranges of documents without secondary indexing. See the following list of ideas:
 
 - If you have something unique in your object that would be useful to query against, use it as your `_id` field, for example, `bob.smith@gmail.com`, `isbn9780241265543`, or `oakland,ca`.
-- If your objects contain a hierarchy, model that in your `_id`: `usa:ca:oakland` or `books:fiction:9780241265543`. The hierarchy goes from largest to smallest, so you can use the primary index to find "all the cities in `usa`" or "all the cities in `usa:ca`", without secondary indexing.
+- If your objects contain a hierarchy, model that in your  `_id`: `usa:ca:oakland` or `books:fiction:9780241265543`. The hierarchy goes from largest to smallest, so you can use the primary index to find "all the cities in `usa`" or "all the cities in `usa:ca`", without secondary indexing.
 - If you're storing time-series data, encoding time at the start of your `_id` sorts the primary index by time, for example, `001j40Ox1b2c1B2ubbtm4CsuLB4L35wQ`.
-- Partitioned databases keep documents that share the same partition key together. A partition key must have many values and must not include hot spots to avoid directing a large proportion of your application's traffic to a few partitions.
+- Partitioned databases group documents that share the same partition key together. A partition key must have many values and must not include hot spots to avoid directing a large proportion of your application's traffic to a few partitions.
 
 For more information, see the following blog posts:
 
@@ -96,7 +96,7 @@ For more information, see the following blog posts:
 ## Querying and secondary indexes
 {: #querying-secondary-indexes}
 
-{{site.data.keyword.cloudant_short_notm}} allows queries to run against a single database that returns an array of matching documents and a bookmark, which allows access to the next block of search results. Achieving better query performance depends on having your queries backed by suitable secondary indexes. An index allows the database to answer a query without having to trawl through every document in the database, yielding much faster performance.
+{{site.data.keyword.cloudant_short_notm}} allows queries to run against a single database that returns an array of matching documents and a bookmark, which allows access to the next block of search results. Achieving better query performance depends on having your queries supported by suitable secondary indexes. An index allows the database to answer a query without having to trawl through every document in the database, yielding much faster performance.
 
 See the following tips:
 
