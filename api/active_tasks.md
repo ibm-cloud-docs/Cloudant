@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-09"
+  years: 2015, 2021
+lastupdated: "2021-01-06"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 

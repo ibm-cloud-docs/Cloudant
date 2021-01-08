@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-24"
+lastupdated: "2021-01-07"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -89,7 +89,7 @@ Field        | Meaning
 `ADMIN_USER` | The account name. The account must have administrative privileges.
 `CLUSTER`    | The cluster that you are interested in.
 `DURATION`   | Specifies the duration of the preferred time series query. Select from one of the following time intervals: `["5min", "30min", "1h", "12h", "24h", "1d", "3d", "7d", "1w", "1m", "3m", "6m", "12m", "1y"]`. `DURATION` must be paired with either the `START` or `END` request.
-`END`        | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the end point of a time series query that is mutually exclusive with `START`.
+`END`        | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the endpoint of a time series query that is mutually exclusive with `START`.
 `END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor.
 `START`      | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the starting point of a time series query that is mutually exclusive with `END`.
 {: caption="Table 1. Monitoring API request fields" caption-side="top"}
@@ -177,9 +177,9 @@ The next two numbers are the start and end times,
 expressed as UTC epoch seconds.
 The final number is the step size in seconds.
 
-The numbers after the `|` character contain the metric data that is obtained from your chosen end point.
+The numbers after the `|` character contain the metric data that is obtained from your chosen endpoint.
 For example,
-requesting metric data from the disk use end point returns the output from a `df` command,
+requesting metric data from the disk use endpoint returns the output from a `df` command,
 with the disk use expressed as bytes stored.
 
 #### Example monitoring request for disk use data returned in `raw` format:*
@@ -200,7 +200,7 @@ sumSeries(net.cloudant.mycustomer001.db*.df.srv.free),1391019780,1391020080,60|6
 ## Monitoring endpoints
 {: #monitoring-endpoints}
 
-To list all of the currently supported monitoring end points,
+To list all of the currently supported monitoring endpoints,
 make a request to the `monitoring` endpoint.
 
 The following table lists the supported monitoring endpoints that are provided by the API:
@@ -218,14 +218,14 @@ Endpoint                                | Description
 [`wps`](#wps)                           | The number of writes per second.
 {: caption="Table 2. Monitoring API endpoints" caption-side="top"}
 
-### Example showing how to obtain a list of the currently supported monitoring end points:*
+### Example showing how to obtain a list of the currently supported monitoring endpoints:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring"
 ```
 {: codeblock}
 
-### Example response that lists the available monitoring end points:*
+### Example response that lists the available monitoring endpoints:*
 
 ```json
 {
