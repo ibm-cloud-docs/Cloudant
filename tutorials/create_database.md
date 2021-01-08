@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2021-01-07"
+  years: 2017, 2021
+lastupdated: "2021-01-08"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -131,6 +131,8 @@ You must connect to your service instance before creating a database.
 
 The following components are identified as normal `import` statements.
 
+You can follow steps 1 to 5 learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to [Step 5. Retrieving data](#retrieving-data). 
+
 1. Run these `import` statements to connect to the service instance.
 
     ```python
@@ -256,7 +258,6 @@ simple collection of data in the database. This data is used in other tutorials,
         print("Document '{0}' successfully created.".format(number))
     ```
     {: codeblock}
-
 
 ## Retrieving data
 {: #retrieving-data}
@@ -517,3 +518,4 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
     ```
     {: codeblock}
 
+Now that you've run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial. 
