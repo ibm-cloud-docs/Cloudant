@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-01-12"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -89,7 +89,7 @@ and consists of seven distinct states:
   The failure might be caused in several different ways,
   for example, if the source or target URLs aren't valid.
 
-The `error` and `initializing` states do not exist on Transaction Engine. ![TXE tag](../images/txe_icon.svg) 
+The `error` and `initializing` states do not exist on Transaction Engine. ![TXE tag](../images/txe_icon.svg)
 
 The transition between these states is illustrated in the following diagram:
 

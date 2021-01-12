@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-24"
+  years: 2020, 2021
+lastupdated: "2021-01-12"
 
 keywords: security, compliance, 
 

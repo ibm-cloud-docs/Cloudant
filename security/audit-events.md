@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-15"
+  years: 2019, 2021
+lastupdated: "2021-01-12"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -258,8 +258,8 @@ Action | Description
 `cloudantnosqldb.sapi.usage-data-volume` | Get the data usage of an instance. 
 `cloudantnosqldb.sapi.userccmdiagnostics` | Get history of throughput consumption and 429 requests for the past 5 seconds. 
 `cloudantnosqldb.sapi.userinfo` | Get metadata of an instance. 
-`cloudantnosqldb.session.delete` | Delete {{site.data.keyword. cloudant_short_notm}} legacy auth session. 
-`cloudantnosqldb.session.read` | Read {{site.data.keyword. cloudant_short_notm}} legacy auth session. 
+`cloudantnosqldb.session.delete` | Delete {{site.data.keyword.cloudant_short_notm}} legacy auth session. 
+`cloudantnosqldb.session.read` | Read {{site.data.keyword.cloudant_short_notm}} legacy auth session. 
 `cloudantnosqldb.session.write` | Write {{site.data.keyword.cloudant_short_notm}} legacy auth session. 
 `cloudantnosqldb.users.read` | Read `_users` database documents. 
 `cloudantnosqldb.users-database-info.read` | Read `_users` database information. 

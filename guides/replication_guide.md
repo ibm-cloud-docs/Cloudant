@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-01-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -395,10 +395,9 @@ See the following example response that requests the status of a replication:
 }
 
 ```
+{: codeblock}
 
 The `triggered` and `error` states do not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
-
-{: codeblock}
 
 When you replicate, if any documents or attachments exceed the maximum limit on the target, replication fails. Each document write failure increases the replication statistic count in `doc_write_failures`. For this reason, you are urged to monitor that field.
 
