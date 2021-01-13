@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-17"
+  years: 2015, 2021
+lastupdated: "2021-01-13"
 
 keywords: http headers, response headers, http status codes
 
@@ -142,7 +142,7 @@ The use of the `Content-Type` on a request is highly recommended.
 {: #content-encoding}
 
 The `Content-Encoding` header specifies the encoding of the request body.
-Supported values are `gzip` and `deflate`.
+The supported value is `gzip`.
 If the header is used,
 the request body must be encoded with the corresponding format.
 
