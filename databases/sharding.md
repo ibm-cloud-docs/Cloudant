@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-22"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -193,7 +193,7 @@ Setting `Q` for databases is not enabled for {{site.data.keyword.cloudant_short_
 {: note}
 
 If you attempt to set the `Q` value where it is not available,
-the result is a [`403` response](/docs/Cloudant?topic=Cloudant-http#http-status-codes) with a JSON body
+the result is a [`403` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) with a JSON body
 similar to the following example:
 
 ```json

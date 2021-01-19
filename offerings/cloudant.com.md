@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-09"
+  years: 2015, 2021
+lastupdated: "2021-02-22"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -32,7 +32,7 @@ Starting  24 July 2017, no new Shared Plan accounts can be created from the [{{s
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully managed database-as-a-service (DBaaS). 
 It was built to scale globally, run non-stop, and handle a wide variety of data types 
-like [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview),
+like [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview-basics),
 [full-text](/docs/Cloudant?topic=Cloudant-query#creating-an-index),
 and [geospatial](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial).
 {: shortdesc}
@@ -40,8 +40,8 @@ and [geospatial](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#clou
 {{site.data.keyword.cloudant_short_notm}} is an operational data store optimized to handle concurrent 
 reads and writes, and enable high availability and data durability.
 
-It provides an [HTTP API](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#http-api) for working with your 
-[JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview) data, and 24-hour operational support and maintenance. 
+It provides an [HTTP API](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#http-api-basics) for working with your 
+[JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview-basics) data, and 24-hour operational support and maintenance. 
 {{site.data.keyword.cloudant_short_notm}} is based on 
 [Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external}, and is delivered as various multi-tenant, dedicated, and installed services.
 

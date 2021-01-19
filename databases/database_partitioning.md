@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-22 -->
+<!-- Acrolinx: 2018-08-17 -->
 
 # Database partitioning
 {: #database-partitioning}

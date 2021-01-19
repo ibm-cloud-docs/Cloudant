@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-02-19"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -39,7 +39,7 @@ to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and by using HTTP calls. Finally, we end with a reference
 section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
-For more information, see an overview of [IAM](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}{: external} that includes the following topics:
+For more information, see an overview of [IAM](https://cloud.ibm.com/docs/account?topic=account-iamoverview){: new_window}{: external} that includes the following topics:
 
 - Manage user and service IDs.
 - Manage available credentials.
@@ -479,7 +479,7 @@ The following links provide the latest supported version of our legacy and beta 
 - [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
 
-Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `nodejs-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=node#authentication).
+Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `nodejs-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant#authentication).
 
 ```js
 var Cloudant = require('@cloudant/cloudant');

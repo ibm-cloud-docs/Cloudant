@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2021-01-22"
+  years: 2015, 2021
+lastupdated: "2021-02-22"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -28,10 +28,10 @@ subcollection: Cloudant
 
 [Multi-version concurrency control (MVCC)](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}{: external}
 is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
-only the [newest version](/docs/Cloudant?topic=Cloudant-documents#documents) of a document.
+only the [newest version](/docs/Cloudant?topic=Cloudant-documents) of a document.
 {: shortdesc}
 
-Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem),
+Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/Cloudant?topic=Cloudant-cap-theorem),
 it is necessary to prevent inconsistencies from arising between nodes
 as a result of synchronizing between outdated documents.
 
@@ -56,7 +56,7 @@ The two main uses of the revision number are to help:
 2.  Confirm that a client is trying to modify the latest version of a document.
 
 You must specify the previous `_rev` when you [update a document](/docs/Cloudant?topic=Cloudant-documents#update)
-or else your request fails and returns a [409 error](/docs/Cloudant?topic=Cloudant-http#http-status-codes).
+or else your request fails and returns a [409 error](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
 
 `_rev` must not be used to build a version control system because it is an internal value that is used by the server. Therefore, older revisions of a document are transient, and removed regularly.
 {: note}
@@ -106,10 +106,10 @@ or query the view after each replication.
 After you find a conflict,
 you can resolve it in four steps.
 
-1.  [Get](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#get-conflicting-revisions-mvcc) the conflicting revisions.
-2.  [Merge](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#merge-the-changes-mvcc) them into your application or ask the user what to do.
-3.  [Upload](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#upload-the-new-revision-mvcc) the new revision.
-4.  [Delete](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#delete-old-revisions-mvcc) old revisions.
+1.  [Get](#get-conflicting-revisions-mvcc) the conflicting revisions.
+2.  [Merge](#merge-the-changes-mvcc) them into your application or ask the user what to do.
+3.  [Upload](#upload-the-new-revision-mvcc) the new revision.
+4.  [Delete](#delete-old-revisions-mvcc) old revisions.
 
 Let's consider an example of how to resolve a conflict.
 Suppose that you have a database of products for an online shop.

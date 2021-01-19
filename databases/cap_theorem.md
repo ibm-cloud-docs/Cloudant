@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-02-22"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-21 -->
+<!-- Acrolinx: 2020-04-23 -->
 
 # CAP Theorem
 {: #cap-theorem}
@@ -37,8 +37,7 @@ Consistency is one of the four ['ACID'](https://en.wikipedia.org/wiki/ACID){: ne
 that are necessary for transactions within a database to be processed and reported reliably.
 
 Additionally,
-consistency is one of the three attributes in the ['CAP'](http://en.wikipedia.org/wiki/CAP_Theorem)
-theorem.
+consistency is one of the three attributes in the ['CAP'](http://en.wikipedia.org/wiki/CAP_Theorem){: new_window}{: external} theorem.
 The attributes are **C**onsistency,
 **A**vailability, and **P**artition tolerance.
 The theorem states that it's not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
@@ -86,7 +85,7 @@ If the leader loses connection to the network,
 or can't communicate with many of the system's nodes,
 the remainder elects a new leader.
 This election process differs between systems,
-and might be a source of [significant problems](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}{: external}.
+and might be a source of significant problems.
 
 {{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a primary-primary setup,
 such that every node can accept both writes and reads to its portion of your data.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-22"
+lastupdated: "2021-02-18"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-22 -->
+<!-- Acrolinx: 2020-04-10 -->
 
 # Conflicts
 {: #conflicts}
@@ -34,7 +34,7 @@ In other words,
 independent updates can be made to different copies of documents. The effect of these updates might be to introduce disagreement or "conflicts" as to what is the correct, definitive content for the document.
 
 {{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
-It warns you by returning a [`409` response](/docs/Cloudant?topic=Cloudant-http#http-status-codes) to a problematic update request.
+It warns you by returning a [`409` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) to a problematic update request.
 However,
 a `409` response might not be received if the database update is requested on a
 system that isn't currently connected to the network.
@@ -101,9 +101,9 @@ you might query the view after each replication to identify and resolve conflict
 After you find a conflict, you can resolve it by following four steps:
 
 1.	[Get](#get-conflicting-revisions) the conflicting revisions.
-2.	[Merge](#merge-the-changes) them in your application or ask the user what they want to do.
+2.	[Merge](#merge-the-changes-conflicts) them in your application or ask the user what they want to do.
 3.	[Upload](#upload-the-new-revision) the new revision.
-4.	[Delete](#delete-old-revisions) the old revisions.
+4.	[Delete](#delete-old-revisions-conflicts) the old revisions.
 
 See the following example document of the first version:
 

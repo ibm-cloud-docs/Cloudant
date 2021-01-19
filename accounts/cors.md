@@ -84,114 +84,7 @@ To reduce the risk of man-in-the-middle attacks, follow these guidelines:
 -	Ensure that web applications that run on allowed origin domains are trusted
 	and do not have security vulnerabilities.
 
-## Configuration endpoints
-{: #configuration-endpoints}
-
-Method | Path                        | Description
--------|-----------------------------|------------
-`GET`  | `/_api/v2/user/config/cors` | Returns the current CORS configuration.
-`PUT`  | `/_api/v2/user/config/cors` | Changes the CORS configuration.
-{: caption="Table 1. Configuration endpoints" caption-side="top"}
-
-## JSON format
-{: #json-format}
-
--	`enable_cors` - Boolean value to turn CORS on and off.
--	`allow_credentials` - Boolean value to allow authentication credentials.
-	If set to true,
-	browser requests must be done by using `withCredentials = true`.
--	`origins` - An array of strings that contain allowed origin domains.
-	You have to specify the full URL including the protocol.
-	It is recommended that only the HTTPS protocol is used.
-	Subdomains count as separate domains,
-	so you have to specify all subdomains used. See the following example request:
-
-
-## Setting the CORS configuration
-{: #setting-the-cors-configuration}
-
-`PUT`ting a JSON document with the example structure to `/_api/v2/user/config/cors` sets the CORS configuration.
-The configuration applies to all databases and all account level endpoints in your account.
-
-### Example request that uses HTTP
-
-```http
-PUT /_api/v2/user/config/cors HTTP/1.1
-Host: $ACCOUNT.cloudant.com
-Content-Type: application/json
-```
-{: codeblock}
-
-### Example request that uses the command line 
-
-```sh
-curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors" \
-	-H "Content-Type: application/json" \
-	-X PUT \
-	-T cors.json
-```
-{: codeblock}
-
-### Example JSON file for setting the CORS configuration
-
-```json
-{
-	"enable_cors": true,
-	"allow_credentials": true,
-	"origins": [
-		"https://example.com",
-		"https://www.example.com"
-	]
-}
-```
-{: codeblock}
-
-The response indicates whether the configuration was updated successfully.
-
-### Example response for setting the CORS configuration
-
-```json
-{
-	"ok": true
-}
-```
-{: codeblock}
-
-## Reading the CORS configuration
-{: #reading-the-cors-configuration}
-
-You can find out the current CORS configuration by sending a `GET` to the `/_api/v2/user/config/cors` endpoint.
-
-### Example request to `GET` the current CORS configuration that uses HTTP
-
-```http
-GET /_api/v2/user/config/cors HTTP/1.1
-Host: username.cloudant.com
-```
-{: codeblock}
-
-### Example request to `GET` the current CORS configuration that uses the command line
-
-```sh
-curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors"
-```
-{: codeblock}
-
-The response is the current CORS configuration in a JSON document.
-
-### Example response to `GET` the current CORS configuration
-
-```json
-{
-	"enable_cors": true,
-	"allow_credentials": true,
-	"origins": [
-		"https://example.com",
-		"https://www.example.com"
-	]
-}
-```
-{: codeblock}
+For more information about the configuration endpoints for CORS, see the [API documentation](/apidocs/cloudant#getcorsinformation).
 
 ## Dashboard
 {: #dashboard}
@@ -203,10 +96,10 @@ You can update your CORS settings by using the CORS tab within the dashboard:
 ![CORS dashboard illustration](../images/corsdashboard.png){: caption="Figure 1. CORS dashboard illustration" caption-side="bottom"}
 
 To see the current CORS configuration,
-simply open the CORS tab in the dashboard.
+simply open the **Account** > **CORS** tab in the dashboard.
 
-You can enable or disable CORS by using the `Enable CORS` check box.
-This setting corresponds to the [`enable_cors` option](#configuration-endpoints)
+You can enable or disable CORS by using `Enable CORS`.
+This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration).
 when you change the CORS configuration from within an application.
 
 To specify that CORS is enabled for all domains,

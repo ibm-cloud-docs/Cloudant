@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-19"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -73,7 +73,7 @@ Similar information can be found for these IaaS business partners:
 - [Amazon](https://aws.amazon.com/compliance/){: new_window}{: external}
 - [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/compliance){: new_window}{: external}
 
-The [General Data Protection Regulations](https://www.engadget.com/2016-04-14-eu-data-protection-rules.html){: new_window}{: external} were recently approved. {{site.data.keyword.cloudant_short_notm}} customers need to be aware of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
+The [General Data Protection Regulations](https://www.gov.uk/government/publications/guide-to-the-general-data-protection-regulation){: new_window}{: external} were recently approved. {{site.data.keyword.cloudant_short_notm}} customers need to be aware of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation. 
 Customers also need to be aware of {{site.data.keyword.IBM_notm}}'s wider ability to provide a comprehensive suite of solutions
 to assist businesses of all sizes with their own internal data governance requirements.
