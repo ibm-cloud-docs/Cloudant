@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-22"
+lastupdated: "2021-02-19"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -42,7 +42,7 @@ The `curl` command is used to access the endpoint.
 The `jq` command line JSON processor is used to process the JSON response.
 
 This task-focused tutorial covers only what is essential to accomplish this task.
-For more information, see the [API reference](/docs/Cloudant?topic=Cloudant-api-reference-overview#api-reference-overview) for a complete guide to the available options.
+For more information, see the [Using {{site.data.keyword.cloudantfull}}](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics) for a complete guide to the available options.
 
 ## `curl` and `jq` basics
 {: #curl-and-jq-basics}
@@ -218,7 +218,7 @@ For a one-off,
 non-continuous replication,
 where the source database isn't updated significantly during the replication,
 the `changes_pending` value shows how many documents remain to be processed.
-Therefore, the `changes_pending` value is a good indicator of when the replication is likely to be finished.
+Therefore, the `changes_pending` value is good indicator of when the replication is likely to be finished.
 
 For a continuous replication,
 you're more interested in how the number of documents processed changes over time,
@@ -236,7 +236,7 @@ the database.
 {: #what-to-do-about-a-stuck-task-}
 
 To resolve a stalled replication,
-you might have to [cancel the replication process](/docs/Cloudant?topic=Cloudant-replication-api#canceling-a-replication) and start it again.
+you might have to [cancel the replication process](https://cloud.ibm.com/apidocs/cloudant#deletereplicationdocument) and start it again.
 
 If that doesn't help,
 the replication might be stalled because the user who is accessing the source or target databases

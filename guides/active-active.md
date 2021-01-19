@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-21"
+  years: 2017, 2021
+lastupdated: "2021-02-19"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-21 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 {: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
@@ -86,7 +86,7 @@ After these accounts are created, follow these steps:
 ## Step 1. Create your databases
 {: #step-1-create-your-databases}
 
-[Create the databases](/docs/Cloudant?topic=Cloudant-databases#create-database) that you want to replicate between
+[Create the databases](https://cloud.ibm.com/apidocs/cloudant#putdatabase) that you want to replicate between
 within each account.
 
 In this example,
@@ -104,7 +104,7 @@ curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ## Step 2. Create an API key for your replications
 {: #step-2-create-an-api-key-for-your-replications}
 
-It's a good idea to use an [API key](/docs/Cloudant?topic=Cloudant-authorization#api-keys) for continuous replications.
+It's a good idea to use an [API key](/docs/Cloudant?topic=Cloudant-api-keys) for continuous replications.
 The advantage is that if your primary account details change,
 for example after a password reset,
 your replications can continue unchanged.
@@ -138,14 +138,14 @@ Take careful note of the password. It'sn't possible to retrieve the password lat
 ## Step 3. Grant access permission
 {: #step-3-grant-access-permission}
 
-Give the API Key [permission](/docs/Cloudant?topic=Cloudant-authorization#modifying-permissions)
+Give the API Key [permission](https://cloud.ibm.com/apidocs/cloudant#getsecurity)
 to read and to write on both databases.
 
 If you also need to replicate indexes,
 assign admin permissions.
 
 Use the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or see the [authorization](/docs/Cloudant?topic=Cloudant-authorization#authorization) information
+or see the [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization) information
 for details of how to grant permissions programmatically.
 
 ## Step 4. Set up replications
@@ -253,7 +253,7 @@ A simple test of whether a failover is required would be to
 use the main database endpoint as a 'heartbeat.
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
-[details about the database](/docs/Cloudant?topic=Cloudant-databases#getting-database-details).
+[details about the database](https://cloud.ibm.com/apidocs/cloudant#getdatabaseinformation).
 If no response is received,
 it might indicate that a failover is necessary.
 
@@ -335,8 +335,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 * Do any replications need restarting?
 * How many pending changes are still waiting for replication into the database?
 
-More information on [monitoring replication status](/docs/Cloudant?topic=Cloudant-advanced-replication#replication-status)
-is available.
+For more information on monitoring replication status, see see how to [retrieve replication scheduler documents](https://cloud.ibm.com/apidocs/cloudant#getschedulerdocs).
 
 If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}

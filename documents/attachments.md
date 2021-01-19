@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-02-19"
 
 keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 
@@ -51,7 +51,7 @@ you specify the attachment MIME type as `image/jpeg`.
 It's a good idea to keep attachments small in size and number because attachments can impact performance.
 {: important}
 
-Attachments aren't permitted on documents in [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#replication-document-format) or [`_users`](/docs/Cloudant/api?topic=Cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db) databases.
+Attachments aren't permitted on documents in [`_replicator`](https://cloud.ibm.com/apidocs/cloudant#postreplicate) or [`_users`](https://cloud.ibm.com/apidocs/cloudant#putsecurity) databases.
 {: important}
 
 ## Create / update
@@ -176,7 +176,7 @@ To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you don't supply the most recent `_rev`,
-the response is a [409 error](/docs/Cloudant?topic=Cloudant-http#http-status-codes).
+the response is a [409 error](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
 
 See the following example of deleting an attachment by using HTTP:
 

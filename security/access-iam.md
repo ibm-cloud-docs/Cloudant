@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-02-19"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -479,7 +479,7 @@ The following links provide the latest supported version of our legacy and beta 
 - [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
 
-Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `nodejs-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=node#authentication).
+Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `nodejs-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant#authentication).
 
 ```js
 var Cloudant = require('@cloudant/cloudant');

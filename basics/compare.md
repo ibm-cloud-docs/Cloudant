@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-09"
+  years: 2015, 2021
+lastupdated: "2021-02-11"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -24,9 +24,9 @@ subcollection: Cloudant
 <!-- Acrolinx: 2020-03-19 -->
 
 # Comparison of {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB API endpoints
-{: #comparison-of-ibm-cloudant-and-couchdb-api-endpoints}
+{: #2comparison-of-ibm-cloudant-and-couchdb-api-endpoints}
 
-The {{site.data.keyword.cloudantfull}}, Apache CouchDB 2.x, and Apache CouchDB 1.x API endpoints, and the methods for accessing them, are described here. The table shows you which endpoints are present in each service.
+The {{site.data.keyword.cloudantfull}} and Apache CouchDB 2.x and 3.x API endpoints, and the methods for accessing them, are described here. The table shows you which endpoints are present in the CouchDB or {{site.data.keyword.cloudant_short_notm}} service.
 {: shortdesc}
 
 Some CouchDB endpoints don't have {{site.data.keyword.cloudant_short_notm}} equivalents
@@ -43,9 +43,9 @@ click the corresponding link.
 
 | Endpoint & Links | Description |
 |------------------|-------------|
-| `GET /` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-advanced-api#-get-), [CouchDB 2.x](http://docs.couchdb.org/en/2.0.0/api/server/common.html#get--), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/server/common.html#get--)| Meta information about the cluster. |
-| `GET /_active_tasks` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/server/common.html#get--_active_tasks), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/server/common.html#get--_active_tasks) | List running tasks. |
-| `GET /_all_dbs` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-databases#get-a-list-of-all-databases-in-the-account), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/server/common.html#get--_all_dbs), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/server/common.html#get--_all_dbs) | List all the databases in the instance. |
+| `GET /` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-advanced-api#-get-), [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html)| Meta information about the cluster. |
+| `GET /_active_tasks` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks), [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#active-tasks)| List running tasks. |
+| `GET /_all_dbs` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-databases#get-a-list-of-all-databases-in-the-account), [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#all-dbs) | List all the databases in the instance. |
 |  `POST /_api/v2/api_keys` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-authorization#creating-api-keys) | Generate an API key. |
 | `GET /_api/v2/db/{db}/_security` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-authorization#viewing-permissions) | Who has permission to read, write, and manage the database. |
 | `PUT /_api/v2/db/{db}/_security` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-authorization#modifying-permissions) | Modify who has permission to read, write, and manage a database. Assign an API key. |

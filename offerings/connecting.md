@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-01-26"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -113,10 +113,10 @@ Field | Purpose
 service credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service
 credentials tab for your instance. For more information, see the
 [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)
- and [legacy authentication](/docs/Cloudant?topic=Cloudant-authentication#authentication) document for details about using
+ and [legacy authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) document for details about using
  either style of authentication.
 
-The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, you must use [API keys](/docs/Cloudant?topic=Cloudant-authorization#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs.
+The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, you must use [API keys](/docs/Cloudant?topic=Cloudant-api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs.
 {: important}
 
 ## {{site.data.keyword.cloudant_short_notm}} Dashboard
@@ -140,7 +140,7 @@ button to open the dashboard in a new browser tab. You can do the following task
 
 You can leverage the curl command-line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API.
 
-For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see the [API reference overview](/docs/Cloudant?topic=Cloudant-api-reference-overview#api-reference-overview). In the API reference examples, you find details on supplying a username and
+For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see [Working with curl](/docs/Cloudant?topic=Cloudant-working-with-curl). You will find details on supplying a username and 
 password to access the {{site.data.keyword.cloudant_short_notm}} API with curl.
 
 If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. You pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. For more information, see [Passing an {{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](/docs/account?topic=account-iamapikeysforservices#token_auth){: new_window}{: external}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2020-02-04"
+lastupdated: "2021-02-19"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -116,7 +116,7 @@ No   | `false` | `false`
 ## Copying a design document
 {: #copying-a-design-document}
 
-You can copy the current version of a design document to a new document
+You can copy the latest version of a design document to a new document
 by specifying the base document and target document.
 The copy is requested by using the `COPY` request method.
 
@@ -214,7 +214,7 @@ using the `rev` parameter to the `Destination` HTTP Header string.
 
 See the following example command to overwrite an existing copy of the design document by using HTTP:
 
-```sh
+```http
 COPY /recipes/_design/recipes
 Content-Type: application/json
 Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
@@ -432,7 +432,7 @@ The `head` argument identifies the documents to be processed by the list functio
 The `req` argument includes more information about the request. With this argument, you can create list functions that are more dynamic
 because they're based on multiple factors such as query parameters or the user context.
 
-The values within the `req` argument are described in  [Retrieve a design document](https://cloud.ibm.com/apidocs/cloudant?code=node#getdesigndocument) in the Response section under Filters.
+The values within the `req` argument are described in  [Retrieve a design document](https://cloud.ibm.com/apidocs/cloudant#getdesigndocument) in the Response section under Filters.
 
 See the following example design document that references a list function, expressed by using JSON:
 
@@ -534,7 +534,7 @@ Field            | Description
 `query`          | URL query parameters object. Therefore, multiple keys aren't supported, the last duplicate key overrides the others.
 `requested_path` | List of actual requested path section.
 `raw_path`       | Raw requested path string.
-`secObj`         | The database's [security object](https://cloud.ibm.com/apidocs/cloudant?code=node#getdatabaseinformation).
+`secObj`         | The database's [security object](https://cloud.ibm.com/apidocs/cloudant#getdatabaseinformation).
 `userCtx`        | Context about the currently authenticated user, specifically, their `name` and `roles` within the current database.
 `uuid`           | A generated UUID.
 {: caption="Table 7. Fields for the `req` argument" caption-side="top"}
@@ -675,21 +675,29 @@ See the following example of a design document with an update handler:
 
 ```json
 {
-  "_id": "_design/update_example",
-  "_rev": "1-ca06b4e6636097031fcca5543b7041e1",
-  "updates": {
-    "update_world": "function(doc, req){
-      if (!doc){
-         if ('id' in req && req.id){
-            return [{_id: req.id}, 'New World']
-         }
-        return[null, 'Empty World']
-      }
-      doc.world = 'hello';
-      doc.edited_by = req.userCtx.name;
-      return [doc, 'Edited World!']
-    }"
-  }
+	"_id": "_design/update_example",
+	"updates": {
+		"UPDATE_HANDLER_NAME": "function (doc, req) { ... }"
+	}
+}
+```
+{: codeblock}
+
+See the following example of an update handler:
+
+```javascript
+function(doc, req){
+	if (!doc){
+		if ('id' in req && req.id){
+			// create new document
+			return [{_id: req.id}, 'New World']
+		}
+		// change nothing in database
+		return [null, 'Empty World']
+	}
+	doc.world = 'hello';
+	doc.edited_by = req.userCtx.name
+	return [doc, 'Edited World!']
 }
 ```
 {: codeblock}
@@ -705,20 +713,12 @@ Content-Type: application/json
 See the following example of an update handler query by using the command line:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/update_example/_update/update_world/$DOCUMENT_ID" \
-	-X PUT \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HANDLER" \
+	-X POST \
 	-H "Content-Type: application/json" \
+	-d "$JSON"
 ```
 {: codeblock}
-
-See the example response in the following example:
-```sh
-New World!
-```
-{: codeblock}
-
-You might encounter two other cases with this example. First, if the document ID exists in the database, the update handler updates the document and inserts the new document body into the database. After this request, it returns the response `Edited World!`. Secondly, if you don't specify the document ID in the request, then it's considered `null`, which means that the database wasn't updated, and it returns the response `Empty World`. 
-{: note}
 
 <!--
 
@@ -860,7 +860,7 @@ A number of predefined filter functions are available:
 
 *	[`_design`](#the-_design-filter) - accepts only changes to design documents.
 *	[`_doc_ids`](#the-_doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](https://cloud.ibm.com/apidocs/cloudant?code=node#postfind) as described in the Request section, which is used for [`_find`](https://cloud.ibm.com/apidocs/cloudant?code=node#getdatabaseinformation).
+*	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](https://cloud.ibm.com/apidocs/cloudant#postfind) as described in the Request section, which is used for [`_find`](https://cloud.ibm.com/apidocs/cloudant#getdatabaseinformation).
 *	[`_view`](#the-_view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter

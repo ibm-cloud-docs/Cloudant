@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-01-06"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -53,8 +53,8 @@ GET /_active_tasks HTTP/1.1
 See the example request to retrieve a list of active tasks by using the command line:
 
 ```sh
-curl "https://$USERNAME:PASSWORD@$ACCOUNT.cloudant.com/_active_tasks" \
-	-u $USERNAME:PASSWORD
+curl "https://$ACCOUNT.cloudant.com/_active_tasks" \
+	-u $ACCOUNT
 ```
 {: codeblock}
 
@@ -64,7 +64,7 @@ curl "https://$USERNAME:PASSWORD@$ACCOUNT.cloudant.com/_active_tasks" \
 
 ```javascript
 var nano = require('nano');
-var account = nano('https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com');
+var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
 account.request({
 	path: '_active_tasks'
 }, function (err, body) {

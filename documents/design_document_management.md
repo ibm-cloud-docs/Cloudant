@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-02-09"
+  years: 2015, 2020
+lastupdated: "2020-12-22"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -274,7 +274,7 @@ The URL can be HTTP or HTTPS,
 and can include authentication credentials. Run the following command to define the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:
 
 ```sh
-export COUCH_URL="https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com"
+export COUCH_URL="https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com"
 ```
 {: codeblock}
 

@@ -65,20 +65,34 @@ Cloudant
         guides/backup-cookbook.md
 
     {: .topicgroup}
+    basics/basics.md
+    Managing your accounts
+        accounts/account.md
+        accounts/curl.md
+        accounts/api_keys.md
+        accounts/cors.md
+        accounts/http.md
+        accounts/json.md
+
+    {: .topicgroup}    
+    How documents work
+        documents/document.md
+        documents/design_documents.md
+        documents/design_document_management.md
+        documents/transactions.md
+        documents/attachments.md
+
+    {: .topicgroup}    
+    Monitoring your instance
+        monitor/monitoring.md
+        monitor/advanced.md
+        monitor/capacity.md
+        monitor/active_tasks.md
+        monitor/managing_tasks.md
+
+    {: .topicgroup}
     Guides
-        guides/acurl.md
-        guides/best-practices.md
         guides/cap_theorem.md
-        guides/conflicts.md
-        guides/couchapps.md
-        guides/database_partitioning.md
-        guides/design_document_management.md
-        guides/mvcc.md
-        guides/transactions.md
-        guides/sharding.md
-        guides/json.md
-        guides/managing_tasks.md
-        guides/migration.md
         guides/multiregion.md
         guides/pagination-bookmarks.md
         guides/replication_guide.md
@@ -96,7 +110,6 @@ Cloudant
     {: .navgroup-end}
     
     {: .navgroup id="reference"}
-    basics/basics.md
     offerings/responsibilities.md
 
     {: .topicgroup}
@@ -140,6 +153,9 @@ Cloudant
 
     {: .topicgroup}
     libraries/client-libraries.md
+
+    {: .topicgroup}
+    basics/compare.md
 
     {: .topicgroup}
     Cloudant Local

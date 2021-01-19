@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-17"
+  years: 2015, 2021
+lastupdated: "2021-02-19"
 
 keywords: log analysis, integration
 
@@ -80,11 +80,11 @@ Log Lines | Description
 ----------|------------
 `accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment.
 `httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a specific resource.
-`httpRequest` | The URL path for the HTTP request.
-`bytesRead`| The size of the response body.
-`clientIp` | The IP address of the originating request.
-`clientPort` | The port address for the originating request.
-`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-http#http-status-codes).
+`httpRequest` | The URL path for the HTTP request. 
+`bytesRead`| The size of the response body. 
+`clientIp` | The IP address of the originating request. 
+`clientPort` | The port address for the originating request. 
+`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
 `terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: new_window}{: external}.
 `dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.
 `dbRequest` | The database request endpoint.

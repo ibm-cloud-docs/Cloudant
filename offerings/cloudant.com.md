@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-09"
+  years: 2015, 2021
+lastupdated: "2021-02-19"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -33,7 +33,7 @@ Starting  24 July 2017, no new Shared Plan accounts can be created from the [{{s
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully managed database-as-a-service (DBaaS). 
 It was built to scale globally, run non-stop, and handle a wide variety of data types 
 like [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview),
-[full-text](/docs/Cloudant?topic=Cloudant-query#creating-an-index),
+[full-text](https://cloud.ibm.com/apidocs/cloudant#postindex),
 and [geospatial](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial).
 {: shortdesc}
 

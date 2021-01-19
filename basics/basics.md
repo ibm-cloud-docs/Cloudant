@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-02-02"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -29,12 +29,6 @@ subcollection: Cloudant
 If you have never used {{site.data.keyword.cloudantfull}} or NoSQL databases in general, scan this quick introduction to the basics before you read further. It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}. The rest of the documentation assumes that you know these basics.
 {: shortdesc}
 
-You can find more information about {{site.data.keyword.cloudant_short_notm}} in the following sections: 
-
-- [Client Libraries](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries)
-- [API Reference](/docs/Cloudant?topic=Cloudant-api-reference-overview#api-reference-overview)
-- [Guides](/docs/Cloudant?topic=Cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
-
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
 
@@ -50,7 +44,7 @@ All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} ar
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
-For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/Cloudant?topic=Cloudant-http#http) in the API reference.
+For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP API](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#http-api).
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
@@ -105,7 +99,7 @@ If the client (such as some web browsers) doesn't support the use of HTTP method
 {: #method-not-allowed-error}
 
 If you use an unsupported HTTP request type with a URL that doesn't support the specified type,
-a [405](/docs/Cloudant?topic=Cloudant-http#http-status-codes) error is returned that lists the supported HTTP methods, as shown in the following example.
+a [405](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) error is returned that lists the supported HTTP methods, as shown in the following example.
 
 #### Example error message in response to an unsupported request
 
