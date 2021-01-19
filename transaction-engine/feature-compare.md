@@ -68,7 +68,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Consistency` | Eventually consistent | Doc Writes & Cloudant Query indexes are consistent. |
 | `Sharding` | Choose at database creation time. | Auto shard-splitting | 
 | `Authentication` | Legacy and IAM | IAM-only |
-| `Replication` | Yes | Yes, as source or target.<br>Mediator needs to be on a "Classic" instance. |
+| `Replication` | Yes | Yes |
 | `Attachments` | Yes | No |
 | `Global Queries` | Yes | Yes |
 | `Partition Queries` | Yes | No |
