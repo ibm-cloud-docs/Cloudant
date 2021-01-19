@@ -108,10 +108,10 @@ Field | Purpose
 ## Authentication
 {: #authentication-overview}
 
-{{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either
-`Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials in the
-service credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service
-credentials tab for your instance. For more information, see the
+{{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either 
+`Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials in the 
+service credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service 
+credentials tab for your instance. For more information, see the 
 [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)
  and [legacy authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) document for details about using
  either style of authentication.

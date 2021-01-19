@@ -60,7 +60,7 @@ In this example, ACCOUNT is the service name of the service instance user in the
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud.
 
-For more information about how to block public network connectivity via IP allowlisting, see [Secure access control](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-security#secure-access-control).
+For more information about how to block public network connectivity via IP allowlisting, see [Secure access control](/docs/Cloudant?topic=Cloudant-security#secure-access-control).
 {: note}
 
 ## Service credentials
@@ -108,12 +108,12 @@ Field | Purpose
 ## Authentication
 {: #authentication-overview-sc}
 
-{{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either
-`Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials in the
-service credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service
-credentials tab for your instance. For more information, see the
+{{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either 
+`Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials in the 
+service credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service 
+credentials tab for your instance. For more information, see the 
 [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)
- and [legacy authentication](/docs/Cloudant?topic=Cloudant-authentication#authentication) document for details about using
+ and [legacy authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) document for details about using 
  either style of authentication.
  
 The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, you must use [API keys](/docs/Cloudant?topic=Cloudant-api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
@@ -140,7 +140,7 @@ button to open the dashboard in a new browser tab. You can do the following task
 
 You can leverage the curl command-line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API.
 
-For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see the [API reference overview](/docs/Cloudant?topic=Cloudant-api-reference-overview#api-reference-overview). In the API reference examples, you find details on supplying a username and
+For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see the [API reference overview](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics). In the API reference examples, you find details on supplying a username and 
 password to access the {{site.data.keyword.cloudant_short_notm}} API with curl.
 
 If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. Then, you pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. For more information, see [Passing an {{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](/docs/account?topic=account-iamapikeysforservices#token_auth){: new_window}{: external}

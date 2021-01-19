@@ -357,7 +357,7 @@ Only the fields that are in front of the current sort fields in the list are add
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
 - Introduce new `_dbs_info` endpoint to get information from a list of databases. See
-[Get a list of all databases in the account](/docs/Cloudant?topic=Cloudant-databases#get-a-list-of-all-databases-in-the-account).
+[Get a list of all databases in the instance](https://cloud.ibm.com/apidocs/cloudant#getalldbs).
 - Prepare for session support in replicator.
 
 ## Build 6656 (15 February 2018)
@@ -398,9 +398,9 @@ JavaScript.
 - {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}{: external}.
 - The logic for determining whether a specific index is valid for a query that changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
-- Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](/docs/Cloudant?topic=Cloudant-query#creating-a-partial-index) for more information.
-- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](/docs/Cloudant?topic=Cloudant-query#finding-documents-by-using-an-index) for more information.
-- [Pagination](/docs/Cloudant?topic=Cloudant-query#pagination_query) is supported by using the bookmark field. Bookmarks are enabled for all index types.
+- Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](https://cloud.ibm.com/apidocs/cloudant#postindex) to learn about the `partial_filter_selector` parameter.
+- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](https://cloud.ibm.com/apidocs/cloudant#postfind) to learn more about `execution_stats=true` parameter.
+- [Pagination](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks) is supported by using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
 field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
 

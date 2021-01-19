@@ -97,10 +97,25 @@ Cloudant
     {: .topicgroup}    
     Monitoring your instance
         monitor/monitoring.md
-        monitor/advanced.md
         monitor/capacity.md
         monitor/active_tasks.md
         monitor/managing_tasks.md
+
+    {: .topicgroup}    
+    Querying the database
+        query/cloudant-query.md
+        query/creating_views.md
+        query/using_views.md
+        query/search.md
+        query/search-analyzers.md
+        query/pagination-bookmarks.md
+        query/cloudant-geo.md
+
+    {: .topicgroup}    
+    Replicating databases
+        replicate/replication_guide.md
+        replicate/replication.md
+        replicate/advanced_replication.md
 
     {: .topicgroup}
     Enhancing security for IBM Cloudant
@@ -131,9 +146,6 @@ Cloudant
 
     {: .topicgroup}
     libraries/client-libraries.md
-
-    {: .topicgroup}
-    basics/compare.md
 
     {: .topicgroup}
     Cloudant Local
