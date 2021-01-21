@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-18"
+  years: 2020, 2021
+lastupdated: "2021-01-21"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -59,7 +59,7 @@ We recommend you use the *Use only IAM* mode. This mode means that only IAM cred
 - Managing access to {{site.data.keyword.cloudant_short_notm}} with the standard tooling of {{site.data.keyword.cloud_notm}}.
 - Using credentials that you can easily revoke and rotate when you use {{site.data.keyword.cloud_notm}} IAM.
 
-For more information about the advantages and disadvantages between these modes, see [Advantages and disadvantages of the two access control mechanisms](/docs/services/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#advantages-and-disadvantages-of-the-two-access-control-mechanisms).
+For more information about the advantages and disadvantages between these modes, see [Advantages and disadvantages of the two access control mechanisms](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#advantages-and-disadvantages-of-the-two-access-control-mechanisms-ai).
 
 ## How can I create an instance by using the command line?
 {: #create-iam-command-line}
@@ -110,4 +110,4 @@ The values for the previous example are described in the following list:
 - `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
 - `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
-For more information, see the [IAM guide](/docs/services/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloudant-api-keys-and-_use-only-iam_).
+For more information, see [{{site.data.keyword.cloud_notm}} API keys and Use only IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-api-keys-and-_use-only-iam_ai).

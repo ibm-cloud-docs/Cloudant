@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-01-21"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -119,7 +119,7 @@ The following example describes how to log in. If you use a federated user ID, i
 {: #creating-service-create-cli}
 {: step}
 
-{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}{: external} guide.
+{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups){: new_window}{: external}.
 
 In the this example, you create a service instance within {{site.data.keyword.cloud_notm}} by running the following command. 
 
@@ -142,7 +142,7 @@ Field  | Description
 `SERVICE_PLAN_NAME` is the type of pricing plan you select when you create an instance. For more information, see [Plans](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#plans-and-provisioning) in the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
 {: tip}
 
-For more information about choosing an authentication method, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+For more information about choosing an authentication method, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
 {: important}
 
 Now, we'll create a service instance called, `cs20170517a`. 
@@ -200,7 +200,7 @@ must have the necessary credentials.
 Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
 {: important}
 
-For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}.
 
 In the next example, you create credentials for a service instance within {{site.data.keyword.cloud_notm}} by running the following command. 
 
