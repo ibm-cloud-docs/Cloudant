@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-21"
+  years: 2019, 2021
+lastupdated: "2021-01-21"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -113,7 +113,7 @@ Field | Purpose
 `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials in the 
 service credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service 
 credentials tab for your instance. For more information, see the 
-[IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)
+[IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)
  and [legacy authentication](/docs/Cloudant?topic=Cloudant-authentication#authentication) document for details about using 
  either style of authentication.
  

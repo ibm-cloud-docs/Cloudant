@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-15"
+  years: 2015, 2021
+lastupdated: "2021-01-21"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -78,7 +78,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
     (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. </br>
     Add a tag if you like. </br>
     The authentication methods that are available include `IAM` or `IAM and legacy credentials`.</br> 
-    For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
+    For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}. 
 
 5.  Select your pricing plan. </br>
     See the capacity in the table that follows.

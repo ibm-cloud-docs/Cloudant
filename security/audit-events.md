@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-01-21"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -78,7 +78,7 @@ You can change what types of events are sent to {{site.data.keyword.at_full_notm
 
 You can use the {{site.data.keyword.cloudant_short_notm}} API to manage the configuration of Activity Tracker events.
 
-The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
+The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
 {: important}
 
 #### Check what event types are configured for an {{site.data.keyword.cloudant_short_notm}} instance

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-08"
+  years: 2015, 2021
+lastupdated: "2021-01-21"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -111,7 +111,7 @@ See the following example error response if one of the requested databases for a
   For more information,
   see [replication database maintenance](/docs/Cloudant?topic=Cloudant-advanced-replication#replication-database-maintenance).
   
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/Cloudant?topic=Cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/Cloudant?topic=Cloudant-authorization#authorization){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or the legacy [Authentication API document](/docs/Cloudant?topic=Cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/Cloudant?topic=Cloudant-authorization#authorization){: new_window}.
 {: important}
 
 ## The `_replicator` database

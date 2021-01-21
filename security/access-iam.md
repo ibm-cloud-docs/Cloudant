@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-07"
+  years: 2020, 2021
+lastupdated: "2021-01-21"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -88,7 +88,7 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions. 
 {: important}
 
-{{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
+{{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups) about how to migrate.
 
 ### {{site.data.keyword.cloudant_short_notm}} API keys and _Use only IAM_
 {: #ibm-cloudant-api-keys-and-_use-only-iam_ai}
@@ -411,7 +411,7 @@ See the results in the following example:
 
 {{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. For security purposes, you can request to remove the {{site.data.keyword.cloudant_short_notm}} legacy credentials so that only IAM authentication can be used for the instance. The correct process to remove legacy credentials is shown in the following steps:
 
-1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication that is enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide.
+1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication that is enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups).
 
 2. Update your application to use IAM authentication instead of {{site.data.keyword.cloudant_short_notm}} legacy authentication.
 

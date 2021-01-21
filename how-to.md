@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-10"
+  years: 2015, 2021
+lastupdated: "2021-01-21"
 
 keywords: tutorials, recovery and backup, guides, links to documentation, about 
 
@@ -66,9 +66,9 @@ Guide | Description
 [Design document management](/docs/Cloudant?topic=Cloudant-design-document-management#design-document-management){: new_window} | A guide that describes what a design document is and how to work with one in {{site.data.keyword.cloudant_short_notm}}.
 [Document versioning and MVCC](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | A guide that describes multi-version concurrency control (MVCC) and how it works with {{site.data.keyword.cloudant_short_notm}} databases to ensure that all of the nodes in a database's cluster contain only the newest version of a document.
 [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant){: new_window} | A guide that outlines some of the factors that are involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths, by using concepts that are applicable to many other domains.
-[How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} | A guide that covers common questions {{site.data.keyword.cloudant_short_notm}} support receives about this transition.
+[How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups){: new_window} | A guide that covers common questions {{site.data.keyword.cloudant_short_notm}} support receives about this transition.
 [How is data stored in {{site.data.keyword.cloudant_short_notm}}?](/docs/Cloudant?topic=Cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-){: new_window} | A guide that describes sharding and how it works in {{site.data.keyword.cloudant_short_notm}}.
-[IBM Cloud Identity and Access Management (IAM)](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} | A guide that describes {{site.data.keyword.cloudant_short_notm}}'s integration with {{site.data.keyword.cloud_notm}} Identity and Access Management. 
+[IBM Cloud Identity and Access Management (IAM)](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} | A guide that describes {{site.data.keyword.cloudant_short_notm}}'s integration with {{site.data.keyword.cloud_notm}} Identity and Access Management. 
 [JSON](/docs/Cloudant?topic=Cloudant-json#json){: new_window} | A guide that describes how {{site.data.keyword.cloudant_short_notm}} uses the JavaScript Object Notation (JSON) for formatting the content and structure of the data and responses. 
 [Managing tasks](/docs/Cloudant?topic=Cloudant-managing-tasks#managing-tasks){: new_window} | A guide that describes how you can manage whether your tasks progress, or if they finish.
 [Migrating to {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-migrating-to-ibm-cloudant-on-ibm-cloud#migrating-to-ibm-cloudant-on-ibm-cloud){: new_window} | A guide that describes how to migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}}.
