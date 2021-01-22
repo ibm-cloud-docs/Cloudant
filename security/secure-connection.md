@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-02-03"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-0-0 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Securing your connection
 {: #securing-your-connection-to-cloudant}
@@ -68,7 +68,7 @@ For more information about how to block public network connectivity via IP allow
 {: #service-credentials-sc}
 
 To generate service credentials for {{site.data.keyword.cloudant_short_notm}} via the {{site.data.keyword.cloud_notm}}
-Dashboard, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. To generate service credentials from 
+Dashboard, see [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant). To generate service credentials from 
 the {{site.data.keyword.cloud_notm}} CLI, see [Creating credentials for your {{site.data.keyword.cloudant_short_notm}}
 service](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli). 
 

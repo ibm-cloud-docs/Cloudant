@@ -23,7 +23,7 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-02-13 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Pricing FAQ
 {: #faq-pricing}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-23"
+  years: 2015, 2021
+lastupdated: "2021-01-22"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -218,7 +218,7 @@ For a one-off,
 non-continuous replication,
 where the source database isn't updated significantly during the replication,
 the `changes_pending` value shows how many documents remain to be processed.
-Therefore, the `changes_pending` value is good indicator of when the replication is likely to be finished.
+Therefore, the `changes_pending` value is a good indicator of when the replication is likely to be finished.
 
 For a continuous replication,
 you're more interested in how the number of documents processed changes over time,

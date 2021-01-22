@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-08"
+  years: 2015, 2022
+lastupdated: "2021-01-22"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -97,19 +97,19 @@ function (doc) {
 ```
 {: codeblock}
 
-You could regularly query this view and resolve conflicts as needed,
+You might regularly query this view and resolve conflicts as needed,
 or query the view after each replication.
 
 ## Steps to resolve conflicts
 {: #steps-to-resolve-conflicts}
 
-Once you find a conflict,
+After you find a conflict,
 you can resolve it in four steps.
 
-1.  [Get](#get-conflicting-revisions) the conflicting revisions.
-2.  [Merge](#merge-the-changes) them into your application or ask the user what to do.
-3.  [Upload](#upload-the-new-revision) the new revision.
-4.  [Delete](#) old revisions.
+1.  [Get](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#get-conflicting-revisions-mvcc) the conflicting revisions.
+2.  [Merge](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#merge-the-changes-mvcc) them into your application or ask the user what to do.
+3.  [Upload](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#upload-the-new-revision-mvcc) the new revision.
+4.  [Delete](/docs/services/Cloudant?topic=Cloudant-document-versioning-and-mvcc#delete-old-revisions-mvcc) old revisions.
 
 Let's consider an example of how to resolve a conflict.
 Suppose that you have a database of products for an online shop.

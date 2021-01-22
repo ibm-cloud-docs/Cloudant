@@ -23,7 +23,7 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2020-12-19 -->
 
 # Authenticating with {{site.data.keyword.cloudant_short_notm}} FAQ
 {: #faq-authenticating-cloudant}

@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-14 -->
+<!-- Acrolinx: 2020-12-21 -->
 
 # Security
 {: #security}

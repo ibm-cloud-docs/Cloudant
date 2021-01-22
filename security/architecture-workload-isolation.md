@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-17"
+lastupdated: "2020-12-23"
 
 keywords: public isolation for cloudant, compute isolation for cloudant, cloudant architecture, workload isolation in cloudant
 
@@ -19,7 +19,7 @@ keywords: public isolation for cloudant, compute isolation for cloudant, cloudan
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Learning about {{site.data.keyword.cloudant_short_notm}} architecture and workload isolation
 {: #compute-isolation}

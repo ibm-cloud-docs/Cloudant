@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:video: .video}
 
-<!-- Acrolinx: 2020-10-12 -->
+<!-- Acrolinx: 2020-12-18 -->
 
 # Pricing
 {: #pricing-te}

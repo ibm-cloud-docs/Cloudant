@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-13 -->
+<!-- Acrolinx: 2020-12-21 -->
 
 # Best practices
 {: #best-practices}

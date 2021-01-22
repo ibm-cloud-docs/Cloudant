@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-24 -->
+<!-- Acrolinx: 2020-12-22 -->
 
 # Creating a backup
 {: #creating-a-backup}

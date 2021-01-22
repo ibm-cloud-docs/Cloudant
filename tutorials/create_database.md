@@ -27,7 +27,7 @@ completion-time: 15m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020-10-12 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Creating and populating a database
 {: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}

@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-19 -->
+<!-- Acrolinx: 2020-12-21 -->
 
 # Comparing Apache CouchDB and {{site.data.keyword.cloudant_short_notm}}
 {: #couchdb-and-cloudant}

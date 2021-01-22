@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2020-12-17 -->
 
 # Log Analysis integration
 {: #log-analysis-integration}

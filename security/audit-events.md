@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2020-12-22 -->
 
 # Auditing events
 {: #at_events}

@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-10 -->
+<!-- Acrolinx: 2020-12-15 -->
 
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}

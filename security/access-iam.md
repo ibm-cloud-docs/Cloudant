@@ -20,7 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-10-06 -->
+<!-- Acrolinx: 2020-12-21 -->
 
 # Managing access
 {: #managing-access-for-cloudant}

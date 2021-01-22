@@ -23,7 +23,7 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-02-10 -->
+<!-- Acrolinx: 2020-12-24 -->
 
 # Resource Groups FAQ
 {: #faq-ibm-cloud-resource-groups}

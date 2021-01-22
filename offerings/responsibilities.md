@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-10-15 -->
+<!-- Acrolinx: 2020-12-24 -->
 
 # Understanding your responsibilities when you use {{site.data.keyword.cloudant_short_notm}}
 {: #cloudant-responsibilities}

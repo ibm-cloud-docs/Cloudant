@@ -23,7 +23,7 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Modeling data to scale FAQ
 {: #five-tips-for-modeling-your-data-to-scale-faq}

@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2020-12-21 -->
 
 # Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 {: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
