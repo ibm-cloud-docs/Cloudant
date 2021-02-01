@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-02-01"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -43,7 +43,7 @@ You can migrate {{site.data.keyword.cloudantfull}} instances on the following pl
 - Standard
 - Dedicated Hardware
 
-To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/account?topic=account-migrate){: new_window}.
 
 ## How much downtime occurs when you migrate an instance to a resource group?
 {: #faq-downtime-occurs-when-you-migrate-an-instance-to-a-resource-group}
