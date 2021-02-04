@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-06 -->
+<!-- Acrolinx: 2020-12-18 -->
 
 # Deploying a CouchDB cluster
 {: #deploy-couchdb-cluster}

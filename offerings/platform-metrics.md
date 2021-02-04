@@ -20,6 +20,8 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
+<!-- Acrolinx: 2020-12-17 -->
+
 # Sysdig Monitoring integration
 {: #monitor-sysdig-pm}
 

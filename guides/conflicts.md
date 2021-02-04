@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-01-22"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-10 -->
+<!-- Acrolinx: 2020-12-22 -->
 
 # Conflicts
 {: #conflicts}
@@ -98,7 +98,7 @@ you might query the view after each replication to identify and resolve conflict
 ## How to resolve conflicts
 {: #how-to-resolve-conflicts}
 
-Once you find a conflict, you can resolve it by following four steps:
+After you find a conflict, you can resolve it by following four steps:
 
 1.	[Get](#get-conflicting-revisions) the conflicting revisions.
 2.	[Merge](#merge-the-changes) them in your application or ask the user what they want to do.

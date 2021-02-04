@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-01-22"
 
 keywords: security, compliance, 
 
@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:table: .aria-labeledby="caption"}
 
-<!-- Acrolinx: 2020-03-11 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Managing security and compliance with {{site.data.keyword.cloudant_short_notm}}
 {: #manage-security-compliance}
@@ -43,7 +43,7 @@ As a security or compliance focal, you can use the {{site.data.keyword.cloudant_
 All of the goals for {{site.data.keyword.cloudant_short_notm}} are added to the {{site.data.keyword.cloud_notm}} Best Practices Controls 1.0 profile but can also be mapped to other profiles.
 {: note}
 
-To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](https://cloud.ibm.com/docs/security-compliance?topic-security-compliance-getting-started).
+To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started ).
 
 ### Available goals for {{site.data.keyword.cloudant_short_notm}}
 {: #ibm-cloudant-available-goals}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-15"
+  years: 2015, 2021
+lastupdated: "2021-02-03"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:video: .video}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2020-12-15 -->
 
 # Migrating to {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}

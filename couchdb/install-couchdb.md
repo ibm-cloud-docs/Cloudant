@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-10-12 -->
+<!-- Acrolinx: 2020-12-17 -->
 
 # Install
 {: #apache-couchdb-install}

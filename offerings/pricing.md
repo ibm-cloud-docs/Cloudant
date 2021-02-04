@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:video: .video}
 
-<!-- Acrolinx: 2019-01-11 -->
+<!-- Acrolinx: 2020-12-19 -->
 
 # Pricing
 {: #pricing}

@@ -27,7 +27,7 @@ completion-time: 20m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020-03-11 -->
+<!-- Acrolinx: 2020-12-21 -->
 
 # Getting started with {{site.data.keyword.cloudant_short_notm}}
 {: #getting-started-with-cloudant}

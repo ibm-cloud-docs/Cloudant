@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-18 -->
+<!-- Acrolinx: 2020-12-21 -->
 
 # {{site.data.keyword.cloudant_short_notm}} basics
 {: #ibm-cloudant-basics}

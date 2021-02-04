@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-01-22"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -442,7 +442,7 @@ See the following example that uses HTTP to query a partitioned index:
 ```http
 GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
 Content-Type: application/json
-Host: account.cloudant.com
+Host: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
@@ -451,7 +451,7 @@ See the following example that uses HTTP to query a global index:
 ```http
 GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
 Content-Type: application/json
-Host: account.cloudant.com
+Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
@@ -548,7 +548,7 @@ See the following example that uses HTTP to `POST` a search request:
 ```http
 POST /db/_design/ddoc/_search/searchname HTTP/1.1
 Content-Type: application/json
-Host: account.cloudant.com
+Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 

@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-11 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Overview
 {: #apache-couchdb-operator}

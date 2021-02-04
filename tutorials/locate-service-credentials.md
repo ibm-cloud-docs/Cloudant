@@ -27,7 +27,7 @@ completion-time: 5m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020-03-11 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Locating your service credentials
 {: #locating-your-service-credentials}

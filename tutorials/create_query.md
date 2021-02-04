@@ -26,7 +26,7 @@ completion-time: 10m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2020-12-15 -->
 
 # Using {{site.data.keyword.cloudant_short_notm}} Query
 {: #creating-an-ibm-cloudant-query}

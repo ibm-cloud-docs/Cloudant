@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-10-08 -->
+<!-- Acrolinx: 2020-12-24 -->
 
 # Feature comparison
 {: #feature-comparison}

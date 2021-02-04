@@ -26,7 +26,7 @@ completion-time: 10m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020 -->
+<!-- Acrolinx: 2020-12-23 -->
 
 # Creating an instance with CLI
 {: #creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli}

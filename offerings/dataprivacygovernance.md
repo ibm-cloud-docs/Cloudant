@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2020-12-22 -->
 
 # Data privacy and governance
 {: #data-privacy-and-governance}

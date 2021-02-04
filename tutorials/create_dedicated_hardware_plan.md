@@ -20,7 +20,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-13 -->
+<!-- Acrolinx: 2020-12-20 -->
 
 # Using a Dedicated Hardware plan instance
 {: #creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud}
