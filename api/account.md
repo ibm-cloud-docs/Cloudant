@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-09"
+  years: 2015, 2021
+lastupdated: "2021-02-08"
 
 keywords: account, ping, ping account, cors, connect to your cloudant account
 
@@ -40,7 +40,7 @@ If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: new
 
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
-If you misspelled your account name,
+If you misspell your account name,
 you might get a [503 "service unavailable" error](/docs/Cloudant?topic=Cloudant-http#http-status-codes).
 
 See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using HTTP:
@@ -54,7 +54,7 @@ HOST: $ACCOUNT.cloudant.com
 See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using the command line:
 
 ```sh
-curl -u $ACCOUNT "https://$ACCOUNT.cloudant.com"
+curl -u $USERNAME:PASSWORD "https://$ACCOUNT.cloudant.com"
 ```
 {: codeblock}
 
@@ -64,7 +64,7 @@ curl -u $ACCOUNT "https://$ACCOUNT.cloudant.com"
 
 ```javascript
 var nano = require('nano');
-var account = nano("https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com");
+var account = nano("https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com");
 account.request(function (err, body) {
 	if (!err) {
 		console.log(body);

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-02-08"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -214,7 +214,7 @@ See the example response (abbreviated) from the replication scheduler:
 {
   "docs": [
     {
-      "database": "$account/_replicator",
+      "database": "$ACCOUNT/_replicator",
       "doc_id": "myrep",
       "error_count": 0,
       "id": "88b..get",
@@ -261,7 +261,7 @@ See the example response that uses the `limit` and `skip` parameters:
   "offset": 1,
   "docs": [
     {
-      "database": "$account/_replicator",
+      "database": "$ACCOUNT/_replicator",
       "doc_id": "myrep2",
       "id": "5a4..ous",
       "node": "node1@127.0.0.1.cloudant.net",
@@ -304,7 +304,7 @@ See the example response that uses the `states` parameter:
   "offset": 0,
   "docs": [
     {
-      "database": "$account/_replicator",
+      "database": "$ACCOUNT/_replicator",
       "doc_id": "myrep",
       "id": "88b..get",
       "node": "node1@127.0.0.1",
@@ -333,7 +333,7 @@ See the example response that uses the `doc_id` parameter:
 
 ```json
 {
-  "database": "$account/_replicator",
+  "database": "$ACCOUNT/_replicator",
   "doc_id": "myrep",
   "id": "88b..get",
   "node": "node1@127.0.0.1",
@@ -640,8 +640,8 @@ See the following example delegated replication document:
 ```json
 {
 	"_id": "my_rep",
-	"source":  "https://$ACCOUNT:$PASSWORD@$SERVER.com:5984/foo",
-	"target":  "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/bar",
+	"source":  "https://$USERNAME:$PASSWORD@$SERVER.com:5984/foo",
+	"target":  "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/bar",
 	"continuous":  true,
 	"user_ctx": {
 		"name": "joe",

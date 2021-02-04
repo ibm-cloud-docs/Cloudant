@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-02-08"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
@@ -67,7 +67,7 @@ See the following example request to get server meta information by using Javasc
 
 ```javascript
 var nano = require('nano');
-var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
+var account = nano('https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com');
 account.request({
 	path: '/'
 }, function (err, body) {
@@ -146,7 +146,7 @@ See the following example request to get a list of changes to the database by us
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_db_updates" \
-	-u $ACCOUNT
+	-u $USERNAME:$PASSWORD
 ```
 {: codeblock}
 
@@ -156,7 +156,7 @@ See the following example request to get a list of changes to the database by us
 
 ```javascript
 var nano = require('nano');
-var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
+var account = nano('https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com');
 account.request({
 	path: '_db_updates'
 }, function (err, body) {
@@ -204,7 +204,7 @@ See the following example request by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_shards" \
-	-u $ACCOUNT
+	-u $USERNAME:$PASSWORD
 ```
 {: codeblock}
 
@@ -214,7 +214,7 @@ See the following example request by using Javascript:
 
 ```javascript
 var nano = require('nano');
-var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
+var account = nano('https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com');
 account.request({
 	database: $DATABASE,
 	path: '_shards'
@@ -290,7 +290,7 @@ See the following example request by using the command line:
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs" \
 	 -X POST \
-	 -u $ACCOUNT \
+	 -u $USERNAME:$PASSWORD \
 	 -H "Content-Type: application/json" \
 	 -d @request-body.json
 ```
@@ -302,7 +302,7 @@ See the following example request by using Javascript:
 
 ```javascript
 var nano = require('nano');
-var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
+var account = nano('https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com');
 account.request({
 	database: $DATABASE,
 	path: '_missing_revs',
@@ -365,7 +365,7 @@ See the following example request for document revision IDs from the command lin
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff" \
 	-X POST \
-	-u "$ACCOUNT" \
+	-u "$USERNAME:$PASSWORD" \
 	-d "$JSON"
 ```
 {: codeblock}
@@ -460,7 +460,7 @@ See the following example request to list nodes in the cluster by using the comm
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_membership" \
-	-u $ACCOUNT
+	-u $USERNAME:$PASSWORD
 ```
 {: codeblock}
 
@@ -536,7 +536,7 @@ See the following example request for a single UUID by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_uuids" \
-	-u $ACCOUNT
+	-u $USERNAME:$PASSWORD
 ```
 {: codeblock}
 
@@ -581,7 +581,7 @@ See the following example request for five UUIDs by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_uuids?count=5" \
-	-u $ACCOUNT
+	-u $USERNAME:$PASSWORD
 ```
 {: codeblock}
 

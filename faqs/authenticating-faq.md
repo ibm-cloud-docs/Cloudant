@@ -30,7 +30,7 @@ subcollection: Cloudant
 {: faq}
 {: support}
 
-{{site.data.keyword.cloud}} Identity and Access Management (IAM) combines managing user identities, services, and access control into one approach. {{site.data.keyword.cloudantfull}} integrates with {{site.data.keyword.cloud_notm}} Identity and Access Management. 
+{{site.data.keyword.cloud}} Identity and Access Management (IAM) combines managing user identities, services, and access control into one approach. {{site.data.keyword.cloudantfull}} integrates with {{site.data.keyword.cloud_notm}} Identity and Access Management.
 {: shortdesc}
 
 ## What is the difference between {{site.data.keyword.cloudant_short_notm}} Legacy and IAM access controls?
@@ -48,7 +48,7 @@ subcollection: Cloudant
 - Unique to {{site.data.keyword.cloudant_short_notm}}.
 - Access to each service instance requires its own set of credentials.
 - Uses HTTP basic authentication with credentials that aren't bound to an individual user or service.
-- {{site.data.keyword.cloudant_short_notm}} API keys can be granted permissions only at the database level.
+
 
 ## Why must I use the *Use only IAM* mode?
 {: #use-legacy-or-iam}
@@ -79,7 +79,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
 If you don't use *Use only IAM* mode when you use the IAM Reader and Writer roles, you might grant users Legacy credentials with more access permissions than you intended.
 {: note}
 
-## How can I generate service credentials? 
+## How can I generate service credentials?
 {: #find-service-credentials-iam}
 {: faq}
 

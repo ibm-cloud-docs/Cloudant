@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-02-09"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -534,7 +534,7 @@ Content-Type: application/json
 See the example of a global query that returns all recipes (where the key for the view matches either `claret` or `clear apple juice`) when you use the command line:
 
 ```sh
-curl -X POST "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -d @request.json
+curl -X POST "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -d @request.json
 ```
 {: codeblock}
 
@@ -627,7 +627,7 @@ See the example JSON document that lists the keys to match:
 See the example request that uses the command line to obtain the full content of documents that match the listed keys within the `british` partition:
 
 ```sh
-curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_partition/british/_design/$DDOC/_view/by_ingredient?include_docs=true"
+curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_partition/british/_design/$DDOC/_view/by_ingredient?include_docs=true"
     -X POST \
     -H "Content-Type: application/json" \
     -d '{ "keys" : [ "claret", "clear apple juice" ] }'

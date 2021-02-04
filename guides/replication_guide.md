@@ -56,7 +56,7 @@ or in your server rack.
 Documents are stored in databases and can grow to any size as {{site.data.keyword.cloudant_short_notm}} shards its data across many nodes.
 Replication is the copying of data from a source database to a target database.
 The source and target databases do not need to be on the same {{site.data.keyword.cloudant_short_notm}} account,
-or even in the same data center. 
+or even in the same data center.
 
 ![Replication](../images/replication_guide_1.png){: caption="Figure 1. Replication in pictures" caption-side="bottom"}
 
@@ -84,12 +84,12 @@ For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recomm
 {: important}
 
 Using the form, define the source and target databases,
-then click `Start Replication`. 
+then click `Start Replication`.
 
 ![Running state](../images/replication_guide_3.png){: caption="Figure 3. Running state" caption-side="bottom"}
 
 The status of each replication task can be seen by clicking the `Replication` tab.
-Each job changes state from `Running` to `Completed` as it progresses. 
+Each job changes state from `Running` to `Completed` as it progresses.
 
 ![Completed state](../images/replication_guide_4.png){: caption="Figure 4. Completed state" caption-side="bottom"}
 
@@ -168,8 +168,8 @@ See the following example JSON document that describes the replication you want:
 ```json
 {
     "_id": "weekly_backup",
-    "source": "https://$ACCOUNT:$PASSWORD@$ACCOUNT1.cloudant.com/source",
-    "target": "https://$ACCOUNT:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
+    "source": "https://$USERNAME:$PASSWORD@$ACCOUNT1.cloudant.com/source",
+    "target": "https://$USERNAME:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
     "create_target": true
 }
 ```
@@ -187,7 +187,7 @@ cannot be a simple list of changes that occurred after a particular date and tim
 
 The [CAP Theorem](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem) discussion makes it clear that
 {{site.data.keyword.cloudant_short_notm}} uses an 'eventually consistent' model.
-This model means you might get different results when you ask two different replicas of a database for a document at the same time. This can happen when one of the database copies is still waiting to finish replication. 
+This model means you might get different results when you ask two different replicas of a database for a document at the same time. This can happen when one of the database copies is still waiting to finish replication.
 
 Eventually,
 the database copies complete their replication
@@ -282,7 +282,7 @@ In general,
 - `_reader` and `_writer` access at the destination side.
 
 API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-on a per-database basis. 
+on a per-database basis.
 
 ![{{site.data.keyword.cloudant_short_notm}} users and API keys with permissions](../images/replication_guide_5.png){: caption="Figure 5. {{site.data.keyword.cloudant_short_notm}} users and API keys with permissions" caption-side="bottom"}
 
@@ -299,7 +299,7 @@ You enable this synchronization by setting up two separate replication processes
 one taking the data from A to B,
 the other taking data from B to A.
 Both replication processes work independently,
-with data moved seamlessly in both directions. 
+with data moved seamlessly in both directions.
 
 ![Two-way replication](../images/replication_guide_6.png){: caption="Figure 6. Two-way replication" caption-side="bottom"}
 
@@ -344,8 +344,8 @@ See the following example of a JSON document that defines a continuous replicati
 ```json
 {
     "_id": "weekly_continuous_backup",
-    "source": "https://$ACCOUNT:$PASSWORD@$ACCOUNT1.cloudant.com/source",
-    "target": "https://$ACCOUNT:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
+    "source": "https://$USERNAME:$PASSWORD@$ACCOUNT1.cloudant.com/source",
+    "target": "https://$USERNAME:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
     "continuous": true
 }
 ```
@@ -397,7 +397,7 @@ See the following example response that requests the status of a replication:
 ```
 {: codeblock}
 
-The `triggered` and `error` states do not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg) 
+The `triggered` and `error` states do not update the replication document. Use `_scheduler/jobs` and `_scheduler/docs` endpoints for monitoring instead. ![TXE tag](../images/txe_icon.svg)
 
 When you replicate, if any documents or attachments exceed the maximum limit on the target, replication fails. Each document write failure increases the replication statistic count in `doc_write_failures`. For this reason, you are urged to monitor that field.
 
@@ -460,7 +460,7 @@ See the following example JavaScript that uses PouchDB to enable replication:
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
-var URL = "https://u:p@username.cloudant.com/my_database");
+var URL = "https://u:p@account.cloudant.com/my_database");
 db.sync(URL, { live: true });
 ```
 {: codeblock}
@@ -477,7 +477,7 @@ setting up replication requires a few lines of code.
 See the following example JavaScript that uses {{site.data.keyword.cloudant_short_notm}} Sync to enable replication:
 
 ```javascript
-URI uri = new URI("https://u:p@username.cloudant.com/my_database");
+URI uri = new URI("https://u:p@account.cloudant.com/my_database");
 Datastore ds = manager.openDatastore("my_datastore");
 // Replicate from the local to remote database
 Replicator replicator = ReplicatorFactory.oneway(ds, uri);
@@ -549,8 +549,8 @@ See the following example of a JSON document that defines a filtered replication
 ```json
 {
     "_id": "weekly_backup",
-    "source": "https://$ACCOUNT:$PASSWORD@$ACCOUNT1.cloudant.com/source",
-    "target": "https://$ACCOUNT:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
+    "source": "https://$USERNAME:$PASSWORD@$ACCOUNT1.cloudant.com/source",
+    "target": "https://$USERNAME:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
     "filter": "mydesigndoc/myfilter",
     "query_params": {
         "foo": "bar",

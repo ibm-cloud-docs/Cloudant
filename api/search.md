@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-22"
+lastupdated: "2021-02-09"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -1000,7 +1000,7 @@ Authorization: ...
 See the following example that uses the command line to search with highlighting enabled:
 
 ```sh
-curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\" \"&highlight_post_tag=\" \"&highlights_size=30&highlights_number=2"
+curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\" \"&highlight_post_tag=\" \"&highlights_size=30&highlights_number=2"
 ```
 {: codeblock}
 

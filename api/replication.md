@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-02-08"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -283,8 +283,8 @@ See the following example replication document:
 
 ```json
 {
-  "source": "https://$ACCOUNT1:$PASSWORD1@$ACCOUNT1.cloudant.com/$DATABASE1",
-  "target": "https://$ACCOUNT2:$PASSWORD2@$ACCOUNT2.cloudant.com/$DATABASE2",
+  "source": "https://$USERNAME1:$PASSWORD1@$ACCOUNT1.cloudant.com/$DATABASE1",
+  "target": "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/$DATABASE2",
   "create_target": true,
   "continuous": true
 }
@@ -324,7 +324,7 @@ When you set up the replication job for each environment,
 the source database and target database names you provide must use the following format:
 
 ```http
-https://$ACCOUNT:$PASSWORD@$REMOTE_USERNAME.cloudant.com/$DATABASE_NAME
+https://$USERNAME:$PASSWORD@$REMOTE_USERNAME.cloudant.com/$DATABASE_NAME
 ```
 {: codeblock}
 
