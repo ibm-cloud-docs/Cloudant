@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-16"
+  years: 2019, 2021
+lastupdated: "2021-02-09"
 
 keywords: apache couchdb, support, extension
 
@@ -141,6 +141,11 @@ You can see what is included with support and what is not in the following lists
   - CRN of the Extension for Apache CouchDB instance to verify support entitlement. The CRN can be found in the Manage instance page. Support is not provided without including the CRN.
   - Details of the issues.
 5. Attach any relevant logs or screenshots.
+  For customers deploying Apache CouchDB in containerized environments, provide the following details:
+  - Version of the Operator for Apache CouchDB that is deployed.
+  - YAML files of the following Kubernetes resources related to the deployment: couchdbcluster, formation, statefulset, pods, and configmap.
+  - Logs of CouchDB container, management container, and operator container.
+  - Contents of the following files found on the CouchDB pod: /conf/couchdb/user.ini, /conf/couchdb/local.ini, /conf/couchdb/clouseau.ini, and /conf/couchdb/vm.args.
 6. Under Resources, select the Extension for Apache CouchDB instance for support entitlement. Note that it has the {{site.data.keyword.cloudant_short_notm}} logo. 
 7. Click **Continue**.
 8. Click **Submit case**.
