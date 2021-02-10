@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-09"
+  years: 2015, 2021
+lastupdated: "2021-02-08"
 
 keywords: basic authentication, cookie authentication, request cookie, delete cookie, get cookie
 
@@ -71,7 +71,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 The following example includes basic authentication credentials in a request by using the command line:
 
 ```sh
-curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com"
+curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com"
 ```
 {: codeblock}
 
@@ -152,7 +152,7 @@ The following example shows a request for a cookie by using the command line:
 curl "https://$ACCOUNT.cloudant.com/_session" \
 	-X POST \
 	-c /path/to/cookiefile
-	-d "name=$ACCOUNT&password=$PASSWORD"
+	-d "name=$USERNAME:$PASSWORD"
 ```
 {: codeblock}
 

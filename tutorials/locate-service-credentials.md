@@ -10,7 +10,7 @@ subcollection: Cloudant
 
 content-type: tutorial
 services: Cloudant
-account-plan: lite 
+account-plan: lite
 completion-time: 5m
 
 ---
@@ -44,7 +44,7 @@ You can find the credentials for any service that is associated with your accoun
 - Locate your service credentials in {{site.data.keyword.cloud_notm}}
 - Understand your service credentials
 
-## Prerequisites 
+## Prerequisites
 {: #prereq-locate-credentials}
 
 - Create a service instance in the {{site.data.keyword.cloud_notm}} dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
@@ -55,14 +55,14 @@ You can find the credentials for any service that is associated with your accoun
 
 1. Go to [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/) and log in.
 
-2. Select Services from the Resource summary box. 
+2. Select Services from the Resource summary box.
 
-2. Find the service instance called `Cloudant-o7` and open it. </br> 
-   This instance is the one you created as a [prerequisite](#prereqs-locate-credentials). 
+2. Find the service instance called `Cloudant-o7` and open it. </br>
+   This instance is the one you created as a [prerequisite](#prereqs-locate-credentials).
 
     ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png){: caption="Figure 10. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
 
-4. Click Service credentials in the navigation. 
+4. Click Service credentials in the navigation.
 
 3. Click the chevron next to the service credentials to see the credentials that are required to access the service.
 
@@ -80,7 +80,7 @@ You can find the credentials for any service that is associated with your accoun
 {: step}
 
 Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
-    
+
 {{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service credentials tab for your instance. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)
  and [legacy authentication](/docs/Cloudant?topic=Cloudant-authentication#authentication) document for details about using either style of authentication.
 
@@ -88,15 +88,15 @@ The service credentials include the following fields, as well as designating the
 
 Field | Purpose | Legacy-auth enabled
 ------|---------|--------------------
-`username` | The service name of the service instance user in the URL. This field also serves as the admin user name. | 
+`username` | The username that is required for applications to access the service instance. |
 `password` | The legacy credentials password that is required for applications to access the service instance. | X
 `host` | The host name that is used by applications to locate the service instance. | X
 `port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. | X
-`url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. | X (If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password.) 
-`apikey` | The IAM API key. | 
-`iam_apikey_description` | Description of the IAM API key. | 
-`iam_apikey_name` | ID of the IAM API key. | 
-`iam_role_crn` | The IAM role that the IAM API key has. | 
+`url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. | X (If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password.)
+`apikey` | The IAM API key. |
+`iam_apikey_description` | Description of the IAM API key. |
+`iam_apikey_name` | ID of the IAM API key. |
+`iam_role_crn` | The IAM role that the IAM API key has. |
 `iam_serviceid_crn`	| The CRN of the service ID. | X
 {: caption="Table 1. Service credential fields" caption-side="top"}
 

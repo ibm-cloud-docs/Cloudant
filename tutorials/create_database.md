@@ -10,7 +10,7 @@ subcollection: Cloudant
 
 content-type: tutorial
 services: Cloudant
-account-plan: lite 
+account-plan: lite
 completion-time: 15m
 
 ---
@@ -41,7 +41,7 @@ create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keywor
 
 This tutorial doesn't use the most efficient Python code. Our intent is to show simple and easy-to-understand working code
 that you can learn from and apply to your own applications. You must apply normal best practices for checking and handling all
-warning or error conditions that are encountered by your own applications. 
+warning or error conditions that are encountered by your own applications.
 {: note}
 
 ## Objectives
@@ -64,27 +64,27 @@ suitable for the following tasks:
 Ensure that you have the following resources or information ready
 before you start working through the tutorial.
 
-This tutorial walks you through the steps of creating and populating 
-a database. You can follow each step, or go to the end of the tutorial, [execute the Python script](#execute-the-complete-python-script), and return to [Step 5. Retrieving data](#retrieving-data). 
+This tutorial walks you through the steps of creating and populating
+a database. You can follow each step, or go to the end of the tutorial, [execute the Python script](#execute-the-complete-python-script), and return to [Step 5. Retrieving data](#retrieving-data).
 
-Normally, you don't run commands individually in Python. You usually 
-create a script, which is a list of the commands you want to run, 
-stored in a Python file, with a `py` extension. 
+Normally, you don't run commands individually in Python. You usually
+create a script, which is a list of the commands you want to run,
+stored in a Python file, with a `py` extension.
 {: tip}
 
 ### Service credential requirement
 {: #service-credential-requirement}
 
-You must create a service instance and its credentials before you follow this tutorial. 
+You must create a service instance and its credentials before you follow this tutorial.
 
-1. Create a service instance and credentials by following the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. 
+1. Create a service instance and credentials by following the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
 
 2. [Locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials) by following this tutorial.
 
 ### Python version requirement
 {: #python-create-database}
 
-You must have a current version of the [Python programming language](https://www.python.org/){: new_window}{: external} installed on your system. 
+You must have a current version of the [Python programming language](https://www.python.org/){: new_window}{: external} installed on your system.
 
 1. Check that Python is installed by running the following command at a prompt:
 
@@ -103,7 +103,7 @@ You must have a current version of the [Python programming language](https://www
 ### Python Client Library requirement
 {: #python-client-library-for-ibm-cloudant}
 
-An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications work with {{site.data.keyword.cloudant_short_notm}}.  
+An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications work with {{site.data.keyword.cloudant_short_notm}}.
 
 The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external}![BETA tag](../images/beta_icon.png) supported library is a generated SDK from our OpenAPI specification.
 
@@ -127,11 +127,11 @@ The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_wind
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 {: step}
 
-You must connect to your service instance before creating a database. 
+You must connect to your service instance before creating a database.
 
 The following components are identified as normal `import` statements.
 
-You can follow steps 1 to 5 learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to [Step 5. Retrieving data](#retrieving-data). 
+You can follow steps 1 to 5 learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to [Step 5. Retrieving data](#retrieving-data).
 
 1. Run these `import` statements to connect to the service instance.
 
@@ -145,7 +145,7 @@ You can follow steps 1 to 5 learn about the individual commands, or go to the en
 2. Find `username`, `password`, and `URL` in your Classic service credentials and replace `serviceUsername`, `servicePassword`, and `serviceURL` in the following example. </br>
 
     ```python
-    serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
+    serviceUsername = "apikey-v2-58B528DF5397465BB6673E1B79482A8C"
     servicePassword = "49c0c343d225623956157d94b25d574586f26d1211e8e589646b4713d5de4801"
     serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
     ```
@@ -204,7 +204,7 @@ called `databasedemo`.
 We now want to store a small,
 simple collection of data in the database. This data is used in other tutorials, like [Using {{site.data.keyword.cloudant_short_notm}} Query to find data](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query).
 
-1. Create sample data. 
+1. Create sample data.
 
     ```python
     sampleData = [
@@ -222,7 +222,7 @@ simple collection of data in the database. This data is used in other tutorials,
 
 2. Use a `for` statement to retrieve the fields in each row by going through each row in the array.
 
-    ```python   
+    ```python
     for document in sampleData:
         # Retrieve the fields in each row.
         number = document[0]
@@ -303,9 +303,9 @@ We run a full retrieval by using the `include_docs` option.
 As before,
 the results are returned as an array.
 We can then show the details of an element in the array
-by including the full content of the document this time. 
+by including the full content of the document this time.
 
-1. Request the first document that is retrieved from the database. 
+1. Request the first document that is retrieved from the database.
 
     ```python
     result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
@@ -348,7 +348,7 @@ we again request a list of all the documents,
 including their content.
 However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/Cloudant?topic=Cloudant-databases#get-documents).
 
-1. Identify the endpoint to contact and any parameters to supply with it. 
+1. Identify the endpoint to contact and any parameters to supply with it.
 
     ```python
     end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
@@ -427,21 +427,21 @@ However, this time we do so by invoking the {{site.data.keyword.cloudant_short_n
 {: #closing-the-connection-to-the-service-instance}
 {: step}
 
-1. Disconnect the Python client application from the service instance by running the following command. 
+1. Disconnect the Python client application from the service instance by running the following command.
 
     ```python
     client.disconnect()
     ```
     {: codeblock}
 
-2. Close the Terminal. 
+2. Close the Terminal.
 
 ## Execute the complete Python script
 {: #execute-the-complete-python-script}
 
-This script is the complete Python script for steps 2, 3, and 4. When you run 
-the script, it connects to your service instance, creates the database, 
-stores a small set of data in the database, and creates JSON documents. 
+This script is the complete Python script for steps 2, 3, and 4. When you run
+the script, it connects to your service instance, creates the database,
+stores a small set of data in the database, and creates JSON documents.
 
 1. Replace the values for `serviceUsername`, `servicePassword`, and `serviceURL` with the values from your service credentials in the code example in the next step. </br>
 For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
@@ -457,7 +457,7 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
     from cloudant.result import Result, ResultByKey
 
     # Add credentials to authenticate to the service instance.
-    serviceUsername = "0c869093-c3ee-4a3f-bcec-00f01c8df8d8-bluemix"
+    serviceUsername = "apikey-v2-58B528DF5397465BB6673E1B79482A8C"
     servicePassword = "680b037145f9dc8ef9e6a6d8b480783cbc1d1c12e71a0f4ced6b1eee30a243cd"
     serviceURL = "serviceURL = "https://0c869093-c3ee-4a3f-bcec-00f01c8df8d8-bluemix.cloudantnosqldb.appdomain.cloud""
     databaseName = "databasedemo"
@@ -507,15 +507,15 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
                 print("Document '{0}' successfully created.".format(number))
 
     if __name__=='__main__':
-        main()  
+        main()
     ```
     {: codeblock}
 
-3. From the command line, run `demo.py` by typing a command similar to the following one. 
+3. From the command line, run `demo.py` by typing a command similar to the following one.
 
     ```python
     python3 demo.py
     ```
     {: codeblock}
 
-Now that you've run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial. 
+Now that you've run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial.

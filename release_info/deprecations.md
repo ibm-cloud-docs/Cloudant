@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-22"
+  years: 2017, 2021
+lastupdated: "2021-02-10"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -75,16 +75,16 @@ Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, yo
 To retrieve information from the `warehouser` document, you must run the following curl command:
 
 ```sh
-curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID"
+curl -u $USERNAME:$PASSWORD "https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID"
 ```
-
-For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
+{: codeblock}
 
 Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the `warehouser` document's name. `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to DB2.
 
 ```sh
-curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
+curl -u $USERNAME:$PASSWORD "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
 ```
+{: codeblock}
 
 *Example response when you search for information in the `warehouser` document:*
 
@@ -98,6 +98,7 @@ curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
   ...
 }
 ```
+{: codeblock}
 
 The information that is returned in the previous example is described in the following list:
 
@@ -157,6 +158,7 @@ in the request body is ignored. However, the parameter in the request URL is res
 	```
 	{"error":"not_found","reason":"missing_rev"}
 	```
+  {: codeblock}
 
 ## X-Frame-Options setting (17 August 2017)
 {: #x-frame-options-setting}

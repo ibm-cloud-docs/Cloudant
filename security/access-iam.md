@@ -85,7 +85,7 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided by using Service binding and
     credential generation.
 
-When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions. 
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
 {: important}
 
 {{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups) about how to migrate.
@@ -187,7 +187,7 @@ When you select *Use both Legacy credentials and IAM*, the service credentials t
   "password": "8fb6a16b48903e87b769e7f4968521e85c2394ed8f0e69b2769e56dcb27d2e76",
   "port": 443,
   "url": "https://<username>:<password>@76838001-b883-444d-90d0-46f89e942a15-bluemix.cloudant.com",
-  "username": "76838001-b883-444d-90d0-46f89e942a15-bluemix"
+  "username": "apikey-v2-58B528DF5397465BB6673E1B79482A8C"
 }
 ```
 {: codeblock}
@@ -257,9 +257,7 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 #### Disadvantages of legacy mode
 {: #disadvantages-legacy-mode-ai}
 
-- No account-level API keys; must use `root` credentials to manage databases.
 - Separate management of {{site.data.keyword.cloudant_short_notm}} credentials, so unable to get full overview of all access within centralized interface.
-- Hard to implement credential rotation.
 
 ## Create a replication job by using IAM credentials only
 {: #create-replication-job-using-iam-cred-only-ai}
@@ -294,7 +292,7 @@ Ensure that you select the specified instance, either the Source or Target.
 
 4. Select the Source instance, and click **Service credentials** and **New credential**.
 
-   a. Name the new credential `apiaccess`, and select the Manager role. 
+   a. Name the new credential `apiaccess`, and select the Manager role.
 
    b. Make note of the actual IAM API key under View Credentials in the Actions column.
 
@@ -437,7 +435,7 @@ details from the [Service credential JSON examples for each option](#service-cre
 
 IAM connectivity is available in the latest release of all supported client libraries. For more information, see [Client libraries](/docs/Cloudant?topic=Cloudant-client-libraries).
 
-The code snippets in the next few sections require supported client libraries. 
+The code snippets in the next few sections require supported client libraries.
 
 #### Java
 {: #java-ai}
@@ -445,7 +443,7 @@ The code snippets in the next few sections require supported client libraries.
 The following links provide the latest supported version of our legacy and beta libraries:
 
 - [`java-cloudant`](https://github.com/cloudant/java-cloudant/releases/latest){: new_window}{: external}
-- [`cloudant-java-sdk`](https://github.com/IBM/cloudant-java-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png) 
+- [`cloudant-java-sdk`](https://github.com/IBM/cloudant-java-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
 
 Use the `iamApiKey()` method to create a database client with an IAM API key. The following example uses `java-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Java (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=java#authentication).
 
@@ -479,7 +477,7 @@ public class App
 The following links provide the latest supported version of our legacy and beta libraries:
 
 - [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
-- [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png) 
+- [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
 
 Use the `iamauth` plug-in to create a database client with an IAM API key. The following example uses `nodejs-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=node#authentication).
 
@@ -508,7 +506,7 @@ cloudant.db.list(function(err, body) {
 The following links provide the latest supported version of our legacy and beta libraries:
 
 - [`python-cloudant`](https://github.com/cloudant/python-cloudant/releases/latest){: new_window}{: external}
-- [`cloudant-python-sdk`](https://github.com/IBM/cloudant-python-sdk/releases/latest){: new_window}{: external} 
+- [`cloudant-python-sdk`](https://github.com/IBM/cloudant-python-sdk/releases/latest){: new_window}{: external}
 
 Use the `Cloudant.iam(account_name, api_key, **kwargs)` method to create a
 database client with an IAM API key. The following example uses `python-cloudant`. For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Python (beta), see the [API reference documentation](https://cloud.ibm.com/apidocs/cloudant?code=python#authentication).
@@ -618,7 +616,7 @@ Manager is inclusive of all actions of Reader and Writer, and Writer is inclusiv
 
 The following table describes the available IAM actions and roles. For fine-grained authorization, you can use the roles of `Manager`, `Reader`, `Writer`, `Monitor`, or `Checkpointer`.
 
-When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions. 
+When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
 {: important}
 
 | Method | Endpoint | Action name |
@@ -845,13 +843,13 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 
 The following endpoints are not available to requests authorized with IAM:
 
-- HTTP rewrite handlers - `/db/_design/design-doc/_rewrite/path`. 
+- HTTP rewrite handlers - `/db/_design/design-doc/_rewrite/path`.
 
-While design documents can contain rewrite handlers, users cannot call them. 
+While design documents can contain rewrite handlers, users cannot call them.
 
-- Update handlers - `POST /db/_design/ddoc/_update/func`. 
+- Update handlers - `POST /db/_design/ddoc/_update/func`.
 
-While design documents can contain update functions, users cannot call them. 
+While design documents can contain update functions, users cannot call them.
 
 ## Troubleshooting
 {: #troubleshooting-ai}

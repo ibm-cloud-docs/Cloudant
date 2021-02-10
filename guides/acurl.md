@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-02-09"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -32,7 +32,7 @@ subcollection: Cloudant
 `acurl` is a handy alias that you can use to run `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your username and password for every request.
 That means a simple `GET` request to a database no longer needs to be written as
-`https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`. Instead, you can use, `https://$ACCOUNT.cloudant.com/foo`.
+`https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/foo`. Instead, you can use, `https://$ACCOUNT.cloudant.com/foo`.
 {: shortdesc}
 
 Not only does this cut down on annoyingly long URLs,
@@ -55,13 +55,13 @@ If you're using a Windows&trade; computer, you can specify your username and pas
 First, we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
 This encoding gives us a base64 character sequence as output.
 
-`$ACCOUNT` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
+`$USERNAME` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 {: note}
 
 The command to base64-encode some data is similar to the following example:
 
 ```python
-python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".encode("utf-8")).decode("utf-8"))'
+python3 -c 'import base64; print(base64.urlsafe_b64encode("$USERNAME:$PASSWORD".encode("utf-8")).decode("utf-8"))'
 ```
 {: codeblock}
 
@@ -71,7 +71,7 @@ For example,
 if you use the command:
 
 ```python
-python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".encode("utf-8")).decode("utf-8"))'
+python3 -c 'import base64; print(base64.urlsafe_b64encode("$USERNAME:$PASSWORD".encode("utf-8")).decode("utf-8"))'
 ```
 {: codeblock}
 

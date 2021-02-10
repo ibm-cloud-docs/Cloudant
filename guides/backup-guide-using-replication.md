@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-02-09"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -138,7 +138,7 @@ This example shows how to run and restore a backup:
 
 ```sh
 # save base URL and the content type in shell variables
-$ url="https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com"
+$ url="https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com"
 $ ct="Content-Type: application-json"
 ```
 {: codeblock}
