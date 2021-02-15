@@ -32,21 +32,23 @@ Currently, {{site.data.keyword.mon_full}} integration is available for {{site.da
 
 Deployment Region | Sysdig Region
 ----------|-----------
+`Chennai` | `Tokyo`
 `Dallas` | `Dallas`
 `London` | `London`
-`Tokyo` | `Tokyo`
+`Osaka` | `Osaka`
 `Seoul` | `Tokyo`
 `Sydney` | `Sydney`
+`Tokyo` | `Tokyo`
 `Washington DC` | `Washington DC`
-`Chennai` | `Tokyo`
+
 {: caption="Table 1. Sysdig regions" caption-side="top"}
 
 
 ## Platform metrics overview
 {: #platform_metrics-pm}
 
-You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics. 
-* To configure the Sysdig instance, you must turn on the *platform metrics* configuration setting. 
+You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics.
+* To configure the Sysdig instance, you must turn on the *platform metrics* configuration setting.
 * If a Sysdig instance in a region is already enabled to collect platform metrics, metrics from enabled-Sysdig services are collected automatically and available for monitoring through this instance. For more information about enabled-Sysdig services, see [{{site.data.keyword.cloud}} services](https://www.ibm.com/cloud/services).
 
 To monitor platform metrics, check that the {{site.data.keyword.mon_full_notm}} instance is provisioned in the same region where the {{site.data.keyword.cloud_notm}} instance is provisioned.
@@ -57,21 +59,21 @@ To monitor platform metrics, check that the {{site.data.keyword.mon_full_notm}} 
 
 Complete the following steps to configure platform metrics:
 
-1. Log in to {{site.data.keyword.cloud_notm}}. 
+1. Log in to {{site.data.keyword.cloud_notm}}.
 
-    The {{site.data.keyword.cloud_notm}} dashboard opens. 
-    
+    The {{site.data.keyword.cloud_notm}} dashboard opens.
+
 2. Click **View all** in the Resource summary section of the dashboard.
 
-3. In the *Services* section, click the {{site.data.keyword.cloud_notm}} instance that you plan to monitor. 
+3. In the *Services* section, click the {{site.data.keyword.cloud_notm}} instance that you plan to monitor.
 
     The {{site.data.keyword.cloud_notm}} UI *Manage* page opens.
 
 4. Click **Actions** > **Add monitoring** to configure *platform metrics* in the region of your {{site.data.keyword.cloud_notm}} instance.
 
-    If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics. 
+    If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics.
     {: note}
-    
+
     ![Monitoring menu](../images/monitoring_add.png){: caption="Figure 1. Add monitoring" caption-side="bottom"}
 
 6. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
@@ -93,21 +95,21 @@ You can use different options to launch the Sysdig web UI and monitor metrics th
 
 Complete the following steps to launch the Sysdig web UI from the {{site.data.keyword.cloud_notm}} dashboard:
 
-1. Log in to {{site.data.keyword.cloud_notm}}. 
+1. Log in to {{site.data.keyword.cloud_notm}}.
 
-    The {{site.data.keyword.cloud_notm}} dashboard opens. 
-    
+    The {{site.data.keyword.cloud_notm}} dashboard opens.
+
 2. Click **View all** in the Resource summary section of the dashboard.
 
-3. In the *Services* section, click the {{site.data.keyword.cloudant_short_notm}} instance that you plan to monitor. 
+3. In the *Services* section, click the {{site.data.keyword.cloudant_short_notm}} instance that you plan to monitor.
 
     The {{site.data.keyword.cloudant_short_notm}} *Manage* page opens.
 
-4. Click the **Actions** menu, and select **Monitoring**. 
+4. Click the **Actions** menu, and select **Monitoring**.
 
     ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 
-    A new tab opens in your browser and displays the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance. 
+    A new tab opens in your browser and displays the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
 
 ### Launching Sysdig web UI from the Observability page
 {: #view_metrics_opt2}
@@ -119,11 +121,11 @@ Complete the following steps to launch the Sysdig web UI from the *Observability
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
 
-    To access your deployment's Sysdig dashboard from Sysdig, it's in the sidebar, under {{site.data.keyword.IBM_notm}}. 
+    To access your deployment's Sysdig dashboard from Sysdig, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
 
     ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
-    Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.cloudant_short_notm}} instance.  
+    Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.cloudant_short_notm}} instance.
 
 ## {{site.data.keyword.cloudant_short_notm}} metrics dictionary
 {: #metrics_dictionary-pm}
