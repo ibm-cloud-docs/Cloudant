@@ -40,11 +40,11 @@ The following tutorials demonstrate how to create an instance:
 
 If you want to create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}{: external} tutorial.
 
-## What is an availability zone? 
+## What is an availability zone?
 {: #what-availability-zone}
 {: faq}
 
-When you create an instance, after you select the {{site.data.keyword.cloudant_short_notm}} tile, you must select a region. These locations are called availability zones. An availability zone is an {{site.data.keyword.cloud}} Public location that hosts your data. All Lite and Standard plans automatically deploy into a multi-zone region. Dedicated Hardware plan instances can be deployed in most [{{site.data.keyword.IBM_notm}} data center locations](https://www.ibm.com/cloud/data-centers/){: new_window}{: external}. 
+When you create an instance, after you select the {{site.data.keyword.cloudant_short_notm}} tile, you must select a region. These locations are called availability zones. An availability zone is an {{site.data.keyword.cloud}} Public location that hosts your data. All Lite and Standard plans automatically deploy into a multi-zone region. Dedicated Hardware plan instances can be deployed in most [{{site.data.keyword.IBM_notm}} data center locations](https://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
 
 
 ## What is the difference between a single-zone and a multi-zone region?
@@ -53,12 +53,13 @@ When you create an instance, after you select the {{site.data.keyword.cloudant_s
 
 A multi-zone region includes three availability zones that can be used by an instance that is deployed to that region. The multi-zone regions available with {{site.data.keyword.cloudant_short_notm}} include the following regions:
 
-- Washington DC
 - Dallas
-- London
-- Sydney
 - Frankfurt
+- London
+- Osaka
+- Sydney
 - Tokyo
+- Washington DC
 
 A single-zone region offers only one availability zone for that region. The single-zone regions available with {{site.data.keyword.cloudant_short_notm}} include the following regions:
 

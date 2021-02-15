@@ -4,7 +4,7 @@ copyright:
   years: 2015, 2020
 lastupdated: "2020-12-17"
 
-keywords: log analysis, integration 
+keywords: log analysis, integration
 
 subcollection: Cloudant
 
@@ -33,14 +33,16 @@ Currently, {{site.data.keyword.la_full_notm}} integration is available for {{sit
 
 Deployment Region | LogDNA Region
 ----------|-----------
+`Chennai` | `Chennai`
 `Dallas` | `Dallas`
 `Frankfurt` | `Frankfurt`
 `London` | `London`
-`Tokyo` | `Tokyo`
+`Osaka` | `Tokyo`
 `Seoul` | `Seoul`
 `Sydney` | `Sydney`
+`Tokyo` | `Tokyo`
 `Washington DC` | `Washington DC`
-`Chennai` | `Chennai`
+
 {: caption="Table 1. Log Analysis regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.la_full_notm}}
@@ -53,10 +55,10 @@ This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services
 
 {{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-service_plans){: new_window}{: external}.
 
-### HIPAA 
+### HIPAA
 {: #hipaa_logdna}
 
-{{site.data.keyword.la_full_notm}} does not currently offer a HIPAA-compliant plan for the service. 
+{{site.data.keyword.la_full_notm}} does not currently offer a HIPAA-compliant plan for the service.
 
 Use caution when you configure the platform service logs, since this setting can impact other services that require HIPAA compliance.
 {: important}
@@ -66,7 +68,7 @@ Use caution when you configure the platform service logs, since this setting can
 
 Once logs are being live-streamed, each log can be expanded to a detailed view by clicking the arrow to the left of the timestamp.
 
-The expanded view has some handy, color-coded fields to help you parse your logs. 
+The expanded view has some handy, color-coded fields to help you parse your logs.
 
 Line Identifiers | Description
 -----------------|------------
@@ -76,18 +78,18 @@ Line Identifiers | Description
 
 Log Lines | Description
 ----------|------------
-`accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment. 
+`accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment.
 `httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a specific resource.
-`httpRequest` | The URL path for the HTTP request. 
-`bytesRead`| The size of the response body. 
-`clientIp` | The IP address of the originating request. 
-`clientPort` | The port address for the originating request. 
+`httpRequest` | The URL path for the HTTP request.
+`bytesRead`| The size of the response body.
+`clientIp` | The IP address of the originating request.
+`clientPort` | The port address for the originating request.
 `statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-http#http-status-codes).
 `terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: new_window}{: external}.
-`dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.  
+`dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.
 `dbRequest` | The database request endpoint.
 `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
-`sslVersion` | The version of Transport Layer Security that the request is using. 
+`sslVersion` | The version of Transport Layer Security that the request is using.
 `requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public#event-types){: new_window}{: external}.
 `parsedQueryString` | A parsed version that shows the breakdown of the parameters passed in the query string. If we are unable to parse the `rawQueryString`, this value is null.
 `rawQueryString` | Full text of the query string as passed to the service.
@@ -96,8 +98,8 @@ Log Lines | Description
 `timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value. </br> `request` - The total time to get the client request. It's the time elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
 {: caption="Table 3. Log lines" caption-side="top"}
 
-The `request` and `transfer` timings are included in `response`.  
+The `request` and `transfer` timings are included in `response`.
 {: note}
 
-{{site.data.keyword.la_full_notm}} offers [searching](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step5){: new_window}{: external} 
+{{site.data.keyword.la_full_notm}} offers [searching](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step5){: new_window}{: external}
 to help you navigate your logs. [Export](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-export#export){: new_window}{: external} and [archive](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.
