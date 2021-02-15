@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-23"
+  years: 2015, 2021
+lastupdated: "2021-02-11"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # CORS
 {: #cors}
 
-[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/){: new_window}{: external} is a mechanism that allows resources
+[Cross-origin resource sharing (CORS)](https://www.w3.org/wiki/CORS){: new_window}{: external} is a mechanism that allows resources
 such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested
 from JavaScript. The JavaScript is running on a website that is loaded from another domain.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-02-11"
 
 keywords: account, ping, ping account, cors, connect to your cloudant account
 
@@ -89,7 +89,7 @@ print ping.status_code
 ## CORS
 {: #cors-overview}
 
-[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/){: new_window}{: external} is a
+[Cross-origin resource sharing (CORS)](https://www.w3.org/wiki/CORS){: new_window}{: external} is a
 mechanism that allows JavaScript from another domain to interact with data in
 your {{site.data.keyword.cloudant_short_notm}} account.
 
