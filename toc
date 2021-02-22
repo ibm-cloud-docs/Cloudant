@@ -44,7 +44,7 @@ Cloudant
     tutorials/create_query.md
     tutorials/create_backup.md
     {: .navgroup-end}
-    
+
     {: .navgroup id="howto"}
     how-to.md
 
@@ -66,13 +66,25 @@ Cloudant
 
     {: .topicgroup}
     basics/basics.md
+    
+    {: .topicgroup}  
     Managing your accounts
         accounts/account.md
         accounts/curl.md
-        accounts/api_keys.md
         accounts/cors.md
         accounts/http.md
         accounts/json.md
+
+    {: .topicgroup}
+    Working with databases
+        databases/database.md
+        databases/sharding.md
+        databases/mvcc.md
+        databases/database_partitioning.md
+        databases/conflicts.md
+        databases/cap_theorem.md
+        databases/couchapps.md
+        databases/migration.md
 
     {: .topicgroup}    
     How documents work
@@ -91,15 +103,6 @@ Cloudant
         monitor/managing_tasks.md
 
     {: .topicgroup}
-    Guides
-        guides/cap_theorem.md
-        guides/multiregion.md
-        guides/pagination-bookmarks.md
-        guides/replication_guide.md
-        guides/search-analyzers.md
-        guides/backup-guide-using-replication.md
-
-    {: .topicgroup}
     Enhancing security for IBM Cloudant
         security/access-iam.md
         security/architecture-workload-isolation.md
@@ -108,35 +111,10 @@ Cloudant
         security/secure-data.md
         security/audit-events.md
     {: .navgroup-end}
-    
+
     {: .navgroup id="reference"}
     offerings/responsibilities.md
 
-    {: .topicgroup}
-    API Reference
-        api/overview-api.md
-        api/http.md
-        api/compare.md
-        api/account.md
-        api/authentication.md
-        api/authorization.md
-        api/cors.md
-        api/database.md
-        api/document.md
-        api/attachments.md
-        api/capacity.md
-        api/cloudant_query.md
-        api/design_documents.md
-        api/creating_views.md
-        api/using_views.md
-        api/search.md
-        api/cloudant-geo.md
-        api/replication.md
-        api/advanced_replication.md
-        api/active_tasks.md
-        api/advanced.md
-        api/monitoring.md
-	
     {: .topicgroup}
     Observability
         offerings/log-analysis.md
@@ -175,7 +153,7 @@ Cloudant
     [API & SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction)
     {: .navgroup-end}
 
-    {: .navgroup id="help"}	
+    {: .navgroup id="help"}
     {: .topicgroup}
     FAQs
         faqs/authenticating-faq.md
@@ -185,7 +163,7 @@ Cloudant
         faqs/pricing-faq.md
         faqs/provisioned-throughput-capacity-faq.md
         faqs/resource-groups-faq.md
-	
+
     {: .topicgroup}
     Release information
         release_info/release_notes.md

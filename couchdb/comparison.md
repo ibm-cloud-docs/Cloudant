@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-02-22"
 
 keywords: compare couchdb and cloudant
 

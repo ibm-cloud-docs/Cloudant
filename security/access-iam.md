@@ -39,7 +39,7 @@ to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and by using HTTP calls. Finally, we end with a reference
 section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
-For more information, see an overview of [IAM](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}{: external} that includes the following topics:
+For more information, see an overview of [IAM](https://cloud.ibm.com/docs/account?topic=account-iamoverview){: new_window}{: external} that includes the following topics:
 
 - Manage user and service IDs.
 - Manage available credentials.

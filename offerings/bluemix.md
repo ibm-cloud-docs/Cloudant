@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2021-02-19"
+  years: 2015, 2021
+lastupdated: "2021-02-22"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -375,7 +375,7 @@ in object storage and save a link to the location in an {{site.data.keyword.clou
 
 When you replicate, documents or attachments that exceed these limits don't
 replicate to the target database. For more information about how to detect replication
-errors, see [Replication](https://cloud.ibm.com/apidocs/cloudant#postreplicate) in the API & SDK reference.
+errors, see [Replication errors](https://cloud.ibm.com/apidocs/cloudant#getreplicationdocument).
 
 ## Locations and tenancy
 {: #locations-and-tenancy}

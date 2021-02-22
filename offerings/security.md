@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-28"
+lastupdated: "2021-02-22"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 

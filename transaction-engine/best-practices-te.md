@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-21"
+  years: 2020, 2021
+lastupdated: "2021-02-16"
 
 keywords: query, secondary index, primary index, organizing documents, organizing databases
 
@@ -24,12 +24,12 @@ subcollection: Cloudant
 <!-- Acrolinx: 2020-12-21 -->
 
 # Best practices
-{: #best-practices}
+{: #best-practices-te}
 
 Follow our recommendations to improve your experience with {{site.data.keyword.cloudantfull}} Transaction Engine.
 
 ## Using the right tool for the job
-{: #using-the-right-tool-for-the-job}
+{: #using-the-right-tool-for-the-job-te}
 
 {{site.data.keyword.cloudant_short_notm}} Transaction Engine is a scalable, durable, highly available, operational JSON document store with an HTTP API. It's suitable for the following purposes:
 
@@ -50,7 +50,7 @@ Follow our recommendations to improve your experience with {{site.data.keyword.c
 For more information, see the [Best and worst practice](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog.
 
 ## Organizing documents and databases
-{: #organizing-documents-and-databases}
+{: #organizing-documents-and-databases-te}
 
 {{site.data.keyword.cloudant_short_notm}} Transaction Engine data is organized in a hierarchy of databases and documents. A document is a JSON object with a unique identifier: its `_id`. A database is a collection of documents with a primary index that allows documents to be retrieved by `_id`. It also has optional secondary indexes that allow documents to be queried by other attributes in the object.
 
@@ -79,7 +79,7 @@ For more information, see the following blog posts:
 - [Date formats](https://blog.cloudant.com/2018/05/24/Date-formats.html)
 
 ## Making the most of the primary index
-{: #making-the-most-of-primary-index}
+{: #making-the-most-of-primary-index-te}
 
 {{site.data.keyword.cloudant_short_notm}} Transaction Engine has a primary index on the document's `_id` attribute. This index allows documents to be retrieved by `_id` (`GET /db/id`) or a range of `_ids` (`GET /db/_all_docs?startkey="a"&endkey="z"`). By storing data in the primary key and ensuring that each `_id` is unique, the primary index can be used to fetch documents and ranges of documents without secondary indexing. See the following list of ideas:
 
@@ -94,7 +94,7 @@ For more information, see the following blog posts:
 - [Introduction to partitioned databases](https://blog.cloudant.com/2019/03/05/Partition-Databases-Introduction.html)
 
 ## Querying and secondary indexes
-{: #querying-secondary-indexes}
+{: #querying-secondary-indexes-te}
 
 {{site.data.keyword.cloudant_short_notm}} Transaction Engine allows queries to run against a single database that returns an array of matching documents and a bookmark, which allows access to the next block of search results. Achieving better query performance depends on having your queries supported by suitable secondary indexes. An index allows the database to answer a query without having to trawl through every document in the database, yielding much faster performance.
 
