@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-15"
+  years: 2017, 2021
+lastupdated: "2021-02-19"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -184,7 +184,7 @@ Next, you find a document in the database by using two fields.
 
 This example uses two fields to find a document with the values: `freezing` and `-5`. 
 
-We describe the search by using a ['selector' expression](/docs/Cloudant?topic=Cloudant-query#selector-syntax)
+We describe the search by using a ['selector' expression](https://cloud.ibm.com/apidocs/cloudant#postfind)
 that looks like the following example:
 
 ```json

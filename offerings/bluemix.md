@@ -125,7 +125,6 @@ Throughput provision is identified and measured as one of the following types of
 	-	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-search#queries))
 	-	Geospatial Index ([`_geo`](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
 	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](https://cloud.ibm.com/apidocs/cloudant#postfind))
-s
 
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
