@@ -265,7 +265,6 @@ in an EU-managed environment, see
 [Locations and tenancy](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#locations-and-tenancy).
 {: tip}
 
-
 ### Creating API keys
 {: #creating-api-keys}
 
@@ -282,7 +281,7 @@ remember to record the key name and password.
 These values are both randomly generated,
 and can't be retrieved if lost or forgotten.
 
-[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local")](/docs/Cloudant?topic=Cloudant-ibm-cloudant-local-overview) doesn't support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center](/docs/Cloudant?topic=Cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local")](/docs/Cloudant?topic=Cloudant-ibm-cloudant-local-overview) doesn't support API Keys. For a similar capability, create "CouchDB" style users, as described in the [Cloudant Local documentation](/docs/Cloudant?topic=Cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
 {: note}
 
 ### Using API keys

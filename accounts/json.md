@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-17"
+lastupdated: "2020-12-22"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -27,8 +27,7 @@ subcollection: Cloudant
 {: #json}
 
 Most requests and responses to and from {{site.data.keyword.cloudantfull}}
-use [JSON](https://en.wikipedia.org/wiki/JSON){: new_window}{: external}
-for formatting the content and structure of the data and responses.
+use [JSON](https://en.wikipedia.org/wiki/JSON){: new_window}{: external} for formatting the content and structure of the data and responses.
 {: shortdesc}
 
 In {{site.data.keyword.cloudant_short_notm}} databases,

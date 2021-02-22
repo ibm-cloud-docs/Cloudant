@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-02-23"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -395,7 +395,7 @@ following {{site.data.keyword.cloud_notm}} Public locations:
 
 
 
-Single-Zone Region (SZR) means that only one availability zone is available in that location. All other locations are Multi-Zone Regions (MZR) and leverage three separate availability zones for instances that are deployed in those locations. For more information, see the [High availability (HA), disaster recovery (DR), and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup&cloudant-disaster-recovery-and-backup){: new_window} documentation.
+Single-Zone Region (SZR) means that only one availability zone is available in that location. All other locations are Multi-Zone Regions (MZR) and leverage three separate availability zones for instances that are deployed in those locations. For more information, see the [High availability (HA), disaster recovery (DR), and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup){: new_window} documentation.
 
 Dedicated Hardware plan instances can be deployed in most
 [{{site.data.keyword.IBM_notm}} data center locations](https://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
