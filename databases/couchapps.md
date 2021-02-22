@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-22"
+  years: 2015, 2021
+lastupdated: "2021-02-19"
 
 keywords: couchapp, 3-tier application
 
@@ -30,7 +30,7 @@ subcollection: Cloudant
 like images,
 and serve them over HTTP. In other words, {{site.data.keyword.cloudant_short_notm}} can host all the static files necessary to run a website,
 and host them just like a web server.
-{: shortdesc}
+
 
 Because these files can be hosted on {{site.data.keyword.cloudant_short_notm}},
 the client-side JavaScript can access {{site.data.keyword.cloudant_short_notm}} databases.
@@ -38,6 +38,7 @@ An application built this way is said to have a two-tier architecture,
 consisting of the client, typically a browser, and the database.
 In the CouchDB community,
 this application is called a CouchApp.
+{: shortdesc}
 
 Most web apps have three tiers:
 the client,
@@ -53,7 +54,7 @@ This separation provides added complexity without conflating concerns. Now, your
 while your database focuses on storing and serving data.
 
 CouchApps shine in their simplicity,
-but frequently a web app needs the power of a 3-tier architecture.
+but frequently a web app needs the power of 3-tier architecture.
 When is each appropriate?
 
 ## A CouchApp is appropriate if...
@@ -61,8 +62,8 @@ When is each appropriate?
 
 -   Your server provides only an API to {{site.data.keyword.cloudant_short_notm}} anyway.
 -   You're OK with {{site.data.keyword.cloudant_short_notm}}'s
-    [cookie-based authentication](/docs/Cloudant?topic=Cloudant-authentication#cookie-authentication).
--   You're OK with {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/Cloudant?topic=Cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db)
+    [cookie-based authentication](https://cloud.ibm.com/apidocs/cloudant#authentication).
+-   You're OK with {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/Cloudant?topic=Cloudant-work-with-your-account#using-the-_users-database-with-cloudant-nosql-db)
     databases to manage users and permissions.
 -   You don't need to schedule cron jobs or other regular tasks.
 

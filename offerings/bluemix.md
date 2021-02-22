@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-03"
+lastupdated: "2021-02-22"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -144,10 +144,10 @@ For example, the Standard plan is provisioned for 200 reads per second. Your acc
 are rejected until the number of read events in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
-applications receive a [`429` Too Many Requests](/docs/Cloudant?topic=Cloudant-http#http-status-codes)
+applications receive a [`429` Too Many Requests](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes)
 response.
 
-Recent versions of the [supported client libraries](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-client-libraries) help you handle a `429` response. For example,
+Recent versions of the [supported client libraries](/docs/Cloudant?topic=Cloudant-client-libraries) help you handle a `429` response. For example,
 the Java&trade; library generates a
 [`TooManyRequestsException`](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window}{: external} response.
 
@@ -164,7 +164,7 @@ If you're porting an existing application, it might not be able to handle a `429
 {: note}
 
 In summary,
-you must ensure that your application can handle a [`429`](/docs/Cloudant?topic=Cloudant-http#http-status-codes) response correctly.
+you must ensure that your application can handle a [`429`](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) response correctly.
 
 ### Consumption of read operations by partitioned queries
 {: #consumption-of-lookup-operations-by-partitioned-queries}
@@ -226,7 +226,7 @@ Using appropriate indexes is key for reducing read consumption for partitioned
 
 [Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with hitting the provisioned throughput capacity limits set for the instance.
 
-When you use the default parameters and replicate a database with a large backlog of documents to replicate, a single replication job consumes upwards of 2500-3000 reads/sec on the source database and a small amount of writes/sec on the target database. Users can reduce the approximate read throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+When you use the default parameters and replicate a database with a large backlog of documents to replicate, a single replication job consumes upwards of 2500-3000 reads/sec on the source database and a small amount of writes/sec on the target database. Users can reduce the approximate read throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads/sec on source database |
 |------------------|------------------|-------------------------------------|
@@ -368,14 +368,14 @@ Single Attachment Size | 10 MB
 Request Body Size | 11 MB
 {: caption="Table 3. Maximum size limits for JSON documents and requests" caption-side="top"}
 
-If you exceed these limits, a [413 response](/docs/Cloudant?topic=Cloudant-http#http-status-codes) alerts you.
+If you exceed these limits, a [413 response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) alerts you.
 
 We recommend that you store binary attachments, or large JSON blobs,
 in object storage and save a link to the location in an {{site.data.keyword.cloudant_short_notm}} JSON document.
 
 When you replicate, documents or attachments that exceed these limits don't
 replicate to the target database. For more information about how to detect replication
-errors, see [Replication errors](/docs/Cloudant?topic=Cloudant-replication-api#replication-errors).
+errors, see [Replication errors](https://cloud.ibm.com/apidocs/cloudant#getreplicationdocument).
 
 ## Locations and tenancy
 {: #locations-and-tenancy}

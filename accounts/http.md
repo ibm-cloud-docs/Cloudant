@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-13"
+lastupdated: "2021-02-17"
 
 keywords: http headers, response headers, http status codes
 
@@ -237,34 +237,3 @@ to get a [`304 Not Modified`](#http-status-codes) response if the revision is st
 ETags cannot currently be used with views or lists,
 since the ETags returned from those requests are random numbers that change on every request.
 
-## HTTP status codes
-{: #http-status-codes}
-
-The interface to {{site.data.keyword.cloudant_short_notm}} works through HTTP. Therefore, error codes and statuses are reported by using a combination of the HTTP status code number, and corresponding data in the body of the response data.
-
-A list of the error codes that are returned by {{site.data.keyword.cloudant_short_notm}} and generic descriptions of the related errors are as follows.
-The meaning of different status codes for specific request types is provided in the corresponding API call reference.
-
-Code                                    | Meaning
-----------------------------------------|--------
-`200 - OK`                              | Request completed successfully.
-`201 - Created`                         | Resource that is created or updated successfully. The resource could be a database or a document, for example.
-`202 - Accepted`                        | Request was accepted, but the [quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) for the operation was not met.
-`304 - Not Modified`                    | The content that is requested was not modified. This error is used with the [ETag](#etag) system to identify the version of information returned.
-`400 - Bad Request`                     | Bad request structure. The error can indicate an error with the request URL, path, or headers. Differences in the supplied MD5 hash and content also trigger this error, as this error might indicate message corruption.
-`401 - Unauthorized`                    | The item requested was not available with the supplied authorization, or authorization was not supplied.
-`402 - Payment required`                | Either the data quota on the Lite plan was exceeded, or the account is in arrears. You can delete data or upgrade to the Standard plan, or bring the account up to date.
-`403 - Forbidden`                       | The requested item or operation is forbidden.
-`404 - Not Found`                       | The requested resource could not be found. The content includes further information as a JSON object, if available. The structure contains two keys, `error` and `reason`, similar to the following example: `{ "error":"not_found", "reason":"no_db_file" }`
-`405 - Resource Not Allowed`            | A request was made by using an invalid HTTP request type for the URL requested. For example, you requested a `PUT` when a `POST` is required. Errors of this type can also be triggered by invalid URL strings.
-`406 - Not Acceptable`                  | The requested content type is not supported by the server.
-`409 - Conflict`                        | Request resulted in an update conflict.
-`412 - Precondition Failed`             | The request headers from the client and the capabilities of the server do not match. Alternatively, a request to create a database was denied because the database already exists. 
-`413 - Request Entity Too Large`        | The request size exceeded the [limit](/docs/Cloudant?topic=Cloudant-limits#request-payload-overview) for the {{site.data.keyword.cloudant_short_notm}} API.
-`415 - Bad Content Type`                | The content type of the information that was requested or submitted is not a supported content type. 
-`416 - Requested Range Not Satisfiable` | The range that is specified in the request header cannot be satisfied by the server.
-`417 - Expectation Failed`              | Returned if the unsupported `all_or_nothing` option is used when sending documents in bulk.
-`429 - Too Many Requests`               | The user sent too many requests in a specific amount of time. More information is available in the corresponding [RFC 6585](https://tools.ietf.org/html/rfc6585#page-3){: new_window}{: external}.
-`500 - Internal Server Error`           | The request could not be completed by the server. This could be due to an internal error or in some cases invalid data in the request. Alternatively, a replication was canceled while in progress.
-`503 - Service Unavailable`             | The request could not be processed. If you see this response, it might indicate a misspelled {{site.data.keyword.cloudant_short_notm}} account name.
-{: caption="Table 1. HTTP status codes" caption-side="top"}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-18"
+  years: 2015, 2021
+lastupdated: "2021-02-18"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -433,7 +433,7 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial)
-  results in an [HTTP `404`](/docs/Cloudant?topic=Cloudant-http#http-status-codes) response.
+  results in an [HTTP `404`](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) response.
 - Added support for the `$allmatch` operator.
 
 ## Build 5834 (13 February 2017)
