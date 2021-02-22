@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-15"
+  years: 2017, 2021
+lastupdated: "2021-01-26"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-15 -->
+<!-- Acrolinx: 2020-04-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}
@@ -237,7 +237,7 @@ The library is useful for more complicated scenarios,
 for example:
 
 * Backing up several databases in one task.
-  You might do this backup by identifying all the databases by using the [`_all_dbs`](/docs/Cloudant?topic=Cloudant-databases#get-a-list-of-all-databases-in-the-account) call,
+  You might do this backup by identifying all the databases by using the [`_all_dbs`](https://cloud.ibm.com/apidocs/cloudant#getalldbs) call,
   then doing a backup of each database individually.
 * Longer pipelines increase the risk of errors.
   By using the CouchBackup library,

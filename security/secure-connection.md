@@ -115,8 +115,8 @@ credentials tab for your instance. For more information, see the
 [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)
  and [legacy authentication](/docs/Cloudant?topic=Cloudant-authentication#authentication) document for details about using
  either style of authentication.
-
-The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, you must use [API keys](/docs/Cloudant?topic=Cloudant-authorization#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs.
+ 
+The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, you must use [API keys](/docs/Cloudant?topic=Cloudant-api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
 {: important}
 
 ## {{site.data.keyword.cloudant_short_notm}} Dashboard

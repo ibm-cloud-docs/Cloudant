@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-02-19"
 
 keywords: read, write, global query, throughput, operation type, event, reject request, retry, provision, capacity
 

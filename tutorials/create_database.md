@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-02-19"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -64,8 +64,8 @@ suitable for the following tasks:
 Ensure that you have the following resources or information ready
 before you start working through the tutorial.
 
-This tutorial walks you through the steps of creating and populating
-a database. You can follow each step, or go to the end of the tutorial, [execute the Python script](#execute-the-complete-python-script), and return to [Step 5. Retrieving data](#retrieving-data).
+This tutorial walks you through the steps of creating and populating 
+a database. You can follow each step, or go to the end of the tutorial, [execute the Python script](#execute-the-complete-python-script), and return to Step 5. Retrieving data. 
 
 Normally, you don't run commands individually in Python. You usually
 create a script, which is a list of the commands you want to run,
@@ -346,7 +346,7 @@ from within a Python application.
 In this example code,
 we again request a list of all the documents,
 including their content.
-However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/Cloudant?topic=Cloudant-databases#get-documents).
+However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](https://cloud.ibm.com/apidocs/cloudant#postalldocs).
 
 1. Identify the endpoint to contact and any parameters to supply with it.
 
@@ -518,4 +518,4 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
     ```
     {: codeblock}
 
-Now that you've run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial.
+Now that you've run the script, return to Step 5. Retrieving data to complete the tutorial. 

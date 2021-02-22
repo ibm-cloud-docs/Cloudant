@@ -86,6 +86,22 @@ Cloudant
         databases/couchapps.md
         databases/migration.md
 
+    {: .topicgroup}    
+    How documents work
+        documents/document.md
+        documents/design_documents.md
+        documents/design_document_management.md
+        documents/transactions.md
+        documents/attachments.md
+
+    {: .topicgroup}    
+    Monitoring your instance
+        monitor/monitoring.md
+        monitor/advanced.md
+        monitor/capacity.md
+        monitor/active_tasks.md
+        monitor/managing_tasks.md
+
     {: .topicgroup}
     Enhancing security for IBM Cloudant
         security/access-iam.md
@@ -115,6 +131,9 @@ Cloudant
 
     {: .topicgroup}
     libraries/client-libraries.md
+
+    {: .topicgroup}
+    basics/compare.md
 
     {: .topicgroup}
     Cloudant Local

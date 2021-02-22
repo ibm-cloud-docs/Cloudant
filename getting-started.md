@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-02-19"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -153,7 +153,7 @@ Now, we can create a database, and run queries against that database.
 {: #creating-a-database-dt}
 {: step}
 
-In this exercise, you create the `dashboard-demo` [database](/docs/Cloudant?topic=Cloudant-databases#create-database), which 
+In this exercise, you create the `dashboard-demo` [database](https://cloud.ibm.com/apidocs/cloudant#putdatabase), which 
 is the database that we use in this tutorial.
 
 1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
@@ -271,7 +271,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     ![Query results](images/dashboard_query1_results.png){: caption="Figure 3. Results from the query" caption-side="bottom"}
 
-For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query#query).
+For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/apidocs/cloudant#getindexesinformation).
 
 ## Replicating a database
 {: #replicate-database-dt}

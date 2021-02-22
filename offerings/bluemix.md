@@ -103,11 +103,11 @@ Throughput provision is identified and measured as one of the following types of
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}}
         query endpoint within the `_partition` namespace in the request path,
         including the following types:
-        -	Primary Index ([`_all_docs`](/docs/Cloudant?topic=Cloudant-databases#get-documents))
+        -	Primary Index ([`_all_docs`](https://cloud.ibm.com/apidocs/cloudant#postalldocs))
         -	MapReduce View ([`_view`](/docs/Cloudant?topic=Cloudant-using-views#using-views))
         -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-search#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/Cloudant?topic=Cloudant-query#finding-documents-by-using-an-index))
-
+        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](https://cloud.ibm.com/apidocs/cloudant#postfind))
+    
         The number of read operations that are consumed by a partitioned query request
         varies depending on the results returned.
 
@@ -120,12 +120,12 @@ Throughput provision is identified and measured as one of the following types of
         which are requests that are made to an {{site.data.keyword.cloudant_short_notm}}
         query endpoint **not** within the `_partition` namespace,
     including the following types:
-	-	Primary Index ([`_all_docs`](/docs/Cloudant?topic=Cloudant-databases#get-documents))
+	-	Primary Index ([`_all_docs`](https://cloud.ibm.com/apidocs/cloudant#postalldocs))
 	-	MapReduce View ([`_view`](/docs/Cloudant?topic=Cloudant-using-views#using-views))
 	-	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-search#queries))
 	-	Geospatial Index ([`_geo`](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/Cloudant?topic=Cloudant-query#finding-documents-by-using-an-index))
-
+	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](https://cloud.ibm.com/apidocs/cloudant#postfind))
+s
 
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
@@ -412,11 +412,11 @@ outside an EU-managed environment can't be granted access to an EU-managed
 ## Authentication methods
 {: #authentication-methods}
 
-{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include `Use both legacy credentials and IAM` or `Use only IAM`. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or the legacy [Authentication API document](/docs/Cloudant?topic=Cloudant-authentication#authentication).
+{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include `Use both legacy credentials and IAM` or `Use only IAM`. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or the legacy [Authentication API document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication).
 
 After you provision an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when you generate new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} dashboard. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials). If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy username and password is also included.
 
-The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, we recommended you use [API keys](/docs/Cloudant?topic=Cloudant-authorization#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs.
+The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, we recommended you use [API keys](/docs/Cloudant?topic=Cloudant-api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
 {: important}
 
 ## High availability, disaster recovery, and backup in a data center
