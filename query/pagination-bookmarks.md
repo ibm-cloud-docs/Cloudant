@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -33,7 +33,7 @@ The pagination approach changed for {{site.data.keyword.cloudantfull}} on Transa
 You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=Cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
 {: shortdesc} 
 
-[{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/apidocs/cloudant#postfind) and [{{site.data.keyword.cloudant_short_notm}} Search](https://cloud.ibm.com/apidocs/cloudant#getsearchinfo) both use bookmarks as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the bookmark that was received in the first response to the second request.
+[{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#postfind){: new_window}{: external} and [{{site.data.keyword.cloudant_short_notm}} Search](/apidocs/cloudant#getsearchinfo){: new_window}{: external} both use bookmarks as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the bookmark that was received in the first response to the second request.
 
 Now, we can see a better way to page through a large document set. 
 
@@ -250,7 +250,7 @@ First, we search for all the cities in the US. We're using [{{site.data.keyword.
 }
 ```
 
-By using the [`/db/_find`](https://cloud.ibm.com/apidocs/cloudant#postfind) API endpoint, the results are passed to {{site.data.keyword.cloudant_short_notm}}. 
+By using the [`/db/_find`](/apidocs/cloudant#postfind){: new_window}{: external} API endpoint, the results are passed to {{site.data.keyword.cloudant_short_notm}}. 
 
 ```sh
 curl -X POST \

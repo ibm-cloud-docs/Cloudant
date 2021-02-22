@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-03-11"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
@@ -84,7 +84,7 @@ To reduce the risk of man-in-the-middle attacks, follow these guidelines:
 -	Ensure that web applications that run on allowed origin domains are trusted
 	and do not have security vulnerabilities.
 
-For more information about the configuration endpoints for CORS, see the [API documentation](/apidocs/cloudant#getcorsinformation).
+For more information about the configuration endpoints for CORS, see the [API documentation](/apidocs/cloudant#getcorsinformation){: new_window}{: external}.
 
 ## Dashboard
 {: #dashboard}
@@ -99,7 +99,7 @@ To see the current CORS configuration,
 simply open the **Account** > **CORS** tab in the dashboard.
 
 You can enable or disable CORS by using `Enable CORS`.
-This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration).
+This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration){: new_window}{: external}.
 when you change the CORS configuration from within an application.
 
 To specify that CORS is enabled for all domains,

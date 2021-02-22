@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2018-08-08 -->
 
 # Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}
 {: grouping-related-documents-together-in-ibm-cloudant}
@@ -128,7 +128,7 @@ While in distributed databases, data is spread around a cluster of servers, and 
 
 To create a unique identifier for use in your application,
 such as an `order_id`,
-call the [`GET _uuids` endpoint](https://cloud.ibm.com/apidocs/cloudant#getuuids) on the {{site.data.keyword.cloudant_short_notm}} API.
+call the [`GET _uuids` endpoint](/apidocs/cloudant#getuuids){: new_window}{: external} on the {{site.data.keyword.cloudant_short_notm}} API.
 The database generates an identifier for you.
 The same endpoint can be used to generate multiple IDs by adding a `count` parameter,
 for example, `/_uuids?count=10`.
@@ -175,7 +175,7 @@ The view would enable a ledger that contains the following information:
 -   Purchase totals as positive numbers.
 -   Payments against the account as negative numbers.
 
-A map function could be used to identify the required values.
+A map function might be used to identify the required values.
 
 ### Example map function to find purchase total and payment values
 
@@ -247,7 +247,7 @@ is good practice in {{site.data.keyword.cloudant_short_notm}}. This practice avo
 ## Adding more documents
 {: #adding-more-documents}
 
-You could add other,
+You might add other,
 separate documents to the database to record the following state changes as the order is provisioned and dispatched:
 
 -   Dispatch notifications.

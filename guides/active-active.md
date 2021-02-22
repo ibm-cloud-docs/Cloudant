@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -86,7 +86,7 @@ After these accounts are created, follow these steps:
 ## Step 1. Create your databases
 {: #step-1-create-your-databases}
 
-[Create the databases](https://cloud.ibm.com/apidocs/cloudant#putdatabase) that you want to replicate between
+[Create the databases](/apidocs/cloudant#putdatabase){: new_window}{: external} that you want to replicate between
 within each account.
 
 In this example,
@@ -138,7 +138,7 @@ Take careful note of the password. It'sn't possible to retrieve the password lat
 ## Step 3. Grant access permission
 {: #step-3-grant-access-permission}
 
-Give the API Key [permission](https://cloud.ibm.com/apidocs/cloudant#getsecurity)
+Give the API Key [permission](/apidocs/cloudant#getsecurity){: new_window}{: external}
 to read and to write on both databases.
 
 If you also need to replicate indexes,
@@ -253,7 +253,7 @@ A simple test of whether a failover is required would be to
 use the main database endpoint as a 'heartbeat.
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
-[details about the database](https://cloud.ibm.com/apidocs/cloudant#getdatabaseinformation).
+[details about the database](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
 If no response is received,
 it might indicate that a failover is necessary.
 
@@ -335,7 +335,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 * Do any replications need restarting?
 * How many pending changes are still waiting for replication into the database?
 
-For more information on monitoring replication status, see see how to [retrieve replication scheduler documents](https://cloud.ibm.com/apidocs/cloudant#getschedulerdocs).
+For more information on monitoring replication status, see see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: new_window}{: external}.
 
 If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}

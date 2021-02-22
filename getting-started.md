@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -38,7 +38,7 @@ completion-time: 20m
 In this {{site.data.keyword.cloudantfull}} getting started tutorial, we use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance, and find essential information to enable your application to work with the database. With the {{site.data.keyword.cloudant_short_notm}} dashboard, we learn how to perform different tasks, such as how to create a database, populate a database with documents, replicate a database, and so on. 
 {: shortdesc}
 
-You can also create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, retrieve data by using queries or API endpoints, and many other tasks from the command line. For more information, see the [API and SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction). 
+You can also create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, retrieve data by using queries or API endpoints, and many other tasks from the command line. For more information, see the [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}. 
 
 ## Objectives
 {: #objectives-get-started}
@@ -153,7 +153,7 @@ Now, we can create a database, and run queries against that database.
 {: #creating-a-database-dt}
 {: step}
 
-In this exercise, you create the `dashboard-demo` [database](https://cloud.ibm.com/apidocs/cloudant#putdatabase), which 
+In this exercise, you create the `dashboard-demo` [database](/apidocs/cloudant#putdatabase){: new_window}{: external}, which 
 is the database that we use in this tutorial.
 
 1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
@@ -271,7 +271,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     ![Query results](images/dashboard_query1_results.png){: caption="Figure 3. Results from the query" caption-side="bottom"}
 
-For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/apidocs/cloudant#getindexesinformation).
+For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#getindexesinformation){: new_window}{: external}.
 
 ## Replicating a database
 {: #replicate-database-dt}

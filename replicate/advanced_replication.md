@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-11"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -35,7 +35,7 @@ You can learn about advanced replication concepts and tasks, such as the ones in
 
 You might also find it helpful to review details of the underlying
 [replication protocol](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window}{: external},
-and review the [API reference](https://cloud.ibm.com/apidocs/cloudant#introduction) documentation.
+and review the [API reference](/apidocs/cloudant#introduction){: new_window}{: external} documentation.
 
 In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
@@ -97,14 +97,14 @@ The transition between these states is illustrated in the following diagram:
 
 The scheduler introduces two new endpoints:
 
-- [`/_scheduler/docs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerdocs)
-- [`/_scheduler/jobs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerjobs)
+- [`/_scheduler/docs`](/apidocs/cloudant#getschedulerdocs){: new_window}{: external}
+- [`/_scheduler/jobs`](/apidocs/cloudant#getschedulerjobs){: new_window}{: external}
 
 You can manage and determine replication status more quickly and easily by using these endpoints.
 
 See the typical process for using the replication scheduler to manage and monitor replications:
 
-1.  Create a [replication document](https://cloud.ibm.com/apidocs/cloudant#postreplicate) that describes the needed replication,
+1.  Create a [replication document](/apidocs/cloudant#postreplicate){: new_window}{: external} that describes the needed replication,
     and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-_replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
@@ -113,7 +113,7 @@ See the typical process for using the replication scheduler to manage and monito
 
 In any production application, security of the source and target databases is essential.
 In order for replication to continue, authentication is necessary to access the databases.
-Checkpoints for replication are [enabled by default](https://cloud.ibm.com/apidocs/cloudant#postreplicate),
+Checkpoints for replication are [enabled by default](/apidocs/cloudant#postreplicate){: new_window}{: external},
 which means that replicating the source database requires write access.
 
 To enable authentication during replication,
@@ -151,7 +151,7 @@ A filter function returns a `true` or `false` value.
 If the result is true,
 the document is replicated.
 
-To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](https://cloud.ibm.com//apidocs/cloudant#postfinds) documentation. 
+To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/apidocs/cloudant#postfinds){: new_window}{: external} documentation. 
 {: note}
 
 See the following example of a filter function:
@@ -211,7 +211,7 @@ See example JSON for starting a filtered replication with supplied parameters:
 ```
 {: codeblock}
 
-The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](https://cloud.ibm.com//apidocs/cloudant#postfind){: new_window} documentation.
+The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/apidocs/cloudant#postfind){: new_window} documentation.
 {: note}
 
 ## Named document replication

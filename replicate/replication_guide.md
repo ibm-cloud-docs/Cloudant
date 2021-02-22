@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-11"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -203,7 +203,7 @@ in both the source and destination databases.
 Checkpoints allow a replication task to be resumed from where it stopped,
 without having to start from the beginning.
 Checkpoint creation can be prevented by supplying the
-[`"use_checkpoints": false`](https://cloud.ibm.com/apidocs/cloudant#postreplicate) option when you request replication.
+[`"use_checkpoints": false`](/apidocs/cloudant#postreplicate){: new_window}{: external} option when you request replication.
 It is helpful to leave the feature on if your replication is to resume efficiently from its last known position.
 
 ## Permissions
@@ -258,7 +258,7 @@ data flows continuously.
 All subsequent changes to the source database are transmitted to the target database in real time.
 
 Continuous replication is triggered by clicking the `Make this replication continuous` check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or by setting the [`continuous`](https://cloud.ibm.com/apidocs/cloudant#postreplicate) flag in the {{site.data.keyword.cloudant_short_notm}} API.
+or by setting the [`continuous`](/apidocs/cloudant#postreplicate){: new_window}{: external} flag in the {{site.data.keyword.cloudant_short_notm}} API.
 
 Two-way replication can be made continuous in one or both of the directions,
 by setting the `continuous` flag.
@@ -592,7 +592,7 @@ the credentials that are supplied must have:
 * `_reader` and `_replicator` permissions on database "a".
 * `_writer` permissions on database "b".
 
-API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](https://cloud.ibm.com/apidocs/cloudant).
+API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](/apidocs/cloudant){: new_window}{: external}.
 Each key can be given individual permissions that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.

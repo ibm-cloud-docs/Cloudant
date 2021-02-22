@@ -146,6 +146,7 @@ Cloudant
 
     {: .topicgroup}
     libraries/client-libraries.md
+    basics/compare.md
 
     {: .topicgroup}
     Cloudant Local
@@ -162,7 +163,8 @@ Cloudant
     Other offerings
         offerings/bluemix_dedicated.md
         offerings/cloudant.com.md
-    [API & SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction)
+    tutorials/creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli
+    [API & SDK reference](/apidocs/cloudant#introduction)
     {: .navgroup-end}
 
     {: .navgroup id="help"}

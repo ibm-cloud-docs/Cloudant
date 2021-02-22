@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-11"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2018-09-13 -->
 
 # How is data stored in {{site.data.keyword.cloudant_short_notm}}?
 {: #how-is-data-stored-in-ibm-cloudant-}
@@ -193,7 +193,7 @@ You can configure `Q`. However, we prohibit very large values of `Q` since they 
 {: note}
 
 If you attempt to set the `Q` value where it is not available,
-the result is a [`403` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) with a JSON body
+the result is a [`403` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} with a JSON body
 similar to the following example:
 
 ```json

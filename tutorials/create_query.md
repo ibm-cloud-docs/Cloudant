@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -40,7 +40,7 @@ This tutorial demonstrates how to create an index and use the index to query the
 Here you run the commands from the command line, but you can also complete these tasks with the {{site.data.keyword.cloudant_short_notm}} dashboard, which gives you a visual example of each task. For more information about the dashboard, see [Using the {{site.data.keyword.cloudant_short_notm}} dashboard](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial. 
 
 ## Before you begin
-{: ##before-you-begin-qt}
+{: #before-you-begin-qt}
 
 Before you begin, follow these tutorials to create an instance, and then create and populate a database.
 
@@ -60,15 +60,11 @@ Now, we're ready to learn how to run queries against the database you created in
 {: #creating-an-index-to-query-the-database-qt}
 {: step}
 
-{{site.data.keyword.cloudant_short_notm}} provides views and indexes to query databases. A view runs a query that is saved to the database, and
-the result is called the *result set*. When you submit a query to the view, your query searches
-the result set. An index is a way to structure data that improves retrieval time.
+{{site.data.keyword.cloudant_short_notm}} Query uses Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index.
 
-We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial, which uses Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index.
+When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields.  
 
-When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. If it doesn't find a suitable index, it uses the `_all_docs` special index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields. Full table scans are expensive to process, and we recommend that you create an index. 
-
-If no available defined index matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index.
+If no available defined index matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). Full table scans are expensive to process, and we recommend that you create an index. 
 {: tip}
 
 To create an index, follow these steps:
@@ -184,7 +180,7 @@ Next, you find a document in the database by using two fields.
 
 This example uses two fields to find a document with the values: `freezing` and `-5`. 
 
-We describe the search by using a ['selector' expression](https://cloud.ibm.com/apidocs/cloudant#postfind)
+We describe the search by using a ['selector' expression](/apidocs/cloudant#postfind){: new_window}{: external}
 that looks like the following example:
 
 ```json

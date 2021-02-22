@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-03-11"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -237,7 +237,7 @@ The library is useful for more complicated scenarios,
 for example:
 
 * Backing up several databases in one task.
-  You might do this backup by identifying all the databases by using the [`_all_dbs`](https://cloud.ibm.com/apidocs/cloudant#getalldbs) call,
+  You might do this backup by identifying all the databases by using the [`_all_dbs`](/apidocs/cloudant#getalldbs){: new_window}{: external} call,
   then doing a backup of each database individually.
 * Longer pipelines increase the risk of errors.
   By using the CouchBackup library,
@@ -270,7 +270,7 @@ function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
 
     // A pass through stream that has couchbackup's output
     // written to it and it then read by the S3 upload client.
-    // It has a 10MB internal buffer.
+    // It has a 10 MB internal buffer.
     const streamToUpload = new stream.PassThrough({highWaterMark: 10485760});
 
     // Set up S3 upload.
