@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-02-22"
 
 keywords: http headers, response headers, http status codes
 
@@ -26,8 +26,7 @@ subcollection: Cloudant
 # HTTP
 {: #http}
 
-Learn details about the [HTTP headers](#http-headers)
-and [HTTP status codes](#http-status-codes) you need to know when you use {{site.data.keyword.cloudantfull}}.
+Learn details about the [HTTP headers](#http-headers) you need to know when you use {{site.data.keyword.cloudantfull}}.
 {: shortdesc}
 
 ## HTTP headers
