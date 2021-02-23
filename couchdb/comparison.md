@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-02-23"
 
 keywords: compare couchdb and cloudant
 
@@ -32,8 +32,6 @@ The foundation of the {{site.data.keyword.cloudant_short_notm}} managed database
 Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} are nearly fully API compatible, which means they can serve as drop-in replacements for each other in your application. They speak the same replication protocol so that you can seamlessly synchronize data between {{site.data.keyword.cloudant_short_notm}} and CouchDB instances. However, some differences between the fully-managed cloud service {{site.data.keyword.cloudant_short_notm}} and self-managed open source Apache CouchDB still exist, which are discussed here.    
 
 The following table shows the feature and function differences that you must be cognizant of when you use the Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} data layer ecosystem. 
-
-For more information and a detailed breakdown of the API endpoints, see the [API comparison guide](/docs/Cloudant?topic=Cloudant-comparison-of-ibm-cloudant-and-couchdb-api-endpoints).
 
 | Feature | CouchDB 1.6 | CouchDB 2.3.1 | CouchDB 3.x | {{site.data.keyword.cloudant_short_notm}} | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |--------------|----------------|-------------|---------------------| --- | --- |
