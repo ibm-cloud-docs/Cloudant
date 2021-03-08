@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-03-08"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -26,18 +26,18 @@ subcollection: Cloudant
 # CAP Theorem
 {: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}} uses an ['Eventually Consistent'](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}{: external} model.
+{{site.data.keyword.cloudantfull}} uses an ["Eventually Consistent"](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}{: external} model.
 {: shortdesc}
 
 To understand how this model works,
 and why it's an essential part of using {{site.data.keyword.cloudant_short_notm}},
 consider what is meant by Consistency.
 
-Consistency is one of the four ['ACID'](https://en.wikipedia.org/wiki/ACID){: new_window}{: external} properties
+Consistency is one of the four ["ACID"](https://en.wikipedia.org/wiki/ACID){: new_window}{: external} properties
 that are necessary for transactions within a database to be processed and reported reliably.
 
 Additionally,
-consistency is one of the three attributes in the ['CAP'](http://en.wikipedia.org/wiki/CAP_Theorem){: new_window}{: external} theorem.
+consistency is one of the three attributes in the ["CAP"](http://en.wikipedia.org/wiki/CAP_Theorem){: new_window}{: external} theorem.
 The attributes are **C**onsistency,
 **A**vailability, and **P**artition tolerance.
 The theorem states that it's not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}

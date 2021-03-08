@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-09"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -106,12 +106,12 @@ up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
 page through them by using the arrows.
 
-For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center](http://www.cloudant.com/learning-center#geo){: new_window}{: external}.
+For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center){: new_window}{: external}.
 
 ## GeoJSON
 {: #geojson}
 
-[GeoJSON format](http://geojson.org/geojson-spec.html){: new_window}{: external}
+[GeoJSON format](https://geojson.org/){: new_window}{: external}
 is used to express the following various geographic data structures:
 
 - `Point`
@@ -168,7 +168,7 @@ See the example GeoJSON document in the following example:
 
 For more information about GeoJSON,
 including the full specification,
-go to [http://geojson.org/](http://geojson.org/){: new_window}{: external}.
+go to [GeoJSON](http://geojson.org/){: new_window}{: external}.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #creating-a-cloudant-nosql-db-geo-index}
