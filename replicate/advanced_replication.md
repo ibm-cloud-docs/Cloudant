@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-08"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -97,8 +97,8 @@ The transition between these states is illustrated in the following diagram:
 
 The scheduler introduces two new endpoints:
 
-- [`/_scheduler/docs`](#the-_scheduler-docs-endpoint)
-- [`/_scheduler/jobs`](#the-_scheduler-jobs-endpoint)
+- [`/_scheduler/docs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerdocs)
+- [`/_scheduler/jobs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerjobs)
 
 You can manage and determine replication status more quickly and easily by using these endpoints.
 
