@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-03-09"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -189,7 +189,7 @@ curl -X PUT -u $USERNAME:$PASSWORD "https://$ACCOUNT.cloudant.com/mynewdatabase?
 ```
 {: codeblock}
 
-Setting `Q` for databases is not enabled for {{site.data.keyword.cloudant_short_notm}} databases on {{site.data.keyword.cloud}}. The `Q` value is not available on most `cloudant.com` multi-tenant clusters.
+You can configure `Q`. However, we prohibit very large values of `Q` since they have a deleterious effect on the service with no performance gain for the user.
 {: note}
 
 If you attempt to set the `Q` value where it is not available,
