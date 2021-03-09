@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-03-08"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -98,12 +98,7 @@ you might query the view after each replication to identify and resolve conflict
 ## How to resolve conflicts
 {: #how-to-resolve-conflicts}
 
-After you find a conflict, you can resolve it by following four steps:
-
-1.	[Get](#get-conflicting-revisions) the conflicting revisions.
-2.	[Merge](#merge-the-changes-conflicts) them in your application or ask the user what they want to do.
-3.	[Upload](#upload-the-new-revision) the new revision.
-4.	[Delete](#delete-old-revisions-conflicts) the old revisions.
+After you find a conflict, you can resolve it by following four steps: get, merge, upload, and delete, as shown next. 
 
 See the following example document of the first version:
 
@@ -158,7 +153,7 @@ when the two databases are replicated,
 it might not be clear which of the two alternative versions of the document is correct.
 This example is a conflict scenario.
 
-## Get conflicting revisions
+### Get conflicting revisions
 {: #get-conflicting-revisions}
 
 To find any conflicting revisions for a document,
@@ -198,7 +193,7 @@ Often,
 you might find that the array has only one element,
 but it's possible for there to be many conflicting revisions. Each revision is listed in the array.
 
-## Merge the changes
+### Merge the changes
 {: #merge-the-changes-conflicts}
 
 Your application must identify all the potential changes,
@@ -241,7 +236,7 @@ such as:
 
 For a practical example of how to implement these changes, see [this project with sample code](https://github.com/glynnbird/deconflict).
 
-## Upload the new revision
+### Upload the new revision
 {: #upload-the-new-revision}
 
 See the following final revisions after you resolve and merge changes from the previous conflicting revisions:
@@ -260,7 +255,7 @@ After you assess and resolve the conflicts,
 you create a document that includes the current and definitive data.
 This fresh document is uploaded into the database.
 
-## Delete old revisions
+### Delete old revisions
 {: #delete-old-revisions-conflicts}
 
 See the following example requests to delete the old revisions:

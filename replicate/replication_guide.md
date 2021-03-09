@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-09"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -73,7 +73,7 @@ Complete the form:
 
 ![Replication form](../images/replication_guide_2.png){: caption="Figure 2. Replication form" caption-side="bottom"}
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window} and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window} documentation.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window} and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window} documentation.
 {: important}
 
 Using the form, define the source and target databases,
@@ -220,7 +220,7 @@ It is sufficient if the credentials perform the following tasks:
 This permission allows checkpoint documents to be created,
 but does not allow the creation of ordinary documents in a database.
 In general,
-[create API keys](/docs/Cloudant?topic=Cloudant-api-keys#creating-api-keys) that have:
+[create API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#creating-api-keys) that have:
 
 - `_reader` and `_replicator` access at the source side.
 - `_reader` and `_writer` access at the destination side.
@@ -232,7 +232,7 @@ on a per-database basis.
 
 They can also be created [programmatically](/docs/Cloudant?topic=Cloudant-api-keys#creating-api-keys) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-authentication#authentication){: new_window} and [authorization](/docs/Cloudant?topic=Cloudant-authorization#authorization){: new_window} documentation.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window} and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window} documentation.
 {: important}
 
 ## Two-way replication
@@ -548,7 +548,7 @@ The following list includes some example use cases:
 - Writing data to a text file to push data into an SQL database.
 
 The changes feed can be filtered with a filter function,
-by using a similar technique to [filtering during replication](#filtered-replications).
+by using a similar technique to [filtering during replication](#filtered-replications-repl-guide).
 
 See the following example that uses HTTP to filter the changes feed:
 
@@ -592,7 +592,7 @@ the credentials that are supplied must have:
 * `_reader` and `_replicator` permissions on database "a".
 * `_writer` permissions on database "b".
 
-API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
+API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](https://cloud.ibm.com/apidocs/cloudant).
 Each key can be given individual permissions that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.

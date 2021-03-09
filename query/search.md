@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-03-09"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -681,7 +681,7 @@ use a preceding backslash character (`\`).
 
 The response to a search query includes an `order` field for each of the results.
 The `order` field is an array where the first element is the field or fields that are specified
-in the [`sort` parameter](#query-parameters-search).
+in the `sort` parameter.
 If no [`sort` parameter](#query-parameters-search) is included in the query,
 then the `order` field contains the [Lucene relevance score](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}{: external}.
 If you use the "sort by distance" feature as described in [Geographical searches](#geographical-searches),

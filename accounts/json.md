@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-22"
+  years: 2015, 2021
+lastupdated: "2021-03-08"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -45,13 +45,7 @@ Be careful to follow these guidelines:
 -   Your JSON structures are valid.
 -   You normalize strings in JSON documents retrieved from {{site.data.keyword.cloudant_short_notm}}.
 
-JSON supports the same basic types that are supported by JavaScript:
-
--   [Numbers](#numbers)
--   [Strings](#strings)
--   [Booleans](#booleans)
--   [Arrays](#arrays)
--   [Objects](#objects)
+JSON supports the same basic types that are supported by JavaScript: numbers, strings, Booleans, arrays, and objects. 
 
 ## Numbers
 {: #numbers}

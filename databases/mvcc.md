@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-03-08"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -104,12 +104,7 @@ or query the view after each replication.
 {: #steps-to-resolve-conflicts}
 
 After you find a conflict,
-you can resolve it in four steps.
-
-1.  [Get](#get-conflicting-revisions-mvcc) the conflicting revisions.
-2.  [Merge](#merge-the-changes-mvcc) them into your application or ask the user what to do.
-3.  [Upload](#upload-the-new-revision-mvcc) the new revision.
-4.  [Delete](#delete-old-revisions-mvcc) old revisions.
+you can resolve it in four steps: get, merge, upload, and delete, as shown later.
 
 Let's consider an example of how to resolve a conflict.
 Suppose that you have a database of products for an online shop.

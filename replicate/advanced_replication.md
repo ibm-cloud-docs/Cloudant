@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-09"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -387,4 +387,4 @@ Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_
 {: important}
 
 If a problem occurs during replication, such as a stall, timeout, or application crash,
-a replication that is defined within the `_replicator` database is automatically restarted by the system. However, if you define a replication by sending a request to the `/_replicate` endpoint, it can't be restarted by the system if a problem occurs because the replication request doesn't persist. Replications that are defined in the `_replicator` database are easier to [monitor](#replication-status).
+a replication that is defined within the `_replicator` database is automatically restarted by the system. However, if you define a replication by sending a request to the `/_replicate` endpoint, it can't be restarted by the system if a problem occurs because the replication request doesn't persist. Replications that are defined in the `_replicator` database are easier to monitor.

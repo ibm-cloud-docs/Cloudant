@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-03-08"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -115,7 +115,7 @@ curl -X PUT "https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false"
 ```
 {: codeblock}
 
-If creation succeeds, you get a [201 or 202 response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
+If creation succeeds, you get a 201 or 202 response.
 An error response uses
 the HTTP status code to indicate what went wrong.
 
@@ -1166,7 +1166,7 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 
 -->
 
-If deletion succeeds, you get a [200 or 202 response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes){: new_window}.
+If deletion succeeds, you get a 200 or 202 response.
 An error response uses the HTTP status code to indicate what went wrong.
 
 Code | Description 
