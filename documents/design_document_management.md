@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-22"
+  years: 2015, 2021
+lastupdated: "2021-03-08"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -48,7 +48,7 @@ Let's take a simple example.
 Assume that we have a simple collection of data documents,
 similar to the following example.
 
-## Example of a simple data document
+See an example of a simple data document:
 
 ```json
 {
@@ -69,7 +69,7 @@ We want to create a [MapReduce view](/docs/Cloudant?topic=Cloudant-views-mapredu
 We can sort our documents by timestamp by creating a Map function,
 similar to the following example.
 
-## Example map function that returns a document's timestamp field, if present
+See an example map function that returns a document's timestamp field, if present:
 
 ```javascript
 function(doc) {
@@ -88,7 +88,7 @@ The effect is to provide a time-ordered index into the document set.
 We're going to call this view `by_ts` and put it into a design document that is called `fetch`,
 like the following example:
 
-## Example design document that defines a view by using a map function
+See an example design document that defines a view by using a map function:
 
 ```json
 {
@@ -168,7 +168,7 @@ the map function stays the same,
 but we now use a `reduce` of `_count`.
 The effect is that our design document looks like the following example.
 
-## Example design document that uses a reduce function
+See an example design document that uses a reduce function:
 
 ```json
 {

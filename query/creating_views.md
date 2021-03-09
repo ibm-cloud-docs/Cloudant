@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-15"
+  years: 2015, 2021
+lastupdated: "2021-03-09"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -78,7 +78,7 @@ The list also includes metadata such as the number of `key:value` pairs returned
 The document `_id` is automatically included in each of the `key:value` pair result records. The document `_id` is included to make it easier for the client to work with the results.
 {: note}
 
-### Example of a simple view by using a map function
+See an example of a simple view by using a map function:
 
 ```javascript
 function(employee) {
@@ -89,7 +89,7 @@ function(employee) {
 ```
 {: codeblock}
 
-### Sample data for demonstrating the simple view example
+See sample data for demonstrating the simple view example:
 
 ```json
 [
@@ -111,7 +111,7 @@ function(employee) {
 ```
 {: codeblock}
 
-### Example response from running the simple view query
+See an example response from running the simple view query:
 
 ```json
 {
@@ -147,7 +147,7 @@ The following map function checks whether the object has a `foo` field,
 and if so emits the value of this field.
 With this check, you can query against the value of the `foo` field.
 
-#### Example of indexing a field
+See an example of indexing a field:
 
 ```javascript
 function(doc) {
@@ -164,7 +164,7 @@ function(doc) {
 If the object passed to `emit` has an `_id` field,
 a view query with `include_docs` set to `true` contains the document with the specific ID.
 
-#### Example of indexing a one-to-many relationship
+See an example of indexing a one-to-many relationship:
 
 ```javascript
 function(doc) {
@@ -355,7 +355,7 @@ The latter case is referred to as a "rereduce".
 
 A description of the reduce functions is shown in the following example.
 
-### Example of a custom reduce function
+See an example of a custom reduce function:
 
 ```javascript
 function (keys, values, rereduce) {
@@ -399,7 +399,7 @@ returned. More detailed information about the failure is provided in the `reason
 original data that caused the error is returned in the `caused_by` field.
 
 
-#### Example of the reply
+See an example reply:
 
 ```json
 {
@@ -520,7 +520,7 @@ In the following example,
 the `hadtraining` view is defined as a map function,
 and is available within the `views` field of the design document.
 
-### Example of `PUT`ting a view into a design document called `training` by using HTTP
+See an example of `PUT`ting a view into a design document called `training` by using HTTP:
 
 ```http
 PUT /$DATABASE/_design/training HTTP/1.1
@@ -528,7 +528,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example of `PUT`ting a view into a design document called `training` by using the command line
+See an example of `PUT`ting a view into a design document called `training` by using the command line:
 
 ```sh
 curl -X PUT "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/training" --data-binary @view.def
@@ -536,7 +536,7 @@ curl -X PUT "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/
 ```
 {: codeblock}
 
-### Example view definition
+See an example view definition:
 
 ```json
 {

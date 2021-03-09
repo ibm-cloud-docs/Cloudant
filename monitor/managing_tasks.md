@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-09"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -56,7 +56,7 @@ This filter makes it easier to get all replication documents,
 or the details of just one particular view indexing task.
 The API reference has more information about the options.
 
-### Example of obtaining and formatting a list of active tasks
+See an example of obtaining and formatting a list of active tasks:
 
 ```sh
 curl "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.'
@@ -87,21 +87,21 @@ In each case,
 the results of searching for a list of indexing tasks is a list of JSON objects:
 one for each of the active tasks found.
 
-### Example of finding all view indexing tasks by filtering for the `indexer` type
+See an example of finding all view indexing tasks by filtering for the `indexer` type:
 
 ```sh
 curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-### Example of finding all search indexing tasks by filtering for the `search_indexer` type
+See an example of finding all search indexing tasks by filtering for the `search_indexer` type:
 
 ```sh
 curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-### Example results after you search for view indexing tasks
+See example results after you search for view indexing tasks:
 
 ```json
 {
@@ -160,28 +160,28 @@ Make it easier to select the information about a replication process from the li
 1. Start the replication process by creating a document in the `_replicator` database.
 2. Set its `_id` field to a known value.
 
-### Example of finding all replication tasks, by filtering for the `replication` type
+See an example of finding all replication tasks, by filtering for the `replication` type:
 
 ```sh
 curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-### Example of finding a specific replication task, by filtering for a known document identity
+See an example of finding a specific replication task, by filtering for a known document identity:
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-### Example of finding a specific replication task, by filtering for a known `replication_id`
+See an example of finding a specific replication task, by filtering for a known `replication_id`:
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-### Example result after you search for a replication task
+See an example result after you search for a replication task:
 
 ```json
 {
