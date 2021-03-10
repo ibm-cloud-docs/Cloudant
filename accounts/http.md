@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-03-08"
 
 keywords: http headers, response headers, http status codes
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # HTTP
 {: #http}
 
-Learn details about the [HTTP headers](#http-headers) you need to know when you use {{site.data.keyword.cloudantfull}}.
+Learn details about the HTTP headers you need to know when you use {{site.data.keyword.cloudantfull}}.
 {: shortdesc}
 
 ## HTTP headers
@@ -179,11 +179,11 @@ The `If-None-Match` header is optional.
 You might send it to determine whether a document was modified since it was last read or updated.
 The value of the `If-None-Match` header must match the last [`Etag`](#etag) value received.
 If the value matches the current revision of the document,
-the server sends a [`304 Not Modified`](#http-status-codes) status code,
+the server sends a [`304 Not Modified`](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) status code,
 and the response itself has no body.
 
 If the document was modified,
-you get a normal [`200` response](#http-status-codes),
+you get a normal [`200` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes),
 provided the document still exists and no other errors occurred.
 
 ### Response headers
@@ -231,7 +231,7 @@ or the response from a show function.
 For documents,
 the value is identical to the revision of the document.
 The value can be used with an `If-None-Match` request header
-to get a [`304 Not Modified`](#http-status-codes) response if the revision is still current.
+to get a [`304 Not Modified`](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) response if the revision is still current.
 
 ETags cannot currently be used with views or lists,
 since the ETags returned from those requests are random numbers that change on every request.

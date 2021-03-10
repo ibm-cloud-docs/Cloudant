@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-08"
 
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
@@ -24,7 +24,7 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2020-12-21 -->
 
-# {{site.data.keyword.cloudant_short_notm}} basics
+# Using {{site.data.keyword.cloudant_short_notm}}
 {: #ibm-cloudant-basics}
 
 If you have never used {{site.data.keyword.cloudantfull}} or NoSQL databases in general, scan this introduction and some best practices before you read further. It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}} and how to use it best. The rest of the documentation assumes that you know these basics.

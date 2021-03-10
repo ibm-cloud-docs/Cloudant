@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-09"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -55,7 +55,7 @@ or search for documents based on a spatial relationship. In effect, {{site.data.
 For example, you specify a document that is considered "contained" if it has
 a geospatial characteristic that fits within a given geospatial polygon, which is defined by a series of points.
 
-### Example of a relationship that uses a geospatial polygon
+See an example of a relationship that uses a geospatial polygon:
 
 ```
 relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
@@ -106,12 +106,12 @@ up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
 page through them by using the arrows.
 
-For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center](http://www.cloudant.com/learning-center#geo){: new_window}{: external}.
+For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center){: new_window}{: external}.
 
 ## GeoJSON
 {: #geojson}
 
-[GeoJSON format](http://geojson.org/geojson-spec.html){: new_window}{: external}
+[GeoJSON format](https://geojson.org/){: new_window}{: external}
 is used to express the following various geographic data structures:
 
 - `Point`
@@ -168,7 +168,7 @@ See the example GeoJSON document in the following example:
 
 For more information about GeoJSON,
 including the full specification,
-go to [http://geojson.org/](http://geojson.org/){: new_window}{: external}.
+go to [GeoJSON](http://geojson.org/){: new_window}{: external}.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #creating-a-cloudant-nosql-db-geo-index}
@@ -223,8 +223,7 @@ For example,
 you might want to find information about the `geoidx` geospatial index,
 held within the `geodd` design document of the `crimes` database.
 
-### Example request, by using HTTP
-{: #example-request-by-using-http-cloudant-geo}
+See an example request, by using HTTP:
 
 ```http
 GET /crimes/_design/geodd/_geo_info/geoidx HTTP/1.1
@@ -232,8 +231,7 @@ Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-### Example request, by using the command line
-{: #example-request-by-using-the-command-line-cloudant-geo} 
+See an example request, by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx"
@@ -250,8 +248,7 @@ Field | Description
 `data_size` | The size of the geospatial index, in bytes.
 {: caption="Table 1. Fields in JSON response" caption-side="top"}
 
-### Example response in JSON format
-{: #example-response-in-json-format}
+See an example response in JSON format:
 
 ```json
 {
@@ -280,7 +277,7 @@ where the query parameters field `<query-parameters>` includes three different t
 - Geometric relation
 - Result set
 
-### Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call
+See an example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:
 
 ```http
 /$DATABASE/_design/$DDOCS/_geo/$INDEX_NAME?$QUERY_PARAMS
@@ -301,35 +298,35 @@ Parameter | Description
 `<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
 {: caption="Table 2. Types of query geometries" caption-side="top"}
 
-#### Example of a `bbox` query
+See an example of a `bbox` query:
 
 ```http
 ?bbox=-11.05987446,12.28339928,-101.05987446,62.28339928
 ```
 {: codeblock}
 
-#### Example of an `ellipse` query
+See an example of an `ellipse` query:
 
 ```http
 ?lat=-11.05987446&lon=12.28339928&rangex=200&rangey=100
 ```
 {: codeblock}
 
-#### Example of a `radius` query
+See an example of a `radius` query:
 
 ```http
 ?lat=-11.05987446&lon=12.28339928&radius=100
 ```
 {: codeblock}
 
-#### Example of a `point` query
+See an example of a `point` query:
 
 ```http
 ?g=point(-71.0537124 42.3681995)
 ```
 {: codeblock}
 
-#### Example of a `polygon` query
+See an example of a `polygon` query:
 
 ```http
 ?g=polygon((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
@@ -389,7 +386,7 @@ For example,
 one police officer might search five crimes that occurred near a specific location
 by typing the query in the following example.
 
-#### Example query to find nearest five crimes against a specific location
+See an example query to find nearest five crimes against a specific location:
 
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POINT(-71.0537124 42.3681995)&nearest=true&limit=5
@@ -408,6 +405,8 @@ the results include all GeoJSON documents in the database whose order is measure
 
 ## Example - Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #example-querying-a-cloudant-nosql-db-geo-index}
+
+The following sections show a simple and a complex example. 
 
 ### Simple circle
 {: #simple-circle}
@@ -428,14 +427,14 @@ So,
 to find all documents that fall within the circle,
 you use the `contains` relation.
 
-#### Example query to find documents that have a geospatial position within a circle
+See an example query to find documents that have a geospatial position within a circle:
 
 ```sh
 curl -X GET "https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?lat=42.3397&lon=-71.07959&radius=10&relation=contains&format=geojson"
 ```
 {: codeblock}
 
-#### Example response to the query that has a geospatial position within a circle
+See an example response to the query that has a geospatial position within a circle:
 
 ```json
 {
@@ -470,14 +469,14 @@ For example,
 you might provide a polygon description as the geometric object,
 and then request that the query return details of documents within the database that are contained by the polygon.
 
-#### Example query to find documents that have a geospatial position within a polygon
+See an example query to find documents that have a geospatial position within a polygon:
 
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POLYGON((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))&relation=contains&format=geojson
 ```
 {: codeblock}
 
-#### Example response to the query that finds documents with a geospatial position within a polygon
+See an example response to the query that finds documents with a geospatial position within a polygon:
 
 ```json
 {

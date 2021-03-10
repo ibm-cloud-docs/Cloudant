@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-08"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -381,8 +381,6 @@ you must ensure that two conditions are true:
 
 As soon as the search index design document exists and the index is built,
 you can make queries by using it.
-
-For more information, see [search](/docs/Cloudant?topic=Cloudant-search#search).
 
 ### General notes on functions in design documents
 {: #general-notes-on-functions-in-design-documents}
@@ -977,7 +975,7 @@ The `_selector` filter accepts only changes for documents that match a specified
 for [`_find`](https://cloud.ibm.com/apidocs/cloudant#postfind).
 
 For more examples that show use of this filter,
-see the information on [selector syntax](/docs/Cloudant/api/cloudant_query.html#selector-syntax).
+see the information on [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax).
 
 See the following example application of the `_selector` filter by using HTTP:
 
