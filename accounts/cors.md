@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-22"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
@@ -84,7 +84,7 @@ To reduce the risk of man-in-the-middle attacks, follow these guidelines:
 -	Ensure that web applications that run on allowed origin domains are trusted
 	and do not have security vulnerabilities.
 
-For more information about the configuration endpoints for CORS, see the [API documentation](/apidocs/cloudant#getcorsinformation){: new_window}{: external}.
+For more information about the configuration endpoints for CORS, see the [API & SDK documentation](/apidocs/cloudant#getcorsinformation).
 
 ## Dashboard
 {: #dashboard}
