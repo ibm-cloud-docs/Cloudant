@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
-keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
+keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8182, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
 subcollection: Cloudant
 
@@ -56,6 +56,16 @@ For more information, see the following links:
 {: #replication-scheduler}
 
 The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
+
+## Build 8182 (March 2021)
+{: #build-8182-03-2021}
+
+- Bug fixes.
+- Apply caching to account-local `_users` dbs.
+- Treat 408 as a retryable error condition for replicator.
+- Allow gzipped requests to `/_session` endpoint.
+- Show process status in `/_active_tasks` endpoint.
+- Validate JSON payload on `POST` to `/{DB}/_changes` endpoint.
 
 ## Build 8169 (December 2020)
 {: #build-8169-12-2020}
