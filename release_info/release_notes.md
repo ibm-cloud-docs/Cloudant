@@ -112,7 +112,6 @@ The new replication scheduler has several improvements and enhancements. Learn m
 - Add a warning to the `_find` endpoint if multiple document scans were required to generate a result.
 - Fix a bug in the `_find` endpoint whereby an error would be returned if a document matched by a text index was deleted while the query was being processed.  
 
-
 ## Build 8126 (January 2020)
 {: #build-8126-January-2020}
 
@@ -124,7 +123,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 8111 (November 2019)
 {: #build-8111-november-2019}
 
-- Bug fixes.
+- Bug fixes. 
 - The `_scheduler/docs` endpoint now includes more detailed replication statistics to match `_active_tasks` output. It also includes details on replications that started with `_replicate`.
 - Fix an instance where the replicator failed a replication but the error was recoverable.
 - Fix a bug introduced in recent builds where sending an empty payload to `_bulk_docs` would result in a 400 response status code rather than accepting the no-op operation.
@@ -367,13 +366,13 @@ Only the fields that are in front of the current sort fields in the list are add
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
 - Introduce new `_dbs_info` endpoint to get information from a list of databases. See
-[Get a list of all databases in the instance](https://cloud.ibm.com/apidocs/cloudant#getalldbs).
+[Get a list of all databases in the instance](/apidocs/cloudant#getalldbs){: new_window}{: external}.
 - Prepare for session support in replicator.
 
 ## Build 6656 (15 February 2018)
 {: #build-6656-february-15-2018}
 
-- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](https://cloud.ibm.com/apidocs/cloudant#postalldocs).
+- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/apidocs/cloudant#postalldocs){: new_window}{: external}.
 - When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response.
@@ -408,8 +407,8 @@ JavaScript.
 - {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}{: external}.
 - The logic for determining whether a specific index is valid for a query that changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
-- Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](https://cloud.ibm.com/apidocs/cloudant#postindex) to learn about the `partial_filter_selector` parameter.
-- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](https://cloud.ibm.com/apidocs/cloudant#postfind) to learn more about `execution_stats=true` parameter.
+- Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](/apidocs/cloudant#postindex){: new_window}{: external} to learn about the `partial_filter_selector` parameter.
+- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} to learn more about `execution_stats=true` parameter.
 - [Pagination](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks) is supported by using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
 field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
@@ -443,7 +442,7 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial)
-  results in an [HTTP `404`](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) response.
+  results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} response.
 - Added support for the `$allmatch` operator.
 
 ## Build 5834 (13 February 2017)

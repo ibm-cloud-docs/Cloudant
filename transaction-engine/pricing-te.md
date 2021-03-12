@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -262,7 +262,7 @@ Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends on
 
 Using the `POST /db/_find` endpoint to query a database becomes expensive if the query is not backed by a supporting secondary index. The query isn't charged based on the number of documents that are returned but based on the *number of documents scanned* to get the answer. If a query has to churn through hundreds of "cancelled" orders before it finds the "completed" orders it needs, then the query is more expensive than it need be and might exhaust your provisioned read allocation.
 
-The best practice is to [create indexes](https://cloud.ibm.com/apidocs/cloudant#postindex) on the fields your query is searching for. A query that exactly aligns with a secondary index consumes only one read unit per returned document. Creating the right index for your data takes skill. Read some advice on [index design and optimization](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html).
+The best practice is to [create indexes](/apidocs/cloudant#postindex){: new_window}{: external} on the fields your query is searching for. A query that exactly aligns with a secondary index consumes only one read unit per returned document. Creating the right index for your data takes skill. Read some advice on [index design and optimization](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html).
 
 ### Deleting databases is the cleanest way to purge old unwanted data
 {: #delete-databases-to-purge-unwanted-date}

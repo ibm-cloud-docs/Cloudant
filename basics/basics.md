@@ -2,8 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-08"
-
+lastupdated: "2021-03-11"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -33,7 +32,7 @@ If you have never used {{site.data.keyword.cloudantfull}} or NoSQL databases in 
 You can find more information about {{site.data.keyword.cloudant_short_notm}} in the following sections: 
 
 - [Client Libraries](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries)
-- [API & SDK reference](https://cloud.ibm.com/apidocs/cloudant#introduction)
+- [API & SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant-basics}
@@ -45,8 +44,9 @@ you must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/log
 ## HTTP API
 {: #http-api-basics}
 
-All requests to {{site.data.keyword.cloudant_short_notm}} go over the web, so any system that can speak to the web can speak to {{site.data.keyword.cloudant_short_notm}}.
-All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} are really just wrappers that provide
+All requests to {{site.data.keyword.cloudant_short_notm}} go over the web.
+This statement means that any system that can speak to the web can speak to {{site.data.keyword.cloudant_short_notm}}.
+All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} are just wrappers that provide
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
@@ -66,22 +66,22 @@ For more information about how {{site.data.keyword.cloudant_short_notm}} uses HT
 
 -   `HEAD`
 
-    The `HEAD` method is used to get the HTTP header of a `GET` request without the body of the response.
+    The `HEAD` method retrieves the HTTP header of a `GET` request without the body of the response.
 
 -   `POST`
 
     Upload data.
-    Within {{site.data.keyword.cloudant_short_notm}}'s API,
-    the `POST` method is used to set values,
-    upload documents,
-    set document values,
-    and start some administration commands.
+    In {{site.data.keyword.cloudant_short_notm}}'s API,
+    the `POST` method sets values,
+    uploads documents,
+    sets document values,
+    and starts some administration commands.
 
 -   `PUT`
 
     Used to "store" a specific resource.
     In {{site.data.keyword.cloudant_short_notm}}'s API,
-    `PUT` is used to create new objects,
+    `PUT` creates new objects,
     including databases,
     documents,
     views,
@@ -96,7 +96,7 @@ For more information about how {{site.data.keyword.cloudant_short_notm}} uses HT
 
 -   `COPY`
 
-    A special method that can be used to copy documents and objects.
+    A special method that copies documents and objects.
 
 If the client (such as some web browsers) doesn't support the use of HTTP methods,
 `POST` can be used instead with the `X-HTTP-Method-Override` request header set to the actual HTTP method.
@@ -105,7 +105,7 @@ If the client (such as some web browsers) doesn't support the use of HTTP method
 {: #method-not-allowed-error-basics}
 
 If you use an unsupported HTTP request type with a URL that doesn't support the specified type,
-a [405](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) error is returned that lists the supported HTTP methods, as shown in the following example.
+a [405](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} error is returned that lists the supported HTTP methods, as shown in the following example.
 
 #### Example error message in response to an unsupported request
 {: #example-error-message-basics}
@@ -121,21 +121,20 @@ a [405](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) error is retu
 ## JSON
 {: #json-overview-basics}
 
-{{site.data.keyword.cloudant_short_notm}} stores documents using JSON (JavaScript Object Notation) encoding,
+{{site.data.keyword.cloudant_short_notm}} stores documents that use JSON (JavaScript Object Notation) encoding,
 so anything encoded into JSON can be stored as a document.
 Files that include media,
 such as images,
 videos,
 and audio,
-are called BLOBs (Binary Large OBjects),
-and can be stored as attachments associated with documents.
+are called BLOBs (Binary Large Objects). BLOBs can be stored as attachments associated with documents.
 
 More information about JSON can be found in the [JSON Guide](/docs/Cloudant?topic=Cloudant-json).
 
 ## Distributed systems
 {: #distributed-systems-basics}
 
-{{site.data.keyword.cloudant_short_notm}}'s API enables you to interact with a collaboration of numerous machines,
+By using {{site.data.keyword.cloudant_short_notm}}'s API, you can interact with a collaboration of numerous machines,
 called a cluster.
 The machines in a cluster must be in the same datacenter,
 but can be within different "pods" in that datacenter.
@@ -158,7 +157,7 @@ and other distributed databases.
 Replication synchronizes the state of two databases so that their contents are identical.
 
 You can replicate continuously.
-This means that a target database updates every time the source database changes.
+Continuous replication means that a target database updates every time the source database changes.
 Continuous replication can be used for backups of data,
 aggregating data across many databases,
 or for sharing data.

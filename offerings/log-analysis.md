@@ -1,7 +1,8 @@
 ---
 
 copyright:
-lastupdated: "2021-02-19"
+  years: 2015, 2021
+lastupdated: "2021-03-11"
 
 keywords: log analysis, integration
 
@@ -83,7 +84,7 @@ Log Lines | Description
 `bytesRead`| The size of the response body. 
 `clientIp` | The IP address of the originating request. 
 `clientPort` | The port address for the originating request. 
-`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
+`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
 `terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: new_window}{: external}.
 `dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.
 `dbRequest` | The database request endpoint.

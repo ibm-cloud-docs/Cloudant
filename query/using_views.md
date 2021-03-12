@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -727,7 +727,7 @@ See the example (abbreviated) response, returning the full document for each rec
 ## Sending several queries to a view
 {: #sending-several-queries-to-a-view}
 
-Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](https://cloud.ibm.com/apidocs/cloudant#postviewqueries).
+Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: new_window}{: external}.
 
 For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=Cloudant-deprecations#replaced-queries-parameter).
 {: deprecated}

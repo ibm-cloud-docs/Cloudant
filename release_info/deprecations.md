@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -58,6 +58,23 @@ You can also make multiple queries with the following new endpoints:
 
 - `POST /{db}/_all_docs/queries`
 - `POST /{db}/_design_docs/queries`
+
+## Multiple restrictions employed for performance gains (October 21, 2019)
+
+We are releasing exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that will be available in the near future. Before that happens, we are documenting the deprecation of some functionality, and also, new, yet to be enforced, restrictions for other processes. A communication will be released that details the exact timeline when these restrictions go into effect. If you use any of the following functionality or are concerned about how to make the necessary application changes, reach out to support by email.  
+
+The following functions are affected by this deprecation: 
+
+1. Remove the `offset` field from the response body of an `all_docs` request. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use paging with `start_key` / `end_key` and `limit`.
+2. The `_sorted` field has no functional effect because all responses are sorted automatically. 
+3. Duration of operations has a 5-second limit. Transactions lasting more than 5 seconds fail. 
+4. Limitations on keys (10KB) and values (100KB) that are emitted from a map function are shown in the following list: 
+- The sum of all keys emitted for a document cannot exceed 100 KB.
+- Emitted keys cannot exceed 10 KB.
+- Values cannot exceed 100 KB.
+- In rare cases, the number of key-value pairs emitted for a map function might lead to a transaction either exceeding 10 MB in size, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
+5. The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
+
 
 ## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (7 February 2018)
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
@@ -168,7 +185,7 @@ The `X-Frame-Options` setting is a response header that controls whether an HTTP
 You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned.
  
 This change might impact customers who are accessing the database directly from the browser. If you see the error message, "X-Frame-Options: DENY", 
-and it's breaking your service, you must enable CORS by [modifying the CORS configuration](https://cloud.ibm.com/apidocs/cloudant#putcorsconfiguration). After you enable CORS, add the value of the HOST header that you send in the request 
+and it's breaking your service, you must enable CORS by [modifying the CORS configuration](/apidocs/cloudant#putcorsconfiguration){: new_window}{: external}. After you enable CORS, add the value of the HOST header that you send in the request 
 to the list of allowed `origins`.
 
 ## `dbcopy` (4 February 2016)

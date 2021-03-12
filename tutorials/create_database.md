@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-11"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -289,7 +289,11 @@ We can then show the content of an element in the array.
     ```
     {: codeblock}
 
-In a relational database, there is a simple notion that the first document stored in a database is always the first document returned in a list of results. This notion doesn't necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}.
+In a relational database, there is a simple notion that the first 
+document that is stored in a database
+is always the first document returned in a list of results. 
+This notion doesn't
+necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}
 {: tip}
 
 ### Full retrieval of a document
@@ -346,7 +350,7 @@ from within a Python application.
 In this example code,
 we again request a list of all the documents,
 including their content.
-However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](https://cloud.ibm.com/apidocs/cloudant#postalldocs).
+However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/apidocs/cloudant#postalldocs){: new_window}{: external}.
 
 1. Identify the endpoint to contact and any parameters to supply with it.
 

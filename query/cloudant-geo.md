@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-11"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -264,7 +264,7 @@ See an example response in JSON format:
 
 If the design document that is intended to specify a geospatial index is invalid,
 an attempt to retrieve information about the index by using the `_geo_info` endpoint
-results in an [HTTP `404`](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) response.
+results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} response.
 {: tip}
 
 ## Querying an {{site.data.keyword.cloudant_short_notm}} Geo index

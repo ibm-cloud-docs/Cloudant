@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-03-11"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -822,7 +822,7 @@ Argument       | Description | Supported values | Default
 ----------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False 
 `descending`   | Return the changes in sequential order. | Boolean | False 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](https://cloud.ibm.com/apidocs/cloudant#getserverinformation) documentation. | A JSON array of document IDs | 
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](/apidocs/cloudant#getserverinformation){: new_window}{: external} documentation. | A JSON array of document IDs | 
 `feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
 `filter`       | Name of [filter function](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=Cloudant-design-documents#design-documents). | `string` | No filter.
 `heartbeat`    | If no changes occurred during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | Any positive number | No heartbeat 
@@ -974,8 +974,8 @@ several built-in filters are available:
    {: note}
 
 *   `_selector` - Accepts only changes for documents that match a specified selector,
-    which is defined by using the same [selector syntax](https://cloud.ibm.com/apidocs/cloudant#postfind) that is used
-    for [`_find`](https://cloud.ibm.com/apidocs/cloudant#postexplain).
+    which is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} that is used
+    for [`_find`](/apidocs/cloudant#postexplain){: new_window}{: external}.
 
    The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
    {: note}

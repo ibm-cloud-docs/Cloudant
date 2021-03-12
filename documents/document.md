@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-11"
 
 keywords: create, read, read many, update, delete, tombstone documents, database compaction, bulk operations, quorum, ttl
 
@@ -32,7 +32,7 @@ Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
 
-If you're using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
+If you're using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
 {: tip}
 
 {{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem) model for data.
@@ -221,7 +221,7 @@ See an example response after successfully creating a document:
 ```
 {: codeblock}
 
-If the write [quorum](#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) is returned.
+If the write [quorum](#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} is returned.
 {: tip}
 
 ## Read
@@ -233,7 +233,7 @@ send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 Recall that for a partitioned database the `$DOCUMENT_ID` is formed of a partition key part and a document key part.
 
 If you don't know the `_id` for a particular document,
-you can [query the database](https://cloud.ibm.com/apidocs/cloudant#postalldocsqueries) for all documents.
+you can [query the database](/apidocs/cloudant#postalldocsqueries){: new_window}{: external} for all documents.
 
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
 data that were written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
@@ -301,7 +301,7 @@ Name                | Type | Description | Default
 {: #read-many}
 
 To fetch more than one document at a time,
-[query the database](https://cloud.ibm.com/apidocs/cloudant#postalldocs)
+[query the database](/apidocs/cloudant#postalldocs){: new_window}{: external}
 by using the `include_docs` option.
 
 ## Update
@@ -315,7 +315,7 @@ in which case you don't need to supply the most recent `_rev` value.
 
 Recall that for a partitioned database the `$DOCUMENT_ID` is formed from a partition key part and a document key part.
 
-If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}. This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} is returned.
 {: note}
 
 Any document update can lead to a conflict, especially when you replicate updated documents. For more information about avoiding and resolving conflicts, see the [Document versioning and MVCC guide](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
@@ -382,7 +382,7 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
-If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes) is returned.
+If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}. This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} is returned.
 {: note}
 
 {{site.data.keyword.cloudant_short_notm}} doesn't completely delete the specified document. Instead, it leaves a [tombstone](#tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
@@ -792,7 +792,7 @@ See an example JSON for a bulk insert of three documents:
 ```
 {: codeblock}
 
-The return code from a successful bulk insertion is [`201`](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes).
+The return code from a successful bulk insertion is [`201`](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
 The content of the returned structure indicates success
 or other information messages on a per-document basis.
 
@@ -975,7 +975,7 @@ See an example JSON structure that is returned after bulk delete:
 ### Bulk documents transaction semantics
 {: #bulk-documents-transaction-semantics}
 
-If your request receives a [`202` response](https://cloud.ibm.com/apidocs/cloudant#list-of-http-codes),
+If your request receives a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external},
 the only certainty is that some of the document tasks were processed completely.
 The response body contains the list of documents that were successfully inserted or updated during the process.
 
@@ -1079,7 +1079,7 @@ See an example error message from a validation function:
 {: #the-_bulk_get-endpoint}
 
 You might need to access all the available information about multiple documents.
-The `_bulk_get` endpoint is similar to the [`_all_docs`](https://cloud.ibm.com/apidocs/cloudant#postalldocs) endpoint,
+The `_bulk_get` endpoint is similar to the [`_all_docs`](/apidocs/cloudant#postalldocs){: new_window}{: external} endpoint,
 but returns information about the requested documents only.
 
 Like the `_bulk_docs` endpoint,

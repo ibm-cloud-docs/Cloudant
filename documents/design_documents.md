@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-03-11"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -430,7 +430,7 @@ The `head` argument identifies the documents to be processed by the list functio
 The `req` argument includes more information about the request. With this argument, you can create list functions that are more dynamic
 because they're based on multiple factors such as query parameters or the user context.
 
-The values within the `req` argument are described in  [Retrieve a design document](https://cloud.ibm.com/apidocs/cloudant#getdesigndocument) in the Response section under Filters.
+The values within the `req` argument are described in  [Retrieve a design document](/apidocs/cloudant#getdesigndocument){: new_window}{: external} in the Response section under Filters.
 
 See the following example design document that references a list function, expressed by using JSON:
 
@@ -532,7 +532,7 @@ Field            | Description
 `query`          | URL query parameters object. Therefore, multiple keys aren't supported, the last duplicate key overrides the others.
 `requested_path` | List of actual requested path section.
 `raw_path`       | Raw requested path string.
-`secObj`         | The database's [security object](https://cloud.ibm.com/apidocs/cloudant#getdatabaseinformation).
+`secObj`         | The database's [security object](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
 `userCtx`        | Context about the currently authenticated user, specifically, their `name` and `roles` within the current database.
 `uuid`           | A generated UUID.
 {: caption="Table 7. Fields for the `req` argument" caption-side="top"}
@@ -858,7 +858,7 @@ A number of predefined filter functions are available:
 
 *	[`_design`](#the-_design-filter) - accepts only changes to design documents.
 *	[`_doc_ids`](#the-_doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](https://cloud.ibm.com/apidocs/cloudant#postfind) as described in the Request section, which is used for [`_find`](https://cloud.ibm.com/apidocs/cloudant#getdatabaseinformation).
+*	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
 *	[`_view`](#the-_view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
@@ -972,7 +972,7 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 {: #the-_selector-filter}
 
 The `_selector` filter accepts only changes for documents that match a specified selector, defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
-for [`_find`](https://cloud.ibm.com/apidocs/cloudant#postfind).
+for [`_find`](/apidocs/cloudant#postfind){: new_window}{: external}.
 
 For more examples that show use of this filter,
 see the information on [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax).
@@ -1103,7 +1103,7 @@ Argument  | Purpose
 ----------|--------
 `newDoc`  | The version of the document passed in the request.
 `oldDoc`  | The version of the document currently in the database, or `null` if none exists.
-`secObj`  | The [security object](https://cloud.ibm.com/apidocs/cloudant#getsecurity) for the database.
+`secObj`  | The [security object](/apidocs/cloudant#getsecurity){: new_window}{: external} for the database.
 `userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`.
 {: caption="Table 10. Arguments for the update validator" caption-side="top"}
 
