@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-21"
+  years: 2015, 2021
+lastupdated: "2021-03-17"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -1097,7 +1097,7 @@ the {{site.data.keyword.cloudant_local_notm}} system.
    b. Revisit the front-end IP address.
 
 12. Reconnect the highest priority load balancer.
-13. Disconnect the lower priority load balancer.
+13. Disconnect the lowest priority load balancer.
 14. Recheck that you can access the front-end IP address successfully by going to the IP address in a browser.
 
 ## Database-level security

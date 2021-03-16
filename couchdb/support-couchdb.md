@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-03-16"
 
 keywords: apache couchdb, support, extension
 
@@ -81,19 +81,20 @@ Virtual Processor Core (vCPU) is a unit of measure by which the Program can be l
 
 The following list outlines the support requirements you need to qualify for support for Apache CouchDB: 
 
-- Apache CouchDB version: 3.x or above.
+- Apache CouchDB version: 3.x or later.
 - OS: Officially-supported Linux distributions of Apache CouchDB installers or containers.
 - CPU Architecture: x86 or Power.
 - Installation Artifacts: Supported artifacts are listed at [Apache CouchDB - Install](/docs/Cloudant?topic=Cloudant-apache-couchdb-install).
 
 For customers deploying Apache CouchDB in containerized environments, the following list outlines the support requirements you need to qualify for support for Apache CouchDB:
 
-- Kubernetes: 1.14 or above.
-- Red Hat OpenShift: 4.x or above.
+- Kubernetes: 1.14 or later.
+- Red Hat OpenShift: 4.x or later.
 - Installation only via [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator).
 - Storage: POSIX compliant storage is required. NFS that doesn't meet POSIX compliance causes instability and errors if used. Apache CouchDB is an I/O intensive database, and it's recommended that you use SSDs for heavy workloads. For more details on specific persistent storage requirements, see the [Operator for Apache CouchDB configuration documentation](/docs/Cloudant?topic=Cloudant-configure-couchdb-cluster#couchdb-storage).  
 
-**Logging**
+#### Logging
+{: #logging-supportcdb}
 
 Customers are required to capture logs and provide those logs directly to {{site.data.keyword.IBM_notm}} support. Log types include but are not limited to the ones in the following list:
 

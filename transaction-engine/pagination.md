@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-23"
+  years: 2020, 2021
+lastupdated: "2021-03-18"
 
 keywords: _all_docs endpoint, page_size, bookmarks, query, search, paging, mapreduce views
 
@@ -24,8 +24,8 @@ subcollection: Cloudant
 <!-- Acrolinx: 2020-12-23 -->
 
 
-# Pagination and bookmarks
-{: #pagination-and-bookmarks-te}
+# Pagination
+{: #pagination-te}
 
 The content described here applies only to {{site.data.keyword.cloudantfull}} on Transaction Engine.
 
@@ -99,8 +99,8 @@ GET /$DATABASE/_all_docs?page_size=10  HTTP/1.1
 
 The maximum value of the `page_size` parameter is 2000.
 
-## Pagination
-{: pagination-te}
+## How to use pagination?
+{: pagination-how-te}
 
 To iterate through a range of documents, we must devise an algorithm to page
 through the range. For example, we want to page through `_all_docs` in blocks
@@ -177,14 +177,14 @@ The response is a JSON object that might contain the `next`/`prev` tokens:
 ```
 {: codeblock}
 
-**Notes**
+Review the following notes:
 
 - The `prev` bookmark can be used to return to the previous page.
-- The `prev` and `next` bookmarks are optional. If no more pages are left, they are omitted. 
+- The `prev` and `next` bookmarks are optional. If no more pages remain, they are omitted. 
 - It is an error to provide any arguments other than `bookmark` to subsequent requests.
 - The `limit` parameter restricts the total number of returned documents.
 
-### Multiple queries with pagination
+### Using multiple queries with pagination
 {: #multiple-queries-with-pagination}
 
 See the following example that uses HTTP to run multiple queries:
@@ -278,7 +278,7 @@ See the following example response for multiple queries:
 
 The `next` tokens could be used in `GET /$DATABASE/_all_docs?bookmark=...` to retrieve the next page of each query.
 
-**Notes**
+Review the following notes:
 
 - The `page_size` key is forbidden in the JSON body of the request.
 
@@ -333,6 +333,6 @@ The response is a JSON object, which can contain the `next` token:
 
 The `next` token can be used in `GET /$DATABASE/_all_docs?bookmark=...` to retrieve the next page of the query.
 
-**Notes**
+Review the following notes:
 
 - The `keys` parameter is not compatible with the `page_size` parameter. If you want to use `keys`, you must make sure that you are not requesting more than 2000 keys at once.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -27,7 +27,7 @@ subcollection: Cloudant
 {: #cloudant-nosql-db-geospatial}
 
 {{site.data.keyword.cloudantfull}} Geospatial,
-or "{{site.data.keyword.cloudant_short_notm}} Geo",
+or `{{site.data.keyword.cloudant_short_notm}} Geo`,
 combines the advanced geospatial queries of a Geographic Information System (GIS)
 with the flexibility and adaptability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities. These capabilities include GeoJSON, {{site.data.keyword.cloudant_short_notm}} Geo index, and more. 
 {: shortdesc}
@@ -52,7 +52,7 @@ The key advantage to using {{site.data.keyword.cloudant_short_notm}} Geo is that
 specify,
 or search for documents based on a spatial relationship. In effect, {{site.data.keyword.cloudant_short_notm}} uses geometry to provide an extra way of expressing the relationship between and within documents.
 
-For example, you specify a document that is considered "contained" if it has
+For example, you specify a document that is considered `contained` if it has
 a geospatial characteristic that fits within a given geospatial polygon, which is defined by a series of points.
 
 See an example of a relationship that uses a geospatial polygon:
@@ -86,7 +86,7 @@ follow these steps:
 1. Select the database that contains spatially indexed data.
 2. Select the Design Documents menu.
 3. Select the design document that contains the definition of the spatial index.
-   A "Geospatial Indexes" menu appears for the spatial index.
+   A `Geospatial Indexes` menu appears for the spatial index.
 4. Select the Geospatial Index for your data.
    A map view appears, showing a small selection of the spatial features contained within the index.
 5. To see a JSON view of the index, click the corresponding map view button.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -156,7 +156,7 @@ This option works, but we end up fetching n+1 documents when only n are required
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
 
-If we're determined to fetch only `n` documents each time, then we need to calculate a value of `startkey`, which means "the next ID after the last _id in the result set". For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
+If we're determined to fetch only `n` documents each time, then we need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
 
 ```http
 # first request
@@ -228,7 +228,7 @@ The `startkey_docid` parameter works only if a `startkey` is supplied and where 
 
 It's this sort of access pattern that {{site.data.keyword.cloudant_short_notm}} *bookmarks* are built for. Here's how it works:
 
-- Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, "find me the first 10 cities where the country is 'US'".
+- Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, `find me the first 10 cities where the country is 'US'`.
 - {{site.data.keyword.cloudant_short_notm}} provides an array of ten {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
 - When the next set of results is required, the search is repeated. However, not only is the query sent, the bookmark from the first response is also sent to {{site.data.keyword.cloudant_short_notm}} in the request.
 - {{site.data.keyword.cloudant_short_notm}} replies with the second set of documents and another bookmark, which can be used to get a third page of results.

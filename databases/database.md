@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-19"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -590,7 +590,7 @@ The undelete API capability does not automatically and immediately remove the da
 
 Send a `GET` request to find a list of all the deleted databases in the {{site.data.keyword.cloudant_short_notm}} instance. 
 
-*Request headers*
+#### Request headers
 
 ```sh    	
 Accept –
@@ -612,7 +612,7 @@ Accept –
 | `start_key` (JSON) | Alias for `startkey`. |
 {: caption="Table 7. Query parameters" caption-side="top"}
 
-*Response headers*
+#### Response headers
 
 ```sh     	
 Content-Type –
@@ -695,11 +695,13 @@ Server: CouchDB (Erlang/OTP)
 
 Send a `POST` request to restore (undelete) a deleted database.
 
-*Parameters*
+#### Parameters
+{: #parameters-db}
 
     None
 
-*Request headers*
+#### Request headers
+{: #request-headers-db}
 
 ```sh
 Accept –
@@ -708,7 +710,9 @@ Accept –
 ```
 {: codeblock}
 
-*Request Body*
+#### Request Body
+{: #request-body-db}
+
 ```sh
 {
     "undelete": {
@@ -736,7 +740,9 @@ curl \
 ```
 {: codeblock}
 
-*Response headers*
+##### Response headers
+{: #response-headers-db}
+
 ```sh
 Content-Type –
     application/json
@@ -760,7 +766,7 @@ Content-Type –
 | `412 Precondition Failed` | Database exists. |
 {: caption="Table 10. HTTP request codes" caption-side="top"}
 
-### `DELETE /_deleted_dbs/{db}`
+##### `DELETE /_deleted_dbs/{db}`
 {: #get-_deleted_dbs-db}
 
 Send a `DELETE` request to permanently delete the database instance, which was soft-deleted with the specified timestamp.
@@ -770,7 +776,8 @@ Send a `DELETE` request to permanently delete the database instance, which was s
 | `timestamp` | Timestamp when the database was deleted. |
 {: caption="Table 11. Parameters for `_deleted_dbs` endpoint" caption-side="top"}
 
-*Request headers*
+###### Request headers 
+{: #request-headers2-db}
 
 ```sh
 Content-Type –
@@ -778,7 +785,8 @@ Content-Type –
 ```
 {: codeblock}
 
-*Response headers*
+###### Response headers
+{: #response-headers2-db}
 
 ```sh
 Content-Type –

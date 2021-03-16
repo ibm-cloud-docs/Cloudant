@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: log analysis, integration
 
@@ -66,7 +66,7 @@ Use caution when you configure the platform service logs, since this setting can
 ## Using {{site.data.keyword.la_full_notm}}
 {: #using-logdna}
 
-Once logs are being live-streamed, each log can be expanded to a detailed view by clicking the arrow to the left of the timestamp.
+Once logs are being live-streamed, each log can be expanded to a detailed view by clicking the arrow by the timestamp.
 
 The expanded view has some handy, color-coded fields to help you parse your logs.
 

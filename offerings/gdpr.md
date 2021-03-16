@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-12-15"
+  years: 2018, 2021
+lastupdated: "2021-03-17"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -48,17 +48,17 @@ You can find information about auditing in [Audit logging](/docs/Cloudant?topic=
 ## Supported classifications of Personal Data
 {: #supported-classifications-of-personal-data}
 
-The following categories of Personal Data are supported by {{site.data.keyword.cloudant_short_notm}} 
+The following categories of **Personal Data** are supported by {{site.data.keyword.cloudant_short_notm}} 
 for GDPR:
 
-**Personal Data**
  * Identity and civil status
  * Personal life
  * Professional life
  * Location data
  * Connectivity and device data
 
-**Sensitive Personal Data**, which is restricted to:
+**Sensitive Personal Data** is restricted to the following category:
+
   * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: new_window}{: external}.
 
 If you're storing healthcare data, you *must* complete the following tasks:
@@ -129,7 +129,7 @@ For more information about data locations, see the
 As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these guidelines:
 
  * Use the default CORS configuration to prevent unexpected access.
- * Use API keys liberally, since components can have "least privileged access", which is coupled with the audit log. This practice helps you understand who accessed which data.
+ * Use API keys liberally, since components can have `least privileged access`, which is coupled with the audit log. This practice helps you understand who accessed which data.
  * Encrypt or otherwise protect (pseudonymize) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical and environmental security measures
@@ -224,8 +224,7 @@ If a document needs removal via a *Right to be forgotten* request, follow these 
 verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} doesn't purge data that doesn't have PI in the `_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
-This process is only to be used for emergency deletion requests (for example, *Right to be 
-forgotten*) and must not be relied upon long term. If your application is intentionally 
+This process is only to be used for emergency deletion requests (for example, *Right to be forgotten*) and must not be relied upon long term. If your application is intentionally 
 using PI in document IDs, 
 then it must be changed to either pseudonymize that PI, or not use PI in document IDs. You cannot 
 rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this situation. 

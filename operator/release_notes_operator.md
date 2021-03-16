@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-03-19"
 
 keywords: couchdb, operator, release notes
 
@@ -32,13 +32,17 @@ Changes and updates to Operator for Apache CouchDB that are grouped by version n
 ## v1.4.2 (30 November 2020)
 {: #v1.4.2}
 
-*Bug fixes*
+### Bug fixes
+{: #bug-fixes-142}
+
  - Fixes memory leak in the `mgmt` container.
 
 ## v1.4.1 (9 November 2020)
 {: #v1.4.1}
 
-*Bug fixes*
+### Bug fixes
+{: #bug-fixes-141}
+
  - Fixes permissions issue with `pre_stop` scripts.
  
 ## v1.4.0 (30 October 2020)
@@ -46,7 +50,9 @@ Changes and updates to Operator for Apache CouchDB that are grouped by version n
 
 This bug fix release addresses an issue that occurs during upgrades to operator versions *1.2* and *1.3*, whereby pods can get into an unrecoverable state. An upgrade to version *1.4* forces the images to upgrade to the supported version, which resolves this problem.
 
-*Bug fixes*
+### Bug fixes
+{: #bug-fixes-140}
+
  - Fixes syntax error in `pre_stop` script.
  - Fixes resource leak in health check.
  - Fixes symlink creation error when init container is restarted.
@@ -57,14 +63,18 @@ This bug fix release addresses an issue that occurs during upgrades to operator 
  - Updates CouchDB to [3.1.1](https://docs.couchdb.org/en/latest/whatsnew/3.1.html#version-3-1-1).
  - Improves logging output for `runit`.
 
-*Bug fixes*
+### Bug fixes
+{: #bug-fixes-130}
+
  - CouchDB no longer stops when the search container restarts.
  - Fixes missing `findmnt` error in the `mgmt` container.
 
 ## v1.2.1 (15 September 2020)
 {: #v1.2.1}
 
-*Bug fixes*
+### Bug fixes
+{: #bug-fixes-121}
+
  - Configuration files are incorrectly created with read-only file permissions.
 
 ## v1.2.0 (14 September 2020)
@@ -81,7 +91,9 @@ The following new, optional fields are added to the CouchDBCluster CRD:
  - `spec.environment.clouseau.closeIfIdle`
  - `spec.environment.clouseau.idleCheckIntervalSecs`
 
-*Bug fixes*
+### Bug fixes
+{: #bug-fixes-120}
+
 - CouchDB Search must not log at `DEBUG` level by default.
 
 ## v1.1.0 (17 August 2020)
@@ -94,7 +106,8 @@ The following new, optional fields are added to the CouchDBCluster CRD:
  - `spec.securityContext`
  - `spec.resources`
 
-*Enhancements*
+### Enhancements
+
  - Erlang scheduler count is based on the database container CPU requests, rounded up to the nearest integer.
  - Adds a liveness check so that search containers restart if they lose connectivity to the CouchDB node. This situation can happen if the CouchDB container is restarted by the OOMkiller.
  - JVM now uses cgroup aware memory settings.
@@ -103,5 +116,7 @@ The following new, optional fields are added to the CouchDBCluster CRD:
  - Adds option to set resource constraints for CouchDB containers.
  - Adds option to set securityContext for the CouchDBCluster pods.
 
-*Bug fixes*
+### Bug fixes
+{: #bug-fixes-110}
+
  - Resource limits and requests propagate correctly to the search container.

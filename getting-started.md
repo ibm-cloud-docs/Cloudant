@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -92,7 +92,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
 
-    After you click `Create`, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, "Provision in progress." 
+    After you click `Create`, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, `Provision in progress.` 
 
 7. When the status changes to Active, click the instance, and click the `Service Credentials` tab. 
 
@@ -179,9 +179,9 @@ that you create in this exercise include the data that you use to query the `das
 
     The New Document window opens.
 
-2.  Copy the following sample text and replace the existing text in the new document.
+2.  Copy the following sample text and replace the existing text in the new document.<br>
+  Use the following sample text for document 1:
 
-  *This example is the first sample document*:
   ```json
   {
     "firstname": "Sally",
@@ -193,9 +193,9 @@ that you create in this exercise include the data that you use to query the `das
   ```
   {: codeblock}
 
-3.  Repeat steps 1 and 2 to add the remaining documents to the database.
+3.  Repeat steps 1 and 2 to add the remaining four documents to the database.<br>
+  Use the following sample text for document 2:
 
-  *This example is the second sample document*:
   ```json
   {
     "firstname": "John",
@@ -207,7 +207,8 @@ that you create in this exercise include the data that you use to query the `das
   ```
   {: codeblock}
 
-  *This example is the third sample document*:
+  Use the following sample text for document 3:
+
   ```json
   {
     "firstname": "Greg",
@@ -219,7 +220,8 @@ that you create in this exercise include the data that you use to query the `das
   ```
   {: codeblock}
 
-  *This example is the fourth sample document*:
+  Use the following sample text for document 4:
+
   ```json
   {
     "firstname": "Anna",
@@ -231,7 +233,8 @@ that you create in this exercise include the data that you use to query the `das
   ```
   {: codeblock}
 
-  *This example is the fifth sample document*:
+  Use the following sample text for document 5:
+
   ```json
   {
     "firstname": "Lois",
@@ -294,9 +297,8 @@ To create a replication job, follow these steps:
    Additionally, you can create a replication from the databases page by clicking the **Replicate** button in the Actions column.
    {: note} 
 
-3. Enter the following information for your replication job:
-
-   *Source*
+3. Enter the following information for your replication job. <br>
+   Use the following information in the Source section:
       - Type - Select **Remote database**.
       - Name - Enter the database URL:
         ```http
@@ -306,7 +308,7 @@ To create a replication job, follow these steps:
 
       - Authentication - Leave as `None`.
 
-   *Target* 
+   Use the following information in the Target section:
       - Type - Select **New local database**.
       - New database - Enter the name for the new database, **`query-movies`**. 
       - New database options - Do not select the Partitioned option.
@@ -315,7 +317,7 @@ To create a replication job, follow these steps:
         
         For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
-   *Options*
+   Use the following information in the Options section:
      - Replication type - Leave as `One time`. 
      - Replication document - Leave as `Custom ID (optional)`.  
 
@@ -344,7 +346,7 @@ The Active tasks page displays a list of all running tasks. When you monitor you
 If your instance does not have any active tasks, you can return to the previous step, delete the query-movies database, and then replicate it again. If you open the Active Tasks page immediately, you can see your replication. 
 {: tip}
 
-1. Click **Active Tasks** in the left menu. 
+1. Click **Active Tasks** in the menu. 
 
    The Active Tasks page opens.  
 
@@ -360,7 +362,7 @@ Monitor your usage with a graph that shows your throughput by reads, writes, and
 
 Since your service instance is for demonstration purposes only, this page is not populated with data. However, you can see what monitoring information is available to you. 
 
-1. Click the **Monitoring** tab in the left navigation. 
+1. Click the **Monitoring** tab in the navigation. 
 
    The Monitoring page opens to the Current Operations tab. 
    Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.  
@@ -369,7 +371,7 @@ Since your service instance is for demonstration purposes only, this page is not
 
 2. Click the **Denied Requests** tab. 
 
-   Review the number of denied requests from a given second that are shown by the number of "429: too many requests." responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.  
+   Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.  
 
    ![Denied Requests tab opens.](tutorials/images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab opens" caption-side="bottom"}
 

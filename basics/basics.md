@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-16"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -170,7 +170,7 @@ which might impact performance or the cost of using the database.
 Continuous replication can result in many internal calls. These calls might affect costs for multi-tenant users of {{site.data.keyword.cloudant_short_notm}} systems. Continuous replication is disabled by default.
 {: note}
 
-## Using the right tool for the job
+## Using the proper tool for the job
 {: #using-the-right-tool-for-the-job-basics}
 
 {{site.data.keyword.cloudant_short_notm}} is a scalable, durable, highly available, operational JSON document store with an HTTP API. It's suitable for the following purposes:
@@ -242,7 +242,7 @@ For more information, see the following blog posts:
 See the following tips:
 
 - It's sometimes difficult to measure the performance of your queries until your data set is large enough to expose slow operations. Generate enough realistic data so that you can test your indexing and query performance before you get to production.
-- {{site.data.keyword.cloudant_short_notm}} might return data to you without an index, but you must never rely on this data for production workloads. If your result set includes the warning, "No matching index found. Create an index to optimize query time," then you need to revisit your indexing strategy. Use the [explain](/docs/Cloudant?topic=Cloudant-query#explain-plans) feature to see which index is being selected for each query.
+- {{site.data.keyword.cloudant_short_notm}} might return data to you without an index, but you must never rely on this data for production workloads. If your result set includes the warning, `No matching index found. Create an index to optimize query time,` then you need to revisit your indexing strategy. Use the [explain](/docs/Cloudant?topic=Cloudant-query#explain-plans) feature to see which index is being selected for each query.
 - With several object types in the same database, many use cases can be serviced by a few indexes on fixed attributes. For more information, see [Optimal {{site.data.keyword.cloudant_short_notm}} Indexing](https://blog.cloudant.com/2019/05/10/Optimal-Cloudant-Indexing.html).
 - Give your indexes meaningful names, and specify the index name at query-time, so that it's obvious which index corresponds to which of your application's queries.
 

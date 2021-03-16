@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-03-17"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -34,7 +34,7 @@ to keep them running and growing non-stop,
 {{site.data.keyword.cloudantfull}} also ensures your data stays secure and protected.
 {: shortdesc}
 
-## Top-tier physical platforms
+## Tier 1 physical platforms
 {: #top-tier-physical-platforms}
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is

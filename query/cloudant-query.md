@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -1842,7 +1842,7 @@ Therefore,
 a conversion between the two formats takes place.
 
 In the following example,
-the JSON query approximates to the English phrase, "Match if the age expressed as a number is greater than five and less than or equal to infinity."
+the JSON query approximates to the English phrase, `Match if the age expressed as a number is greater than five and less than or equal to infinity.`
 The Lucene query corresponds to that phrase,
 where the text `_3a` within the field name corresponds to the `age:number` field,
 and is an example of the document content expansion that was mentioned earlier.

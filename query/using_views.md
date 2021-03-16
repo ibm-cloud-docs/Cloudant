@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -69,7 +69,7 @@ Argument         | Description | Optional | Type | Default | Supported values | 
 -----------------|-------------|----------|------|---------|------------------|-----------------
 `bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | | |
 `conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes | Boolean | False || No
-`descending`     | Return the documents in "descending by key" order. | Yes | Boolean | False | | Yes
+`descending`     | Return the documents in `descending by key` order. | Yes | Boolean | False | | Yes
 `endkey`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes
 `endkey_docid`   | Stop returning records when the specified document ID is reached. | Yes | String | | | Yes
 `group`          | Using the `reduce` function, group the results to a group or single row. | Yes | Boolean | False | | Yes
