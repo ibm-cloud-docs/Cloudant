@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-19"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -45,7 +45,7 @@ warning or error conditions that are encountered by your own applications.
 {: note}
 
 ## Objectives
-{: #objectives}
+{: #objectives-db}
 
 This tutorial builds on a series of Python language instructions,
 suitable for the following tasks:

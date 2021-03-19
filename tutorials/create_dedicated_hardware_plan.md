@@ -1,11 +1,16 @@
 ---
 
 copyright: 2020, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-03-25"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
 subcollection: Cloudant
+
+content-type: tutorial
+services: Cloudant
+account-plan: dedicated
+completion-time: 20m
 
 ---
 
@@ -19,32 +24,50 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:step: data-tutorial-type='step'}
 
 <!-- Acrolinx: 2020-12-20 -->
 
 # Using a Dedicated Hardware plan instance
 {: #creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud}
+{: toc-content-type="tutorial"}
+{: toc-services="Cloudant"}
+{: toc-completion-time="20m"}
 
-This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. After that exercise, we show you how to provision one or more Standard plan instances onto that Dedicated Hardware plan instance by using either the {{site.data.keyword.cloud_notm}} catalog or the {{site.data.keyword.cloud_notm}} CLI.
+This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. After that exercise, we show you how to provision one or more Standard plan instances to run on the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance by using either the {{site.data.keyword.cloud_notm}} catalog or the {{site.data.keyword.cloud_notm}} CLI. 
 {: shortdesc}
 
-When you create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware is created for your sole use. A service
-instance for the Dedicated Hardware plan environment is also created in the {{site.data.keyword.cloud_notm}} dashboard. You can't access the Dedicated Hardware plan instance directly, nor have any Service Credentials for it. Instead, you use your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware
+When you create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware is created for your sole use. A service 
+instance for the Dedicated Hardware plan environment is also created in the {{site.data.keyword.cloud_notm}} dashboard. You can't access the Dedicated Hardware plan instance directly, or have 
+any Service Credentials for it. Instead, you use your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware 
 plan instance by creating one or more Standard plan instances on it, and managing the Standard plan instances directly.
+
+## Objectives
+{: #objectives-dhp}
+
+- Create a Dedicated Hardware plan instance.
+- Provision a Standard plan instance on a Dedicated Hardware environment.
+- Provision a Dedicated Hardware plan instance with the {{site.data.keyword.cloud_notm}} CLI.
+- Provision a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI.
+- Create the credentials for your {{site.data.keyword.cloudant_short_notm}} service.
+- List the service credentials for your {{site.data.keyword.cloudant_short_notm}} service.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
+{: step}
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found by using the following website:
     [`https://cloud.ibm.com/`](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your user name and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:
+    the {{site.data.keyword.cloud_notm}} dashboard opens. 
+
+2.  Click `Create resource`.
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
-2.  Type `Cloudant` in the Search bar and click to open it:
+2.  Type `Cloudant` in the Search bar and click to open it.
 
     ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
@@ -57,7 +80,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
     For Dedicated Hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
     {: note}
 
-    a. Click the **Dedicated** tab.
+    a. Click **Dedicated**.
 
     b. Click **Create Host**.
 
@@ -69,7 +92,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     a. Select a location for deployment.
 
-       This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.
+       This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.
 
     b. Select `Yes` or `No` to answer whether HIPAA is required.
 
@@ -78,7 +101,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     c. Select a key management service instance.
 
-       All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Access (IAM)** and choose **Authorizations**.
+       All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time. Visit **Manage** > **Access (IAM)** and choose **Authorizations**.
 
        When you configure service-to-service authorizations, remember the authorization works at the account level, not the resource group level.
        {: important}
@@ -89,16 +112,16 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
    ![Configure the Host.](images/img0005f.png){: caption="Figure 5. Configure the Host" caption-side="bottom"}
 
-6.  Click the `Create` button to start the provisioning process.
+6.  Click `Create` to start the provisioning process.
 
-    Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click the **Create** button.
+    Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click **Create**.
     {: note}
 
-    ![Provision dedicated hardware](images/create_button_provision.png){: caption="Figure 6. Provision dedicated hardware" caption-side="bottom"}
-    {: note}
+    ![Provision dedicated hardware.](images/create_button_provision.png){: caption="Figure 6. Provision dedicated hardware" caption-side="bottom"}
 
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
+{: step}
 
 After your instance is created, you must create a Standard plan on it by selecting the Dedicated tab when you create the Standard instance.
 
@@ -106,12 +129,12 @@ After your instance is created, you must create a Standard plan on it by selecti
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
-    After you authenticate with your username and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button that is shown in the following image.
+    After you authenticate with your user name and password,
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Create resource` that is shown in the following image.
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 7. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
-2.  Type `Cloudant` in the Search bar and click to open it:
+2.  Type `Cloudant` in the Search bar and click to search.
 
     ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 8. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
@@ -127,13 +150,13 @@ After your instance is created, you must create a Standard plan on it by selecti
     For Dedicated Hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
     {: note}
 
-    a. Click the **Dedicated** tab.
+    a. Click **Dedicated**.
 
     b. Click **Select existing host**.
 
     ![Select an existing host. ](images/img0005g.png){: caption="Figure 10. Select an existing host" caption-side="bottom"}
 
-    c. Select the dedicated environment that you created from the **Dedicated environment to provision the account** drop-down menu.
+    c. Select the dedicated environment that you created from the drop-down menu.<br>
        The screen capture shows the example environment, `Dedicated Hardware Environment (staging)`.
 
     ![Select your dedicated environment.](images/img0005h.png){: caption="Figure 11. Select your dedicated environment" caption-side="bottom"}
@@ -150,28 +173,33 @@ After your instance is created, you must create a Standard plan on it by selecti
 
     c. (Optional) Add a tag.
 
-    d. Select an authentication method.
+    d. Select an authentication method.<br>
        The Standard plan is the only plan for the Dedicated Hardware environment.
 
     ![Configure the {{site.data.keyword.cloudant_short_notm}} instance.](images/img0005e.png){: caption="Figure 13. Configure the {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
 
-6.  Click the `Create` button.
-
+6.  Click Create`.<br>
     After a few seconds, the instance is provisioned on the environment you selected.
 
-    ![Provision standard instance](images/create_button_provision_standard.png){: caption="Figure 14. Provision standard instance" caption-side="bottom"}
+    ![Provision standard instance.](images/create_button_provision_standard.png){: caption="Figure 14. Provision standard instance" caption-side="bottom"}
 
-7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard
-    as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance.
+7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance.
 
     For more information, see [how to locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials){: new_window}.
 
 ## Provisioning a Dedicated Hardware plan instance with the {{site.data.keyword.cloud_notm}} CLI
 {: #provisioning-a-dedicated-hardware-plan-instance-with-the-ibm-cloud-cli}
+{: step}
 
-To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window} to learn about how to log in and set a target resource group.
+1. Log in to {{site.data.keyword.cloud_notm}} to use {{site.data.keyword.cloud_notm}} CLI. <br>
+    For more information, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window} to learn about how to log in and set a target resource group.
 
-To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, use the following basic command format:
+2. Use the following basic command format to create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance by using {{site.data.keyword.cloud_notm}} CLI.
+
+    ```sh
+    ibmcloud resource service-instance-create $NAME $SERVICE_NAME $PLAN_NAME $REGION [-p, --parameters @JSON_FILE | JSON_STRING ]
+    ```
+    {: codeblock}
 
 Field | Description
 ------|------------
@@ -181,14 +209,7 @@ Field | Description
 `REGION` |  The major region where you want to deploy, for example, us-south, us-east, or eu-gb.
 {: caption="Table 1. Basic command format" caption-side="top"}
 
-See the following example command:
-
-```sh
-ibmcloud resource service-instance-create $NAME $SERVICE_NAME $PLAN_NAME $REGION [-p, --parameters @JSON_FILE | JSON_STRING ]
-```
-{: codeblock}
-
-{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances take four more parameters:
+{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances take four more parameters.
 
 Parameter | Description
 ----------|------------
@@ -198,7 +219,7 @@ Parameter | Description
 `kms_key_crn` | This parameter is required if you use the `kms_instance_crn` parameter. Otherwise, it must not be supplied in the CLI command. The `kms_key_crn` parameter is set to the CRN of the encryption key that is stored in the Key Protect instance that is defined by the `kms_instance_crn` parameter.
 {: caption="Table 2. Additional parameters" caption-side="top"}
 
-See the following example command:
+The following example command includes the extra parameters.
 
 ```sh
 ibmcloud resource service-instance-create cloudant-dedicated-with-byok cloudantnosqldb dedicated-hardware us-south -p '{"location":"dallas", "hipaa":"false", "kms_instance_crn": "crn:v1:bluemix:public:kms:us-south:a/abcdefg7df5907a4ae72ad28d9f493d6:888a5a41-543c-4ca7-af83-74da3bb8f711::", "kms_key_crn": "crn:v1:bluemix:public:kms:us-south:a/abcdefg7df5907a4ae72ad28d9f493d6:888a5a41-543c-4ca7-af83-74da3bb8f711:key:0123c653-f904-4fe7-9fdb-5097e1ed85db"}'
@@ -207,11 +228,16 @@ ibmcloud resource service-instance-create cloudant-dedicated-with-byok cloudantn
 
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment-with-the-ibm-cloud-cli}
+{: step} 
 
-To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}.
+1.  Log in to use the {{site.data.keyword.cloud_notm}} CLI. <br>For more information about how to log in and set a target resource group, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}.
 
-To create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment, use the following basic command format.
+2.  Create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment by using the following basic command format.
 
+    ```sh
+    ibmcloud resource service-instance-create $NAME $SERVICE_NAME $PLAN_NAME $REGION [-p, --parameters @JSON_FILE | JSON_STRING ]
+    ```
+    {: codeblock}
 
 Field | Description
 ------|------------
@@ -221,13 +247,6 @@ Field | Description
 `REGION` |  The region where you want to deploy, for example, us-south, us-east, or eu-gb.
 {: caption="Table 3. Basic command format" caption-side="top"}
 
-See the following example command:
-
-```sh
-ibmcloud resource service-instance-create $NAME $SERVICE_NAME $PLAN_NAME $REGION [-p, --parameters @JSON_FILE | JSON_STRING ]
-```
-{: codeblock}
-
 {{site.data.keyword.cloudant_short_notm}} instances that are deployed on Dedicated Hardware environments take two more parameters.
 
 Parameter | Description
@@ -236,7 +255,7 @@ Parameter | Description
 `legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) for more details on choosing an authentication method.
 {: caption="Table 4. Additional parameters" caption-side="top"}
 
-See the following example command:
+The following example command includes the extra parameters.
 
 ```sh
 ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantnosqldb standard us-south -p '{"environment_crn":"crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b43434444bb7e2abb0841ca25d28ee4c:301a3118-7678-4d99-b1b7-4d45cf5f7b29::","legacyCredentials":false}'
@@ -245,23 +264,15 @@ ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantn
 
 ## Creating the credentials for your {{site.data.keyword.cloudant_short_notm}} service
 {: #creating-the-credentials-for-your-ibm-cloudant-service}
+{: step}
 
 Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
 must have the necessary credentials.
 
-Service credentials are valuable. If anyone or any application gains access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
+Service credentials are valuable. If anyone or any application gains access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully. For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant).
 {: important}
 
-For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant).
-
-You can use the basic command format to create credentials for a service instance within {{site.data.keyword.cloud_notm}}:
-
-```sh
-ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
-```
-{: pre}
-
-The fields are described in the following table.
+The fields for the basic command format used in this exercise are described in the following table.
 
 Field | Description
 ------|------------
@@ -270,73 +281,84 @@ Field | Description
 `SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance.
 `service-endpoints` | An optional parameter to populate the URL field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this parameter to populate the URL with an external endpoint that is publicly accessible. Applies only to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. If the environment doesn't support internal endpoints, the result is a 400 error.
 {: caption="Table 5. Basic command format" caption-side="top"}
+<br>
 
-If you want to create credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you can create these credentials by using a command similar to the following example.
-
-```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
-```
-{: codeblock}
-
-After you receive the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example.
+The basic command format to retrieve the credentials for a service instance within IBM Cloud is shown in the following example.
 
 ```sh
-Creating service key in resource group default of account John Does's Account as john.doe@email.com...
-OK
-Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
-
-Name:          creds_for_cs20170517a
-ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a
-Created At:    Tue Sep 18 19:58:38 UTC 2018
-State:         active
-Credentials:
-               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
-               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager
-               url:                      https://apikey-v2-58B528DF5397465BB6673E1B79482A8C:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
-               username:                 apikey-v2-58B528DF5397465BB6673E1B79482A8C
-               port:                     443
-               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
-               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
-               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
-               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e
-               password:                 581138...7d48d61
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
 ```
 {: pre}
 
-If you want to create credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service, you can name the credentials `creds_for_cs20170517a`. Populate the URL with the internal endpoint, and create the credentials by using a command similar to the following example.
+The fields for the basic command format are described in the previous table.
+{: note}
 
-```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
-```
-{: codeblock}
+1. Create credentials for the `cs20170517a` instance of
+an {{site.data.keyword.cloudant_short_notm}} service, and name the credentials `creds_for_cs20170517a`. 
 
-After you receive the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example.
+    ```sh
+    ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
+    ```
+    {: codeblock}
 
-```sh
-Creating service key in resource group default of account John Does's Account as john.doe@email.com...
-OK
-Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+2. After you receive the request to create credentials for the service instance, review the {{site.data.keyword.cloud_notm}} response that includes a message similar to the following (abbreviated) example with your credentials.
 
-Name:          creds_for_cs20170517a
-ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a
-Created At:    Tue Jan 02 19:58:38 UTC 2019
-State:         active
-Credentials:
-               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
-               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager
-               url:                      https://2624fed5-e53e-41de-a85b-3c7d7636886f-bluemix.private.cloudantnosqldb.appdomain.cloud
-               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix
-               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
-               host:                     2624fed5-e53e-41de-a85b-3c7d7636886f-bluemix.private.cloudantnosqldb.appdomain.cloud
-               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
-               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e
-```
-{: pre}
+    ```sh
+    Creating service key in resource group default of account John Does's Account as john.doe@email.com...
+    OK
+    Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+
+    Name:          creds_for_cs20170517a
+    ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a
+    Created At:    Tue Sep 18 19:58:38 UTC 2018
+    State:         active
+    Credentials:
+                   iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
+                   iam_role_crn:   crn:v1:bluemix:public:iam::::serviceRole:Manager
+                   url:                      https://apikey-v2-58B528DF5397465BB6673E1B79482A8C:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
+                   username:                 apikey-v2-58B528DF5397465BB6673E1B79482A8C
+                   port:                     443
+                   apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
+                   host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
+                   iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
+                   iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e
+                   password:                 581138...7d48d61
+    ```
+    {: pre}
+
+3.  Populate the URL with the internal endpoint, and create the credentials by using a command similar to the following example.
+
+    ```sh
+    ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
+    ```
+    {: codeblock}
+
+4.  Review the request response in a message similar to the following example. 
+
+    ```sh
+    Creating service key in resource group default of account John Does's Account as john.doe@email.com...
+    OK
+    Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+
+    Name:          creds_for_cs20170517a
+    ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a
+    Created At:    Tue Jan 02 19:58:38 UTC 2019
+    State:         active
+    Credentials:
+                    iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
+                    iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager
+                    url:                      https://2624fed5-e53e-41de-a85b-3c7d7636886f-bluemix.private.cloudantnosqldb.appdomain.cloud
+                    username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix
+                    apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
+                    host:                     2624fed5-e53e-41de-a85b-3c7d7636886f-bluemix.private.cloudantnosqldb.appdomain.cloud
+                    iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
+                    iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4fo0                  90-b072-bfffafb68b3e
+    ```
+    {: pre}
 
 ## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
 {: #listing-the-service-credentials-for-your-ibm-cloudant-service}
+{: step}
 
 The basic command format to retrieve the credentials for a service instance
 within {{site.data.keyword.cloud_notm}} is shown in the following example.
@@ -346,37 +368,35 @@ ibmcloud resource service-key KEY_NAME
 ```
 {: codeblock}
 
-In this example, we want to retrieve credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service
-(where the name for the credentials is `creds_for_cs20170517a`). You can retrieve the credentials by using a command similar to the following example.
 
-```sh
-ibmcloud resource service-key creds_for_cs20170517b
-```
-{: codeblock}
+1. Retrieve your credentials `cs20170517a` (where the name for the credentials is `creds_for_cs20170517a`) by using a command similar to the following example.
 
-After you receive the request to retrieve the credentials for the service instance,
-{{site.data.keyword.cloud_notm}} responds with a message similar to the following (abbreviated) example.
+    ```sh
+    ibmcloud resource service-key creds_for_cs20170517b
+    ```
+    {: codeblock}
 
-```sh
-Retrieving service key in resource group default of account John Does's Account as john.doe@email.com...
-OK
-Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+2. Review the {{site.data.keyword.cloud_notm}} response that includes your credentials and a message similar to the following (abbreviated) example.
 
-Name:          creds_for_cs20170517a
-ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a
-Created At:    Tue Sep 18 19:58:38 UTC 2018
-State:         active
-Credentials:
-               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
-               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager
-               url:                      https://apikey-v2-58B528DF5397465BB6673E1B79482A8C:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
-               username:                 apikey-v2-58B528DF5397465BB6673E1B79482A8C
-               port:                     443
-               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
-               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
-               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
-               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e
-               password:                 581138...7d48d61
-```
-{: pre}
+    ```sh
+    Retrieving service key in resource group default of account John Does's Account as john.doe@email.com...
+    OK
+    Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+
+    Name:          creds_for_cs20170517a
+    ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a
+    Created At:    Tue Sep 18 19:58:38 UTC 2018
+    State:         active
+    Credentials:
+                   iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
+                   iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager
+                   url:                      https://apikey-v2-58B528DF5397465BB6673E1B79482A8C:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
+                   username:                 apikey-v2-58B528DF5397465BB6673E1B79482A8C
+                   port:                     443
+                   apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
+                   host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
+                   iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
+                   iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e
+                   password:                 581138...7d48d61
+    ```
+    {: pre}
