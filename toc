@@ -164,7 +164,7 @@ Cloudant
         offerings/bluemix_dedicated.md
         offerings/cloudant.com.md
     tutorials/creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli
-    [API & SDK reference](/apidocs/cloudant#introduction)
+    [API & SDK reference](https://cloud.ibm.com/apidocs/cloudant)
     {: .navgroup-end}
 
     {: .navgroup id="help"}
