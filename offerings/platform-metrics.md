@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-03-22"
 
 keywords: Sysdig, monitoring, platform metrics, observability page
 
@@ -47,7 +47,7 @@ Deployment Region | Sysdig Region
 ## Platform metrics overview
 {: #platform_metrics-pm}
 
-You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics.
+You can configure only one instance of the {{site.data.keyword.mon_full}} service per region to collect platform metrics.
 * To configure the Sysdig instance, you must turn on the *platform metrics* configuration setting.
 * If a Sysdig instance in a region is already enabled to collect platform metrics, metrics from enabled-Sysdig services are collected automatically and available for monitoring through this instance. For more information about enabled-Sysdig services, see [{{site.data.keyword.cloud}} services](https://www.ibm.com/cloud/services).
 

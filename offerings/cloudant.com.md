@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-03-12"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -27,7 +27,7 @@ subcollection: Cloudant
 {: #ibm-cloudant.com}
 
 {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
-Starting  24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}. 
+Starting  24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}{: external}. 
 {: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully managed database-as-a-service (DBaaS). 
