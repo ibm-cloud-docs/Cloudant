@@ -1,30 +1,39 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-22"
+  years: 2017, 2021
+lastupdated: "2021-03-23"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
 subcollection: Cloudant
 
+content-type: tutorial
+services: Cloudant
+account-plan: lite 
+completion-time: 20m
+
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:screen: .screen}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{:step: data-tutorial-type='step'}
 
 <!-- Acrolinx: 2020-12-22 -->
 
 # Creating a backup
 {: #creating-a-backup}
+{: toc-content-type="tutorial"}
+{: toc-services="Cloudant"}
+{: toc-completion-time="20m"}
 
 This tutorial demonstrates how to use the 
 [CouchBackup](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external} utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. CouchBackup backs up 
@@ -32,8 +41,19 @@ the database to a file. If the database fails, you can use the backup file to
 restore the information to an existing database. 
 {: shortdesc}
 
-## Before you install CouchBackup
+## Objectives
+{: #objectives}
+
+- Install CouchBackup.
+- Create a sample database with documents.
+- Set an environment variable.
+- Back up a database.
+- Create a log file. 
+- Restore a backup from a text file. 
+
+## Installing CouchBackup
 {: #before-you-install-couchbackup}
+{: step}
 
 Install CouchBackup by running the `install` command. 
 
@@ -44,11 +64,12 @@ npm install -g @cloudant/couchbackup
 
 ## Creating a sample database
 {: #creating-a-sample-database}
+{: step}
 
 Create a sample `couchbackup-demo` database
-for use in this tutorial.
+for use with this tutorial.
 
-1.  Create a database by running this command:
+1.  Create a database by running this command.
     
     ```sh
     curl "https://username:password@myhost.cloudant.com/couchbackup-demo" -X PUT
@@ -66,6 +87,7 @@ for use in this tutorial.
 
 ## Creating documents in the sample database
 {: #creating-documents-in-the-sample-database}
+{: step}
 
 The documents that you create in this exercise contain the data that you 
 back up and restore in later exercises. 
@@ -116,7 +138,7 @@ back up and restore in later exercises.
     ```
     {: codeblock}
     
-2.  Run this command to create the documents:
+2.  Run this command to create the documents.
     
     ```sh
     curl "https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs" -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
@@ -158,6 +180,7 @@ back up and restore in later exercises.
     
 ## Setting an environment variable
 {: #setting-an-environment-variable}
+{: step}
 
 You can use environment variables or options to specify the 
 URL and database for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance that you want to work 
@@ -174,6 +197,7 @@ export COUCH_URL=https://username:password@myhost.cloudant.com
 
 ## Backing up a database
 {: #backing-up-a-database}
+{: step}
 
 The CouchBackup utility backs up your database to a text file to preserve 
 your data and make it easier to restore. 
@@ -286,6 +310,7 @@ your data and make it easier to restore.
 
 ## Creating a log file
 {: #creating-a-log-file}
+{: step}
 
 A log file records the progress of your backup. With CouchBackup, you use the `--log` parameter 
 to create the log file. You can also use it to restart a backup from where it stopped 
@@ -374,6 +399,7 @@ log file, and resume option.
     
 ##  Restoring from a backup text file
 {: #restoring-from-a-backup-text-file}
+{: step}
 
 From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database by using 
 the `couchrestore` command. 
