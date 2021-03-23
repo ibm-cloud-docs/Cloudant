@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-03-10"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -85,7 +85,7 @@ If the leader loses connection to the network,
 or can't communicate with many of the system's nodes,
 the remainder elects a new leader.
 This election process differs between systems,
-and might be a source of significant problems.
+and might be a source of [significant problems](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}{: external}.
 
 {{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a primary-primary setup,
 such that every node can accept both writes and reads to its portion of your data.
