@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-17"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -67,10 +67,7 @@ If you attempt to index by using a data field that doesn't exist, it fails. To a
 Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
 {: note}
 
-Within a search index, don't index the same field name with more than one data type. If the 
-    same field name is indexed with different data types in the same search index function, 
-    you might get an error. This occurs when you query the search index that says the field "was indexed without 
-    position data". For example, don't include both of these lines in the same search index function. These lines index the `myfield` field as two different data types, a string `"this is a string"` and a number `123`.
+Within a search index, don't index the same field name with more than one data type. If the same field name is indexed with different data types in the same search index function, you might get an error. This occurs when you query the search index that says the field `was indexed without position data`. For example, don't include both of these lines in the same search index function. These lines index the `myfield` field as two different data types, a string `"this is a string"` and a number `123`.
 {: note}
 
 ```json
@@ -684,7 +681,7 @@ The `order` field is an array where the first element is the field or fields tha
 in the `sort` parameter.
 If no [`sort` parameter](#query-parameters-search) is included in the query,
 then the `order` field contains the [Lucene relevance score](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}{: external}.
-If you use the "sort by distance" feature as described in [Geographical searches](#geographical-searches),
+If you use the `sort by distance` feature as described in [Geographical searches](#geographical-searches),
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.
 

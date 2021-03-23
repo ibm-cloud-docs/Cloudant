@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -239,7 +239,7 @@ In the following example, a quantity of 0-Gigabyte Hours reflects that the insta
 
 In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or via an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
-![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
+![Cloudant capacity](../images/txe_capacity.mp4){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
 
 Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units based on how complex it is. It's in your interest to try to achieve your application's goals while it consumes the fewest units possible.
 
@@ -252,7 +252,7 @@ Let's unpack this diagram and draw out the incentives that {{site.data.keyword.c
 ### Bulk over piecemeal API calls
 {: #bulk-over-piecemeal-api-calls}
 
-Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends one read/write unit to "open the transaction" with the underlying key/value store (indicated by a red icon on the diagram). In other words, the API calls that write, update, delete, or fetch a single document cost two units each - one to open the transaction the other to perform the database operation. The bulk APIs are cheaper because a database transaction is opened once and is able to service several reads/writes.
+Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends one read/write unit to `open the transaction` with the underlying key/value store (indicated by a red icon on the diagram). In other words, the API calls that write, update, delete, or fetch a single document cost two units each - one to open the transaction the other to perform the database operation. The bulk APIs are cheaper because a database transaction is opened once and is able to service several reads/writes.
 
 - If you have more than one document to fetch by their ID, use `GET /db/_all_docs?keys=["id1","id2"...]` instead of fetching them individually.
 - If you have more than one document to insert, update, or delete, use `POST /db/_bulk_docs` instead of an API call per document.
@@ -262,7 +262,7 @@ Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends on
 
 Using the `POST /db/_find` endpoint to query a database becomes expensive if the query is not backed by a supporting secondary index. The query isn't charged based on the number of documents that are returned but based on the *number of documents scanned* to get the answer. If a query has to churn through hundreds of "cancelled" orders before it finds the "completed" orders it needs, then the query is more expensive than it need be and might exhaust your provisioned read allocation.
 
-The best practice is to [create indexes](/apidocs/cloudant#postindex){: new_window}{: external} on the fields your query is searching for. A query that exactly aligns with a secondary index consumes only one read unit per returned document. Creating the right index for your data takes skill. Read some advice on [index design and optimization](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html).
+The best practice is to [create indexes](/apidocs/cloudant#postindex){: new_window}{: external} on the fields your query is searching for. A query that exactly aligns with a secondary index consumes only one read unit per returned document. Creating the appropriate index for your data takes skill. Read some advice on [index design and optimization](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html).
 
 ### Deleting databases is the cleanest way to purge old unwanted data
 {: #delete-databases-to-purge-unwanted-date}

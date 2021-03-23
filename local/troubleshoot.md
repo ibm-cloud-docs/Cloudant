@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-03-19"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -578,16 +578,19 @@ $ /opt/cloudant/bin/weatherreport --help
 ### `memory_use`
 {: #-memory_use-}
 
-*What does it check?*
+#### What does it check?
+{: #what-does-it-check1}
 
 You can check the amount of free RAM on a dbcore node with `memory_use`.
 
-*What does an error for this check mean?*
+#### What does an error for this check mean?
+{: #what-does-an-error-for-this-check-mean1}
 
 A node is running out of RAM. The `oom` might stop dbcore
 soon, which can cause externally visible errors.
 
-*How can I fix it?*
+#### How can I fix it?
+{: #how-can-i-fix-it1}
 
 It is worth attending to this problem quickly. You can
 check the memory graphs in the metrics application to
@@ -595,6 +598,7 @@ see how urgent it is and whether memory use is
 increasing quickly or slowly.
 
 #### Fast increase
+{: #fast-increase1}
 
 If it is a sharp increase, a process might be getting a
 long message queue backup. That probably means you can
@@ -644,6 +648,7 @@ Now, use your judgment or contact support to see whether
 it is safe to stop the process.
 
 #### Slower increase
+{: #slower-increase1}
 
 It might be that "garbage" is building up. Check the
 different types of memory for the node.
@@ -707,7 +712,8 @@ processes as you can see in the following list.
 #### `couch_db_updater`
 {: #-couch_db_updater-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check2}
 
 This check monitors the message queues of the various
 `couch_db_updater` processes. These processes manage
@@ -720,7 +726,8 @@ failing or backed up `couch_db_updater` process is likely
 to cause externally visible problems and must be acted
 upon.
 
-*How can I confirm the failure?*
+##### How can I confirm the failure?
+{: #how-can-i-confirm-the-failure1}
 
 SSH to the node where the failure occurred, and create
 the following function in a remsh.
@@ -763,7 +770,8 @@ Next, get a list of PIDs.
 This command returns a list of PIDs with long > 1000
 message queues.
 
-*How can I remediate the failure?*
+##### How can I remediate the failure?
+{: #how-can-i-remediate-the-failure1}
 
 It is worthwhile to be patient in remediating this type
 of failure because it is possible for the processes to
@@ -782,7 +790,8 @@ remsh command to stop all backed up CouchDB updaters.
 ```
 {: codeblock}
 
-*How can I verify the remediation?*
+##### How can I verify the remediation?
+{: #how-can-i-verify-the-remidiation1}
 
 Confirm that the list of backed up CouchDB updaters is
 empty.
@@ -796,7 +805,8 @@ empty.
 #### `couch_file`
 {: #-couch_file-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check2}
 
 This check monitors the message queues of the various
 couch_file processes. These processes manage access to a logical database. One `couch_file` process exists for each open database shard, and one `couch_file` process exists for each open view shard.
@@ -806,7 +816,8 @@ to process messages as fast as it receives them. When
 this problem occurs, you must stop the process because
 the process might not recover.
 
-*How can I confirm the failure?*
+##### How can I confirm the failure?
+{: #how-can-i-confirm-the-failure2}
 
 SSH to the node where the failure occurred and create
 the following function in a remsh.
@@ -848,7 +859,8 @@ queues.
 ```
 {: codeblock}
 
-*How can I remediate the failure?*
+##### How can I remediate the failure?
+[: #how-can-i-remediate-the-failure2]
 
 In remsh, run this command to stop all processes in the
 list.
@@ -859,7 +871,8 @@ list.
 ```
 {: codeblock}
 
-*How can I verify the remediation?*
+##### How can I verify the remediation?
+{: #how-can-i-verify-the-remediation2}
 
 Use the same remsh function that you used to identify
 the tired processes. This command returns an empty list.
@@ -870,7 +883,8 @@ the tired processes. This command returns an empty list.
 ```
 {: codeblock}
 
-*When do I escalate the page?*
+##### When do I escalate the page?
+{: #when-do-i-escalate-the-page2}
 
 If you are paged multiple times for a cluster, that is,
 the issue is recurring, escalate the page.
@@ -878,20 +892,21 @@ the issue is recurring, escalate the page.
 #### `couch_server`
 {: #-couch_server-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check3}
 
 This function checks whether the `couch_server` message
 queues are growing larger, which indicates that they are
 backing up.
 
-*What does it mean when it fails?*
+##### What does it mean when it fails?
 
 The `couch_server` is on the critical path for many RPC
 calls. The overall effect of a backed up `couch_server` is
 dramatically increased latency on a subset of requests.
 For example, requests that are on a critical path.
 
-*How can I fix it?*
+##### How can I fix it?
 
 First, use the metrics application and check whether the
 incident is ongoing or a spike. If it is a spike that is
@@ -906,7 +921,7 @@ exit(whereis(couch_server), kill). src
 #### `ddoc_cache_opener`
 {: #-ddoc_cache_opener-}
 
-*What does it check?*
+##### What does it check?
 
 The `ddoc_cache_opener` message queue is backing up. Use
 this command from a remsh to monitor the queue directly.
@@ -916,12 +931,13 @@ process_info(whereis(ddoc_cache_opener), message_queue_len).
 ```
 {: codeblock}
 
-*What does it mean when it fails?*
+##### What does it mean when it fails?
 
 If it continues to back up, the server might not be able
 to process HTTP requests.
 
-*How can I fix it?*
+##### How can I fix it?
+{: #how-can-i-fix-it4}
 
 If the message_queue size is not recovering on its own,
 restart the ddoc_cache_opener process.
@@ -937,12 +953,14 @@ support.
 #### `global_changes_server`
 {: #-global_changes_server-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check4}
 
 This command check monitors the number of messages in
 the `global_changes_server` message queue.
 
-*How can I fix it?*
+##### How can I fix it?
+{: #how-can-i-fix-it5}
 
 Check the logs for entries that mention
 `erlang.message_queues.global_changes_server`. If the
@@ -974,19 +992,22 @@ message queue size is not decreasing, contact support.
 ### `mem3_shards`
 {: #-mem3_shards-}
 
-*What does it check?*
+#### What does it check?
+[; #what-does-it-check5]
 
 The length of the `mem3_shards` message queue. The
 `mem3_shards` process acts as a cache of the `/dbs`
 database.
 
-*What does it mean when it fails?*
+#### What does it mean when it fails?
+{: #what-does-it-mean-when-it-fails5}
 
 As it is a cache, the node probably still functions
 correctly, although more slowly, as it reads from the
 disk more often.
 
-*How can I fix it?*
+#### How can I fix it?
+[: #how-can-i-fix-it5]
 
 You can watch the increase on the node by using the
 following process.
@@ -1030,7 +1051,8 @@ If it is still increasing, call support.
 ### `rexi_server`
 {: #-rexi_server-}
 
-*What does it check?*
+#### What does it check?
+{: #what-does-it-check5}
 
 This check monitors the number of messages in the
 various `rexi_server` message queues. Depending on cluster
@@ -1042,7 +1064,8 @@ These processes manage all inter-node communication. If
 inter-node communication is not processing their
 mailboxes correctly, communication is delayed.
 
-*How do I confirm the failure?*
+#### How do I confirm the failure?
+{: #how-do-i-confirm-the-failure5}
 
 SSH to the node where the failure occurred, and create
 the following function in a remsh.
@@ -1082,7 +1105,8 @@ This function returns a list of
 of the message queue length values exceeds the alert
 threshold.
 
-*How can I fix it?*
+#### How can I fix it?
+{: #how-can-i-fix-it6}
 
 As indicated previously, you can configure `rexi`
 communication patterns in two ways. You probably need to
@@ -1115,7 +1139,8 @@ something similar, which is expected. They are restarted
 as a fail-safe measure, and attempting to do so multiple
 times does not have a negative impact.
 
-*How can I verify that it is fixed?*
+#### How can I verify that it is fixed?
+{: #how-can-i-verify-that-it-is-fixed5}
 
 Run `ShowRexiServerMailboxes().` again and see whether the
 size is decreasing. If the cluster is already using the
@@ -1125,13 +1150,15 @@ contact support.
 #### `custodian`
 {: #-custodian-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check6}
 
 This function checks the number of shard replicas that
 are currently reachable for all shard ranges for any
 database that is equal to the default N, usually 3.
 
-*How is it checked?*
+##### How is it checked?
+{: #how-is-it-checked6}
 
 A program that is called Custodian runs on every
 database node in the cluster and inspects the `dbs`
@@ -1147,7 +1174,8 @@ situations occurs.
     shard table.
 *   A shard is mapped to an unavailable node.
 
-*What does it mean when it fails?*
+##### What does it mean when it fails?
+{: #what-does-it-mean-when-it-fails6}
 
 If n < N, it means that a database has shards that are
 under-protected, with fewer than N replicas available in
@@ -1174,7 +1202,8 @@ following issues.
 *   One or more shards have an N value greater than the
     default N.
 
-*How can I fix it?*
+##### How can I fix it?
+{: #how-can-i-fix-it6}
 
 Make sure that the problem is not caused by a server
 that is disabled, unreachable, or not connected to the
@@ -1183,19 +1212,22 @@ other nodes. If that is not the case, contact support.
 #### `disk`
 {: #-disk-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check7}
 
 This function checks whether the `/` and `/srv` file systems
 are writable.
 
-*How is it checked?*
+##### How is it checked?
+{: #how-is-it-checked7}
 
 This check is done by writing a temporary file to `/tmp`
 and `/srv/sensu` and making sure that it succeeds. A
 failure of any kind or a 15-second timeout causes the
 check to fail.
 
-*What does it mean when it breaks?*
+##### What does it mean when it breaks?
+{: #what-does-it-mean-when-it-breaks7}
 
 The file system has most likely become read-only. A
 read-only file system can cause dbcore to run in a
@@ -1210,7 +1242,8 @@ system to be remounted as read-only.
 If the disk is mounted read/write and enough space is
 available, the file system uses the pool of free inodes.
 
-*How can I fix it?*
+##### How can I fix it?
+{: #how-can-i-fix-it7}
 
 To check the mount status, use `mount`. In the following
 example, `rw` indicates mounted read/write, `ro` read-only.
@@ -1265,18 +1298,21 @@ solution.
 #### `ioq`
 {: #-ioq-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check8}
 
 This check monitors the number of requests that are
 waiting to be processed by IOQ.
 
-*What does it mean when it fails?*
+##### What does it mean when it fails?
+{: #what-does-it-mean-when-it-fails8}
 
 The IOQ has numerous pending requests, but it is not
 necessarily stuck. To check, look at the volume of IOQ
 requests being processed in the metrics application.
 
-*How can I fix it?*
+##### How can I fix it?
+{: #how-can-i-fix-it8}
 
 Verify that the situation is not caused by a sudden
 "spike" in activity. Look for a relatively slow growth
@@ -1318,7 +1354,8 @@ why IOQ failed.
 #### `search`
 {: #-search-}
 
-*What does it check?*
+##### What does it check?
+{: #what-does-it-check8}
 
 This check monitors whether clouseau is running on the
 node. Clouseau acts as a wrapper around the Lucene
@@ -1326,7 +1363,8 @@ library that does the generation, updating and querying
 of search indexes at the shard level. If clouseau is not
 running, the node cannot serve search requests.
 
-*How can I fix it?*
+##### How can I fix it?
+{: #how-can-i-fix-it8}
 
 Try disconnecting clouseau; it automatically reconnects.
 

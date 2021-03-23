@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-25"
+lastupdated: "2021-03-16"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -53,7 +53,7 @@ Global Queries per second | The rate at which the database is queried by using g
 Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices.
 {: caption="Table 2. Capacity metrics" caption-side="top"}
 
-As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you're "kicking the tires" of the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage for ~USD$76.65 per month. You can buy extra storage, which is charged by the GB.
+As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you're `kicking the tires` of the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage for ~USD$76.65 per month. You can buy extra storage, which is charged by the GB.
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
@@ -146,7 +146,7 @@ Set up continuous replications from your existing service to your {{site.data.ke
 
 Alternatively, check out the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) tool, which is a command-line utility that helps you coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. It sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 
-![Couch replication tool.](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 9. Couch replicate tool" caption-side="bottom"}
+![Couch replication tool.](../images/couchreplicate.mp4){: caption="Figure 9. Couch replicate tool" caption-side="bottom"}
 
 Verify that all your data replicates to the new service and that indexes are built.
 

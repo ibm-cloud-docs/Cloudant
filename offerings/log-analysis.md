@@ -66,7 +66,7 @@ Use caution when you configure the platform service logs, since this setting can
 ## Using {{site.data.keyword.loganalysisfull_notm}}
 {: #using-logdna}
 
-Once logs are being live-streamed, each log can be expanded to a detailed view by clicking the arrow to the left of the timestamp.
+Once logs are being live-streamed, each log can be expanded to a detailed view by clicking the arrow by the timestamp.
 
 The expanded view has some handy, color-coded fields to help you parse your logs.
 

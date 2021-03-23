@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -130,7 +130,7 @@ and `total_changes` is 1,000,000,
 the task is expected to take 1,000,000 / 250 = 4,000 seconds,
 or about 66 minutes,to complete.
 
-Estimates of the time to complete an indexing task can't be 100% right. The actual time to complete the task depends on the following factors:
+Estimates of the time to complete an indexing task can't be 100% correct. The actual time to complete the task depends on the following factors:
 
 -   The time that it takes to process each document.
     For instance,

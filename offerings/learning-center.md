@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-27"
+lastupdated: "2021-03-17"
 
 keywords: videos
 
@@ -28,7 +28,7 @@ subcollection: Cloudant
 # Learning Center
 {: #learning-center}
 
-The {{site.data.keyword.cloudantfull}} Learning Center offers videos to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}} and walk through document structure, the API, indexing and querying, and include an "Under the Hood" topic that highlights the architecture powering the service.
+The {{site.data.keyword.cloudantfull}} Learning Center offers videos to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}} and walk through document structure, the API, indexing and querying, and include an `Under the Hood` topic that highlights the architecture powering the service.
 {: shortdesc}
 
 You can use the [playlist](https://youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing from the following list:
@@ -38,7 +38,7 @@ You can use the [playlist](https://youtube.com/embed/playlist?list=PLzpeuWUENMK3
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} 18-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service. 
 
-![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="Introduction to IBM Cloudant video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Introduction to {{site.data.keyword.cloudant_short_notm}} video script
 {: #cloudant-course-intro-video-script}
@@ -46,12 +46,12 @@ Learn about the {{site.data.keyword.cloudant_short_notm}} 18-part video series t
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 1 - "What is Cloudant?"
+This is part 1 - `What is Cloudant?`
 
 Cloudant is a database, run as a service in the IBM Cloud. Its job is to store your application's data securely and allow you to retrieve it quickly and efficiently. Cloudant's key features are that it is:
 
 A database - It stores and retrieves data.
-More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. The "document" is the unit of storage in Cloudant. Documents are added/updated/deleted in their entirety.
+More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. The `document` is the unit of storage in Cloudant. Documents are added/updated/deleted in their entirety.
 It has an HTTP API. Any Cloudant operation can be achieved using HTTP. HTTP is the protocol that powers the World Wide Web and Cloudant is a database built for the web.
 Most databases are hidden in a private network, inaccessible but to a handful of machines but the Cloudant service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so!).
 
@@ -59,11 +59,11 @@ Cloudant wasn't written entirely by IBM. It is based on Apache CouchDB, an open 
 
 Much of what you see in this course is applicable to Apache CouchDB as it is to Cloudant. Their APIs are 99% the same - I'll point out where they diverge.
 
-Cloudant can be thought of as CouchDB run "as-a-service". A Cloudant service is easily deployed and is managed by IBM engineers 24-7. There's no software to install, no servers to manage, no configuration to understand. The user need not be a CouchDB expert to use and manage it.
+Cloudant can be thought of as CouchDB run `as-a-service`. A Cloudant service is easily deployed and is managed by IBM engineers 24-7. There's no software to install, no servers to manage, no configuration to understand. The user need not be a CouchDB expert to use and manage it.
 
 Cloudant being built on truly open source foundations means that you can be sure that your data layer is not locked in to a particular platform, cloud, or vendor and Cloudant can be used in concert with CouchDB to create hybrid applications that share data through replication, as we'll see.
 
-Later on in the course we'll look "under the hood" to see how Cloudant works, but initially we'll treat Cloudant as a "black box".
+Later on in the course we'll look `under the hood` to see how Cloudant works, but initially we'll treat Cloudant as a `black box`.
 
 To summarize, Cloudant is based on Apache CouchDB, an open source project. It stores JSON documents. It is accessed with an HTTP API and can therefore be accessed by any device on the internet that speaks HTTP: application code, web browser, IoT device, or mobile phone. Cloudant is a highly-available managed service able to continue to operate with multiple hardware failures.
 
@@ -74,7 +74,7 @@ That's the end of this part. The next part is called The Document.
 
 Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents work. 
 
-![The Document](https://youtube.com/embed/zlfPQ5cl2Zo){: video output="iframe" data-script="#the-document-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Document](https://youtube.com/embed/zlfPQ5cl2Zo){: video output="iframe" data-script="#the-document-video-script" id="The Document video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Document video script
 {: #the-document-video-script}
@@ -82,7 +82,7 @@ Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents wo
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 2 - "The Cloudant Document?"
+This is part 2 - `The Cloudant Document?`
 
 We've seen that Cloudant is a JSON document store. Let's find out what that means in practice and how that compares to other types of database.
 
@@ -94,7 +94,7 @@ A Cloudant service has collections called databases (instead of tables) each of 
 
 The example on this slide shows the same data expressed in a traditional tabular database and how the same data would be stored in Cloudant as JSON documents.
 
-So if you come from a relational database background: tables are "databases" in Cloudant, and rows are "documents".
+So if you come from a relational database background: tables are `databases` in Cloudant, and rows are `documents`.
 
 A Cloudant document must be a JSON object, starting and ending with curly braces and containing a number of key/value attributes.
 
@@ -112,25 +112,25 @@ A note on dates. JSON has no native Date type so dates are usually stored in 30-
 
 Now for your first practical exercise. Visit www.ibm.com/cloud and register an account with the IBM Cloud, if you don't have one already.
 
-Once registered, you may click "services", search for the "Cloudant" database and provision a new service.
+Once registered, you may click `services`, search for the `Cloudant` database and provision a new service.
 
-The Cloudant "Lite" service provides a free plan to allow users to try Cloudant in a limited capacity while in development. Its bigger brother, the "Standard Plan", is paid-for service where you specify the number of reads/writes/and queries per second your application and that capacity is reserved for you. You pay for the capacity you provision and your data storage usage.
+The Cloudant `Lite` service provides a free plan to allow users to try Cloudant in a limited capacity while in development. Its bigger brother, the `Standard Plan`, is paid-for service where you specify the number of reads/writes/and queries per second your application and that capacity is reserved for you. You pay for the capacity you provision and your data storage usage.
 
-The Lite plan operates in a similar way, but only has a small provisioned capacity and a fixed storage size, but is fine for "kicking the tires".
+The Lite plan operates in a similar way, but only has a small provisioned capacity and a fixed storage size, but is fine for `kicking the tires`.
 
-Cloudant is often referred to as a "schemaless" database - but we have to be careful how we define that term.
+Cloudant is often referred to as a `schemaless` database - but we have to be careful how we define that term.
 
 It's true to say that there's no need to define your schema (field names, types, constraints, and relationships) ahead of time in a Cloudant database - you may simply write a JSON document of your own design to a database.
 
 This flexibility is well liked by developers because they can design their data in their code, turn it into JSON and write it to the database.
 
-It's still important to think about the "shape of your data", especially in terms of how you are going to query and index it, as we'll see later.
+It's still important to think about the `shape of your data`, especially in terms of how you are going to query and index it, as we'll see later.
 
 Data design is still required, but strictly speaking that database doesn't need to know about your schema.
 
-Let's say we want to create a database of US presidents. We can simply devise our "model" of the data in our app, turn it into JSON and write it to the database. In this case, we are using a common CouchDB convention: the "type" field indicating the data type of the document.
+Let's say we want to create a database of US presidents. We can simply devise our `model` of the data in our app, turn it into JSON and write it to the database. In this case, we are using a common CouchDB convention: the `type` field indicating the data type of the document.
 
-If at a future date we decide we want to add additional data to our "schema", we can simply write a new object to the database with no complaints from Cloudant. We could decide to add the "address" object only to:
+If at a future date we decide we want to add additional data to our `schema`, we can simply write a new object to the database with no complaints from Cloudant. We could decide to add the `address` object only to:
 
 - Documents that are created from now on.
 - Only documents that we have addresses for.
@@ -139,27 +139,27 @@ In other words, documents of the same type can have fields present or missing.
 
 You database's schema can evolve over time to match your application's needs and you don't (necessarily) need to tell the database about the schema change - just write new documents in the new format.
 
-We can even store multiple document "types" in the same database. In this case, people/books/places reside in the same database. We know which is which because of the "type" field (this is a convention and not something that means anything to Cloudant).
+We can even store multiple document `types` in the same database. In this case, people/books/places reside in the same database. We know which is which because of the `type` field (this is a convention and not something that means anything to Cloudant).
 
 An alternative to this is to have three databases people/books/places and keep each data type in its own database. Both approaches are fine: you would choose to have multiple types together in the same database if need to perform queries across types or if you need to replicate all data types together, otherwise the separate databases approach may be better.
 
-To summarize, although Cloudant is "schemaless", this doesn't absolve you of the need to do detailed data design to get the best performance.
+To summarize, although Cloudant is `schemaless`, this doesn't absolve you of the need to do detailed data design to get the best performance.
 
 Here are some tips, especially relevant if you have some relational database experience.
 
 - Avoid thinking in joins - a Cloudant document must contain everything you need about that object so that it can be retrieved in one API call.
 - Normalization goes out of the window in JSON store, some repeated values can be tolerated if it makes data retrieval more efficient.
 - Although we have a 1 MB limit on document size, your documents must be much smaller than that - a few KB is typical.
-- If your application can embrace a "write only" design pattern, where data is only ever added to a database, then it can make your life easier. You must definitely avoid patterns that rely on updating the same document over and over in small time window.
+- If your application can embrace a `write only` design pattern, where data is only ever added to a database, then it can make your life easier. You must definitely avoid patterns that rely on updating the same document over and over in small time window.
 
-That's the end of this part. The next part is called "The Document ID".
+That's the end of this part. The next part is called `The Document ID`.
 
 ## The `_id` video
 {: #the-_id-video}
 
 Learn how `_ids` work in {{site.data.keyword.cloudant_short_notm}}, how they are different from relational databases, and how you can define your own `_id`. 
 
-![The `_id`](https://youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-_id-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The `_id`](https://youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-_id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The `_id` video script
 {: #the-_id-video-script}
@@ -167,13 +167,13 @@ Learn how `_ids` work in {{site.data.keyword.cloudant_short_notm}}, how they are
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 3 - "The Document `_id`"
+This is part 3 - `The Document `_id``
 
 We've seen how data is stored in Cloudant documents with flexibility on how your application stores JSON objects in Cloudant databases. There are, however, a few hard and fast rules.
 
 One rule is that every document must have a unique identifier called `_id` which is a string. No two documents in the same database can have the same `_id` field. In other databases, you specify which column is the unique identifier, but in Cloudant it's always `_id` and can't be changed.
 
-Also, unlike relational databases, Cloudant does not have "auto incrementing IDs" that is, an ID field that starts at 1 and increments for each document added.
+Also, unlike relational databases, Cloudant does not have `auto incrementing IDs` that is, an ID field that starts at 1 and increments for each document added.
 
 Cloudant's `_id` field is either:
 
@@ -196,14 +196,14 @@ In conclusion, each document must have a `_id` field that is unique in the datab
 
 The `_id` field is the basis of the database's primary index, which, as we'll see, can be used for key/value lookups and range queries.
 
-That's the end of this part. The next part is called "The rev token".
+That's the end of this part. The next part is called `The rev token`.
 
 ## The rev token video
 {: #the-rev-token-video}
 
 Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token when you add, edit, or delete a document. 
 
-![The rev token](https://youtube.com/embed/T14voAppUl0){: video output="iframe" data-script="#the-rev-token-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The rev token](https://youtube.com/embed/T14voAppUl0){: video output="iframe" data-script="#the-rev-token-video-script" id="The rev token video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The rev token video script
 {: #the-rev-token-video-script}
@@ -211,7 +211,7 @@ Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token whe
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 4 - "The rev token"
+This is part 4 - `The rev token`
 
 The second fundamental Cloudant rule is that each document revision is given its own unique revision token. Let's find out what it means.
 
@@ -221,25 +221,25 @@ A revision token consists of two parts:
 
 A number 1, 2, 3, etc., and
 a cryptographic hash of the document's body.
-(For the uninitiated, a hash is a digital "fingerprint" of some data. If the data changes, the fingerprint changes. No two fingerprints are the same i.e. no two documents with different content would have the same hash.)
+(For the uninitiated, a hash is a digital `fingerprint` of some data. If the data changes, the fingerprint changes. No two fingerprints are the same i.e. no two documents with different content would have the same hash.)
 
-You can see from the example on the right that our document has a revision token (the key starting _rev) that starts with a "1" followed by a dash. That tells us that this is the first revision of the document. The digits starting 04aa8... are the cryptographic hash of the document.
+You can see from the example on the right that our document has a revision token (the key starting _rev) that starts with a `1` followed by a dash. That tells us that this is the first revision of the document. The digits starting 04aa8... are the cryptographic hash of the document.
 
-If we follow the lifecycle of a document, it starts with a "revision 1". When it is modified later, it gets a "revision 2" and so on. With each incrementing revision number, the hash also changes because the content of the document is being modified too.
+If we follow the lifecycle of a document, it starts with a `revision 1`. When it is modified later, it gets a `revision 2` and so on. With each incrementing revision number, the hash also changes because the content of the document is being modified too.
 
 One thing to note:
 
-It is possible for a document to have more than one revision with the same number. i.e. two "revision 3s". This is called a "conflict" and is "normal" in some circumstances. We'll see why later in the course, but for now we can assume that the revision number will increment with each update to a document.
+It is possible for a document to have more than one revision with the same number. i.e. two `revision 3s`. This is called a `conflict` and is `normal` in some circumstances. We'll see why later in the course, but for now we can assume that the revision number will increment with each update to a document.
 
 Let's follow the lifecycle of an example Cloudant document:
 
-When a new document is created (whether with an auto-generated `_id` or user-supplied `_id`), it is allocated a "revision 1". You will be sent the token in the response to your API request. Normally you can discard the rev (UNLESS you intend to modify the document in the near future, as we'll see).
+When a new document is created (whether with an auto-generated `_id` or user-supplied `_id`), it is allocated a `revision 1`. You will be sent the token in the response to your API request. Normally you can discard the rev (UNLESS you intend to modify the document in the near future, as we'll see).
 
-When we modify a document whose _rev is at "revision 1" (notice we've changed the name in the document from Liz to Elizabeth), the document is saved and a "revision 2" token is generated and returned to you in the API response.
+When we modify a document whose _rev is at `revision 1` (notice we've changed the name in the document from Liz to Elizabeth), the document is saved and a `revision 2` token is generated and returned to you in the API response.
 
 All simple enough so far.
 
-If we delete the document later, A "revision 3" is created.
+If we delete the document later, A `revision 3` is created.
 
 Unlike almost any other database, Cloudant keeps a reference for deleted documents. A deletion is just another document revision - a special one where _deleted: true replaces the document body.
 
@@ -247,21 +247,21 @@ In fact, the document's recent revision history (the tree of revisions - remembe
 
 Note:
 
-You can't use Cloudant's revision tree as a version control system to retrieve or "rollback" to an older revision. Once a revision is superseded, the document body of the older revision is deleted and its disk space recovered in a process called "compaction". Compaction occurs automatically in Cloudant, so it's not safe to assume that old revisions will be available to be retrieved.
+You can't use Cloudant's revision tree as a version control system to retrieve or `rollback` to an older revision. Once a revision is superseded, the document body of the older revision is deleted and its disk space recovered in a process called `compaction`. Compaction occurs automatically in Cloudant, so it's not safe to assume that old revisions will be available to be retrieved.
 
 To summarize, revision tokens are generated by the database on add/edit/delete. (you never need to create your own revision tokens).
 Generally, the revision number increases by one each time, but more complex scenarios are possible (we'll cover this later).
 Older document bodies are discarded or compacted (don't rely on being able to get them back).
 All Cloudant operations that change a document need the document's `_id` AND its _rev (this is unlike most databases).
 
-That's the end of this part. The next part is called "Authentication".
+That's the end of this part. The next part is called `Authentication`.
 
 ## Authentication video
 {: #authentication-video}
 
 Learn how Legacy authentication and IAM authentication work. You can also learn how {{site.data.keyword.cloudant_short_notm}} generates credentials, and how the three official {{site.data.keyword.cloudant_short_notm}} libraries handle authentication. 
 
-![Authentication](https://youtube.com/embed/7TF2NnjZc78){: video output="iframe" data-script="#authentication-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Authentication](https://youtube.com/embed/7TF2NnjZc78){: video output="iframe" data-script="#authentication-video-script" id="Authentication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Authentication video script
 {: #authentication-video-script}
@@ -270,7 +270,7 @@ Learn how Legacy authentication and IAM authentication work. You can also learn 
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 5 - "Authentication"
+This is part 5 - `Authentication`
 
 We said earlier that Cloudant is a web-based service on the public internet. How can we be sure that our data is safe and that only our code can access it? This is where authentication comes in.
 
@@ -282,11 +282,11 @@ When a Cloudant service is provisioned, you can generate IAM only credentials or
 
 How are credentials generated?
 
-In the IBM Cloud dashboard under your Cloudant service, in the "Service Credentials" tab, click the "New Credential" button and a JSON document containing the IAM key and the basic auth username/password and the Cloudant hostname is created.
+In the IBM Cloud dashboard under your Cloudant service, in the `Service Credentials` tab, click the `New Credential` button and a JSON document containing the IAM key and the basic auth username/password and the Cloudant hostname is created.
 
 Here's an example set of credentials:
 
-For IAM you need the top two bits: apikey and host
+For IAM you need the first two bits: apikey and host
 for Legacy/Basic-Auth you need the URL (which contains the username and password embedded in the URL)
 
 There are three official Cloudant libraries: Java, Node.js, and Python.
@@ -297,20 +297,20 @@ When we look at the API from the  IDs, we'll be using Basic Auth as a convenienc
 
 Time for our next practical exercise.
 
-Log into the IBM Cloud and locate the IBM Cloudant Lite service we created last time. In the "Service Credentials" tab, click the "New Credential" button to generate a set of "IAM+Legacy" credentials. Make a note of the JSON it returns - we'll need that for the next exercise.
+Log into the IBM Cloud and locate the IBM Cloudant Lite service we created last time. In the `Service Credentials` tab, click the `New Credential` button to generate a set of `IAM+Legacy` credentials. Make a note of the JSON it returns - we'll need that for the next exercise.
 
 Then, visit the URL specified in the credentials JSON - what do you see?
 
 To summarize, credentials are generated from the IBM Cloud dashboard. You can have IAM or both IAM + legacy credentials. Both authentication methods involve exchanging your credentials for a time-limited token (authentication) - the token is then updated periodically as you use the service. The official libraries handle all of this for you.
 
-That's the end of this part. The next part is called "The dashboard".
+That's the end of this part. The next part is called `The dashboard`.
 
 ## The Dashboard video
 {: #the-dashboard-video}
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} Dashboard and what it has to offer, as well as an introduction into how to use it. 
 
-![The Dashboard](https://youtube.com/embed/Lbs7I6fI2O8){: video output="iframe" data-script="#the-dashboard-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Dashboard](https://youtube.com/embed/Lbs7I6fI2O8){: video output="iframe" data-script="#the-dashboard-video-script" id="The Dashboard video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Dashboard video script
 {: #the-dashboard-video-script}
@@ -318,7 +318,7 @@ Learn about the {{site.data.keyword.cloudant_short_notm}} Dashboard and what it 
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 6 - "The Dashboard".
+This is part 6 - `The Dashboard`.
 
 The easiest way to get started creating databases and adding documents is to use the Cloudant Dashboard.
 
@@ -332,15 +332,15 @@ To open a Cloudant service's Dashboard, log in to the IBM Cloud, find your Cloud
 
 If you leave the dashboard window unattended for a length of time, you will find yourself logged out (for security purposes) and will have to click Launch again.
 
-The dashboard has a number of tabs on the left side. Its default tab, "Databases" allows you to list the databases you have created in pages of 20. Each database is shown with the number of documents it is storing and how much disk space is being used. Click a database name to examine its contents.
+The dashboard has a number of tabs. Its default tab, `Databases` allows you to list the databases you have created in pages of 20. Each database is shown with the number of documents it is storing and how much disk space is being used. Click a database name to examine its contents.
 
 To create a database, click the Create database button and supply the name of the database to create.
 
 We now have a new empty database. The database's documents would be listed here in ID order, but as this is a new database, there are none. To add a new document, click Create Document.
 
-The Cloudant dashboard has created a template document for you with a pre-generated `_id`. Complete the rest of the attributes yourself to complete the JSON document and click "Create Document" to save.
+The Cloudant dashboard has created a template document for you with a pre-generated `_id`. Complete the rest of the attributes yourself to complete the JSON document and click `Create Document` to save.
 
-Now it's time for another practical exercise. Create a new database called "books" and in that database create three or more documents with fields: title, author, date, publisher, ISBN - each representing a book of your choice.
+Now it's time for another practical exercise. Create a new database called `books` and in that database create three or more documents with fields: title, author, date, publisher, ISBN - each representing a book of your choice.
 
 Once created, edit one of the documents, modifying the publication date.
 
@@ -351,14 +351,14 @@ It is used to manage databases, documents, indexes, queries and replication jobs
 It can also be used to monitor service throughput.
 The Dashboard is simply an API client - anything that can be achieved with the dashboard can scripted by you using the HTTP API.
 
-That's the end of this part. The next part is called "HTTP API Basics".
+That's the end of this part. The next part is called `HTTP API Basics`.
 
 ## HTTP API Basics video
 {: #http-api-basics-video}
 
 Learn how to use the command line to make HTTP requests and to add, edit, and delete documents. 
 
-![HTTP API Basics](https://youtube.com/embed/0G3J5eJF_jk){: video output="iframe" data-script="#http-api-basics-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![HTTP API Basics](https://youtube.com/embed/0G3J5eJF_jk){: video output="iframe" data-script="#http-api-basics-video-script" id="HTTP API Basics video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### HTTP API Basics video script
 {: #http-api-basics-video-script}
@@ -366,7 +366,7 @@ Learn how to use the command line to make HTTP requests and to add, edit, and de
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 7 - "HTTP API Basics".
+This is part 7 - `HTTP API Basics`.
 
 In the previous part we saw the Cloudant dashboard, which is a web app that is making HTTP calls to Cloudant's API. In this step, we'll be using the command line to make HTTP requests and to try to add/edit/delete some documents from there.
 
@@ -379,11 +379,11 @@ The advantage of a database having an HTTP API is that any device on the interne
 - Command line scripting tools like curl
 - Mobile devices
 
-We're going to learn the API using curl, a free, open source command-line tool that can dispatch HTTP requests. Curl comes preinstalled on most Macs and Unix-like operating systems. If it's not present on your computer, google "curl" and follow the installation instructions.
+We're going to learn the API using curl, a free, open source command-line tool that can dispatch HTTP requests. Curl comes preinstalled on most Macs and Unix-like operating systems. If it's not present on your computer, google `curl` and follow the installation instructions.
 
 Let's first use curl to fetch a web page - Google's home page.
 
-In a command-line terminal, type "curl https://www.google.com"
+In a command-line terminal, type `curl https://www.google.com`
 
 You should get a pageful of HTML in reply.
 
@@ -394,11 +394,11 @@ Now we don't want to type the URL of our Cloudant service every time so let's sa
 Export URL - Creates a variable called URL, which we can access later.
 
 `export URL=https://username:password@host`
-Furthermore, we can create an "alias" (a shortcut) called "acurl" that saves us further typing. This "acurl" command is an alias for curl but with the JSON content-type header and a couple of useful commmand-line switches.
+Furthermore, we can create an `alias` (a shortcut) called `acurl` that saves us further typing. This `acurl` command is an alias for curl but with the JSON content-type header and a couple of useful commmand-line switches.
 
 `alias acurl="curl -sgH 'Content-type: application/json'"` 
 
-We can test it by fetching "acurl $URL/" and we should get some JSON back from Cloudant.
+We can test it by fetching `acurl $URL/` and we should get some JSON back from Cloudant.
 
 You've completed your first Cloudant API call.
 
@@ -410,9 +410,9 @@ A quick note here on formatting JSON on the command line. We can send the output
 
 Jq available from the URL on screen, which is more than just a JSON formatter - it allows JSON to be parsed, queried, and manipulated too.
 Or `python -m json.tool` is a simple JSON formatter, if you happen to have Python installed on your computer.
-So `acurl $URL/_all_dbs | jq` means "pipe the output of acurl into jq" and what you see should be a nicely formatted, colored output.
+So `acurl $URL/_all_dbs | jq` means `pipe the output of acurl into jq` and what you see should be a nicely formatted, colored output.
 
-The Cloudant API paths are hierarchical with the top level giving you information about the service and then each database sits at a level below that.
+The Cloudant API paths are hierarchical with the first level giving you information about the service and then each database sits at a level beneath that.
 
 So `acurl $URL/books` gives us information about the books database we created earlier.
 
@@ -426,15 +426,15 @@ So `acurl $URL/books/_all_docs` means get all the documents from the books datab
 
 This will return you a list of `_id` and _rev values for each document. If you want the document bodies too, then add `?include_docs=true` to your API call.
 
-If we want to fetch a single document back from the database, then documents sit one level below the database in the hierarchy of the URL.
+If we want to fetch a single document back from the database, then documents sit one level beneath the database in the hierarchy of the URL.
 
 So `acurl $URL/books/id` means get document ID from the database books from the Cloudant service at the supplied URL.
 
 Notice the hierarchy: service / database / document
 
-So far we've only used the "GET" HTTP method, which is the default one for curl and the one used when you enter a URL into your web browser.
+So far we've only used the `GET` HTTP method, which is the default one for curl and the one used when you enter a URL into your web browser.
 
-Cloudant's API often uses the HTTP method as a "verb" to describe the action being asked of the database: GET for fetching data.
+Cloudant's API often uses the HTTP method as a `verb` to describe the action being asked of the database: GET for fetching data.
 
 With curl, we can specify the method we want to use with the -X command-line option.
 
@@ -442,7 +442,7 @@ So to write a new document to our books database using the API, we're going to u
 
 `acurl -X POST` specifies we're using the POST HTTP method. -d specifies the document we want to write, which is sent as the body of the request and finally the URL we are writing to which is $URL/books - the books database.
 
-Alternatively we can use the PUT method, if we are supplying the ID of the document being written. The URL becomes "$URL/books/" followed by the ID we want  to write.
+Alternatively we can use the PUT method, if we are supplying the ID of the document being written. The URL becomes `$URL/books/` followed by the ID we want  to write.
 
 Both write methods yield identical response. OK: True to show that the write was successful. ID being the document ID written and rev being the revision token that was generated by the database.
 
@@ -462,18 +462,18 @@ To summarize, understanding the HTTP API helps you grasp the relationship betwee
 
 The URLs are hierarchical: service/database/document or service/database/endpoint
 
-The HTTP methods act as "verbs" defining the action to be done.
+The HTTP methods act as `verbs` defining the action to be done.
 
 All actions can be triggered using simple HTTP API calls, from the command line or from your code and so can be easily scripted.
 
-That's the end of this part. The next part is called "The Bulk API"
+That's the end of this part. The next part is called `The Bulk API`
 
 ## The Bulk API video
 {: #the-bulk-api-video}
 
 Learn how to use two API calls to perform all the basic {{site.data.keyword.cloudant_short_notm}} operations while also acting on more than one document per API call.
 
-![The Bulk API](https://youtube.com/embed/9e_Mx3rX88s){: video output="iframe" data-script="#the-bulk-api-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Bulk API](https://youtube.com/embed/9e_Mx3rX88s){: video output="iframe" data-script="#the-bulk-api-video-script" id="The Bulk API video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Bulk API video script
 {: #the-bulk-api-video-script}
@@ -481,7 +481,7 @@ Learn how to use two API calls to perform all the basic {{site.data.keyword.clou
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 8 - "The Bulk API".
+This is part 8 - `The Bulk API`.
 
 In the previous part, we saw how documents could be easily added, updated, and deleted singly using the Cloudant HTTP API. In this part, we'll see how two API calls can be used to achieve all of the basic Cloudant operations, with the added benefit of being able to act on more that one document per API call.
 
@@ -504,14 +504,14 @@ With two API calls `_bulk_docs` & `_all_docs`, we can perform all create, read, 
 
 Here's a screen capture of using Cloudant from a command-line terminal:
 
-That's the end of this part. The next part is called "Accessing Cloudant programmatically".
+That's the end of this part. The next part is called `Accessing Cloudant programmatically`.
 
 ## Accessing Cloudant Programmatically video
 {: #accessing-cloudant-programmatically-video}
 
 Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically. 
 
-![Accessing Cloudant Programmatically](https://youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Accessing Cloudant Programmatically](https://youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="Accessing Cloudant Programmatically video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Accessing Cloudant Programmatically video script
 {: #accessing-cloudant-programmatically-video-script}
@@ -519,7 +519,7 @@ Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically.
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 9 - "Accessing Cloudant programmatically".
+This is part 9 - `Accessing Cloudant programmatically`.
 
 So far, our API interactions have either been triggered by the dashboard or via curl from the command line. In this section, we'll see how Cloudant be accessed programmatically.
 
@@ -550,14 +550,14 @@ Authentication - exchanging your keys for tokens, whether it be legacy authentic
 Retry logic - the libraries can be configured to retry API calls that exceeded your provisioned capacity. If configured this way, they pause and re-attempt the API call multiple times with exponential back-off
 Note: retrying such API calls is sensible if you have a temporary and unexpected elevation in traffic, but if you are routinely exceeding your provisioned capacity, no amount of retrying will get the database work done - you need more capacity!
 
-That's the end of this part. The next part is called "Querying".
+That's the end of this part. The next part is called `Querying`.
 
 ## Querying video
 {: #querying-video}
 
 Learn the different ways to query data in {{site.data.keyword.cloudant_short_notm}}.
 
-![Querying](https://youtube.com/embed/R7xVzn2QxRg){: video output="iframe" data-script="#querying-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Querying](https://youtube.com/embed/R7xVzn2QxRg){: video output="iframe" data-script="#querying-video-script" id="Querying video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Querying video script
 {: #querying-video-script}
@@ -565,7 +565,7 @@ Learn the different ways to query data in {{site.data.keyword.cloudant_short_not
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 10 - "Querying".
+This is part 10 - `Querying`.
 
 So far we have performed CRUD (Create/Read/Update/Delete) operations from the command line, the dashboard and from code. These are operations centered on the document's `_id`:
 
@@ -578,17 +578,17 @@ These operations are the building blocks of a database but they only get you so 
 
 This is where Querying comes in....
 
-There are several methods for querying data in Cloudant. The first we'll look at is called "Cloudant Query".
+There are several methods for querying data in Cloudant. The first we'll look at is called `Cloudant Query`.
 
-Cloudant Query's language was inspired by the MongoDB query language. Queries are expressed in JSON, where the "selector" attribute describes the subset of data to return. The query JSON is posted to the database's _find endpoint to perform a query.
+Cloudant Query's language was inspired by the MongoDB query language. Queries are expressed in JSON, where the `selector` attribute describes the subset of data to return. The query JSON is posted to the database's _find endpoint to perform a query.
 
 The simplest form of query is finding documents where an attribute has a fixed value e.g. where author == J Smith.
 
 The second example shows two clauses in the query, both of which must be satisfied for a document to make it into the search results. e.g. where isbn === 6725252 AND date = 2018-01-01
 
-The third example shows how logical operators can be added. The `$gt` operation means "greater than" (there's also `gte` for greater than or equal to, and lt/lte for the equivalent less than comparators). The $or operator is an OR operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
+The third example shows how logical operators can be added. The `$gt` operation means `greater than` (there's also `gte` for greater than or equal to, and lt/lte for the equivalent less than comparators). The $or operator is an OR operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
 
-Note: If you need to access objects within documents, you can use standard "dot notation" e.g address.zipcode to access a zipcode string inside an address object.
+Note: If you need to access objects within documents, you can use standard `dot notation` e.g address.zipcode to access a zipcode string inside an address object.
 
 We can also add:
 
@@ -628,14 +628,14 @@ Queries are sent to the database's _find endpoint, either programmatically, usin
 
 The query's selector decides which cut of data is required,
 
-That's the end of this part. The next part is called "Indexing"
+That's the end of this part. The next part is called `Indexing`
 
 ## Indexing video
 {: #indexing-video}
 
 Learn how indexing can speed up your query process. 
 
-![Indexing](https://youtube.com/embed/we2P8mtsnPs){: video output="iframe" data-script="#indexing-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Indexing](https://youtube.com/embed/we2P8mtsnPs){: video output="iframe" data-script="#indexing-video-script" id="Indexing video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Indexing video script
 {: #indexing-video-script}
@@ -643,13 +643,13 @@ Learn how indexing can speed up your query process.
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 11 - "Indexing".
+This is part 11 - `Indexing`.
 
 The queries we executed in the previous part were not optimal: to get the answer, Cloudant had to spool through every document in the database in turn to see if it met with the search criteria.
 
-To make queries run in a performant and scalable way, we need "Indexing".
+To make queries run in a performant and scalable way, we need `Indexing`.
 
-Cloudant allows you to specify any number of "Indexes" (or, indices).
+Cloudant allows you to specify any number of `Indexes` (or, indices).
 
 An index is a secondary data structure built from the document list. It contains data sorted by the fields you specify e.g. books sorted by date and title. If you perform a query asking for data matching a document's date and title, the indexed data structure can be used to speed up the query process: instead of scanning through every document in turn, Cloudant can jump to the relevant part of the index (say, the section on 20th century books) and retrieve the data much more quickly.
 
@@ -657,17 +657,17 @@ There are two types of Cloudant Query indexes: type=json and type=text, which ar
 
 An index is defined by POSTing some JSON to a database's _index endpoint.
 
-The index object contains a fields array, which specifies which document attributes to index. As a rule of the thumb, the fields that need indexing are usually equivalent to the attributes used in the "selector" of a query you're going to use to retrieve the data. i.e. if you need to query by the date field, we need to index the date field.
+The index object contains a fields array, which specifies which document attributes to index. As a rule of the thumb, the fields that need indexing are usually equivalent to the attributes used in the `selector` of a query you're going to use to retrieve the data. i.e. if you need to query by the date field, we need to index the date field.
 
-Although the "name" of an index is optional, it's good practice and we'll follow this convention. It's good to ask Cloudant a question and specify the name of the index you intend it to use. This saves Cloudant from having to choose which index it should use from those available and it makes it easy for you to remember which index is which.
+Although the `name` of an index is optional, it's good practice and we'll follow this convention. It's good to ask Cloudant a question and specify the name of the index you intend it to use. This saves Cloudant from having to choose which index it should use from those available and it makes it easy for you to remember which index is which.
 
-Let's create an index on our books database from the dashboard. Select the database, then choose the "Design Documents" tab and "Query Indexes" from the pop out menu.
+Let's create an index on our books database from the dashboard. Select the database, then choose the `Design Documents` tab and `Query Indexes` from the pop out menu.
 
-Any existing indexes are listed on the right side: There should be a "special" index representing the primary index, based on the document's `_id`.
+Any existing indexes are listed on the right side: There should be a `special` index representing the primary index, based on the document's `_id`.
 
 Complete the index definition with the JSON:
 
-Click "Create Index" when you're done.
+Click `Create Index` when you're done.
 
 Clicking the button sends a POST request to the _index endpoint (other API calls are available to update and delete existing indexes).
 
@@ -685,14 +685,14 @@ In this example, a selector is employed that only allows dates that fall on a we
 
 To summarize, the _index endpoint is used to define the index and an optional partial filter can be applied at query time to make smaller, sparser indexes.
 
-That's the end of this part. The next part is called "MapReduce".
+That's the end of this part. The next part is called `MapReduce`.
 
 ## MapReduce video
 {: #mapreduce-video}
 
 Learn about MapReduce, which is another way to configure secondary indexes.
 
-![MapReduce](https://youtube.com/embed/T1KFHLe6NsA){: video output="iframe" data-script="#mapreduce-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![MapReduce](https://youtube.com/embed/T1KFHLe6NsA){: video output="iframe" data-script="#mapreduce-video-script" id="MapReduce video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### MapReduce video script
 {: #mapreduce-video-script}
@@ -700,7 +700,7 @@ Learn about MapReduce, which is another way to configure secondary indexes.
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 12 - "MapReduce".
+This is part 12 - `MapReduce`.
 
 We've seen how a combination of the _find and _index endpoints allows queries to be performed on the contents of JSON documents, backed by secondary indexes to make queries scale as your application grows.
 
@@ -720,20 +720,20 @@ The first example emits a key of doc.name, so this is an index for lookups by th
 
 The second example pre-processes the data before emitting. This is a useful way of tidying up strings, trimming whitespace, lower/uppercasing text, applying default values to missing data, or constraining values to certain ranges etc.
 
-The third example adds logic: only documents that are "published" make it to the index. This is equivalent to the partial filter selector we saw with Cloudant Query.
+The third example adds logic: only documents that are `published` make it to the index. This is equivalent to the partial filter selector we saw with Cloudant Query.
 
-Indexes build asynchronously and cannot be used until they have built completely. Once built, they can be used for selection by key, lists of keys, ranges of keys and can also be used for aggregation of data e.g. "find orders between two dates, and calculate the total value of the orders, grouped by month."
+Indexes build asynchronously and cannot be used until they have built completely. Once built, they can be used for selection by key, lists of keys, ranges of keys and can also be used for aggregation of data e.g. `find orders between two dates, and calculate the total value of the orders, grouped by month.`
 
-There are four built-in reducers (or five if you count "none").
+There are four built-in reducers (or five if you count `none`).
 
 - `_count` - for counting things.
 - `_sum` - for totalizing values.
 - `_stats` - for providing counts and totals suitable for calculating means, variances, and standard deviations.
 - `_approx_count_distinct` - for approximate counting of unique values of the key.
 
-The design document's MAP function is passed a "doc" - the function is called once per document in the database. Any key/value pairs "emit"ed from the MAP function create the index.
+The design document's MAP function is passed a `doc` - the function is called once per document in the database. Any key/value pairs `emit`ed from the MAP function create the index.
 
-The KEY is the thing (or things) you want to "select" on (e.g. date).
+The KEY is the thing (or things) you want to `select` on (e.g. date).
 
 The VALUE is the thing you need to report on (e.g. total sales).
 
@@ -763,14 +763,14 @@ Summarize data with the built-in reducers. Produce concise reports from lots of 
 
 MapReduce is great for boilerplate queries that your application needs to do again and again. Not for one-off, adhoc-queries for data exploration.
 
-That's the end of this part. The next part is called "Dates"
+That's the end of this part. The next part is called `Dates`
 
 ## Dates video
 {: #dates-video}
 
 Learn about different options for storing a date, or date and time value.
 
-![Dates](https://youtube.com/embed/7b2zFNIK7hU){: video output="iframe" data-script="#dates-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Dates](https://youtube.com/embed/7b2zFNIK7hU){: video output="iframe" data-script="#dates-video-script" id="Dates video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Dates video script
 {: #dates-video-script}
@@ -778,13 +778,13 @@ Learn about different options for storing a date, or date and time value.
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 13 - "Dates".
+This is part 13 - `Dates`.
 
 We saw earlier in this course that JSON only natively models strings, numbers, booleans, objects, and arrays. A common use-case is to store a date or date/time value in a database. Here's some ideas on how that can be achieved with Cloudant.
 
 The ISO-8601 string format for representing a time consists of a y-m-dTh:m:s.msTIMEZONE year, month, day, a 'T' character, hour, minute, second, millisecond, and time zone.
 
-I always recommend storing dates in the UTC time zone  even if collecting data from different geographies. Date stored in this form can easily be transformed into the local time zone  at the front end, but it's usually important to store each user's data in the "same units".
+I always recommend storing dates in the UTC time zone  even if collecting data from different geographies. Date stored in this form can easily be transformed into the local time zone  at the front end, but it's usually important to store each user's data in the `same units`.
 
 This string format sorts into date/time order (because the most significant date units are at the front of the string) and can be easily parsed in MapReduce functions.
 
@@ -798,14 +798,14 @@ To summarize, there's no native date format in JSON, so you can store dates and 
 
 If you need to use Cloudant Query on one of the component parts, then that would need to be broken out explicitly in the document.
 
-That's the end of this part. The next part is called "Replication".
+That's the end of this part. The next part is called `Replication`.
 
 ## Replication video
 {: #replication-video}
 
 Learn what replication means in {{site.data.keyword.cloudant_short_notm}}, as well as different types of replication and how they work. 
 
-![Replication](https://youtube.com/embed/TxDcumJ-DdA){: video output="iframe" data-script="#replication-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Replication](https://youtube.com/embed/TxDcumJ-DdA){: video output="iframe" data-script="#replication-video-script" id="Replication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Replication video script
 {: #replication-video-script}
@@ -813,7 +813,7 @@ Learn what replication means in {{site.data.keyword.cloudant_short_notm}}, as we
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 14 - "Replication".
+This is part 14 - `Replication`.
 
 Replication is a core feature of Cloudant. It is the transfer of data from one database (the source) to another (the target).
 
@@ -829,7 +829,7 @@ Replication is a one-way operation from source to target, which moves all data (
 
 To run until all the data from the source has reached the target and then stop, or
 the same as one but to keep the replication running continuously forever, transferring new data from the source to the target as it arrives.
-Replication can also be resumed from where it last left off. Cloudant keeps a note of "checkpoints" between replicating parties to allow the resumption of a pre-existing replication from its last known position.
+Replication can also be resumed from where it last stopped. Cloudant keeps a note of `checkpoints` between replicating parties to allow the resumption of a pre-existing replication from its last known position.
 
 There is a replication tab in the Cloudant dashboard. A replication is started by specifying the source and target databases including authentication credentials, and whether this is a one off or continuous operation.
 
@@ -860,16 +860,16 @@ More complex topologies are possible, with data flowing in a ring around a set C
 
 To summarize, Cloudant replication is a mechanism for copying data from a source database to a target database.
 
-Replications can be one-off or continuous and can optionally be filtered with a JavaScript function or Cloudant Query selector and can be resumed from where a previous replication left off.
+Replications can be one-off or continuous and can optionally be filtered with a JavaScript function or Cloudant Query selector and can be resumed from where a previous replication stopped.
 
-That's the end of this part. The next part is called "Partitioned databases".
+That's the end of this part. The next part is called `Partitioned databases`.
 
 ## Partitioned databases video
 {: #partitioned-databases-video}
 
 Learn how partitioned databases work in {{site.data.keyword.cloudant_short_notm}}, how to assign documents to specific shards, and why partitioned databases improve performance, cost, and scalability. 
 
-![Partitioned databases](https://youtube.com/embed/44PhiYnrGJA){: video output="iframe" data-script="#partitioned-databases-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Partitioned databases](https://youtube.com/embed/44PhiYnrGJA){: video output="iframe" data-script="#partitioned-databases-video-script" id="Partitioned databases video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Partitioned databases video script
 {: #partitioned-databases-video-script}
@@ -877,9 +877,9 @@ Learn how partitioned databases work in {{site.data.keyword.cloudant_short_notm}
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 15 - "Partitioned database".
+This is part 15 - `Partitioned database`.
 
-We haven't discussed this yet, but Cloudant is a distributed database. There are many storage nodes that make up a Cloudant service and a database's documents are distributed across the nodes in groups called "shards". A single database is said to be "sharded" or divided into multiple pieces.
+We haven't discussed this yet, but Cloudant is a distributed database. There are many storage nodes that make up a Cloudant service and a database's documents are distributed across the nodes in groups called `shards`. A single database is said to be `sharded` or divided into multiple pieces.
 
 In a normal Cloudant database, a document is allocated a shard algorithmically - effectively documents are distributed around the shards randomly.
 
@@ -893,7 +893,7 @@ When adding documents to a partitioned database, you must supply a document _ID 
 
 The partition key - a string that defines on which partition to store the document.
 A document key - a string that uniquely identifies a document within the partition.
-In the top example, a book is being added into the book partition of the products database.
+In the first example, a book is being added into the book partition of the products database.
 
 Then, another document is being added into the dvd partition and a third into the household partition.
 
@@ -916,14 +916,14 @@ Documents in the same partition are stored in document key order in the same dat
 
 Note: it's still possible to query across partitions in a partitioned database. When creating a secondary index, you choose whether its purpose is for per-partition or global scope.
 
-That's the end of this part. The next part is called "Cloudant Search".
+That's the end of this part. The next part is called `Cloudant Search`.
 
 ## Cloudant Search video
 {: #cloudant-search-video}
 
 Learn how to use Cloudant Search, as well as Lucene query language and faceting. 
 
-![Cloudant Search](https://youtube.com/embed/4cs5qH3lt5U){: video output="iframe" data-script="#cloudant-search-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Cloudant Search](https://youtube.com/embed/4cs5qH3lt5U){: video output="iframe" data-script="#cloudant-search-video-script" id="Cloudant Search video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Cloudant Search video script
 {: #cloudant-search-video-script}
@@ -931,7 +931,7 @@ Learn how to use Cloudant Search, as well as Lucene query language and faceting.
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 16 - "Cloudant Search".
+This is part 16 - `Cloudant Search`.
 
 There is another method of querying and indexing in Cloudant called Cloudant Search that we'll briefly explore in this part.
 
@@ -951,7 +951,7 @@ Here are some examples:
 
 Find documents whose title matches 'gastby' and whose author starts with 'fitz'. Notice the asterisk wildcard.
 Find documents whose author is in the range austen to dickens. This is an example of range querying on a string field.
-Find documents whose price is between 0 - 100 AND whose year is in the 19th century or whose author matches "charles dickens". This shows how logic can be built into queries.
+Find documents whose price is between 0 - 100 AND whose year is in the 19th century or whose author matches `charles dickens`. This shows how logic can be built into queries.
 Cloudant Search is useful not only for free-text search, but for when you know which attributes you are going to search on, but the queries are varied, with different combinations of attributes each time. This flexibility is difficult to implement with fixed-order MapReduce indexes.
 
 Faceting is a form of aggregation. You nominate individual indexed fields for faceting at index-time and activate the aggregation with parameters at query-time.
@@ -966,14 +966,14 @@ To summarize, Cloudant Search indexes are defined with a supplied JavaScript fun
 
 Note: Cloudant Search also powers 'type=text' Cloudant Query indexes, so a subset of its capabilities is surfaced using the _find API.
 
-That's the end of this part. The next part is called "Geospatial".
+That's the end of this part. The next part is called `Geospatial`.
 
 ## Geospatial video
 {: #geospatial-video}
 
 Learn how to use geospatial indexes to query data, which is unique to {{site.data.keyword.cloudant_short_notm}}. 
 
-![Geospatial](https://youtube.com/embed/nfDQN_Em4H8){: video output="iframe" data-script="#geospatial-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Geospatial](https://youtube.com/embed/nfDQN_Em4H8){: video output="iframe" data-script="#geospatial-video-script" id="Geospatial video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Geospatial video script
 {: #geospatial-video-script}
@@ -981,7 +981,7 @@ Learn how to use geospatial indexes to query data, which is unique to {{site.dat
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 17 - "Geospatial".
+This is part 17 - `Geospatial`.
 
 The final means of querying data in Cloudant is using geospatial indexes.
 
@@ -993,14 +993,14 @@ Again an index is defined as a JavaScript function, and then, queries can be use
 
 To summarize, Cloudant Geo is something unique to the Cloudant service and is used to perform advanced geospatial queries against your databases of GeoJSON objects. It cannot be combined with other index types so is only of use to Geographic Information Systems or use-cases that have a purely geographic purpose.
 
-That's the end of this part. The next part is called "Under the hood"
+That's the end of this part. The next part is called `Under the hood`
 
 ## Under the hood video
 {: #under-the-hood-video}
 
 Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized. 
 
-![Under the hood](https://youtube.com/embed/kCOTeCnHWJg){: video output="iframe" data-script="#under-the-hood-video-script" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Under the hood](https://youtube.com/embed/kCOTeCnHWJg){: video output="iframe" data-script="#under-the-hood-video-script" id="Under the hood video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Under the hood video script
 {: #under-the-hood-video-script}
@@ -1008,7 +1008,7 @@ Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized.
 
 Welcome to the Introduction to Cloudant course, an 18-part video series that gives you an overview of the IBM Cloudant databases-as-a-service.
 
-This is part 18 - "Under the hood".
+This is part 18 - `Under the hood`.
 
 Let's take a look at how a Cloudant service is organized: this overview applies to the Cloudant services that map to CouchDB 2 and 3. CouchDB 4 will be built on different technology.
 
@@ -1035,12 +1035,12 @@ When a node returns, it will catch up any missed data from its peers and then re
 The nature of this configuration where any node can handle a request and data is distributed around nodes without the sort of locking you would see in a relational database, is that Cloudant exhibits eventual consistency:
 
 Cloudant favors availability over consistency: it would rather be up an answering API calls, than be down because it can't provide consistency guarantees. (a relational database is often configured in the opposite way: it operates in a consistent manner or not at all).
-The upshot of this as a developer is that your app should not "read its writes" in a short period of time. There may be a small time window in which it is possible to see an older version of a document than the one you just updated. Eventually, the data will flow around the cluster and in most cases, the quorum mechanism will provide the illusion of consistency, but it is best not to rely on it.
+The upshot of this as a developer is that your app should not `read its writes` in a short period of time. There may be a small time window in which it is possible to see an older version of a document than the one you just updated. Eventually, the data will flow around the cluster and in most cases, the quorum mechanism will provide the illusion of consistency, but it is best not to rely on it.
 Note in CouchDB 4, and in Cloudant services based on that code version, a different consistency model will be employed.
 
-If your data model requires you to update a document over and over in a short time window, it's possible that multiple writes for the same revision number are accepted leading to a branch in the revision tree - known as a conflict. In this example revision "2" was modified in two diffent ways, causing two revision 3s. It's possible to tidy up conflicts programmatically, but they should be avoided as they can cause performance issues in extreme circumstances.
+If your data model requires you to update a document over and over in a short time window, it's possible that multiple writes for the same revision number are accepted leading to a branch in the revision tree - known as a conflict. In this example revision `2` was modified in two different ways, causing two revision 3s. It's possible to tidy up conflicts programmatically, but they should be avoided as they can cause performance issues in extreme circumstances.
 
-Conflicts can also happen when using replication and a document is modified in different ways and then the conflicting revisions are merged in via replication. Cloudant does not throw away data in this scenario. A "winning" revision is chosen, but the non-winning revisions can be accessed and your application can resolve the conflict by electing a new winner, deleting unwanted revisions, or any action you need. A conflict is not an error condition. It's a side effect of having disconnected copies of data that can be modified without locking. Cloudant chooses to handle this by not discarding clashing changes, but storing them as a conflict.
+Conflicts can also happen when using replication and a document is modified in different ways and then the conflicting revisions are merged in via replication. Cloudant does not throw away data in this scenario. A `winning` revision is chosen, but the non-winning revisions can be accessed and your application can resolve the conflict by electing a new winner, deleting unwanted revisions, or any action you need. A conflict is not an error condition. It's a side effect of having disconnected copies of data that can be modified without locking. Cloudant chooses to handle this by not discarding clashing changes, but storing them as a conflict.
 
 To check a document for conflicts, simply add `?conflicts=true` to a fetch of a single document. Any conflicting revisions will be listed in the _conflicts array.
 

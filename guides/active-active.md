@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-17"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -227,7 +227,7 @@ This configuration offers several benefits:
 
 - Load can be spread over several accounts.
 - You can configure applications to access an account with
-  lower latency (not always the geographically closest).
+  reduced latency (not always the geographically closest).
 
 An application can be set up to communicate with the 'nearest'
 {{site.data.keyword.cloudant_short_notm}} account.
