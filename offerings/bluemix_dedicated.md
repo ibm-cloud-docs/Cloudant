@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-23"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -49,8 +49,8 @@ The following screen capture shows where you select the Dedicated Hardware plan 
 that consists of three database nodes and two load balancers. Each database node 
 includes 1.6 TB on SSDs, and since all data is stored in triplicate, this
 storage equates to 1.6 TB of unique disk space across the cluster. Expansion of an 
-environment can be accomplished by buying more "{{site.data.keyword.cloud_notm}} Dedicated 
-{{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity" parts, which can be used to expand the 
+environment can be accomplished by buying more `{{site.data.keyword.cloud_notm}} Dedicated 
+{{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity` parts, which can be used to expand the 
 {{site.data.keyword.cloudant_short_notm}} cluster in multiples of three database nodes. Customers can also 
 choose to have multiple separate {{site.data.keyword.cloudant_short_notm}} environments rather than 
 expanding a single environment.
