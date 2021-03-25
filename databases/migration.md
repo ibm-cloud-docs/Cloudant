@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-29"
+lastupdated: "2021-03-31"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -64,7 +64,7 @@ The amount that you can change the throughput capacity is limited to a maximum o
 
 You're billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. Your monthly bill is always predictable; upgrades are automatic; and your SLA is [99.99%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}{: external}.
 
-If you exceed your quota of reads, writes, and global queries in a given second, the {{site.data.keyword.cloudant_short_notm}} API responds with an `HTTP 429 too many requests` response. Your application might retry the request later - our official libraries offer the option of retrying such requests with an exponential back off. 
+If you exceed your quota of reads, writes, and global queries in a given second, the {{site.data.keyword.cloudant_short_notm}} API responds with an `HTTP 429 too many requests` response. Your application might retry the request later - {{site.data.keyword.cloudant_short_notm}} official libraries offer the option of retrying such requests with an exponential back off. 
 
 ## Which type of {{site.data.keyword.cloudant_short_notm}} plan do I have?
 {: #which-type-of-ibm-cloudant-plan-do-i-have-}
@@ -77,7 +77,7 @@ You can also drill down into a specific instance and look at the Plan tab for mo
 
 ![Standard dashboard](../images/ibmcloud_instance_standard_plan.png){: caption="Figure 3. Standard dashboard" caption-side="bottom"}
 
-You can also open the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click the **Account** tab. A Lite plan looks like the following example:
+You can also open the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click **Account**. A Lite plan looks like the following example:
 
 ![Lite plan](../images/migrate1.png){: caption="Figure 4. Lite plan" caption-side="bottom"}
 
@@ -99,8 +99,8 @@ Migrate from the free Lite plan to the Standard plan by following these steps:
 1.  Go to the {{site.data.keyword.cloud_notm}} dashboard.
 2.  Go to the menu icon then **Resource List** to see all your service instances. 
 3.  Select the {{site.data.keyword.cloudant_short_notm}} instance that you want to migrate. 
-4.  Select the **Plan** tab on the menu. 
-5.  From the list of pricing plans, select the **Standard** check box. 
+4.  Select **Plan** on the menu. 
+5.  From the list of pricing plans, select **Standard**. 
 ![Standard plan](../images/migrate3.png){: caption="Figure 7. Standard plan" caption-side="bottom"} 
 6.  Click **Upgrade**.
     All of your existing data is kept for you.
@@ -126,7 +126,7 @@ You can't directly change a Shared plan instance to a Lite or Standard plan inst
 ### Step 2. Create an {{site.data.keyword.cloudant_short_notm}} instance
 {: #step-2-create-an-ibm-cloudant-instance}
 
-After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then click `Databases` and `Cloudant`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant).  
+After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click `Create resource` on the dashboard and then click `Databases` and `Cloudant`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant).  
 
 ![Add {{site.data.keyword.cloudant_short_notm}} instance.](../tutorials/images/img0003.png){: caption="Figure 8. Add {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
 

@@ -256,7 +256,7 @@ The numeric reducers `_stats`/`_sum` act upon the value (the emit function's sec
 ```
 {: codeblock}
 
-The view is keyed on a sale's date, and the value is an object that contains two values: price and tax. The `_sum` reduce will calculate totals for each attribute of the object that it finds:
+The view is keyed on a sale's date, and the value is an object that contains two values: price and tax. The `_sum` reduce calculates totals for each attribute of the object that it finds:
 
 ```json
 {"rows":[

@@ -106,7 +106,7 @@ See an example design document that defines a view by using a map function:
 ```
 {: codeblock}
 
-The result is that our map code is turned into a JSON-compatible string,
+The result is that the map code is turned into a JSON-compatible string,
 and included in a design document.
 
 Once the design document is saved,
@@ -127,8 +127,8 @@ as shown in the following diagram:
 It's worth remembering the following points:
 
 -   The construction of an index happens asynchronously.
-    {{site.data.keyword.cloudant_short_notm}} confirms that our design document was saved. To check on the progress of the construction of our index,
-    You must poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
+    {{site.data.keyword.cloudant_short_notm}} confirms that the design document was saved. To check on the progress of the construction of the index,
+    you must poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
 -   The more data that you have,
     the longer it takes before the index is ready.
 -   While the initial index build is in progress,
@@ -158,7 +158,7 @@ This behavior doesn't apply to Lucene search indexes. They can be altered within
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}
 
-Imagine at some point in the future that you decide to change the design of your view.
+Imagine at some point in the future we decide to change the design of the view.
 Now,
 instead of returning the actual timestamp result,
 we're only interested in the count of how many documents match the criteria.
@@ -199,11 +199,11 @@ But there's a problem...
 If you have an application that is accessing this view in real time,
 then you might experience a deployment dilemma:
 
--   Version 1 of our code,
+-   Version 1 of the code,
     which relied on the original design document,
     might no longer work because the old view is invalidated.
--   Version 2 of our code uses the new design document. This version can't be released immediately because the new view isn't finished building yet. Remember the build process takes longer if the database includes many documents.
--   A more subtle problem that affects our code is that versions 1 and 2 expect different result data from the view:
+-   Version 2 of the code uses the new design document. This version can't be released immediately because the new view isn't finished building yet. Remember the build process takes longer if the database includes many documents.
+-   A more subtle problem that affects the code is that versions 1 and 2 expect different result data from the view:
     Version 1 expects a list of matching documents,
     while version 2 expects a 'reduced' count of results.
 
@@ -280,7 +280,7 @@ If you assume that you have a design document in JSON format, which is stored in
 
 In this example,
 `db` specifies the name of the database to change,
-and `dd` specifies the path to our design document file. Run the `couchmigrate` command:
+and `dd` specifies the path to the design document file. Run the `couchmigrate` command:
 
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json

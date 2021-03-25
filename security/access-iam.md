@@ -442,7 +442,7 @@ The code snippets in the next few sections require supported client libraries.
 #### Java
 {: #java-ai}
 
-The following links provide the latest supported version of our legacy and beta libraries:
+The following links provide the latest supported version of the legacy and beta libraries:
 
 - [`java-cloudant`](https://github.com/cloudant/java-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-java-sdk`](https://github.com/IBM/cloudant-java-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
@@ -476,7 +476,7 @@ public class App
 #### Node.js
 {: #node.js-ai}
 
-The following links provide the latest supported version of our legacy and beta libraries:
+The following links provide the latest supported version of the legacy and beta libraries:
 
 - [`nodejs-cloudant`](https://github.com/cloudant/nodejs-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases/latest){: new_window}{: external}![BETA tag](../images/beta_icon.png)
@@ -505,7 +505,7 @@ cloudant.db.list(function(err, body) {
 #### Python
 {: #python-ai}
 
-The following links provide the latest supported version of our legacy and beta libraries:
+The following links provide the latest supported version of the legacy and beta libraries:
 
 - [`python-cloudant`](https://github.com/cloudant/python-cloudant/releases/latest){: new_window}{: external}
 - [`cloudant-python-sdk`](https://github.com/IBM/cloudant-python-sdk/releases/latest){: new_window}{: external}

@@ -47,7 +47,7 @@ Read and write capacity can't be scaled independently. Use the slider to select 
 
 You can't exceed the reserved capacity for either reads or writes. If you do, an HTTP 429 status code occurs that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 
-Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** tab to view and change the provisioned throughput capacity. See the hourly and approximate monthly costs for each setting. Here is an example of slider. 
+Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** to view and change the provisioned throughput capacity. See the hourly and approximate monthly costs for each setting. Here is an example of slider. 
 
 ![Capacity slider](../images/manage_capacity_slider_te.png){: caption="Figure 1. Capacity slider" caption-side="bottom"}
 

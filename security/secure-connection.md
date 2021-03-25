@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-03"
+lastupdated: "2021-03-26"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -38,7 +38,7 @@ subcollection: Cloudant
 {: #endpoints-sc}
 
 {{site.data.keyword.cloudant_short_notm}} is accessed through HTTP API endpoints. The endpoints for an instance are
-shown in both the URL field of the Service Credentials that are generated for the instance, and in the **Account** > **Settings** tab of the
+shown in both the URL field of the Service Credentials that are generated for the instance, and in **Account** > **Settings** of the
 {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 Therefore, all {{site.data.keyword.cloudant_short_notm}} HTTP endpoints must be accessed over TLS and prefaced by `https://`.
@@ -123,8 +123,7 @@ The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access
 {: #ibm-cloudant-dashboard-sc}
 
 You can open the {{site.data.keyword.cloudant_short_notm}} Dashboard for your instance by going to the Manage tab of
-the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either the `Launch` or `Launch Cloudant Dashboard`
-button to open the dashboard in a new browser tab. You can do the following tasks by using the {{site.data.keyword.cloudant_short_notm}} Dashboard:
+the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either `Launch` or `Launch Cloudant Dashboard` to open the dashboard in a new browser tab. You can do the following tasks by using the {{site.data.keyword.cloudant_short_notm}} Dashboard:
 
 - Monitor your current consumption of the instance.
 - Perform create, read, update, and delete on {{site.data.keyword.cloudant_short_notm}} databases, documents, and indexes.

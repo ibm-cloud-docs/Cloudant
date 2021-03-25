@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-03-26"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -38,7 +38,7 @@ subcollection: Cloudant
 {: #endpoints}
 
 {{site.data.keyword.cloudant_short_notm}} is accessed through HTTP API endpoints. The endpoints for an instance are
-shown in both the URL field of the Service Credentials that are generated for the instance, and in the **Account** > **Settings** tab of the
+shown in both the URL field of the Service Credentials that are generated for the instance, and in **Account** > **Settings** of the
 {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 All {{site.data.keyword.cloudant_short_notm}} HTTP endpoints must be accessed over TLS and prefaced by `https://`.
@@ -123,8 +123,7 @@ The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access
 {: #ibm-cloudant-dashboard}
 
 You can open the {{site.data.keyword.cloudant_short_notm}} Dashboard for your instance by going to the Manage tab of
-the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either the `Launch` or `Launch Cloudant Dashboard`
-button to open the dashboard in a new browser tab. You can do the following tasks by using the {{site.data.keyword.cloudant_short_notm}} Dashboard:
+the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either `Launch` or `Launch Cloudant Dashboard` to open the dashboard in a new browser tab. You can do the following tasks by using the {{site.data.keyword.cloudant_short_notm}} Dashboard:
 
 - Monitor your current consumption of the instance.
 - Perform create, read, update, delete (CRUD) on {{site.data.keyword.cloudant_short_notm}} databases, documents, and indexes.
@@ -140,7 +139,7 @@ button to open the dashboard in a new browser tab. You can do the following task
 
 You can leverage the curl command-line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API.
 
-For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see [Working with curl](/docs/Cloudant?topic=Cloudant-working-with-curl). You will find details on supplying a username and 
+For more information about {{site.data.keyword.cloudant_short_notm}} legacy authentication, see [Working with curl](/docs/Cloudant?topic=Cloudant-working-with-curl). This topic provides details on supplying a username and 
 password to access the {{site.data.keyword.cloudant_short_notm}} API with curl.
 
 If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. You pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. For more information, see [Passing an {{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](/docs/account?topic=account-iamapikeysforservices#token_auth){: new_window}{: external}

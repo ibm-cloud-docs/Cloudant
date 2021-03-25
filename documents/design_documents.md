@@ -1178,9 +1178,9 @@ The JSON response includes the following individual fields:
 
 -	`name` - Name or ID of design document.
 -	`view_index` - View Index
-	-	`compact_running` - Indicates whether a compaction routine is running on the view.
+	-	`compact_running` - Indicates whether a compaction routine runs on the view.
 	-	`disk_size` - Size in bytes of the view as stored on disk.
-	-	`language` - Language that is used for defining views.
+	-	`language` - Language used for defining views.
 	-	`purge_seq` - The purge sequence that was processed.
 	-	`signature`	 - MD5 signature of the views for the design document.
 	-	`update_seq` - The update sequence of the corresponding database that was indexed.
@@ -1211,22 +1211,21 @@ See the following example response in JSON format:
 ### The `_search_info` endpoint
 {: #the-_search_info-endpoint}
 
-The `_search_info` endpoint returns information about a specified search
-that is defined within a specific design document.
+The `_search_info` endpoint returns information about a specified search defined within a specific design document.
 
 -	`Method` - `GET /db/_design/design-doc/_search_info/yourSearch`
 -	`Request` - None
 -	`Response` - JSON that contains information about the specified search.
 -	`Roles permitted` - `_reader`
 
-See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using HTTP:
+See the following example of getting information about the `description` search, which is defined within the `app` design document stored in the `foundbite` database, by using HTTP:
 
 ```http
 GET /foundbite/_design/app/_search_info/description HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using the command line:
+See the following example of getting information about the `description` search, which is defined within the `app` design document stored in the `foundbite` database, by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description"

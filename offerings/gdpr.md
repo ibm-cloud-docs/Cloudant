@@ -102,11 +102,11 @@ ability to contact dedicated customers via email. {{site.data.keyword.cloudant_s
 information up to date either directly, or via customer configuration of their contact details 
 via their {{site.data.keyword.cloud_notm}} account details.
 
-## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
+## Is the {{site.data.keyword.cloudant_short_notm}} database encrypted?
 {: #is-our-ibm-cloudant-database-encrypted-}
 
 All clusters have an encrypted file system (encryption at rest) that uses Linux&trade; Unified Key Setup (LUKS). Data in the database is 
-visible to our operations and support teams (see the following paragraph).
+visible to the operations and support teams (see the following paragraph).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
 you must encrypt or otherwise protect (pseudonymize) your data before you send it to us. Do not use PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
@@ -135,7 +135,7 @@ As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these gu
 ### Physical and environmental security measures
 {: #physical-and-environmental-security-measures}
 
-Physical security of our data centers is handled by our infrastructure providers: {{site.data.keyword.cloud}}, 
+Physical security of our data centers is handled by the infrastructure providers: {{site.data.keyword.cloud}}, 
 AWS, and 21Vianet. All hold externally audited certifications for their physical security. {{site.data.keyword.cloudant_short_notm}} 
 doesn't provide further details of the physical security controls in place at our data 
 centers.

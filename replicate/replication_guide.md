@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-26"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -68,7 +68,7 @@ Any pre-existing data in the destination database remains.
 {: #how-to-start-replicating-with-the-dashboard}
 
 The {{site.data.keyword.cloudant_short_notm}} Dashboard provides a convenient user interface to trigger replication.
-Click the `Replication` tab on the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click `Start Replication`.
+Click `Replication` on the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click `Start Replication`.
 Complete the form:
 
 ![Replication form](../images/replication_guide_2.png){: caption="Figure 2. Replication form" caption-side="bottom"}
@@ -81,7 +81,7 @@ then click `Start Replication`.
 
 ![Running state](../images/replication_guide_3.png){: caption="Figure 3. Running state" caption-side="bottom"}
 
-The status of each replication task can be seen by clicking the `Replication` tab.
+The status of each replication task can be seen by clicking `Replication`.
 Each job changes state from `Running` to `Completed` as it progresses. 
 
 ![Completed state](../images/replication_guide_4.png){: caption="Figure 4. Completed state" caption-side="bottom"}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-23"
+  years: 2020, 2021
+lastupdated: "2021-03-26"
 
 keywords: capacity settings, capacity limit, exceed limit, usage data
 
@@ -39,7 +39,7 @@ For more information, see [{{site.data.keyword.cloudant_short_notm}} Pricing](/d
 {: #change-capacity}
 {: faq}
 
-You can change your provisioned throughput capacity and see your current capacity settings in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Launch **{{site.data.keyword.cloudant_short_notm}} Dashboard** > **Account** > **Capacity** tab to view and change your provisioned throughput capacity and see the hourly and approximate monthly costs. You can also use the {{site.data.keyword.cloud}} pricing calculator to see estimates in other currencies.
+You can change your provisioned throughput capacity and see your current capacity settings in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Launch **{{site.data.keyword.cloudant_short_notm}} Dashboard** > **Account** > **Capacity** to view and change your provisioned throughput capacity and see the hourly and approximate monthly costs. You can also use the {{site.data.keyword.cloud}} pricing calculator to see estimates in other currencies.
 
 ## How do I know I exceeded the capacity limit that I set? 
 {: #exceed-capacity}

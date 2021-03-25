@@ -1327,13 +1327,13 @@ Geo index files are stored in `/srv/cloudant/geo_index/`.
 ## Managing the Metrics database
 {: #managing-the-metrics-database}
 
-The metrics database will grow in size over time. Depending on
+The metrics database grows in size over time. Depending on
 your retention requirements, you can manage growth and remove old
 data as described here.
 
 1. Discard metrics data.
 
-   If you discard metrics data, you lose the performance data collected to date. You can no longer view the performance data from the Metrics dashboard. After this operation, disk space in the database will be available again, and new data will be collected as usual.
+   If you discard metrics data, you lose the performance data collected to date. You can no longer view the performance data from the Metrics dashboard. After this operation, disk space in the database becomes available again, and new data is collected as usual.
    {: note}
 
    a. Stop the Metrics service on all database nodes.

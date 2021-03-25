@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-09"
+  years: 2020, 2021
+lastupdated: "2021-03-25"
 
 keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency
 
@@ -49,7 +49,7 @@ It's important for {{site.data.keyword.cloudant_short_notm}} databases to have c
 {: #how-know-conflict}
 {: faq}
 
-You don't know. Sometimes you will request a document that has a conflict. At those times, {{site.data.keyword.cloudant_short_notm}} returns the document normally, as though no conflict exists. However, the version that is returned isn't necessarily the most current version. Instead, the version is selected based on an internal algorithm that considers multiple factors. You must not assume that when documents are returned they're always the most current.
+You don't know. Sometimes you request a document that has a conflict. At those times, {{site.data.keyword.cloudant_short_notm}} returns the document normally, as though no conflict exists. However, the version that is returned isn't necessarily the most current version. Instead, the version is selected based on an internal algorithm that considers multiple factors. You must not assume that when documents are returned they're always the most current.
 
 ## How do I identify a document with a conflict?
 {: #how-identify-document-conflict}

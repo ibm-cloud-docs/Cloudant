@@ -49,7 +49,7 @@ Allowlisted users can purchase an instance of {{site.data.keyword.cloud_notm}} E
 ### Provisioning an instance
 {: #provisioning-an-instance-support}
 
-1. Go to the [{{site.data.keyword.cloudant_short_notm}} catalog tile](https://cloud.ibm.com/catalog/services/cloudant), and click the **Create** tab.
+1. Go to the [{{site.data.keyword.cloudant_short_notm}} catalog tile](https://cloud.ibm.com/catalog/services/cloudant), and click **Create**.
 2. Select the Extension for Apache CouchDB option. (If the Extension for Apache CouchDB option is not available, contact support to enable the option for your account.)
 3. Enter an Instance name, and use "CouchDB" somewhere in the name to distinguish it from {{site.data.keyword.cloudant_short_notm}} instances.
 4. Select a Resource group.
