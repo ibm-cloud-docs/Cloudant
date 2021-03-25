@@ -201,7 +201,7 @@ called `databasedemo`.
 {: #storing-a-small-collection-of-data-as-documents-within-the-database}
 {: step}
 
-We now want to store a small,
+You want to store a small,
 simple collection of data in the database. This data is used in other tutorials, like [Using {{site.data.keyword.cloudant_short_notm}} Query to find data](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query).
 
 1. Create sample data.
@@ -264,9 +264,9 @@ simple collection of data in the database. This data is used in other tutorials,
 {: step}
 
 To perform a minimal retrieval,
-we first request a list of all documents within the database.
+you first request a list of all documents within the database.
 This list is returned as an array.
-We can then show the content of an element in the array.
+You can then show the content of an element in the array.
 
 1. Retrieve a minimal amount of data.
 
@@ -301,12 +301,12 @@ necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short
 {: step}
 
 Additionally, to perform a full retrieval,
-we request a list of all documents within the database,
+you request a list of all documents within the database,
 and specify that the document content must also be returned.
-We run a full retrieval by using the `include_docs` option.
+You run a full retrieval by using the `include_docs` option.
 As before,
 the results are returned as an array.
-We can then show the details of an element in the array
+You can then show the details of an element in the array
 by including the full content of the document this time.
 
 1. Request the first document that is retrieved from the database.
@@ -344,13 +344,13 @@ by including the full content of the document this time.
 {: #calling-an-ibm-cloudant-api-endpoint-directly}
 {: step}
 
-We can work with the {{site.data.keyword.cloudant_short_notm}} API endpoints directly,
+You can work with the {{site.data.keyword.cloudant_short_notm}} API endpoints directly,
 from within a Python application.
 
 In this example code,
-we again request a list of all the documents,
+you again request a list of all the documents,
 including their content.
-However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/apidocs/cloudant#postalldocs){: new_window}{: external}.
+However, this time you do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/apidocs/cloudant#postalldocs){: new_window}{: external}.
 
 1. Identify the endpoint to contact and any parameters to supply with it.
 
@@ -425,7 +425,7 @@ However, this time we do so by invoking the {{site.data.keyword.cloudant_short_n
     ```
     {: codeblock}
 
-2. Review the basic error handling that we included to illustrate how problems might be caught and addressed.
+2. Review the basic error handling that was included to illustrate how problems might be caught and addressed.
 
 ## Closing the connection to the service instance
 {: #closing-the-connection-to-the-service-instance}

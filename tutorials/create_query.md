@@ -62,9 +62,9 @@ Now, we're ready to learn how to run queries against the database you created in
 
 {{site.data.keyword.cloudant_short_notm}} Query uses Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index.
 
-When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields.  
+When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. In memory, you filter out the documents by the selector, which is why, even without an index, you can still query with various fields.  
 
-If no available defined index matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). Full table scans are expensive to process, and we recommend that you create an index. 
+If no available defined index matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). Full table scans are expensive to process, and it is recommended that you create an index. 
 {: tip}
 
 To create an index, follow these steps:
@@ -180,7 +180,7 @@ Next, you find a document in the database by using two fields.
 
 This example uses two fields to find a document with the values: `freezing` and `-5`. 
 
-We describe the search by using a ['selector' expression](/apidocs/cloudant#postfind){: new_window}{: external}
+The search is described by using a ['selector' expression](/apidocs/cloudant#postfind){: new_window}{: external}
 that looks like the following example:
 
 ```json
@@ -193,7 +193,7 @@ that looks like the following example:
 ```
 {: codeblock}
 
-We can tailor the results by adding more details within the selector expression.
+You can tailor the results by adding more details within the selector expression.
 The `fields` parameter specifies the fields to include with the results. In our example, the
 results include the `nameField`, `descriptionField`, and `temperatureField`, as shown in the following example:
 
@@ -265,7 +265,7 @@ Next, you find a document in the database by using multiple operators.
 In this example, the `$gt` (greater than) and `$eq` (equal) operators are used to search
 for documents that include a temperature that is greater than `20` degrees and a description that contains the value `hot`. The results include the `descriptionField` and `temperatureField`, shown in descending order by temperature. 
 
-We use a selector expression like the following example:
+You use a selector expression like the following example:
 
 ```json
   {

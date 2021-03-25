@@ -28,7 +28,7 @@ subcollection: Cloudant
 
 The following tables show the differences between {{site.data.keyword.cloudantfull}} "Classic" architecture and {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
 
-The comparison tables serve as a point-in-time comparison to aid in choosing between the two plans at provisioning time. Customers must choose the plan to meet the needs of their application. Certain new features were delivered only on {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. For this reason, we recommend you choose the {{site.data.keyword.cloudant_short_notm}} on Transaction Engine plan whenever possible.  
+The comparison tables serve as a point-in-time comparison to aid in choosing between the two plans at provisioning time. Customers must choose the plan to meet the needs of their application. Certain new features were delivered only on {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. For this reason, if possible, choose the {{site.data.keyword.cloudant_short_notm}} on Transaction Engine plan whenever possible.  
 {: note}
 
 The comparison tables break down the features into the following categories:

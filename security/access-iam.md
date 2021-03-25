@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-25"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -33,11 +33,13 @@ approach to managing user identities, services, and access control.
 {: #introduction-iam-ai}
 
 This document describes the integration of {{site.data.keyword.cloudantfull}} with {{site.data.keyword.cloud_notm}} Identity and
-Access Management. It discusses the differences between {{site.data.keyword.cloudant_short_notm}}'s legacy
-access controls and {{site.data.keyword.cloud_notm}} IAM's access controls. Next, it looks at the advantages and disadvantages of each
-to help you decide which to use. Then, we discuss how to use IAM within
-{{site.data.keyword.cloudant_short_notm}}'s client libraries and by using HTTP calls. Finally, we end with a reference
-section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
+Access Management. The following topics are discussed:
+
+- Differences between {{site.data.keyword.cloudant_short_notm}} legacy access controls and {{site.data.keyword.cloud_notm}} IAM access controls
+- Advantages and disadvantages of each to help you decide which to use
+- How to use IAM within {{site.data.keyword.cloudant_short_notm}}'s client libraries by using HTTP calls
+- Description of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}
+
 
 For more information, see an overview of [IAM](https://cloud.ibm.com/docs/account?topic=account-iamoverview){: new_window}{: external} that includes the following topics:
 
@@ -267,7 +269,7 @@ Follow these instructions to generate IAM API keys, generate the bearer token, c
 ### Generating IAM API keys for Source and Target and one for {{site.data.keyword.cloudant_short_notm}} API access
 {: #generate-iam-api-keys-cloudant-api-access-ai}
 
-We create the first two API keys so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.
+In this exercise, the first two API keys are created so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.
 
 Follow these steps to generate IAM API keys and API access for {{site.data.keyword.cloudant_short_notm}}. You must write down
 the credentials that are requested in the following steps to continue with the example.
@@ -422,7 +424,7 @@ See the results in the following example:
 ## Making requests to instances by using IAM credentials
 {: #making-requests-to-instances-by-using-iam-credentials-ai}
 
-Now, we discuss how to use {{site.data.keyword.cloudant_short_notm}} with
+Now, this section discusses how to use {{site.data.keyword.cloudant_short_notm}} with
 service instances through IAM authentication. It uses the
 details from the [Service credential JSON examples for each option](#service-credential-json-examples-for-each-option-ai).
 

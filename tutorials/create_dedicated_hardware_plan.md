@@ -34,7 +34,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. After that exercise, we show you how to provision one or more Standard plan instances to run on the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance by using either the {{site.data.keyword.cloud_notm}} catalog or the {{site.data.keyword.cloud_notm}} CLI. 
+This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. After that exercise, you learn how to provision one or more Standard plan instances to run on the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance by using either the {{site.data.keyword.cloud_notm}} catalog or the {{site.data.keyword.cloud_notm}} CLI. 
 {: shortdesc}
 
 When you create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware is created for your sole use. A service 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-23"
+  years: 2020, 2021
+lastupdated: "2021-03-25"
 
 keywords: recommendations
 
@@ -39,14 +39,14 @@ The key features that {{site.data.keyword.cloudant_short_notm}} on the new Trans
 - In-database encryption - {{site.data.keyword.cloudant_short_notm}} on Transaction Engine adds more native in-database encryption as well as storage volume encryption. Data values are encrypted both in primary data and indexed data within the database, with a unique encryption key per database. 
 - Database recovery - APIs are provided to allow database-level recovery for accidental deletions within a time window.
 
-Now, we further elaborate on the benefits of using {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
+The following discussion elaborates on the benefits of using {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
 
 ## In-region consistency
 
 In {{site.data.keyword.cloudant_short_notm}} on the Classic architecture, the database is eventually consistent. The application can't safely read its own documents writes and might inadvertently create conflicts when a document is updated frequently in a short time window. 
 
 {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture provides in-region consistency with the following guarantees:
-- If an application writes a document revision to {{site.data.keyword.cloudant_short_notm}}, we guaranteed that the revision is available to later read requests.
+- If an application writes a document revision to {{site.data.keyword.cloudant_short_notm}}, it is guaranteed that the revision is available to later read requests.
 - If a new document is created by two simultaneous writes, attempting to create the same document ID, one succeeds and the other fails.
 - Similarly, if two simultaneous processes attempt to modify a document in different ways, one succeeds and the other fails.
 - The changes feed is strictly ordered ("linearized") making it much easier for changes feed listeners to consume the changes feed without having to deal with duplicates of the same change.
@@ -83,4 +83,4 @@ Instances that are provisioned with the new `Standard on Transaction Engine` pla
 
 ## Feature Parity between {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine vs "Classic" architecture
 
-Not all {{site.data.keyword.cloudant_short_notm}} features currently available in the Cloudant "classic" architecture are available in the new `Standard on Transaction Engine` plan. Customers must evaluate their requirements and choose the appropriate plan for their use case. Multiple upcoming features rely solely on the Transaction Engine architecture that is related to scalability, security, and compliance. We recommended that you use this plan whenever feasible. 
+Not all {{site.data.keyword.cloudant_short_notm}} features currently available in the Cloudant "classic" architecture are available in the new `Standard on Transaction Engine` plan. Customers must evaluate their requirements and choose the appropriate plan for their use case. Multiple upcoming features rely solely on the Transaction Engine architecture that is related to scalability, security, and compliance. It is recommended that you use this plan whenever feasible. 

@@ -130,7 +130,7 @@ a few new indexes to be created.
     - Creating an index of any type (Mango or view) consumes a
       large amount of indexing unit throughput while the index is initially
       being built. This means all existing documents in a database need to
-      be read and added to the index. We suggest that you create only one new index
+      be read and added to the index. Only create one new index
       at a time to allow each new index to be built in a timely manner. If you attempt to build several new indexes in parallel, it is likely to cause
       problems where indexes fall behind writes.
 
@@ -192,7 +192,7 @@ Data is metered and usage submitted hourly and based on the Gigabyte Hours metri
 {: #pricing-examples-te}
 
 Let's assume you're building a mobile app with {{site.data.keyword.cloudant_short_notm}} and don't yet know the capacity
-that you might need. In this case, we recommend that you start with the lowest provisioned throughput
+that you might need. In this case, start with the lowest provisioned throughput
 capacity and increase it as needed by your application's usage over time. {{site.data.keyword.cloudant_short_notm}} bills
 pro-rated hourly and changing the provisioned throughput capacity doesn't incur downtime.
 
