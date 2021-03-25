@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-03-30"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -117,7 +117,7 @@ A list of values enclosed in brackets. The values that are enclosed can be any v
 ## Objects
 {: #objects}
 
-A set of `key/value` pairs,
+A set of `key-value` pairs,
 such as an associative array,
 or a hash.
 The key must be a string,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-25"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -189,7 +189,7 @@ curl -X PUT -u $USERNAME:$PASSWORD "https://$ACCOUNT.cloudant.com/mynewdatabase?
 ```
 {: codeblock}
 
-You can configure `Q`. However, we prohibit very large values of `Q` since they have a deleterious effect on the service with no performance gain for the user.
+You can configure `Q`. However, you want to prohibit very large values of `Q` since they have a deleterious effect on the service with no performance gain for the user.
 {: note}
 
 If you attempt to set the `Q` value where it is not available,

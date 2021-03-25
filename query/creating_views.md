@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-30"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -302,7 +302,7 @@ The previous definition calculates statistics on the numerical values it finds i
 ```
 {: codeblock}
 
-The `_count` reducer simply counts the number of `key/value` pairs that are emitted into the index.
+The `_count` reducer simply counts the number of `key-value` pairs that are emitted into the index.
 
 ```json
 {"rows":[
@@ -334,7 +334,7 @@ Function | Description
 ## Custom reduce functions
 {: #custom-reduce-functions}
 
-Most customers find that built-in reducers are sufficient to perform aggregations on the view `key/value` pairs emitted from their Map functions. However, for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
+Most customers find that built-in reducers are sufficient to perform aggregations on the view `key-value` pairs emitted from their Map functions. However, for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
 
 Custom JavaScript reduce functions are not supported on Transaction Engine. ![TXE tag](../images/txe_icon.svg)
 
@@ -442,7 +442,7 @@ Custom JavaScript reduce functions are not supported on Transaction Engine. ![TX
 
 The map function must be referentially transparent. Referential transparency means that
 an expression can be replaced with the same value without changing the result, in this
-case, a document, and a `key/value` pair. Because of referential transparency,
+case, a document, and a `key-value` pair. Because of referential transparency,
 {{site.data.keyword.cloudant_short_notm}} views can be updated
 incrementally and reindex only the delta since the last update.
 

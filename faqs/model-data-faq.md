@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-18"
+lastupdated: "2021-03-25"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -74,9 +74,10 @@ concurrent updates by creating a conflict.
 Conflicted documents harm performance. A highly concurrent update-in-place pattern also increases the likelihood that writes get rejected. In that situation, the `_rev` parameter isn’t the expected one, which forces your 
 application to retry and delay processing.
 
-We found that this conflicted-document scenario is significantly more likely to happen 
-for updates that occur more often than once a second. We recommend immutable documents for updates that occur 
+This conflicted-document scenario is significantly more likely to happen 
+for updates that occur more often than once a second. Use immutable documents for updates that occur 
 more than once every ten seconds to be on the safe side.
+{: note}
 
 ## How can I use views to pre-calculate results rather than as search indexes?
 {: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
@@ -180,7 +181,7 @@ like the following two examples:
 
 Emitting the `"patient"` field as the key in your view would then allow querying for all 
 operations for a specific patient. Again, views are used to help knit together a full picture of 
-a specific entity from separate documents. Views help keep the number of HTTP requests low, even though we split up the data for a single-modeled entity.
+a specific entity from separate documents. Views help keep the number of HTTP requests low, even though {{site.data.keyword.cloudant_short_notm}} splits up the data for a single-modeled entity.
 
 ## How do I avoid conflicts?
 {: #how-this-helps-you-avoid-conflicts}
@@ -234,7 +235,7 @@ pathologically conflicted documents.
 These tips demonstrate how modeling data affects your application’s 
 performance. {{site.data.keyword.cloudant_short_notm}}’s data store has some specific characteristics, both to watch out for 
 and to take advantage of, that ensure the database performance scales as your application 
-grows. We understand the shift can be confusing, so we’re always on-hand to give advice.
+grows. {{site.data.keyword.cloudant_short_notm}} support understands the shift can be confusing, so they’re always on-hand to give advice.
 
 For more information, see the
 [data model for Foundbite](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}{: external},

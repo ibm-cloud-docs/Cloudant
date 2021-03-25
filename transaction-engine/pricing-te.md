@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-03-30"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -252,7 +252,7 @@ Let's unpack this diagram and draw out the incentives that {{site.data.keyword.c
 ### Bulk over piecemeal API calls
 {: #bulk-over-piecemeal-api-calls}
 
-Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends one read/write unit to `open the transaction` with the underlying key/value store (indicated by a red icon on the diagram). In other words, the API calls that write, update, delete, or fetch a single document cost two units each - one to open the transaction the other to perform the database operation. The bulk APIs are cheaper because a database transaction is opened once and is able to service several reads/writes.
+Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends one read/write unit to `open the transaction` with the underlying key-value store (indicated by a red icon on the diagram). In other words, the API calls that write, update, delete, or fetch a single document cost two units each - one to open the transaction the other to perform the database operation. The bulk APIs are cheaper because a database transaction is opened once and is able to service several reads/writes.
 
 - If you have more than one document to fetch by their ID, use `GET /db/_all_docs?keys=["id1","id2"...]` instead of fetching them individually.
 - If you have more than one document to insert, update, or delete, use `POST /db/_bulk_docs` instead of an API call per document.
@@ -288,12 +288,12 @@ Storing data in the `_id` field rather than by using {{site.data.keyword.cloudan
 ### Using `?include_docs=true` with MapReduce adds expense
 {: #?include_docs=true-and-mapreduce-adds-expense}
 
-Fetching keys and values from a MapReduce view is cheap (1 read unit to open the transaction and one read unit per *100* key/values). Adding `?include_docs=true` to fetch the associated document body adds the extra expense of one read unit per document fetched.
+Fetching keys and values from a MapReduce view is cheap (1 read unit to open the transaction and one read unit per *100* key-values). Adding `?include_docs=true` to fetch the associated document body adds the extra expense of one read unit per document fetched.
 
 ### Projecting data into a MapReduce view
 {: #projecting-data-into-a-mapreduce-view}
 
-The cheapest thing that {{site.data.keyword.cloudant_short_notm}} Transaction Engine does is reading key/values from a MapReduce view, incentivizing you to *project* data into the index's value to avoid having to use `?include_docs=true`. See the following example:
+The cheapest thing that {{site.data.keyword.cloudant_short_notm}} Transaction Engine does is reading key-values from a MapReduce view, incentivizing you to *project* data into the index's value to avoid having to use `?include_docs=true`. See the following example:
 
 ```js
 function (doc) {

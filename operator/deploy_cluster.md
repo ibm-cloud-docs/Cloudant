@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-29"
+lastupdated: "2021-03-30"
 
 keywords: access, status, resource
 
@@ -111,7 +111,7 @@ kubectl create secret generic --type=kubernetes.io/tls <couchdbclustername>-cert
 ```
 {: codeblock}
 
-If your secret was created by using a well-known CA, you don't need to add the ca.crt `key/value`.
+If your secret was created by using a well-known CA, you don't need to add the ca.crt `key-value`.
 
 ### Create a CouchDBCluster resource
 {: #create-couchdbcluster-resource-kubernetes}

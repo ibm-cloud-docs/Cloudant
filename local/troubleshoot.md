@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-31"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -309,7 +309,7 @@ and display the Metrics application.
     URL.
 
     This example shows a Metrics application URL, with a user
-    specified, to display the Metrics application:
+    specified, to show the Metrics application:
     `https://cloudantlocal.cloudant.com/metrics_app/statistics/index.html`
 5. When you log in to the Metrics application for the first time,
     the Metrics login page opens.
@@ -634,7 +634,7 @@ The second parameter to `proc_count` is the number of
 processes to show, in this case 10. So here <0.101.0> is
 using 16 MB of memory, which is typically nothing to
 worry about. It is possible for individual processes to
-use several gigabytes of memory. As a rule, if the uppermost processes are using more memory than others, it is worth looking into whether you can stop those processes.
+use several gigabytes of memory. As a rule, if the top processes are using more memory than others, it is worth looking into whether you can stop those processes.
 
 Use `process_info` to find out what process is running.
 

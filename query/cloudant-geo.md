@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-30"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -101,7 +101,7 @@ Depending on the geometry type you specify,
 a default spatial relation is chosen for you.
 The exact relation is visible by selecting the Options menu.
 
-The lowest area of the map view provides tools to select how many spatial features are displayed together,
+The lowest area of the map view provides tools to select how many spatial features are shown together,
 up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
 page through them by using the arrows.

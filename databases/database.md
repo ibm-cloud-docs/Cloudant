@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-25"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -415,7 +415,7 @@ See the following example response after a request for all documents in a databa
 ## Send multiple queries to a database
 {: #send-multiple-queries-to-a-database}
 
-Now, we describe how to send multiple queries to a database by using `_all_docs` and `_view` endpoints. 
+Now, the following instructions describe how to send multiple queries to a database by using `_all_docs` and `_view` endpoints. 
 
 ### Send multiple queries to a database by using `_all_docs`
 {: #send-multiple-queries-to-a-database-by-using-_all_docs}

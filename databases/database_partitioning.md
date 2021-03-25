@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-22"
+  years: 2019, 2021
+lastupdated: "2021-03-25"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -120,7 +120,7 @@ normal non-partitioned database must be used instead.
 ## Querying
 {: #querying}
 
-{{site.data.keyword.cloudant_short_notm}}'s query types are available for global and partition queries. We also provide a brief overview of the
+{{site.data.keyword.cloudant_short_notm}}'s query types are available for global and partition queries. See also a brief overview of the
 underlying querying mechanism that you use to select the query mechanism that
 is best for each query your application needs to make.
 
@@ -180,7 +180,7 @@ take the Internet of Things domain and look at using {{site.data.keyword.cloudan
 device readings. Say that the devices provide sensor readings on pieces of
 infrastructure like roads or bridges.
 
-We assume:
+Review the following assumptions:
 
 - Hundreds or thousands of devices that report readings.
 - Each device has a unique ID.
@@ -209,12 +209,12 @@ infrastructure.
 For illustrative purposes, let's make the scenario a bit more complicated. Assume that the application mostly needs to read all sensor data for a specific 
 piece of infrastructure rather than for individual devices.
 
-In this application, we want querying by infrastructure item to be most
+In this application, you query by infrastructure item to be most
 efficient, so partitioning the data by piece of infrastructure makes a lot more
 sense than by ID. This practice would allow all the devices for a specific piece of
 infrastructure to be efficiently queried as a group.
 
-For the rare queries by device, we use two approaches:
+For the rare queries by device, you use two approaches:
 
 1. Build a global index that is keyed by device and query it. This approach is more effective
     if queries to individual devices are rare and not repeated.
@@ -232,7 +232,7 @@ Let's look at how this approach works out. Let's look at four queries:
 ### Creating the database
 {: #creating-the-database}
 
-We use a database that is called `readings` and an account called
+Now, you use a database that is called `readings` and an account called
 `acme`. To create a partitioned database, pass `true` as the
 `partitioned` argument to the database creation request:
 
@@ -268,7 +268,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### Creating indexes
 {: #creating-indexes}
 
-For the queries described previously, we need two indexes:
+For the queries described previously, you need two indexes:
 
 1. A global index-mapping device ID to infrastructure ID.
 2. A partitioned index-mapping device ID to reading.
@@ -305,15 +305,15 @@ curl -XPOST "https://acme.cloudant.com/readings" -d @view.json
 #### Creating a partitioned {{site.data.keyword.cloudant_short_notm}} Query index
 {: #creating-a-paritioned-ibm-cloudant-query-index}
 
-To return the readings for a specific device from a partition, we can use an
-{{site.data.keyword.cloudant_short_notm}} Query index. For this document, we `POST` to `_index` with an index definition
+To return the readings for a specific device from a partition, you can use an
+{{site.data.keyword.cloudant_short_notm}} Query index. For this document, use `POST` to `_index` with an index definition
 that includes the `partitioned` field set to `true`. 
 
 For Query index definitions, the `partitioned` field isn't nested inside an `options`
 object.
 {: note}
 
-For our queries, we need two partitioned indexes:
+For these queries, you need two partitioned indexes:
 
 1. By timestamp
 2. By device ID and timestamp
@@ -370,7 +370,7 @@ curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index2.json
 ### Making queries
 {: #making-queries}
 
-Overall, we want to make four queries:
+Overall, you want to make four queries:
 
 1. Readings for all time for a piece of infrastructure.
 1. Readings for today for a piece of infrastructure.
@@ -380,7 +380,7 @@ Overall, we want to make four queries:
 #### Finding all readings for a piece of infrastructure
 {: #finding-all-readings-for-a-piece-of-infrastructure}
 
-As our partitions are infrastructure-based, we can use `_all_docs` for a
+As our partitions are infrastructure-based, you can use `_all_docs` for a
 partition. For example, query all readings for the `bridge-1234`
 infrastructure piece by using the following command.
 
@@ -393,7 +393,7 @@ curl -XGET \
 #### Finding recent readings for a piece of infrastructure
 {: #finding-recent-readings-for-a piece-of-infrastructure}
 
-This query needs to use the partitioned `timestamped-readings` index. We can
+This query needs to use the partitioned `timestamped-readings` index. You can
 issue a query to the partition to get the readings for today:
 
 ##### Find recent readings with query.json, assuming today is 13 December 2018
@@ -424,9 +424,9 @@ The two queries we've yet to perform are shown in the following list:
 1. Readings for all time for a specific device.
 2. Readings for today for a specific device.
 
-For these two queries, we need to find the partition for the devices by using the
-global `by-device` index. Then, we can query the individual partition for
-readings. While we might use a global index to query for the readings for
+For these two queries, you need to find the partition for the devices by using the
+global `by-device` index. Then, you can query the individual partition for
+readings. While you might use a global index to query for the readings for
 individual devices, the mapping from device to infrastructure ID is highly
 cache-able. It never changes! So this approach allows us to mostly use
 the cheaper and more efficient partitioned query for most requests.
@@ -435,7 +435,7 @@ Using a global index to query directly for device readings might be more efficie
 if caching the device to infrastructure mapping doesn't work well for a specific
 application.
 
-To find the relevant partition for a device, we query the `by-device` view,
+To find the relevant partition for a device, you query the `by-device` view,
 sending the device ID as the key:
 
 ```
@@ -457,13 +457,13 @@ The previous command returns the following response:
 ```
 {: codeblock}
 
-We have our partition key in the `value` field of the included row:
+You have the partition key in the `value` field of the included row:
 `bridge-9876`.
 
 #### Querying for all results for a device
 {: #querying-for-all-results-for-a-device}
 
-To get the results for a device, we issue a partition query for the device
+To get the results for a device, you issue a partition query for the device
 within the `bridge-9876` partition. A standard {{site.data.keyword.cloudant_short_notm}} Query selector is
 used, as if one were issuing a global query.
 
@@ -492,7 +492,7 @@ curl -XPOST \
 #### Querying for recent results for a device
 {: #querying-for-recent-results-for-a-device}
 
-To get the results for a device, we issue a partition query for the device
+To get the results for a device, you issue a partition query for the device
 within the `bridge-9876` partition. The selector is only slightly more
 complicated, but still the same as an equivalent global query.
 

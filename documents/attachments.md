@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-25"
 
 keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 
@@ -262,7 +262,7 @@ having too many attachments can have an adverse performance impact during replic
 
 For example,
 if your application requires storage for multiple images as attachments or includes large images,
-we recommend that you use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
+you must use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
 storage mechanism to store the images.
 You might then use {{site.data.keyword.cloudant_short_notm}} to keep
 the image metadata,

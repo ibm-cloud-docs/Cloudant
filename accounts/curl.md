@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-03-25"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Working with curl
 {: #working-with-curl}
 
-Throughout this guide, we provide examples that use curl. However, curl by itself is not secure. We suggest you use `acurl`, which is described in a following section. 
+Throughout this guide, you use curl examples. However, curl by itself is not secure. It is suggested that you use `acurl`, which is described in a later section. 
 {: shortdesc}
 
 ## For the curl samples
@@ -104,7 +104,7 @@ If you're using a Windows&trade; computer, you can specify your username and pas
 ### Encode username and password
 {: #encode-user-name-and-password}
 
-First, we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
+First, you base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
 This encoding gives us a base64 character sequence as output.
 
 `$ACCOUNT` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
@@ -117,7 +117,7 @@ python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".e
 ```
 {: codeblock}
 
-We assume that the output is called `<OUTPUT-OF-BASE64>`.
+The output is called `<OUTPUT-OF-BASE64>`.
 
 For example,
 if you use the command:
@@ -140,7 +140,7 @@ Remember that your password is still stored in plain text on your computer. Base
 ### Create an alias
 {: #create-an-alias}
 
-Now, we create an alias for `curl` that includes these credentials, so we don’t have to enter them every time we write a `curl` command.
+Now, you create an alias for `curl` that includes these credentials, so you don’t have to enter them every time you write a `curl` command.
 
 Add the following line to your `~/.bashrc` or `~/.bash_profile`:
 
@@ -151,7 +151,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 
 This alias adds an authorization header instead of including the
 authorization credentials in the URL you enter on the command line.
-It also forces the use of HTTPS, which we strongly recommend over plain HTTP. HTTPS encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
+It also forces the use of HTTPS, which is strongly recommended over plain HTTP. HTTPS encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
 
 ### Activate the alias
 {: #activate-the-alias}

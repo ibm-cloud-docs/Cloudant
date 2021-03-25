@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-30"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -35,7 +35,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-In this {{site.data.keyword.cloudantfull}} getting started tutorial, we use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance, and find essential information to enable your application to work with the database. With the {{site.data.keyword.cloudant_short_notm}} dashboard, we learn how to perform different tasks, such as how to create a database, populate a database with documents, replicate a database, and so on. 
+In this {{site.data.keyword.cloudantfull}} getting started tutorial, you use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance, and find essential information to enable your application to work with the database. With the {{site.data.keyword.cloudant_short_notm}} dashboard, you learn how to perform different tasks, such as how to create a database, populate a database with documents, replicate a database, and so on. 
 {: shortdesc}
 
 You can also create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, retrieve data by using queries or API endpoints, and many other tasks from the command line. For more information, see the [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}. 
@@ -92,7 +92,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
 
-    After you click `Create`, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, `Provision in progress.` 
+    After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, `Provision in progress.` 
 
 7. When the status changes to Active, click the instance, and click the `Service Credentials` tab. 
 
@@ -147,14 +147,14 @@ Open your {{site.data.keyword.cloudant_short_notm}} service instance by followin
 3.  From the Services section, click the `Cloudant-o7` instance you created in the first step, and click **Launch Dashboard**.
     The {{site.data.keyword.cloudant_short_notm}} dashboard opens.
 
-Now, we can create a database, and run queries against that database.  
+Now, you can create a database, and run queries against that database.  
 
 ## Creating a database
 {: #creating-a-database-dt}
 {: step}
 
 In this exercise, you create the `dashboard-demo` [database](/apidocs/cloudant#putdatabase){: new_window}{: external}, which 
-is the database that we use in this tutorial.
+is the database that you use in this tutorial.
 
 1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
 
@@ -166,7 +166,7 @@ is the database that we use in this tutorial.
 
    The `dashboard-demo` database opens automatically.
 
-  Now, we can create some documents. 
+  Now, you can create some documents. 
 
 ## Adding documents to the database
 {: #creating-documents-in-the-database-dt}
@@ -270,7 +270,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
 3.  Click **`Run Query`**.
 
-    The query results display. You can see them from the Table view in the following screen capture:
+    The query displays the results. You can see them from the Table view in the following screen capture:
 
     ![Query results](images/dashboard_query1_results.png){: caption="Figure 3. Results from the query" caption-side="bottom"}
 

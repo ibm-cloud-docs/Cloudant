@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-30"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -957,7 +957,7 @@ See the following example (abbreviated) response that includes a list of norther
 {: #highlighting-search-terms}
 
 Sometimes it is useful to get the context in which a search term was mentioned
-so that you can display more emphasized results to a user.
+so that you can show more emphasized results to a user.
 
 To get more emphasized results,
 add the `highlight_fields` parameter to the search query.
