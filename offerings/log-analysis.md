@@ -91,7 +91,7 @@ Log Lines | Description
 `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
 `sslVersion` | The version of Transport Layer Security that the request is using.
 `requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public#event-types){: new_window}{: external}.
-`parsedQueryString` | A parsed version that shows the breakdown of the parameters passed in the query string. If we are unable to parse the `rawQueryString`, this value is null.
+`parsedQueryString` | A parsed version that shows the breakdown of the parameters passed in the query string. If {{site.data.keyword.cloudant_short_notm}} cannot parse the `rawQueryString`, this value is null.
 `rawQueryString` | Full text of the query string as passed to the service.
 `logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.
 `meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}.

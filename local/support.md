@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-15"
+  years: 2015, 2021
+lastupdated: "2021-03-25"
 
 keywords: coverage, support ticket, assistance
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Support
 {: #ibm-cloudant-local-support}
 
-{{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) support assists with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. If a performance issue or inconsistency occurs, support helps troubleshoot it. If an outage occurs, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since we do not have access to customer systems.
+{{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) support assists with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. If a performance issue or inconsistency occurs, support helps troubleshoot it. If an outage occurs, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since {{site.data.keyword.cloudant_local_notm}} support does not have access to customer systems.
 {: shortdesc}
 
 Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weatherreport utility, as well as, any relevant logs, requests, and status codes when you inform support of an issue. For more information, see the [Weatherreport utility](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport){: new_window}{: external}.

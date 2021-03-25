@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-18"
+lastupdated: "2021-03-25"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -45,7 +45,7 @@ At indexing-time, source data is processed by using the analyzer logic sorts and
 
 If you want to see the effect of each analyzer, use the [{{site.data.keyword.cloudant_short_notm}} Search API call](/docs/Cloudant?topic=Cloudant-search#testing-analyzer-tokenization) that applies to one of the built-in Lucene analyzers with a supplied string.
 
-To look at each analyzer in turn, we can pass the following string to each analyzer to measure the effect:
+To look at each analyzer in turn, you can pass the following string to each analyzer to measure the effect:
 
 ```sh
 "My name is Chris Wright-Smith. I live at 21a Front Street, Durham, UK - my email is chris7767@aol.com."

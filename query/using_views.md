@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-25"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -266,7 +266,7 @@ If you want to save old index versions without incurring indexing processor usag
 
 By default, all index results reflect the current state of the database. {{site.data.keyword.cloudant_short_notm}} builds its indexes automatically and asynchronously in the background.
 This practice usually means that the index is fully up-to-date 
-when you query it.  If not, we call the index "stale," and by default, the remaining updates occur when you query the index. 
+when you query it.  If not, you call the index "stale," and by default, the remaining updates occur when you query the index. 
 The results of your query include these updates. {{site.data.keyword.cloudant_short_notm}} builds three copies of every index in 
 alignment with the three copies of your primary data.
 

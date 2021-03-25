@@ -35,7 +35,7 @@ You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/C
 
 [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#postfind){: new_window}{: external} and [{{site.data.keyword.cloudant_short_notm}} Search](/apidocs/cloudant#getsearchinfo){: new_window}{: external} both use bookmarks as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the bookmark that was received in the first response to the second request.
 
-Now, we can see a better way to page through a large document set. 
+Now, you can see a better way to page through a large document set. 
 
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views}
@@ -76,7 +76,7 @@ If you supply `include_docs=true`, then another `doc` attribute is added to each
 ## The `limit`, `startkey`, and `endkey` parameters
 {: #the-limit-startkey-endkey-parameters}
 
-To access data from `_all_docs` in reasonably sized pages, we need to supply the `limit` parameter to tell {{site.data.keyword.cloudant_short_notm}} how many documents to return:
+To access data from `_all_docs` in reasonably sized pages, you must supply the `limit` parameter to tell {{site.data.keyword.cloudant_short_notm}} how many documents to return:
 
 ```http
 # get me 10 documents
@@ -84,7 +84,7 @@ GET /mydb/_all_docs?limit=10
 ```
 {: codeblock}
 
-We can also limit the range of document `_id`s we want by supplying one or more values to `startkey` or `endkey`.
+You can also limit the range of document `_id`s that you want by supplying one or more values to `startkey` or `endkey`.
 
 ```sh
 # get me 100 documents from _id bear onwards
@@ -106,9 +106,9 @@ The `startkey`/`endkey` values are in double quotation marks because they're exp
 ## Pagination options
 {: #pagination-options}
 
-To iterate through a range of documents in an orderly and performant manner, we must devise an algorithm to page through the range. For example, we need to page through `_all_docs` in blocks of 10. 
+To iterate through a range of documents in an orderly and performant manner, you must devise an algorithm to page through the range. For example, you must page through `_all_docs` in blocks of 10. 
 
-We can use the options that are described in the following sections.
+You can use the options that are described in the following sections.
 
 ### Option 1 - Fetch one document too many
 {: #option-1-fetch-one-doc-too-many}
@@ -151,12 +151,12 @@ GET /mydb/_all_docs?limit=11&startkey="gazelle"
 ```
 {: codeblock}
 
-This option works, but we end up fetching n+1 documents when only n are required.
+This option works, but you end up fetching n+1 documents when only n are required.
 
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
 
-If we're determined to fetch only `n` documents each time, then we need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
+If you're determined to fetch only `n` documents each time, then you must calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
 
 ```http
 # first request
@@ -234,12 +234,12 @@ It's this sort of access pattern that {{site.data.keyword.cloudant_short_notm}} 
 - {{site.data.keyword.cloudant_short_notm}} replies with the second set of documents and another bookmark, which can be used to get a third page of results.
 - Repeat! 
 
-We can now see how to do that with code.
+Now you can see how to do that with code.
 
 ### How can I use {{site.data.keyword.cloudant_short_notm}} Query to search?
 {: #use-cloudant-query-search}
 
-First, we search for all the cities in the US. We're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query), so the operation is specified as a block of JSON:
+First, you search for all the cities in the US. You're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query), so the operation is specified as a block of JSON:
 
 ```js
 {
@@ -269,7 +269,7 @@ curl -X POST \
 }
 ```
 
-The response includes an array of `docs`, and a `bookmark`, which we use to paginate through the results in the next request. When we need page two of the results, we repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response.
+The response includes an array of `docs`, and a `bookmark`, which you use to paginate through the results in the next request. When you need page two of the results, you repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response.
 
 ```sh
 curl -X POST \
@@ -290,7 +290,7 @@ curl -X POST \
 }
 ```
 
-This time, we get the next five cities and a new bookmark ready for the next request.
+This time, you get the next five cities and a new bookmark ready for the next request.
 
 It's the same story when you use one of the {{site.data.keyword.cloudant_short_notm}} libraries to do this task. First, make the initial request:
 
@@ -305,7 +305,7 @@ It's the same story when you use one of the {{site.data.keyword.cloudant_short_n
   // { docs: [ ... ], bookmark: '...' }
 ```
 
-We feed the bookmark from the first response into the second request for the next page of results:
+You feed the bookmark from the first response into the second request for the next page of results:
 
 ```js
   const q = {
@@ -338,7 +338,7 @@ No. MapReduce views don't accept a `bookmark`. Use the [skip and limit](https://
 ### Can I jump straight to page X of the results?
 {: #jump-page-x-results}
 
-No. Bookmarks make sense only to {{site.data.keyword.cloudant_short_notm}} if they come from the previous page of results. If you need page 3 of the results, you need to fetch pages 1 and 2 first.
+No. Bookmarks make sense only to {{site.data.keyword.cloudant_short_notm}} if they come from the previous page of results. If you need page 3 of the results, you must fetch pages 1 and 2 first.
 
 ### What happens if I supply an incorrect bookmark?
 {: #what-happens-if-i-supply-incorrect-bookmark}

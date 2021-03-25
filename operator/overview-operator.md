@@ -49,7 +49,7 @@ The Operator for Apache CouchDB uses the following defaults when it deploys a ne
 
 <dl>
 <dt><strong>TLS</strong></dt>
-<dd>The Operator leverages the Red Hat OpenShift cert-manager to create certificates and enable HTTPS/SSL on the cluster. On other Kubernetes distributions, TLS is supported by using user-provided certificates. We recommend that you review Apache CouchDB HTTPS (SSL/TLS) Options, or install Jetstack cert-manager to manage TLS elsewhere.</dd>
+<dd>The Operator leverages the Red Hat OpenShift cert-manager to create certificates and enable HTTPS/SSL on the cluster. On other Kubernetes distributions, TLS is supported by using user-provided certificates. {{site.data.keyword.cloudant_short_notm}} team recommends that you review Apache CouchDB HTTPS (SSL/TLS) Options, or install Jetstack cert-manager to manage TLS elsewhere.</dd>
 <dt><strong>Encryption</strong></dt>
 <dd>Encrypted intra-cluster communication, which means that the communication between database nodes is encrypted in addition to TLS on the HTTPS API.</dd>
 <dt><strong>Authentication</strong></dt>
@@ -63,7 +63,7 @@ The Operator for Apache CouchDB uses the following defaults when it deploys a ne
 
 <dl>
 <dt><strong>Nodes</strong></dt>
-<dd>Each database node in an Apache CouchDB cluster requires its own Kubernetes node. We recommend that you run it with a minimum of three nodes for any production deployment.</dd>
+<dd>Each database node in an Apache CouchDB cluster requires its own Kubernetes node. {{site.data.keyword.cloudant_short_notm}} team recommends that you run it with a minimum of three nodes for any production deployment.</dd>
 <dt><strong>Zones</strong></dt>
 <dd>The Apache CouchDB cluster database nodes are spread across available Kubernetes fault zones where available.</dd>
 <dt><strong>Replicas</strong></dt>

@@ -75,10 +75,10 @@ For more information about supported classifications of Personal Data, see the
 Personal Information (PI) data. The data that {{site.data.keyword.cloudant_short_notm}} records depends on the type of account you have.
 
 If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster or {{site.data.keyword.cloudant_short_notm}} 
-Enterprise Cluster, we record data 
+Enterprise Cluster, {{site.data.keyword.cloudant_short_notm}} records data 
 about you and are considered a Data Controller for your data within the context of GDPR. 
 If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster or {{site.data.keyword.cloudant_short_notm}} 
-Enterprise Cluster, we store the following information about you:
+Enterprise Cluster, {{site.data.keyword.cloudant_short_notm}} stores the following information about you:
 
  * Name
  * Email
@@ -98,9 +98,9 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 {{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request through support@cloudant.com. Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
-ability to contact dedicated customers through email. We provide an interface for customers to keep this 
-information up to date either directly, or through customer configuration of their contact details 
-through their {{site.data.keyword.cloud_notm}} account details.
+ability to contact dedicated customers via email. {{site.data.keyword.cloudant_short_notm}} provides an interface for customers to keep this 
+information up to date either directly, or via customer configuration of their contact details 
+via their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
 {: #is-our-ibm-cloudant-database-encrypted-}
