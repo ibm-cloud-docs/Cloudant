@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-29"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -83,7 +83,7 @@ Enterprise Cluster, we store the following information about you:
  * Name
  * Email
 
-The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} Dashboard.
+The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated through the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 If you have an account that is provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
 {{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data that was previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
@@ -95,12 +95,12 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 ### Restriction of processing
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request via support@cloudant.com. Upon 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request through support@cloudant.com. Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
-ability to contact dedicated customers via email. We provide an interface for customers to keep this 
-information up to date either directly, or via customer configuration of their contact details 
-via their {{site.data.keyword.cloud_notm}} account details.
+ability to contact dedicated customers through email. We provide an interface for customers to keep this 
+information up to date either directly, or through customer configuration of their contact details 
+through their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
 {: #is-our-ibm-cloudant-database-encrypted-}
@@ -115,7 +115,7 @@ since PI is always visible and written to the access logs.
 ## Data locations
 {: #data-locations}
 
-Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data are made available, and kept up to date, via the DSA.
+Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data are made available, and kept up to date, through the DSA.
 
 For more information about data locations, see the 
 [DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
@@ -192,7 +192,7 @@ Compaction is done as a background process across
 the storage tier. Databases are always being compacted. It isn't guaranteed that the data compacted is the 
 data that you deleted or changed.
 
-{{site.data.keyword.cloudant_short_notm}} is accepting the *Right to be forgotten* requests via 
+{{site.data.keyword.cloudant_short_notm}} is accepting the *Right to be forgotten* requests through 
 the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external}. 
 When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request, 
 explicitly triggers database compaction, and verifies that compaction occurred.
@@ -217,7 +217,7 @@ idea for an `_id` to store PI for lots of reasons, but a handful of semi-valid u
 cases exist (for example, a unique email). If possible, encrypt or pseudonymize data so it's opaque 
 to {{site.data.keyword.cloudant_short_notm}}.
 
-If a document needs removal via a *Right to be forgotten* request, follow these steps:
+If a document needs removal through a *Right to be forgotten* request, follow these steps:
 
 1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external} to request purging of specific document `_id` values along with the reason.
 1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations
@@ -241,7 +241,7 @@ doesn't remove log lines that include document `_id` values.
 ### What about deleting a database?
 {: #what-about-deleting-a-database-}
 
-Deleting a database adds it to a trash can for up to 48 hours. After which time, the database is removed from the 
+Deleting a database adds it to the trash for up to 48 hours. After which time, the database is removed from the 
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
 *responsibility of the customer*. You must ensure that all copies of your 
 database are removed from your system. For more information, see 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-29"
 
 keywords: videos
 
@@ -52,7 +52,7 @@ Cloudant is a database, run as a service in the IBM Cloud. Its job is to store y
 
 A database - It stores and retrieves data.
 More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. The `document` is the unit of storage in Cloudant. Documents are added/updated/deleted in their entirety.
-It has an HTTP API. Any Cloudant operation can be achieved using HTTP. HTTP is the protocol that powers the World Wide Web and Cloudant is a database built for the web.
+It has an HTTP API. Any Cloudant operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and Cloudant is a database built for the web.
 Most databases are hidden in a private network, inaccessible but to a handful of machines but the Cloudant service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so!).
 
 Cloudant wasn't written entirely by IBM. It is based on Apache CouchDB, an open source project run by the Apache Foundation. Cloudant employs a number of CouchDB contributors but by the rules of Apache, they cannot monopolize its development.
@@ -65,7 +65,7 @@ Cloudant being built on truly open source foundations means that you can be sure
 
 Later on in the course we'll look `under the hood` to see how Cloudant works, but initially we'll treat Cloudant as a `black box`.
 
-To summarize, Cloudant is based on Apache CouchDB, an open source project. It stores JSON documents. It is accessed with an HTTP API and can therefore be accessed by any device on the internet that speaks HTTP: application code, web browser, IoT device, or mobile phone. Cloudant is a highly-available managed service able to continue to operate with multiple hardware failures.
+To summarize, Cloudant is based on Apache CouchDB, an open source project. It stores JSON documents. It is accessed with an HTTP API and can therefore be accessed by any device on the internet that speaks HTTP: application code, web browser, IoT device, or mobile phone. Cloudant is a highly available managed service able to continue to operate with multiple hardware failures.
 
 That's the end of this part. The next part is called The Document.
 
@@ -96,7 +96,7 @@ The example on this slide shows the same data expressed in a traditional tabular
 
 So if you come from a relational database background: tables are `databases` in Cloudant, and rows are `documents`.
 
-A Cloudant document must be a JSON object, starting and ending with curly braces and containing a number of key/value attributes.
+A Cloudant document must be a JSON object, starting and ending with curly braces and containing a number of key-value attributes.
 
 JSON objects must be less that 1 megabyte in size and contain any number of strings, numbers, booleans, arrays, and objects. The nesting of objects within objects can continue to any depth.
 
@@ -137,7 +137,7 @@ If at a future date we decide we want to add additional data to our `schema`, we
 
 In other words, documents of the same type can have fields present or missing.
 
-You database's schema can evolve over time to match your application's needs and you don't (necessarily) need to tell the database about the schema change - just write new documents in the new format.
+Your database's schema can evolve over time to match your application's needs and you don't (necessarily) need to tell the database about the schema change - just write new documents in the new format.
 
 We can even store multiple document `types` in the same database. In this case, people/books/places reside in the same database. We know which is which because of the `type` field (this is a convention and not something that means anything to Cloudant).
 
@@ -297,7 +297,7 @@ When we look at the API from the  IDs, we'll be using Basic Auth as a convenienc
 
 Time for our next practical exercise.
 
-Log into the IBM Cloud and locate the IBM Cloudant Lite service we created last time. In the `Service Credentials` tab, click the `New Credential` button to generate a set of `IAM+Legacy` credentials. Make a note of the JSON it returns - we'll need that for the next exercise.
+Log in to the IBM Cloud and locate the IBM Cloudant Lite service we created last time. In the `Service Credentials` tab, click the `New Credential` button to generate a set of `IAM+Legacy` credentials. Make a note of the JSON it returns - we'll need that for the next exercise.
 
 Then, visit the URL specified in the credentials JSON - what do you see?
 
@@ -402,11 +402,11 @@ We can test it by fetching `acurl $URL/` and we should get some JSON back from C
 
 You've completed your first Cloudant API call.
 
-Now our acurl alias is set up, we can start exploring the API. Let's start with the _all_dbs endpoint, which returns a list of databases.
+Now our `acurl` alias is set up, we can start exploring the API. Let's start with the _all_dbs endpoint, which returns a list of databases.
 
 Type `acurl $URL/_all_dbs` to see an array of databases.
 
-A quick note here on formatting JSON on the command line. We can send the output of our acurl command to another tool, which will format the data nicely on the terminal. There are a couple of options:
+A quick note here on formatting JSON on the command line. We can send the output of our `acurl` command to another tool, which will format the data nicely on the terminal. There are a couple of options:
 
 Jq available from the URL on screen, which is more than just a JSON formatter - it allows JSON to be parsed, queried, and manipulated too.
 Or `python -m json.tool` is a simple JSON formatter, if you happen to have Python installed on your computer.
@@ -450,7 +450,7 @@ To modify a document we can use the PUT method, writing the new body to the URL 
 
 If we forget and omit the rev parameter, we will get an error response.
 
-Note: HTTP response codes tell you whether a request succeeds or not. Responses in the 200 range are successful, 400s are user errors (e.g. invalid parameters) and 500s are server-side errors. You can see the full HTTP request and response by additionally supplying the -v command-line option to curl/acurl.
+Note: HTTP response codes tell you whether a request succeeds or not. Responses in the 200 range are successful, 400s are user errors (e.g. invalid parameters) and 500s are server-side errors. You can see the full HTTP request and response by additionally supplying the -v command-line option to `curl/acurl`.
 
 Also, note that updates to documents happen in their entirety or not at all, there's no API construct to modify part of a document. A whole document must be supplied to overwrite a previous revision.
 
@@ -489,10 +489,10 @@ We've already met the _all_docs endpoint - we used it to fetch a list of all the
 
 The key parameter can be used to specify a single document to fetch, making it equivalent of the GET /db/id API call.
 Similarly, the keys parameter takes an array of document IDs and will return them all.
-The startkey and endkey parameters allow you to fetch a slice of the primary index between the supplied limits. Adding include_docs=true instructs Cloudant to supply the document bodies too.
+The `startkey` and `endkey` parameters allow you to fetch a slice of the primary index between the supplied limits. Adding include_docs=true instructs Cloudant to supply the document bodies too.
 And limit allows you to specify how many documents to return in one API call.
 
-The _bulk_docs endpoint allows multiple insert, update and delete operations to be performed in one API call. It expects an object containing a docs array - each element of that array being an operation to perform on a single document. The request body is posted to Cloudant, allowing many operations to be packed into a single API call.
+The _bulk_docs endpoint allows multiple inserts, update and delete operations to be performed in one API call. It expects an object containing a docs array - each element of that array being an operation to perform on a single document. The request body is posted to Cloudant, allowing many operations to be packed into a single API call.
 
 In this example, the first document is an insert: we know this because no revision token is supplied. The second document is an update to a document because a revision token is supplied with a new document body. The third document is a deletion. A revision token is supplied, but the body is simply _deleted: true, which tells Cloudant to mark the document as deleted.
 
@@ -500,7 +500,7 @@ It's important to note that this isn't like a transaction in a relational databa
 
 In summary
 
-With two API calls `_bulk_docs` & `_all_docs`, we can perform all create, read, update, and delete operations on Cloudant documents and be able to do so in bulk too. _all_docs retrieves documents by `_id` or ranges of IDs. _bulk_docs creates, updates, and deletes documents in bulk. As a rule of thumb, it's recommended that bulk writes are executed in batches of 500; perhaps more than that for tiny documents and fewer than that for large documents.
+With two API calls `_bulk_docs` & `_all_docs`, we can perform all create, read, update, and delete operations on Cloudant documents and be able to do so in bulk too. _all_docs retrieves documents by `_id` or ranges of IDs. _bulk_docs creates, updates, and deletes documents in bulk. Generally, it's recommended that bulk writes are executed in batches of 500; perhaps more than that for tiny documents and fewer than that for large documents.
 
 Here's a screen capture of using Cloudant from a command-line terminal:
 
@@ -544,7 +544,7 @@ Writing a document is simply a matter of calling db.insert, which will map to a 
 
 To summarize, there are official Cloudant libraries for Java, Python, and Nodejs. They are thin wrappers around the Cloudant HTTP API - so it's worth understanding the underlying API to get to grips with all the parameters.
 
-The libraries handle two things for you, which are really useful:
+The libraries handle two things for you, which is really useful:
 
 Authentication - exchanging your keys for tokens, whether it be legacy authentication or IAM.
 Retry logic - the libraries can be configured to retry API calls that exceeded your provisioned capacity. If configured this way, they pause and re-attempt the API call multiple times with exponential back-off
@@ -567,7 +567,7 @@ Welcome to the Introduction to Cloudant course, an 18-part video series that giv
 
 This is part 10 - `Querying`.
 
-So far we have performed CRUD (Create/Read/Update/Delete) operations from the command line, the dashboard and from code. These are operations centered on the document's `_id`:
+So far we have performed create, retrieve, update, and delete (CRUD) operations from the command line, the dashboard and from code. These are operations centered on the document's `_id`:
 
 Fetch document by `_id`.
 Update document whose `_id` = 'x'.
@@ -588,7 +588,7 @@ The second example shows two clauses in the query, both of which must be satisfi
 
 The third example shows how logical operators can be added. The `$gt` operation means `greater than` (there's also `gte` for greater than or equal to, and lt/lte for the equivalent less than comparators). The $or operator is an OR operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
 
-Note: If you need to access objects within documents, you can use standard `dot notation` e.g address.zipcode to access a zipcode string inside an address object.
+Note: If you need to access objects within documents, you can use standard `dot notation` e.g address.zipcode to access a zip code string inside an address object.
 
 We can also add:
 
@@ -683,7 +683,7 @@ There is another trick that can be employed at index time: the partial filter. Y
 
 In this example, a selector is employed that only allows dates that fall on a weekend to make it to the index. Smaller indexes are faster and more efficient. If you have a use-case that only needs a subset of the data to be indexed, e.g. only completed orders, or only expired accounts, or only published blog posts, then a partial filter selector at index-time can help to make the index smaller and more efficient.
 
-To summarize, the _index endpoint is used to define the index and an optional partial filter can be applied at query time to make smaller, sparser indexes.
+To summarize, the _index endpoint is used to define the index and an optional partial filter can be applied at query time to make smaller, sparse indexes.
 
 That's the end of this part. The next part is called `MapReduce`.
 
@@ -879,7 +879,7 @@ Welcome to the Introduction to Cloudant course, an 18-part video series that giv
 
 This is part 15 - `Partitioned database`.
 
-We haven't discussed this yet, but Cloudant is a distributed database. There are many storage nodes that make up a Cloudant service and a database's documents are distributed across the nodes in groups called `shards`. A single database is said to be `sharded` or divided into multiple pieces.
+We haven't discussed this yet, but Cloudant is a distributed database. Many storage nodes make up a Cloudant service and a database's documents are distributed across the nodes in groups called `shards`. A single database is said to be `sharded` or divided into multiple pieces.
 
 In a normal Cloudant database, a document is allocated a shard algorithmically - effectively documents are distributed around the shards randomly.
 
@@ -939,7 +939,7 @@ Cloudant Search is built on another open source project, Apache Lucene, which po
 
 It is primarily designed for free text search, where blocks of text are pre-processed before being indexed: removing case, punctuation, common noise words and trimming common language-specfic word endings e.g. farmer becomes farm and farms becomes farm.
 
-This text-processing is performed by a choice of analyzers at query time, searching. Prior to this, it also allows some aggregation functionality using a technique called faceting as we'll see.
+This text-processing is performed by a choice of analyzers at query time, searching. Before this, it also allows some aggregation functionality using a technique called faceting as we'll see.
 
 A Cloudant Search index is created by supplying JavaScript function, not unlike MapReduce except this time the emit function is replaced by an index function, which expects the name of the field, the data itself and some options.
 
@@ -949,7 +949,7 @@ Lucene has its own query language allowing you to create queries that match comb
 
 Here are some examples:
 
-Find documents whose title matches 'gastby' and whose author starts with 'fitz'. Notice the asterisk wildcard.
+Find documents whose title matches `gastby` and whose author starts with `fitz`. Notice the asterisk wildcard.
 Find documents whose author is in the range austen to dickens. This is an example of range querying on a string field.
 Find documents whose price is between 0 - 100 AND whose year is in the 19th century or whose author matches `charles dickens`. This shows how logic can be built into queries.
 Cloudant Search is useful not only for free-text search, but for when you know which attributes you are going to search on, but the queries are varied, with different combinations of attributes each time. This flexibility is difficult to implement with fixed-order MapReduce indexes.
@@ -987,7 +987,7 @@ The final means of querying data in Cloudant is using geospatial indexes.
 
 Geospatial indexes are unique to Cloudant - you won't find them in the CouchDB codebase.
 
-Data is stored as GeoJSON in the Cloudant database to describe point, line, polygon, multi-point, multi-line and multi-polygon objects. Each object, as well as the geographic information, can have optional properties: meta data about the object, which is returned in the search results.
+Data is stored as GeoJSON in the Cloudant database to describe point, line, polygon, multi-point, multi-line and multi-polygon objects. Each object, as well as the geographic information, can have optional properties: Metadata about the object, which is returned in the search results.
 
 Again an index is defined as a JavaScript function, and then, queries can be used to ask questions of your collection of geographic features. For example, find me the nearest object to this point; find objects within this polygon; find objects along this path; or find objects that intersect with this object.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-03-29"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -71,11 +71,11 @@ If you exceed your quota of reads, writes, and global queries in a given second,
 
 If you're using {{site.data.keyword.cloudant_short_notm}}, go to the {{site.data.keyword.cloud_notm}} dashboard, and click the menu icon then **Resource List** to see all your service instances.  
 
-![Cloud dash](../images/ibmclouddashboard.png){: caption="Figure 2. Cloud dash" caption-side="bottom"}
+![Cloud dashboard](../images/ibmclouddashboard.png){: caption="Figure 2. Cloud dashboard" caption-side="bottom"}
 
 You can also drill down into a specific instance and look at the Plan tab for more information. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan don't have a highlighted plan. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
 
-![Standard dash](../images/ibmcloud_instance_standard_plan.png){: caption="Figure 3. Standard dash" caption-side="bottom"}
+![Standard dashboard](../images/ibmcloud_instance_standard_plan.png){: caption="Figure 3. Standard dashboard" caption-side="bottom"}
 
 You can also open the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click the **Account** tab. A Lite plan looks like the following example:
 
@@ -121,7 +121,7 @@ You can't directly change a Shared plan instance to a Lite or Standard plan inst
 ### Step 1. Sign up for {{site.data.keyword.cloud_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
-If you haven't signed up already, [sign up for an {{site.data.keyword.cloud_notm}} account](https://www.ibm.com/cloud/){: new_window}{: external}. 
+[Sign up for an {{site.data.keyword.cloud_notm}} account](https://www.ibm.com/cloud/){: new_window}{: external}. 
 
 ### Step 2. Create an {{site.data.keyword.cloudant_short_notm}} instance
 {: #step-2-create-an-ibm-cloudant-instance}
