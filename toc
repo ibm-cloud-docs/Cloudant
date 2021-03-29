@@ -84,7 +84,6 @@ Cloudant
         databases/conflicts.md
         databases/cap_theorem.md
         databases/couchapps.md
-        databases/migration.md
 
     {: .topicgroup}    
     How documents work
@@ -116,6 +115,13 @@ Cloudant
         replicate/replication_guide.md
         replicate/replication.md
         replicate/advanced_replication.md
+
+    {: .topicgroup}    
+    Migrating your plan
+        migration/migration-overview.md
+        migration/create-migrate-lite.md
+        migration/create-migrate-enterprise.md
+        migration/find-your-plan.md
 
     {: .topicgroup}
     Enhancing security for IBM Cloudant
@@ -177,6 +183,7 @@ Cloudant
         faqs/pricing-faq.md
         faqs/provisioned-throughput-capacity-faq.md
         faqs/resource-groups-faq.md
+        faqs/migration-faq.md
 
     {: .topicgroup}
     Release information
