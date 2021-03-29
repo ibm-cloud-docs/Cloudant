@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-18"
+  years: 2019, 2021
+lastupdated: "2021-03-29"
 
 keywords: access, status, resource
 
@@ -52,7 +52,7 @@ The Operator for Apache CouchDB uses TLS certificates for three purposes:
 1. Secure Erlang distribution between CouchDB nodes
 1. The user-facing CouchDB service
 
-Number one is mandatory and requires a TLS certificate to always be present. You can disable two and three by setting `environment.tls: false` in the `CouchDBCluster` manifest. The internal uses of the certificate don't require peer verification.
+Number one is mandatory and requires a TLS certificate to always be present. Number two is disabled by default as it is not possible to enable a secure distribution with Clouseau (the search module). However, you can enable number two by setting `environment.erlang.tls: true` in the `CouchDBCluster` manifest. You can disable three by setting `environment.tls: false` in the `CouchDBCluster` manifest. The internal uses of the certificate don't require peer verification.
 
 The TLS certificates are stored in a Kubernetes secret called `clustername>-cert`. If your Kubernetes platform contains a supported certificate manager (currently only OpenShift certificate manager), this certificate is automatically generated. You can also provide your own certificate or CA certificate to make client verification easier.
 
