@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-30"
 
 keywords: account, ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication
 
@@ -273,8 +273,8 @@ An earlier method of generating API keys by `POST`ing to the `https://cloudant.c
 
 You can create an API key in two ways:
 
-1.  Using the dashboard.
-2.  Using the {{site.data.keyword.cloudant_short_notm}} API [modify the permissons](/apidocs/cloudant#putsecurity){: new_window}{: external}.
+1.  Use the dashboard.
+2.  Use the {{site.data.keyword.cloudant_short_notm}} API to [modify the permissions](/apidocs/cloudant#postapikeys){: new_window}{: external}.
 
 No matter what method you choose,
 remember to record the key name and password.
