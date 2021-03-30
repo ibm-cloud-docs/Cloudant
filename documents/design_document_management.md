@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-03-30"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -114,9 +114,9 @@ Once the design document is saved,
 {{site.data.keyword.cloudant_short_notm}} triggers server-side processes to build the `fetch/by_ts` view.
 It creates this view by iterating over every document in the database,
 and sending each one to the JavaScript map function.
-The function returns the emitted `key/value` pair.
+The function returns the emitted `key-value` pair.
 As the iteration continues,
-each `key/value` pair is stored in a B-Tree index.
+each `key-value` pair is stored in a B-Tree index.
 After the index is built for the first time,
 subsequent reindexing is performed only against new and updated documents.
 Deleted documents are de-indexed.

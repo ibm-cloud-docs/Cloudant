@@ -109,7 +109,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
     ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 
-    A new tab opens in your browser and displays the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
+    A new tab opens in your browser and shows the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
 
 ### Launching {{site.data.keyword.mon_full_notm}} web UI from the Observability page
 {: #view_metrics_opt2}

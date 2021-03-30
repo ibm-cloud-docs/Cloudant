@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-03-30"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -92,7 +92,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
 
-    After you click `Create`, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, `Provision in progress.` 
+    After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, `Provision in progress.` 
 
 7. When the status changes to Active, click the instance, and click the `Service Credentials` tab. 
 
@@ -270,7 +270,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
 3.  Click **`Run Query`**.
 
-    The query results display. You can see them from the Table view in the following screen capture:
+    The query displays the results. You can see them from the Table view in the following screen capture:
 
     ![Query results](images/dashboard_query1_results.png){: caption="Figure 3. Results from the query" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-30"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -360,7 +360,7 @@ However, this time we do so by invoking the {{site.data.keyword.cloudant_short_n
     ```
     {: codeblock}
 
-2. Send the request to the service instance and display the results.
+2. Send the request to the service instance and show the results.
 
     ```python
     response = client.r_session.get(end_point, params=params)
