@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-24"
+  years: 2020, 2021
+lastupdated: "2021-03-31"
 
 keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits
 
@@ -77,9 +77,9 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `MapReduce` | Yes | Map-side JS functions and built-in reduce functions.<br>No custom JS reduces. |
 | `Search` | Yes | No |
 | `Geospatial` | Yes | No |
-| `Logging with LogDNA` | Yes | Yes |
-| `Activity Tracker with LogDNA` | Yes | Yes |
-| `Monitoring with Sysdig` | Yes | Yes |
+| `Logging with {{site.data.keyword.loganalysisfull_notm}}` | Yes | Yes |
+| `Activity Tracker with {{site.data.keyword.loganalysisfull_notm}}` | Yes | Yes |
+| `Monitoring with {{site.data.keyword.mon_full_notm}}` | Yes | Yes |
 {: caption="Table 2. Features and functions" caption-side="top"}
 
 ## Limits

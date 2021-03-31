@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-31"
 
-keywords: Sysdig, monitoring, platform metrics, observability page
+keywords: cloud monitoring, monitoring, platform metrics, observability page
 
 subcollection: Cloudant
 
@@ -22,15 +22,15 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2020-12-17 -->
 
-# Sysdig Monitoring integration
-{: #monitor-sysdig-pm}
+# {{site.data.keyword.mon_full_notm}} integration
+{: #monitor-ibm-cloud-pm}
 
-{{site.data.keyword.mon_full}} is a third-party, cloud-native, and container-intelligent management system that you can include as part of your {{site.data.keyword.cloud}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM}}.
+{{site.data.keyword.mon_full}} is a third-party, cloud-native, and container-intelligent management system that you can include as part of your {{site.data.keyword.cloud}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. 
 {:shortdesc}
 
-Currently, {{site.data.keyword.mon_full}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
+Currently, {{site.data.keyword.mon_full_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
 
-Deployment Region | Sysdig Region
+Deployment Region | {{site.data.keyword.mon_full_notm}} Region
 ----------|-----------
 `Chennai` | `Tokyo`
 `Dallas` | `Dallas`
@@ -41,17 +41,17 @@ Deployment Region | Sysdig Region
 `Tokyo` | `Tokyo`
 `Washington DC` | `Washington DC`
 
-{: caption="Table 1. Sysdig regions" caption-side="top"}
+{: caption="Table 1. {{site.data.keyword.mon_full_notm}} regions" caption-side="top"}
 
 
 ## Platform metrics overview
 {: #platform_metrics-pm}
 
 You can configure only one instance of the {{site.data.keyword.mon_full}} service per region to collect platform metrics.
-* To configure the Sysdig instance, you must turn on the *platform metrics* configuration setting.
-* If a Sysdig instance in a region is already enabled to collect platform metrics, metrics from enabled-Sysdig services are collected automatically and available for monitoring through this instance. For more information about enabled-Sysdig services, see [{{site.data.keyword.cloud}} services](https://www.ibm.com/cloud/services).
+* To configure the Monitoring instance, you must turn on the *platform metrics* configuration setting.
+* If a Monitoring instance in a region is already enabled to collect platform metrics, metrics from enabled-{{site.data.keyword.mon_full_notm}} services are collected automatically and available for monitoring through this instance. For more information about enabled-{{site.data.keyword.mon_full_notm}} services, see [{{site.data.keyword.cloud}} services](https://www.ibm.com/cloud/services).
 
-To monitor platform metrics, check that the {{site.data.keyword.mon_full_notm}} instance is provisioned in the same region where the {{site.data.keyword.cloud_notm}} instance is provisioned.
+To monitor platform metrics, check that the Monitoring instance is provisioned in the same region where the {{site.data.keyword.cloud_notm}} instance is provisioned.
 {: important}
 
 ## Enabling platform metrics from the {{site.data.keyword.cloud_notm}} dashboard
@@ -78,22 +78,22 @@ Complete the following steps to configure platform metrics:
 
 6. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
-   After you provision the Sysdig instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
+   After you provision the Monitoring instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
    {: note}
 
 
 ## Viewing metrics
 {: #view_metrics}
 
-To monitor {{site.data.keyword.cloudant_short_notm}} metrics, you must launch the Sysdig web UI instance that is enabled for platform metrics in the region where your {{site.data.keyword.cloud_notm}} instance is available.
+To monitor {{site.data.keyword.cloudant_short_notm}} metrics, you must launch the {{site.data.keyword.mon_full_notm}} web UI instance that is enabled for platform metrics in the region where your {{site.data.keyword.cloud_notm}} instance is available.
 {: important}
 
-You can use different options to launch the Sysdig web UI and monitor metrics that are described in the following section.
+You can use different options to launch the {{site.data.keyword.mon_full_notm}} web UI and monitor metrics that are described in the following section.
 
-### Launching Sysdig web UI from the {{site.data.keyword.cloudant_short_notm}} dashboard
+### Launching {{site.data.keyword.mon_full_notm}} web UI from the {{site.data.keyword.cloudant_short_notm}} dashboard
 {: #view_metrics_opt1}
 
-Complete the following steps to launch the Sysdig web UI from the {{site.data.keyword.cloud_notm}} dashboard:
+Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} web UI from the {{site.data.keyword.cloud_notm}} dashboard:
 
 1. Log in to {{site.data.keyword.cloud_notm}}.
 
@@ -111,17 +111,17 @@ Complete the following steps to launch the Sysdig web UI from the {{site.data.ke
 
     A new tab opens in your browser and displays the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
 
-### Launching Sysdig web UI from the Observability page
+### Launching {{site.data.keyword.mon_full_notm}} web UI from the Observability page
 {: #view_metrics_opt2}
 
-Complete the following steps to launch the Sysdig web UI from the *Observability* page:
+Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} web UI from the *Observability* page:
 
-1. [Launch the Sysdig web UI](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-launch).
+1. [Launch the {{site.data.keyword.mon_full_notm}} web UI](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-launch).
 2. Click **DASHBOARDS**.
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
 
-    To access your deployment's Sysdig dashboard from Sysdig, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
+    To access your deployment's {{site.data.keyword.mon_full_notm}} dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
 
     ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
@@ -194,7 +194,7 @@ The following table outlines the pre-defined dashboards that you can use to moni
 
 | Dashboard name        | Description    |
 |-----------------------|----------------|
-| `IBM Cloudant`   | The default dashboard that opens when you launch Sysdig web UI from your service instance UI. |
+| `IBM Cloudant`   | The default dashboard that opens when you launch {{site.data.keyword.mon_full_notm}} web UI from your service instance UI. |
 {: caption="Table 6. Pre-defined dashboard" caption-side="top"}
 
 The *Default* dashboard cannot be changed.

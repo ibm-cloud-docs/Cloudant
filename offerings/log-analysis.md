@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-31"
 
 keywords: log analysis, integration
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2020-12-17 -->
 
-# Log Analysis integration
+# {{site.data.keyword.loganalysisfull_notm}} integration
 {: #log-analysis-integration}
 
 {{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.loganalysisfull}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external}, so you can view database logs.
@@ -31,7 +31,7 @@ subcollection: Cloudant
 
 Currently, {{site.data.keyword.loganalysisfull_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
 
-Deployment Region | LogDNA Region
+Deployment Region | {{site.data.keyword.loganalysisfull_notm}} Region
 ----------|-----------
 `Chennai` | `Chennai`
 `Dallas` | `Dallas`
@@ -43,10 +43,10 @@ Deployment Region | LogDNA Region
 `Tokyo` | `Tokyo`
 `Washington DC` | `Washington DC`
 
-{: caption="Table 1. Log Analysis regions" caption-side="top"}
+{: caption="Table 1. {{site.data.keyword.loganalysisfull_notm}} regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.loganalysisfull_notm}}
-{: #provisioning-logdna}
+{: #provisioning-log-analysis}
 
 Log information from your databases is automatically forwarded to {{site.data.keyword.loganalysisfull_notm}}. In order to access it, you have to [provision a site.data.keyword.loganalysisfull_notm service](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service to receive {{site.data.keyword.cloud_notm}} service logs](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs){: new_window}{: external}.
 
@@ -56,7 +56,7 @@ This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services
 {{site.data.keyword.loganalysisfull_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-service_plans){: new_window}{: external}.
 
 ### HIPAA
-{: #hipaa_logdna}
+{: #hipaa_log-analysis}
 
 {{site.data.keyword.loganalysisfull_notm}} does not currently offer a HIPAA-compliant plan for the service.
 
@@ -64,7 +64,7 @@ Use caution when you configure the platform service logs, since this setting can
 {: important}
 
 ## Using {{site.data.keyword.loganalysisfull_notm}}
-{: #using-logdna}
+{: #using-log-analysis}
 
 Once logs are being live-streamed, each log can be expanded to a detailed view by clicking the arrow by the timestamp.
 
