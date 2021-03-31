@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-04"
+  years: 2015, 2021
+lastupdated: "2021-03-29"
 
 keywords: develop applications, supported library, mobile, java, node.js, python, swift, go
 
@@ -38,23 +38,23 @@ reproducible problem in the current version of the library.
 ## Java
 {: #java-supported}
 
-The `java-cloudant` library is the official {{site.data.keyword.cloudant_short_notm}} library for Java&trade;. The new {{site.data.keyword.cloudant_short_notm}} SDK for Java![BETA tag](../images/beta_icon.png) library is a supported beta client library.
+The `java-cloudant` library is the official {{site.data.keyword.cloudant_short_notm}} library for Java&trade;. The new {{site.data.keyword.cloudant_short_notm}} SDK for Java&trade; ![BETA tag](../images/beta_icon.png) library is a supported beta client library.
 
 To install the `java-cloudant` library, see 
 [Installation and Usage](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}{: external} about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
 
-Or to install the {{site.data.keyword.cloudant_short_notm}} SDK for Java library, see [Installation](https://github.com/ibm/cloudant-java-sdk#installation) about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
+Or to install the {{site.data.keyword.cloudant_short_notm}} SDK for Java&trade; library, see [Installation](https://github.com/ibm/cloudant-java-sdk#installation) about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
 
 ### Library for Java
 {: #supported-library-for-java}
 
 - [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external}.
-- [{{site.data.keyword.cloudant_short_notm}} SDK for Java](https://github.com/IBM/cloudant-java-sdk){: new_window}{: external}
+- [{{site.data.keyword.cloudant_short_notm}} SDK for Java&trade;](https://github.com/IBM/cloudant-java-sdk){: new_window}{: external}
 
 ## Node.js
 {: #node-js-supported}
 
-The `nodejs-cloudant` library is the official {{site.data.keyword.cloudant_short_notm}} library for Node.js. The new {{site.data.keyword.cloudant_short_notm}} SDK for Node.js![BETA tag](../images/beta_icon.png) library is a supported beta client library.
+The `nodejs-cloudant` library is the official {{site.data.keyword.cloudant_short_notm}} library for Node.js. The new {{site.data.keyword.cloudant_short_notm}} SDK for Node.js ![BETA tag](../images/beta_icon.png) library is a supported beta client library.
 
 Install the [`nodejs-cloudant`](https://www.npmjs.com/package/@cloudant/cloudant){: new_window}{: external} library with npm.
 
@@ -80,7 +80,7 @@ npm install @ibm-cloud/cloudant
 ## Python
 {: #python-supported}
 
-The `cloudant` library is the official {{site.data.keyword.cloudant_short_notm}} library for Python. The new {{site.data.keyword.cloudant_short_notm}} SDK for Python![BETA tag](../images/beta_icon.png) library is a supported beta client library.
+The `cloudant` library is the official {{site.data.keyword.cloudant_short_notm}} library for Python. The new {{site.data.keyword.cloudant_short_notm}} SDK for Python ![BETA tag](../images/beta_icon.png) library is a supported beta client library.
 
 Install the [`cloudant`](https://pypi.org/project/cloudant){: new_window}{: external} library by running `pip` as shown in the following example:
 
@@ -114,7 +114,7 @@ For more information, see the [python.org](https://www.python.org/about/){: new_
 ## Go
 {: #go-supported}
 
-The new {{site.data.keyword.cloudant_short_notm}} SDK for Go![BETA tag](../images/beta_icon.png) library is a supported beta client library.
+The new {{site.data.keyword.cloudant_short_notm}} SDK for Go ![BETA tag](../images/beta_icon.png) library is a supported beta client library.
 
 Install the [{{site.data.keyword.cloudant_short_notm}} SDK for Go](https://pkg.go.dev/mod/github.com/IBM/cloudant-go-sdk){: new_window}{: external} library by running the following command:
 
@@ -182,7 +182,7 @@ Supported tools are maintained and supported by {{site.data.keyword.cloudant_sho
 #### `couchbackup`
 {: #couchbackup-cl}
 
-A tool you use from the command line to backup an {{site.data.keyword.cloudant_short_notm}} or CouchDB database to a text file. 
+A tool that you use from the command line to back up an {{site.data.keyword.cloudant_short_notm}} or CouchDB database to a text file. 
 
 To install `couchbackup`, run the following command by using `npm`:
 
@@ -201,14 +201,14 @@ Unsupported tools are not maintained or supported by {{site.data.keyword.cloudan
 #### `cURL`
 {: #curl-cl}
 
-A tool you use from the command line to transfer data. 
+A tool that you use from the command line to transfer data. 
 
 For more information, see [`curl`](https://curl.haxx.se/){: new_window}{: external}.
 
 #### `jq`
 {: #jq-cl} 
 
-A tool you use from the command line to parse JSON. {{site.data.keyword.cloudant_short_notm}} uses the JSON data format. 
+A tool that you use from the command line to parse JSON. {{site.data.keyword.cloudant_short_notm}} uses the JSON data format. 
 
 Download the package to install [`jq`](https://stedolan.github.io/jq/){: new_window}{: external}.
 
@@ -217,7 +217,7 @@ For more information, see [`jq`](https://stedolan.github.io/jq/){: new_window}{:
 #### `couchdiff`
 {: #couchdiff-cl}
 
-A tool you use from the command line to show the differences between an {{site.data.keyword.cloudant_short_notm}} and a CouchDB database. 
+A tool that you use from the command line to show the differences between an {{site.data.keyword.cloudant_short_notm}} and a CouchDB database. 
 
 To install `couchdiff`, run the following command by using `npm`:
 
@@ -231,7 +231,7 @@ For more information, see [`couchdiff`](https://www.npmjs.com/package/couchdiff)
 #### `couchimport`
 {: #couchimport-cl}
 
-A tool you use from the command line, or programmatically, to import data into CouchDB efficiently. 
+A tool that you use from the command line, or programmatically, to import data into CouchDB efficiently. 
 
 To install `couchimport`, run the following command by using `npm`:
 
@@ -245,7 +245,7 @@ For more information, see [`couchimport`](https://www.npmjs.com/package/couchimp
 #### `couchmigrate`
 {: #couchmigrate-cl}
 
-A tool you use from the command line to migrate CouchDB design documents. 
+A tool that you use from the command line to migrate CouchDB design documents. 
 
 To install `couchmigrate`, run the following command by using `npm`:
 
@@ -259,7 +259,7 @@ For more information, see [`couchmigrate`](https://www.npmjs.com/package/couchmi
 #### `couchreplicate`
 {: #couchreplicate-cl}
 
-A tool you use from the command line to coordinate Apache CouchDB or {{site.data.keyword.cloudant_short_notm}} replications. 
+A tool that you use from the command line to coordinate Apache CouchDB or {{site.data.keyword.cloudant_short_notm}} replications. 
 
 To install `couchreplicate`, run the following command by using `npm`:
 
@@ -273,7 +273,7 @@ For more information, see [`couchreplicate`](https://www.npmjs.com/package/couch
 #### `couchxray`
 {: #couchxray-cl}
 
-A tool you use from the command line to see the CouchDB features used by a database.
+A tool that you use from the command line to see the CouchDB features used by a database.
 
 To install `couchxray`, run the following command by using `npm`:
 

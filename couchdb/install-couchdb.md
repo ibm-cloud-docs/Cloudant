@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-17"
+  years: 2019, 2021
+lastupdated: "2021-03-26"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -42,7 +42,7 @@ The [Download CouchDB](http://couchdb.apache.org/#download){: new_window}{: exte
 
 The Apache CouchDB Docker image is available on [Docker Hub](https://hub.docker.com/_/couchdb){: new_window}{: external}, along with [Apache CouchDB documentation](https://docs.couchdb.org/en/stable/install/docker.html){: new_window}{: external}.
 
-## Red Hat Ecosystem Catalog
+## Red Hat Ecosystem catalog
 {: #red-hat-ecosystem-catalog-install}
 
 See the [Apache CouchDB Product overview](https://catalog.redhat.com/software/operators/detail/5e98734c3f398525a0ceafd6){: new_window}{: external} on the Red Hat Container catalog for Red Hat-certified images and Operator for Apache CouchDB. 
@@ -50,7 +50,7 @@ See the [Apache CouchDB Product overview](https://catalog.redhat.com/software/op
 ## Kubernetes Operator for Apache CouchDB
 {: #kubernetes-operator-for-apache-couchdb-install}
 
-The [Operator for Apache CouchDB documentation](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator) details how to install and use the Operator to deploy Apache CouchDB clusters on Kubernetes. The Operator for Apache CouchDB is available on [OperatorHub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} or in the [Red Hat Ecosystem Catalog](https://catalog.redhat.com/software/operators/detail/5e98734c3f398525a0ceafd6){: new_window}{: external}.
+The [Operator for Apache CouchDB documentation](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator) details how to install and use the Operator to deploy Apache CouchDB clusters on Kubernetes. The Operator for Apache CouchDB is available on [OperatorHub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} or in the [Red Hat Ecosystem catalog](https://catalog.redhat.com/software/operators/detail/5e98734c3f398525a0ceafd6){: new_window}{: external}.
 
 ## Helm Chart
 {: #helm-chart-install}
