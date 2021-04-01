@@ -45,7 +45,7 @@ non-blocking write throughput.
 are configured by adding design documents to a database.
 Design documents are JSON documents that include the instructions about how the view or index is to be built.
 Let's take a simple example.
-Assume that we have a simple collection of data documents,
+Assume that you have a simple collection of data documents,
 similar to the following example.
 
 See an example of a simple data document:
@@ -64,10 +64,9 @@ See an example of a simple data document:
 Each data document includes a name,
 a body,
 and a timestamp.
-We want to create a [MapReduce view](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce) to sort our documents by timestamp.
+You create a [MapReduce view](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce) to sort our documents by timestamp.
 
-We can sort our documents by timestamp by creating a Map function,
-similar to the following example.
+You can sort your documents by timestamp by creating a Map function.
 
 See an example map function that returns a document's timestamp field, if present:
 
@@ -80,7 +79,7 @@ function(doc) {
 ```
 {: codeblock}
 
-The function emits the document's timestamp so that we can use it as the key to the index.
+The function emits the document's timestamp so that you can use it as the key to the index.
 Since we're not interested in the value in the index,
 `null` is emitted.
 The effect is to provide a time-ordered index into the document set.
@@ -129,20 +128,20 @@ It's worth remembering the following points:
 
 -   The construction of an index happens asynchronously.
     {{site.data.keyword.cloudant_short_notm}} confirms that our design document was saved. To check on the progress of the construction of our index,
-    we have to poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
--   The more data that we have,
+    You must poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
+-   The more data that you have,
     the longer it takes before the index is ready.
 -   While the initial index build is in progress,
     any queries made against the index are blocked.
 -   Querying a view triggers the 'mapping' of any documents that aren't incrementally indexed.
-    This practice ensures that we get an up-to-date view of the data.
+    This practice ensures that you get an up-to-date view of the data.
     See the following [`stale` parameter](#the-stale-parameter) discussion
     for exceptions to this rule.
 
 ## Multiple views in the same design document
 {: #multiple-views-in-the-same-design-document}
 
-If we define several views in the same design document,
+If you define several views in the same design document,
 then they're built efficiently at the same time.
 Each document is read only once,
 and passed through each view's Map function.
@@ -159,14 +158,13 @@ This behavior doesn't apply to Lucene search indexes. They can be altered within
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}
 
-Imagine at some point in the future we decide to change the design of our view.
+Imagine at some point in the future that you decide to change the design of your view.
 Now,
 instead of returning the actual timestamp result,
 we're only interested in the count of how many documents match the criteria.
 To achieve this count,
 the map function stays the same,
-but we now use a `reduce` of `_count`.
-The effect is that our design document looks like the following example.
+but you now use a `reduce` of `_count`.
 
 See an example design document that uses a reduce function:
 
@@ -198,8 +196,8 @@ The build also blocks incoming queries on that view until it's complete.
 
 But there's a problem...
 
-If we have an application that is accessing this view in real time,
-then we might experience a deployment dilemma:
+If you have an application that is accessing this view in real time,
+then you might experience a deployment dilemma:
 
 -   Version 1 of our code,
     which relied on the original design document,
@@ -212,7 +210,7 @@ then we might experience a deployment dilemma:
 ## Coordinating changes to design documents
 {: #coordinating-changes-to-design-documents}
 
-We can deal with this change control problem in two ways.
+You can deal with this change control problem in two ways.
 
 ### Versioned design documents
 {: #versioned-design-documents}
@@ -220,11 +218,11 @@ We can deal with this change control problem in two ways.
 One solution is to use versioned design document names:
 
 -   Our code is initially written to use a view called `_design/fetchv1`.
--   When we release a new version,
-    we create a new view that is called `_design/fetchv2`,
+-   When you release a new version,
+    you create a new view that is called `_design/fetchv2`,
     and query the view to ensure that it builds.
--   We poll `_active_tasks` until the work of building the new index is complete.
--   We're now ready to release the code that depends on the second view.
+-   {{site.data.keyword.cloudant_short_notm}} polls `_active_tasks` until the work of building the new index is complete.
+-   Now, you're ready to release the code that depends on the second view.
 -   Delete `_design/fetchv1` when we're sure it's no longer needed.
 
 Using versioned design documents is a simple way to manage change control in your design documents, but you must remember to remove the older versions later.
@@ -235,12 +233,12 @@ Using versioned design documents is a simple way to manage change control in you
 Another approach relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognizes when it has two identical design documents,
 and doesn't waste time and resources to rebuild views that it already has.
 In other words,
-if we take our design document `_design/fetch` and create an exact duplicate `_design/fetch_OLD`,
+if you take your design document `_design/fetch` and create an exact duplicate `_design/fetch_OLD`,
 then both endpoints would work interchangeably without triggering any reindexing.
 
 To switch to the new view, follow these steps:
 
-1.  Create a duplicate copy of the design document that we want to change,
+1.  Create a duplicate copy of the design document that you want to change,
     for example by adding `_OLD` to its name:
     `_design/fetch_OLD`.
 2.  Put the new or "incoming" design document into the database
@@ -278,7 +276,7 @@ export COUCH_URL="https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com"
 ```
 {: codeblock}
 
-If we assume that we have a design document in JSON format, which is stored in a file, we can then run the migrate command.
+If you assume that you have a design document in JSON format, which is stored in a file, you can then run the migrate command.
 
 In this example,
 `db` specifies the name of the database to change,
@@ -307,12 +305,12 @@ The state of the database is shown in the following diagram:
 
 ![Index scheduled for update](../images/DesDocMan01.png){: caption="Figure 3. Index scheduled for update" caption-side="bottom"}
 
-When querying the view, we have the following choices.
+When querying the view, you have the following choices.
 
 -   The default behavior is to ensure that the index is up to date,
     with the latest documents in the database,
     before it returns the answer.
-    When we query the view,
+    When you query the view,
     {{site.data.keyword.cloudant_short_notm}} first indexes the 250 new documents,
     and then returns the answer.
 -   An alternative is adding the `stale=ok` parameter to the API call.

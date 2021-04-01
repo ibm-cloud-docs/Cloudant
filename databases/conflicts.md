@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-25"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -203,13 +203,13 @@ non-conflicting version of the document.
 
 To compare the revisions and identify what changed,
 your application must retrieve all the versions from the database.
-We begin by retrieving a document and details of any conflicting versions.
+You begin by retrieving a document and details of any conflicting versions.
 To start the retrieval, use a command similar to the following one,
 which also requests the `_conflicts` array:
 
 `https://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-This retrieval gives us a current version of the document that we store,
+This retrieval gives you a current version of the document that you store,
 *and* a list of all the other conflicting documents that must also be retrieved,
 for example `...rev=2-61ae00e029d4f5edd2981841243ded13` and `...rev=1-7438df87b632b312c53a08361a7c3299`.
 Each of these other conflicting versions is also retrieved and stored,

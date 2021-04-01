@@ -77,8 +77,8 @@ appears in the Location drop-down menu when you create Standard plans.
 {: #faq-migrate-dedicated-hardware-instances-and-the-standard-plan-instances-hosted}
 {: faq}
 
-In theory, instances can be migrated to resource groups in any order. We recommend the following order for Dedicated Hardware instances and
-the Standard plan instances that are hosted on them:
+In theory, instances can be migrated to resource groups in any order. The following order for Dedicated Hardware instances and
+the Standard plan instances that are hosted on them is recommended:
 
 1. Migrate Dedicated Hardware instances to a resource group. This migration allows new Standard plan instances to be created on the Dedicated Hardware.
 2. Migrate Standard instances.

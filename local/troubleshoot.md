@@ -634,7 +634,7 @@ The second parameter to `proc_count` is the number of
 processes to show, in this case 10. So here <0.101.0> is
 using 16 MB of memory, which is typically nothing to
 worry about. It is possible for individual processes to
-use several gigabytes of memory. As a rule, if the uppermost processes are using more memory than others, it is worth looking into whether you can stop those processes.
+use several gigabytes of memory. As a rule, if the top processes are using more memory than others, it is worth looking into whether you can stop those processes.
 
 Use `process_info` to find out what process is running.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-25"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -236,7 +236,7 @@ See the following example document that merges changes from the two conflicting 
 {: #delete-old-revisions-mvcc}
 
 Finally,
-you delete the old revisions by sending a `DELETE` request to the URLs with the revision we want to delete.
+you delete the old revisions by sending a `DELETE` request to the URLs with the revision you want to delete.
 
 See the following example request to delete an old document revision by using HTTP:
 

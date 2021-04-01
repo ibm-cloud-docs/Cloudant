@@ -41,16 +41,15 @@ make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspell your account name,
 you might get a [503 "service unavailable" error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
 
-You can provide your credentials (authenticate) in the following ways for {{site.data.keyword.cloudantfull}}:
 
--	[Identity and Access Management (IAM)](#authentication-iam)
+-	[{{site.data.keyword.cloud}} Identity and Access Management (IAM)](#authentication-iam)
 -	[Basic authentication](#basic-authentication)
 -	[Cookie authentication](#cookie-authentication)
 
 ## IAM authentication
 {: #authentication-iam}
 
-You can perform the following tasks with {{site.data.keyword.cloud}} Identity and Access Management (IAM): 
+You can perform the following tasks with IAM: 
 
 - Centrally manage access management across {{site.data.keyword.cloud_notm}}.
 - Allow a user or service to access many different resources by using the same set of credentials (for  example, same username and password or IAM API key).
@@ -69,7 +68,7 @@ Cookie authentication is similar to having a key to the door so that you can let
 Within {{site.data.keyword.cloudant_short_notm}},
 the key is a cookie that is named `AuthSession`.
 
-When you create or use performance-critical {{site.data.keyword.cloudant_short_notm}} applications, cookie authentication has more benefits when compared with Basic authentication. We recommend that you use cookie authentication whenever possible.
+When you create or use performance-critical {{site.data.keyword.cloudant_short_notm}} applications, cookie authentication has more benefits when compared with Basic authentication. It is recommended that you use cookie authentication whenever possible.
 {: note}
 
 ### Basic authentication
@@ -123,7 +122,7 @@ For more information on basic authentication, see [Security scheme](/apidocs/clo
 After authenticating, the next test is to decide whether you're allowed to do certain tasks.
 This decision is called authorization.
 
-When you authenticate with the {{site.data.keyword.cloudantfull}} system,
+When you authenticate with the {{site.data.keyword.cloudant_short_notm}} system,
 it "knows" who you are.
 The next question is, what tasks are you allowed to do?
 

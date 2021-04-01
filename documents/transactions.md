@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-25"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
@@ -264,7 +264,7 @@ it's not necessary to modify the core purchase document.
 
 Using {{site.data.keyword.cloudant_short_notm}} to store purchase order information allows an ordering system to be highly available and scalable. With an ordering system like this one, you can deal with large volumes of data and high rates of concurrent access.
 By modeling the data in separate documents that are only written once,
-we can ensure that documents never become conflicted,
+you can ensure that documents never become conflicted,
 such as during concurrent access to the same document by separate processes.
 
 Furthermore,
