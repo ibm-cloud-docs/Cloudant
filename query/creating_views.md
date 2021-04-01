@@ -464,7 +464,7 @@ at query time.
 ### Document partitioning
 {: #document-partitioning}
 
-Due to sharding, we offer no guarantees that the output of any two specific map functions pass to
+Due to sharding, {{site.data.keyword.cloudant_short_notm}} offers no guarantees that the output of any two specific map functions pass to
 the same instance of a reduce call. You must not rely on any ordering. The
 reduce function you use must consider all the values that are passed to it and return the correct
 answer irrespective of ordering. {{site.data.keyword.cloudant_short_notm}} is also guaranteed to call your reduce
@@ -509,7 +509,7 @@ Each view is a JavaScript function.
 Views are stored in design documents.
 So,
 to store a view,
-we simply store the function definition within a design document.
+{{site.data.keyword.cloudant_short_notm}} simply stores the function definition within a design document.
 A design document can be [created or updated](/docs/Cloudant?topic=Cloudant-design-documents#creating-or-updating-a-design-document)
 just like any other document.
 

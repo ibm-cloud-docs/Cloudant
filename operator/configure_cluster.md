@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-21"
+  years: 2019, 2021
+lastupdated: "2021-03-25"
 
 keywords: operator, field reference
 
@@ -48,7 +48,7 @@ spec:
 ```
 {: codeblock}
 
-Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the deprecated `spec.version` field or setting it to `3`. This upgrade can be performed in place, though we recommend you take a backup first.
+Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the deprecated `spec.version` field or setting it to `3`. This upgrade can be performed in place, though {{site.data.keyword.cloudant_short_notm}} team recommends that you take a backup first.
 
 ## Cluster size and scaling
 {: #couchdb-sizing}
@@ -216,7 +216,7 @@ spec:
 
 The CouchDB configuration field reference section refers to the environment section of the YAML file, and defines the parameters on how Apache CouchDB itself operates. For more information, see the [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/index.html){: new_window}{: external} to learn more detailed information and definitions of the supported nested parameters.
 
-Update the `adminPassword` to a password of your choosing. We recommend that you keep the default values for the other parameters unless your specific workload warrants a specific configuration.
+Update the `adminPassword` to a password of your choosing. Keep the default values for the other parameters unless your specific workload warrants a specific configuration for best performance.
 
 | Name           | Description   | Default    | Information |
 |----------------|---------------|------------|-------------|

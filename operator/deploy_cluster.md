@@ -32,7 +32,7 @@ Learn how to deploy a CouchDB Cluster on Kubernetes and OpenShift.
 ## Deploying a CouchDB cluster on Kubernetes
 {: #deploy-couchdb-cluster-kubernetes}
 
-Now, we walk through deploying a three-node CouchDB Cluster with ephemeral storage on Kubernetes.
+Now, you walk through deploying a three-node CouchDB Cluster with ephemeral storage on Kubernetes.
 
 ### Prerequisites
 {: #prerequisites-cluster-kubernetes}
@@ -59,7 +59,7 @@ The TLS certificates are stored in a Kubernetes secret called `clustername>-cert
 #### Manually specifying a TLS Secret
 {: #specifying-tls-secret-cluster-kubernetes}
 
-Management of TLS certificates is beyond the scope of what we're discussing here, but we illustrate the steps by using a self-signed certificate. If you intend to expose your CouchDB instance externally, you must replace this certificate with a certificate that can be verified by using a CA that your CouchDB clients can trust. 
+Management of TLS certificates is beyond the scope of this discussion, but the steps are illustrated by using a self-signed certificate. If you intend to expose your CouchDB instance externally, you must replace this certificate with a certificate that can be verified by using a CA that your CouchDB clients can trust. 
 
 ##### Create a self-signed certificate
 {: #create-a-self-signed-certificate-kubernetes}
@@ -185,7 +185,7 @@ example                        ClusterIP   172.21.248.198   <none>        443/TC
 ## Deploying a CouchDB Cluster on OpenShift
 {: #deploy-couchdb-cluster-openshift-cluster-openshift}
 
-Now, we walk through deploying a three-node CouchDB Cluster with ephemeral storage on Red Hat OpenShift.
+Now, you walk through deploying a three-node CouchDB Cluster with ephemeral storage on Red Hat OpenShift.
 
 ### Prerequisites
 {: #prerequisites-cluster-openshift}

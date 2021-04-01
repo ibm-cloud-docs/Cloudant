@@ -49,7 +49,7 @@ You can launch the {{site.data.keyword.cloud_notm}} Dashboard, and click **Resou
 {: #pricing-examples}
 
 Let's assume you're building a mobile app with {{site.data.keyword.cloudant_short_notm}} and don't yet know the capacity 
-that you might need. In this case, we recommend that you start with the lowest provisioned throughput 
+that you might need. In this case, {{site.data.keyword.cloudant_short_notm}} team recommends that you start with the lowest provisioned throughput 
 capacity and increase it as needed by your application's usage over time. {{site.data.keyword.cloudant_short_notm}} bills 
 pro-rated hourly and changing the provisioned throughput capacity doesn't incur downtime. 
 
