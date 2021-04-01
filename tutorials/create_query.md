@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-30"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -263,7 +263,7 @@ Next, you find a document in the database by using multiple operators.
 {: step}
 
 In this example, the `$gt` (greater than) and `$eq` (equal) operators are used to search
-for documents that include a temperature that is greater than `20` degrees and a description that contains the value `hot`. The results include the `descriptionField` and `temperatureField`, displayed in descending order by temperature. 
+for documents that include a temperature that is greater than `20` degrees and a description that contains the value `hot`. The results include the `descriptionField` and `temperatureField`, shown in descending order by temperature. 
 
 We use a selector expression like the following example:
 

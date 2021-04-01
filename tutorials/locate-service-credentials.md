@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-03-30"
 
 keywords: service credentials, locate service credentials
 
@@ -84,7 +84,7 @@ Service credentials are valuable. If anyone or any application has access to the
 {{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service credentials tab for your instance. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)
  and [legacy authentication](/docs/Cloudant?topic=Cloudant-authentication#authentication) document for details about using either style of authentication.
 
-The service credentials include the following fields, as well as designating the fields that only display if you select the `Use both legacy credentials and IAM` option:
+The service credentials include the following fields, as well as designating the fields that are only shown if you select the `Use both legacy credentials and IAM` option:
 
 Field | Purpose | Legacy-auth enabled
 ------|---------|--------------------

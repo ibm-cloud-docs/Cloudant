@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-23"
+  years: 2015, 2021
+lastupdated: "2021-03-30"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -310,7 +310,7 @@ To change the default directories, follow these steps:
 
 2. (Optional) Move the database location by running `cast database relocate`.
 
-   a. Display the help text by running the help command, `cast database relocate --help`.
+   a. Run the help command to show the help text, `cast database relocate --help`.
 
    b. Ensure that the new directory location is owned by `cloudant:cloudant` and is applied to all database nodes with the same path and name.
    
@@ -354,7 +354,7 @@ cluster.
 Run the `hostname -f` command on each node in your cluster to
 verify that the node is named and configured correctly. The
 `hostname -f` command returns a Fully Qualified Domain Name (FQDN),
-such as `db1.domain.com`. If the displayed host name is incorrect,
+such as `db1.domain.com`. If the host name is incorrect,
 select from the following instructions.
 
 1. If your operating system is Red Hat or CentOS, follow these steps.
@@ -1042,8 +1042,8 @@ was successfully installed on each load balancer.
     In this URL, `your_load_balancer_IP_address` is the fully
     qualified host name of your load balancer.
 
-3.  Include the `/dashboard.html` part of the URL to display the
-    dashboard. If you omit `/dashboard.html`, the standard Cloudant
+3.  Include the `/dashboard.html` part of the URL to show the
+    dashboard. If you omit `/dashboard.html`, the standard {{site.data.keyword.cloudant_short_notm}}
     welcome message is displayed instead of the dashboard.
 
     ``` json

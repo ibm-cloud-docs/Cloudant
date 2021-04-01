@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-03-30"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -196,7 +196,7 @@ GET /mydb/_all_docs?limit=10&startkey="frog%00"
 ## Pagination of views
 {: #pagination-of-views}
 
-MapReduce views, secondary indexes, which are defined by `key/value` pairs that are produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /$DATABASE/_design/$DDOC/_view/$VIEW` endpoint instead. You can define your query in the following ways:
+MapReduce views, secondary indexes, which are defined by `key-value` pairs that are produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /$DATABASE/_design/$DDOC/_view/$VIEW` endpoint instead. You can define your query in the following ways:
 
 - Spool all the data from a view with no parameters.
 - Include document bodies by supplying `include_docs=true`.

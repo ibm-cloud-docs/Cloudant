@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-30"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -316,7 +316,7 @@ Field    | Description
 ---------|------------
 `from`   | A path relative to `/$DATABASE/_design/doc/_rewrite`, used to match URLs to rewrite rules. Path elements that start with a `:` are treated as variables and match any string that doesn't contain a `/`. An `*` can appear only at the end of the string, and matches any string - including slashes.
 `method` | The HTTP method that must be matched.
-`query`  | The query part of the resulting URL. This part is a JSON object that includes the `key/value` pairs of the query.
+`query`  | The query part of the resulting URL. This part is a JSON object that includes the `key-value` pairs of the query.
 `to`     | The path (relative to `/$DATABASE/_design/doc/` and not including the query part of the URL) that is the result of the rewriting step. Variables that are captured in `from` can be used in `to`. An `*` can also be used and includes everything that is captured by the pattern in `from`.
 {: caption="Table 3. Fields for the rewrite rules" caption-side="top"}
 

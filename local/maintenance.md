@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-09"
+  years: 2015, 2021
+lastupdated: "2021-03-30"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -35,7 +35,7 @@ tasks.
 
 Start, stop, and restart your {{site.data.keyword.cloudant_local_notm}} services with the
 cast node command by specifying the correct option. You can also
-display the status of various processes and test the {{site.data.keyword.cloudant_local_notm}} API.
+show the status of various processes and test the {{site.data.keyword.cloudant_local_notm}} API.
 
 
 *   Start all {{site.data.keyword.cloudant_local_notm}} services.
@@ -61,7 +61,7 @@ display the status of various processes and test the {{site.data.keyword.cloudan
     ```
     {: codeblock}
 
-*   (Optional) Display the syntax help text for the CAST command.
+*   (Optional) Show the syntax help text for the CAST command.
 
     ``` sh
     cast system install --help
