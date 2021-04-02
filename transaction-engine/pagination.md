@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-18"
+lastupdated: "2021-03-25"
 
 keywords: _all_docs endpoint, page_size, bookmarks, query, search, paging, mapreduce views
 
@@ -102,8 +102,8 @@ The maximum value of the `page_size` parameter is 2000.
 ## How to use pagination?
 {: pagination-how-te}
 
-To iterate through a range of documents, we must devise an algorithm to page
-through the range. For example, we want to page through `_all_docs` in blocks
+To iterate through a range of documents, you must devise an algorithm to page
+through the range. For example, you want to page through `_all_docs` in blocks
 of 10.
 
 See the following example that uses HTTP to get to the first page:
@@ -142,9 +142,9 @@ The response is a JSON object that could contain the `next` token.
 ```
 {: codeblock}
 
-The response includes an array of `docs`, and a `next` bookmark, which we use
-to paginate through the results in the next request. When we need page two of
-the results, we make another request that passes {{site.data.keyword.cloudant_short_notm}} the bookmark from the
+The response includes an array of `docs`, and a `next` bookmark, which you use
+to paginate through the results in the next request. When you need page two of
+the results, you make another request that passes {{site.data.keyword.cloudant_short_notm}} the bookmark from the
 first response.
 
 See the following example that uses HTTP to get to the page by using a bookmark:

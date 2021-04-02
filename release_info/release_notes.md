@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-25"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8182, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -255,9 +255,9 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## TLS 1.3 Supported (13 September 2018)
 {: #tls-1-3-supported-september-13-2018}
 
-From today, we support TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
+From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
 
-We recommend you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
+{{site.data.keyword.cloudant_short_notm}} recommends that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
 ***(In June 2019, {{site.data.keyword.cloudant_short_notm}} is retiring the use of older
 versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ will be supported.)***
 

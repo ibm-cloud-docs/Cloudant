@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-25"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -186,7 +186,7 @@ You can use environment variables or options to specify the
 URL and database for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance that you want to work 
 with CouchBackup. 
 
-In this tutorial, we set the `COUCH_URL` and specify the database by using the `--db` parameter. 
+In this tutorial, you set the `COUCH_URL` and specify the database by using the `--db` parameter. 
 
 Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance.
 
