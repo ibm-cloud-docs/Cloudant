@@ -253,8 +253,8 @@ cluster](#installing-a-cluster-install).
 
 Like most applications, {{site.data.keyword.cloudant_local_notm}} consists of two parts:
 the application and the data it manages. After installation, the
-application does not change often, but the data will change and
-grow over time. Therefore, it is helpful to plan your
+application does not change often, but the data changes and
+grows over time. Therefore, it is helpful to plan your
 installation carefully before you install the product.
 
 In particular, consider the following aspects.
@@ -271,7 +271,7 @@ In particular, consider the following aspects.
    keeping the application software and data locations separate,
    it is often easier to run backup and maintenance tasks.
 
-If you install {{site.data.keyword.cloudant_local_notm}} on a dedicated system, you will
+If you install {{site.data.keyword.cloudant_local_notm}} on a dedicated system, you can
 have more control over where data is stored and how future
 capacity is assured. If you install {{site.data.keyword.cloudant_local_notm}} on an existing
 or shared system, it is important to consider your installation

@@ -30,7 +30,7 @@ subcollection: Cloudant
 {: faq}
 {: support}
 
-The way you model data on {{site.data.keyword.cloudantfull}} significantly impacts how your application can scale. Our underlying data model differs substantially from a relational model, and ignoring this distinction can be the cause of performance issues down the road.
+The way you model data on {{site.data.keyword.cloudantfull}} significantly impacts how your application can scale. The underlying data model differs substantially from a relational model, and ignoring this distinction can be the cause of performance issues down the road.
 
 As always, successful modeling involves achieving a balance between ease of use versus the 
 performance characteristics you're hoping to achieve.
@@ -58,9 +58,9 @@ adversely affect application performance.
 {: #why-this-helps-you-consider-immutable-data}
 {: faq}
 
-Behind our `https://$ACCOUNT.cloudant.com/` interface is a distributed database. 
+Behind the `https://$ACCOUNT.cloudant.com/` interface is a distributed database. 
 Within the cluster, documents are bucketed into a number of shards that collectively form the 
-database. These shards are then distributed across nodes in the cluster. This practice allows us to support databases many terabytes in size.
+database. These shards are then distributed across nodes in the cluster. This practice allows the support of databases many terabytes in size.
 
 By default, the database is split into shards. Each shard has three 
 copies, or shard replicas, which reside on a different node of the database cluster. Sharding allows the database to continue serving requests if a node fails, so saving a document involves writing to three nodes. If two updates are made concurrently to the same document, a subset of nodes might accept the first update, and another subset might accept the second update. When the cluster detects this 
@@ -204,7 +204,7 @@ the final choice.
 {: #how-build-in-conflict-resolution}
 {: faq}
 
-In an eventually consistent system like {{site.data.keyword.cloudant_short_notm}}, conflicts eventually happen. This fact is a price of our scalability and data resilience.
+In an eventually consistent system like {{site.data.keyword.cloudant_short_notm}}, conflicts eventually happen. This fact is a price of scalability and data resilience.
 
 It is best to structure your data so that resolving conflicts is quick and does not involve operator assistance. This practice helps your databases to hum along smoothly. The ability to 
 automatically resolve conflicts without user involvement significantly 

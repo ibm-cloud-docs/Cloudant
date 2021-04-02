@@ -221,7 +221,7 @@ for example:
 Once you have all of the conflicting revisions of a document available,
 you can resolve the conflicts.
 
-In our earlier scenario,
+In an earlier scenario,
 the differences between the versions of the document were for different fields within the document,
 making it easier to merge them.
 

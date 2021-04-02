@@ -33,7 +33,7 @@ The following table shows example hourly pricing for various provisioned through
 
 ![Pricing spreadsheet](../images/pricing_spreadsheet.png){: caption="Figure 1. Pricing spreadsheet" caption-side="bottom"}
 
-You can use the {{site.data.keyword.cloud_notm}} pricing calculator to see estimated costs in other currencies by clicking the **Add to estimate** button from the {{site.data.keyword.cloudant_short_notm}} catalog tile. Specify storage, capacity, and select the country whose currency you want to see. See the calculator in the following screen capture. 
+You can use the {{site.data.keyword.cloud_notm}} pricing calculator to see estimated costs in other currencies by clicking **Add to estimate** from the {{site.data.keyword.cloudant_short_notm}} catalog tile. Specify storage, capacity, and select the country whose currency you want to see. See the calculator in the following screen capture. 
 
 ![Pricing calculator](../images/pricing_calculater.png){: caption="Figure 2. Pricing calculator" caption-side="bottom"}
 
@@ -41,7 +41,7 @@ Click **Calculate cost** and **Save**. Now, click **Review estimate**. Expand th
 
 ![Review estimate](../images/review_estimate.png){: caption="Figure 3. Review estimate" caption-side="bottom"}
 
-You can launch the {{site.data.keyword.cloud_notm}} Dashboard, and click **Resource list** > **Services** > **your instance** > **Manage** > **Capacity** tab to view and change the provisioned throughput capacity and see the hourly and approximate monthly costs: 
+You can launch the {{site.data.keyword.cloud_notm}} Dashboard, and click **Resource list** > **Services** > **your instance** > **Manage** > **Capacity** to view and change the provisioned throughput capacity and see the hourly and approximate monthly costs: 
 
 ![Slider](../images/slider.png){: caption="Figure 4. Slider" caption-side="bottom"}
 

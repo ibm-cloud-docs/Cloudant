@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-26"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
@@ -96,7 +96,7 @@ You can update your CORS settings by using the CORS tab within the dashboard:
 ![CORS dashboard illustration](../images/corsdashboard.png){: caption="Figure 1. CORS dashboard illustration" caption-side="bottom"}
 
 To see the current CORS configuration,
-simply open the **Account** > **CORS** tab in the dashboard.
+simply open **Account** > **CORS** in the dashboard.
 
 You can enable or disable CORS by using `Enable CORS`.
 This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration){: new_window}{: external}.

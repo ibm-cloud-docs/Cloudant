@@ -54,7 +54,7 @@ Contact your Customer Success or Account Manager for further assistance with the
 - Design optimization
 - Capacity planning
 
-If you have any questions that pertain to our support policy, email support@cloudant.com.
+If you have any questions that pertain to the support policy, email support@cloudant.com.
 
 ### Troubleshooting {{site.data.keyword.cloudant_local_notm}}
 {: #troubleshooting-ibm-cloudant-local}
@@ -68,7 +68,7 @@ To get help with an {{site.data.keyword.cloudant_local_notm}} issue, open a supp
 
 1. Create an email to open an {{site.data.keyword.cloudant_short_notm}} support request at support@cloudant.com.
 2. In the email subject line, provide a single sentence about the problem.
-3. The email must contain the following details to help us diagnose your problem:
+3. The email must contain the following details to help with diagnosing your problem:
     - Name
     - Contact email address
     - Name of your organization

@@ -105,7 +105,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
     The {{site.data.keyword.cloudant_short_notm}} *Manage* page opens.
 
-4. Click the **Actions** menu, and select **Monitoring**.
+4. Click **Actions**, and select **Monitoring**.
 
     ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 

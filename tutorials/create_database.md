@@ -39,7 +39,7 @@ This tutorial shows you how to use the [Python programming language](https://www
 create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance. You also learn how to populate the database with a simple collection of data.
 {: shortdesc}
 
-This tutorial doesn't use the most efficient Python code. Our intent is to show simple and easy-to-understand working code
+This tutorial doesn't use the most efficient Python code. The intent is to show simple and easy-to-understand working code
 that you can learn from and apply to your own applications. You must apply normal best practices for checking and handling all
 warning or error conditions that are encountered by your own applications.
 {: note}
@@ -105,7 +105,7 @@ You must have a current version of the [Python programming language](https://www
 
 An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications work with {{site.data.keyword.cloudant_short_notm}}.
 
-The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external}![BETA tag](../images/beta_icon.png) supported library is a generated SDK from our OpenAPI specification.
+The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external}![BETA tag](../images/beta_icon.png) supported library is a generated SDK from the OpenAPI specification.
 
 1. Check that the client library installed successfully by running the following command at a prompt:
 

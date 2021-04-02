@@ -34,7 +34,7 @@ Review the following sample architecture for {{site.data.keyword.cloudantfull}},
 
 Workload isolation is an important consideration for many customers. To select the best {{site.data.keyword.cloudant_short_notm}} plan choice for your workload isolation requirements, see the following architectural information: 
 
-1.  Standard on Transaction Engine plan, which offers our most cost-effective and robust isolation.
+1.  Standard on Transaction Engine plan, which offers the most cost-effective and robust isolation.
 
 2.  Standard and Lite plans on Multi-Tenant Hardware, which offer excellent isolation.
 

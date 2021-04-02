@@ -56,7 +56,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
 {: #creating-an-ibm-cloudant-instance-on-ibm-cloud}
 {: step}
 
-1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click the `Create resource` button. 
+1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click `Create resource`. 
 
     ![{{site.data.keyword.cloud_notm}} dashboard](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
@@ -85,7 +85,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
 
     ![Select your pricing plan.](tutorials/images/img0005c.png){: caption="Figure 4. Pricing plans and capacity" caption-side="bottom"}
 
-6. To create the service, click the `Create` button:
+6. To create the service, click `Create`:
 
     ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials.](tutorials/images/img0005b.png){: caption="Figure 5. {{site.data.keyword.cloudant_short_notm}} service name and credentials" caption-side="bottom"}
 
@@ -94,7 +94,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
 
     After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, `Provision in progress.` 
 
-7. When the status changes to Active, click the instance, and click the `Service Credentials` tab. 
+7. When the status changes to Active, click the instance, and click `Service Credentials`. 
 
     ![Create the {{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0007.png){: caption="Figure 6. Create {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
@@ -105,7 +105,7 @@ The service credentials in this example were defined when a demonstration {{site
 {: #creating-service-credentials}
 {: step}
 
-1.  To create the connection information that your application needs to connect to the instance, click the `New credential` button.
+1.  To create the connection information that your application needs to connect to the instance, click `New credential`.
 
     ![Create service credentials.](tutorials/images/img0050.png){: caption="Figure 7. Create service credentials" caption-side="bottom"}
 
@@ -117,7 +117,7 @@ The service credentials in this example were defined when a demonstration {{site
 
 5.  (Optional) Add inline configuration parameters. This parameter isn't used by {{site.data.keyword.cloudant_short_notm}} service credentials, so ignore it. 
 
-6.  Click the `Add` button.
+6.  Click `Add`.
 
     ![Add a service credential](tutorials/images/img0051.png){: caption="Figure 8. Add a service credential" caption-side="bottom"}
  
@@ -256,7 +256,7 @@ that you create in this exercise include the data that you use to query the `das
 
 This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query finds documents based on the `lastname` and the `firstname`.   
 
-1.  Click the **Query** tab.
+1.  Click **Query**.
 2.  Copy the following sample JSON and replace the existing text in the new query window:
   ```json
    {
@@ -286,7 +286,7 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
 To create a replication job, follow these steps:
 
-1. Click the **Replication** tab.
+1. Click **Replication**.
 
 2. Click **New Replication**. 
 
@@ -294,7 +294,7 @@ To create a replication job, follow these steps:
 
    ![Job configuration page](tutorials/images/replication-config-page-blank.png){: caption="Figure 4. Job configuration page" caption-side="bottom"} 
    
-   Additionally, you can create a replication from the databases page by clicking the **Replicate** button in the Actions column.
+   Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
    {: note} 
 
 3. Enter the following information for your replication job. <br>
@@ -346,7 +346,7 @@ The Active tasks page displays a list of all running tasks. When you monitor you
 If your instance does not have any active tasks, you can return to the previous step, delete the query-movies database, and then replicate it again. If you open the Active Tasks page immediately, you can see your replication. 
 {: tip}
 
-1. Click **Active Tasks** in the menu. 
+1. Click **Active Tasks**. 
 
    The Active Tasks page opens.  
 
@@ -362,20 +362,20 @@ Monitor your usage with a graph that shows your throughput by reads, writes, and
 
 Since your service instance is for demonstration purposes only, this page is not populated with data. However, you can see what monitoring information is available to you. 
 
-1. Click the **Monitoring** tab in the navigation. 
+1. Click **Monitoring**. 
 
    The Monitoring page opens to the Current Operations tab. 
    Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.  
 
    ![Current Operations tab opens.](tutorials/images/current-operations-tab.png){: caption="Figure 10. Current Operations tab opens" caption-side="bottom"}
 
-2. Click the **Denied Requests** tab. 
+2. Click **Denied Requests**. 
 
    Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.  
 
    ![Denied Requests tab opens.](tutorials/images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab opens" caption-side="bottom"}
 
-3. Click the **Storage** tab.
+3. Click **Storage**.
 
    Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed.  
 

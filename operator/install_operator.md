@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-24"
+  years: 2019, 2021
+lastupdated: "2021-03-26"
 
 keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
 
@@ -35,7 +35,7 @@ Learn how to install the Operator on Kubernetes and Red Hat OpenShift. Three sep
 ## Installing the Operator on Kubernetes
 {: #installing-operator-kubernetes}
 
-Now, walk through installing the Operator for Apache CouchDB on Kubernetes 1.14 or later. You can also follow the installation instructions that are found on [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} by clicking the **Install** button. 
+Now, walk through installing the Operator for Apache CouchDB on Kubernetes 1.14 or later. You can also follow the installation instructions that are found on [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} by clicking **Install**. 
 
 ### Prerequisites
 {: #prerequisites-operator-kubernetes}

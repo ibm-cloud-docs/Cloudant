@@ -98,7 +98,7 @@ GET /mydb/_all_docs?limit=100&endkey="moose"
 ```
 {: codeblock}
 
-This practice gives us the ability to define the size of the data set and the range of the `_id` field to return, but that isn't quite the same as pagination.
+This practice provides the ability to define the size of the data set and the range of the `_id` field to return, but that isn't quite the same as pagination.
 
 The `startkey`/`endkey` values are in double quotation marks because they're expected to be JSON-encoded and `JSON.stringify('moose') === "moose"`.
 {: note}
@@ -156,7 +156,7 @@ This option works, but you end up fetching n+1 documents when only n are require
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
 
-If you're determined to fetch only `n` documents each time, then you must calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
+If you're determined to fetch only `n` documents each time, then you need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in the first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise you get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
 
 ```http
 # first request

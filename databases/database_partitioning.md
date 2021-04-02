@@ -220,7 +220,7 @@ For the rare queries by device, you use two approaches:
     if queries to individual devices are rare and not repeated.
 2. Build a global index-mapping device to infrastructure, then issue partition
     queries to the infrastructure partition. This approach makes sense if repeated
-    queries to specific devices are used as the mapping can be cached. This approach is used for our application.
+    queries to specific devices are used as the mapping can be cached. This approach is used for this application.
 
 Let's look at how this approach works out. Let's look at four queries:
 
@@ -380,7 +380,7 @@ Overall, you want to make four queries:
 #### Finding all readings for a piece of infrastructure
 {: #finding-all-readings-for-a-piece-of-infrastructure}
 
-As our partitions are infrastructure-based, you can use `_all_docs` for a
+These partitions are infrastructure-based, so you can use `_all_docs` for a
 partition. For example, query all readings for the `bridge-1234`
 infrastructure piece by using the following command.
 
@@ -428,7 +428,7 @@ For these two queries, you need to find the partition for the devices by using t
 global `by-device` index. Then, you can query the individual partition for
 readings. While you might use a global index to query for the readings for
 individual devices, the mapping from device to infrastructure ID is highly
-cache-able. It never changes! So this approach allows us to mostly use
+cache-able. It never changes! So this approach allows you to mostly use
 the cheaper and more efficient partitioned query for most requests.
 
 Using a global index to query directly for device readings might be more efficient
@@ -457,7 +457,7 @@ The previous command returns the following response:
 ```
 {: codeblock}
 
-You have the partition key in the `value` field of the included row:
+The partition key is in the `value` field of the included row:
 `bridge-9876`.
 
 #### Querying for all results for a device
