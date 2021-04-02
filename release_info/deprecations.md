@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-02"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -59,7 +59,7 @@ You can also make multiple queries with the following new endpoints:
 - `POST /{db}/_all_docs/queries`
 - `POST /{db}/_design_docs/queries`
 
-## Multiple restrictions employed for performance gains (October 21, 2019)
+## Multiple restrictions employed for performance gains (21 October 2019)
 
 {{site.data.keyword.IBM_notm}} is releasing exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that will be available in the near future. Before that happens, {{site.data.keyword.cloudant_short_notm}} is documenting the deprecation of some functionality, and also, new, yet to be enforced, restrictions for other processes. A communication will be released that details the exact timeline when these restrictions go into effect. If you use any of the following functionality or are concerned about how to make the necessary application changes, reach out to support by email.  
 
