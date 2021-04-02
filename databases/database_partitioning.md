@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-02"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -496,7 +496,7 @@ To get the results for a device, you issue a partition query for the device
 within the `bridge-9876` partition. The selector is only slightly more
 complicated, but still the same as an equivalent global query.
 
-##### Query for recent results with query.json, assuming today is December, 13, 2018
+##### Query for recent results with query.json, assuming today is 13 December 2018
 {: query-for recent-results-with-query.json-assume-date-is-dec-13}
 
 ```json

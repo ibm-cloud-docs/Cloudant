@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-02"
 
 keywords: videos
 
@@ -584,7 +584,7 @@ Cloudant Query's language was inspired by the MongoDB query language. Queries ar
 
 The simplest form of query is finding documents where an attribute has a fixed value e.g. where author == J Smith.
 
-The second example shows two clauses in the query, both of which must be satisfied for a document to make it into the search results. e.g. where isbn === 6725252 AND date = 2018-01-01
+The second example shows two clauses in the query, both of which must be satisfied for a document to make it into the search results. e.g. where isbn === 6725252 AND date = 2018-01-01.
 
 The third example shows how logical operators can be added. The `$gt` operation means `greater than` (there's also `gte` for greater than or equal to, and lt/lte for the equivalent less than comparators). The $or operator is an OR operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
 
