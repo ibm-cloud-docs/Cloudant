@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-05"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -64,7 +64,7 @@ See an example of a simple data document:
 Each data document includes a name,
 a body,
 and a timestamp.
-You create a [MapReduce view](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce) to sort our documents by timestamp.
+You create a [MapReduce view](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce) to sort your documents by timestamp.
 
 You can sort your documents by timestamp by creating a Map function.
 
@@ -158,7 +158,7 @@ This behavior doesn't apply to Lucene search indexes. They can be altered within
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}
 
-Imagine at some point in the future we decide to change the design of the view.
+Imagine at some point in the future you decide to change the design of the view.
 Now,
 instead of returning the actual timestamp result,
 we're only interested in the count of how many documents match the criteria.
@@ -217,7 +217,7 @@ You can deal with this change control problem in two ways.
 
 One solution is to use versioned design document names:
 
--   Our code is initially written to use a view called `_design/fetchv1`.
+-   The code is initially written to use a view called `_design/fetchv1`.
 -   When you release a new version,
     you create a new view that is called `_design/fetchv2`,
     and query the view to ensure that it builds.
