@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-02"
+lastupdated: "2021-04-07"
 
-keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80
+keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91
 
 subcollection: Cloudant
 
@@ -33,6 +33,22 @@ Changes and updates to {{site.data.keyword.cloudantfull}} Transaction Engine tha
 {: #new-features-txe}
 
 See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine.
+
+
+## Build 2.91 (April 2021)
+{: #build-2.91-april-2021}
+
+ - Fix bug which can corrupt view indices. If the view index returns inconsistent data even after database updates stop, recreate the index by deleting and re-adding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
+ - Improve indexing performance when concurrent database updates exist.
+ - `multipart/related` document `PUT` requests can now accept chunked data transfer format.
+ - The `_session` endpoint accepts gzipped requests.
+ - Replicator treats a client `408` error code as retryable.
+
+## Build 2.88 (November 2020)
+{: #build-2.88-november-2020}
+
+- Add replicator support.
+- Add built-in view reduce functionality.
 
 ## Build 2.80 (September 2020)
 {: #build-2.80-september-2020}
