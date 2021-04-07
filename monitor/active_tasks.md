@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-04-07"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -34,10 +34,10 @@ see the [Managing tasks](/docs/Cloudant?topic=Cloudant-managing-tasks#managing-t
 ## Retrieving a list of active tasks
 {: #retrieving-a-list-of-active-tasks}
 
-Method - `GET` 
-Path - `/_active_tasks` 
-Response - List of running tasks, including the task type, name, status, and process ID. 
-Roles permitted - `_admin` 
+Method - `GET` <br>
+Path - `/_active_tasks` <br>
+Response - List of running tasks, including the task type, name, status, and process ID. <br>
+Roles permitted - `_admin` <br>
 
 You can get a list of active tasks by using the `/_active_tasks` URL.
 The result is a JSON array of the currently running tasks,
@@ -86,7 +86,7 @@ The returned structure includes the following fields for each task:
 | `started_on` | Time when the task was started. The value is an integer that includes the UNIX&trade; time UTC. |
 | `total_changes` | Total number of documents to be processed by the task. The exact meaning depends on the type of the task. |
 | `type` | Operation Type |
-| `updated_on` | Time when the last update was made to this task record. Updates are made by the job as progress occurs. The value is an integer that includes the UNIX&trade; time that uses UTC. |
+| `updated_on` | Time that the task status was updated. The field updates every few seconds. Returns the most recent update. |
 {: caption="Table 1. Fields in the returned structure" caption-side="top"}
 
 In the `type` field,
