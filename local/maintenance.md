@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-09"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-12 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Maintenance
 {: #maintenance}
@@ -484,7 +484,7 @@ Confirm that the new node is set up correctly.
     determine whether the shards are spread evenly across the
     cluster nodes.
 
-   Weatherreport is a command line application that provides information about the status of a dbcore node or cluster. Weatherreport is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+   Weather report is a command line application that provides information about the status of a dbcore node or cluster. Weather report is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weather report, see [Monitor cluster health with Weather report](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
    {: note}
 
 ## Replace a node
@@ -515,7 +515,7 @@ instructions.
    c. If any messages are returned, make sure that the shards have enough copies in live nodes before you replace the 
    node.
 
-   Weatherreport is a command line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It's useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+   Weather report is a command line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It's useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weather report, see [Monitor cluster health with Weather report](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
    {: note}
 
 2. If the node is running, stop any services that are running on the node and shut it down.

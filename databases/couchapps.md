@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-04-13"
 
 keywords: couchapp, 3-tier application
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-23 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # CouchApps
 {: #couchapps}
@@ -68,7 +68,7 @@ When is each appropriate?
 -   You don't need to schedule cron jobs or other regular tasks.
 
 To get started with CouchApps,
-read [Build a serverless web app](https://blog.cloudant.com/2017/02/27/Online-petition-system.html){: new_window}{: external}.
+read the [Build a serverless web app](https://blog.cloudant.com/2017/02/27/Online-petition-system.html){: new_window}{: external} blog.
 
 ## A 3-tier application is appropriate if...
 {: #a-3-tier-application-is-appropriate-if-}
@@ -76,7 +76,7 @@ read [Build a serverless web app](https://blog.cloudant.com/2017/02/27/Online-pe
 -   You need finer-grained permissions than the `_security` database
     allows.
 -   You need an authentication method other than Basic authentication or cookie
-    authentication, such as Oauth or a 3rd-party login system.
+    authentication, such as OAuth or a 3rd-party login system.
 -   You need to schedule tasks outside the client to run regularly.
 
 You can write your server layer by using whatever technologies work best

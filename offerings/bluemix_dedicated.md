@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-04-09"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-21 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # {{site.data.keyword.cloud_notm}} Dedicated
 {: #ibm-cloud-dedicated}
@@ -33,18 +33,18 @@ allocated to the environment. You can buy it by contacting your {{site.data.keyw
 {: shortdesc}
 
 {{site.data.keyword.cloud_notm}} Dedicated customers can also choose to use {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}} Public 
-via the syndicated catalog, including the Lite and Standard plan instances. {{site.data.keyword.cloud_notm}} Dedicated users aren't eligible to buy the Dedicated Hardware plan from the 
+by using the syndicated catalog, including the Lite and Standard plan instances. {{site.data.keyword.cloud_notm}} Dedicated users aren't eligible to buy the Dedicated Hardware plan from the 
 {{site.data.keyword.cloud_notm}} Public catalog. {{site.data.keyword.cloud_notm}} Dedicated users must leverage {{site.data.keyword.cloudant_short_notm}} Dedicated on 
 {{site.data.keyword.cloud_notm}} Dedicated if dedicated hardware is required.   
 
-The following screen capture shows where you select the Dedicated Hardware plan on the {{site.data.keyword.cloud_notm}} Dashboard when you create a resource.   
-
+The following screen capture shows where you select the Dedicated Hardware plan on the {{site.data.keyword.cloud_notm}} Dashboard when you create a resource. 
+ 
 ![{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan](../images/ibmcloud_catalog.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan" caption-side="bottom"}
 
 ## Hardware capacity 
 {: #hardware-capacity}
 
-{{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloud_notm}} Dedicated is purchased via an `{{site.data.keyword.cloud_notm}} Dedicated 
+{{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloud_notm}} Dedicated is purchased by using an `{{site.data.keyword.cloud_notm}} Dedicated 
 {{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity` part, which includes a clustered {{site.data.keyword.cloudant_short_notm}} environment 
 that consists of three database nodes and two load balancers. Each database node 
 includes 1.6 TB on SSDs, and since all data is stored in triplicate, this
@@ -69,7 +69,7 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 All plans are provided on servers with [at rest](https://en.wikipedia.org/wiki/Data_at_rest){: new_window}{: external}
 disk encryption. Access is over the public network connection and encrypted by 
 using HTTPS. For more detail, see [Security](/docs/Cloudant?topic=Cloudant-security#security){: new_window}{: external}. 
-IP allowlisting is available upon request to {{site.data.keyword.cloudant_short_notm}} Support and applies to 
+IP allow listing is available upon request to {{site.data.keyword.cloudant_short_notm}} Support and applies to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
 The plan also offers [Compliance Certification](/docs/Cloudant?topic=Cloudant-compliance#compliance). 
