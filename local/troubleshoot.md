@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-12"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -791,7 +791,7 @@ remsh command to stop all backed up CouchDB updaters.
 {: codeblock}
 
 ##### How can I verify the remediation?
-{: #how-can-i-verify-the-remidiation1}
+{: #how-can-i-verify-the-remediation1}
 
 Confirm that the list of backed up CouchDB updaters is
 empty.
@@ -900,13 +900,14 @@ queues are growing larger, which indicates that they are
 backing up.
 
 ##### What does it mean when it fails?
-
+{: #what-does-it-mean-when-it-fails11}
 The `couch_server` is on the critical path for many RPC
 calls. The overall effect of a backed up `couch_server` is
 dramatically increased latency on a subset of requests.
 For example, requests that are on a critical path.
 
 ##### How can I fix it?
+{: #how-can-i-fix-it11}
 
 First, use the metrics application and check whether the
 incident is ongoing or a spike. If it is a spike that is
@@ -922,6 +923,7 @@ exit(whereis(couch_server), kill). src
 {: #-ddoc_cache_opener-}
 
 ##### What does it check?
+{: #what-does-it-check12}
 
 The `ddoc_cache_opener` message queue is backing up. Use
 this command from a remsh to monitor the queue directly.
@@ -932,6 +934,7 @@ process_info(whereis(ddoc_cache_opener), message_queue_len).
 {: codeblock}
 
 ##### What does it mean when it fails?
+{: #what-does-it-mean-when-it-fails15}
 
 If it continues to back up, the server might not be able
 to process HTTP requests.
@@ -1203,7 +1206,7 @@ following issues.
     default N.
 
 ##### How can I fix it?
-{: #how-can-i-fix-it6}
+{: #how-can-i-fix-it10}
 
 Make sure that the problem is not caused by a server
 that is disabled, unreachable, or not connected to the
@@ -1355,7 +1358,7 @@ why IOQ failed.
 {: #-search-}
 
 ##### What does it check?
-{: #what-does-it-check8}
+{: #what-does-it-check9}
 
 This check monitors whether clouseau is running on the
 node. Clouseau acts as a wrapper around the Lucene
@@ -1364,7 +1367,7 @@ of search indexes at the shard level. If clouseau is not
 running, the node cannot serve search requests.
 
 ##### How can I fix it?
-{: #how-can-i-fix-it8}
+{: #how-can-i-fix-it9}
 
 Try disconnecting clouseau; it automatically reconnects.
 
