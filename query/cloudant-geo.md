@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-19"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # {{site.data.keyword.cloudant_short_notm}} Geospatial
 {: #cloudant-nosql-db-geospatial}
@@ -181,7 +181,7 @@ When you create a geospatial index,
 you must use the {{site.data.keyword.cloudant_short_notm}} Geo defined keyword `st_indexes` to hold one or more {{site.data.keyword.cloudant_short_notm}} Geo index definitions.
 Each index must be defined by the {{site.data.keyword.cloudant_short_notm}} Geo `st_index` function. 
 
-### `geoidx`: An example {{site.data.keyword.cloudant_short_notm}} Geo index
+### `geoidx` - An example {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #-geoidx-an-example-cloudant-nosql-db-geo-index}
 
 For example,
@@ -417,9 +417,9 @@ The function might be useful to determine insurance customers who live close to 
 
 To specify the circle, you provide the following values:
 
-- Latitude
-- Longitude
-- Circle radius, which is specified in meters
+- Latitude.
+- Longitude.
+- Circle radius that is specified in meters.
 
 This query compares the geometry of each document in the index with the geometry of the specified circle.
 The comparison is run according to the relation you request in the query.

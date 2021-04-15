@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-19"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-11-06 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Using Views
 {: #using-views}
@@ -96,7 +96,7 @@ This table shows the supported values for the following arguments:
 Argument | Supported values
 ---------|-----------------
 `stale`  | `ok`- Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
-`update` | `true` - Return results after the view is updated<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
+`update` | `true` - Return results after the view is updated.<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
 {: caption="Table 3. Supported values" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
@@ -232,7 +232,7 @@ before you insert or update documents.
 Creating the view definition in the design document
 causes incremental updates to the index when the documents or inserted.
 
-If speed of response is more important than having up to date data,
+If speed of response is more important than having up-to-date data,
 an alternative is to allow users to access an old version of the view index. To allow access to an old version of the view index, use the `update` query string parameter when you make a view query.
 
 If you want to save old index versions without incurring indexing processor usage, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`. Or you can stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 

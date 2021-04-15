@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-12"
+lastupdated: "2021-04-19"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-19 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Comparison of {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB API endpoints
 {: #comparison-of-ibm-cloudant-and-couchdb-api-endpoints}
@@ -117,7 +117,7 @@ click the corresponding link.
 | `POST /{db}/_explain` <br>[Cloudant](/apidocs/cloudant#postexplain){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_explain) | Identify which index is being used by a particular query. |
 | `POST /{db}/_find` <br>[Cloudant](/apidocs/cloudant#postfind){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_find) | Find documents that use a declarative JSON querying syntax.<br>{{site.data.keyword.cloudant_short_notm}} documentation references more request body fields (r, bookmark). | 
 | `GET /{db}/_index` <br>[Cloudant](/apidocs/cloudant#getindexesinformation){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#get--db-_index) | List indexes. |
-| `POST /{db}/_index` <br>[Cloudant](/apidocs/cloudant#postindex){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_find) | Create a new index on a database. |
+| `POST /{db}/_index` <br>[Cloudant](/apidocs/cloudant#postindex){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_find) | Create an index on a database. |
 | `DELETE /{db}/_index/_design/{ddoc}/{type}/{index}` <br>[Cloudant](/apidocs/cloudant#deleteindex){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#delete--db-_index-designdoc-json-name) | Delete an index. |
 | `GET /{db}/_local/{doc_id}` <br>[Cloudant](/apidocs/cloudant#getlocaldocument){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/local.html#get--db-_local-docid) | Get the specified local document. |
 | `PUT /{db}/_local/{doc_id}` <br>[Cloudant](/apidocs/cloudant#putlocaldocument){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/local.html#put--db-_local-docid) | Store the specified local document.<br>Local documents aren't replicated to other databases. |

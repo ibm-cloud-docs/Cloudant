@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-04-19"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Upgrade
 {: #upgrade}
@@ -247,7 +247,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
         
    The response lists all the cluster nodes.
 
-   d. Check the health of the database node by using the Weatherreport application, [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+   d. Check the health of the database node by using the Weather report application, [Monitor cluster health with Weather report](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
 
 5. Bring the database node out of maintenance mode and check its availability.
 

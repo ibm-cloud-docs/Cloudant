@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-04-19"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Diagnose and troubleshoot
 {: #diagnose-troubleshoot}
@@ -314,7 +314,7 @@ and display the Metrics application.
 5. When you log in to the Metrics application for the first time,
     the Metrics login page opens.
 
-The following screen capture shows the data that appears on the Metrics application for database read/write rate and document read/write rate in graph form.
+The following screen capture shows the data that appears on the Metrics application for database read/write rate and document read/write rate in graph form. 
 
 ![Example shows the graphical information that is displayed for database and document read/write rates.](images/metrics_webapp.jpg){: caption="Figure 1. Graphical information for database and document read/write rates" caption-side="bottom"}
 
@@ -782,7 +782,7 @@ stop the process immediately. If not, wait a few minutes
 and see whether the system recovers.
 
 If the process does not recover on its own, run this
-remsh command to stop all backed up CouchDB updaters.
+remsh command to stop all backed-up CouchDB updaters.
 
 ``` sh 
 > [exit(Pid, kill) || Pid <- Pids].
@@ -860,7 +860,7 @@ queues.
 {: codeblock}
 
 ##### How can I remediate the failure?
-[: #how-can-i-remediate-the-failure2]
+{: #how-can-i-remediate-the-failure2}
 
 In remsh, run this command to stop all processes in the
 list.
@@ -902,7 +902,7 @@ backing up.
 ##### What does it mean when it fails?
 {: #what-does-it-mean-when-it-fails11}
 The `couch_server` is on the critical path for many RPC
-calls. The overall effect of a backed up `couch_server` is
+calls. The overall effect of a backed-up `couch_server` is
 dramatically increased latency on a subset of requests.
 For example, requests that are on a critical path.
 
@@ -1010,7 +1010,7 @@ correctly, although more slowly, as it reads from the
 disk more often.
 
 #### How can I fix it?
-[: #how-can-i-fix-it5]
+{: #how-can-i-fix-it5}
 
 You can watch the increase on the node by using the
 following process.
@@ -1333,7 +1333,7 @@ interactive IOQ traffic.
 ```
 {: codeblock}
 
-After you enable bypass, the pending request count trends downward.
+After you enable bypass, the pending request count trends downward. 
 
 If the IOQ is not saturated, something else is
 happening. As the best immediate action, put the node in

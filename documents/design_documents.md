@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-16"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # Design documents
 {: #design-documents}
@@ -31,7 +31,7 @@ Design documents are used to [build indexes](#indexes-design-docs), [validate up
 {: shortdesc}
 
 Each design document defines either *partitioned* or *global* indexes,
-which are controlled via the `options.partitioned` field. A *partitioned* index allows only queries over a single data partition in a partitioned database. A *global* index allows querying over all data within a database, at a cost of latency and throughput over a partitioned index.
+which are controlled by the `options.partitioned` field. A *partitioned* index allows only queries over a single data partition in a partitioned database. A *global* index allows querying over all data within a database, at a cost of latency and throughput over a partitioned index.
 
 ## Creating or updating a design document
 {: #creating-or-updating-a-design-document}
@@ -342,7 +342,7 @@ See the following example JSON describing some rewrite rules:
 ```
 {: codeblock}
 
-While Cloudant is API-compliant with CouchDB, Cloudant doesn't support URL rewrites via the JavaScript function.
+While {{site.data.keyword.cloudant_short_notm}} is API-compliant with CouchDB, {{site.data.keyword.cloudant_short_notm}} doesn't support URL rewrites by using the JavaScript function.
 {: note}
 
 See the following example rewrite rules:
@@ -971,7 +971,7 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 #### The `_selector` filter
 {: #the-_selector-filter}
 
-The `_selector` filter accepts only changes for documents that match a specified selector, defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
+The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
 for [`_find`](/apidocs/cloudant#postfind){: new_window}{: external}.
 
 For more examples that show use of this filter,
@@ -1050,7 +1050,7 @@ See the following example response (abbreviated) after you filter by using a sel
 
 Using the `_view` filter, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
-The map function might emit output as the result of processing a specific document. When this occurs, the filter considers the document that is allowed and includes it in the list of documents that you changed.
+The map function might emit output as the result of processing a specific document. When this situation occurs, the filter considers the document that is allowed and includes it in the list of documents that you changed.
 
 See the following example application of the `_view` filter by using HTTP:
 
@@ -1180,7 +1180,7 @@ The JSON response includes the following individual fields:
 -	`view_index` - View Index
 	-	`compact_running` - Indicates whether a compaction routine runs on the view.
 	-	`disk_size` - Size in bytes of the view as stored on disk.
-	-	`language` - Language used for defining views.
+	-	`language` - Language that is used for defining views.
 	-	`purge_seq` - The purge sequence that was processed.
 	-	`signature`	 - MD5 signature of the views for the design document.
 	-	`update_seq` - The update sequence of the corresponding database that was indexed.
@@ -1211,21 +1211,21 @@ See the following example response in JSON format:
 ### The `_search_info` endpoint
 {: #the-_search_info-endpoint}
 
-The `_search_info` endpoint returns information about a specified search defined within a specific design document.
+The `_search_info` endpoint returns information about a specified search that is defined within a specific design document.
 
 -	`Method` - `GET /db/_design/design-doc/_search_info/yourSearch`
 -	`Request` - None
 -	`Response` - JSON that contains information about the specified search.
 -	`Roles permitted` - `_reader`
 
-See the following example of getting information about the `description` search, which is defined within the `app` design document stored in the `foundbite` database, by using HTTP:
+See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using HTTP:
 
 ```http
 GET /foundbite/_design/app/_search_info/description HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of getting information about the `description` search, which is defined within the `app` design document stored in the `foundbite` database, by using the command line:
+See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description"

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-16"
 
 keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # Attachments
 {: #attachments}
@@ -54,7 +54,7 @@ It's a good idea to keep attachments small in size and number because attachment
 Attachments aren't permitted on documents in [`_replicator`](/apidocs/cloudant#postreplicate){: new_window}{: external} or [`_users`](/apidocs/cloudant#putsecurity){: new_window}{: external} databases.
 {: important}
 
-## Create / update
+## Create or update
 {: #create-update}
 
 To create a new attachment at the same time as creating a new document, include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-attachments#inline) component of the JSON content.
@@ -114,7 +114,7 @@ fs.readFile($FILEPATH, function (err, data) {
 
 The response includes the document ID and the new document revision.
 
-Attachments don't have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document that it's attached to. 
+Attachments don't have their own revisions. Instead, when you update or create an attachment, the revision of the document it's attached to changes. 
 {: tip}
 
 See the following example response with the document ID and new revision:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-16"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # Install
 {: #install-ibm-cloudant-local}
@@ -61,9 +61,9 @@ architecture.
 -  The minimum requirements include four cores and eight threads,
    such as Xeon E3-1270 V2, 8 GB of RAM and 1-GB network.
 -  For larger implementations, verify that your  environment meets the minimum requirements:
-   - 12 cores and 24 threads, such as dual Xeon E5 2620 and 64 GB of RAM
-   - Local SSD drives to meet data volume requirements    for your usage
-   - 1-GB network
+   - 12 cores and 24 threads, such as dual Xeon E5 2620 and 64 GB of RAM.
+   - Local SSD drives to meet data volume requirements    for your usage.
+   - 1-GB network.
 
 Disk space requirements for the data vary based on how much data
 you want to store. At minimum, the standard per-node storage
@@ -86,10 +86,10 @@ For the operating system and {{site.data.keyword.cloudantfull}} binaries, the di
 
 The minimum requirements for load balancer nodes are shown in the following list:
 
-- Dual-core processor and 4 GB RAM,
-- 1 TB local hard disk drive with enough disk space for the OS
-- Any log files kept locally
-- 1-GB network
+- Dual-core processor and 4 GB RAM.
+- 1 TB local hard disk drive with enough disk space for the OS.
+- Any log files kept locally.
+- 1-GB network.
 
 The minimum requirements for a larger implementation are shown in the following list:
 
@@ -218,9 +218,9 @@ The following diagram shows the architecture of {{site.data.keyword.cloudant_loc
 implementation.
 
 -  Three database nodes that are identified as DB1, DB2, and DB3.
--  Two load balancers that are identified as LB1 and LB2. 
-
-![Example illustrates the communication paths and ports that are used by the components of {{site.data.keyword.cloudant_local_notm}}.](images/cloudant_architecture.jpg){: caption="Figure 1. Example illustrates the communication paths and ports that are used by the components of {{site.data.keyword.cloudant_local_notm}}" caption-side="bottom"}
+-  Two load balancers that are identified as LB1 and LB2.  
+ 
+![Example illustrates the communication paths and ports that are used by the components of {{site.data.keyword.cloudant_local_notm}}.](images/cloudant_architecture.jpg){: caption="Figure 1. Communication paths and ports" caption-side="bottom"}
   
 ### Single-node implementation requirements
 {: #single-node-implementation-requirements}

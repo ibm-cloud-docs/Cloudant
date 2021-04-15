@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-04-15"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2021-04-15 -->
 
 # Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 {: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
@@ -110,7 +110,7 @@ for example after a password reset,
 your replications can continue unchanged.
 
 API keys aren't tied to a single account.
-This characteristic means that a single API key can be created,
+Meaning that a single API key can be created,
 then granted suitable database permissions for both accounts.
 
 For example,
@@ -335,7 +335,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 * Do any replications need restarting?
 * How many pending changes are still waiting for replication into the database?
 
-For more information on monitoring replication status, see see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: new_window}{: external}.
+For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: new_window}{: external} and more about monitoring replication status.
 
 If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}

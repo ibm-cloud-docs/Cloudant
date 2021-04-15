@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-15"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-10 -->
+<!-- Acrolinx: 2021-04-15 -->
 
 # Conflicts
 {: #conflicts}
@@ -64,7 +64,7 @@ The following suggested practices might help you decide when to check for, and r
 | Often but not always connected to the network, for example, a laptop. | Often | - | Y |
 | Often but not always connected to the network. | Occasionally | - | Y | 
 | Occasionally connected to the network, for example, a tablet. | Often | - | Y |
-{: caption="Table 1. Practices to help you check for and resolve conflicts" caption-side="top"}
+{: caption="Table 1. Suggested practices" caption-side="top"}
 
 ## Finding conflicts
 {: #finding-conflicts}
@@ -98,7 +98,12 @@ you might query the view after each replication to identify and resolve conflict
 ## How to resolve conflicts
 {: #how-to-resolve-conflicts}
 
-After you find a conflict, you can resolve it by following four steps: get, merge, upload, and delete, as shown next. 
+After you find a conflict, you can resolve it by following the four steps that are described next. 
+
+- Get 
+- Merge
+- Upload
+- Delete 
 
 See the following example document of the first version:
 
@@ -271,7 +276,7 @@ You delete the old revisions by sending a `DELETE` request,
 specifying the revisions to delete.
 
 When the older versions of a document are deleted,
-the conflicts associated with that document are marked as resolved.
+the conflicts that are associated with that document are marked as resolved.
 You can verify that no conflicts remain by requesting the document again. 
 Set the `conflicts` parameter to true, and use
 [find conflicts](#finding-conflicts) as before.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-04-19"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Configure 
 {: #configure-ibm-cloudant-data-layer-local-edition}
@@ -307,7 +307,7 @@ authority (CA), this step is not needed.
 
 1. If you use a self-signed certificate, confirm your certificate
     when the following untrusted connection message opens. 
-
+ 
    ![Example of an untrusted connection message.](images/ssl_8a.jpg){: caption="Figure 1. Example of an untrusted connection message" caption-side="bottom"}
 
 2. Click `Add Exception` on the `This Connection is Untrusted` message.
@@ -317,8 +317,8 @@ authority (CA), this step is not needed.
    a. Select the `Permanently store this exception` check box so the exception is stored for future use.
 
    b. Click `Confirm Security Exception` to confirm the exception. 
-
-   ![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg){: caption="Figure 2. Add an exception for an untrusted site" caption-side="bottom"}
+ 
+   ![Example shows how to add an exception for an untrusted site.](images/ssl_8b.jpg){: caption="Figure 2. Untrusted site exception" caption-side="bottom"}
 
 #### Viewing the load balancer
 {: #viewing-the-load-balancer}
@@ -331,7 +331,7 @@ an "untrusted" certificate, one of the following screens open.
 *   If you specified `https://cloudantlocal.cloudant.com` or a
     similar URL, a load balancer welcome message opens, similar to
     the example. 
-
+ 
     ![Example of a load balancer welcome message.](images/ssl_9.jpg){: caption="Figure 3. Example of load balancer welcome message" caption-side="bottom"}
 
 *   If you specified a URL that includes the Dashboard component,
@@ -803,7 +803,7 @@ Information about the logs for database nodes and load balancer nodes is shown i
 {: caption="Table 1. Database nodes" caption-side="top"}
 
 | Log type | Purpose | Configuration file | Local logging default log file location | Remote logging default `rsyslog` `facility` |
-|--------|---------|---------|---------|
+|--------|---------|---------|---------|--------|
 | HAProxy logs | Contains information about service start or stop status, and runtime errors. Can be extended to record access and other request information. | `/etc/haproxy/haproxy.cfg` | `/var/log/haproxy.log` <br> **Note**: Uses `rsyslog` `facility` `local4` for local logging. | `local4.*` <br> `/var/log/haproxy.log`|
 | NGINX logs | Contains information about service start or stop status, any errors, and access details. | `/etc/nginx/nginx.conf` | `/var/log/nginx/access.log` <br> `/var/log/nginx/error.log` | None. |
 {: caption="Table 2. Load balancer nodes" caption-side="top"}
