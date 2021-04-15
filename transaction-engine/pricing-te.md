@@ -239,7 +239,7 @@ In the following example, a quantity of 0-Gigabyte Hours reflects that the insta
 
 In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or via an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
-![Cloudant capacity](../images/txe_capacity.mp4){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
+![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
 
 Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units based on how complex it is. It's in your interest to try to achieve your application's goals while it consumes the fewest units possible.
 
