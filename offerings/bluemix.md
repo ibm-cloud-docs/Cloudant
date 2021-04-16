@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-26"
+lastupdated: "2021-04-16"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -406,7 +406,7 @@ See the drop-down menu in the {{site.data.keyword.cloud_notm}} catalog for an up
 deploy into EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}}
 account or API key that is generated
 outside an EU-managed environment can't be granted access to an EU-managed
-{{site.data.keyword.cloudant_short_notm}} instance. For more information, see [Enabling the EU Supported setting](https://cloud.ibm.com/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account.
+{{site.data.keyword.cloudant_short_notm}} instance. For more information, see [Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account. 
 
 ## Authentication methods
 {: #authentication-methods}
