@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-16"
 
 keywords: cloud monitoring, monitoring, platform metrics, observability page
 
@@ -20,7 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2020-12-17 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # {{site.data.keyword.mon_full_notm}} integration
 {: #monitor-ibm-cloud-pm}
@@ -116,7 +116,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
 Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} web UI from the *Observability* page:
 
-1. [Launch the {{site.data.keyword.mon_full_notm}} web UI](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-launch).
+1. [Launch the {{site.data.keyword.mon_full_notm}} web UI](/docs/monitoring?topic=monitoring-launch).
 2. Click **DASHBOARDS**.
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.

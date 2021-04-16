@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-04-16"
 
 keywords: log analysis, integration
 
@@ -48,12 +48,12 @@ Deployment Region | {{site.data.keyword.loganalysisfull_notm}} Region
 ## Provisioning {{site.data.keyword.loganalysisfull_notm}}
 {: #provisioning-log-analysis}
 
-Log information from your databases is automatically forwarded to {{site.data.keyword.loganalysisfull_notm}}. In order to access it, you must [provision {{site.data.keyword.loganalysisfull_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs){: new_window}{: external} to receive {{site.data.keyword.cloud_notm}} service logs.
+Log information from your databases is automatically forwarded to {{site.data.keyword.loganalysisfull_notm}}. In order to access it, you must [provision {{site.data.keyword.loganalysisfull_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service](/docs/log-analysis?topic=log-analysis-config_svc_logs){: new_window}{: external} to receive {{site.data.keyword.cloud_notm}} service logs.
 
-This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account with {{site.data.keyword.loganalysisfull_notm}} integration to send logs to your {{site.data.keyword.loganalysisfull_notm}} service. For more information, see the list of [integrated services](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-cloud_services#cloud_services){: new_window}{: external}.
+This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account with {{site.data.keyword.loganalysisfull_notm}} integration to send logs to your {{site.data.keyword.loganalysisfull_notm}} service. For more information, see the list of [integrated services](/docs/log-analysis?topic=log-analysis-cloud_services#cloud_services){: new_window}{: external}.
 {: .tip}
 
-{{site.data.keyword.loganalysisfull_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-service_plans){: new_window}{: external}.
+{{site.data.keyword.loganalysisfull_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/log-analysis?topic=log-analysis-service_plans){: new_window}{: external}.
 
 ### HIPAA
 {: #hipaa_log-analysis}
@@ -101,5 +101,5 @@ Log Lines | Description
 The `request` and `transfer` timings are included in `response`.
 {: note}
 
-{{site.data.keyword.loganalysisfull_notm}} offers [searching](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-view_logs#view_logs_step5){: new_window}{: external}
-to help you navigate your logs. [Export](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-export#export){: new_window}{: external} and [archive](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.
+{{site.data.keyword.loganalysisfull_notm}} offers [searching](/docs/log-analysis?topic=log-analysis-view_logs#view_logs_step6){: new_window}{: external} and [filtering](/docs/log-analysis?topic=log-analysis-view_logs#view_logs_step5){: new_window}{: external}
+to help you navigate your logs. [Export](/docs/log-analysis?topic=log-analysis-export#export){: new_window}{: external} and [archive](/docs/log-analysis?topic=log-analysis-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.
