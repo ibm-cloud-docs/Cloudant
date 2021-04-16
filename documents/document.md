@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-04-15"
 
 keywords: create, read, read many, update, delete, tombstone documents, database compaction, bulk operations, quorum, ttl
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2021-04-14 -->
 
 # Documents
 {: #documents}
@@ -98,7 +98,7 @@ For example,
 the field `example` would be accepted,
 but the field `_example` would result in a `doc_validation` error message.
 
-See an example of JSON document that attempts to create a topmost field with an underscore prefix:
+See an example of a JSON document that attempts to create a field with an underscore prefix:
 
 ```json
 {
@@ -107,7 +107,7 @@ See an example of JSON document that attempts to create a topmost field with an 
 ```
 {: codeblock}
 
-See an error message that is returned when you attempt to create a topmost field with an underscore prefix:
+See an error message that is returned when you attempt to create a field with an underscore prefix:
 
 ```json
 {
@@ -121,7 +121,7 @@ However,
 if the field name is for an object that is nested within the document,
 you can use an underscore prefix for the field name.
 
-See an example of JSON document that attempts to create a field with an underscore prefix, nested within an object:
+See an example of a JSON document that attempts to create a field with an underscore prefix, nested within an object:
 
 ```json
 {
@@ -520,7 +520,7 @@ The function works by using the following parameters:
 
 The function inspects the request to determine whether the update is allowed to proceed.
 If the update is acceptable,
-the function returns.
+the function resumes.
 If the update is not acceptable,
 a suitable error object is returned.
 In particular,
@@ -540,11 +540,7 @@ a suitable `validate_doc_update` function would work as follows:
 	It's possible that the change was a `DELETE`,
 	resulting in a tombstone record in the target database.
 	The tombstone record is removed by a subsequent replication process at some point in the future.
-2.	If the target database does not have a copy of the 		current document, and the update document has the 		`_deleted` property (indicating that it's a tombstone)	  , then the update must be a tombstone and was 			encountered before, so the update must be rejected.
-3.	Finally,
-	if the function didn't return or throw an error,
-	allow the update to replicate to the target database,
-	as some other condition applies.
+2.	The target database does not have a copy of the current document, and the document to be updated has the `_deleted` property (indicating that it's a tombstone). Therefore, the updated document must be a tombstone and was encountered before, so the update to the target database must be rejected.
 
 See an example JavaScript `validate_doc_update` function to reject deleted documents not already present in the target database:
 
@@ -581,11 +577,11 @@ To use a `validate_doc_update` function to remove tombstone documents:
 	When you're satisfied that everything is working correctly,
 	you might want to delete the old database.
 
-A variation for using the `validate_doc_update` function to remove tombstone documents if possible.
-You might add some metadata to the tombstone documents,
-for example to record the deletion date.
-The function might then inspect the metadata and allow deletion documents through
-if they must be applied to the target database.
+Here is another variation for using the `validate_doc_update` function to remove tombstone documents if possible.
+
+1.	Add some metadata to the tombstone documents, for example, to record the deletion date.
+2.	Use the function to inspect the metadata and allow deletion documents through if they must be applied to the target database.
+
 This check helps ensure correct replication of the deletion.
 
 ### Performance implications of tombstone removal
@@ -629,7 +625,7 @@ For both inserts and updates, the basic structure of the JSON document in the re
 
 Field  | Description             | Type             | Optional
 -------|-------------------------|------------------|---------
-`docs` | Bulk documents document | Array of objects | No
+`docs` | List of document objects | Array of objects | No
 {: caption="Table 2. Basic bulk request structure" caption-side="top"}
 
 It is best not to use the `new_edits` field. By default, if conflicts exist, document updates fail and return an error to the client. However, this option applies document revisions without checking for conflicts, so it is easy to accidentally end up with many conflicts.
@@ -641,7 +637,7 @@ Field      | Description                           | Type    | Optional
 -----------|---------------------------------------|---------|---------
 `_id`      | Document ID                           | String  | Optional only for new documents. Otherwise, it's mandatory.
 `_rev`     | Document revision                     | String  | Mandatory for updates and deletes, not used for new documents.
-`_deleted` | Determines whether the document must be deleted. | Boolean | Yes, the default value is `false`.
+`_deleted` | Determines whether the document must be deleted. | Boolean | (Optional) The default value is `false`.
 {: caption="Table 3. Structure of the `docs` array object" caption-side="top"}
 
 Recall that for a partitioned database the `_id` field is formed from
@@ -1025,7 +1021,7 @@ The structure of the returned information is shown in the following tables:
 
 Field  | Description             | Type
 -------|-------------------------|-----
-`docs` | Bulk documents document | Array of objects
+`docs` | List of document objects | Array of objects
 {: caption="Table 5. Structure of JSON returned" caption-side="top"}
 
 Each `docs` array object has the following structure:
@@ -1049,7 +1045,8 @@ If you used the default bulk transaction mode,
 then the new revision wasn't created.
 You must resubmit the document to the database.
 
-Conflict resolution documents that you add by using the bulk docs interface are identical to the resolution procedures that are used when you resolve conflict errors during replication.
+Conflict resolution that uses the bulk docs interface is identical to the resolution procedures outlined in the [Conflicts](/docs/Cloudant?topic=Cloudant-conflicts
+) documentation. 
 
 #### `forbidden`
 {: #forbidden}
@@ -1085,7 +1082,7 @@ but returns information about the requested documents only.
 Like the `_bulk_docs` endpoint,
 a JSON document that is supplied in the request includes an array that identifies all the documents of interest.
 
-See an example of using HTTP to run a bulk get of document information:
+See an example of using HTTP to run a bulk `GET` for document information:
 
 ```http
 POST /$DATABASE/_bulk_get HTTP/1.1
@@ -1093,7 +1090,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-See an example of using the command line to run a bulk get:
+See an example of using the command line to run a bulk `GET`:
 
 ```sh
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
@@ -1102,7 +1099,7 @@ curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
 ```
 {: codeblock}
 
-See an example of a JSON object `POST`ed to the `_bulk_get` endpoint:
+See an example of a JSON object that uses `POST` to the `_bulk_get` endpoint:
 
 ```json
 {
