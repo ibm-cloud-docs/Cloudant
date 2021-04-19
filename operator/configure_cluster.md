@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-15"
 
 keywords: operator, field reference
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-21 -->
+<!-- Acrolinx: 2021-04-15 -->
 
 # Configuring a CouchDB cluster
 {: #configure-couchdb-cluster}
@@ -55,7 +55,7 @@ Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the
 
 By default, a `CouchDBCluster` is deployed with three database nodes. This number can be overridden by specifying the `spec.size ` field. Since CouchDB stores three replicas of each shard, it is recommended to use multiples of `3` for this value. Also, this number must be less than or equal to the number of nodes in the Kubernetes cluster. The operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
 
-Scaling CouchDB clusters is not supported. While the `CouchDBCluster` resource allows the `size` to be changed, it is recommended that you do not alter the size after the initial deployment. The operator *does not* rebalance the  data to take advantage of additional CouchDB nodes and does not prevent data loss when nodes are removed.
+Scaling CouchDB clusters is not supported. While the `CouchDBCluster` resource allows the `size` to be changed, it is recommended that you do not alter the size after the initial deployment. The operator *does not* rebalance the  data to take advantage of more CouchDB nodes and does not prevent data loss when nodes are removed.
 
 ```
 apiVersion: couchdb.databases.cloud.ibm.com/v1
@@ -94,7 +94,7 @@ For GCE, Persistent Disk can be used but a [storage class](https://docs.openshif
 For on-premises deployments, the following storage providers meet these requirements:
 
  * [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
- * [Ceph Rados Block Device](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
+ * [Complete Example Using Ceph RBD for Dynamic Provisioning](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
  * [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: new_window}{: external}
  * [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: new_window}{: external}
 
@@ -236,7 +236,7 @@ Update the `adminPassword` to a password of your choosing. Keep the default valu
 | `erlang.processLimit` | Set the maximum number of concurrent processes.  | `1048576`  | |
 | `fabric.requestTimeout` | Timeout for internal cluster RPC (ms). | `60000` ||
 | `mango`  | Mango is the Query Engine that services the `_find` endpoint.  |    | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/query-servers.html#mango){: new_window}{: external} |
-| `dreyfus` | CouchDB’s search subsystem can be configured via the dreyfus configuration section.  | | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/query-servers.html#search){: new_window}{: external} |
+| `dreyfus` | CouchDB’s search subsystem can be configured by using the dreyfus configuration section.  | | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/query-servers.html#search){: new_window}{: external} |
 | `ken` | The daemon responsible for automatically starting background jobs to keep secondary indexes “warm”. |  | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/indexbuilds.html#ken){: new_window}{: external} |
 | `smoosh`  | An automated, event-driven daemon that continuously reprioritizes the database and secondary index files on each node and automatically compacts the files that recover the most free space. | | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/compaction.html#smoosh){: new_window}{: external} |
 | `reshard`  | Resharding configuration. |   | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/resharding.html){: new_window}{: external} |

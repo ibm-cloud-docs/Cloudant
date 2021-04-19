@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-19"
 
 keywords: recommendations
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-23 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Overview
 {: #overview-te}
@@ -33,7 +33,7 @@ The key features that {{site.data.keyword.cloudant_short_notm}} on the new Trans
 - In-region strong consistency - An application can safely read its own writes and can operate conflict-free with in-region writes. {{site.data.keyword.cloudant_short_notm}} "Classic" is eventually consistent, and an application might see old values of data for a small period after updates. With {{site.data.keyword.cloudant_short_notm}} on Transaction Engine that is guaranteed not to happen. Once {{site.data.keyword.cloudant_short_notm}} acknowledges a write, within a region, no reader ever sees the old value when they read a document.
 - Synchronous secondary index building - {{site.data.keyword.cloudant_short_notm}} Query indexes are updated in the same database transaction as write operations. Therefore, as for documents, a reader of {{site.data.keyword.cloudant_short_notm}} Query indexes never sees an old value.
 - Data durability - The new architecture maintains all data that is stored in triplicate, data that is stored across a region's availability zones where available.
-- Provisioned throughput capacity - Provision the capacity, based only on the read and write capacities (for example, reads and writes per second), that your application needs. Scale up and down using the API as required. Global queries now scale with the read capacity.
+- Provisioned throughput capacity - Provision the capacity and base it only on the read and write capacities (for example, reads and writes per second), that your application needs. Scale up and down using the API as required. Global queries now scale with the read capacity.
 - Scalability - Global queries and data volumes scale linearly. Database sharding is automatic.
 - Cost - Store 4X the amount of data and perform upwards of 20X the number of global queries at the same cost as Classic.
 - In-database encryption - {{site.data.keyword.cloudant_short_notm}} on Transaction Engine adds more native in-database encryption as well as storage volume encryption. Data values are encrypted both in primary data and indexed data within the database, with a unique encryption key per database. 
@@ -53,7 +53,7 @@ In {{site.data.keyword.cloudant_short_notm}} on the Classic architecture, the da
 
 ## Synchronous index building
 
-{{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture updates {{site.data.keyword.cloudant_short_notm}} Query indexes in the same database transaction as document updates. When you add, update, or delete a document via the API, any secondary {{site.data.keyword.cloudant_short_notm}} Query indexes that are associated with that database are updated at the same time as the document. This process keeps the database and its indexes in lockstep. 
+{{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture updates {{site.data.keyword.cloudant_short_notm}} Query indexes in the same database transaction as document updates. When you add, update, or delete a document by using the API, any secondary {{site.data.keyword.cloudant_short_notm}} Query indexes that are associated with that database are updated at the same time as the document. This process keeps the database and its indexes in lockstep. 
 
 When a new {{site.data.keyword.cloudant_short_notm}} Query index is first defined, the existing documents in the database are indexed in the background and any newly arriving changes are indexed transactionally. When the background indexing task is complete, the index is ready to use and from that point on is fully in lock-step with the document store.
 

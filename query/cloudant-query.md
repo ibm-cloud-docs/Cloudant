@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-04-19"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Working with {{site.data.keyword.cloudant_short_notm}} Query
 {: #query}
@@ -30,9 +30,11 @@ subcollection: Cloudant
 {{site.data.keyword.cloudant_short_notm}} databases. {{site.data.keyword.cloudant_short_notm}} Query uses two types of indexes: `json` and `text`.
 {: shortdesc}
 
-If you know exactly what data you want to look for, or you want to keep storage and
-processing requirements to a minimum, you can specify how the index is created by
-making it of type `json`.
+In the following cases, you can specify how the index is created by
+making it of type `json`:
+
+- You know exactly what data you want to look for.
+- You want to keep storage and processing requirements to a minimum.
 
 But for maximum flexibility when you search for data, you typically create
 an index of type `text`. Indexes of type `text` have a simple mechanism for automatically
@@ -124,7 +126,7 @@ Value  | Description           | Notes
 
 The default follows the `partitioned` setting for the database:
 
-Database is partitioned | Default `partitioned` value | Allowed values
+Is database partitioned? | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
@@ -341,7 +343,7 @@ Value  | Description           | Notes
 
 The default follows the `partitioned` setting for the database:
 
-Database is partitioned | Default `partitioned` value | Allowed values
+Is database partitioned? | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
@@ -435,7 +437,7 @@ and the `$ne` operator can't guarantee that.
 {: note}
 
 To improve response time, you can create an index that excludes documents 
-with `status`: { `$ne`: `archived` } at index time by using the 
+with `status: { $ne: archived }` at index time by using the 
 `partial_filter_selector` field shown in the following example:
 
 ```json
@@ -1573,12 +1575,12 @@ an attempt is made to find the field type based on the selector.
 In ambiguous cases,
 the field type must be provided explicitly.
 
-Index that is used by query               | Field type requirement 
+Which index is used by query?               | Field type requirement 
 ------------------------------------------|-----------------------
 JSON index                                | It's not necessary to specify the type of sort fields in the query.
 Text index of all fields in all documents | Specify the sort field in the query if the database contains documents where the sort field has one type. Also, specify the sort field in the query if it contains documents where the sort field has a different type.
 Any other text index                      | Specify the type of all sort fields in the query.
-{: caption="Table 11. Time to specify the field type" caption-side="top"}
+{: caption="Table 11. When to specify the field type" caption-side="top"}
 
 A text index of all fields
 in all documents is created when you use the syntax:
@@ -1671,9 +1673,9 @@ When you specify an index to use,
   the index with the first alphabetical name is chosen.
 -	If a `json` type index *and* a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
--	If a `json` type index *and* a `text` type index exist in the same field (for example `fieldone`),
-	but the selector can be satisfied only by using a `text` type index,
-	then the `text` type index is chosen.
+- The `text` type index is chosen when the following conditions are met:
+	- A `json` type index *and* a `text` type index exist in the same field (for example `fieldone`).
+	- The selector can be satisfied only by using a `text` type index.
 
 For example,
 assume that you have a `text` type index and a `json` type index for the field `foo`,
@@ -1842,10 +1844,7 @@ Therefore,
 a conversion between the two formats takes place.
 
 In the following example,
-the JSON query approximates to the English phrase, `Match if the age expressed as a number is greater than five and less than or equal to infinity.`
-The Lucene query corresponds to that phrase,
-where the text `_3a` within the field name corresponds to the `age:number` field,
-and is an example of the document content expansion that was mentioned earlier.
+the JSON query approximates to the English phrase, "Match if the age expressed as a number is greater than five and less than or equal to infinity." The Lucene query corresponds to that phrase, where the text `_3a` within the field name corresponds to the `age:number` field, and is an example of the document content expansion that was mentioned earlier.
 
 See the following example query to be converted:
 

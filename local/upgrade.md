@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2021-04-09"
+  years: 2015, 2021
+lastupdated: "2021-04-19"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-09 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Upgrade
 {: #upgrade}

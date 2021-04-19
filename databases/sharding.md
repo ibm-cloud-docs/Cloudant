@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-16"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-09-13 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # How is data stored in {{site.data.keyword.cloudant_short_notm}}?
 {: #how-is-data-stored-in-ibm-cloudant-}
@@ -39,18 +39,18 @@ Each shard replica is stored on a different server.
 The servers are available within a single Region.
 If the Region supports Availability Zones, the replicas are stored on servers in different Zones.
 The collection of servers in a Region is called a cluster. 
-
-![How data is stored.](../images/sharding_database.png){: caption="Figure 1. How data is stored" caption-side="bottom"}
+ 
+![Data storage](../images/sharding_database.png){: caption="Figure 1. Data storage" caption-side="bottom"}
 
 A document is assigned to a particular shard by using consistent hashing of its ID.
 This assignment means that a document is always stored on a known shard and a known set of servers. 
-
+ 
 ![Document consistent hashing](../images/sharding_document.png){: caption="Figure 2. Document consistent hashing" caption-side="bottom"}
 
 Occasionally,
 shards are rebalanced.
 Rebalancing involves moving replicas to different servers.
-It occurs for several reasons, for example, when server monitoring suggests that a server is more heavily or lightly used than other servers,
+Rebalancing occurs for several reasons, for example, when server monitoring suggests that a server is more heavily or lightly used than other servers,
 or when a server must be taken out of service temporarily for maintenance.
 The number of shards and replicas stays the same,
 and documents remain assigned to the same shard,
@@ -189,7 +189,7 @@ curl -X PUT -u $USERNAME:$PASSWORD "https://$ACCOUNT.cloudant.com/mynewdatabase?
 ```
 {: codeblock}
 
-You can configure `Q`. However, you want to prohibit very large values of `Q` since they have a deleterious effect on the service with no performance gain for the user.
+You can configure `Q`. However, you want to prohibit large values of `Q` since they have a deleterious effect on the service with no performance gain for the user.
 {: note}
 
 If you attempt to set the `Q` value where it is not available,
@@ -241,7 +241,7 @@ because the coordinator can return a response more quickly.
 The reason is that the coordinator must wait only for a single response
 from any one of the replicas that host the appropriate shard.
 
-If you reduce the `R` value, it increases the likelihood that the returned response is not based on the most up-to-date data. This occurs because of the [eventual consistency](/docs/Cloudant?topic=Cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default `R` value helps mitigate this effect.
+If you reduce the `R` value, it increases the likelihood that the returned response is not based on the most up-to-date data. This state occurs because of the [eventual consistency](/docs/Cloudant?topic=Cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default `R` value helps mitigate this effect.
 {: note}
 
 The default value for `R` is 2.

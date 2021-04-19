@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-19"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -26,7 +26,7 @@ completion-time: 10m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020-12-15 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Using {{site.data.keyword.cloudant_short_notm}} Query
 {: #creating-an-ibm-cloudant-query}
@@ -194,8 +194,7 @@ that looks like the following example:
 {: codeblock}
 
 You can tailor the results by adding more details within the selector expression.
-The `fields` parameter specifies the fields to include with the results. In our example, the
-results include the `nameField`, `descriptionField`, and `temperatureField`, as shown in the following example:
+The `fields` parameter specifies the fields to include with the results. In our example, the results include the `nameField`, `descriptionField`, and `temperatureField`, as shown in the following example.
 
 ```json
   {

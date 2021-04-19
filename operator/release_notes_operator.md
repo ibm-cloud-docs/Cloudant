@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-04-19"
 
 keywords: couchdb, operator, release notes
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-23 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Release notes
 {: #release-notes-couchdb-operator}
@@ -80,7 +80,7 @@ This bug fix release addresses an issue that occurs during upgrades to operator 
 ## v1.2.0 (14 September 2020)
 {: #v1.2.0}
 
-Adds a number of configuration options to the search container, enabled via v1.5.0 of the management container.
+Adds a number of configuration options to the search container, enabled by using v1.5.0 of the management container.
 
 This bug fix release also fixes a performance regression in the search container that is caused by debug-level logs being enabled by default.
 

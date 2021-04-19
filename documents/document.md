@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-04-19"
 
 keywords: create, read, read many, update, delete, tombstone documents, database compaction, bulk operations, quorum, ttl
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-14 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Documents
 {: #documents}
@@ -518,16 +518,9 @@ The function works by using the following parameters:
 -	A user context,
 	which provides details about the user that supplied the updated document.
 
-The function inspects the request to determine whether the update is allowed to proceed.
-If the update is acceptable,
-the function resumes.
-If the update is not acceptable,
-a suitable error object is returned.
-In particular,
-if the user is not authorized to make the update,
-an `unauthorized` error object is returned,
-along with an explanatory error message.
-Similarly, the requested update might not be allowed for some reason, such as when some mandatory fields are absent from the new document. In that case, a `forbidden` error object is returned,
+The function inspects the request to determine whether the update is allowed to proceed. If the update is acceptable, the function returns. If the update is not acceptable, a suitable error object is returned.
+In particular, if the user is not authorized to make the update,
+an `unauthorized` error object is returned, along with an explanatory error message. Similarly, the requested update might not be allowed for some reason, such as when some mandatory fields are absent from the new document. In that case, a `forbidden` error object is returned,
 again with an explanatory error message.
 
 For tombstone removal,
@@ -1082,7 +1075,7 @@ but returns information about the requested documents only.
 Like the `_bulk_docs` endpoint,
 a JSON document that is supplied in the request includes an array that identifies all the documents of interest.
 
-See an example of using HTTP to run a bulk `GET` for document information:
+See an example of using HTTP to run the bulk `GET`request of document information:
 
 ```http
 POST /$DATABASE/_bulk_get HTTP/1.1
@@ -1090,7 +1083,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-See an example of using the command line to run a bulk `GET`:
+See an example of using the command line to run the bulk `GET`request:
 
 ```sh
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \

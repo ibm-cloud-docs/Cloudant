@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-04-16"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -20,7 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-<!-- Acrolinx: 2020-04-23 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # Disaster recovery and backup
 {: #disaster-recovery-and-backup}
@@ -38,7 +38,7 @@ For other forms of protection,
 {{site.data.keyword.cloudant_short_notm}} provides you with supported tools that
 help you to create your own high availability and disaster recovery capabilities.
 
-The {{site.data.keyword.cloud}} Service has Business Continuity plans in place to provide for the recovery of the Cloud Service within hours in the event of a disaster. 
+The {{site.data.keyword.cloud}} Service has Business Continuity plans in place to provide for the recovery of the Cloud Service within hours if a disaster occurs. 
 You are responsible for your data backup, and associated recovery of your content.
 {: important}
 
@@ -214,7 +214,7 @@ Example scenarios are shown in the following list:
 *	Storing multiple previous document states to allow for restores from older backups.
 *	Migrating older data to cheaper storage, for more cost-effective retention.
 
-The backup tools consist of an open source node.js command  line application and library.
+The backup tools consist of an open source node.js command-line application and library.
 It's available on [NPM](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
 
 For ideas and examples that show how to integrate the tools into your data protection strategy,

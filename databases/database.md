@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-16"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-22 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # Database overview
 {: #databases}
@@ -55,7 +55,7 @@ The partitioning type of a database is set at database creation time. When you c
 
 The partitioning type can't be changed for an existing database.
 
-For more information on partitioned databases, see [Database partitioning](/docs/Cloudant?topic=Cloudant-database-partitioning).
+For more information, see [Database partitioning](/docs/Cloudant?topic=Cloudant-database-partitioning).
 
 ## Create
 {: #create-database}
@@ -73,7 +73,7 @@ submit a `PUT` request with the following format:
 
 | Argument        | Description | Optional | Type | Default | Supported values |
 |-----------------|-------------|----------|------|---------|------------------|
-| `partitioned`   | Determines if the database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
+| `partitioned`   | Determines whether the database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
 {: caption="Table 1. Query arguments" caption-side="top"}
 
 ### Database naming
@@ -300,7 +300,7 @@ Argument | Description  | Optional | Type | Default
 `key`               | Return only documents with IDs that match the specified key.                                    | Yes      | String          |
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings |
 `limit` [^transaction-engine] | Limit the number of returned documents to the specified number.                       | Yes      | Numeric         |
-`meta`              | Short-hand combination of all three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False
+`meta`              | Short-hand combination of the following three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False
 `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.                                                   | Yes      | Numeric
 `r`                 | Specify the [read quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2
 `revs_info`         | Includes detailed information for all known document revisions.                                 | Yes      | Boolean         | False
@@ -583,7 +583,7 @@ The field names and their meaning are the same as the query parameters of a regu
 The database endpoint to view deleted databases and recover them with the undelete operation is only available with {{site.data.keyword.cloudantfull}} on Transaction Engine. This endpoint requires the IAM service role of Manager.
 {: important} 
 
-The undelete API capability does not automatically and immediately remove the data and any indexes in the database after a delete operation. Instead, the undelete API restores the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion after which time they are permanently deleted and cannot be recovered by using this API endpoint.
+The undelete API capability does not automatically or immediately remove the data and any indexes in the database after a delete operation. Instead, the undelete API restores the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion after which time they are permanently deleted and cannot be recovered by using this API endpoint.
 
 ### `GET /_deleted_dbs`
 {: get-_deleted_dbs}
@@ -752,7 +752,7 @@ Content-Type –
 
 | Response JSON object | Description |
 |----------------------|-------------|
-| `ok` (Boolean) | Operation status. Status shown when  successful. |
+| `ok` (Boolean) | Operation status. Status that is shown when  successful. |
 | `error` (String) | Error type. Error is shown if response code is 4xx. |
 | `reason` (String) | Error description. Reason is shown if response code is 4xx. |
 {: caption="Table 9. Response JSON objects" caption-side="top"}
@@ -797,7 +797,7 @@ Content-Type –
 
 | Response JSON object | Description |
 |----------------------|-------------|
-| `ok` (Boolean) | Operation status. Status shown when successful. |
+| `ok` (Boolean) | Operation status. Status that is shown when successful. |
 | `error` (String) | Error type. Error is shown if response code is 4xx. |
 | `reason` (String) | Error description. Reason is shown if response code is 4xx. |
 {: caption="Table 12. Response JSON object" caption-side="top"}

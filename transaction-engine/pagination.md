@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-19"
 
 keywords: _all_docs endpoint, page_size, bookmarks, query, search, paging, mapreduce views
 
@@ -21,13 +21,13 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-23 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 
 # Pagination
 {: #pagination-te}
 
-The content described here applies only to {{site.data.keyword.cloudantfull}} on Transaction Engine.
+The content that is described here applies only to {{site.data.keyword.cloudantfull}} on Transaction Engine.
 
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views-te}

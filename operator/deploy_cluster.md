@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-16"
 
 keywords: access, status, resource
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-18 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # Deploying a CouchDB cluster
 {: #deploy-couchdb-cluster}
@@ -64,7 +64,7 @@ Management of TLS certificates is beyond the scope of this discussion, but the s
 ##### Create a self-signed certificate
 {: #create-a-self-signed-certificate-kubernetes}
 
-1. Install `cfssl`. On MacOS, use this command, `brew install cfssl`. On Linux, use a command similar to the following:
+1. Install `cfssl`. On MacOS, use this command, `brew install cfssl`. On Linux&trade;, use a command similar to the following one:
 
      ```
      mkdir ~/bin

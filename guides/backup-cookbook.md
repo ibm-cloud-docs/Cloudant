@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-04-16"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-04-10 -->
+<!-- Acrolinx: 2021-04-16 -->
 
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}
@@ -32,9 +32,8 @@ For example,
 redundant data storage doesn't protect against mistakes when data is changed.
 {: shortdesc}
 
-If you're new to the subject and want to understand where back up fits in
-with the other features that {{site.data.keyword.cloudantfull}} offers
-to support Disaster Recovery (DR) and High Availability (HA) requirements, review the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup). 
+Review the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) to understand where backup fits in
+with the other features that {{site.data.keyword.cloudant_short_notm}} offers to support Disaster Recovery (DR) and High Availability (HA) requirements. 
 {: note}
 
 ## Introducing CouchBackup

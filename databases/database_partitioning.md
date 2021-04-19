@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-02"
+lastupdated: "2021-04-19"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-08-17 -->
+<!-- Acrolinx: 2021-04-19 -->
 
 # Database partitioning
 {: #database-partitioning}
@@ -187,7 +187,7 @@ Review the following assumptions:
 - Each piece of infrastructure has a unique ID.
 - Devices aren't moved between pieces of infrastructure.
 - Each device writes a reading to {{site.data.keyword.cloudant_short_notm}} every 10 seconds. Likely this reading is
-    delivered via a message bus to {{site.data.keyword.cloudant_short_notm}}.
+    delivered by using a message bus to {{site.data.keyword.cloudant_short_notm}}.
 
 In a non-partitioned database, you might allow {{site.data.keyword.cloudant_short_notm}} to generate document
 IDs. Another alternative is to name documents by device ID and record timestamp.
@@ -428,7 +428,7 @@ For these two queries, you need to find the partition for the devices by using t
 global `by-device` index. Then, you can query the individual partition for
 readings. While you might use a global index to query for the readings for
 individual devices, the mapping from device to infrastructure ID is highly
-cache-able. It never changes! So this approach allows you to mostly use
+cache-able. It never changes! With this approach, you can mostly use
 the cheaper and more efficient partitioned query for most requests.
 
 Using a global index to query directly for device readings might be more efficient
