@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-14"
+lastupdated: "2021-04-19"
 
 keywords: lite plan, standard plan, pricing plans
 
@@ -35,7 +35,7 @@ Migration from the free Lite plan to the Standard plan includes these tasks, whi
 3.  Under Services, open the {{site.data.keyword.cloudant_short_notm}} instance that you want to migrate. 
 4.  Select **Plan**. 
 5.  From the list of pricing plans, select **Standard**. <br> 
-![Standard plan](../images/migrate3.png){: caption="Figure 7. Standard plan" caption-side="bottom"} 
+![Standard plan](../images/migrate3.png){: caption="Figure 1. Standard plan" caption-side="bottom"} 
 6.  Click **Upgrade**.<br>
     All your existing data is kept.
 

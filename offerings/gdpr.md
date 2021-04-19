@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-04-22"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -177,7 +177,7 @@ When a document is deleted, the database creates a "tombstone." What the tombsto
 on how you delete it:
 
  - If you make a `DELETE` call, the tombstone includes the `_id`, `_rev`, and `_deleted` fields.
- - If you delete by updating the document with a `_deleted: true` field and `PUT`ing or `POST`ing it,
+ - If you delete by updating the document with a `_deleted: true` field and add a `PUT` or `POST` request to it,
 the tombstone includes what you set in the document body. This practice can be useful in some
 circumstances, for example, when recording why a document was deleted in its tombstone.
 

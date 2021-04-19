@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-04-20"
 
 keywords: apache couchdb, support, extension
 
@@ -152,7 +152,7 @@ You can see what is included with support and what is not in the following lists
   - Version of the Operator for Apache CouchDB that is deployed.
   - YAML files that are related to the deployment of the following Kubernetes resources - couchdbcluster, formation, stateful set, pods, and configmap.
   - Logs of CouchDB container, management container, and operator container.
-  - Contents found on the CouchDB pod in the following files - /conf/couchdb/user.ini, /conf/couchdb/local.ini, /conf/couchdb/clouseau.ini, and /conf/couchdb/vm.args.`
+  - Contents found on the CouchDB pod in the following files - /conf/couchdb/user.ini, /conf/couchdb/local.ini, /conf/couchdb/clouseau.ini, and /conf/couchdb/vm.args.
 6. Under Resources, select the Extension for Apache CouchDB instance for support entitlement, which has a {{site.data.keyword.cloudant_short_notm}} logo. 
 7. Click **Continue**.
 8. Click **Submit case**.
