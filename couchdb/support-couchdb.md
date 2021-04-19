@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-09"
 
 keywords: apache couchdb, support, extension
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-16 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Support
 {: #apache-couchdb-support}
@@ -42,9 +42,9 @@ The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_win
 ## {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB
 {: #cloud-extenstion-for-apache-couchdb-support}
 
-{{site.data.keyword.IBM_notm}} support for open source Apache CouchDB is offered by using the {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB, which is only available to allowlisted users. Contact your {{site.data.keyword.cloud_notm}} Sales representative if you are interested in this service.
+{{site.data.keyword.IBM_notm}} support for open source Apache CouchDB is offered by using the {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB, which is only available to allow listed users. Contact your {{site.data.keyword.cloud_notm}} Sales representative if you are interested in this service.
 
-Allowlisted users can purchase an instance of {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB from the {{site.data.keyword.cloud_notm}} catalog. To do so, go to the {{site.data.keyword.cloudantfull}} catalog tile and choose the Extension for Apache CouchDB option.
+Allow listed users can purchase an instance of {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB from the {{site.data.keyword.cloud_notm}} catalog. To do so, go to the {{site.data.keyword.cloudantfull}} catalog tile and choose the Extension for Apache CouchDB option.
 
 ### Provisioning an instance
 {: #provisioning-an-instance-support}
@@ -74,12 +74,12 @@ Pricing is based on the number of vCPUs in the database nodes of the Apache Couc
 ### vCPU definition
 {: #vcpu-aka-virtual-processor-core-def-support}
 
-Virtual Processor Core (vCPU) is a unit of measure by which the Program can be licensed. A Physical Server is a physical computer that is composed of processing units, memory, and input and output capabilities, and it executes requested procedures, commands, or applications for one or more users or client devices. When you install racks, blade enclosures, or other similar equipment, each separable physical device (for example, a blade or a rack-mounted device) that has the required components is considered itself a separate Physical Server. A Virtual Server is either a virtual computer that is created by partitioning the resources available to a Physical Server or an unpartitioned Physical Server. A Processor Core (commonly called a processor or CPU) is a functional unit within a computing device that interprets and executes instructions. A Processor Core consists of at least an instruction control unit, and one or more arithmetic or logic units. A Virtual Processor Core is a Processor Core in an unpartitioned Physical Server, or a virtual core assigned to a Virtual Server. Licensee must obtain entitlement for each Virtual Processor Core made available to the Program.
+Virtual Processor Core (vCPU) is a unit of measure by which the Program can be licensed. A Physical Server is a physical computer that is composed of processing units, memory, and input and output capabilities. It executes requested procedures, commands, or applications for one or more users or client devices. When you install racks, blade enclosures, or other similar equipment, each separable physical device (for example, a blade or a rack-mounted device) that has the required components is considered itself a separate Physical Server. A Virtual Server is either a virtual computer that is created by partitioning the resources available to a Physical Server or an unpartitioned Physical Server. A Processor Core (commonly called a processor or CPU) is a functional unit within a computing device that interprets and executes instructions. A Processor Core consists of at least an instruction control unit, and one or more arithmetic or logic units. A Virtual Processor Core is a Processor Core in an unpartitioned Physical Server, or a virtual core assigned to a Virtual Server. Licensee must obtain entitlement for each Virtual Processor Core made available to the Program.
 
 ### Support requirements
 {: #support-requirements-support}
 
-The following list outlines the support requirements you need to qualify for support for Apache CouchDB: 
+The following list outlines the support requirements that you need to qualify for support for Apache CouchDB: 
 
 Requirement | Supported
 ------------|---------
@@ -89,14 +89,14 @@ CPU Architecture | x86 or Power
 Installation Artifacts | Supported artifacts are listed at [Apache CouchDB - Installation](/docs/Cloudant?topic=Cloudant-apache-couchdb-install).
 {: caption="Table 1. Apache CouchDB support requirements" caption-side="top"}
 
-For customers who deploy Apache CouchDB in containerized environments, the following list outlines the support requirements required to qualify for support for Apache CouchDB:
+For customers who deploy Apache CouchDB in containerized environments, the following list outlines the support requirements that are required to qualify for support for Apache CouchDB:
 
 Requirement | Supported
 ------------|---------
 Kubernetes | 1.14 or late
 Red Hat OpenShift | 4.x or later
-Installation | Install only by using [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator)
-Storage | POSIX-compliant storage is required. NFS that doesn't meet POSIX compliance causes instability and errors if used. Apache CouchDB is an I/O intensive database, and it's recommended that you use SSDs for heavy workloads. For more information on specific persistent storage requirements, see the [Operator for Apache CouchDB configuration documentation](/docs/Cloudant?topic=Cloudant-configure-couchdb-cluster#couchdb-storage)
+Installation | Install only by using [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator). 
+Storage | POSIX-compliant storage is required. NFS that doesn't meet POSIX compliance causes instability and errors if used. Apache CouchDB is an I/O intensive database, and it's recommended that you use SSDs for heavy workloads. For more information, see the [Operator for Apache CouchDB configuration](/docs/Cloudant?topic=Cloudant-configure-couchdb-cluster#couchdb-storage) documentation for details on specific persistent storage requirements. 
 {: caption="Table 2. Apache CouchDB support requirements in containerized environments" caption-side="top"}
 
 #### Logging
@@ -147,12 +147,12 @@ You can see what is included with support and what is not in the following lists
   - Versions of Apache CouchDB, OS, or any Kubernetes environment.
   - CRN of the Extension for Apache CouchDB instance to verify support entitlement. The CRN can be found in the Manage instance page. Support is not provided without including the CRN.
   - Details of the issues.
-5. Attach any relevant logs or screen captures captures.
+5. Attach any relevant logs or screen captures.
   For customers who deploy Apache CouchDB in containerized environments, provide the following details:
   - Version of the Operator for Apache CouchDB that is deployed.
-  - YAML files related to the deployment of the following Kubernetes resources: couchdbcluster, formation, stateful set, pods, and configmap.
+  - YAML files that are related to the deployment of the following Kubernetes resources - couchdbcluster, formation, stateful set, pods, and configmap.
   - Logs of CouchDB container, management container, and operator container.
-  - Contents found on the CouchDB pod in the following files: /conf/couchdb/user.ini, /conf/couchdb/local.ini, /conf/couchdb/clouseau.ini, and /conf/couchdb/vm.args.`
+  - Contents found on the CouchDB pod in the following files - /conf/couchdb/user.ini, /conf/couchdb/local.ini, /conf/couchdb/clouseau.ini, and /conf/couchdb/vm.args.`
 6. Under Resources, select the Extension for Apache CouchDB instance for support entitlement, which has a {{site.data.keyword.cloudant_short_notm}} logo. 
 7. Click **Continue**.
 8. Click **Submit case**.

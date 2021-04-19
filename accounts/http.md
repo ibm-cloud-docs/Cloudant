@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-04-12"
 
 keywords: http headers, response headers, http status codes
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2021-04-12 -->
 
 # HTTP
 {: #http}
@@ -66,7 +66,7 @@ you can either specify the MIME type explicitly,
 or use `*/*` to specify that all file types are supported.
 
 If the `Accept` header is not supplied,
-then the server assumes the`*/*` MIME type,
+then the server assumes the `*/*` MIME type,
 which means that the client accepts all formats.
 
 See the following example of sending a request without an explicit `Accept` header, or when you specify `*/*`:
@@ -145,7 +145,7 @@ The supported value is `gzip`.
 If the header is used,
 the request body must be encoded with the corresponding format.
 
-See the following example of creating a gzipped request body:
+See the following example of creating a compressed (`gzipped`) request body:
 
 ```sh
 # create gzipped document
@@ -190,7 +190,7 @@ provided the document still exists and no other errors occurred.
 {: #response-headers}
 
 Response headers are returned by the server when you send back content.
-They include a number of different fields. Many of the fields are standard HTTP response headers and have no significance regarding how {{site.data.keyword.cloudant_short_notm}} operates.
+They include a number of different fields. Many of the fields are standard HTTP response headers and have no significance with regard to how {{site.data.keyword.cloudant_short_notm}} operates.
 The supported HTTP response headers that are important to {{site.data.keyword.cloudant_short_notm}} are as shown in the following list.
 
 *	`Cache-Control`
@@ -198,7 +198,7 @@ The supported HTTP response headers that are important to {{site.data.keyword.cl
 *	`Content-Type`
 *	`Etag`
 
-When the {{site.data.keyword.cloudant_short_notm}} design document API and its functions return HTML (for example as part of a show or list), then you can include custom HTTP headers through the `headers` field of the return object.
+The {{site.data.keyword.cloudant_short_notm}} design document API and its functions return HTML (for example as part of a show or list). After which, you can include custom HTTP headers through the `headers` field of the return object.
 
 #### Cache-Control
 {: #cache-control}

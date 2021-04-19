@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-13"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -21,12 +21,12 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-17 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Working with curl
 {: #working-with-curl}
 
-Throughout this guide, you use curl examples. However, curl by itself is not secure. It is suggested that you use `acurl`, which is described in a later section. 
+You use curl examples in the following steps. However, curl by itself is not secure. It is suggested that you use `acurl`, which is described in a later section. 
 {: shortdesc}
 
 ## For the curl samples
@@ -75,11 +75,11 @@ and supply that data in your curl command.
 The next section on [authorized curl](#authorized-curl-acurl-)
 explains how to create a more complex `acurl` command that uses this technique.
 
-## Authorized curl: `acurl`
+## Authorized curl - `acurl`
 {: #authorized-curl-acurl-}
 
-*(The following section is based on a blog article written by Samantha Scharr: [
-"Authorized curl, also known as `acurl`," originally published 27 November 2013.)*
+*(The following section is based on a blog article that was written by Samantha Scharr: [
+"Authorized curl, also known as `acurl`"] originally published 27 November 2013.)*
 
 `acurl` is a handy alias that you can use to run `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your username and password for every request.
@@ -134,7 +134,7 @@ NTFkZGM5YTAtZmE2MC00M2Q1LTgyNmJeKGNmYjBhNTVkMzFiLWJsdWVtaXguY2xvdWRhbnQuY29tOjY4
 ```
 {: codeblock}
 
-Remember that your password is still stored in plain text on your computer. Base64-encoding isn't encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
+Remember your password is still stored in plain text on your computer. Base64-encoding isn't encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
 {: note}
 
 ### Create an alias
@@ -151,7 +151,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 
 This alias adds an authorization header instead of including the
 authorization credentials in the URL you enter on the command line.
-It also forces the use of HTTPS, which is strongly recommended over plain HTTP. HTTPS encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
+It also forces the use of HTTPS, which is recommended over plain HTTP. HTTPS encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
 
 ### Activate the alias
 {: #activate-the-alias}

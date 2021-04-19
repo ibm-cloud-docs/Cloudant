@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-18 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Release notes
 {: #release-notes}
@@ -69,7 +69,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 - Bug fixes.
 - Apply caching to account-local `_users` dbs.
 - Treat 408 as a retryable error condition for replicator.
-- Allow gzipped requests to `/_session` endpoint.
+- Allow compressed (`gzipped`) requests to `/_session` endpoint.
 - Show process status in `/_active_tasks` endpoint.
 - Validate JSON payload on `POST` to `/{DB}/_changes` endpoint.
 
@@ -78,13 +78,13 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 - Bug fixes.
 - Report the database that was used for authentication for a `GET /_session` request, provided it is configured.
-- Introduce the Mango query operator, `$keyMapMatch`, that allows you to make queries on the keys of a map.
+- Introduce the Mango query operator, `$keyMapMatch`, that offers the ability to make queries on the keys of a map.
 
 ## Build 8162 (September 2020)
 {: #build-8162-09-2020}
 
 - Bug fixes.
-- `Drilldown` parameters for text index searches can now be specified as a list of lists, which allows you to avoid having to define this redundantly in a single query. (Some languages don't have this facility.)
+- `Drilldown` parameters for text index searches can now be specified as a list of lists, which gives you the ability to avoid having to define it redundantly in a single query. (Some languages don't have this facility.)
 - The `couch_index` server doesn't crash and log errors in the following cases: If a design document is deleted while that index is building, or when a design document is added immediately after database creation.
 - {{site.data.keyword.cloudant_short_notm}} now checks for and reports invalid parameters on database creation.
 
@@ -106,12 +106,12 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 8142 (March 2020)
 {: #build-8142-03-2020}
 
-- New endpoints were added so you can post multiple queries: `POST /{db}/_all_docs/queries` and `POST /{db}/_design_docs/queries`.
-- The `disk_size` and `data_size` fields were retired from the database info object returned by `GET /{db}`. 
+- New endpoints were added, so you can post multiple queries: `POST /{db}/_all_docs/queries` and `POST /{db}/_design_docs/queries`.
+- The `disk_size` and `data_size` fields were retired from the database information object that is returned by `GET /{db}`. 
 - The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs` and `_design_docs`endpoints. Specify a `keys` object when `POST`ing to these endpoints. 
 - The `/{db}/_changes` feed immediately returns headers now, even when no changes are available. This process prevents client blocking.
 - Negative and non-integer heartbeat values now return a `400 Bad Request` response status code.
-- Allow specifying separate proxies for both the source and target in a replication via `source_proxy` and `target_proxy` keys.  
+- Allow specifying separate proxies for both the source and target in a replication by using `source_proxy` and `target_proxy` keys.  
 - The `POST` view functionality now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
 - Replication `"info"` errors are now JSON objects. Previously, they were strings. 
 - A compatibility change was made to support replication with future databases that contain per-document access control fields.
@@ -197,7 +197,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 - This build introduces a new feature, [Partition Query](/docs/Cloudant?topic=Cloudant-database-partitioning#database-partitioning).
 - Allow `limit` when you use `POST` for search.
-- Previously, view requests that use a `limit` parameter greater than 268435456 would have the limit silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 are rejected with a `400 Bad Request` error.
+- Previously, view requests that use a `limit` parameter greater than 268435456 would have the limit that is silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 are rejected with a `400 Bad Request` error.
 
 ## Build 7631 (January 2019)
 {: #build-7631-january 2019}
@@ -211,7 +211,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
     replications. The reset would affect values in the [replication status
     information](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication).
      See [PR](https://github.com/apache/couchdb/pull/1722){: new_window}{: external}.
-- Fixed an issue with {{site.data.keyword.cloudant_short_notm}} Query. After deleting a document, if you issue
+- Fixed an issue with {{site.data.keyword.cloudant_short_notm}} Query. After you delete a document, if you issue
     a `_find` request to a text index with `update=false`, it might return a
     `500` response.
     See [PR](https://github.com/apache/couchdb/pull/1709){: new_window}{: external}.
@@ -279,7 +279,7 @@ Find more information on the [Security page](/docs/Cloudant?topic=Cloudant-secur
 ## Build 7138 (17 August 2018)
 {: #build-7138-august-17-2018}
 
-- Upgrade to Erlang/OTP 20.
+- Upgrade to Erlang OTP 20.
 
 ## Build 7137 (15 August 2018)
 {: #build-7137-august-15-2018}
@@ -299,9 +299,9 @@ Find more information on the [Security page](/docs/Cloudant?topic=Cloudant-secur
 - Refactor code for `_stats` reducer.
 - Fix active size calculations for views.
 - Rewrite the `couch_key_tree` algorithm to reduce its computational complexity and avoid calling stemming when unnecessary.
-- Change allocation strategy for message queue for each important process, so it's not stored on the heap of that process.
+- Change the allocation strategy for the message queue for each important process, so it's not stored on the heap of that process.
 - Improvements to internal audit facility.
-- Any constant fields that are in the selector, and are part of the index, for example, {A: {$eq: 10}}, are inserted into the sort list if they aren't already included. This method increases the chance that the best index is selected for the query, for example, index = [A, B], sort = [B], and selector = {A: 1}. The sort then becomes [A, B].
+- Any constant fields that are in the selector, and are part of the index, for example, `{A: {$eq: 10}}`, are inserted into the sort list if they aren't already included. This method increases the chance that the best index is selected for the query, for example, index = `[A, B]`, sort = `[B]`, and selector = `{A: 1}`. The sort then becomes `[A, B]`.
 
 Only the fields that are in front of the current sort fields in the list are added.
 {: tip}
@@ -313,7 +313,7 @@ Only the fields that are in front of the current sort fields in the list are add
 - Add forward compatibility clause for `_stats` disk format change.
 - Add compatibility clause for attachment receiver to facilitate Erlang upgrade.
 - Improvements to internal audit facility.
-- Reduce the possibility that a race condition occurs between the time when deleting a database triggers a geo index to close and when compaction destroys a geo index.
+- Reduce the possibility that a race condition occurs between the time you delete a database that triggers a geo index to close and when a compaction destroys a geo index. 
 
 ## Build 7014 (12 June 2018)
 {: #build-7014-june-12-2018}
@@ -430,7 +430,12 @@ field is invalid for the current query. When `find` falls back, the `warning` fi
 {: #build-6276-july-4-2017}
 
 - An error message changed that occurs when you try to put a document attachment with a non-existent revision.
-Now, the error is a 409 error with the following information: `{`error`:`not_found`,`reason`:`missing_rev`}`.
+Now, the error is a 409 error with the following information: 
+	
+```json
+{"error":"not_found","reason":"missing_rev"}
+```
+{: codeblock}
 
 ## Build 6233 (26 June 2017)
 {: #build-6233-june-26-2017}

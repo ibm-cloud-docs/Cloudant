@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-09"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-12-19 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Authenticating with {{site.data.keyword.cloudant_short_notm}} FAQ
 {: #faq-authenticating-cloudant}
@@ -33,7 +33,7 @@ subcollection: Cloudant
 {{site.data.keyword.cloud}} Identity and Access Management (IAM) combines managing user identities, services, and access control into one approach. {{site.data.keyword.cloudantfull}} integrates with {{site.data.keyword.cloud_notm}} Identity and Access Management.
 {: shortdesc}
 
-## What is the difference between {{site.data.keyword.cloudant_short_notm}} Legacy and IAM access controls?
+## What is the difference between {{site.data.keyword.cloudant_short_notm}} legacy and IAM access controls?
 {: #diff-legacy-iam}
 {: faq}
 
@@ -43,18 +43,18 @@ subcollection: Cloudant
 - Allows a user or service to access many different resources by using the same set of credentials (for example, same username and password or IAM API key).
 - IAM API keys can be granted access to account management functions, like creating new databases.
 
-{{site.data.keyword.cloudant_short_notm}} Legacy
+{{site.data.keyword.cloudant_short_notm}} legacy
 
 - Unique to {{site.data.keyword.cloudant_short_notm}}.
 - Access to each service instance requires its own set of credentials.
 - Uses HTTP basic authentication with credentials that aren't bound to an individual user or service.
 
 
-## Why must I use the *Use only IAM* mode?
+## Why is the *Use only IAM* mode preferred?
 {: #use-legacy-or-iam}
 {: faq}
 
-Use the *Use only IAM* mode. This mode means that only IAM credentials are provided via service binding and credential generation. You gain the following advantages when you use {{site.data.keyword.cloud_notm}} IAM:
+The *Use only IAM* mode means that only IAM credentials are provided through service binding and credential generation. You gain the following advantages when you use {{site.data.keyword.cloud_notm}} IAM:
 
 - Managing access to {{site.data.keyword.cloudant_short_notm}} with the standard tooling of {{site.data.keyword.cloud_notm}}.
 - Using credentials that you can easily revoke and rotate when you use {{site.data.keyword.cloud_notm}} IAM.
@@ -76,7 +76,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
 ```
 {: codeblock}
 
-If you don't use *Use only IAM* mode when you use the IAM Reader and Writer roles, you might grant users Legacy credentials with more access permissions than you intended.
+If you don't use *Use only IAM* mode when you use the IAM Reader and Writer roles, you might grant users legacy credentials with more access permissions than you intended.
 {: note}
 
 ## How can I generate service credentials?

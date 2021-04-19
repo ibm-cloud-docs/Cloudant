@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-04-13"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -21,18 +21,18 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-21 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Using {{site.data.keyword.cloudant_short_notm}}
 {: #ibm-cloudant-basics}
 
-If you have never used {{site.data.keyword.cloudantfull}} or NoSQL databases in general, scan this introduction and some best practices before you read further. It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}} and how to use it best. The rest of the documentation assumes that you know these basics.
+If you never use {{site.data.keyword.cloudantfull}} or NoSQL databases in general, scan this introduction and some best practices before you read further. It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}} and how to use it best. The rest of the documentation assumes that you know these basics.
 {: shortdesc}
 
 You can find more information about {{site.data.keyword.cloudant_short_notm}} in the following sections: 
 
 - [Client Libraries](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries)
-- [API & SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}
+- [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant-basics}
@@ -105,7 +105,7 @@ If the client (such as some web browsers) doesn't support the use of HTTP method
 {: #method-not-allowed-error-basics}
 
 If you use an unsupported HTTP request type with a URL that doesn't support the specified type,
-a [405](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} error is returned that lists the supported HTTP methods, as shown in the following example.
+a [405](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} error is returned. The error that lists the supported HTTP methods, as shown in the following example.
 
 #### Example error message in response to an unsupported request
 {: #example-error-message-basics}
@@ -141,7 +141,7 @@ but can be within different "pods" in that datacenter.
 Using different pods helps improve the High Availability characteristics of {{site.data.keyword.cloudant_short_notm}}.
 
 An advantage of clustering is that when you need more computing capacity,
-you just add more machines.
+you add more machines.
 This method is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
 
 For more information about {{site.data.keyword.cloudant_short_notm}} and distributed system concepts,
@@ -178,13 +178,13 @@ Continuous replication can result in many internal calls. These calls might affe
 - Powering your always-on web application.
 - Being the server-side data store for mobile applications.
 - Storing time-series data in time-boxed databases before you archive to object storage and delete the original.
-- Storing application objects as JSON while delivering queries from secondary indexes.
+- Storing application objects as JSON while queries are delivered from secondary indexes.
 - Replicating data sets across geographies for disaster recovery, extra capacity, or moving data nearer to your users.
 
 {{site.data.keyword.cloudant_short_notm}} doesn't include the following features: 
 
 - Low latency, in-memory data store. For more information, see [{{site.data.keyword.cloud}} Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis).
-- Limitless object store for data archiving. For more information, see [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/uk-en/cloud/object-storage).
+- Limitless object store for archiving data. For more information, see [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/uk-en/cloud/object-storage).
 - Relational database with SQL querying, stored procedures, and constraints and triggers. For more information, see [{{site.data.keyword.cloud_notm}} Databases for PostgreSQL](https://www.ibm.com/cloud/databases-for-postgresql).
 - Data warehouse for ad hoc querying. For more information, see [{{site.data.keyword.dashdblong}}](https://www.ibm.com/products/db2-warehouse).
 - A queue. For more information, see [{{site.data.keyword.IBM_notm}} MQ](https://www.ibm.com/uk-en/products/mq).
@@ -227,7 +227,7 @@ For more information, see the following blog posts:
 - If you have something unique in your object that would be useful to query against, use it as your `_id` field, for example, `bob.smith@gmail.com`, `isbn9780241265543`, or `oakland,ca`.
 - If your objects contain a hierarchy, model that in your  `_id`: `usa:ca:oakland` or `books:fiction:9780241265543`. The hierarchy goes from largest to smallest, so you can use the primary index to find "all the cities in `usa`" or "all the cities in `usa:ca`", without secondary indexing.
 - If you're storing time-series data, encoding time at the start of your `_id` sorts the primary index by time, for example, `001j40Ox1b2c1B2ubbtm4CsuLB4L35wQ`.
-- Partitioned databases group documents that share the same partition key together. A partition key must have many values and must not include hot spots to avoid directing a large proportion of your application's traffic to a few partitions.
+- Partitioned databases group documents that share a partition key together. A partition key must have many values and must not include hot spots to avoid directing a large proportion of your application's traffic to a few partitions.
 
 For more information, see the following blog posts:
 
@@ -237,7 +237,7 @@ For more information, see the following blog posts:
 ## Querying and secondary indexes
 {: #querying-secondary-indexes-basics}
 
-{{site.data.keyword.cloudant_short_notm}} allows queries to run against a single database that returns an array of matching documents and a bookmark, which allows access to the next block of search results. Achieving better query performance depends on having your queries supported by suitable secondary indexes. An index allows the database to answer a query without having to trawl through every document in the database, yielding much faster performance.
+{{site.data.keyword.cloudant_short_notm}} allows queries to run against a single database that returns an array of matching documents and a bookmark, which allows access to the next block of search results. Achieving better query performance depends on having your queries that are supported by suitable secondary indexes. An index allows the database to answer a query without having to trawl through every document in the database, yielding much faster performance.
 
 See the following tips:
 
