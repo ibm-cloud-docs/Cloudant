@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-13"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # JavaScript Object Notation (JSON)
 {: #json}
@@ -36,9 +36,7 @@ including all documents in a database.
 
 Parsing JSON into a JavaScript object is supported through the `JSON.parse()` function in JavaScript, or through various [libraries](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries) that perform the parsing of the content into a JavaScript object for you. Libraries for parsing and generating JSON are available for many major programming languages.
 
-JSON is used because it's the simplest and easiest solution for working with data that uses a web browser because JSON structures can be evaluated and used as JavaScript objects within the web browser environment.
-JSON also integrates with the server-side JavaScript used within {{site.data.keyword.cloudant_short_notm}}.
-JSON documents are always UTF-8 encoded.
+JSON is used because it's the simplest and easiest solution for working with data that uses a web browser. As a result, JSON structures can be evaluated and used as JavaScript objects within the web browser environment. JSON also integrates with the server-side JavaScript used within {{site.data.keyword.cloudant_short_notm}}. JSON documents are always UTF-8 encoded.
 
 Be careful to follow these guidelines:
 
@@ -62,7 +60,7 @@ Numbers can be integer or floating point values.
 ## Strings
 {: #strings}
 
-Strings must be enclosed by double quotation marks. Strings support Unicode characters and backslash escaping.
+Strings must be enclosed by double quotation marks. Strings support Unicode characters and escaping a backslash.
 
 ### Example of a string in JSON format
 

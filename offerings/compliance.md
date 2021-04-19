@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-01"
+  years: 2017, 2021
+lastupdated: "2021-04-12"
 
 keywords: tier-1 physical system, hipaa, iso, pci, soc 2 type 2 certification, gdpr
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-19 -->
+<!-- Acrolinx: 2021-04-12 -->
 
 # Compliance
 {: #compliance}
@@ -44,7 +44,7 @@ your data is protected by the network and physical security measures that are em
 
 The GDPR seeks to create a harmonized data protection law 
 framework across the EU. It also aims to give citizens back the control of their personal data, while
-it imposes strict rules on those who host and "process" this data, anywhere in the world. The 
+it imposes strict rules on those entities who host and "process" this data, anywhere in the world. The 
 Regulation also introduces rules that relate to the free movement of personal data within and outside the EU. For more information, see the [{{site.data.keyword.IBM_notm}} privacy statement](https://www.ibm.com/privacy/){: new_window}{: external}.
 
 ## HIPAA
@@ -75,7 +75,7 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 
 Customers are responsible for the storing, processing, and transmission of their cardholder data, and can create cardholder data environments (CDEs) that can store, transmit, or process cardholder data by using {{site.data.keyword.cloudant_short_notm}}. Customers can use the {{site.data.keyword.cloud_notm}} AOCs and SRM guides when they seek their own PCI DSS certifications. It is the responsibility of the customer to document and operate CDEs and applications that are built by using {{site.data.keyword.cloud_notm}} Platform services in a PCI DSS-compliant manner. 
 
-{{site.data.keyword.cloudant_short_notm}} documentation on [service security](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#service-security) and [deletion of data](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data) covers methods to manage cardholder data within the environment in accordance with PCI requirements. It is the customer’s responsibility to familiarize themselves with these processes and to manage data retention and removal from the service according to the customer’s policies. To facilitate this, no cardholder data can be used in an {{site.data.keyword.cloudant_short_notm}} document ID. If PAN data is to be stored in {{site.data.keyword.cloudant_short_notm}}, they must be rendered unreadable (in accordance with PCI requirement 3.4) before transmission to the {{site.data.keyword.cloudant_short_notm}} service.
+{{site.data.keyword.cloudant_short_notm}} documentation on [service security](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#service-security) and [deletion of data](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data) covers methods to manage cardholder data within the environment in accordance with PCI requirements. It is the customer’s responsibility to familiarize themselves with these processes and to manage data retention and removal from the service according to the customer’s policies. To facilitate this process, no cardholder data can be used in an {{site.data.keyword.cloudant_short_notm}} document ID. If PAN data is to be stored in {{site.data.keyword.cloudant_short_notm}}, they must be rendered unreadable (in accordance with PCI requirement 3.4) before transmission to the {{site.data.keyword.cloudant_short_notm}} service.
 
 A full list of PCI DSS-ready {{site.data.keyword.cloud_notm}} Platform services and options to request a PCI DSS AOC and SRM guide can be found at the [{{site.data.keyword.cloud_notm}} compliance page](https://www.ibm.com/cloud/compliance/industry){: new_window}{: external}.
 

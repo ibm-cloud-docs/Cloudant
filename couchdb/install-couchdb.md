@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-26"
+lastupdated: "2021-04-08"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-17 -->
+<!-- Acrolinx: 2021-04-08 -->
 
 # Install
 {: #apache-couchdb-install}
@@ -33,7 +33,7 @@ The following page includes installation artifacts for deploying Apache CouchDB.
 
 The [Download CouchDB](http://couchdb.apache.org/#download){: new_window}{: external} site contains links to install CouchDB on the following platforms:
 
-- Windows x86&trade;
+- Windows&trade; x86
 - macOS
 - Linux&trade; - Debian/Ubuntu/RHEL/CentOS
 

@@ -71,10 +71,10 @@ Complete the following steps to configure platform metrics:
 
 4. Click **Actions** > **Add monitoring** to configure *platform metrics* in the region of your {{site.data.keyword.cloud_notm}} instance.
 
-    If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics.
+    If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics. 
     {: note}
 
-    ![Monitoring menu](../images/monitoring_add.png){: caption="Figure 1. Add monitoring" caption-side="bottom"}
+    ![Monitoring menu](../images/monitoring_add.png){: caption="Figure 1. Monitoring menu" caption-side="bottom"}
 
 6. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
@@ -105,7 +105,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
     The {{site.data.keyword.cloudant_short_notm}} *Manage* page opens.
 
-4. Click **Actions**, and select **Monitoring**.
+4. Click **Actions**, and select **Monitoring**. 
 
     ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 
@@ -121,7 +121,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
 
-    To access your deployment's {{site.data.keyword.mon_full_notm}} dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
+    To access your deployment's {{site.data.keyword.mon_full_notm}} dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}. 
 
     ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
@@ -156,7 +156,7 @@ The number of operations that were rate-limited:
 | `Segment By` | `Service instance, Service instance name, Cloudant operation type` |
 {: caption="Table 3. Rate-limited operations metric metadata" caption-side="top"}
 
-## Attributes for Segmentation
+## Attributes for segmentation
 {: attributes}
 
 ### Global Attributes

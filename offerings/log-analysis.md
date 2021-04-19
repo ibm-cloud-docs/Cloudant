@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-17 -->
+<!-- Acrolinx: 2021-04-12 -->
 
 # {{site.data.keyword.loganalysisfull_notm}} integration
 {: #log-analysis-integration}
@@ -73,7 +73,7 @@ The expanded view has some handy, color-coded fields to help you parse your logs
 Line Identifiers | Description
 -----------------|------------
 `Source` | The region the logs are being sent from.
-`App` | The CRN of your database deployment sending the logs.
+`App` | The CRN of your database deployment that is sending the logs.
 {: caption="Table 2. Line identifiers" caption-side="top"}
 
 Log Lines | Description
@@ -91,11 +91,11 @@ Log Lines | Description
 `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
 `sslVersion` | The version of Transport Layer Security that the request is using.
 `requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public#event-types){: new_window}{: external}.
-`parsedQueryString` | A parsed version that shows the breakdown of the parameters passed in the query string. If {{site.data.keyword.cloudant_short_notm}} cannot parse the `rawQueryString`, this value is null.
+`parsedQueryString` | A parsed version that shows the breakdown of the parameters that are passed in the query string. If {{site.data.keyword.cloudant_short_notm}} cannot parse the `rawQueryString`, this value is null.
 `rawQueryString` | Full text of the query string as passed to the service.
 `logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.
 `meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}.
-`timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value. </br> `request` - The total time to get the client request. It's the time elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
+`timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This time happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value. </br> `request` - The total time to get the client request. It's the time that is elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
 {: caption="Table 3. Log lines" caption-side="top"}
 
 The `request` and `transfer` timings are included in `response`.

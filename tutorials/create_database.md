@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-09"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -27,7 +27,7 @@ completion-time: 15m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020-12-23 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Creating and populating a database
 {: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
@@ -105,7 +105,7 @@ You must have a current version of the [Python programming language](https://www
 
 An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications work with {{site.data.keyword.cloudant_short_notm}}.
 
-The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external}![BETA tag](../images/beta_icon.png) supported library is a generated SDK from the OpenAPI specification.
+The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external} ![BETA tag](../images/beta_icon.png) supported library is a generated SDK from the OpenAPI specification.
 
 1. Check that the client library installed successfully by running the following command at a prompt:
 
@@ -127,11 +127,11 @@ The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_wind
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 {: step}
 
-You must connect to your service instance before creating a database.
+You must connect to your service instance before you create a database.
 
 The following components are identified as normal `import` statements.
 
-You can follow steps 1 to 5 to learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to Step 5. Retrieving data. 
+You can follow steps 1 - 5 to learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to Step 5. Retrieving data. 
 
 1. Run these `import` statements to connect to the service instance.
 
@@ -289,11 +289,11 @@ You can then show the content of an element in the array.
     ```
     {: codeblock}
 
-In a relational database, there is a simple notion that the first 
+In a relational database, the first 
 document that is stored in a database
-is always the first document returned in a list of results. 
+is always the first document that is returned in a list of results. 
 This notion doesn't
-necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}
+necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}.
 {: tip}
 
 ### Full retrieval of a document
@@ -431,14 +431,13 @@ However, this time you do so by invoking the {{site.data.keyword.cloudant_short_
 {: #closing-the-connection-to-the-service-instance}
 {: step}
 
-1. Disconnect the Python client application from the service instance by running the following command.
+1. Disconnect the Python client application from the service instance.
+2. Run the disconnect command.
 
     ```python
     client.disconnect()
     ```
     {: codeblock}
-
-2. Close the Terminal.
 
 ## Execute the complete Python script
 {: #execute-the-complete-python-script}
@@ -522,4 +521,4 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
     ```
     {: codeblock}
 
-Now that you've run the script, return to Step 5. Retrieving data to complete the tutorial. 
+Once you run the script, return to `Step 5. Retrieving data` to complete the tutorial. 

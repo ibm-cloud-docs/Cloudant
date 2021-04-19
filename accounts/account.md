@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-13"
 
 keywords: account, ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication
 
@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-29 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Working with your {{site.data.keyword.cloudant_short_notm}} account
 {: #work-with-your-account}
@@ -88,7 +88,7 @@ followed by the [BASE64](https://en.wikipedia.org/wiki/Base64){: new_window}{: e
 In practice,
 many application libraries that are used for creating HTTP requests can do this encoding for you.
 
-For more information on basic authentication, see [Security scheme](/apidocs/cloudant#security-scheme){: new_window}{: external}.
+For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: new_window}{: external} on basic authentication.
 
 ### Cookie authentication
 {: #cookie-authentication}
@@ -114,7 +114,7 @@ Method | Path | Description | Headers | Form Parameters
 `DELETE` | `/_session` | Log out cookie-based user. | AuthSession cookie returned by POST request. | 
 {: caption="Table 1. Cookie authentication and methods" caption-side="top"}
 
-For more information on basic authentication, see [Security scheme](/apidocs/cloudant#security-scheme){: new_window}{: external}.
+For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: new_window}{: external} on basic authentication.
 
 ## Authorization
 {: #authorization}
@@ -147,7 +147,7 @@ then you can do all the tasks that are associated with that role.
 ## Roles
 {: #roles}
 
-This section pertains to Legacy credentials only. For more information about using roles with IAM credentials, see [{{site.data.keyword.cloudant_short_notm}} roles](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-roles-ai){: new_window}{: external}.
+The following section only applies to legacy credentials. For more information about using roles with IAM credentials, see [{{site.data.keyword.cloudant_short_notm}} roles](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-roles-ai){: new_window}{: external}.
 {: tip}
 
 {{site.data.keyword.cloudant_short_notm}} has a number of roles available.
@@ -224,8 +224,8 @@ It's important to understand that the `nobody` username is *not* a way of supply
 ### Determining the role to assign
 {: #determining-the-role-to-assign}
 
-When you determine the role or roles to assign to a user account or API key,
-it's best to assign a role with the least permissions necessary to do the tasks for that account or API key.
+First, determine the role or roles to assign to a user account or API key. 
+It's best to assign a role with the least permissions necessary to do the tasks for that account or API key.
 
 If the tasks are for a specific aspect,
 such as working with design documents or security settings,
@@ -235,7 +235,7 @@ then assign a focused role, such as `_design` or `_security`.
 ## API keys
 {: #api-keys}
 
-This section pertains to Legacy credentials only. For more information about using API keys with IAM credentials, see [IAM API keys](https://cloud.ibm.com/docs/account?topic=account-manapikey){: new_window}{: external}.
+The following section only applies to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](https://cloud.ibm.com/docs/account?topic=account-manapikey){: new_window}{: external}.
 {: tip}
 
 Use API keys to enable database access for a person or application,
@@ -267,7 +267,7 @@ in an EU-managed environment, see
 ### Creating API keys
 {: #creating-api-keys}
 
-An earlier method of generating API keys by `POST`ing to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
+An earlier method of generating API keys by issuing the `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
 {: deprecated}
 
 You can create an API key in two ways:
@@ -343,13 +343,13 @@ By removing the API key from the list of users that have access permissions,
 you remove the API key from the list of users that have access to the database.
 
 To remove the API key,
-send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/apidocs/cloudant#putcloudantsecurity){: new_window}{: external} to remove the API key from the list of users with access permission. Provide an updated list of the usernames that have access permission.
+send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/apidocs/cloudant#putcloudantsecurity){: new_window}{: external}. This request removes the API key from the list of users with access permission. Provide an updated list of the usernames that have access permission.
 The updated list must not include the API key.
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
 {: #using-the-_users-database-with-cloudant-nosql-db}
 
-This section pertains to Legacy credentials only. 
+The following section only applies to legacy credentials. 
 {: tip}
 
 You can use the

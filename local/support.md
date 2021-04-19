@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-09"
 
 keywords: coverage, support ticket, assistance
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-10-06 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Support
 {: #ibm-cloudant-local-support}
@@ -29,7 +29,7 @@ subcollection: Cloudant
 {{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) support assists with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. If a performance issue or inconsistency occurs, support helps troubleshoot it. If an outage occurs, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since {{site.data.keyword.cloudant_local_notm}} support does not have access to customer systems.
 {: shortdesc}
 
-Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weatherreport utility, as well as, any relevant logs, requests, and status codes when you inform support of an issue. For more information, see the [Weatherreport utility](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport){: new_window}{: external}.
+Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weather report utility, as well as, any relevant logs, requests, and status codes when you inform support of an issue. For more information, see the [Weather report utility](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport){: new_window}{: external}.
 
 Assistance with common issues and outages can be offered only if the underlying problem is within the scope of support. The following text describes the support that is available: 
 

@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:table: .aria-labeledby="caption"}
 
-<!-- Acrolinx: 2020-12-23 -->
+<!-- Acrolinx: 2021-03-26 -->
 
 # Managing security and compliance with {{site.data.keyword.cloudant_short_notm}}
 {: #manage-security-compliance}

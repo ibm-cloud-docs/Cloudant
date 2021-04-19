@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:video: .video}
 
-<!-- Acrolinx: 2020-12-18 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Pricing
 {: #pricing-te}
@@ -41,13 +41,13 @@ This document explores the implicit *incentives* that the pricing model is prese
 ## Provisioned Throughput Capacity
 {: #provisioned-throughput-capacity-te}
 
-You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads/sec and 50 writes/sec, and pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a specific number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a specific number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occurs for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
+You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads per second and 50 writes per second, and pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a specific number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a specific number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occurs for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
 
-Read and write capacity can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads/sec or writes/sec required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads/sec and 1,000 writes/sec, even if you don't need the corresponding number of writes.
+Read and write capacity can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads per second or writes per second required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads per second and 1,000 writes per second. You must make this selection even if you don't need the corresponding number of writes.
 
 You can't exceed the reserved capacity for either reads or writes. If you do, an HTTP 429 status code occurs that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 
-Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** to view and change the provisioned throughput capacity. See the hourly and approximate monthly costs for each setting. Here is an example of slider. 
+Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** to view and change the provisioned throughput capacity. See the hourly and approximate monthly costs for each setting as shown in the following example. 
 
 ![Capacity slider](../images/manage_capacity_slider_te.png){: caption="Figure 1. Capacity slider" caption-side="bottom"}
 
@@ -86,15 +86,15 @@ Write requests create, update, or delete documents. They consume write units in 
   indexing of user-defined indexes (currently only Mango indexes support
   foreground indexing).
 
-Therefore, the write of a single document is amplified, in terms of write units
-that are consumed, by the amount of foreground indexing it causes. Foreground and
+Therefore, writing a single document amplifies, in terms of write units
+that are consumed, the amount of foreground indexing it causes. Foreground and
 background indexing are discussed next.
 
 ## Updating indexes
 {: #updating-indexes-te}
 
 As well as serving requests, {{site.data.keyword.cloudant_short_notm}} needs to build indexes to serve queries. A
-database can contain many indexes. {{site.data.keyword.cloudant_short_notm}} updates indexes in following ways:
+database can contain many indexes. {{site.data.keyword.cloudant_short_notm}} updates indexes in the following ways: 
 
 - Foreground indexing happens within a document write transaction. It costs one
   write unit per row that is emitted into an index. Only Mango indexes support
@@ -129,8 +129,8 @@ a few new indexes to be created.
       provisioned for your account.
     - Creating an index of any type (Mango or view) consumes a
       large amount of indexing unit throughput while the index is initially
-      being built. This means all existing documents in a database need to
-      be read and added to the index. Only create one new index
+      being built. As a result, all existing documents in a database need to
+      be read and added to the index. Create only one new index
       at a time to allow each new index to be built in a timely manner. If you attempt to build several new indexes in parallel, it is likely to cause
       problems where indexes fall behind writes.
 
@@ -139,14 +139,18 @@ a few new indexes to be created.
 
 [Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with hitting the provisioned throughput capacity limits set for the instance.  
 
-When you use the default parameters and replicate a database with a large backlog of documents, a single replication job consumes upwards of 650 reads/sec on the source database and batches of 500-1000 writes/sec on the target database. Users can reduce the approximate read and write throughput consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+Using the default parameters to replicate a database with a large backlog of documents creates a single replication job. This job consumes almost 650 reads per second on the source database and batches of 500 - 1000 writes per second on the target database. 
 
-| `http_connections` | `worker_processes` | Approximate reads/sec on source database |
+Users can reduce the approximate read and write throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+
+| `http_connections` | `worker_processes` | Approximate reads per second on source database |
 |------------------|------------------|-------------------------------------|
 | 2 | 1 | 35 | 
 | 6 | 2 | 170 |
 | 12 | 3 | 360 | 
 | 20 | 4 | 650 (This value is the default.) |
+in the database.
+{: caption="Table 1. Options" caption-side="top"}
 
 Write capacity that is consumed on the target database can be adjusted by using the `worker_batch_size` parameter. The default is 500 documents in a batch write, and this parameter can be adjusted down to reduce the peak write throughput that is seen on the batch writes. 
 
@@ -164,9 +168,9 @@ consume.
 | Query a view that returns seven results and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents. </br>8.07 read units total, which is rounded up to nine read units for the request. |
 | Mango query that returns seven results and can be satisfied with an index, which is the optimal way to use Mango indexes. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents (Mango always reads the documents to return them to you). </br>8.07 read units total, which is rounded up to nine read units for the request. |
 | Mango query that returns seven results and is partially satisfied with an index but requires further processing on the documents themselves (for example, when a regex is used). The part of the query's selector that can be satisfied by using the index reads 26 rows, then 26 documents need to be read, after you apply the regex in the selector, 19 documents are discarded from the initial result set. | One unit to open the transaction. </br>26/100 = 0.26 read units to read 26 rows. </br>Twenty-six units to read 26 documents (Mango always reads the documents to return them to you). </br>27.26 read units total, which is rounded up to 28 read units for the request. |
-| Query `_all_docs` by using a `limit` of 200 and retrieves the documents by using `include_docs=true`. |One unit to open the transaction. </br>200/100 = 2 units to read 200 rows. </br>Two hundred units to read 200 documents. </br>Two hundred and three read units total. | 
+| Query `_all_docs` by using a `limit` of 200 and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>200/100 = 2 units to read 200 rows. </br>200 units to read 200 documents. </br>203 read units total. | 
 {: class="simple-tab-table"}
-{: caption="Table 1. Example read units" caption-side="top"}
+{: caption="Table 2. Read units" caption-side="top"}
 {: #units-example1}
 {: tab-title="Read units"}
 {: tab-group="Units-examples"}
@@ -177,7 +181,7 @@ consume.
 | Write five documents that use `_bulk_docs` to a database with no Mango indexes. | One unit to open the transaction. </br>Five units to write the document. </br>Six units total. |
 | Write a single document by using `POST /{DB}/{ID}` (whether creating or updating the document) to a database with two Mango indexes that each emit a single row per document. | </br>One unit to open the transaction. </br>One unit to write the document. </br>Two units to write two Mango index rows (one per index). </br>Four units total. |
 | Write five documents by using `_bulk_docs` to a database with two Mango indexes that each emit a single row per document. | One unit to open the transaction. </br>Five units to write the document. </br>Ten units to write two Mango index rows (one per index).</br>Sixteen units total. |
-{: caption="Table 1. Example write units" caption-side="top"}
+{: caption="Table 2. Write units" caption-side="top"}
 {: #units-example2}
 {: tab-title="Write units"}
 {: tab-group="Units-examples"}
@@ -197,20 +201,20 @@ capacity and increase it as needed by your application's usage over time. {{site
 pro-rated hourly and changing the provisioned throughput capacity doesn't incur downtime.
 
 For the mobile app example, you start with the minimum provisioned throughput capacity for
-the Standard on Transaction Engine plan that is 50 reads/sec and 50 writes/sec. As shown in the catalog, a read capacity unit costs $0.00012/hour and a write capacity unit costs $0.00048/hour. A block of 50 reads/sec and 50 writes/sec of capacity costs 50 reads/sec * $0.00012/hour + 50 writes/sec * $0.00048/hour = $0.030/hour. When you need to scale up (or down), you
+the Standard on Transaction Engine plan that is 50 reads per second and 50 writes per second. As shown in the catalog, a read capacity unit costs $0.00012 per hour and a write capacity unit costs $0.00048 per hour. A block of 50 reads per second and 50 writes per second of capacity costs 50 reads per second * $0.00012 per hour + 50 writes per second * $0.00048 per hour = $0.030 per hour. When you need to scale up (or down), you
 can scale in increments of these blocks of capacity. Assuming the instance has less than
 the 25 GB of storage that is included in the Standard on Transaction Engine plan, no storage costs are incurred.
 
 See the following example equation:
 
-- $0.030 per hour \* 1 block (of 50 reads/sec and 50 writes/sec provisioned throughput capacity) \* 730 hours (approximate hours in a month)
-- Total = $21.90
+- $0.030 per hour \* 1 block (of 50 reads per second and 50 writes per second provisioned throughput capacity) \* 730 hours (approximate hours in a month).
+- Total = $21.90.
 
-How do you estimate the total cost for provisioned throughput capacity per month of 1,000 reads/sec and 1,000 writes/sec?
+How do you estimate the total cost for provisioned throughput capacity per month of 1,000 reads per second and 1,000 writes per second?
 
-- $0.030 per hour \* 20 blocks (of 50 reads/sec and 50 writes/sec provisioned throughput capacity) \* 730 hours (approximate hours in a month)
-- Alternatively, the slider shows you the provisioned throughput capacity of 1000 reads/sec and 1000 writes/sec costs $0.600/hour \* 730 hours
-- Total = $438.00
+- $0.030 per hour \* 20 blocks (of 50 reads per second and 50 writes per second provisioned throughput capacity) \* 730 hours (approximate hours in a month).
+- Alternatively, the slider shows you the provisioned throughput capacity of 1000 reads per second and 1000 writes per second costs $0.600 per hour \* 730 hours.
+- Total = $438.00.
 
 
 ## Data usage pricing
@@ -220,24 +224,24 @@ What about pricing for data overage? How does that work?
 
 Plan | Storage Included | Overage Limit
 -----|------------------|--------------
-Standard on Transaction Engine | 25 GB | Extra storage costs $0.000342 per GB per hour, which is approximately $0.25/GB per month.
-{: caption="Table 2. Data overage pricing" caption-side="top"}
+Standard on Transaction Engine | 25 GB | Extra storage costs $0.000342 per GB per hour, which is approximately $0.25 per GB per month.
+{: caption="Table 3. Data overage pricing" caption-side="top"}
 
 ## {{site.data.keyword.cloud_notm}} Usage Dashboard
 {: #usage-dashboard-te}
 
 How does data display in the {{site.data.keyword.cloud_notm}} Usage Dashboard?
 
-Current and historical usage bills can be seen in the {{site.data.keyword.cloud_notm}} Dashboard, under **Manage** -> **Billing and usage** -> **Usage**. This view shows the totals for usage that are accrued during a particular month at the service, plan, or instance level. The Estimated Total reflects the bill so far for the month or for the  past complete months. It shows only the hourly costs that are accrued up to that point for the current month. By the end of the month, you can see your total provisioned throughput capacity for the month reflected in the `Read Capacity Unit Hours` and `Write Capacity Unit Hours`. The `Gigabyte Hours` field shows only the storage that was billed for any hour the instance exceeded the free allotment of 25 GB.
+Current and historical usage bills can be seen in the {{site.data.keyword.cloud_notm}} Dashboard, under **Manage** -> **Billing and usage** -> **Usage**. This view shows the totals for usage that are accrued during a particular month at the service, plan, or instance level. The Estimated Total reflects the bill so far for the month or for the  past complete months. It shows only the hourly costs that are accrued up to that point for the current month. By the end of the month, you can see that your total provisioned throughput capacity for the month is reflected in the `Read Capacity Unit Hours` and `Write Capacity Unit Hours`. The `Gigabyte Hours` field shows only the storage that was billed for any hour the instance exceeded the free allotment of 25 GB.
 
-In the following example, a quantity of 0-Gigabyte Hours reflects that the instance never exceeded 25 GB for the month. Additionally, you see the total accumulation of read capacity unit hours and write capacity unit hours that are submitted at that point in the month.  As an example, an instance with 100 reads/sec and 100 writes/sec for a month with 730 hours would have 730,000 read capacity unit hours and 730,000 write capacity unit hours that are submitted by the end of the month. 
-
+In the following example, a quantity of 0-Gigabyte Hours reflects that the instance never exceeded 25 GB for the month. Additionally, you see the total accumulation of read capacity unit hours and write capacity unit hours that are submitted at that point in the month.  As an example, an instance with 100 reads per second and 100 writes per second for a month with 730 hours would have 730,000 read capacity unit hours and 730,000 write capacity unit hours. These hours are submitted by the end of the month. 
+ 
 ![Usage example](../images/usage_te_example.png){: caption="Figure 2. Usage example" caption-side="bottom"}
 
 ## More explanation about how pricing works
 {: #how-does-pricing-work-on-cloudant-txe}
 
-In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or via an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
+In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or by using an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
 ![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
 
@@ -247,12 +251,12 @@ This chart shows the cost of common {{site.data.keyword.cloudant_short_notm}} op
 
 ![Cloudant Transaction Engine pricing](../images/txe_pricing.png){: caption="Figure 4. {{site.data.keyword.cloudant_short_notm}} Transaction Engine pricing" caption-side="bottom"}
 
-Let's unpack this diagram and draw out the incentives that {{site.data.keyword.cloudant_short_notm}} includes with the product and which *best practices* you are being driven towards.
+Let's unpack this diagram and draw out the incentives that {{site.data.keyword.cloudant_short_notm}} includes with the product and which *best practices* you are being driven toward.
 
 ### Bulk over piecemeal API calls
 {: #bulk-over-piecemeal-api-calls}
 
-Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends one read/write unit to `open the transaction` with the underlying key-value store (indicated by a red icon on the diagram). In other words, the API calls that write, update, delete, or fetch a single document cost two units each - one to open the transaction the other to perform the database operation. The bulk APIs are cheaper because a database transaction is opened once and is able to service several reads/writes.
+Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends one read/write unit to `open the transaction` with the underlying key-value store (indicated by a red icon on the diagram). In other words, the API calls that write, update, delete, or fetch a single document cost two units each - one to open the transaction the other to perform the database operation. The bulk APIs are cheaper because a database transaction is opened once and is able to service several reads or writes.
 
 - If you have more than one document to fetch by their ID, use `GET /db/_all_docs?keys=["id1","id2"...]` instead of fetching them individually.
 - If you have more than one document to insert, update, or delete, use `POST /db/_bulk_docs` instead of an API call per document.
@@ -260,7 +264,7 @@ Notice that every {{site.data.keyword.cloudant_short_notm}} operation expends on
 ### Indexing is important for {{site.data.keyword.cloudant_short_notm}} Query
 {: #indexing-is-important-for-cloudant-query}
 
-Using the `POST /db/_find` endpoint to query a database becomes expensive if the query is not backed by a supporting secondary index. The query isn't charged based on the number of documents that are returned but based on the *number of documents scanned* to get the answer. If a query has to churn through hundreds of "cancelled" orders before it finds the "completed" orders it needs, then the query is more expensive than it need be and might exhaust your provisioned read allocation.
+Using the `POST /db/_find` endpoint to query a database becomes expensive if the query is not backed by a supporting secondary index. The query isn't charged based on the number of documents that are returned but based on the *number of documents that are scanned* to get the answer. If a query has to churn through hundreds of cancelled orders before it finds the completed orders, then the query is too expensive and might exhaust your provisioned read allocation.
 
 The best practice is to [create indexes](/apidocs/cloudant#postindex){: new_window}{: external} on the fields your query is searching for. A query that exactly aligns with a secondary index consumes only one read unit per returned document. Creating the appropriate index for your data takes skill. Read some advice on [index design and optimization](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html).
 
@@ -274,7 +278,7 @@ The "time-boxed databases" approach detailed in the [Time-series Data Storage](h
 ### The fewer indexes the better
 {: #the-fewer-indexes-the-better}
 
-Writes and bulk writes are charged not only on the number of documents that are written but the number of {{site.data.keyword.cloudant_short_notm}} Query secondary indexes that are defined, as each document write needs to be processed and written out into each index. The more indexes that you have, the more expensive each write costs, so the fewer indexes the better. It is worth exploring the technique for using [a handful of indexes that service many use-cases](https://blog.cloudant.com/2019/05/10/Optimal-Cloudant-Indexing.html).
+Writes and bulk writes are charged not only on the number of documents that are written but the number of {{site.data.keyword.cloudant_short_notm}} Query secondary indexes that are defined. As a result, each document write needs to be processed and written out into each index. The more indexes that you have, the more expensive each write costs, so the fewer indexes the better. It is worth exploring the technique for using [a handful of indexes that service many use cases](https://blog.cloudant.com/2019/05/10/Optimal-Cloudant-Indexing.html).
 
 ### Using the `_id` field as a free index
 {: #using-the-_id-field-as-a-free-index}
