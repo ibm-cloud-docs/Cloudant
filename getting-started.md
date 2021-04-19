@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-09"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -27,7 +27,7 @@ completion-time: 20m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-<!-- Acrolinx: 2020-12-21 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Getting started with {{site.data.keyword.cloudant_short_notm}}
 {: #getting-started-with-cloudant}
@@ -35,10 +35,10 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-In this {{site.data.keyword.cloudantfull}} getting started tutorial, you use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance, and find essential information to enable your application to work with the database. With the {{site.data.keyword.cloudant_short_notm}} dashboard, you learn how to perform different tasks, such as how to create a database, populate a database with documents, replicate a database, and so on. 
+In the {{site.data.keyword.cloudantfull}} getting started tutorial, you use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance. You also find essential information to enable your application to work with the database. With the {{site.data.keyword.cloudant_short_notm}} dashboard, you learn how to perform different tasks, such as how to create, populate, and replicate a database. 
 {: shortdesc}
 
-You can also create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, retrieve data by using queries or API endpoints, and many other tasks from the command line. For more information, see the [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}. 
+You can also create an {{site.data.keyword.cloudant_short_notm}} database; populate the database with data; retrieve data by using queries or API endpoints; and many other tasks from the command line. For more information, see the [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}. 
 
 ## Objectives
 {: #objectives-get-started}
@@ -70,7 +70,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
 
     ![{{site.data.keyword.cloud_notm}} database services](/tutorials/images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
-3.  Select an offering and an environment.
+3.  Select an offering and an environment. 
 
     ![{{site.data.keyword.cloudant_short_notm}} region and pricing plan](/tutorials/images/img0005a.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} offering and environment" caption-side="bottom"}
 
@@ -81,7 +81,7 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
     For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}. 
 
 5.  Select your pricing plan. </br>
-    See the capacity in the table that follows.
+    See the capacity in the table that follows. 
 
     ![Select your pricing plan.](tutorials/images/img0005c.png){: caption="Figure 4. Pricing plans and capacity" caption-side="bottom"}
 
@@ -92,11 +92,11 @@ You can also create an {{site.data.keyword.cloudant_short_notm}} database, popul
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
 
-    After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, `Provision in progress.` 
+    After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see that the status for your instance is, `Provision in progress.` 
 
 7. When the status changes to Active, click the instance, and click `Service Credentials`. 
 
-    ![Create the {{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0007.png){: caption="Figure 6. Create {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![{{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0007.png){: caption="Figure 6. {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 The service credentials in this example were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
 {: note}
@@ -105,9 +105,9 @@ The service credentials in this example were defined when a demonstration {{site
 {: #creating-service-credentials}
 {: step}
 
-1.  To create the connection information that your application needs to connect to the instance, click `New credential`.
+1.  To create the connection information that your application needs to connect to the instance, click `New credential`. 
 
-    ![Create service credentials.](tutorials/images/img0050.png){: caption="Figure 7. Create service credentials" caption-side="bottom"}
+    ![Service credentials.](tutorials/images/img0050.png){: caption="Figure 7. Service credentials" caption-side="bottom"}
 
 2.  Enter a name for the new credential in the Add new credential window. 
 
@@ -117,9 +117,9 @@ The service credentials in this example were defined when a demonstration {{site
 
 5.  (Optional) Add inline configuration parameters. This parameter isn't used by {{site.data.keyword.cloudant_short_notm}} service credentials, so ignore it. 
 
-6.  Click `Add`.
+6.  Click `Add`. 
 
-    ![Add a service credential](tutorials/images/img0051.png){: caption="Figure 8. Add a service credential" caption-side="bottom"}
+    ![Add a service credential.](tutorials/images/img0051.png){: caption="Figure 8. Add a service credential" caption-side="bottom"}
  
     Your new credential appears in the table.
 
@@ -128,9 +128,9 @@ The service credentials in this example were defined when a demonstration {{site
 
     ![Viewing the service credentials.](tutorials/images/img0052.png){: caption="Figure 11. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
-    The details for the service credentials open:
+    The details for the service credentials open like the following example:
 
-    ![The {{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0009.png){: caption="Figure 12. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![{{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0009.png){: caption="Figure 12. {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 For more information about the fields in your credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
@@ -144,7 +144,7 @@ Open your {{site.data.keyword.cloudant_short_notm}} service instance by followin
     
 2.  Click **Services** in the Resource list.
 
-3.  From the Services section, click the `Cloudant-o7` instance you created in the first step, and click **Launch Dashboard**.
+3.  From the Services section, click the `Cloudant-o7` instance that you created in the first step, and click **Launch Dashboard**.
     The {{site.data.keyword.cloudant_short_notm}} dashboard opens.
 
 Now, you can create a database, and run queries against that database.  
@@ -290,7 +290,7 @@ To create a replication job, follow these steps:
 
 2. Click **New Replication**. 
 
-   The Job configuration page opens.  
+   The Job configuration page opens. 
 
    ![Job configuration page](tutorials/images/replication-config-page-blank.png){: caption="Figure 4. Job configuration page" caption-side="bottom"} 
    
@@ -318,22 +318,22 @@ To create a replication job, follow these steps:
         For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
    Use the following information in the Options section:
-     - Replication type - Leave as `One time`. 
-     - Replication document - Leave as `Custom ID (optional)`.  
+     - Replication type - Leave as `One time`
+     - Replication document - Leave as `Custom ID (optional)` 
 
     ![Replication configuration page](tutorials/images/job-configuration.png){: caption="Figure 5. Replication configuration page" caption-side="bottom"}
 
 4. Click **Start Replication**. 
 
-   The Replication page opens where you can see that your replication job is running.  
+   The Replication page opens where you can see that your replication job is running. 
 
    ![Status of your replication job](tutorials/images/status-replication-jobs.png){: caption="Figure 6. Status of your replication job" caption-side="bottom"} 
 
-5. See the status when your job finishes.  
+5. See the status when your job finishes. 
 
    ![Completed job status](tutorials/images/complete-status.png){: caption="Figure 7. Completed job status" caption-side="bottom"} 
 
-6. Check that the database was created on the databases page.  
+6. Check that the database was created on the databases page. 
 
    ![Databases page](tutorials/images/databases.png){: caption="Figure 8. Databases page" caption-side="bottom"} 
 
@@ -348,9 +348,9 @@ If your instance does not have any active tasks, you can return to the previous 
 
 1. Click **Active Tasks**. 
 
-   The Active Tasks page opens.  
+   The Active Tasks page opens. 
 
-   ![Monitor active tasks.](tutorials/images/active-tasks-page.png){: caption="Figure 9. Monitor active tasks" caption-side="bottom"} 
+   ![Active tasks.](tutorials/images/active-tasks-page.png){: caption="Figure 9. Active tasks" caption-side="bottom"} 
 
 2. Navigate to task-specific information by clicking the associated tab. 
 
@@ -360,24 +360,24 @@ If your instance does not have any active tasks, you can return to the previous 
 
 Monitor your usage with a graph that shows your throughput by reads, writes, and global queries. You can see your current operations, denied requests, and storage usage. 
 
-Since your service instance is for demonstration purposes only, this page is not populated with data. However, you can see what monitoring information is available to you. 
+Since your service instance is for demonstration purposes only, it's not populated with data. However, you can see what monitoring information is available to you. 
 
 1. Click **Monitoring**. 
 
    The Monitoring page opens to the Current Operations tab. 
-   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.  
+   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
    ![Current Operations tab opens.](tutorials/images/current-operations-tab.png){: caption="Figure 10. Current Operations tab opens" caption-side="bottom"}
 
 2. Click **Denied Requests**. 
 
-   Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.  
+   Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
    ![Denied Requests tab opens.](tutorials/images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab opens" caption-side="bottom"}
 
 3. Click **Storage**.
 
-   Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed.  
+   Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 
    ![Storage tab opens.](tutorials/images/storage-tab.png){: caption="Figure 12. Storage tab" caption-side="bottom"}
 

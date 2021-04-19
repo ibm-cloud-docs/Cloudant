@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-09"
 
-keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
+keywords: search analyzers, keyword analyzer, simple analyzer, white space analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
 subcollection: Cloudant
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-12 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Search analyzers
 {: #search-analyzers}
@@ -38,7 +38,7 @@ One aspect of the indexing process is the choice of analyzer. An analyzer is cod
 - Stem the words by removing language-specific word endings, for example, farmer becomes farm.
 - Remove stop words by ignoring words like *a*, *is*, or *if*, which can make the index smaller and more efficient.
 
-At indexing-time, source data is processed by using the analyzer logic sorts and stores data in the index. At query-time, the search terms are processed by using the same analyzer code before interrogating the index.
+At indexing-time, source data is processed by using the analyzer logic sorts and stores data in the index. At query-time, the search terms are processed by using the same analyzer code before it interrogates the index.
 
 ## Testing the analyzer
 {: #testing-the-analyzer}
@@ -60,7 +60,7 @@ The Standard analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - Removes stop words, including "is" and "at".
-- Changes words to lowercase.
+- Changes words to use lowercase letters.
 - Note how "aol.com" stays intact.
 
 ```json
@@ -86,7 +86,7 @@ The Simple analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - No stop words removed (notice "is" and "at").
-- Changes words to lowercase.
+- Changes words to use lowercase letters.
 - Note how "`chris7767`" changes to "`chris`" and "21a" changes to "a".
 
 ```json
@@ -94,10 +94,10 @@ The Simple analyzer changes the string in the following ways:
 ```
 {: screen}
 
-### Whitespace analyzer
+### White space analyzer
 {: #whitespace-analyzer}
 
-The Whitespace analyzer changes the string in the following ways:
+The White space analyzer changes the string in the following ways:
 
 - Removes some punctuation.
 - Splits words on spaces.
@@ -118,7 +118,7 @@ The Classic analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - Removes stop words (no "is" or "at").
-- Changes words to lowercase.
+- Changes words to use lowercase letters.
 - Note how email stays intact.
 
 ```json
@@ -135,7 +135,7 @@ The English analyzer changes the string in the following ways:
 - Splits words based on spaces and punctuation.
 - Stems words (notice "`chris`" changes to "`chri`").
 - Removes stop words (no "is" or "at").
-- Changes words to lowercase.
+- Changes words to use lowercase letters.
 - Note how email stays intact.
 
 ```json
@@ -158,7 +158,7 @@ Four score and seven years ago our fathers brought forth, on this continent, a n
 ## Which analyzer must I pick?
 {: #which-analyzer-must-i-pick}
 
-It depends on your data. If your data is structured (email addresses, postal codes, names, and so on) in separate fields, then it's worth picking an analyzer that retains the data you need to keep *intact* for your search needs.
+It depends on your data. If your data is structured (email addresses, postal codes, names, and so on) in separate fields, then select an analyzer that retains the data you need to search.
 
 Only index the fields that you need. Keeping the index small helps to improve performance.
 
@@ -167,7 +167,7 @@ Consider the common data sources and look at the best analyzer choices.
 ### Names
 {: #names-sa}
 
-It's likely that name fields must use an analyzer that doesn't stem words. The Whitespace analyzer keeps the words' case (meaning the search terms must be full, case-sensitive matches) and leaves double-barreled names intact. If you want to split up double-barreled names, then the Standard analyzer can do the job.
+It's likely that name fields must use an analyzer that doesn't stem words. The White space analyzer keeps the words' case (meaning the search terms must be full, case-sensitive matches) and leaves double-barreled names intact. If you want to split up double-barreled names, then the Standard analyzer can do the job.
 
 ### Email addresses
 {: #email-addresses-sa}
@@ -239,3 +239,5 @@ As well as entities, the API can also place the article in a hierarchy of catego
 - Sports, football
 
 When you pre-process your raw data, by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document, it provides automatic metadata about your free-text information. It can also provide an easier means to search and navigate your app.
+
+You can pre-process your raw data by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document. This pre-processing provides automatic metadata about your free-text information. It can also provide an easier means to search and navigate your app.

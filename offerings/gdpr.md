@@ -21,15 +21,15 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-15 -->
+<!-- Acrolinx: 2021-03-29 -->
 
 # General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-}
 
-The GDPR seeks to create a harmonized data protection law framework across the EU. It aims
-to give citizens back the control of their personal data, while it imposes strict rules on
-those who host and ‘process’ this data, anywhere in the world. The Regulation also introduces
-rules that relate to the free movement of personal data within and outside the EU.
+The GDPR seeks to create a harmonized data protection law framework across the EU. It aims 
+to give citizens back the control of their personal data, while it imposes strict rules on 
+those who host and "process" this data, anywhere in the world. The Regulation also introduces 
+rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
 
 With the [General Data Protection Regulation](https://gdpr.eu/){: new_window}{: external},
@@ -101,12 +101,12 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 ### Restriction of processing
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request through support@cloudant.com. Upon
-receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated
-with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the
-ability to contact dedicated customers via email. {{site.data.keyword.cloudant_short_notm}} provides an interface for customers to keep this
-information up to date either directly, or via customer configuration of their contact details
-via their {{site.data.keyword.cloud_notm}} account details.
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request through support@cloudant.com. Upon 
+receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated 
+with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
+ability to contact dedicated customers by email. {{site.data.keyword.cloudant_short_notm}} provides an interface for customers to keep this 
+information up to date either directly, or by using customer configuration of their contact details 
+with their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is the {{site.data.keyword.cloudant_short_notm}} database encrypted?
 {: #is-our-ibm-cloudant-database-encrypted-}
@@ -173,7 +173,7 @@ Access is also limited to a *need to know* basis and is logged, monitored, and a
 ### Deleting a document
 {: #deleting-a-document}
 
-When a document is deleted, the database creates a 'tombstone.' What the tombstone includes depends
+When a document is deleted, the database creates a "tombstone." What the tombstone includes depends 
 on how you delete it:
 
  - If you make a `DELETE` call, the tombstone includes the `_id`, `_rev`, and `_deleted` fields.
@@ -181,13 +181,13 @@ on how you delete it:
 the tombstone includes what you set in the document body. This practice can be useful in some
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
-For more information, see [Simple removal of 'tombstone' documents](/docs/Cloudant?topic=Cloudant-documents#tombstone-documents){: new_window}.
+For more information, see [Simple removal of "tombstone" documents](/docs/Cloudant?topic=Cloudant-documents#tombstone-documents){: new_window}.
 
 ### When is a deleted document removed?
 {: #when-is-a-deleted-document-removed-}
 
-Compaction runs automatically and periodically removes old revisions (deleted or otherwise)
-from the database, by writing out only 'leaf' revisions to a new file. {{site.data.keyword.cloudant_short_notm}} keeps a history of
+Compaction runs automatically and periodically removes old revisions (deleted or otherwise) 
+from the database, by writing out only "leaf" revisions to a new file. {{site.data.keyword.cloudant_short_notm}} keeps a history of 
 `_id` and `_rev` to enable replication, but not old document bodies.
 
 {{site.data.keyword.cloudant_short_notm}} doesn't expose the CouchDB compaction API.
@@ -253,5 +253,5 @@ file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make 
 database are removed from your system. For more information, see
 [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}.
 
-If you need more help, email support@cloudant.com.
+If you need more help, email `support@cloudant.com`.
 

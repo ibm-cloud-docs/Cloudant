@@ -4,7 +4,7 @@ copyright:
   years: 2015, 2021
 lastupdated: "2021-04-12"
 
-keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
+keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weather report, high throughput, concurrent replication, background replication
 
 subcollection: Cloudant
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Diagnose and troubleshoot
 {: #diagnose-troubleshoot}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-02"
+lastupdated: "2021-04-12"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-22 -->
+<!-- Acrolinx: 2021-04-12 -->
 
 # Deprecations
 {: #deprecations}
@@ -61,18 +61,18 @@ You can also make multiple queries with the following new endpoints:
 
 ## Multiple restrictions employed for performance gains (21 October 2019)
 
-{{site.data.keyword.IBM_notm}} is releasing exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that will be available in the near future. Before that happens, {{site.data.keyword.cloudant_short_notm}} is documenting the deprecation of some functionality, and also, new, yet to be enforced, restrictions for other processes. A communication will be released that details the exact timeline when these restrictions go into effect. If you use any of the following functionality or are concerned about how to make the necessary application changes, reach out to support by email.  
+{{site.data.keyword.IBM_notm}} has released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} has documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email.  
 
 The following functions are affected by this deprecation: 
 
 1. Remove the `offset` field from the response body of an `all_docs` request. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use paging with `start_key` / `end_key` and `limit`.
 2. The `_sorted` field has no functional effect because all responses are sorted automatically. 
 3. Duration of operations has a 5-second limit. Transactions lasting more than 5 seconds fail. 
-4. Limitations on keys (10KB) and values (100KB) that are emitted from a map function are shown in the following list: 
-- The sum of all keys emitted for a document cannot exceed 100 KB.
+4. Limitations on keys (10 KB) and values (100 KB) that are emitted from a map function are shown in the following list: 
+- The sum of all keys that are emitted for a document cannot exceed 100 KB.
 - Emitted keys cannot exceed 10 KB.
 - Values cannot exceed 100 KB.
-- In rare cases, the number of key-value pairs emitted for a map function might lead to a transaction either exceeding 10 MB in size, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
+- In rare cases, the number of key-value pairs that are emitted for a map function can affect database performance or violate {{site.data.keyword.cloudant_short_notm}} rules. For example, the number of key-value pairs might lead to a transaction either exceeding 10 MB, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
 5. The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
 
 

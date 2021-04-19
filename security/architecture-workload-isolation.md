@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-09"
 
 keywords: public isolation for cloudant, compute isolation for cloudant, cloudant architecture, workload isolation in cloudant
 
@@ -19,7 +19,7 @@ keywords: public isolation for cloudant, compute isolation for cloudant, cloudan
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-23 -->
+<!-- Acrolinx: 2021-04-09 -->
 
 # Learning about {{site.data.keyword.cloudant_short_notm}} architecture and workload isolation
 {: #compute-isolation}
@@ -67,10 +67,10 @@ Disk encryption is used to provide encryption at rest by using an {{site.data.ke
 
 A Dedicated Hardware instance offers improved storage and compute isolation for your most valuable data, including use of BYOK. After a Dedicated Hardware instance is provisioned, you can provision many Standard plan instances onto this Dedicated Hardware instance to store your data. While these Standard plan instances share the Dedicated Hardware's compute and storage, the instances do not share Dedicated Hardware's compute and storage with other customers. 
 
-![Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard plan when using Dedicated Hardware.](../images/Isolation-Dedicated-Hardware.svg){: caption="Figure 3. Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard plan when using Dedicated Hardware" caption-side="bottom"} 
+![Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard plan when you use Dedicated Hardware.](../images/Isolation-Dedicated-Hardware.svg){: caption="Figure 3. Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard plan when you use Dedicated Hardware" caption-side="bottom"} 
 
 Disk encryption is used to provide encryption at rest. In the Dedicated Hardware plan, customers can use their own keys by using {{site.data.keyword.cloud}} Key Protect's BYOK functionality to further secure their data. 
 
-Dedicated Hardware instances provide IP allowlisting and private network utilization to secure network access. 
+Dedicated Hardware instances provide IP allow listing and private network utilization to secure network access. 
 
 Data and resource isolation between the Standard plan instances on a Dedicated Hardware instance is provided by using the same robust mechanisms that are used within the multi-tenant deployment option. 
