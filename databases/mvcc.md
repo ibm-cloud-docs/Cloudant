@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-13"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -21,13 +21,13 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-08-08 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Document versioning and MVCC
 {: #document-versioning-and-mvcc}
 
 [Multi-version concurrency control (MVCC)](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}{: external}
-is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
+is how {{site.data.keyword.cloudantfull}} databases ensures that all of the nodes in a database's cluster contain
 only the [newest version](/docs/Cloudant?topic=Cloudant-documents) of a document.
 {: shortdesc}
 
@@ -38,7 +38,7 @@ as a result of synchronizing between outdated documents.
 Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to an {{site.data.keyword.cloudant_short_notm}} database.
 MVCC is a form of [optimistic concurrency](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}{: external}.
 It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
-database locking on either read or write operations isn't necessary.
+the database locks on either read or write operations isn't necessary.
 MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
 ## Revisions
@@ -63,11 +63,9 @@ or else your request fails and returns a [409 error](/apidocs/cloudant#list-of-h
 
 However, you can query a particular revision by using its `_rev`, but
 older revisions are regularly deleted by a process called
-[compaction](http://en.wikipedia.org/wiki/Data_compaction){: new_window}{: external}.
-A consequence of compaction is that
-you cannot rely on a successful response when you query a particular document revision
-by using its `_rev` in order to obtain a history of revisions to your document.
-If you need a version history of your documents,
+[compaction](http://en.wikipedia.org/wiki/Data_compaction){: new_window}{: external}. You can query a particular document revision
+by using its `_rev` in order to obtain a history of revisions to your document. However, a consequence of compaction is that
+you cannot rely on a successful response. If you need a version history of your documents,
 a solution is to [create a new document](/docs/Cloudant?topic=Cloudant-documents#create-document) for each revision.
 
 ## Distributed databases and conflicts
@@ -254,4 +252,4 @@ curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6
 
 Now,
 conflicts affecting the document are resolved.
-You can verify the status by `GET`ting the document again with the `conflicts` parameter set to `true`.
+You can verify the status by running `GET` to the document again with the `conflicts` parameter set to `true`.

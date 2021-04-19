@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-04-13"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allow listing
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-09 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Securing your connection
 {: #securing-your-connection-to-cloudant}
@@ -31,7 +31,7 @@ subcollection: Cloudant
 - Service credentials
 - Authentication
 - Accessing the {{site.data.keyword.cloudant_short_notm}} Dashboard
-- Programmatically accessing {{site.data.keyword.cloudant_short_notm}} via [curl](https://curl.haxx.se/){: new_window}{: external} or client libraries
+- Programmatically accessing {{site.data.keyword.cloudant_short_notm}} through [curl](https://curl.haxx.se/){: new_window}{: external} or client libraries
 {: shortdesc}
 
 ## Endpoints
@@ -60,13 +60,13 @@ In this example, ACCOUNT is the service name of the service instance user in the
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud.
 
-For more information about how to block public network connectivity via IP allow listing, see [Secure access control](/docs/Cloudant?topic=Cloudant-security#secure-access-control).
+For more information about how to block public network connectivity by using IP allow listing, see [Secure access control](/docs/Cloudant?topic=Cloudant-security#secure-access-control).
 {: note}
 
 ## Service credentials
 {: #service-credentials-sc}
 
-To generate service credentials for {{site.data.keyword.cloudant_short_notm}} via the {{site.data.keyword.cloud_notm}}
+To generate service credentials for {{site.data.keyword.cloudant_short_notm}} by using the {{site.data.keyword.cloud_notm}}
 Dashboard, see [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant). To generate service credentials from
 the {{site.data.keyword.cloud_notm}} CLI, see [Creating credentials for your {{site.data.keyword.cloudant_short_notm}}
 service](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli).

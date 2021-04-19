@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-13"
 
 keywords: compare couchdb and cloudant
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-21 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Comparing Apache CouchDB and {{site.data.keyword.cloudant_short_notm}}
 {: #couchdb-and-cloudant}
@@ -29,9 +29,9 @@ subcollection: Cloudant
 The foundation of the {{site.data.keyword.cloudant_short_notm}} managed database service is the Apache CouchDB database. {{site.data.keyword.IBM_notm}} is active in the Apache CouchDB committee, employs members of the PMC, and commits most of its feature, functions, and enhancements back to the open source project. Over the last few years, {{site.data.keyword.IBM_notm}} made significant effort to align the core feature set of {{site.data.keyword.cloudant_short_notm}} and CouchDB. The {{site.data.keyword.cloudant_short_notm}} team contributed key features like {{site.data.keyword.cloudant_short_notm}} Query and Mango query language, full-text search, and partition queries to CouchDB. 
 {: shortdesc}
 
-Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} are nearly fully API compatible, which means they can serve as drop-in replacements for each other in your application. They speak the same replication protocol so that you can seamlessly synchronize data between {{site.data.keyword.cloudant_short_notm}} and CouchDB instances. However, some differences between the fully-managed cloud service {{site.data.keyword.cloudant_short_notm}} and self-managed open source Apache CouchDB still exist, which are discussed here.    
+Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} are nearly fully API compatible, which means they can serve as drop-in replacements for each other in your application. They speak the same replication protocol so that you can seamlessly synchronize data between {{site.data.keyword.cloudant_short_notm}} and CouchDB instances. However, some differences between the fully managed cloud service {{site.data.keyword.cloudant_short_notm}} and self-managed open source Apache CouchDB still exist, which are discussed here.    
 
-For more information and a detailed breakdown of the API endpoints, see the [API comparison guide](/docs/Cloudant?topic=Cloudant-comparison-of-ibm-cloudant-and-couchdb-api-endpoints).
+For more information, see the [API comparison guide](/docs/Cloudant?topic=Cloudant-comparison-of-ibm-cloudant-and-couchdb-api-endpoints) for a detailed breakdown of the API endpoints.
 
 The following table shows the feature and function differences that you must be cognizant of when you use the Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} data layer ecosystem. 
 

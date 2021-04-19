@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-04-13"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-09 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Maintenance
 {: #maintenance}
@@ -426,13 +426,10 @@ database concurrently can lead to data loss.
    `cloudantrebal   ALL=(ALL) NOPASSWD: ALL`
    `%cloudant       ALL=(ALL) NOPASSWD: ALL`
 
-3. Check whether it's a problem with the configuration of 
+3. Check whether it's a problem with the configuration of the following two commands:
 
-   `rebal`
-
-    or 
-    
-    `ssh-agent`
+   - `rebal`
+   - `ssh-agent`
 
 4. Confirm that `ssh-agent` is set up correctly and that the `.rebal` file includes the proper credentials.
 
@@ -469,7 +466,7 @@ Confirm that the new node is set up correctly.
     `Weatherreport` checks, or call support.
 
 3.  After the run finishes, check the rebalancing logs that are
-    described in the [Run rebalancing](#run-a-rebalancing-plan) step for any errors.
+    described in [run a rebalancing plan](#run-a-rebalancing-plan) for any errors.
 
 4.  Verify whether the shards for different databases are now
     distributed across the recently added node. The following
@@ -484,7 +481,7 @@ Confirm that the new node is set up correctly.
     determine whether the shards are spread evenly across the
     cluster nodes.
 
-   Weather report is a command line application that provides information about the status of a dbcore node or cluster. Weather report is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weather report, see [Monitor cluster health with Weather report](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+   Weather report is a command-line application that provides information about the status of a dbcore node or cluster. Weather report is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weather report, see [Monitor cluster health with Weather report](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
    {: note}
 
 ## Replace a node
@@ -515,7 +512,7 @@ instructions.
    c. If any messages are returned, make sure that the shards have enough copies in live nodes before you replace the 
    node.
 
-   Weather report is a command line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It's useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weather report, see [Monitor cluster health with Weather report](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+   Weather report is a command-line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It's useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weather report, see [Monitor cluster health with Weather report](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
    {: note}
 
 2. If the node is running, stop any services that are running on the node and shut it down.
@@ -752,7 +749,7 @@ for `ratio` or `slack` channels.
 {: codeblock}
 
 The `user_bytes` are called `data_size` in `db_info` blocks.
-it's the total of all bytes that are used to store docs
+It's the total of all bytes that are used to store documents
 and their attachments. Since files with `.couch` suffix only append,
 every update adds data to the file. When you update a
 b-tree, a new leaf node is written and all the nodes back
@@ -900,7 +897,7 @@ These settings are the main settings that you use with Smoosh.
 -   `staleness`
     
     The number of minutes that the (expensive) priority calculation
-    can be stale before it's recalculated.
+    can be stale before the recalculation starts.
     The default value is 5 minutes.
     
 -   `view_channels`
@@ -1036,8 +1033,8 @@ whether the queue is ratio or slack.
 
 For ratio queues, the default minimum for Smoosh to
 enqueue a compaction is 5. You
-can guess from the previous example that 981,756 is high. This database
-might be small, however, so it doesn't necessarily mean useful
+can guess from the previous example that 981,756 is high. However, this database
+might be small, so it doesn't necessarily mean useful
 compactions for reclaiming disk space.
 
 For this example, many queued compactions are waiting,
@@ -1055,7 +1052,7 @@ channels. Increasing it allows each active compaction to
 run faster as the compaction work is of a higher
 priority relative to other jobs. Decreasing it has the
 inverse effect. By this point, you know whether Smoosh
-is having trouble processing each compaction. If it's falling behind (large queues),
+is having trouble with processing each compaction. If it's falling behind (large queues),
 try increasing compaction priority. The IOQ priority for
 Smoosh is controlled through the IOQ compaction queue.
 
@@ -1127,8 +1124,7 @@ compactions for a node are causing disk space issues,
 you can suspend Smoosh while you determine which channel
 is causing the problem. For example, a `big_dbs` channel
 might be creating huge compaction-in-progress files if
-there isn't much in the shard to compact, so it
-is useful to use when you're testing to see whether
+there isn't much in the shard to compact. This case shows how useful it is to use an example like this one when you're testing to see whether
 Smoosh is causing a problem.
 
 ``` sh
@@ -1333,7 +1329,7 @@ data as described here.
 
 1. Discard metrics data.
 
-   If you discard metrics data, you lose the performance data collected to date. You can no longer view the performance data from the Metrics dashboard. After this operation, disk space in the database becomes available again, and new data is collected as usual.
+   If you discard metrics data, you lose the performance data that is collected to date. You can no longer view the performance data from the Metrics dashboard. After this operation, disk space in the database becomes available again, and new data is collected as usual.
    {: note}
 
    a. Stop the Metrics service on all database nodes.
@@ -1352,7 +1348,7 @@ data as described here.
 
    `sv start cloudant-local-metrics`
 
-   You can access the new metrics data from the Metrics dashboard via the URL.
+   You can access the new metrics data from the Metrics dashboard through the URL.
 
 2. Keep old metrics data.
 
@@ -1375,13 +1371,13 @@ data as described here.
 
    `sv start cloudant-local-metrics`
 
-   You can view new metrics data from the Metrics dashboard via the URL.
+   You can view new metrics data from the Metrics dashboard through the URL.
    
    f. In the {{site.data.keyword.cloudant_short_notm}} dashboard, enter `metrics2` as the database name or `metrics` to view older data.
 
-   Depending on your retention requirements, you can keep the Metrics database and delete it later when it's not needed.
+   Depending on your retention requirements, you can keep the Metrics database and delete it later when you don't need it.
 
-Besides the metrics database, the stats database grows in size over time although at a slower rate. The IOQ application periodically dumps its internal stats to disk via the stats database. Currently, {{site.data.keyword.cloudant_local_notm}} doesn't use that data. You can delete the database and not incur any loss of functionality. However, you might notice an error in the log that says the database doesn't exist. To prevent the error, you can re-create a new empty stats database.
+Other than the metrics database, the stats database grows in size over time although at a slower rate. The IOQ application periodically dumps its internal stats to disk through the stats database. Currently, {{site.data.keyword.cloudant_local_notm}} doesn't use that data. You can delete the database and not incur any loss of functionality. However, you might notice an error in the log that says the database doesn't exist. To prevent the error, you can re-create a new empty stats database.
 {: note}
 
 To manage the {{site.data.keyword.cloudant_short_notm}} Metrics application, see [{{site.data.keyword.cloudant_short_notm}} Metrics application](/docs/Cloudant?topic=Cloudant-diagnose-troubleshoot#ibm-cloudant-metrics-application).

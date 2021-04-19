@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-13"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 
 # Pagination and bookmarks
@@ -40,7 +40,7 @@ Now, you can see a better way to page through a large document set.
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views}
 
-If you use the `GET /$DATABASE/_all_docs` endpoint to fetch documents in bulk, then you might see the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using this `skip`/`limit` pattern to iterate through a result set works, but it gets progressively slower the larger the value of `skip`. 
+If you use the `GET /$DATABASE/_all_docs` endpoint to fetch documents in bulk, then you might see the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using the `skip`/`limit` pattern to iterate through results works, but it gets progressively slower the larger the value of `skip`. 
 
 ## What is the `_all_docs` endpoint?
 {: #what-is-the_all_docs_endpoint}
@@ -98,7 +98,7 @@ GET /mydb/_all_docs?limit=100&endkey="moose"
 ```
 {: codeblock}
 
-This practice provides the ability to define the size of the data set and the range of the `_id` field to return, but that isn't quite the same as pagination.
+This practice means you define the size of the data set and the range of the `_id` field to return, but that isn't quite the same as pagination.
 
 The `startkey`/`endkey` values are in double quotation marks because they're expected to be JSON-encoded and `JSON.stringify('moose') === "moose"`.
 {: note}
@@ -230,7 +230,7 @@ It's this sort of access pattern that {{site.data.keyword.cloudant_short_notm}} 
 
 - Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, `find me the first 10 cities where the country is 'US'`.
 - {{site.data.keyword.cloudant_short_notm}} provides an array of ten {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
-- When the next set of results is required, the search is repeated. However, not only is the query sent, the bookmark from the first response is also sent to {{site.data.keyword.cloudant_short_notm}} in the request.
+- When the next set of results is required, the search is repeated. However, the query is sent, as well as the bookmark from the first response, to {{site.data.keyword.cloudant_short_notm}} in the request.
 - {{site.data.keyword.cloudant_short_notm}} replies with the second set of documents and another bookmark, which can be used to get a third page of results.
 - Repeat! 
 

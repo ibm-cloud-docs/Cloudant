@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-04-13"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-22 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Data privacy and governance
 {: #data-privacy-and-governance}
@@ -80,5 +80,5 @@ to assist businesses of all sizes with their own internal data governance requir
 
 Email the Client Success team at cdscsm@us.ibm.com if you need more information about any of the following issues:
 
-- Impending changes to data protection laws in Europe and how they are likely to impact your business
-- Want to discuss how {{site.data.keyword.IBM_notm}} can support your information governance and compliance efforts
+- Impending changes to data protection laws in Europe and how they are likely to impact your business.
+- Want to discuss how {{site.data.keyword.IBM_notm}} can support your information governance and compliance efforts.

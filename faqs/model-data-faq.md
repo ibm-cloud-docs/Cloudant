@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-04-13"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-12-23 -->
+<!-- Acrolinx: 2021-04-13 -->
 
 # Modeling data to scale FAQ
 {: #five-tips-for-modeling-your-data-to-scale-faq}
@@ -215,7 +215,7 @@ How you resolve conflicts is application-specific. See the following tips for mo
 -   Avoid invariants across document fields if possible. Avoiding invariants makes it more likely that a simple
     merge operation, if you take the changed field from each conflicted document revision, is
     suitable. This practice makes simpler and more robust application code.
--   Allow documents to stand alone. If you have to retrieve other documents to work out the correct
+-   Allow documents to stand-alone. If you have to retrieve other documents to work out the correct
     resolution, it increases latency in conflict resolution. There's also a chance you get a
     version of the other documents that aren't consistent with the document you're resolving,
     making correct resolution difficult. 
