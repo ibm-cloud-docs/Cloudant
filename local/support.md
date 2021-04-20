@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-04-20"
 
 keywords: coverage, support ticket, assistance
 
@@ -25,6 +25,9 @@ subcollection: Cloudant
 
 # Support
 {: #ibm-cloudant-local-support}
+
+{{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) reached end of market on 31 December 2019. {{site.data.keyword.cloudant_local_notm}} reaches [end of support on 30 April 2021](https://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/5/897/ENUS920-045/index.html&request_locale=en){: new_window}. Instead, {{site.data.keyword.IBM_notm}} is offering enterprise-class support for open source Apache CouchDB for on-site, hybrid, or multi-cloud use cases to pair with the fully managed {{site.data.keyword.cloudant_short_notm}} service. {{site.data.keyword.cloudant_local_notm}} users can migrate to open source Apache CouchDB. For more information, see the [Apache CouchDB documentation](/docs/services/Cloudant?topic=Cloudant-apache-couchdb-overview) for more details.
+{: deprecated}
 
 {{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) support assists with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. If a performance issue or inconsistency occurs, support helps troubleshoot it. If an outage occurs, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since {{site.data.keyword.cloudant_local_notm}} support does not have access to customer systems.
 {: shortdesc}
