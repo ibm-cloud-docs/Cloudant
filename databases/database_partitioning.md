@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-04-26"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -172,7 +172,7 @@ You can see two examples of using partitioned databases:
 1. Read about [partitioned databases and Node.js](https://blog.cloudant.com/2019/05/24/Partitioned-Databases-with-Cloudant-Libraries.html){: new_window}{: external} in this blog article that includes how to create a partitioned database, search, views, and a global index. 
 2. Read the following example about using views and the `_all_docs` endpoint.
 
-## Example. Partitioning IoT reading data
+## Example - Partitioning IoT reading data
 {: #example-partitioning-iot-reading-data}
 
 This discussion is abstract; let's make it concrete with an example. We

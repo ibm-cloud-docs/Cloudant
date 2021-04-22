@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-05-04"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -58,8 +58,7 @@ More details about the certifications are available in the [Compliance informati
 ## Secure access control
 {: #secure-access-control}
 
-{{site.data.keyword.cloudant_short_notm}} has a multitude of built-in security features,
-for you to control access to data:
+{{site.data.keyword.cloudant_short_notm}} has a multitude of built-in security features for you to control access to data:
 
 Feature | Description
 --------|------------
