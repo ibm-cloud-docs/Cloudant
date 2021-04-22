@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-04-21"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -110,7 +110,7 @@ for example after a password reset,
 your replications can continue unchanged.
 
 API keys aren't tied to a single account.
-Meaning that a single API key can be created,
+This means that a single API key can be created,
 then granted suitable database permissions for both accounts.
 
 For example,

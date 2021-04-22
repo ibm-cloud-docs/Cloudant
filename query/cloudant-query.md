@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-04-21"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -126,7 +126,7 @@ Value  | Description           | Notes
 
 The default follows the `partitioned` setting for the database:
 
-Is database partitioned? | Default `partitioned` value | Allowed values
+Is the database partitioned? | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
@@ -343,7 +343,7 @@ Value  | Description           | Notes
 
 The default follows the `partitioned` setting for the database:
 
-Is database partitioned? | Default `partitioned` value | Allowed values
+Is the database partitioned? | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
