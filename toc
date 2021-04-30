@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="Cloudant" category="databases" audience="service" href="/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant" path="Cloudant"}
+{: .toc subcollection="Cloudant" category="databases" audience="service" href="/docs/Cloudant" path="Cloudant"}
 Cloudant
 
     {: .navgroup id="learn"}

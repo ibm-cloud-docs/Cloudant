@@ -1,0 +1,52 @@
+{
+    "title": "IBM Cloudant docs",
+    "lastupdated": "2021-06-24",
+    "introduction": "The IBM Cloudant portfolio includes two complementary, document-oriented NoSQL database-as-a-service offerings on the IBM Cloud. In addition to the comprehensive information in the IBM Cloudant docs, links to additional sources of information are provided below.",
+    "section_devtools": {
+      "api": "/apidocs/cloudant#introduction",
+      "cli": "/docs/cloudant-cli-plugin/cloudant-cli-plugin-cloudant-cli"
+    },
+    "section_recommended": [
+      {
+        "title": "IBM Cloudant plans",
+        "description": "Describes the plans you can use with IBM Cloudant and how IBM Cloudant calculates usage.",
+        "href": "/docs/Cloudant?topic=Cloudant-ibm-cloud-public"
+      },
+      {
+        "title": "IBM Cloudant security",
+        "description": "Describes IAM, security compliance, and securing your connection and data.",
+        "href": "/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant"
+      },
+      {
+        "title": "Try IBM Cloudant for free",
+        "description": "Describes the steps to get started with IBM Cloudant for free.",
+        "href": "/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant"
+      }
+    ],
+    "section_learn": {
+      "developer": "https://developer.ibm.com/",
+      "architecture": "https://www.ibm.com/cloud/cloudant",
+      "training": "https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center",
+      "community": "https://community.ibm.com/community/user/home"
+    },
+    "section_updates": {
+      "view_more": "/docs/Cloudant?topic=Cloudant-release-notes",
+      "tiles": [
+        {
+          "date": "April 2021",
+          "title": "Fair share replicator",
+          "description": "Add Fair share replicator that configures job priorities on a per replicator database."
+        },
+        {
+          "date": "March 2021",
+          "title": "Caching",
+          "description": "Apply caching to account-local _users dbs."
+        },
+        {
+          "date": "December 2020",
+          "title": "Mango query operator",
+          "description": "Introduce the Mango query operator, `$keyMapMatch`, that offers the ability to make queries on the keys of a map."
+        }
+      ]
+    }
+  }
