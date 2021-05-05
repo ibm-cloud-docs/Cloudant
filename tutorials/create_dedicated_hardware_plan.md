@@ -1,7 +1,7 @@
 ---
 
 copyright: 2020, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-05-05"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -63,7 +63,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
     After you authenticate with your user name and password,
     the {{site.data.keyword.cloud_notm}} dashboard opens. 
 
-2.  Click `Create resource`. 
+2.  Click **Create resource**. 
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
@@ -112,7 +112,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
    ![Host configuration](images/img0005f.png){: caption="Figure 5. Host configuration" caption-side="bottom"}
 
-6.  Click `Create` to start the provisioning process.
+6.  Click **Create** to start the provisioning process.
 
     Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click **Create**. 
     {: note}
@@ -130,7 +130,7 @@ After your instance is created, you must create a Standard plan on it by selecti
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your user name and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Create resource` that is shown in the following image. 
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click **Create resource** that is shown in the following image. 
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 7. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
@@ -174,11 +174,11 @@ After your instance is created, you must create a Standard plan on it by selecti
     c. (Optional) Add a tag.
 
     d. Select an authentication method.<br>
-       The Standard plan is the only plan for the Dedicated Hardware environment. 
+       The Standard plan is the only plan you can use with the Dedicated Hardware environment. 
 
     ![{{site.data.keyword.cloudant_short_notm}} instance](images/img0005e.png){: caption="Figure 13. {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
 
-6.  Click Create`.<br>
+6.  Click **Create**.<br>
     After a few seconds, the instance is provisioned on the environment you selected. 
 
     ![Standard instance](images/create_button_provision_standard.png){: caption="Figure 14. Standard instance" caption-side="bottom"}

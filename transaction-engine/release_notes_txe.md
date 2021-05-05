@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-05-05"
 
 keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91
 
@@ -82,7 +82,7 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 {: #build-2.69-june-2020}
 
 - Query parameters for `_all_docs` and view requests are not ignored anymore.
-- Limit maximum number of documents in a `_bulk_get` request to 10000.
+- Limit maximum number of documents in a `_bulk_get` request to 10,000.
 - Reword view and query pagination limit error messages that are returned with the HTTP 400 responses.
 
 ## Build 2.67 (June 2020)

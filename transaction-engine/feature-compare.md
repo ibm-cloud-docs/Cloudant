@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-05-05"
 
 keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits
 
@@ -110,10 +110,10 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 
 | Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br> | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|-------------------------------|
-| `In-region HA/DR` | Data automatically stored in triplicate<br>Leverage multi-zone in regions where available | Data automatically stored in triplicate<br>Leverage multi-zone in regions where available |
-| `Cross-region HA/DR` | User-managed replications to another instance | User-managed replications to another instance |
+| `In-region HA/DR` | Data automatically stored in triplicate.<br>Leverage multi-zone in regions where available. | Data automatically stored in triplicate.<br>Leverage multi-zone in regions where available. |
+| `Cross-region HA/DR` | User-managed replications to another instance. | User-managed replications to another instance. |
 | `Database recovery API` | No | Yes<br>(within 48 hours) |
-| `Backups`<br>(Self-managed) | Self-managed with Couch backup | Self-managed with Couch backup |
+| `Backups`<br>(Self-managed) | Self-managed with Couch backup. | Self-managed with Couch backup. |
 | `Instance Reclamation` | {{site.data.keyword.cloud_notm}} 7-day reclamation<br>(instance-level deletions) | IBM Cloud 7-day reclamation<br>(instance-level deletions) |
 {: caption="Table 4. HA, DR, and backup" caption-side="top"}
 
