@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-09"
+lastupdated: "2021-03-29"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -88,7 +88,7 @@ Field        | Meaning
 `ADMIN_USER` | The account name. The account must have administrative privileges.
 `CLUSTER`    | The cluster that you are interested in.
 `DURATION`   | Specifies the duration of the preferred time series query. Select from one of the following time intervals: `["5min", "30min", "1h", "12h", "24h", "1d", "3d", "7d", "1w", "1m", "3m", "6m", "12m", "1y"]`. `DURATION` must be paired with either the `START` or `END` request.
-`END`        | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the endpoint of a time series query that is mutually exclusive with `START`.
+`END`        | UTC timestamp in ISO-8601 or UTC epoch second, which specifies the end of a time series query. The timestamp can't have a query where `START` and `END` are the same, or where `END` is before `START`, or where `START` is after `END`.
 `END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor.
 `START`      | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the starting point of a time series query that is mutually exclusive with `END`.
 {: caption="Table 1. Monitoring API request fields" caption-side="top"}
