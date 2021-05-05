@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-29"
+lastupdated: "2021-05-05"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -43,7 +43,7 @@ To answer the question,
 you need data.
 The data comes from monitoring the system.
 Monitoring the system while it replicates can be performed by using the `_active_tasks` endpoint,
-which is described in more detail in [Active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks).
+which is described in more detail in the [Active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) documentation.
 
 For more detailed system information,
 use the cluster monitoring API.
