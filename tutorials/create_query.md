@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-05-05"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -34,7 +34,7 @@ completion-time: 10m
 {: toc-services="Cloudant"}
 {: toc-completion-time="10m"}
 
-This tutorial demonstrates how to create an index and use the index to query the database, as well as how to create different types of queries to more easily find data.
+In this tutorial, we demonstrate how to create an index and use the index to query the database. You also learn to create different types of queries to more easily find data.
 {: shortdesc}
 
 Here you run the commands from the command line, but you can also complete these tasks with the {{site.data.keyword.cloudant_short_notm}} dashboard, which gives you a visual example of each task. For more information about the dashboard, see [Using the {{site.data.keyword.cloudant_short_notm}} dashboard](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial. 
@@ -54,7 +54,7 @@ If you decide not to set up `acurl`, use the following URL with `curl` instead o
 The `acurl` alias is more secure. It prevents someone from reading your password over your shoulder as you type. It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
 {: important}
 
-Now, we're ready to learn how to run queries against the database you created in *Step 1. Create an {{site.data.keyword.cloudant_short_notm}} instance*.
+Now, we're ready to learn how to run queries against the database you created in *Create an {{site.data.keyword.cloudant_short_notm}} instance*.
 
 ## Creating an index
 {: #creating-an-index-to-query-the-database-qt}
@@ -127,7 +127,7 @@ You aren't required to create an index to run a query. However, if you don't, th
 
 This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query finds documents based on the `descriptionField` with the value `boiling`.   
 
-To run a simple query, follow these steps: 
+To run the query, follow these steps:
 
 1.  Copy the following sample JSON into a data file named `query1.json`.
 

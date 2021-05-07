@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-05-06"
 
 keywords: videos
 
@@ -160,7 +160,7 @@ Learn how `_id`s work in {{site.data.keyword.cloudant_short_notm}}, how they are
 
 ![The _id](https://youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-_id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-### The `_id` video script
+### The _id video script
 {: #the-_id-video-script}
 {: notoc}
 
@@ -500,7 +500,7 @@ In summary, with two API calls `_bulk_docs` and  `_all_docs`, we can perform all
 
 Here's a screen capture of using {{site.data.keyword.cloudant_short_notm}} from a command-line terminal:
 
-That's the end of this part. The next part is called *Accessing {site.data.keyword.cloudant_short_notm}} programmatically*.
+That's the end of this part. The next part is called *Accessing {{site.data.keyword.cloudant_short_notm}} programmatically*.
 
 ## Accessing {{site.data.keyword.cloudant_short_notm}} Programmatically video
 {: #accessing-cloudant-programmatically-video}
@@ -567,10 +567,10 @@ This video is part 10 - *Querying*.
 
 So far we performed create, retrieve, update, and delete (CRUD) operations from the command line, the dashboard, and from code. These operations center on the document's `_id`:
 
--Fetch document by `_id`.
--Update document whose `_id` = 'x'.
--Delete document whose `_id` = 'x'.
--Get documents in the `_id` range 'a' to 'z'.
+- Fetch document by `_id`.<br>
+- Update document whose `_id` = 'x'. <br>
+- Delete document whose `_id` = 'x'. <br>
+- Get documents in the `_id` range 'a' to 'z'. <br>
 
 These operations are the building blocks of a database, but they get you only so far. What if you need to return a subset of documents that match on fields within the document? A person's birth date? A book's title? An order's value?
 
@@ -1016,7 +1016,7 @@ Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course,
 
 This video is part 18 - *Under the hood*.
 
-Let's look at how an {{site.data.keyword.cloudant_short_notm}} service is organized: This overview applies to the {{site.data.keyword.cloudant_shortnotm}} services that map to CouchDB 2 and 3. CouchDB 4 will be built on different technology.
+Let's look at how an {{site.data.keyword.cloudant_short_notm}} service is organized: This overview applies to the {{site.data.keyword.cloudant_short_notm}} services that map to CouchDB 2 and 3. CouchDB 4 will be built on different technology.
 
 {{site.data.keyword.cloudant_short_notm}} is a distributed database with data that is stored around a cluster of storage nodes. Picture the {{site.data.keyword.cloudant_short_notm}} service as ring of nodes, in this case twelve. Every node can deal with incoming API calls and every node has responsibility for storing some of the data: shards and associated secondary indexes of databases that exist in the cluster.
 
