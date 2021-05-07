@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-05-05"
 
 keywords: _all_docs endpoint, page_size, bookmarks, query, search, paging, mapreduce views
 
@@ -32,7 +32,7 @@ The content that is described here applies only to {{site.data.keyword.cloudantf
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views-te}
 
-If you use the `GET /$DATABASE/all_docs` endpoint to fetch documents in bulk, and if the result has more than 2000 rows, you get the following error message:
+If you use the `GET /$DATABASE/all_docs` endpoint to fetch documents in bulk, and if the result has more than 2,000 rows, you get the following error message:
 
 ```json
 {
@@ -97,7 +97,7 @@ GET /$DATABASE/_all_docs?page_size=10  HTTP/1.1
 ```
 {: codeblock}
 
-The maximum value of the `page_size` parameter is 2000.
+The maximum value of the `page_size` parameter is 2,000.
 
 ## How to use pagination?
 {: pagination-how-te}
@@ -335,4 +335,4 @@ The `next` token can be used in `GET /$DATABASE/_all_docs?bookmark=...` to retri
 
 Review the following notes:
 
-- The `keys` parameter is not compatible with the `page_size` parameter. If you want to use `keys`, you must make sure that you are not requesting more than 2000 keys at once.
+- The `keys` parameter is not compatible with the `page_size` parameter. If you want to use `keys`, you must make sure that you are not requesting more than 2,000 keys at once.

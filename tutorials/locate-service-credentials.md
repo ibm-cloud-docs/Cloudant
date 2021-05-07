@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-05-05"
 
 keywords: service credentials, locate service credentials
 
@@ -88,7 +88,7 @@ The service credentials include the following fields, as well as designating the
 
 Field | Purpose | Legacy-auth enabled
 ------|---------|--------------------
-`username` | The username that is required for applications to access the service instance. |
+`username` | The user name that is required for applications to access the service instance. |
 `password` | The legacy credentials password that is required for applications to access the service instance. | X
 `host` | The host name that is used by applications to locate the service instance. | X
 `port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. | X
