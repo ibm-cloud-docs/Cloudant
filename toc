@@ -36,8 +36,9 @@ Cloudant
         couchdb/support-couchdb.md
     {: .navgroup-end}
 
-     {: .navgroup id="tutorial"}
+    {: .navgroup id="tutorial"}
     tutorials/locate-service-credentials.md
+    tutorials/use-dashboard.md
     tutorials/create_service_cli.md
     tutorials/create_dedicated_hardware_plan.md
     tutorials/create_database.md
