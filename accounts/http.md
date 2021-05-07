@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-04-22"
 
 keywords: http headers, response headers, http status codes
 
@@ -126,7 +126,7 @@ Cache-Control: must-revalidate
 
 The `Content-Type` header specifies the content type of the information that is supplied within the request.
 The specification uses MIME type specifications.
-For the most requests,
+For most requests,
 the content type is JSON (`application/json`).
 
 For some settings, the MIME type is plain text.

@@ -4,6 +4,7 @@ copyright:
   years: 2015, 2021
 lastupdated: "2021-05-07"
 
+
 keywords: example, connect to service instance, create service instance, service credentials, instance
 
 subcollection: Cloudant
@@ -67,10 +68,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
     ![{{site.data.keyword.cloudant_short_notm}} region and pricing plan](/tutorials/images/img0005a.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} offering and environment" caption-side="bottom"}
 
 4.   Enter an instance name. </br>
-    (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. </br>
-    Add a tag if you like. </br>
-    The authentication methods that are available include `IAM` or `IAM and legacy credentials`.</br> 
-    For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}. 
+    (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `IAM` or `IAM and legacy credentials`. For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}. 
 
 5.  Select your pricing plan. </br>
     See the capacity in the table that follows. 
@@ -111,18 +109,18 @@ The service credentials in this example were defined when a demonstration {{site
 
 6.  Click `Add`. 
 
-    ![Add a service credential.](tutorials/images/img0051.png){: caption="Figure 8. Add a service credential" caption-side="bottom"}
+    ![Service credentials](tutorials/images/img0051.png){: caption="Figure 8. Service credentials" caption-side="bottom"}
  
     Your new credential appears in the table.
 
 7.  To see the credentials that are required to access the service,
     click the chevron:
 
-    ![Viewing the service credentials.](tutorials/images/img0052.png){: caption="Figure 11. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![Viewing the service credentials.](tutorials/images/img0052.png){: caption="Figure 9. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
     The details for the service credentials open like the following example:
 
-    ![{{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0009.png){: caption="Figure 12. {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![{{site.data.keyword.cloudant_short_notm}} service credentials.](tutorials/images/img0009.png){: caption="Figure 10. {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
 For more information about the fields in your credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
