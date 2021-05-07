@@ -67,6 +67,11 @@ or from where content might be accessed,
 for delivering and supporting a Cloud Service,
 is available at [www.ibm.com/cloud/datacenters](http://www.ibm.com/cloud/datacenters){: new_window}{: external}.
 
+Cloudant will not move your data without notification. Cloudant do rely on centralised components for aspects of the service. 
+Of particular interest for data residency are logs containing URLs. These will be sent out of region specific infrastructure, 
+to centralised logging components. For any data where residency is a concern, avoid its inclusion within URLs such as in the 
+path or querystring. Cloudant documentation describes how this can be achieved for various areas of our API.
+
 For more information, see [Compliance](/docs/Cloudant?topic=Cloudant-compliance#compliance) about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance.
 Similar information can be found for these IaaS business partners:
 
