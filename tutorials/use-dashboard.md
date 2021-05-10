@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-07"
+lastupdated: "2021-05-10"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -167,7 +167,7 @@ that you create in this exercise include the data that you use to query the `das
 
   You populated the `dashboard-demo` with five documents. You can see the documents from the Table view in the following screen capture:
 
-   ![Example documents shown in the Table view.](../docs1.png){: caption="Figure 2. Sample documents" caption-side="bottom"} 
+   ![Example documents shown in the Table view.](../images/docs1.png){: caption="Figure 1. Sample documents" caption-side="bottom"} 
 
 ### Running a simple query
 {: #running-a-simple-query-dt}
@@ -191,7 +191,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     The query displays the results. You can see them from the Table view in the following screen capture:
 
-    ![Query results](../dashboard_query1_results.png){: caption="Figure 3. Query results" caption-side="bottom"}
+    ![Query results](../images/dashboard_query1_results.png){: caption="Figure 2. Query results" caption-side="bottom"}
 
 For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#getindexesinformation){: new_window}{: external}.
 
@@ -209,7 +209,7 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
    The Job configuration page opens. 
 
-   ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 4. Job configuration page" caption-side="bottom"} 
+   ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 3. Job configuration page" caption-side="bottom"} 
    
    Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
    {: note} 
@@ -238,21 +238,21 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
      - Replication type - Leave as `One time`
      - Replication document - Leave as `Custom ID (optional)` 
 
-    ![Replication configuration page](images/job-configuration.png){: caption="Figure 5. Replication configuration page" caption-side="bottom"}
+    ![Replication configuration page](images/job-configuration.png){: caption="Figure 4. Replication configuration page" caption-side="bottom"}
 
 4. Click **Start Replication**. 
 
    The Replication page opens where you can see that your replication job is running. 
 
-   ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 6. Replication job status" caption-side="bottom"} 
+   ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 5. Status of your replication job" caption-side="bottom"} 
 
 5. See the status when your job finishes. 
 
-   ![Completed job status](images/complete-status.png){: caption="Figure 7. Completed job status" caption-side="bottom"} 
+   ![Completed job status](images/complete-status.png){: caption="Figure 6. Completed job status" caption-side="bottom"} 
 
 6. Check that the database was created on the databases page. 
 
-   ![Databases page](images/databases.png){: caption="Figure 8. Databases page" caption-side="bottom"} 
+   ![Databases page](images/databases.png){: caption="Figure 7. Databases page" caption-side="bottom"} 
 
 ## Monitoring active tasks
 {: #monitoring-active-tasks-dt}
@@ -267,7 +267,7 @@ If your instance does not have any active tasks, you can return to the previous 
 
    The Active Tasks page opens. 
 
-   ![Active tasks.](images/active-tasks-page.png){: caption="Figure 9. Active tasks" caption-side="bottom"} 
+   ![Active tasks](images/active-tasks-page.png){: caption="Figure 8. Active tasks" caption-side="bottom"} 
 
 2. Navigate to task-specific information by clicking the associated tab. 
 
@@ -284,18 +284,18 @@ Since your service instance is for demonstration purposes only, it's not populat
    The Monitoring page opens to the Current Operations tab. 
    Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
-   ![Current Operations tab opens.](images/current-operations-tab.png){: caption="Figure 10. Current Operations tab" caption-side="bottom"}
+   ![Current Operations tab](images/current-operations-tab.png){: caption="Figure 9. Current Operations tab" caption-side="bottom"}
 
 2. Click **Denied Requests**. 
 
    Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
-   ![Denied Requests tab](images/denied-requests-tab.png){: caption="Figure 11. Denied Requests tab" caption-side="bottom"}
+   ![Denied Requests tab](images/denied-requests-tab.png){: caption="Figure 10. Denied Requests tab" caption-side="bottom"}
 
 3. Click **Storage**.
 
    Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 
-   ![Storage tab](images/storage-tab.png){: caption="Figure 12. Storage tab" caption-side="bottom"}
+   ![Storage tab](images/storage-tab.png){: caption="Figure 11. Storage tab" caption-side="bottom"}
 
 For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).
