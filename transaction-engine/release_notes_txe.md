@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-05-11"
 
 keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91
 
@@ -38,10 +38,10 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 ## Build 2.91 (April 2021)
 {: #build-2.91-april-2021}
 
- - Fix bug which can corrupt view indices. If the view index returns inconsistent data even after database updates stop, recreate the index by deleting and re-adding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
+ - Fix bug that can corrupt view indices. If the view index returns inconsistent data even after database updates stop, re-create the index by deleting and readding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
  - Improve indexing performance when concurrent database updates exist.
  - `multipart/related` document `PUT` requests can now accept chunked data transfer format.
- - The `_session` endpoint accepts gzipped requests.
+ - The `_session` endpoint accepts compressed (`gzipped`) requests.
  - Replicator treats a client `408` error code as retryable.
 
 ## Build 2.88 (November 2020)

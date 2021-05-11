@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-05-11"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -48,7 +48,7 @@ within a US location, you can optionally select a [HIPAA](https://en.wikipedia.o
 You can select which plan to use when you
 [provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud).
 By default,
-the [Lite plan](#lite-plan) is selected. 
+the [Lite plan](#lite-plan) is selected.   
 
 ![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../images/lite_pricing_plan.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} service instance plan selection" caption-side="bottom"}
 
@@ -69,7 +69,7 @@ You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instan
 
 The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all paid {{site.data.keyword.cloud}} accounts, either as pay-as-you-go or subscription, and scales to meet the needs of your application. The Standard plan is priced based on two factors: the provisioned throughput capacity that is allocated, and the amount of data that is stored in the instance.
 
-Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 reads per second, 50 writes per second, and 5 global queries per second by using the user interface or API. Costs are calculated for the provisioned throughput capacity that is allocated and not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you're charged a defined cost per GB per hour.
+Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down by using the user interface or API. Toggle in increments of 100 reads per second, 50 writes per second, and 5 global queries per second. Costs are calculated for the provisioned throughput capacity that is allocated and not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you're charged a defined cost per GB per hour.
 
 Refer to the {{site.data.keyword.cloud_notm}} Pricing Calculator in the dashboard for pricing at different capacities and currencies, and the [pricing](/docs/Cloudant?topic=Cloudant-pricing#pricing){: new_window} information for examples to estimate costs.
 
@@ -81,7 +81,7 @@ An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is
 - This plan is necessary for HIPAA compliance and must be selected at provisioning time.
 - Users can choose to bring-your-own-key (BYOK) with customer-managed encryption keys with {{site.data.keyword.IBM_notm}} Key Protect for all environments provisioned 1 January 2020 or later. {{site.data.keyword.cloudant_short_notm}} runs on encrypted disks, but in order to BYOK, the Dedicated Hardware plan is required. BYOK encryption details have to be chosen at provisioning time, and the feature isn't available for already-provisioned Dedicated Hardware plan environments.
 - All Standard plan instances that are deployed on Dedicated Hardware plan environments include both private (internal) endpoints and public endpoints in locations that support Cloud Service Endpoints (CSE). Using private endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Cloud Service Endpoint documentation](/docs/account?topic=account-service-endpoints-overview){:new_window}{: external} for details about enabling Cloud Service Endpoints for your {{site.data.keyword.cloud}} account.
-- Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP allow listing by contacting support. IP allow listing configuration applies to all instances that are running on the environment. The public and private network allow lists can be managed independently, and the public allow list can be set to block all traffic so that all traffic goes over the private endpoints.
+- Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP allowlisting by contacting support. IP allowlisting configuration applies to all instances that are running on the environment. The public and private network allowlists can be managed independently, and the public allowlist can be set to block all traffic so that all traffic goes over the private endpoints.
 
 You can provision one or more Standard plan instances on a single Dedicated Hardware environment. The Dedicated Hardware environment expands or contracts as needed based on the throughput capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, with a 1-month minimum duration charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud) tutorial.
 
@@ -136,8 +136,7 @@ The measurement of throughput is a simple count of the number of events of each 
 per second,
 where the second is a *sliding* window.
 
-If your account exceeds the number of throughput events that are provisioned for the plan, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number that is provisioned.
-It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
+If your account exceeds the number of throughput events allotted, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number provisioned. It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
 For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 read events during a consecutive period of 1,000 milliseconds (1 second). Subsequent read requests made during the sliding 1,000-millisecond period
 are rejected until the number of read events in that period drops to less than 200 again.
@@ -225,7 +224,7 @@ Using appropriate indexes is key for reducing read consumption for partitioned
 
 [Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with reaching the provisioned throughput capacity limits set for the instance.
 
-You can use the default parameters and replicate a database with a large backlog of documents. In that case, a single replication job consumes close to 2500-3000 reads per second on the source database and a small amount of writes per second on the target database. Users can reduce the approximate read throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+You can use the default parameters and replicate a database with a large backlog of documents. In that case, a single replication job consumes close to 2500 - 3000 reads per second on the source database and a small number of writes per second on the target database. Users can reduce the approximate read throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads per second on source database |
 |------------------|------------------|-------------------------------------|
@@ -243,30 +242,30 @@ The method for managing the provisioned throughput capacity by using the UI depe
 
 #### UI - Resource Group
 
-If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Resource Group**, go to the {{site.data.keyword.cloud_notm}} Dashboard Service Details page for the instance. Click **Manage** > **Capacity** where you can view the current and target capacity.
+If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Resource Group**, go to the {{site.data.keyword.cloud_notm}} Dashboard Service Details page for the instance. Click **Manage** > **Capacity** where you can view the current and target capacity.  
 
 ![Capacity](../images/capacity-1.png){: caption="Figure 2. Capacity" caption-side="bottom"}
 
-To change the target capacity, slide the capacity slider to the setting you need, and click **Update Capacity**. A confirmation window appears. Click **OK** to confirm. 
+To change the target capacity, slide the capacity slider to the setting you need, and click **Update Capacity**. A confirmation window appears. Click **OK** to confirm.   
 
 ![Capacity change confirmation](../images/capacity-3.png){: caption="Figure 3. Capacity change confirmation" caption-side="bottom"}
 
-The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the checkmark turns green and says "Success. Your capacity will be updated shortly."
+The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the checkmark turns green and says "Success. Your capacity will be updated shortly."  
 
 ![Success message](../images/capacity-4.png){: caption="Figure 4. Success message" caption-side="bottom"}
 
-Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity, which is 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the **Need additional capacity?** tab on the Capacity page.
+Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity. One hundred blocks of capacity equals 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the `Need additional capacity?` tab on the Capacity page.
 {: note}
 
 #### UI - Cloud Foundry org and space
 
-If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud Foundry org and space, launch the {{site.data.keyword.cloudant_short_notm}} Dashboard. Click **Account** > **Capacity**.
+If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud Foundry org and space, launch the {{site.data.keyword.cloudant_short_notm}} Dashboard. Click **Account** > **Capacity**.  
 
 ![Capacity dashboard](../images/cloudant_capacity.png){: caption="Figure 5. Capacity dashboard" caption-side="bottom"}
 
 To move to a different throughput capacity, select the provisioned throughput capacity that you need, then click **Update**. You're asked to confirm the change,
 and reminded that the provisioning change can take up to 24 hours to
-complete. 
+complete.   
 
 ![Change confirmation](../images/cloudant_capacity_change.png){: caption="Figure 6. Change confirmation" caption-side="bottom"}
 
@@ -283,11 +282,11 @@ The API syntax for changing the capacity is also shown in the **Increase capacit
 ### Monitoring usage
 {: #monitoring-usage}
 
-Information about your usage of provisioned throughput capacity is available in the {{site.data.keyword.cloudant_short_notm}} Dashboard Monitoring tab. The **Current Operations** tab shows recent consumption of [provisioned throughput capacity](#provisioned-throughput-capacity) by showing the number of requests that are broken down by reads, writes, and global queries. The dotted line represents the peak capacity that is allowed according to the provisioned throughput capacity set for the instance. 
+Information about your usage of provisioned throughput capacity is available in the {{site.data.keyword.cloudant_short_notm}} Dashboard Monitoring tab. The **Current Operations** tab shows recent consumption of [provisioned throughput capacity](#provisioned-throughput-capacity) by showing the number of requests that are broken down by reads, writes, and global queries. The dotted line represents the peak capacity that is allowed according to the provisioned throughput capacity set for the instance.   
 
 ![Monitoring - Current Operations](../images/monitoring-current_operations.png){: caption="Figure 7. Monitoring - Current Operations" caption-side="bottom"}
 
-The **Denied Requests** tab shows the number of requests that were denied in a given second by showing the response, "429: too many requests." Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries. 
+The **Denied Requests** tab shows the number of requests that were denied in a given second by showing the response, "429: too many requests." Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.  
 
 ![Monitoring - Denied Requests](../images/monitoring-denied_requests.png){: caption="Figure 8. Monitoring - Denied Requests" caption-side="bottom"}
 

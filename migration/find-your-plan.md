@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-14"
+lastupdated: "2021-05-11"
 
 keywords: ibm cloudant plan, standard plan, lite plan, enterprise plan
 
@@ -37,8 +37,8 @@ The following steps show where you can see the type of plan that you selected.
 3. Click an instance to find more information.
 4. Click **Plan**.<br>
    A checkmark indicates the plan that you use as shown in the following screen capture.<br>
-   For more information, see the [Migration FAQ](/docs/Cloudant?topic=Cloudant-faq-migration). <br>
-
+   For more information, see the [Migration FAQ](/docs/Cloudant?topic=Cloudant-faq-migration). <br>  
+   
    ![Standard dashboard](../images/ibmcloud_instance_standard_plan.png){: caption="Figure 1. Standard dashboard" caption-side="bottom"}
 
    If the Plan tab indicates that you're on the Standard plan, you don't need to read any further. You're already on a paid SLA-backed {{site.data.keyword.cloudant_short_notm}} service. No further action is required.
