@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-05-11"
 
 keywords: apache couchdb, support, extension
 
@@ -42,9 +42,9 @@ The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_win
 ## {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB
 {: #cloud-extenstion-for-apache-couchdb-support}
 
-{{site.data.keyword.IBM_notm}} support for open source Apache CouchDB is offered by using the {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB, which is only available to allow listed users. Contact your {{site.data.keyword.cloud_notm}} Sales representative if you are interested in this service.
+{{site.data.keyword.IBM_notm}} support for open source Apache CouchDB is offered by using the {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB, which is only available to allowlisted users. Contact your {{site.data.keyword.cloud_notm}} Sales representative if you are interested in this service.
 
-Allow listed users can purchase an instance of {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB from the {{site.data.keyword.cloud_notm}} catalog. To do so, go to the {{site.data.keyword.cloudantfull}} catalog tile and choose the Extension for Apache CouchDB option.
+Allowlisted users can purchase an instance of {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB from the {{site.data.keyword.cloud_notm}} catalog. To do so, go to the {{site.data.keyword.cloudantfull}} catalog tile and choose the Extension for Apache CouchDB option.
 
 ### Provisioning an instance
 {: #provisioning-an-instance-support}

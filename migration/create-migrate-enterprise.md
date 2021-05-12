@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-05-11"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan
 
@@ -69,7 +69,7 @@ HTTP response | Issue
 The `couchreplicate` tool sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 {: tip}
 
-  ![`couchreplication` tool](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 2. Couch replicate tool" caption-side="bottom"}
+  ![`couchreplication` tool](../images/couchreplicate.mp4){: video controls loop}{: caption="Figure 2. Couchreplicate tool" caption-side="bottom"}
 
 3. Verify that all your data replicates to the new service and that indexes are built.
 

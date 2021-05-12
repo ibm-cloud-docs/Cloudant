@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-07"
+lastupdated: "2021-05-11"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -49,7 +49,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 {: #creating-an-ibm-cloudant-instance-on-ibm-cloud}
 {: step}
 
-1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click `Create resource`. 
+1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click `Create resource`.  
 
     ![{{site.data.keyword.cloud_notm}} dashboard](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
@@ -63,7 +63,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
     ![{{site.data.keyword.cloud_notm}} database services](/tutorials/images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
-3.  Select an offering and an environment. 
+3.  Select an offering and an environment.  
 
     ![{{site.data.keyword.cloudant_short_notm}} region and pricing plan](/tutorials/images/img0005a.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} offering and environment" caption-side="bottom"}
 
@@ -71,7 +71,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
     (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `IAM` or `IAM and legacy credentials`. For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}. 
 
 5.  Select your pricing plan. </br>
-    See the capacity in the table that follows. 
+    See the capacity in the table that follows.   
 
     ![Select your pricing plan.](tutorials/images/img0005c.png){: caption="Figure 4. Pricing plans and capacity" caption-side="bottom"}
 
@@ -82,9 +82,9 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
 
-    After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see that the status for your instance is, `Provision in progress.` 
+    After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see that the status for your instance is, `Provision in progress`. 
 
-7. When the status changes to Active, click the instance, and click `Service Credentials`. 
+7. When the status changes to `Active`, click the instance, and click `Service Credentials`.   
 
     ![{{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0007.png){: caption="Figure 6. {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
@@ -95,7 +95,7 @@ The service credentials in this example were defined when a demonstration {{site
 {: #creating-service-credentials}
 {: step}
 
-1.  To create the connection information that your application needs to connect to the instance, click `New credential`. 
+1.  To create the connection information that your application needs to connect to the instance, click `New credential`.    
 
     ![Service credentials.](tutorials/images/img0050.png){: caption="Figure 7. Service credentials" caption-side="bottom"}
 
@@ -107,7 +107,7 @@ The service credentials in this example were defined when a demonstration {{site
 
 5.  (Optional) Add inline configuration parameters. This parameter isn't used by {{site.data.keyword.cloudant_short_notm}} service credentials, so ignore it. 
 
-6.  Click `Add`. 
+6.  Click `Add`.   
 
     ![Service credentials](tutorials/images/img0051.png){: caption="Figure 8. Service credentials" caption-side="bottom"}
  

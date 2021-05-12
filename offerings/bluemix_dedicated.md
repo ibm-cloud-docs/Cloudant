@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-05-11"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -69,7 +69,7 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 All plans are provided on servers with [at rest](https://en.wikipedia.org/wiki/Data_at_rest){: new_window}{: external}
 disk encryption. Access is over the public network connection and encrypted by 
 using HTTPS. For more detail, see [Security](/docs/Cloudant?topic=Cloudant-security#security){: new_window}{: external}. 
-IP allow listing is available upon request to {{site.data.keyword.cloudant_short_notm}} Support and applies to 
+IP allowlisting is available upon request to {{site.data.keyword.cloudant_short_notm}} Support and applies to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
 The plan also offers [Compliance Certification](/docs/Cloudant?topic=Cloudant-compliance#compliance). 
