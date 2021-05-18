@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-26"
+lastupdated: "2021-05-21"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -37,7 +37,7 @@ Data can even be replicated to and from an {{site.data.keyword.cloudant_short_no
 using [{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external}
 or [PouchDB](http://pouchdb.com/){: new_window}{: external}.
 Replication can run in one direction or in both directions,
-as a 'single shot' or continuous operation,
+as a "single shot" or continuous operation,
 and can be finely tuned by using parameters.
 
 {{site.data.keyword.cloudant_short_notm}}’s replication protocol is compatible with a range of other databases and libraries,
@@ -69,7 +69,7 @@ Any pre-existing data in the destination database remains.
 
 The {{site.data.keyword.cloudant_short_notm}} Dashboard provides a convenient user interface to trigger replication.
 Click `Replication` on the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click `Start Replication`.
-Complete the form:
+Complete the following Replication form:
 
 ![Replication form](../images/replication_guide_2.png){: caption="Figure 2. Replication form" caption-side="bottom"}
 
@@ -130,14 +130,14 @@ means that the response that is provided by the `_changes` feed
 cannot be a simple list of changes that occurred after a particular date and time.
 
 The [CAP Theorem](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem) discussion makes it clear that
-{{site.data.keyword.cloudant_short_notm}} uses an 'eventually consistent' model.
+{{site.data.keyword.cloudant_short_notm}} uses an "eventually consistent" model.
 This model means you might get different results when you ask two different replicas of a database for a document at the same time. This can happen when one of the database copies is still waiting to finish replication. 
 
 Eventually,
 the database copies complete their replication
 so that all the changes to a document are present in each copy.
 
-This 'eventual consistency' model has two characteristics that affect a list of changes:
+This "eventual consistency" model has two characteristics that affect a list of changes:
 
 1. A change that affects a document almost certainly takes place at different times in different copies of the database.
 2. The order in which changes affect documents might differ between different copies of the database, depending on when and from where the replication took place.
@@ -152,7 +152,7 @@ it *is* meaningful to ask for a list of changes after a specific change,
 which is specified by using a sequence identifier.
 
 An extra consequence of the first characteristic is that
-it might be necessary to 'look back' at preceding changes to agree on the list of changes.
+it might be necessary to "look back" at preceding changes to agree on the list of changes.
 In other words,
 to get a list of changes,
 you start from the most recent change that the database copies agree on.
@@ -173,7 +173,7 @@ but in a different order.
 This difference is because the sequence of changes that are received during replication
 might vary between two different copies of the database.
 
-### What does 'eventual consistency' mean for the list of changes?
+### What does "eventual consistency" mean for the list of changes?
 {: #what-eventual-consistency-means-for-the-list-of-changes}
 
 When you request a list of changes,
@@ -192,7 +192,7 @@ Therefore,
 an application that uses the `_changes` feed must
 be ['idempotent'](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window}{: external}.
 Idempotency means that the application must be able safely to receive the same data multiple times,
-and potentially if a different order for repeated requests.
+and potentially in a different order for repeated requests.
 
 ## Checkpoints
 {: #checkpoints}
@@ -232,7 +232,7 @@ on a per-database basis.
 
 They can also be created [programmatically](/docs/Cloudant?topic=Cloudant-api-keys#creating-api-keys) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window} and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window} documentation.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window}, and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window} documentation.
 {: important}
 
 ## Two-way replication

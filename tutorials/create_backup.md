@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-05-21"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -44,12 +44,12 @@ restore the information to an existing database.
 ## Objectives
 {: #objectives}
 
-- Install CouchBackup.
-- Create a sample database with documents.
-- Set an environment variable.
-- Back up a database.
-- Create a log file. 
-- Restore a backup from a text file. 
+1. Install CouchBackup.
+2. Create a sample database with documents.
+3. Set an environment variable.
+4. Back up a database.
+5. Create a log file. 
+6. Restore a backup from a text file. 
 
 ## Installing CouchBackup
 {: #before-you-install-couchbackup}

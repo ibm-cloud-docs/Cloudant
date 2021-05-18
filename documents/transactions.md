@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-05-21"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
@@ -237,7 +237,7 @@ you could produce totals that are grouped by `order_id`.
 ```
 {: codeblock}
 
-Since the view in previous example returns 0 for the order value,
+Since the view in the previous example returns 0 for the order value,
 the result indicates that the order is fully paid.
 The reason is that the positive purchase order total cancels the negative payment amounts.
 Recording events as separate documents, for example, 
