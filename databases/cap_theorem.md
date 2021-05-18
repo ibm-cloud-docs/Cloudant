@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-10"
+lastupdated: "2021-05-21"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -53,7 +53,7 @@ In an eventually consistent model,
 like {{site.data.keyword.cloudant_short_notm}},
 when you make an update to one part of the system, the update is *eventually* seen by other parts of the system.
 As the update propagates,
-the system is said to 'converge' on complete consistency.
+the system is said to "converge" on complete consistency.
 
 Eventual consistency is good for performance.
 With a strong consistency model,
@@ -61,7 +61,7 @@ a system must wait for any updates to propagate completely and successfully
 before a write or update request can be completed.
 With an eventually consistent model,
 the write or update request can return almost immediately,
-while the propagation across the system continues 'behind the scenes'.
+while the propagation across the system continues "behind the scenes".
 
 A database can demonstrate only two of these three attributes for both theoretical and practical reasons.
 A database prioritizing consistency and availability is simple:

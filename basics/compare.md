@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-05-18"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -52,7 +52,7 @@ click the corresponding link.
 | `GET /_api/v2/monitoring` <br>[Cloudant](/docs/Cloudant?topic=Cloudant-monitoring-an-ibm-cloudant-cluster#monitoring-metrics-overview) | Monitor a specific cluster aspect. |
 | `GET /_api/v2/user/config/cors` <br>[Cloudant](/apidocs/cloudant#getcorsinformation){: new_window}{: external} | Retrieve CORS configuration information.  |
 | `PUT /_api/v2/user/config/cors` <br>[Cloudant](/apidocs/cloudant#putcorsconfiguration){: new_window}{: external} | Modify the CORS configuration. |
-| `GET /_db_updates` <br>[Cloudant](/apidocs/cloudant#getdbupdates){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#db-updates) | List all database events in the instance.<br>In {{site.data.keyword.cloudant_short_notm}}, the endpoint is only available to dedicated customers. Its documentation references more query parameters (limit, since, descending) and another feed type value (normal). For CouchDB, its documentation references another feed type value (`eventsource`). |
+| `GET /_db_updates` <br>[Cloudant](/apidocs/cloudant#getdbupdates){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#db-updates) | List all database events in the instance.<br>In {{site.data.keyword.cloudant_short_notm}}, the endpoint is only available to Dedicated Hardware plan customers. Its documentation references more query parameters (limit, since, descending) and another feed type value (normal). For CouchDB, its documentation references another feed type value (`eventsource`). |
 | `GET /_membership` <br>[Cloudant](/apidocs/cloudant#getmembershipinformation){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#membership) | Retrieve cluster membership information. Active clusters are indicated in the `cluster_nodes` field, while `all_nodes` has all nodes. |
 | `POST /_replicate` <br>[Cloudant](/apidocs/cloudant#postreplicate){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#replicate) | Request, configure, or stop a replication operation.<br>{{site.data.keyword.cloudant_short_notm}} documentation references more request body fields (`selector`, `since\_seq`). |
 | `PUT /_replicator/{doc_id}` <br>[Cloudant](/apidocs/cloudant#putreplicationdocument){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/replication/replicator.html) | Trigger a replication.<br>{{site.data.keyword.cloudant_short_notm}} documentation references more request body fields (`selector`, `since\_seq`). |
