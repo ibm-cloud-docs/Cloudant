@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-25"
 
 keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91
 
@@ -34,6 +34,15 @@ Changes and updates to {{site.data.keyword.cloudantfull}} Transaction Engine tha
 
 See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine.
 
+## Build 2.92 (May 2021)
+{: #build-2.92-may-2021}
+
+- Improve validation of design documents.
+- Fix inline attachments to design documents.
+- Improve error messages for the following endpoints:
+  - `/{db}/_all_docs/queries`
+  - `/{db}/_design/update/_update/`
+  - `/_db_updates`
 
 ## Build 2.91 (April 2021)
 {: #build-2.91-april-2021}
