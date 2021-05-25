@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-21"
+lastupdated: "2021-05-25"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -432,9 +432,6 @@ Without a partial index, this query requires a full index scan to find
 all the documents of `type`:`user` that don't have a status of `archived`.
 This situation occurs because a normal index can be used to match contiguous rows,
 and the `$ne` operator can't guarantee that.
-
-[{{site.data.keyword.cloudant_local_notm}}](/docs/Cloudant?topic=Cloudant-ibm-cloudant-local-overview) doesn't support partial indexes.
-{: note}
 
 To improve response time, you can create an index that excludes documents 
 with `status: { $ne: archived }` at index time by using the 
