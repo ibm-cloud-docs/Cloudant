@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-21"
+lastupdated: "2021-05-21"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -30,6 +30,10 @@ The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](/docs/Cl
 explains that one way to enable disaster recovery is to use
 {{site.data.keyword.cloudantfull}} replication to create redundancy across regions.
 {: shortdesc}
+
+
+For more information, see how to <MD:A HREF="/apidocs/cloudant#getschedulerdocs">retrieve replication scheduler documents</MD:A ATTR=" new_window"><MD:ATTR {: external}> and monitor replication status.
+
 
 You can configure replication in {{site.data.keyword.cloudant_short_notm}} by using an 'active-active'
 or 'active-passive' topology across data centers.
@@ -132,7 +136,7 @@ A successful response is similar to the following abbreviated example:
 ```
 {: codeblock}
 
-Take careful note of the password. It'sn't possible to retrieve the password later.
+Take careful note of the password. It isn't possible to retrieve the password later.
 {: important}
 
 ## Step 3. Grant access permission
@@ -335,7 +339,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 * Do any replications need restarting?
 * How many pending changes are still waiting for replication into the database?
 
-For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: new_window}{: external} and more about monitoring replication status.
+For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: new_window}{: external} and monitor replication status.
 
 If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}

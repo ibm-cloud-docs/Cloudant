@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-05-19"
 
 keywords: log analysis, integration
 
@@ -50,7 +50,7 @@ Deployment Region | {{site.data.keyword.loganalysisfull_notm}} Region
 
 Log information from your databases is automatically forwarded to {{site.data.keyword.loganalysisfull_notm}}. In order to access it, you must [provision {{site.data.keyword.loganalysisfull_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service](/docs/log-analysis?topic=log-analysis-config_svc_logs){: new_window}{: external} to receive {{site.data.keyword.cloud_notm}} service logs.
 
-This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account with {{site.data.keyword.loganalysisfull_notm}} integration to send logs to your {{site.data.keyword.loganalysisfull_notm}} service. For more information, see the list of [integrated services](/docs/log-analysis?topic=log-analysis-cloud_services#cloud_services){: new_window}{: external}.
+This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account with {{site.data.keyword.loganalysisfull_notm}} integration sending logs to your {{site.data.keyword.loganalysisfull_notm}} service. For more information, see the list of [integrated services](/docs/log-analysis?topic=log-analysis-cloud_services#cloud_services){: new_window}{: external}.
 {: .tip}
 
 {{site.data.keyword.loganalysisfull_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/log-analysis?topic=log-analysis-service_plans){: new_window}{: external}.
