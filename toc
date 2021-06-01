@@ -155,16 +155,6 @@ Cloudant
     libraries/client-libraries.md
     basics/compare.md
 
-    {: .topicgroup}
-    Cloudant Local
-        local/overview-local.md
-        local/whats-new.md
-        local/install.md
-        local/configure.md
-        local/maintenance.md
-        local/troubleshoot.md
-        local/upgrade.md
-        local/support.md
 
     {: .topicgroup}
     Other offerings

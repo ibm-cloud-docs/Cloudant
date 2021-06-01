@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-25"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -107,5 +107,5 @@ to help you maintain data quality and availability:
 Feature | Description
 --------|------------
 Redundant and durable data storage | By default, {{site.data.keyword.cloudant_short_notm}} saves to disk three copies of every document to three different nodes in a cluster. Saving the copies ensures that a working failover copy of your data is always available, regardless of failures.
-Data replication and export | You can replicate your databases continuously between clusters in different data centers, or to an on-premises {{site.data.keyword.cloudant_short_notm}} Local cluster, or Apache CouchDB. Another option is to export data from {{site.data.keyword.cloudant_short_notm}} (in JSON format) to other locations or sources (such as your own data center) for added data redundancy.
+Data replication and export | You can replicate your databases continuously between clusters in different data centers or Apache CouchDB. Another option is to export data from {{site.data.keyword.cloudant_short_notm}} (in JSON format) to other locations or sources (such as your own data center) for added data redundancy.
 {: caption="Table 2. IBM Cloudant data quality and availability features" caption-side="top"}

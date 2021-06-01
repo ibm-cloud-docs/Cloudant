@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-05-25"
 
 keywords: account, ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication
 
@@ -279,9 +279,6 @@ No matter what method you choose,
 remember to record the key name and password.
 These values are both randomly generated,
 and can't be retrieved if lost or forgotten.
-
-[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local")](/docs/Cloudant?topic=Cloudant-ibm-cloudant-local-overview) doesn't support API Keys. For a similar capability, create "CouchDB" style users, as described in the [Cloudant Local documentation](/docs/Cloudant?topic=Cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
-{: note}
 
 ### Using API keys
 {: #using-api-keys}
