@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-04-17"
 
 keywords: port forward, openshift route
 
@@ -29,7 +29,7 @@ subcollection: Cloudant
 The CouchDB cluster is exposed by using a `ClusterIP` service only. To access the deployment externally, you can either port-forward by using `oc`/`kubectl` or configure an external OpenShift route. 
 {: shortdesc}
 
-### Port-forward
+## Port-forward
 {: #port-forward-access-couchdb}
 
 Assuming TLS is enabled for CouchDB (the default behavior), you can expose the service locally on your machine by port-forwarding with `kubectl`:
@@ -50,7 +50,7 @@ kubectl port-forward svc/<couchdb name> 5984:5984 -n <namespace>
 
 You can then access your cluster locally by pointing a client to `http://localhost:5984`.
 
-### OpenShift route
+## OpenShift route
 {: #openshift-route}
 
 On OpenShift, the CouchDB service is configured to use an [OpenShift service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html){: new_window}{: external}.
@@ -94,7 +94,7 @@ example-route   example-route-my-couchdb.rhoscluster-12345-0001.us-east.containe
 
 In the previous example, you can access the Apache CouchDB API at `https://<example-route-my-couchdb>.rhoscluster-12345-0001.us-east.containers.appdomain.cloud/` or the Apache CouchDB dashboard at `https://<example-route-my-couchdb>.rhoscluster-12345-0001.us-east.containers.appdomain.cloud/_utils`.
 
-### Credentials
+## Credentials
 {: #credentials-cluster-couchdb}
 
 The `CouchDBCluster` is configured with a cluster admin account, `admin`. The password is specified at deployment time by using the `environment.adminPassword` field. Further, non-admin users can be added by using the [`_users` database](https://docs.couchdb.org/en/3.1.1/intro/security.html#authentication-database){: new_window}{: external}.
