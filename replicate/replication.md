@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-06-04"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -42,7 +42,7 @@ you must replicate in both directions.
 Complete this process by replicating from `database1` to `database2`,
 and separately from `database2` to `database1`.
 
-First, when replication finishes, all active documents in the source database also exist in the destination or "target" database. Second, documents deleted from the source database are also removed from the destination database (if they exist there). 
+First, when replication finishes, all active documents in the source database also exist in the destination or "target" database. Second, documents that are deleted from the source database are also removed from the destination database (if they exist there). 
 
 ## Replication operation
 {: #replication-operation}
@@ -64,7 +64,7 @@ the requested databases in the source and target specification must exist.
 If they do not,
 an error is returned within the JSON object.
 
-See the following example request to replicate between a database on the source server `example.com`, and a target database on {{site.data.keyword.cloudant_short_notm}}:
+See the following example request to replicate between a database on the source server `example.com`, and a target database on {{site.data.keyword.cloudant_short_notm}}.
 
 ```http
 POST /_replicate
@@ -78,7 +78,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-See the following example error response if one of the requested databases for a replication does not exist:
+See the following example error response if one of the requested databases for a replication does not exist.
 
 ```json
 {
@@ -131,7 +131,7 @@ you `DELETE` the replication document.
 The fields that are supplied in the replication document are
 described in the [Create or modify a replication operation](/apidocs/cloudant#postreplicate){: new_window}{: external} description under Request information.
 
-All design documents and `_local` documents added to the `/_replicator` database are ignored.
+All design documents and `_local` documents that are added to the `/_replicator` database are ignored.
 {: note}
 
 ## Important notes

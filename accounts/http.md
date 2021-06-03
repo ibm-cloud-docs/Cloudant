@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-06-04"
 
 keywords: http headers, response headers, http status codes
 
@@ -190,7 +190,7 @@ provided the document still exists and no other errors occurred.
 {: #response-headers}
 
 Response headers are returned by the server when you send back content.
-They include a number of different fields. Many of the fields are standard HTTP response headers and have no significance with regard to how {{site.data.keyword.cloudant_short_notm}} operates.
+They include a number of different fields. Many of the fields are standard HTTP response headers and have no significance regarding how {{site.data.keyword.cloudant_short_notm}} operates.
 The supported HTTP response headers that are important to {{site.data.keyword.cloudant_short_notm}} are as shown in the following list.
 
 *	`Cache-Control`
@@ -203,7 +203,7 @@ The {{site.data.keyword.cloudant_short_notm}} design document API and its functi
 #### Cache-Control
 {: #cache-control}
 
-The `Cache-Control` HTTP response header provides a suggestion for client caching mechanisms
+The `Cache-Control` HTTP response header provides a suggestion for the client cache mechanisms
 on how to treat the returned information.
 {{site.data.keyword.cloudant_short_notm}} typically returns the `must-revalidate` value,
 which indicates that the information must be revalidated if possible.
@@ -223,7 +223,7 @@ the returned MIME type is `text/plain`.
 All text is encoded in Unicode (UTF-8),
 which is explicitly stated in the returned `Content-Type` as `text/plain;charset=utf-8`.
 
-#### Etag
+#### `Etag`
 {: #etag}
 
 The `Etag` header is used to show the revision for a document,

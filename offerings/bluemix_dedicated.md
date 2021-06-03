@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-06-14"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -34,7 +34,7 @@ allocated to the environment. You can buy it by contacting your {{site.data.keyw
 
 {{site.data.keyword.cloud_notm}} Dedicated customers can also choose to use {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}} Public 
 by using the syndicated catalog, including the Lite and Standard plan instances. {{site.data.keyword.cloud_notm}} Dedicated users aren't eligible to buy the Dedicated Hardware plan from the 
-{{site.data.keyword.cloud_notm}} Public catalog. {{site.data.keyword.cloud_notm}} Dedicated users must leverage {{site.data.keyword.cloudant_short_notm}} Dedicated on 
+{{site.data.keyword.cloud_notm}} Public catalog. {{site.data.keyword.cloud_notm}} Dedicated users must use {{site.data.keyword.cloudant_short_notm}} Dedicated on 
 {{site.data.keyword.cloud_notm}} Dedicated if dedicated hardware is required.   
 
 The following screen capture shows where you select the Dedicated Hardware plan on the {{site.data.keyword.cloud_notm}} Dashboard when you create a resource. 
@@ -83,6 +83,6 @@ compliance is available upon request, so request HIPAA compliance during the pur
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is stored in triplicate 
 across three separate physical servers in a cluster. When available, you can provision accounts in multiple locations, 
 then use continuous data replication to provide HA/DR across data centers. {{site.data.keyword.cloudant_short_notm}} data isn't automatically 
-backed up, but supported tooling is provided to handle backups. Review the 
+backed up, but supported tools are provided to handle backups. Review the 
 [Disaster recovery and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide
 to explore all HA, DR, and backup considerations to meet your application requirements.

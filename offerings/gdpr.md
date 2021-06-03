@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-05-04"
+lastupdated: "2021-06-14"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -88,7 +88,7 @@ The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and 
 If you have an account that is provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance),
 {{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data that was previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
-Do not use sensitive data for {{site.data.keyword.cloudant_short_notm}} instance names when provisioning via {{site.data.keyword.cloud_notm}}, such as: Personal Information (PI), Personal Identifying Information (PII), and Customer specific Data.
+Do not use sensitive data for {{site.data.keyword.cloudant_short_notm}} instance names when you provision by using {{site.data.keyword.cloud_notm}}, such as: Personal Information (PI), Personal Identifying Information (PII), and Customer-specific Data.
 {: important}
 
 {{site.data.keyword.cloudant_short_notm}} processes limited customer PI in the course of running the service and optimizing

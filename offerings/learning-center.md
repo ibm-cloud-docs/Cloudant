@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-06-09"
 
 keywords: videos
 
@@ -28,7 +28,7 @@ subcollection: Cloudant
 # Learning Center
 {: #learning-center}
 
-The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}} and walk through document structure, the API, indexing and querying, and include an "Under the Hood" topic that highlights the architecture that powers the service.
+The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}}. The videos then walk through document structure, the API, indexing and querying, and include an "Under the Hood" topic that highlights the architecture that powers the service.
 {: shortdesc}
 
 You can use the [playlist](https://youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing from the following list:
@@ -56,7 +56,7 @@ This video is part 1 - *What is {{site.data.keyword.cloudant_short_notm}}?*
 
 {{site.data.keyword.cloudant_short_notm}} wasn't written entirely by IBM. It is based on Apache CouchDB, an open source project run by the Apache Foundation. {{site.data.keyword.cloudant_short_notm}} employs a number of CouchDB contributors but by the rules of Apache, they cannot monopolize its development.
 
-Much of what you see in this course is applicable to Apache CouchDB as it is to {{site.data.keyword.cloudant_short_notm}}. Their APIs are 99% the same - I point out where they diverge.
+Much of what you see that is in this course is as applicable to Apache CouchDB as it is to {{site.data.keyword.cloudant_short_notm}}. Their APIs are 99% the same - I point out where they diverge.
 
 {{site.data.keyword.cloudant_short_notm}} can be thought of as CouchDB run "as-a-service". An {{site.data.keyword.cloudant_short_notm}} service is easily deployed and is managed by IBM engineers 24-7. There's no software to install, no servers to manage, no configuration to understand. The user doesn't need to be a CouchDB expert to use and manage it.
 
@@ -87,7 +87,7 @@ In the previous section, we saw that {{site.data.keyword.cloudant_short_notm}} i
 
 Most databases store their data in collections that are called tables, where each unit of data is a row, each with identical, fixed columns. The schema of each table is predefined: a list of columns with their name, date type, value constraints, and relations to other tables carefully defined. Each new record forms a row in a table.
 
-{{site.data.keyword.cloudant_short_notm}} is quite different!
+{{site.data.keyword.cloudant_short_notm}} is different!
 
 An {{site.data.keyword.cloudant_short_notm}} service includes collections that are called databases (instead of tables) each of which contain any number of documents.
 
@@ -123,7 +123,7 @@ It's true to say that there's no need to define your schema (field names, types,
 
 Developers like this flexibility because they can design their data in their code, turn it into JSON, and write it to the database.
 
-It's still important to think about the "shape of your data", especially in terms of how you are going to query and index it, as we see later.
+It's still important to think about what your data includes, especially in terms of how you are going to query and index it, as we see later.
 
 Data design is still required, but strictly speaking that database doesn't need to know about your schema.
 
@@ -168,7 +168,7 @@ Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course,
 
 This video is part 3 - *The Document `_id`*.
 
-In the previous section, we saw how data is stored in {{site.data.keyword.cloudant_short_notm}} documents with flexibility on how your application stores JSON objects in {{site.data.keyword.cloudant_short_notm}} databases. However, there are a few hard and fast rules.
+In the previous section, we saw how data is stored in {{site.data.keyword.cloudant_short_notm}} documents with flexibility on how your application stores JSON objects in {{site.data.keyword.cloudant_short_notm}} databases. However, a few hard and fast rules exist.
 
 One rule is that every document must contain a unique identifier that is called `_id`, which is a string. No two documents in the same database can have the same `_id` field. In other databases, you specify which column is the unique identifier, but in {{site.data.keyword.cloudant_short_notm}}, it's always `_id` and can't be changed.
 
@@ -226,15 +226,13 @@ You can see from the example on the right that our document has a revision token
 
 If we follow the lifecycle of a document, it starts with a `revision 1`. When it is modified later, it gets a `revision 2` and so on. With each incrementing revision number, the hash changes because the content of the document is being modified too.
 
-One thing to note:
-
-It is possible for a document to have more than one revision with the same number. That is two `revision 3s`. This scenario is called a *conflict* and is "normal" in some circumstances. We see why later in the course, but for now, we can assume that the revision number increments with each update to a document.
+Note that it is possible for a document to have more than one revision with the same number. In this case, two `revision 3s` exists. This scenario is called a *conflict* and is "normal" in some circumstances. We see why later in the course, but for now, we can assume that the revision number increments with each update to a document.
 
 Let's follow the lifecycle of an example {{site.data.keyword.cloudant_short_notm}} document:
 
 When a new document is created (whether with an auto-generated `_id` or user-supplied `_id`), it is allocated a `revision 1`. You are sent the token in the response to your API request. Normally, you can discard the rev (unless you intend to modify the document soon).
 
-When we modify a document whose `_rev` is at `revision 1` (notice we change the name in the document from Liz to Elizabeth), the document is saved and a `revision 2` token is generated and returned to you in the API response.
+When we modify a document whose `_rev` is at `revision 1`, the document is saved and a `revision 2` token is generated and returned to you in the API response. Notice that we change the name in the document from Liz to Elizabeth.
 
 All simple enough so far.
 
@@ -244,7 +242,7 @@ Unlike almost any other database, {{site.data.keyword.cloudant_short_notm}} keep
 
 In fact, the document's recent revision history (the tree of revisions - remember we could have more than one of each revision number) - is kept.
 
-You can't use {{site.data.keyword.cloudant_short_notm}}'s revision tree as a version control system to retrieve or *rollback* to an older revision. Once a revision is superseded, the document body of the older revision is deleted and its disk space is recovered in a process called *compaction*. Compaction occurs automatically in {{site.data.keyword.cloudant_short_notm}}, so it's not safe to assume that old revisions are available to be retrieved.
+You can't use {{site.data.keyword.cloudant_short_notm}}'s revision tree as a version control system to retrieve or *roll back* to an older revision. Once a revision is superseded, the document body of the older revision is deleted and its disk space is recovered in a process called *compaction*. Compaction occurs automatically in {{site.data.keyword.cloudant_short_notm}}, so it's not safe to assume that old revisions are available to be retrieved.
 {: note}
 
 To summarize, revision tokens are generated by the database on add,  edit, and delete. (You never need to create your own revision tokens.)
@@ -330,7 +328,7 @@ To open an {{site.data.keyword.cloudant_short_notm}} service's Dashboard, log in
 
 If you leave the dashboard window unattended for a length of time, you find yourself logged out (for security purposes) and must click **Launch** again.
 
-The dashboard has a number of tabs. Its default tab, **Databases**, lists the databases you created in groups of 20. Each database is shown with the number of documents it is storing and how much disk space is being used. Click a database name to examine its contents.
+The dashboard has a number of tabs. Its default tab, **Databases**, lists the databases that you created in groups of 20. Each database is shown with the number of documents it is storing and how much disk space is being used. Click a database name to examine its contents.
 
 To create a database, click **Create Database** and supply the name of the database to create.
 
@@ -391,7 +389,7 @@ Let's first use curl to fetch a web page - Google's home page.
 
    `alias acurl="curl -sgH 'Content-type: application/json'"` 
 
-   This `alias` is a shortcut called `acurl` that saves us further typing. This `acurl` command is an alias for curl but with the JSON content-type header and a couple of useful command-line switches.
+   This `alias` is a shortcut that is called `acurl` that saves us further typing. This `acurl` command is an alias for curl but with the JSON content-type header and a couple of useful command-line switches.
    {: note}
 
 4. Test the `alias` by fetching `acurl $URL/`. 
@@ -401,7 +399,7 @@ Let's first use curl to fetch a web page - Google's home page.
 
 5. Type `acurl $URL/_all_dbs` to see an array of databases.
 
-A quick note here on formatting JSON on the command line. We can send the output of our `acurl` command to another tool, which formats the data nicely on the terminal. A couple tools are available for you to use:
+A quick note here on formatting JSON on the command line. We can send the output of our `acurl` command to another tool, which formats the data nicely on the terminal. The following tools are available for your use:
 
 - Jq available from the URL on screen, which is more than just a JSON formatter - it allows JSON to be parsed, queried, and manipulated too.
 - `python -m json.tool` is a simple JSON formatter, if Python is installed on your computer.
@@ -441,7 +439,7 @@ So to write a new document to our `books` database that uses the API, we're goin
 
 Alternatively, we can use the `PUT` method, if we are supplying the ID of the document that is being written. The URL becomes `$URL/books/` followed by the ID we want to write.
 
-Both write methods yield identical responses. OK: True to show that the write was successful. ID being the document ID written, and rev being the revision token that was generated by the database.
+Both write methods yield identical responses. `OK:` True to show that the write was successful. ID being the document ID written, and rev being the revision token that was generated by the database.
 
 To modify a document, we can use the PUT method to write the new body to the URL that points to the document ID we want to overwrite. `-d` supplies the new document body, and the URL not only contains the database and ID of the document, but critically the rev - the revision of the document we intend to mutate.
 
@@ -483,14 +481,14 @@ This video is part 8 - *The Bulk API*.
 
 In the previous part, we saw how documents could be easily added, updated, and deleted singly by using the {{site.data.keyword.cloudant_short_notm}} HTTP API. In this part, we see how two API calls can be used to achieve all the basic {{site.data.keyword.cloudant_short_notm}} operations. The added benefit of that is being able to act on more than one document per API call.
 
-We've already discussed the `_all_docs` endpoint. We used it to fetch a list of all the documents in a database, but it has other features too.
+We already discussed the `_all_docs` endpoint. We used it to fetch a list of all the documents in a database, but it has other features too.
 
 The key parameter can be used to specify a single document to fetch, making it equivalent to the `GET /db/id` API call.
 Similarly, the keys parameter takes an array of document IDs and returns them all.
 The `startkey` and `endkey` parameters fetch a slice of the primary index between the supplied limits. Adding `include_docs=true` instructs {{site.data.keyword.cloudant_short_notm}} to supply the document bodies too.
 And limit specifies how many documents to return in one API call.
 
-The `_bulk_docs` endpoint allows multiple insert, update, and delete operations to be performed in one API call. It expects an object that contains a docs array - each element of that array is an operation to perform on a single document. The request body is posted to {{site.data.keyword.cloudant_short_notm}}, allowing many operations to be packed into a single API call.
+The `_bulk_docs` endpoint allows multiple inserts, updates, and deletes operations to be performed in one API call. It expects an object that contains a docs array - each element of that array is an operation to perform on a single document. The request body is posted to {{site.data.keyword.cloudant_short_notm}}, allowing many operations to be packed into a single API call.
 
 In this example, the first document is an insert because no revision token is supplied. The second document is an update to a document because a revision token is supplied with a new document body. The third document is a deletion. A revision token is supplied, but the body is simply `_deleted: true`, which tells {{site.data.keyword.cloudant_short_notm}} to mark the document as deleted.
 
@@ -543,9 +541,9 @@ To summarize, the official libraries for {{site.data.keyword.cloudant_short_notm
 The libraries handle two things for you, which is useful:
 
 - Authentication - exchanging your keys for tokens, whether it be legacy authentication or IAM.
-- Retry logic - the libraries can be configured to retry API calls that exceeded your provisioned capacity. If configured this way, they pause and reattempt the API call multiple times with exponential back-off
+- Retry logic - the libraries can be configured to retry API calls that exceeded your provisioned capacity. If configured this way, they pause and reattempt the API call multiple times with exponential back-off.
 
-Retrying such API calls is sensible if you have a temporary and unexpected elevation in traffic, but if you are routinely exceeding your provisioned capacity, no amount of retrying gets the database work done - you need more capacity!
+Retrying such API calls is sensible if you have a temporary and unexpected elevation in traffic. If you are routinely exceeding your provisioned capacity, no amount of retrying gets the database work done - you need more capacity!
 {: note}
 
 That's the end of this part. The next part is called *Querying*.
@@ -580,9 +578,9 @@ Querying comes in here....
 
 {{site.data.keyword.cloudant_short_notm}} Query's language was inspired by the MongoDB query language. Queries are expressed in JSON, where the `selector` attribute describes the subset of data to return. The query JSON is posted to the database's `_find` endpoint to perform a query.
 
-The simplest form of query is finding documents where an attribute has a fixed value for example, where `author == J Smith`.
+The simplest form of query is finding documents where an attribute has a fixed value, for example, where `author == J Smith`.
 
-The second example shows two clauses in the query. Both clauses must be satisfied for a document to make it into the search results for example, where `isbn === 6725252` AND `date = 2018-01-01`.
+The second example shows two clauses in the query. Both clauses must be satisfied for a document to make it into the search results, for example, where `isbn === 6725252` AND `date = 2018-01-01`.
 
 The third example shows how logical operators can be added. The `$gt` operation means `greater than` (there's also `gte` for greater than or equal to, and `lt/lte` for the equivalent less than comparators). The `$or` operator is an `OR` operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
 
@@ -591,7 +589,7 @@ If you need to access objects within documents, you can use standard dot notatio
 
 We can also add the following parameters:
 
-- Fields - Specifies the document attributes we want returned (the default is the entire document).
+- Fields - Specifies the document attributes that we want returned (the default is the entire document).
 - Sort – Defines how the data is to be sorted. Sort is an array, allowing the sort to be calculated on multiple attributes.
 - Limit – The number of documents to return.
 
@@ -624,7 +622,7 @@ To summarize, {{site.data.keyword.cloudant_short_notm}} Query is a query languag
 
 Queries select subsets of documents from the database by using clauses that operate on data inside the document - not just the document's `_id`.
 
-Queries are sent to the database's `_find` endpoint, either programmatically, using curl, or by using the Dashboard.
+Queries are sent to the database's `_find` endpoint, either programmatically, by using curl, or by using the Dashboard.
 
 The query's selector decides which cut of data is required,
 
@@ -651,13 +649,13 @@ To make queries that are run in a performant and scalable way, we need *Indexing
 
 With {{site.data.keyword.cloudant_short_notm}}, you can specify any number of *Indexes* (or indices).
 
-An index is a secondary data structure that is built from the document list. It contains data that is sorted by the fields you specify for example, books that are sorted by date and title. If you perform a query that asks for data that matches a document's date and title, the indexed data structure can be used to speed up the query process. Instead of scanning through every document in turn, {{site.data.keyword.cloudant_short_notm}} can jump to the relevant part of the index (say, the section on 20th century books) and retrieve the data much more quickly.
+An index is a secondary data structure that is built from the document list. It contains data that is sorted by the fields you specify, for example, books that are sorted by date and title. If you perform a query that asks for data that matches a document's date and title, the indexed data structure can be used to speed up the query process. Instead of scanning through every document in turn, {{site.data.keyword.cloudant_short_notm}} can jump to the relevant part of the index (say, the section on 20th century books) and retrieve the data much more quickly.
 
-There are two types of {{site.data.keyword.cloudant_short_notm}} Query indexes: `type=json` and `type=text`. These indexes are backed by two underlying indexing technologies we meet in subsequent parts of this course.
+{{site.data.keyword.cloudant_short_notm}} Query indexes include two types of indexes: `type=json` and `type=text`. These indexes are backed by two underlying indexing technologies we meet in subsequent parts of this course.
 
 An index is defined when you `POST` some JSON to a database's `_index` endpoint.
 
-The index object contains a fields array, which specifies which document attributes to index. As a general rule, the fields that need indexing are usually equivalent to the attributes used in the `selector` of a query you're going to use to retrieve the data. That is, if you need to query by the date field, we need to index the date field.
+The index object contains a fields array, which specifies which document attributes to index. Usually, the fields that need indexing are equivalent to the attributes used in the `selector` of a query you're going to use to retrieve the data. That is, if you need to query by the date field, we need to index the date field.
 
 Although the `name` of an index is optional, it's good practice and we follow this convention. It's good to ask {{site.data.keyword.cloudant_short_notm}} a question and specify the name of the index you intend it to use. This practice saves {{site.data.keyword.cloudant_short_notm}} from having to choose which index to use from the available ones, and it makes it easy for you to remember which index is which.
 
@@ -680,9 +678,9 @@ When you tell {{site.data.keyword.cloudant_short_notm}} to create a secondary in
 
 The index can be used to efficiently look up known keys and ranges of keys without having to rescan the entire database.
 
-There is another trick that can be employed at index time - the partial filter. You can optionally supply a partial filter in your index definition. This {{site.data.keyword.cloudant_short_notm}} Query selector is executed at index time to decide which documents' data makes it to the index and which are ignored.
+Another trick that you can employ at index time is the partial filter. You can optionally supply a partial filter in your index definition. This {{site.data.keyword.cloudant_short_notm}} Query selector is executed at index time to decide which documents' data makes it to the index and which are ignored.
 
-In this example, a selector is employed that allows only dates that fall on a weekend to make it to the index. Smaller indexes are faster and more efficient. If you have a use-case that needs only a subset of the data to be indexed for example, only completed orders, or only expired accounts, or only published blog posts, then a partial filter selector at index-time can help to make the index smaller and more efficient.
+In this example, a selector is employed that allows only dates that fall on a weekend to make it to the index. Smaller indexes are faster and more efficient. If you have a use-case that needs only a subset of the data to be indexed, then a partial filter selector at index-time can help to make the index smaller and more efficient. For example, you might want to index only completed orders, or only expired accounts, or only published blog posts.
 
 To summarize, the `_index` endpoint is used to define the index, and an optional partial filter can be applied at query time to make smaller, sparse indexes.
 
@@ -703,7 +701,7 @@ Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course,
 
 This video is part 12 - *MapReduce*.
 
-We saw how a combination of the `_find` and `_index` endpoints allow queries to be performed on the contents of JSON documents. They are backed by secondary indexes to make queries scale as your application grows.
+We saw how a combination of the `_find` and `_index` endpoints allows queries to be performed on the contents of JSON documents. They are backed by secondary indexes to make queries scale as your application grows.
 
 In this part, we introduce another way of configuring secondary indexes that are called MapReduce.
 
@@ -717,13 +715,13 @@ Let's look at some example JavaScript functions.
 
 The function accepts one parameter - the document that is passed to it by the {{site.data.keyword.cloudant_short_notm}} indexer. Every time your function calls emit the parameters that you pass from the key-value of the index.
 
-The first example emits a key of `doc.name`, so this is an index for lookups by the name field, and there is nothing (null) for the value.
+The first example emits a key of `doc.name`, so in this case, it is an index for lookups by the name field. There is nothing (null) for the value.
 
 The second example pre-processes the data before emitting. This pre-processing is a useful way of tidying up strings, trimming whitespace, lower and uppercasing text, applying default values to missing data, or constraining values to certain ranges, and so on.
 
 The third example adds logic: only documents that are `published` make it to the index. This logic is equivalent to the partial filter selector we saw with {{site.data.keyword.cloudant_short_notm}} Query.
 
-Indexes build asynchronously and cannot be used until they build completely. Once built, they can be used for selection by key, lists of keys, ranges of keys, and aggregation of data for example, "Find orders between two dates, and calculate the total value of the orders, grouped by month."
+Indexes build asynchronously and cannot be used until they build completely. Once built, they can be used for selection by key, lists of keys, ranges of keys, and aggregation of data. For example, "Find orders between two dates, and calculate the total value of the orders, which are grouped by month."
 
 {{site.data.keyword.cloudant_short_notm}} includes the four built-in reducers (or five if you count `none`).
 
@@ -753,7 +751,7 @@ MapReduce views are built asynchronously and can take some time to be ready for 
 Here's some tips:
 
 Use logic in your JavaScript to include only data that makes sense, for example, totalize only completed orders.
-Indexed keys don't have to be strings. A common pattern is to use array keys for example, an array of year, month, day. These index keys allow query-time grouping by elements in the array. For example, you can group orders by year, orders by year and month, orders by year and month and day - great for summary reports that allow the user to drill down into the detail.
+Indexed keys don't have to be strings. A common pattern is to use array keys, for example, an array of year, month, day. These index keys allow query-time grouping by elements in the array. For example, you can group orders by year, orders by year and month, orders by year and month and day. Great for summary reports that allow the user to drill down into the detail.
 The value can by a string, number, or sometimes a small object that contains a subset of the document. The object can be used instead of adding `include_docs=true`, which would also return the document's body in the result set.
 
 To summarize, MapReduce is a low-level means of defining indexes that allow the selection and aggregation of data.
@@ -785,7 +783,7 @@ We saw earlier in this course that JSON only natively models strings, numbers, b
 
 The ISO-8601 string format for representing a time consists of a `y-m-dTh:m:s.msTIMEZONE` year, month, day, a 'T' character, hour, minute, second, millisecond, and time zone.
 
-I always recommend storing dates in the UTC time zone even if you collect data from different geographies. Date that is stored in this form can easily be transformed into the local time zone  at the front end, but it's usually important to store each user's data in the 'same units".
+I always recommend storing dates in the UTC time zone even if you collect data from different geographies. Date that is stored in this form can easily be transformed into the local time zone at the front end. It's usually important to store each user's data in the "same units".
 
 This string format sorts into date and time order (because the most significant date units are at the front of the string) and can be easily parsed in MapReduce functions.
 
@@ -793,7 +791,6 @@ Another option is to store the number of milliseconds since 01-January-1970. Thi
 
 It too can be parsed in MapReduce functions and is handy for comparing two dates: simply take one timestamp from another.
 
-The third option is to store each date and time component in separate fields. This option is more verbose than the previous options but has one key advantage if you're using {{site.data.keyword.cloudant_short_notm}} Query. {{site.data.keyword.cloudant_short_notm}} Query can act only upon data in the form it exists in the document itself. If you need to query on a single date component for example, the month, then you'd need that item that is broken out in the document.
 
 To summarize, there's no native date format in JSON, so you can store dates and times how you like. ISO-8601 is compact, readable, and sorts nicely, as do a timestamp (milliseconds since 1970).
 
@@ -826,10 +823,10 @@ PouchDB, a JavaScript-based CouchDB clone that runs in Node.js stacks or in the 
 
 The {{site.data.keyword.cloudant_short_notm}} Sync libraries are native iOS or Android apps that sync data to and from an {{site.data.keyword.cloudant_short_notm}} service.
 
-Replication is a one-way operation from source to target, which moves all data (deletions, conflicts, attachments, as well as documents) and can be triggered in one of two ways:
+Replication is a one-way operation from source to target, which moves all data (deletions, conflicts, attachments, as well as documents) and can be triggered in 1 of 2 ways:
 
 1. Run until all the data from the source reaches the target and then stop. 
-2. The same as one, but keep the replication running continuously forever, transferring new data from the source to the target as it arrives.
+2. The same as one, but the replication runs continuously forever, transferring new data from the source to the target as it arrives.
 
 Replication can also be resumed from where it last stopped. {{site.data.keyword.cloudant_short_notm}} keeps a note of `checkpoints` between replicating parties to allow the resumption of a pre-existing replication from its last known position.
 
@@ -846,13 +843,13 @@ Now it's time for a practical exercise.
 5. Add a document to the `books` database.
 6. Verify that the change makes it to the `books2` database.
 
-Replication can be used to move data from an {{site.data.keyword.cloudant_short_notm}} database to an on-premises CouchDB instance. The replication can be controlled by {{site.data.keyword.cloudant_short_notm}} or CouchDB. For example, you can ask {{site.data.keyword.cloudant_short_notm}} to send its changes to CouchDB, or you can ask CouchDB to pull the changes from {{site.data.keyword.cloudant_short_notm}}. Remember that the replication controller must have network visibility of both HTTP APIs.
+Replication can be used to move data from an {{site.data.keyword.cloudant_short_notm}} database to an on-premises CouchDB instance. The replication can be controlled by {{site.data.keyword.cloudant_short_notm}} or CouchDB. For example, you can ask {{site.data.keyword.cloudant_short_notm}} to send its changes to CouchDB, or you can ask CouchDB to pull the changes from {{site.data.keyword.cloudant_short_notm}}. The replication controller must have network visibility of both HTTP APIs.
 
 PouchDB also speaks the same replication protocol, so it can be used to transfer data to and from PouchDB and {{site.data.keyword.cloudant_short_notm}}. It's most likely that PouchDB would be the replication controller in this case.
 
 PouchDB is commonly used to create offline first apps. These apps collect data even when not connected to the internet, and then write data to {{site.data.keyword.cloudant_short_notm}} when they come back online, giving their users an always on service.
 
-Remember that replication cannot always be required. If your application needs to store data and then write it to {{site.data.keyword.cloudant_short_notm}} later, then replication isn't strictly speaking required. All that is required is that data is stored on the device, and bulk is written to {{site.data.keyword.cloudant_short_notm}} when the connection is restored.
+Replication cannot always be required. If your application needs to store data and then write it to {{site.data.keyword.cloudant_short_notm}} later, then replication isn't strictly speaking required. All that is required is that data is stored on the device, and bulk is written to {{site.data.keyword.cloudant_short_notm}} when the connection is restored.
 
 As replication is a one-way operation, if a primary-primary setup is required between two {{site.data.keyword.cloudant_short_notm}} instances in different regions, then two replications in opposite directions are required.
 
@@ -909,9 +906,9 @@ This scenario makes for faster query performance, cheaper query costs, and bette
 The key to great partitioned query performance is the choice of partition key:
 
 It needs to be a value that repeats within your data set. For example, several items exist in the `book` partition.
-There needs to be many partitions. If you only have a small number of categories, then category is a bad choice of partition key. It needs to be something that has many values for example, `deviceId` in an IoT application or `orderId` in an e-commerce system.
+There needs to be many partitions. If you have only a few categories, then category is a bad choice of partition key. It needs to be something that has many values, for example, `deviceId` in an IoT application or `orderId` in an e-commerce system.
 It needs to match the queries that your application is making. If the most common use-case is searching within a product category, then partitioning by category might be a good fit.
-Avoid hot partitions - traffic must be evenly spread across your partitions. If your choice of partition key is likely to lead to a large increase in traffic hitting a few partitions, then this scenario makes for a poor choice of partition key.
+Avoid hot partitions - traffic must be evenly spread across your partitions. If your choice of partition key is likely to lead to a large increase in traffic that hits a few partitions, then this scenario makes for a poor choice of partition key.
 
 To summarize, partitioned databases are created with the `partitioned=true` flag, and documents have a two-part ID where the partition key and document key are joined by a colon character.
 
@@ -941,7 +938,7 @@ We have another method of querying and indexing in {{site.data.keyword.cloudant_
 
 {{site.data.keyword.cloudant_short_notm}} Search is built on another open source project, Apache Lucene, which powers the search capabilities of many products that include Elasticsearch.
 
-It is primarily designed for free text search, where blocks of text are pre-processed before they are indexed: removing case, punctuation, common noise words, and trimming common language-specfic word endings for example, farmer becomes farm, and farms becomes farm.
+It is primarily designed for free text search, where blocks of text are pre-processed before they are indexed: removing case, punctuation, common noise words, and trimming common language-specfic word endings, for example, farmer becomes farm, and farms becomes farm.
 
 This text-processing is performed by a choice of analyzers at query time, searching. Before this time, it also allows some aggregation functionality that uses a technique that is called faceting.
 
@@ -991,7 +988,7 @@ This video is part 17 - *Geospatial*.
 
 The final means of querying data in {{site.data.keyword.cloudant_short_notm}} is using geospatial indexes.
 
-Geospatial indexes are unique to {{site.data.keyword.cloudant_short_notm}}. You won't find them in the CouchDB codebase.
+Geospatial indexes are unique to {{site.data.keyword.cloudant_short_notm}}. CouchDB codebase does not include geospatial indexes.
 
 Data is stored as GeoJSON in the {{site.data.keyword.cloudant_short_notm}} database to describe point, line, polygon, multi-point, multi-line, and multi-polygon objects. Each object, as well as the geographic information, can have optional properties: Metadata about the object, which is returned in the search results.
 
@@ -1016,7 +1013,7 @@ Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course,
 
 This video is part 18 - *Under the hood*.
 
-Let's look at how an {{site.data.keyword.cloudant_short_notm}} service is organized: This overview applies to the {{site.data.keyword.cloudant_short_notm}} services that map to CouchDB 2 and 3. CouchDB 4 will be built on different technology.
+Let's look at how an {{site.data.keyword.cloudant_short_notm}} service is organized: This overview applies to the {{site.data.keyword.cloudant_short_notm}} services that map to CouchDB 2 and 3. CouchDB 4 is built on different technology.
 
 {{site.data.keyword.cloudant_short_notm}} is a distributed database with data that is stored around a cluster of storage nodes. Picture the {{site.data.keyword.cloudant_short_notm}} service as ring of nodes, in this case twelve. Every node can deal with incoming API calls and every node has responsibility for storing some of the data: shards and associated secondary indexes of databases that exist in the cluster.
 
@@ -1036,9 +1033,9 @@ It's the same story for reads. Service continues with a failed node. We can surv
 
 Or more failed nodes. If a copy of each node exists, the API continues to function.
 
-When a node returns, it catches up any missed data from its peers and then return into service, handling API calls and answering queries for data.
+When a node returns, it catches up any missed data from its peers and then returns into service, handling API calls and answering queries for data.
 
-The nature of this configuration is that {{site.data.keyword.cloudant_short_notm}} exhibits eventual consistency. Any node can handle a request and data is distributed around nodes without the sort of locking you would see in a relational database.
+The nature of this configuration is that {{site.data.keyword.cloudant_short_notm}} exhibits eventual consistency. Any node can handle a request. Data is distributed around nodes without the sort of locking you might see in a relational database.
 
 {{site.data.keyword.cloudant_short_notm}} favors availability over consistency: It would rather be up and answering API calls than be down because it can't provide consistency guarantees. (A relational database is often configured in the opposite way: It operates in a consistent manner or not at all.)
 The upshot of eventual consistency for a developer is that your app must not `read its writes` in a short time. There might be a small time window in which it is possible to see an older version of a document than the one you updated. Eventually, the data flows around the cluster, and in most cases, the quorum mechanism provides the illusion of consistency, but it is best not to rely on it.
@@ -1054,9 +1051,9 @@ To check a document for conflicts, simply add `?conflicts=true` to a fetch of a 
 
 Unwanted revisions can be removed by using the normal `DELETE` operation, specifying the rev token of the revision you want to delete. The bulk API is also good for removing conflicting revisions, even for removing multiple conflicts from the same document.
 
-To summarize, {{site.data.keyword.cloudant_short_notm}} is a distributed service that stores databases which are broken into multiple shards, with three copies of each shard spread around a ring of storage nodes. {{site.data.keyword.cloudant_short_notm}} is eventually consistent, favoring high availability over strong consistency.
+To summarize, {{site.data.keyword.cloudant_short_notm}} is a distributed service that stores databases, which are broken into multiple shards, with three copies of each shard spread around a ring of storage nodes. {{site.data.keyword.cloudant_short_notm}} is eventually consistent, favoring high availability over strong consistency.
 
-Avoid writing to the same document over and over so as not to create conflicts. Although, conflicts are sometime inevitable in replicating situations.
+Avoid writing to the same document over and over so as not to create conflicts. Although conflicts are sometime inevitable in replication situations.
 
 Embrace eventual consistency - don't try to make {{site.data.keyword.cloudant_short_notm}} consistent.
 

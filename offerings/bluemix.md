@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-06-14"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -60,7 +60,7 @@ The Lite plan is free, and is designed for development and evaluation purposes. 
 Storage usage is checked daily. If you exceed your 1-GB storage limit, requests to the {{site.data.keyword.cloudant_short_notm}} instance receive a
 402 status code with the following error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required." A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan), which removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again.
 
-If you want to store more than 1 GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
+If you want to store more than one GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
 You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you can't create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, you see the following message, "You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
 
@@ -136,9 +136,9 @@ The measurement of throughput is a simple count of the number of events of each 
 per second,
 where the second is a *sliding* window.
 
-If your account exceeds the number of throughput events allotted, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number provisioned. It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
+If your account exceeds the number of throughput events that are allotted, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number that is provisioned. It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 read events during a consecutive period of 1,000 milliseconds (1 second). Subsequent read requests made during the sliding 1,000-millisecond period
+For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 read events during a consecutive period of 1,000 milliseconds (1 second). Subsequent read requests that are made during the sliding 1,000-millisecond period
 are rejected until the number of read events in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
@@ -224,7 +224,7 @@ Using appropriate indexes is key for reducing read consumption for partitioned
 
 [Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with reaching the provisioned throughput capacity limits set for the instance.
 
-You can use the default parameters and replicate a database with a large backlog of documents. In that case, a single replication job consumes close to 2500 - 3000 reads per second on the source database and a small number of writes per second on the target database. Users can reduce the approximate read throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+You can use the default parameters and replicate a database with a large backlog of documents. In that case, a single replication job consumes close to 2500 - 3000 reads per second on the source database and a few writes per second on the target database. Users can reduce the approximate read throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads per second on source database |
 |------------------|------------------|-------------------------------------|
@@ -254,7 +254,7 @@ The checkmark turns yellow and says `Updating Capacity` until the target capacit
 
 ![Success message](../images/capacity-4.png){: caption="Figure 4. Success message" caption-side="bottom"}
 
-Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity. One hundred blocks of capacity equals 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the `Need additional capacity?` tab on the Capacity page.
+Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity. One hundred blocks of capacity equal 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the `Need additional capacity?` tab on the Capacity page.
 {: note}
 
 #### UI - Cloud Foundry org and space

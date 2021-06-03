@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-06-04"
 
 keywords: lite plan, standard plan, pricing plans
 
@@ -27,7 +27,7 @@ subcollection: Cloudant
 # Migrating from a Lite plan to a Standard plan
 {: #migrating-from-a-lite-plan-to-a-standard-plan}
 
-Migration from the free Lite plan to the Standard plan includes these tasks, which are described in the following steps. 
+Migration from the free Lite plan to the Standard plan includes the tasks described in the following steps. 
 {: shortdesc}
 
 1.  Go to the [{{site.data.keyword.cloud}} dashboard](https://cloud.ibm.com/).
