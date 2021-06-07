@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-24"
+  years: 2015, 2021
+lastupdated: "2021-06-07"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -25,14 +25,13 @@ subcollection: Cloudant
 
 # Audit logging
 {: #audit-logging}
-
-Audit logs are available for {{site.data.keyword.cloudant_short_notm}}. You can find more details on how to obtain audit logs depending on whether you use {{site.data.keyword.cloudantfull}} or outside {{site.data.keyword.cloud}}.
+{{site.data.keyword.cloudantfull}}. You can find more details on how to obtain audit logs depending on whether you use {{site.data.keyword.cloudant_short_notm}} or outside {{site.data.keyword.cloud}}.
 {: shortdesc}
 
 ## IBM Cloudant for IBM Cloud
 {: #audit-logs-ibm-cloud}
 
-Users of {{site.data.keyword.cloudant_short_notm}} can use {{site.data.keyword.at_full}} to access audit logs for the service. {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the {{site.data.keyword.cloud_notm}} Auditing Data Federation (CADF) standard. For more information, see the [{{site.data.keyword.at_full_notm}} events](/docs/services/Cloudant?topic=Cloudant-at_events){: new_window}.
+Users of {{site.data.keyword.cloudant_short_notm}} can use {{site.data.keyword.at_full}} to access audit logs for the service. {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the {{site.data.keyword.cloud_notm}} Auditing Data Federation (CADF) standard. For more information, see [{{site.data.keyword.at_full_notm}} events](/docs/services/Cloudant?topic=Cloudant-at_events){: new_window}.
 
 ## {{site.data.keyword.cloudant_short_notm}} not in {{site.data.keyword.cloud_notm}}
 {: #audit-logs-not-ibm-cloud}

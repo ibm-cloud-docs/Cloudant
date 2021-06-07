@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-24"
+  years: 2019, 2021
+lastupdated: "2021-06-07"
 
 keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Understanding your responsibilities when you use {{site.data.keyword.cloudant_short_notm}}
 {: #cloudant-responsibilities}
 
-Learn about the management responsibilities, and terms and conditions, that you own when you use {{site.data.keyword.cloudant_short_notm}}. For a high-level view of the service types in {{site.data.keyword.cloud}}, and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities). 
+Learn about the management responsibilities, and terms and conditions, that you own when you use {{site.data.keyword.cloudant_short_notm}}. For a high-level view of the service types in {{site.data.keyword.cloud}}, and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for using {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities). 
 {: shortdesc}
 
 Review the following sections to understand the specific responsibilities between you and {{site.data.keyword.IBM_notm}} when you use {{site.data.keyword.cloudant_short_notm}}. For the overall terms of use, see [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview/terms-of-use?topic=overview-terms). 
@@ -41,7 +41,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 |HA/DR (multi-zone region) | {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on separate servers that are spread across three separate availability zones by default.  | |
 |HA/DR (single-zone region)| {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on three separate physical servers within the availability zone by default.  | |
 |Back up and restore|   | Customer is responsible for backup and restore of data to roll back to a previous state in the database. See [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery) documentation for recommended tooling. |
-{: caption="Table 1. Responsibilities for incident and operations" caption-side="top"}
+{: caption="Table 1. Responsibilities for incidents and operations" caption-side="top"}
 {: summary="The rows are read from left to right. The first column describes the task that the customer or {{site.data.keyword.IBM_notm}} might be responsible for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 
 ## Change management
