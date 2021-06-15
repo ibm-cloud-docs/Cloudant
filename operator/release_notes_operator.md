@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-06-15"
 
 keywords: couchdb, operator, release notes
 
@@ -28,6 +28,23 @@ subcollection: Cloudant
 
 Changes and updates to Operator for Apache CouchDB that are grouped by version number.
 {: shortdesc}
+
+## v1.4.4 (15 June 2021)
+{: #v1.4.4}
+
+### Bug fixes
+{: #bug-fixes-144}
+
+ - Container updates to address multiple CVEs.
+
+## v1.4.3 (30 March 2021)
+{: #v1.4.3}
+
+### Bug fixes
+{: #bug-fixes-143}
+
+ - Updated license files.
+ - Container updates to address multiple CVEs.
 
 ## v1.4.2 (30 November 2020)
 {: #v1.4.2}
