@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-15"
+lastupdated: "2021-06-17"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -36,7 +36,7 @@ As always, successful modeling involves achieving a balance between ease of use 
 performance characteristics you're hoping to achieve.
 {: shortdesc}
 
-*(The FAQ for modeling data to scale is based on a blog article by Mike Rhodes: [My top five tips for modeling your data to scale](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/){: new_window}{: external}, originally published 17 December 2013.)*
+(The FAQ for modeling data to scale is based on a blog article by Mike Rhodes, *My top five tips for modeling your data to scale*, originally published 17 December 2013.)
 
 ## When must I make my documents immutable?
 {: #consider-immutable-data}

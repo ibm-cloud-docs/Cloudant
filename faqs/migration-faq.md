@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-14"
+lastupdated: "2021-06-17"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan
 
@@ -40,7 +40,7 @@ You can migrate to a Lite or Standard plan from one of the following plans:
 
 For more information, see [Migrating an Enterprise plan to a Lite or Standard plan](/docs/Cloudant?topic=Cloudant-migrating-an-enterprise-plan-to-a-lite-or-standard-plan).
 
-Or you can migrate from the free Lite plan to a Standard plan, which is just upgrading from the Lite plan to the Standard plan. For more information, see [Migrating from a Lite plan to a Standard plan](/docs/Cloudant?topic=Cloudant-migrating-from-a-lite-plan-to-a-standard-plan). Or  
+Or you can migrate from the free Lite plan to a Standard plan, which is just upgrading from the Lite plan to the Standard plan. For more information, see [Migrating from a Lite plan to a Standard plan](/docs/Cloudant?topic=Cloudant-migrating-from-a-lite-plan-to-a-standard-plan).  
 
 ## Can I back up my data before I migrate?
 {: #can-i-back-up-my-data-before-doing-anything-}
