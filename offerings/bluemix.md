@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-06-22"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -46,11 +46,9 @@ within a US location, you can optionally select a [HIPAA](https://en.wikipedia.o
 {: #plans-and-provisioning}
 
 You can select which plan to use when you
-[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud).
-By default,
-the [Lite plan](#lite-plan) is selected.   
+[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud). The plans are Lite, Standard, and Standard on Transaction Engine. When you select a plan, Capacity displays, and the Cost estimator shows the monthly charge for the selected plan. By default, the [Lite plan](#lite-plan) is selected. 
 
-![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../images/lite_pricing_plan.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} service instance plan selection" caption-side="bottom"}
+![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../tutorials/images/img0005c.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} service instance plan selection" caption-side="bottom"}
 
 ### Lite plan
 {: #lite-plan}
@@ -232,6 +230,7 @@ You can use the default parameters and replicate a database with a large backlog
 | 6 | 2 | 1000 |
 | 12 | 3 | 2000 |
 | 20 | 4 | 3000 (This value is the default.) |
+{: caption="Table 3. Reduce read capacity" caption-side="top"}
 
 ### Viewing and changing capacity
 {: #viewing-and-changing-capacity}
@@ -246,11 +245,11 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
 
 ![Capacity](../images/capacity-1.png){: caption="Figure 2. Capacity" caption-side="bottom"}
 
-To change the target capacity, slide the capacity slider to the setting you need, and click **Update Capacity**. A confirmation window appears. Click **OK** to confirm.   
+To change the target capacity, slide the capacity slider to the setting you need, and click **Update to Standard Plan**. Select the pricing plan you want, and click **Save**. Select the type of account you're looking for by clicking **Go.**   
 
 ![Capacity change confirmation](../images/capacity-3.png){: caption="Figure 3. Capacity change confirmation" caption-side="bottom"}
 
-The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the checkmark turns green and says "Success. Your capacity will be updated shortly."  
+The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, "Success. Your capacity will be updated shortly."   
 
 ![Success message](../images/capacity-4.png){: caption="Figure 4. Success message" caption-side="bottom"}
 
@@ -366,7 +365,7 @@ Limit | Maximum Size
 Individual Document Size | 1 MB
 Single Attachment Size | 10 MB
 Request Body Size | 11 MB
-{: caption="Table 3. Maximum size limits for JSON documents and requests" caption-side="top"}
+{: caption="Table 4. Maximum size limits for JSON documents and requests" caption-side="top"}
 
 If you exceed these limits, a [413 response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} alerts you.
 
