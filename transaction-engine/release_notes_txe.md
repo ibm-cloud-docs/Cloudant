@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-06-21"
 
-keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91
+keywords: new features, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.93
 
 subcollection: Cloudant
 
@@ -37,8 +37,7 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 ## Build 2.93 (June 2021)
 {: #build-2.93-june-2021}
 
-- Return 403 for requests with `placement` parameter
-- Return 403 for requests with `q` or `n` parameters
+- Return 403 error for requests with the `placement`, `q`, or `n` parameters.
 
 ## Build 2.92 (May 2021)
 {: #build-2.92-may-2021}
