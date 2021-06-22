@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-09"
+lastupdated: "2021-06-14"
 
 keywords: videos
 
@@ -28,7 +28,7 @@ subcollection: Cloudant
 # Learning Center
 {: #learning-center}
 
-The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}}. The videos then walk through document structure, the API, indexing and querying, and include an "Under the Hood" topic that highlights the architecture that powers the service.
+The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}} and walk through document structure, the API, indexing and querying, and include an *Under the Hood* topic that highlights the architecture that powers the service.
 {: shortdesc}
 
 You can use the [playlist](https://youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing from the following list:
@@ -62,7 +62,7 @@ Much of what you see that is in this course is as applicable to Apache CouchDB a
 
 You can be sure that your data layer is not locked in to a particular platform, cloud, or vendor because {{site.data.keyword.cloudant_short_notm}} is being built on truly open source foundations. {{site.data.keyword.cloudant_short_notm}} can be used in concert with CouchDB to create hybrid applications that share data through replication, as we see.
 
-Later on in the course we look "under the hood" to see how {{site.data.keyword.cloudant_short_notm}} works, but initially we treat {{site.data.keyword.cloudant_short_notm}} as a "black box".
+Later on in the course we look *under the hood* to see how {{site.data.keyword.cloudant_short_notm}} works, but initially we treat {{site.data.keyword.cloudant_short_notm}} as a "black box".
 
 To summarize, Cloudant is based on Apache CouchDB, an open source project. It stores JSON documents. It is accessed with an HTTP API and can therefore be accessed by any device on the internet that speaks HTTP: application code, web browser, IoT device, or mobile phone. {{site.data.keyword.cloudant_short_notm}} is a highly available managed service able to continue to operate with multiple hardware failures.
 
@@ -123,7 +123,7 @@ It's true to say that there's no need to define your schema (field names, types,
 
 Developers like this flexibility because they can design their data in their code, turn it into JSON, and write it to the database.
 
-It's still important to think about what your data includes, especially in terms of how you are going to query and index it, as we see later.
+It's still important to think about the *shape of your data*, especially in terms of how you are going to query and index it, as we see later.
 
 Data design is still required, but strictly speaking that database doesn't need to know about your schema.
 
@@ -404,7 +404,7 @@ A quick note here on formatting JSON on the command line. We can send the output
 - Jq available from the URL on screen, which is more than just a JSON formatter - it allows JSON to be parsed, queried, and manipulated too.
 - `python -m json.tool` is a simple JSON formatter, if Python is installed on your computer.
 
-So `acurl $URL/_all_dbs | jq` means "pipe the output of acurl into jq" and what you see is a nicely formatted, colored output.
+So `acurl $URL/_all_dbs | jq` means *pipe the output of acurl into jq* and what you see is a nicely formatted, colored output.
 
 The {{site.data.keyword.cloudant_short_notm}} API paths are hierarchical with the first level that gives you information about the service, and then each database sits at a level beneath it.
 
@@ -574,7 +574,7 @@ These operations are the building blocks of a database, but they get you only so
 
 Querying comes in here....
 
-{{site.data.keyword.cloudant_short_notm}} has several methods for querying data. The first we look at is called "{{site.data.keyword.cloudant_short_notm}} Query".
+{{site.data.keyword.cloudant_short_notm}} has several methods for querying data. The first we look at is called *{{site.data.keyword.cloudant_short_notm}} Query*.
 
 {{site.data.keyword.cloudant_short_notm}} Query's language was inspired by the MongoDB query language. Queries are expressed in JSON, where the `selector` attribute describes the subset of data to return. The query JSON is posted to the database's `_find` endpoint to perform a query.
 
@@ -601,7 +601,7 @@ The JSON syntax might take a bit of getting used to, but MongoDB users might fin
 
 {{site.data.keyword.cloudant_short_notm}} queries can be executed in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Select the database that you are working with, for example, `books` then choose the Query tab.
 
-Enter your {{site.data.keyword.cloudant_short_notm}} Query JSON in the box that is provided, and click **Run Query** when you're ready. The result set appears on the rightmost panel.
+Enter your {{site.data.keyword.cloudant_short_notm}} Query JSON in the box that is provided, and click **Run Query** when you're ready. The result set appears on the right panel.
 
 The Explain button is used to provide an explanation on how the database interprets the supplied query. This explanation becomes more important when we get to Indexing in the next part.
 {: note}
@@ -721,7 +721,7 @@ The second example pre-processes the data before emitting. This pre-processing i
 
 The third example adds logic: only documents that are `published` make it to the index. This logic is equivalent to the partial filter selector we saw with {{site.data.keyword.cloudant_short_notm}} Query.
 
-Indexes build asynchronously and cannot be used until they build completely. Once built, they can be used for selection by key, lists of keys, ranges of keys, and aggregation of data. For example, "Find orders between two dates, and calculate the total value of the orders, which are grouped by month."
+Indexes build asynchronously and cannot be used until they build completely. Once built, they can be used for selection by key, lists of keys, ranges of keys, and aggregation of data for example, *Find orders between two dates, and calculate the total value of the orders, grouped by month.*
 
 {{site.data.keyword.cloudant_short_notm}} includes the four built-in reducers (or five if you count `none`).
 

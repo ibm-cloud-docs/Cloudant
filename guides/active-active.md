@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-14"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -34,8 +34,8 @@ explains that one way to enable disaster recovery is to use
 [
 For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs) and monitor replication status.
 
-You can configure replication in {{site.data.keyword.cloudant_short_notm}} by using an 'active-active'
-or 'active-passive' topology across data centers.
+You can configure replication in {{site.data.keyword.cloudant_short_notm}} by using an "active-active"
+or "active-passive" topology across data centers.
 
 The following diagram shows a typical configuration that
 uses two {{site.data.keyword.cloudant_short_notm}} accounts,
@@ -223,8 +223,8 @@ different application instances can write to
 different databases.
 
 For example,
-application 'A' might write to database `myaccount-dc1.cloudant.com/mydb`,
-while application 'B' might write to database `myaccount-dc2.cloudant.com/mydb`.
+application "A" might write to database `myaccount-dc1.cloudant.com/mydb`,
+while application "B" might write to database `myaccount-dc2.cloudant.com/mydb`.
 
 This configuration offers several benefits:
 
@@ -232,7 +232,7 @@ This configuration offers several benefits:
 - You can configure applications to access an account with
   reduced latency (not always the geographically closest).
 
-An application can be set up to communicate with the 'nearest'
+An application can be set up to communicate with the "nearest"
 {{site.data.keyword.cloudant_short_notm}} account.
 For applications hosted in DC1,
 it's appropriate to set their {{site.data.keyword.cloudant_short_notm}}
@@ -253,7 +253,7 @@ or by using a load balancer,
 or by using some other means.
 
 A simple test of whether a failover is required would be to
-use the main database endpoint as a 'heartbeat.
+use the main database endpoint as a "heartbeat".
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
 [details about the database](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
@@ -266,7 +266,7 @@ it might indicate that a failover is necessary.
 You might consider other hybrid approaches for your configuration.
 
 For example,
-in a 'Write-Primary, Read-Replica' configuration,
+in a "Write-Primary, Read-Replica" configuration,
 all writes go to one database,
 but the read load is distributed among the replicas.
 
@@ -348,5 +348,5 @@ If a database is being changed continuously, the replication status is unlikely 
 
 * Are the indexes sufficiently up to date?
   Verify that indexes are updated by using the [active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
-* Test the level of 'index readiness' by sending a query to the index,
+* Test the level of "index readiness" by sending a query to the index,
   and deciding whether it returns within an acceptable time.

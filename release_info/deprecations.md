@@ -141,7 +141,7 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to re
 {: #disabled-javascript-constructors-december-7-2017}
 
 - If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
-similar to this one is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 
+similar to this one is returned, *Call to `eval()` was blocked by CSP.* You can fix the problem 
 by replacing `eval()` calls with the calls from the 
 [expr-eval library](https://github.com/silentmatt/expr-eval){: new_window}{: external}.
 

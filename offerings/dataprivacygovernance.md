@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-06-15"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -43,7 +43,7 @@ The European Court of Justice
 [invalidated](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){: new_window}{: external}
 the Safe Harbour agreement in 2015. 
 {{site.data.keyword.IBM_notm}} was quick to urge policymakers to work expediently
-to ensure "[unbroken data flows between the European Union and the United States](https://ec.europa.eu/commission/presscorner/detail/en/IP_16_216){: new_window}{: external}".
+to ensure *[unbroken data flows between the European Union and the United States](https://ec.europa.eu/commission/presscorner/detail/en/IP_16_216){: new_window}{: external}*.
 
 {{site.data.keyword.IBM_notm}} prepared an EU Model Clauses agreement for {{site.data.keyword.cloudant_short_notm}} customers
 to facilitate the transfer of personal data outside the EU
