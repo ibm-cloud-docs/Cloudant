@@ -46,7 +46,7 @@ within a US location, you can optionally select a [HIPAA](https://en.wikipedia.o
 {: #plans-and-provisioning}
 
 You can select which plan to use when you
-[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud). The plans are Lite, Standard, and Standard on Transaction Engine. When you select a plan, Capacity displays, and the Cost estimator shows the monthly charge for the selected plan. By default, the [Lite plan](#lite-plan) is selected. 
+[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud). The available plans include Lite, Standard, and Standard on Transaction Engine. When you select a plan, Capacity displays, and the Cost estimator shows the monthly charge for the selected plan. By default, the [Lite plan](#lite-plan) is selected. 
 
 ![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../tutorials/images/img0005c.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} service instance plan selection" caption-side="bottom"}
 
