@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-06-14"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, white space analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -87,7 +87,7 @@ The Simple analyzer changes the string in the following ways:
 - Splits words based on spaces and punctuation.
 - No stop words removed (notice "is" and "at").
 - Changes words to use lowercase letters.
-- Note how "`chris7767`" changes to "`chris`" and "21a" changes to "a".
+- Note how `chris7767` changes to `chris` and `21a` changes to `a`.
 
 ```json
 {"tokens":["my", "name", "is", "chris", "wright", "smith", "i", "live", "at", "a", "front", "street", "durham", "uk", "my", "email", "is", "chris", "aol","com"]}

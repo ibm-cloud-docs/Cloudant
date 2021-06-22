@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-06-15"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -56,7 +56,7 @@ You can create an index with one of the following types:
 
 To create a JSON index in the database `$DATABASE`,
 make a `POST` request to `/$DATABASE/_index` with a JSON object that describes the index in the request body.
-The `type` field of the JSON object must be set to `"json"`. A JSON index can be partitioned or
+The `type` field of the JSON object must be set to `json`. A JSON index can be partitioned or
 global; this option is set by using the `partitioned` field.
 
 See the following example that uses HTTP to request an index of type `JSON`:
@@ -106,7 +106,7 @@ See the following example of returned JSON, confirming that the index was create
 
 | Field | Description | 
 |-------|-------------|
-| `index` | fields - A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=Cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
+| `index` | fields - A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=Cloudant-query#sort-syntax). Nested fields are also allowed, for example, `person.name`. |
 | `ddoc` (optional) | Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document. |
 | `type` (optional) | Can be `json` or `text`. Defaults to `json`. Geospatial indexes will be supported in the future. | 
 | `name` (optional) | Name of the index. If no name is provided, a name is generated automatically. |
@@ -143,7 +143,7 @@ Code | Description
 400  | Bad request - the request body doesn't have the specified format.
 {: caption="Table 4. Return codes" caption-side="top"}
 
-### Creating a "type=text" index
+### Creating a `type=text` index
 {: #creating-a-type-text-index}
 
 When you create a single text index, it's a good practice to use the default values, but some useful index attributes can be modified.
@@ -269,7 +269,7 @@ The `default_field` includes two keys:
 
 Key        | Description
 -----------|------------
-`analyzer` | Specifies the Lucene analyzer to use. The default value is `"standard"`.
+`analyzer` | Specifies the Lucene analyzer to use. The default value is `standard`.
 `enabled`  | Enable or disable the `default_field index`. The default value is `true`.
 {: caption="Table 5. Default_field field keys" caption-side="top"}
 
@@ -1841,7 +1841,7 @@ Therefore,
 a conversion between the two formats takes place.
 
 In the following example,
-the JSON query approximates to the English phrase, "Match if the age expressed as a number is greater than five and less than or equal to infinity." The Lucene query corresponds to that phrase, where the text `_3a` within the field name corresponds to the `age:number` field, and is an example of the document content expansion that was mentioned earlier.
+the JSON query approximates to the English phrase, *Match if the age expressed as a number is greater than five and less than or equal to infinity.* The Lucene query corresponds to that phrase, where the text `_3a` within the field name corresponds to the `age:number` field, and is an example of the document content expansion that was mentioned earlier.
 
 See the following example query to be converted:
 
