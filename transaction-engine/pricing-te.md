@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-16"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -123,7 +123,7 @@ document writes and to build newly created indexes of any type.
 a few new indexes to be created.
     - In the case where you have many indexes, it is possible to write
       documents fast enough to exhaust background indexing capacity, meaning
-      that indexes may never "catch up" with new writes. If indexes are failing
+      that indexes may never "catch up with new writes. If indexes are failing
       to keep up to date sufficiently quickly, provision more write capacity to
       your account to increase the amount of indexing unit throughput
       provisioned for your account.
@@ -242,7 +242,7 @@ In the following example, a quantity of 0-Gigabyte Hours reflects that the insta
 
 In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or by using an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
-![Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} capacity" caption-side="bottom"}
+![IBM Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. IBM Cloudant capacity" caption-side="bottom"}
 
 Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units based on how complex it is. It's in your interest to try to achieve your application's goals while it consumes the fewest units possible.
 

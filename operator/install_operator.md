@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-06-16"
 
 keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
 
