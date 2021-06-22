@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-06-03"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -37,7 +37,7 @@ In this documentation, when a feature, or an aspect of a feature, applies only t
 {: #view-concepts}
 
 Views are mechanisms for working with document content in databases.
-A view can selectively filter documents and speedup searching for content.
+A view can selectively filter documents and speed up searching for content.
 It can be used to "pre-process" the results before they're returned to the client.
 
 Views are simply JavaScript functions, which are defined within the `views` field of a design document.
@@ -355,7 +355,7 @@ The latter case is referred to as a "rereduce".
 
 A description of the reduce functions is shown in the following example.
 
-See an example of a custom reduce function:
+See the following example of a custom reduce function:
 
 ```javascript
 function (keys, values, rereduce) {
@@ -384,7 +384,7 @@ suitable for both the `value` field of the final view,
 and as a member of the `values` array that is passed to the reduce function.
 
 Often,
-reduce functions can be written to handle re-reduce calls without any extra code,
+reduce functions can be written to handle rereduce calls without any extra code,
 like the summation function in the earlier example.
 In such cases,
 the `rereduce` argument can be ignored.
@@ -520,7 +520,7 @@ In the following example,
 the `hadtraining` view is defined as a map function,
 and is available within the `views` field of the design document.
 
-See an example that uses `PUT` to add a view into a design document called `training` by using HTTP:
+See an example that uses `PUT` to add a view into a design document that is called `training` by using HTTP:
 
 ```http
 PUT /$DATABASE/_design/training HTTP/1.1
@@ -528,7 +528,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-See an example that uses `PUT` to add a view into a design document called `training` by using the command line:
+See an example that uses `PUT` to add a view into a design document that is called `training` by using the command line:
 
 ```sh
 curl -X PUT "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/training" --data-binary @view.def

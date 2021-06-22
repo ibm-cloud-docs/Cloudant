@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-06-03"
 
 keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
@@ -46,9 +46,7 @@ CORS might be a good solution in the following use cases.
 	By using HTTP authorization with CORS requests,
 	users of your application can access only their database.
 2.	You want to allow third parties access to your database.
-	For example, if you have a database that includes product information
-	and you want to give sales partners access to the information from JavaScript running on their domain,
-	add their domain to your list of allowed origins.
+	For example, if you have a database that includes product information, add their domain to your list of allowed origins. After that, you can give sales partners access to the information from JavaScript running on their domain.
 	The effect is that scripts that run on their website can access your {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Browser support
@@ -84,7 +82,7 @@ To reduce the risk of man-in-the-middle attacks, follow these guidelines:
 -	Ensure that web applications that run on allowed origin domains are trusted
 	and do not have security vulnerabilities.
 
-For more information, see the [API & SDK documentation](/apidocs/cloudant#getcorsinformation){: new_window}{: external} about the configuration endpoints for CORS.
+For more information, see the [API and SDK documentation](/apidocs/cloudant#getcorsinformation){: new_window}{: external} about the configuration endpoints for CORS.
 
 ## Dashboard
 {: #dashboard}
@@ -96,7 +94,7 @@ You can update your CORS settings by using the CORS tab within the dashboard:
 ![CORS dashboard illustration](../images/corsdashboard.png){: caption="Figure 1. CORS dashboard illustration" caption-side="bottom"}
 
 To see the current CORS configuration,
-simply open **Account** > **CORS** in the dashboard.
+open **Account** > **CORS** in the dashboard.
 
 You can enable or disable CORS by using `Enable CORS`.
 This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration){: new_window}{: external}.

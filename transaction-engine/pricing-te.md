@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-06-04"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -41,7 +41,7 @@ This document explores the implicit *incentives* that the pricing model is prese
 ## Provisioned Throughput Capacity
 {: #provisioned-throughput-capacity-te}
 
-You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads per second and 50 writes per second, and pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a specific number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a specific number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occurs for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
+You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads per second and 50 writes per second. You then pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a specific number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a specific number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occurs for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
 
 Read and write capacity can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads per second or writes per second required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads per second and 1,000 writes per second. You must make this selection even if you don't need the corresponding number of writes.
 
@@ -94,7 +94,7 @@ background indexing are discussed next.
 {: #updating-indexes-te}
 
 As well as serving requests, {{site.data.keyword.cloudant_short_notm}} needs to build indexes to serve queries. A
-database can contain many indexes. {{site.data.keyword.cloudant_short_notm}} updates indexes in the following ways: 
+database can contain many indexes. {{site.data.keyword.cloudant_short_notm}} updates indexes in the following ways.
 
 - Foreground indexing happens within a document write transaction. It costs one
   write unit per row that is emitted into an index. Only Mango indexes support
@@ -149,10 +149,9 @@ Users can reduce the approximate read and write throughput that is consumed by a
 | 6 | 2 | 170 |
 | 12 | 3 | 360 | 
 | 20 | 4 | 650 (This value is the default.) |
-in the database.
 {: caption="Table 1. Options" caption-side="top"}
 
-Write capacity that is consumed on the target database can be adjusted by using the `worker_batch_size` parameter. The default is 500 documents in a batch write, and this parameter can be adjusted down to reduce the peak write throughput that is seen on the batch writes. 
+Write capacity that is consumed on the target database can be adjusted by using the `worker_batch_size` parameter. The default is 500 documents in a batch write. This parameter can be adjusted down to reduce the peak write throughput that is seen on the batch writes. 
 
 ## Examples
 {: #request-examples-te}
@@ -167,8 +166,8 @@ consume.
 | Query a view that returns seven results. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>1.07 read units total, which is rounded up to two read units for the request. |
 | Query a view that returns seven results and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents. </br>8.07 read units total, which is rounded up to nine read units for the request. |
 | Mango query that returns seven results and can be satisfied with an index, which is the optimal way to use Mango indexes. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents (Mango always reads the documents to return them to you). </br>8.07 read units total, which is rounded up to nine read units for the request. |
-| Mango query that returns seven results and is partially satisfied with an index but requires further processing on the documents themselves (for example, when a regex is used). The part of the query's selector that can be satisfied by using the index reads 26 rows, then 26 documents need to be read, after you apply the regex in the selector, 19 documents are discarded from the initial result set. | One unit to open the transaction. </br>26/100 = 0.26 read units to read 26 rows. </br>Twenty-six units to read 26 documents (Mango always reads the documents to return them to you). </br>27.26 read units total, which is rounded up to 28 read units for the request. |
-| Query `_all_docs` by using a `limit` of 200 and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>200/100 = 2 units to read 200 rows. </br>200 units to read 200 documents. </br>203 read units total. | 
+| Mango query that returns seven results and is partially satisfied with an index but requires further processing on the documents themselves (for example, when a regex is used). The part of the query's selector that can be satisfied by using the index reads 26 rows, then 26 documents need to be read. After you apply the regex in the selector, 19 documents are discarded from the initial result set. | One unit to open the transaction. </br>26/100 = 0.26 read units to read 26 rows. </br>Twenty-six units to read 26 documents (Mango always reads the documents to return them to you). </br>27.26 read units total, which is rounded up to 28 read units for the request. |
+| Query `_all_docs` by using a `limit` of 200 and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>200/100 = 2 units to read 200 rows. </br>Two hundred units to read 200 documents. </br>Two hundred and three read units total. | 
 {: class="simple-tab-table"}
 {: caption="Table 2. Read units" caption-side="top"}
 {: #units-example1}

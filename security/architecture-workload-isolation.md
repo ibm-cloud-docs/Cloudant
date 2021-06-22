@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-06-14"
 
 keywords: public isolation for cloudant, compute isolation for cloudant, cloudant architecture, workload isolation in cloudant
 
@@ -30,7 +30,7 @@ Review the following sample architecture for {{site.data.keyword.cloudantfull}},
 ## {{site.data.keyword.cloudant_short_notm}} isolation models and architecture
 {: #isolation-models-architecture}
 
-{{site.data.keyword.cloudant_short_notm}} is a multi-tenant-capable database system with mechanisms in place to distribute any shared resources like CPU or I/O fairly amongst the active tenants. {{site.data.keyword.cloudant_short_notm}} implements isolation in the database layer itself, and not by relying on containers. Instances are isolated from each other for access control, meaning that it is not possible to read or write data in one instance from another. 
+{{site.data.keyword.cloudant_short_notm}} is a multi-tenant-capable database system with mechanisms in place to distribute any shared resources like CPU or I/O fairly among the active tenants. {{site.data.keyword.cloudant_short_notm}} implements isolation in the database layer itself, and not by relying on containers. Instances are isolated from each other for access control, meaning that it is not possible to read or write data in one instance from another. 
 
 Workload isolation is an important consideration for many customers. To select the best {{site.data.keyword.cloudant_short_notm}} plan choice for your workload isolation requirements, see the following architectural information: 
 

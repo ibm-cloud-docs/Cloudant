@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-06-03"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -215,7 +215,7 @@ How you resolve conflicts is application-specific. See the following tips for mo
 -   Avoid invariants across document fields if possible. Avoiding invariants makes it more likely that a simple
     merge operation, if you take the changed field from each conflicted document revision, is
     suitable. This practice makes simpler and more robust application code.
--   Allow documents to stand-alone. If you have to retrieve other documents to work out the correct
+-   Allow documents to be independent. If you have to retrieve other documents to work out the correct
     resolution, it increases latency in conflict resolution. There's also a chance you get a
     version of the other documents that aren't consistent with the document you're resolving,
     making correct resolution difficult. 
@@ -235,7 +235,7 @@ pathologically conflicted documents.
 These tips demonstrate how modeling data affects your application’s 
 performance. {{site.data.keyword.cloudant_short_notm}}’s data store has some specific characteristics, both to watch out for 
 and to take advantage of, that ensure the database performance scales as your application 
-grows. {{site.data.keyword.cloudant_short_notm}} support understands the shift can be confusing, so they’re always on-hand to give advice.
+grows. {{site.data.keyword.cloudant_short_notm}} support understands the shift can be confusing, so they are always available to give advice.
 
 For more information, see the
 [data model for Foundbite](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}{: external},

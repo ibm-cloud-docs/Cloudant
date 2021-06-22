@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-10"
+lastupdated: "2021-06-07"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -51,7 +51,7 @@ By using the {{site.data.keyword.cloudantfull}} dashboard, you create an {{site.
 ## Prerequisites
 {: #prerequisites-nav}
 
-If you haven't already created a service instance in {{site.data.keyword.cloud_notm}}, follow the instructions in the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial before you start this one. 
+You need to create a service instance in {{site.data.keyword.cloud_notm}} before you start this tutorial. You can follow the instructions in the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial to create one. 
 
 ## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} dashboard
 {: #using-the-ibm-cloudant-dashboard}
@@ -187,7 +187,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
   ```
   {: codeblock}
 
-3.  Click **`Run Query`**.
+3.  Click **Run Query**.
 
     The query displays the results. You can see them from the Table view in the following screen capture:
 
@@ -269,7 +269,7 @@ If your instance does not have any active tasks, you can return to the previous 
 
    ![Active tasks](images/active-tasks-page.png){: caption="Figure 8. Active tasks" caption-side="bottom"} 
 
-2. Navigate to task-specific information by clicking the associated tab. 
+2. Click the associated tab to see task-specific information. 
 
 ## Monitoring with {{site.data.keyword.cloudant_short_notm}}
 {: #monitoring-with-cloudant-dt}
@@ -277,25 +277,25 @@ If your instance does not have any active tasks, you can return to the previous 
 
 Monitor your usage with a graph that shows your throughput by reads, writes, and global queries. You can see your current operations, denied requests, and storage usage. 
 
-Since your service instance is for demonstration purposes only, it's not populated with data. However, you can see what monitoring information is available to you. 
+Your service instance contains no data because it is for demonstration purposes only. However, you can see what monitoring information is available to you by following these steps. 
 
 1. Click **Monitoring**. 
 
    The Monitoring page opens to the Current Operations tab. 
    Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
-   ![Current Operations tab](images/current-operations-tab.png){: caption="Figure 9. Current Operations tab" caption-side="bottom"}
+   ![Current Operations](images/current-operations-tab.png){: caption="Figure 9. Current Operations" caption-side="bottom"}
 
 2. Click **Denied Requests**. 
 
    Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
-   ![Denied Requests tab](images/denied-requests-tab.png){: caption="Figure 10. Denied Requests tab" caption-side="bottom"}
+   ![Denied Requests](images/denied-requests-tab.png){: caption="Figure 10. Denied Requests" caption-side="bottom"}
 
 3. Click **Storage**.
 
    Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 
-   ![Storage tab](images/storage-tab.png){: caption="Figure 11. Storage tab" caption-side="bottom"}
+   ![Storage](images/storage-tab.png){: caption="Figure 11. Storage" caption-side="bottom"}
 
 For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).

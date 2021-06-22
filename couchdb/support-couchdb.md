@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-06-14"
 
 keywords: apache couchdb, support, extension
 
@@ -44,7 +44,7 @@ The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_win
 
 {{site.data.keyword.IBM_notm}} support for open source Apache CouchDB is offered by using the {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB, which is only available to allowlisted users. Contact your {{site.data.keyword.cloud_notm}} Sales representative if you are interested in this service.
 
-Allowlisted users can purchase an instance of {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB from the {{site.data.keyword.cloud_notm}} catalog. To do so, go to the {{site.data.keyword.cloudantfull}} catalog tile and choose the Extension for Apache CouchDB option.
+ Allowlisted users can purchase an instance of {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB from the {{site.data.keyword.cloud_notm}} catalog. To do so, go to the {{site.data.keyword.cloudantfull}} catalog tile and choose the Extension for Apache CouchDB option.
 
 ### Provisioning an instance
 {: #provisioning-an-instance-support}
@@ -53,7 +53,7 @@ Allowlisted users can purchase an instance of {{site.data.keyword.cloud_notm}} E
 2. Select the Extension for Apache CouchDB option. <br>(If the Extension for Apache CouchDB option is not available, contact support to enable the option for your account.)
 3. Enter an Instance name, and use "CouchDB" somewhere in the name to distinguish it from {{site.data.keyword.cloudant_short_notm}} instances.
 4. Select a Resource group.
-5. Select the number of Virtual Processor Cores (vCPUs) to match that of the vCPUs used in all Apache CouchDB database nodes that require support entitlement. The minimum value is 24. 
+5. Select the number of Virtual processor cores (vCPUs) to match that of the vCPUs used in all Apache CouchDB database nodes that require support entitlement. The minimum value is 24. 
 6. Click **Create**. 
 
 The Extension for an Apache CouchDB instance does not provision a cloud service. Instead, the instance is a placeholder to ensure payment and support entitlement on self-managed Apache CouchDB instances that are deployed by the customer.
@@ -74,7 +74,7 @@ Pricing is based on the number of vCPUs in the database nodes of the Apache Couc
 ### vCPU definition
 {: #vcpu-aka-virtual-processor-core-def-support}
 
-Virtual Processor Core (vCPU) is a unit of measure by which the Program can be licensed. A Physical Server is a physical computer that is composed of processing units, memory, and input and output capabilities. It executes requested procedures, commands, or applications for one or more users or client devices. When you install racks, blade enclosures, or other similar equipment, each separable physical device (for example, a blade or a rack-mounted device) that has the required components is considered itself a separate Physical Server. A Virtual Server is either a virtual computer that is created by partitioning the resources available to a Physical Server or an unpartitioned Physical Server. A Processor Core (commonly called a processor or CPU) is a functional unit within a computing device that interprets and executes instructions. A Processor Core consists of at least an instruction control unit, and one or more arithmetic or logic units. A Virtual Processor Core is a Processor Core in an unpartitioned Physical Server, or a virtual core assigned to a Virtual Server. Licensee must obtain entitlement for each Virtual Processor Core made available to the Program.
+vCPU (Virtual processor core) is a unit of measure by which the Program can be licensed. A Physical Server is a physical computer that is composed of processing units, memory, and input and output capabilities. It executes requested procedures, commands, or applications for one or more users or client devices. When you install racks, blade enclosures, or other similar equipment, each separable physical device (for example, a blade or a rack-mounted device) that has the required components is considered itself a separate Physical Server. A Virtual Server is either a virtual computer that is created by partitioning the resources available to a Physical Server or an unpartitioned Physical Server. A Processor Core (commonly called a processor or CPU) is a functional unit within a computing device that interprets and executes instructions. A Processor Core consists of at least an instruction control unit, and one or more arithmetic or logic units. A vCPU is a Processor Core in an unpartitioned Physical Server, or a virtual core assigned to a Virtual Server. Licensee must obtain entitlement for each vCPU made available to the Program.
 
 ### Support requirements
 {: #support-requirements-support}
@@ -104,9 +104,9 @@ Storage | POSIX-compliant storage is required. NFS that doesn't meet POSIX compl
 
 Customers are required to capture logs and provide those logs directly to {{site.data.keyword.IBM_notm}} support. Log types include but are not limited to the ones in the following list:
 
-- Apache CouchDB logs
-- Runit logs
-- Proxy logs
+- Apache CouchDB logs.
+- Runit logs.
+- Proxy logs.
 
 ### Support services
 {: #support-service-support}
@@ -127,15 +127,15 @@ You can see what is included with support and what is not in the following lists
 #### What isn't included with support?
 {: #support-does-not-include-support}
 
-- Proprietary customer-side tooling or workflow
-- Third-party monitoring integration
-- Network issues
-- On-disk encryption
-- Performance tuning
-- Design optimization
-- Capacity planning
-- Feature or enhancement requests
-- Fixes for issues that are related to underlying hardware infrastructure
+- Proprietary customer-side tooling or workflow.
+- Third-party monitoring integration.
+- Network issues.
+- On-disk encryption.
+- Performance tuning.
+- Design optimization.
+- Capacity planning.
+- Feature or enhancement requests.
+- Fixes for issues that are related to underlying hardware infrastructure.
 
 ### Opening a Support Case
 {: #opening-a-support-case-support}
