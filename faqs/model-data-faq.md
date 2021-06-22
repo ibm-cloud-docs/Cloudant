@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-03"
+lastupdated: "2021-06-15"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -83,7 +83,7 @@ more than once every ten seconds to be on the safe side.
 {: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
 {: faq}
 
-Rather than using views as glorified search indexes - "get me all `person` documents" - try 
+Rather than using views as glorified search indexes, the search *get me all `person` documents* tries 
 to get the database to do the work for you. For example, you can retrieve all 10,000 
 person documents to calculate the combined hours worked. However, it's better to use a view with a composite key to pre-calculate the hours worked by year, month, day, half-day, and hour by using the `_sum` built-in reduce. You save work in your application and allow the database to concentrate on serving many small requests. This method is preferable to reading huge amounts of data from disk to service a single large request.
 
@@ -95,7 +95,7 @@ It's straightforward. First, both maps and reduces are precomputed, so the resul
 compared to the significant amounts of IO required to stream hundreds or even thousands of 
 documents from the on-disk storage.
 
-At a lower level, when a node receives a view request, it asks the nodes that hold the shard replicas of the view's database for the results of the view request from the documents in each shard. As it receives the answers, taking the first answer for each shard replica, the node 
+At a deeper level, when a node receives a view request, it asks the nodes that hold the shard replicas of the view's database for the results of the view request from the documents in each shard. As it receives the answers, taking the first answer for each shard replica, the node 
 that services the view request combines the results and streams the final result to the client. 
 As more documents are involved, it takes longer for each replica to stream the results from 
 disk and across the network. The node that services the request also has much more work to 

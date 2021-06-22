@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-06-14"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -225,7 +225,7 @@ For more information, see the following blog posts:
 {{site.data.keyword.cloudant_short_notm}} has a primary index on the document's `_id` attribute. This index allows documents to be retrieved by `_id` (`GET /db/id`) or a range of `_ids` (`GET /db/_all_docs?startkey="a"&endkey="z"`). By storing data in the primary key and ensuring that each `_id` is unique, the primary index can be used to fetch documents and ranges of documents without secondary indexing. See the following list of ideas:
 
 - If you have something unique in your object that would be useful to query against, use it as your `_id` field, for example, `bob.smith@gmail.com`, `isbn9780241265543`, or `oakland,ca`.
-- If your objects contain a hierarchy, model that in your  `_id`: `usa:ca:oakland` or `books:fiction:9780241265543`. The hierarchy goes from largest to smallest, so you can use the primary index to find "all the cities in `usa`" or "all the cities in `usa:ca`", without secondary indexing.
+- If your objects contain a hierarchy, model that in your  `_id`: `usa:ca:oakland` or `books:fiction:9780241265543`. The hierarchy goes from largest to smallest, so you can use the primary index to find *all the cities in `usa`* or *all the cities in `usa:ca`*, without secondary indexing.
 - If you're storing time-series data, encoding time at the start of your `_id` sorts the primary index by time, for example, `001j40Ox1b2c1B2ubbtm4CsuLB4L35wQ`.
 - Partitioned databases group documents that share a partition key together. A partition key must have many values and must not include hot spots to avoid directing a large proportion of your application's traffic to a few partitions.
 
