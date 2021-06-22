@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-04"
+lastupdated: "2021-06-21"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -35,7 +35,7 @@ The following table shows example hourly pricing for various provisioned through
 
 You can use the {{site.data.keyword.cloud_notm}} pricing calculator to see estimated costs in other currencies by clicking **Add to estimate** from the {{site.data.keyword.cloudant_short_notm}} catalog tile. Specify storage, capacity, and select the country whose currency you want to see. See the calculator in the following screen capture. 
  
-![Pricing calculator](../images/pricing_calculater.png){: caption="Figure 2. Pricing calculator" caption-side="bottom"}
+![Pricing calculator](../images/pricing_calculator.png){: caption="Figure 2. Pricing calculator" caption-side="bottom"}
 
 Click **Calculate cost** and **Save**. Now, click **Review estimate**. Expand the estimate to see more details. If you save multiple estimates, you can then click **Review estimate** and compare them. See a sample estimate in the following screen capture. 
  
