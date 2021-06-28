@@ -5,10 +5,6 @@
 Cloudant
 
     {: .navgroup id="learn"}
-
-Cloudant
-
-    {: .navgroup id="learn"}
     getting-started.md
     offerings/bluemix.md
     offerings/pricing.md
