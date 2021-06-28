@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloudant docs",
-    "lastupdated": "2021-06-24",
+    "lastupdated": "2021-06-29",
     "introduction": "The IBM Cloudant portfolio includes two complementary, document-oriented NoSQL database-as-a-service offerings on the IBM Cloud. In addition to the comprehensive information in the IBM Cloudant docs, links to additional sources of information are provided below.",
     "section_devtools": {
       "api": "/apidocs/cloudant#introduction",
@@ -29,6 +29,98 @@
       "training": "https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center",
       "community": "https://community.ibm.com/community/user/home"
     },
+    "section_videos": [
+      {
+        "title": "Introducing IBM Cloudant",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#cloudant-course-intro-video",
+        "thumbnail": "/images/cloudant-intro.png"
+      },
+      {
+        "title": "The Document",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-document-video",
+        "thumbnail": "/images/document.png"
+      },
+      {
+        "title": "The _id",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-_id-video",
+        "thumbnail": "/images/_id.png"
+      },
+      {
+        "title": "The rev token",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-rev-token-video",
+        "thumbnail": "/images/rev-token.png"
+      },
+      {
+        "title": "Authentication",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#authentication-video",
+        "thumbnail": "/images/authentication.png"
+      },
+      {
+        "title": "Cloudant Dashboard",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-dashboard-video",
+        "thumbnail": "/images/dashboard.png"
+      },
+      {
+        "title": "HTTP API Basics",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#http-api-basics-video",
+        "thumbnail": "/images/basics.png"
+      },
+      {
+        "title": "The Bulk API",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-bulk-api-video",
+        "thumbnail": "/images/bulk-api.png"
+      },
+      {
+        "title": "Accessing IBM Cloudant Programmatically",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#accessing-cloudant-programmatically-video",
+        "thumbnail": "/images/programmatically.png"
+      },
+      {
+        "title": "Querying",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#querying-video",
+        "thumbnail": "/images/querying.png"
+      },
+      {
+        "title": "Indexing",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#indexing-video",
+        "thumbnail": "/images/indexing.png"
+      },
+      {
+        "title": "MapReduce",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#mapreduce-video",
+        "thumbnail": "/images/mapreduce.png"
+      },
+      {
+        "title": "Dates",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#dates-video",
+        "thumbnail": "/images/dates.png"
+      },
+      {
+        "title": "Replication",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#replication-video",
+        "thumbnail": "/images/replication.png"
+      },
+      {
+        "title": "Partitioned databases",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#partitioned-databases-video",
+        "thumbnail": "/images/partitioned-dbs.png"
+      },
+      {
+        "title": "Cloudant Search",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#cloudant-search-video",
+        "thumbnail": "/images/cloudant-search.png"
+      },
+      {
+        "title": "Geospatial",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#geospatial-video",
+        "thumbnail": "/images/geospatial.png"
+      },
+      {
+        "title": "Under the hood",
+        "href": "/docs/Cloudant?topic=Cloudant-learning-center#under-the-hood-video",
+        "thumbnail": "/images/under-the-hood.png"
+      }
+    ],
     "section_updates": {
       "view_more": "/docs/Cloudant?topic=Cloudant-release-notes",
       "tiles": [
@@ -45,7 +137,7 @@
         {
           "date": "December 2020",
           "title": "Mango query operator",
-          "description": "Introduce the Mango query operator, `$keyMapMatch`, that offers the ability to make queries on the keys of a map."
+          "description": "Introduce the Mango query operator, $keyMapMatch, that offers the ability to make queries on the keys of a map."
         }
       ]
     }
