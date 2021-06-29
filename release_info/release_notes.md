@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Release notes
 {: #release-notes}
 
-Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by build number.
+Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by new features or build number.
 {: shortdesc}
 
 ## New features
