@@ -1,5 +1,5 @@
 # by default all changes would require review from
-*   @lbboe @tonysun @jdoane @dburroughs @nvatama
+*   @lbboe @tonysun @jdoane @dburroughs @nvatama @rmccammon
 
 # require review from @iilyak for build related changes
 .build_tools/   @iilyak
