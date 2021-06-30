@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-06-23"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -47,7 +47,7 @@ Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 |-----------|----------|
 | `data_size` | `sizes.external` |
 | `disk_size` | `sizes.file` | 
-{: caption="Table 1. Design doc information fields" caption-side="top"}
+{: caption="Table 2. Design doc information fields" caption-side="top"}
 
 ## Replaced `queries` parameter
 {: #replaced-queries-parameter}
@@ -58,6 +58,13 @@ You can also make multiple queries with the following new endpoints:
 
 - `POST /{db}/_all_docs/queries`
 - `POST /{db}/_design_docs/queries`
+
+## Sending several queries to a view
+{: #sending-several-queries-to-a-view}
+
+Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: new_window}{: external}.
+
+For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=Cloudant-deprecations#replaced-queries-parameter).
 
 ## Multiple restrictions employed for performance gains (21 October 2019)
 
@@ -75,6 +82,18 @@ The following functions are affected by this deprecation:
 - In rare cases, the number of key-value pairs that are emitted for a map function can affect database performance or violate {{site.data.keyword.cloudant_short_notm}} rules. For example, the number of key-value pairs might lead to a transaction either exceeding 10 MB, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
 5. The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
 
+## The `stale` option (February 2019)
+{: #deprecated-option-stale}
+
+The `stale` option is deprecated and is replaced by `stable` and `update`, which
+allow controlling the two orthogonal behaviors that are caused by `stale` separately.
+
+`stable` value   | Equivalent by using `stable` and `update`
+---------|-----------------------------------------------
+`false`  | `stable=false`, `update=true`
+`ok`  | `stable=true`, `update=false`
+`update_after`  | `stable=true`, `update=lazy`
+{: caption="Table 3. Stale option replacement" caption-side="top"}
 
 ## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (7 February 2018)
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
@@ -126,7 +145,7 @@ The information that is returned in the previous example is described in the fol
 | `dynamite_token` | DB2 password |
 | `target` | DB2 JDBC connection URL, only used if the value for `dashboard_url` is null. |
 | `dynamite_user` | DB2 user name |
-{: caption="Table 3. Fields from the previous example response" caption-side="top"}
+{: caption="Table 4. Fields from the previous example response" caption-side="top"}
 
 To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.
        
@@ -149,6 +168,13 @@ by replacing `eval()` calls with the calls from the
 {: #disabled-vhosts-december-4-2017}
 
 - On 4 December 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was replaced by HTTPS only. After you turn off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
+
+
+## Retire Shared plan
+{: #retire-shared-plan}
+
+As of 24 July 2017, {{site.data.keyword.cloudant_short_notm}} Shared Plan accounts can no longer be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}{: external}. 
+
 
 ## Error handling
 {: #error-handling}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-06-23"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -310,19 +310,6 @@ the response time is adversely affected.
 When the default `stable=false` value applies,
 and you use any value for `update`, results are different based on which replica 
 responds first.
-
-### Deprecated option, `stale`
-{: #deprecated-option-stale}
-
-The `stale` option is deprecated and is replaced by `stable` and `update`, which
-allow controlling the two orthogonal behaviors that are caused by `stale` separately.
-
-`stable` value   | Equivalent by using `stable` and `update`
----------|-----------------------------------------------
-`false`  | `stable=false`, `update=true`
-`ok`  | `stable=true`, `update=false`
-`update_after`  | `stable=true`, `update=lazy`
-{: caption="Table 5. Stale option replacement" caption-side="top"}
 
 ## Sorting returned rows
 {: #sorting-returned-rows}
@@ -724,10 +711,3 @@ See the example (abbreviated) response, returning the full document for each rec
 ```
 {: codeblock}
 
-## Sending several queries to a view
-{: #sending-several-queries-to-a-view}
-
-Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: new_window}{: external}.
-
-For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=Cloudant-deprecations#replaced-queries-parameter).
-{: deprecated}
