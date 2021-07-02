@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-07-01"
 
 keywords: troubleshoot, view logs, adjust log level
 
@@ -41,7 +41,7 @@ kubectl logs -l name=couchdb-operator --namespace=my-couchdb
 ## Adjusting the log level of the Operator for Apache CouchDB
 {: #adjust-log-level-operator-couchdb}
 
-You can enable verbose logging by passing the `--v` argument to the operator. For example, you can set the log level to `4` by running the following command:
+You can enable verbose logging by passing the `--v` argument to the operator. For example, you can set the log level to `4` by running the following command.
 
 ```sh
 kubectl patch deployment couchdb-operator --namespace my-couchdb --type='json' -p '{"spec":{"template":{"spec":{"containers":[{"name":"couchdb-operator", "args": ["--v=4"]}]}}}}'

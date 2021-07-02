@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-07-02"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, white space analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -237,7 +237,5 @@ As well as entities, the API can also place the article in a hierarchy of catego
 - Travel, tourist destinations france
 - Sports, soccer
 - Sports, football
-
-When you pre-process your raw data, by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document, it provides automatic metadata about your free-text information. It can also provide an easier means to search and navigate your app.
 
 You can pre-process your raw data by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document. This pre-processing provides automatic metadata about your free-text information. It can also provide an easier means to search and navigate your app.
