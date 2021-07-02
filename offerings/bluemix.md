@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-07-02"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -56,7 +56,7 @@ You can select which plan to use when you
 The Lite plan is free, and is designed for development and evaluation purposes. {{site.data.keyword.cloudant_short_notm}}'s full functionality is included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 reads per second, 10 writes per second, and 5 global queries per second, and data storage is capped at 1 GB.
 
 Storage usage is checked daily. If you exceed your 1-GB storage limit, requests to the {{site.data.keyword.cloudant_short_notm}} instance receive a
-402 status code with the following error message, *Account has exceeded its data usage quota. An upgrade to a paid plan is required.* A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan), which removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again.
+402 status code with the following error message, *Account exceeded its data usage quota. An upgrade to a paid plan is required.* A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan), which removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again.
 
 If you want to store more than one GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
@@ -67,7 +67,7 @@ You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instan
 
 The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all paid {{site.data.keyword.cloud}} accounts, either as pay-as-you-go or subscription, and scales to meet the needs of your application. The Standard plan is priced based on two factors: the provisioned throughput capacity that is allocated, and the amount of data that is stored in the instance.
 
-Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down by using the user interface or API. Toggle in increments of 100 reads per second, 50 writes per second, and 5 global queries per second. Costs are calculated for the provisioned throughput capacity that is allocated and not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you're charged a defined cost per GB per hour.
+Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second. This rate is equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down by using the user interface or API. Toggle in increments of 100 reads per second, 50 writes per second, and 5 global queries per second. Costs are calculated for the provisioned throughput capacity that is allocated and not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you're charged a defined cost per GB per hour.
 
 Refer to the {{site.data.keyword.cloud_notm}} Pricing Calculator in the dashboard for pricing at different capacities and currencies, and the [pricing](/docs/Cloudant?topic=Cloudant-pricing#pricing){: new_window} information for examples to estimate costs.
 
@@ -79,7 +79,7 @@ An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is
 - This plan is necessary for HIPAA compliance and must be selected at provisioning time.
 - Users can choose to bring-your-own-key (BYOK) with customer-managed encryption keys with {{site.data.keyword.IBM_notm}} Key Protect for all environments provisioned 1 January 2020 or later. {{site.data.keyword.cloudant_short_notm}} runs on encrypted disks, but in order to BYOK, the Dedicated Hardware plan is required. BYOK encryption details have to be chosen at provisioning time, and the feature isn't available for already-provisioned Dedicated Hardware plan environments.
 - All Standard plan instances that are deployed on Dedicated Hardware plan environments include both private (internal) endpoints and public endpoints in locations that support Cloud Service Endpoints (CSE). Using private endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Cloud Service Endpoint documentation](/docs/account?topic=account-service-endpoints-overview){:new_window}{: external} for details about enabling Cloud Service Endpoints for your {{site.data.keyword.cloud}} account.
-- Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP allowlisting by contacting support. IP allowlisting configuration applies to all instances that are running on the environment. The public and private network allowlists can be managed independently, and the public allowlist can be set to block all traffic so that all traffic goes over the private endpoints.
+- Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP allow listing by contacting support. IP allow listing configuration applies to all instances that are running on the environment. The public and private network allow lists can be managed independently, and the public allowlist can be set to block all traffic so that all traffic goes over the private endpoints.
 
 You can provision one or more Standard plan instances on a single Dedicated Hardware environment. The Dedicated Hardware environment expands or contracts as needed based on the throughput capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, with a 1-month minimum duration charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud) tutorial.
 
@@ -245,7 +245,7 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
 
 ![Capacity](../images/capacity-1.png){: caption="Figure 2. Capacity" caption-side="bottom"}
 
-To change the target capacity, slide the capacity slider to the setting you need, and click **Update to Standard Plan**. Select the pricing plan you want, and click **Save**. Select the type of account you're looking for by clicking **Go.**   
+To change the target capacity, slide the capacity slider to the setting you need, and click **Update to Standard Plan**. Select the pricing plan that you want, and click **Save**. Select the type of account you're looking for by clicking **Go.**   
 
 ![Capacity change confirmation](../images/capacity-3.png){: caption="Figure 3. Capacity change confirmation" caption-side="bottom"}
 
