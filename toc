@@ -32,6 +32,11 @@ Cloudant
         couchdb/overview-couchdb.md
         couchdb/comparison.md
         couchdb/install-couchdb.md
+        operator/install_operator.md
+        operator/configure_cluster.md
+        operator/deploy_cluster.md
+        operator/access_couchdb.md
+        operator/troubleshoot-operator.md
         couchdb/support-couchdb.md
     {: .navgroup-end}
 
@@ -47,21 +52,6 @@ Cloudant
 
     {: .navgroup id="howto"}
     how-to.md
-
-    {: .topicgroup}
-    Operator for Apache CouchDB
-        operator/overview-operator.md
-        operator/install_operator.md
-        operator/configure_cluster.md
-        operator/deploy_cluster.md
-        operator/access_couchdb.md
-        operator/troubleshoot-operator.md
-
-    {: .topicgroup}
-    Recovery and backup
-        guides/disaster-recovery-and-backup.md
-        guides/active-active.md
-        guides/backup-cookbook.md
 
     {: .topicgroup}
     basics/basics.md
@@ -121,6 +111,12 @@ Cloudant
         migration/create-migrate-lite.md
         migration/create-migrate-enterprise.md
         migration/find-your-plan.md
+
+    {: .topicgroup}
+    Recovery and backup
+        guides/disaster-recovery-and-backup.md
+        guides/active-active.md
+        guides/backup-cookbook.md
 
     {: .topicgroup}
     Enhancing security for IBM Cloudant
