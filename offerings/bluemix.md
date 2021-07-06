@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-02"
+lastupdated: "2021-07-06"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -415,7 +415,7 @@ outside an EU-managed environment can't be granted access to an EU-managed
 
 After you provision an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when you generate new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} dashboard. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials). If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy username and password is also included.
 
-The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use [API keys](/docs/Cloudant?topic=Cloudant-api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
+The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use [API keys](/apidocs/cloudant#introduction){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
 {: important}
 
 ## High availability, disaster recovery, and backup in a data center
