@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-07-06"
 
 keywords: videos
 
@@ -819,7 +819,7 @@ The source and target databases can reside on the same {{site.data.keyword.cloud
 
 The {{site.data.keyword.cloudant_short_notm}} replication protocol is shared with Apache CouchDB, so replication is often used by enterprises that copy data from a cloud-based database to one running CouchDB in their own location.
 
-PouchDB, a JavaScript-based CouchDB clone that runs in Node.js stacks or in the web browser can also be used to replicate data to or from {{site.data.keyword.cloudant_short_notm}} or CouchDB.
+PouchDB, a JavaScript-based CouchDB clone that runs in Node.js stacks or the web browser, can also be used to replicate data between {{site.data.keyword.cloudant_short_notm}} or CouchDB, each way, either to or from.
 
 The {{site.data.keyword.cloudant_short_notm}} Sync libraries are native iOS or Android apps that sync data to and from an {{site.data.keyword.cloudant_short_notm}} service.
 
