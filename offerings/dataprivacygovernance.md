@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-23"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -24,61 +24,16 @@ subcollection: Cloudant
 # Data privacy and governance
 {: #data-privacy-and-governance}
 
-{{site.data.keyword.cloudantfull}} allows customers to locate data in any
-global {{site.data.keyword.cloud}} or AWS region.
-By providing customers with such high levels of data mobility to serve the local needs of customers,
-{{site.data.keyword.IBM}},
-and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance seriously.
-{: shortdesc}
+As a pioneer in the provision of a fully-managed and globally-distributable Database-as-a-Service, {{site.data.keyword.cloudantfull}} allows customers to locate data in any global {{site.data.keyword.cloud}} or AWS region. By providing customers with such high levels of data mobility to serve the local needs of customers, {{site.data.keyword.IBM}} and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance seriously.
 
-(This {{site.data.keyword.cloudant_short_notm}} Data Privacy and Governance update was originally published 20 April 2016.)
+{{site.data.keyword.cloud_notm}} data privacy processing processes and procedures are documented within the {{site.data.keyword.cloud_notm}} DPA. This Data Processing Addendum (DPA) and its applicable DPA Exhibits apply to the Processing of Personal Data by {{site.data.keyword.cloud_notm}} on behalf of Client (Client Personal Data). The processing of Personal Data is subject to the General Data Protection Regulation 2016/679 (GDPR) or any other data protection laws identified at [Data Protection Laws](http://www.ibm.com/dpa/dpl){: new_window} in order to provide services (Services) pursuant to the Agreement between Client and {{site.data.keyword.cloud_notm}}. The {{site.data.keyword.cloud_notm}} DPA can be found at [Data Processing Addendum](https://www.ibm.com/dpa){: new_window}.
 
-To govern the movement of data from the EU to the US,
-{{site.data.keyword.cloudant_short_notm}} complied with both US-EU and US-Swiss
-[Safe Harbour Frameworks](https://www.export.gov/safeharbor_eu){: external}.
-The European Court of Justice
-[invalidated](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){: external}
-the Safe Harbour agreement in 2015. 
-{{site.data.keyword.IBM_notm}} was quick to urge policymakers to work expediently
-to ensure [unbroken data flows between the European Union and the United States](https://ec.europa.eu/commission/presscorner/detail/en/IP_16_216){: external}.
+In addition to the DPA, the cloud services contain DPA exhibits that detail the types of data that are processed by this service and the relevant processing locations (including hosting locations) where client PI is processed.  The relevant DPA exhibit for {{site.data.keyword.cloudant_short_notm}} can be found on the [{{site.data.keyword.cloud_notm}} Terms site](https://www.ibm.com/support/customer/csol/contractexplorer/cloud/datasheets/2052E430379B11E58B2CB2A838CE4F20/en){: new_window}.
 
-{{site.data.keyword.IBM_notm}} prepared an EU Model Clauses agreement for {{site.data.keyword.cloudant_short_notm}} customers
-to facilitate the transfer of personal data outside the EU
-in accordance with the EU data privacy laws.
-EU Model clauses are relevant to all customers
-that send personal information about EU citizens to {{site.data.keyword.cloudant_short_notm}}.
+{{site.data.keyword.cloud_notm}} relies on Standard Contractual Clauses (as our primary data transfer mechanism) in our customer contracts, as well as numerous supplementary measures, to help clients ensure an adequate level of protection when transferring personal data outside of the EU/EEA.  For more information, see EU Standard Contractual Clauses signed by all [{{site.data.keyword.cloud_notm}} Data Importers](https://www.ibm.com/software/sla/sladb.nsf/sla/eumc){: new_window}, if applicable.
 
-To request an EU Model Clauses agreement,
-or for any other information or assistance around the transfer of personal data,
-customers can email the dedicated EU Model Clauses team at eu-mc@ie.ibm.com.
+{{site.data.keyword.cloudant_short_notm}} does not move your data without notification. {{site.data.keyword.cloudant_short_notm}} relies on centralized components for aspects of the service. Of particular interest for data residency are logs that contain URLs. These logs are sent out of region-specific infrastructure, to centralized logging components. For any data where residency is a concern, avoid its inclusion within URLs such as in the path or query string. {{site.data.keyword.cloudant_short_notm}} documentation describes how this can be achieved for various areas of our API. For more information, see [Multi-query a MapReduce view](/apidocs/cloudant#postviewqueries) for an example on how to use POST for view queries rather than GET.
 
-The EU Directive 95/46/EC sets out rules about the processing of customer's personal data.
-As the data controller,
-customers appoint {{site.data.keyword.IBM_notm}} as a data processor to process any personal data that might be included in the customer's content.
-In turn,
-customers are responsible for obtaining all necessary consents
-to include the content (including any personal data) in the {{site.data.keyword.cloudant_short_notm}} solutions.
+For {{site.data.keyword.cloud_notm}}'s position on trust and transparency, in relation to customer data, see [Trust principles](https://www.ibm.com/blogs/policy/trust-principles/){: new_window}.
 
-A list of countries where content might be held,
-or from where content might be accessed,
-for delivering and supporting a Cloud Service,
-is available at [Global Data Centers](http://www.ibm.com/cloud/data-centers/){: external}.
-
-{{site.data.keyword.cloudant_short_notm}} does not move your data without notification. {{site.data.keyword.cloudant_short_notm}} relies on centralized components for aspects of the service. Of particular interest for data residency are logs that contain URLs. These logs are sent out of region-specific infrastructure, 
-to centralized logging components. For any data where residency is a concern, do not include such data in the URLs, for example, path, query string, and so on. {{site.data.keyword.cloudant_short_notm}} documentation describes how this can be achieved for various areas of our API. For more information, see [Multi-query a MapReduce view](/apidocs/cloudant#postviewqueries) for an example on how to use `POST` for view queries rather than `GET`.
-
-For more information, see [Compliance](/docs/Cloudant?topic=Cloudant-compliance#compliance) about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance.
-Similar information can be found for these IaaS business partners:
-
-- [Amazon](https://aws.amazon.com/compliance/){: external}
-- [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/compliance){: external}
-
-The [General Data Protection Regulations](https://www.gov.uk/government/publications/guide-to-the-general-data-protection-regulation){: external} were recently approved. {{site.data.keyword.cloudant_short_notm}} customers need to be aware of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
-compliance with emerging data privacy standards and legislation. 
-Customers also need to be aware of {{site.data.keyword.IBM_notm}}'s wider ability to provide a comprehensive suite of solutions
-to assist businesses of all sizes with their own internal data governance requirements.
-
-Email the Client Success team at cdscsm@us.ibm.com if you need more information about any of the following issues:
-
-- Impending changes to data protection laws in Europe and how they are likely to impact your business.
-- Want to discuss how {{site.data.keyword.IBM_notm}} can support your information governance and compliance efforts.
+If there are additional questions associated with {{site.data.keyword.cloud_notm}}'s data privacy policies, email DPA.Help.project@uk.ibm.com. For more information, see [Compliance](/docs/Cloudant?topic=Cloudant-compliance) about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance.
