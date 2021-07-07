@@ -163,6 +163,11 @@ toc:
           - offerings/at-integration.md
           - offerings/platform-metrics.md
       - topicgroup:
+          label: High availability and disaster recovery
+          topics:
+          - ha-dr/bc-dr.md
+          - ha-dr/ha.md
+      - topicgroup:
           label: Sample apps
           links: 
           - link:
