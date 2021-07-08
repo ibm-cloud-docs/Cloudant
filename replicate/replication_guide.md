@@ -190,8 +190,7 @@ This point is identified by using checkpoints.
 
 Therefore,
 an application that uses the `_changes` feed must
-be ['idempotent'](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window}{: external}.
-Idempotency means that the application must be able safely to receive the same data multiple times,
+be ['idempotent'](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window}{: external}. Idempotency means that the application must be able safely to receive the same data multiple times,
 and potentially in a different order for repeated requests.
 
 ## Checkpoints

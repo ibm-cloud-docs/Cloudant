@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-07-08"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -83,8 +83,7 @@ more than once every ten seconds to be on the safe side.
 {: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
 {: faq}
 
-Rather than using views as glorified search indexes, the search *get me all `person` documents* tries 
-to get the database to do the work for you. For example, you can retrieve all 10,000 
+Rather than using views as search indexes, you can use the search *get me all `person` documents* and make the search extract the data for you. For example, you can retrieve all 10,000 
 person documents to calculate the combined hours worked. However, it's better to use a view with a composite key to pre-calculate the hours worked by year, month, day, half-day, and hour by using the `_sum` built-in reduce. You save work in your application and allow the database to concentrate on serving many small requests. This method is preferable to reading huge amounts of data from disk to service a single large request.
 
 ## Why this method helps me use views to pre-calculate results?
