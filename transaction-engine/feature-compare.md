@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-07-09"
 
 keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits
 
@@ -141,7 +141,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `EU Supported` | Yes<br>Upon request | Yes<br>Upon request | No |
 | `GDPR` | Yes | Yes | Yes |
 | `HIPAA` | No | Yes | No |
-| `ISO27001` | Yes | Yes | No |
+| `ISO27001` | Yes | Yes | Yes |
 | `PCI` | Yes | Yes | Yes |
 | `SOC2 Type 2` | Yes | Yes | No |
 {: caption="Table 6. Compliance" caption-side="top"}
