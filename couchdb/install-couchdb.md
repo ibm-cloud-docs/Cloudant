@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-08"
+lastupdated: "2021-07-06"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-08 -->
 
-# Install
+# Installing Apache CouchDB
 {: #apache-couchdb-install}
 
 The following page includes installation artifacts for deploying Apache CouchDB. 
