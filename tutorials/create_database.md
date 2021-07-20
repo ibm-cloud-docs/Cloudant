@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-07-27"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -103,9 +103,8 @@ You must have a current version of the [Python programming language](https://www
 ### Python Client Library requirement
 {: #python-client-library-for-ibm-cloudant}
 
-An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications work with {{site.data.keyword.cloudant_short_notm}}.
-
-The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_window}{: external} ![BETA tag](../images/beta_icon.png) supported library is a generated SDK from the OpenAPI specification.
+The examples below use the deprecated `python-cloudant` client library.
+{: deprecated}
 
 1. Check that the client library installed successfully by running the following command at a prompt:
 
@@ -119,9 +118,16 @@ The [cloudant-python-sdk](https://github.com/IBM/cloudant-python-sdk){: new_wind
 2. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following example:
 
     ```
-    cloudant==2.3.1
+    cloudant==2.14.0
     ```
     {: codeblock}
+
+
+<!--
+
+An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}}.
+
+-->
 
 ## Connecting to a service instance
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
