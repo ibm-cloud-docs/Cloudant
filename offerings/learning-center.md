@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-07-22"
 
 keywords: videos
 
@@ -289,7 +289,7 @@ For either Legacy or Basic-Auth or both, you need the URL (which contains the us
 
 All three handle authentication automatically. You don't need to worry about how it exchanges the API key for a session token or how IAM authentication works - it is handled for you.
 
-When we look at the API from the IDs, we use Basic Auth as a convenience. However, we recommend that you use IAM authentication if possible as it allows better integration with the {{site.data.keyword.cloud_notm}} platform and finer-grained permissions.
+When we discuss the API in the documentation, we use Basic Auth as a convenience. However, we recommend that you use IAM authentication if possible as it allows better integration with the {{site.data.keyword.cloud_notm}} platform and finer-grained permissions.
 
 Time for our next practical exercise.
 
