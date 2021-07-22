@@ -2,13 +2,13 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-07-22"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
 subcollection: Cloudant
 
----
+---                                 
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
@@ -67,8 +67,9 @@ You can change what types of events are sent to {{site.data.keyword.at_full_notm
 
    The Manage page opens.
 
-2. Click **Overview**.
-3. On the Deployment Details page, find Activity Tracker event types.
+2. Click **Overview**.<br>
+   The Deployment Details pane opens.
+3. Find *Activity Tracker event types* in the list.
 4. Select the appropriate type, either **Management** or **Management & Data**, from the drop-down menu.
 5. Click **Save**.
 
