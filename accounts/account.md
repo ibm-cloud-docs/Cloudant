@@ -41,9 +41,9 @@ make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspell your account name,
 you might get the following error, [*503: Service unavailable.*](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
 
--	[{{site.data.keyword.cloud}} Identity and Access Management (IAM)](#authentication-iam)
--	[Basic authentication](#basic-authentication)
--	[Cookie authentication](#cookie-authentication)
+-    [{{site.data.keyword.cloud}} Identity and Access Management (IAM)](#authentication-iam)
+-    [Basic authentication](#basic-authentication)
+-    [Cookie authentication](#cookie-authentication)
 
 ## IAM authentication
 {: #authentication-iam}

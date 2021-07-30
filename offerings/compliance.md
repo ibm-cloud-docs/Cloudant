@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-09"
+lastupdated: "2021-08-02"
 
-keywords: tier-1 physical system, hipaa, iso, pci, soc 2 type 2 certification, gdpr
+keywords: tier-1 physical system, hipaa, iso, pci dss, soc 2 type 2 certification, gdpr
 
 subcollection: Cloudant
 
@@ -34,7 +34,7 @@ including ISO 27001:2013.
 ## Tier-1 physical systems
 {: #tier-1-physical-systems}
 
-The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
+{{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
 on Tier-1 cloud infrastructure providers such as {{site.data.keyword.cloud}} and Amazon.
 Therefore,
 your data is protected by the network and physical security measures that are employed by these providers.

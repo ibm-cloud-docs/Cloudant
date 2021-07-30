@@ -48,8 +48,8 @@ Deployment Region | {{site.data.keyword.mon_full_notm}} Region
 {: #platform_metrics-pm}
 
 You can configure only one instance of the {{site.data.keyword.mon_full}} service per region to collect platform metrics.
-* To configure the Monitoring instance, you must turn on the *platform metrics* configuration setting.
-* If a Monitoring instance in a region is already enabled to collect platform metrics, metrics from enabled-monitoring services are collected automatically and available for monitoring through this instance. For more information about enabled-monitoring services, see [{{site.data.keyword.cloud}} services](https://www.ibm.com/cloud/services).
+- To configure the Monitoring instance, you must turn on the *platform metrics* configuration setting.
+- If a Monitoring instance in a region is already enabled to collect platform metrics, metrics from enabled-monitoring services are collected automatically and available for monitoring through this instance. For more information about enabled-monitoring services, see [{{site.data.keyword.cloud}} services](https://www.ibm.com/cloud/services).
 
 To monitor platform metrics, check that the Monitoring instance is provisioned in the same region where the {{site.data.keyword.cloud_notm}} instance is provisioned.
 {: important}

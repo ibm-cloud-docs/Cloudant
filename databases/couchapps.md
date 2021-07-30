@@ -79,6 +79,4 @@ read the [Build a serverless web app](https://blog.cloudant.com/2017/02/27/Onlin
     authentication, such as OAuth or a 3rd-party login system.
 -   You need to schedule tasks outside the client to run regularly.
 
-You can write your server layer by using whatever technologies work best
-for you.
-A list of libraries that work with {{site.data.keyword.cloudant_short_notm}} is available on the [Client libraries](/docs/Cloudant?topic=Cloudant-client-libraries) page.
+You can write your server layer by using whatever technologies work best for you. A list of libraries that work with {{site.data.keyword.cloudant_short_notm}} is available on the [Client libraries](/docs/Cloudant?topic=Cloudant-client-libraries) page.

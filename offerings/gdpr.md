@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-08-02"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -51,19 +51,19 @@ You can find information about auditing in [Audit logging](/docs/Cloudant?topic=
 The following categories of **Personal Data** are supported by {{site.data.keyword.cloudant_short_notm}}
 for GDPR:
 
- * Identity and civil status
- * Personal life
- * Professional life
- * Location data
- * Connectivity and device data
+- Identity and civil status
+- Personal life
+- Professional life
+- Location data
+- Connectivity and device data
 
 **Sensitive Personal Data** is restricted to the following category:
 
-  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: new_window}{: external}.
+- Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: new_window}{: external}.
 
 If you're storing healthcare data, you *must* complete the following tasks:
- - Notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
- - Request a HIPAA-compliant Dedicated Cluster.
+- Notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
+- Request a HIPAA-compliant Dedicated Cluster.
 
 For more information about supported classifications of Personal Data, see the
 [Data Sheet Addendum (DSA) under 2. Personal Data](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
@@ -80,8 +80,8 @@ about you and are considered a Data Controller for your data within the context 
 If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster or {{site.data.keyword.cloudant_short_notm}}
 Enterprise Cluster, {{site.data.keyword.cloudant_short_notm}} stores the following information about you:
 
- * Name
- * Email
+- Name
+- Email
 
 The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated through the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
@@ -131,9 +131,9 @@ For more information about data locations, see the
 
 As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these guidelines:
 
- * Use the default CORS configuration to prevent unexpected access.
- * Use API keys liberally, since components can have `least privileged access`, which is coupled with the audit log. This practice helps you understand who accessed which data.
- * Encrypt or otherwise protect (pseudonymize) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
+- Use the default CORS configuration to prevent unexpected access.
+- Use API keys liberally, since components can have `least privileged access`, which is coupled with the audit log. This practice helps you understand who accessed which data.
+- Encrypt or otherwise protect (pseudonymize) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical and environmental security measures
 {: #physical-and-environmental-security-measures}
@@ -173,8 +173,8 @@ Access is also limited to a *need to know* basis and is logged, monitored, and a
 When a document is deleted, the database creates a "tombstone." What the tombstone includes depends 
 on how you delete it:
 
- - If you make a `DELETE` call, the tombstone includes the `_id`, `_rev`, and `_deleted` fields.
- - If you delete by updating the document with a `_deleted: true` field and add a `PUT` or `POST` request to it,
+- If you make a `DELETE` call, the tombstone includes the `_id`, `_rev`, and `_deleted` fields.
+- If you delete by updating the document with a `_deleted: true` field and add a `PUT` or `POST` request to it,
 the tombstone includes what you set in the document body. This practice can be useful in some
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
@@ -223,8 +223,7 @@ to {{site.data.keyword.cloudant_short_notm}}.
 If a document needs removal through a *Right to be forgotten* request, follow these steps:
 
 1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external} to request purging of specific document `_id` values along with the reason.
-1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations
-verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} doesn't purge data that doesn't have PI in the `_id`.
+1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} doesn't purge data that doesn't have PI in the `_id`.
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
 This process is only to be used for emergency deletion requests (for example, *Right to be forgotten*) and must not be relied upon long term. If your application is intentionally

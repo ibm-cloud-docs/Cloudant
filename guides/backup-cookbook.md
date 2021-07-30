@@ -68,14 +68,14 @@ couchbackup --url "https://examples.cloudant.com" --db animaldb > backup.txt
 The [NPM readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: new_window}{: external} details other options,
 including the ones in this list:
 
-* Environment variables to set the names of the database and URL.
-* Using a log file to record the progress of a backup.
-* The ability to resume an interrupted backup.
+- Environment variables to set the names of the database and URL.
+- Using a log file to record the progress of a backup.
+- The ability to resume an interrupted backup.
 
-  This option is only available with the log file for the interrupted backup.
-  {: note}
+    This option is only available with the log file for the interrupted backup.
+    {: note}
 
-* Sending the backup text file to a named output file,
+- Sending the backup text file to a named output file,
   rather than redirecting the `stdout` output.
 
 The CouchBackup tools have [limitations](#limitations).
@@ -110,13 +110,13 @@ The CouchBackup tools have [limitations](#limitations).
 The CouchBackup tools have the following limitations: 
 {: important}
 
-* `_security` settings aren't backed up by the tools.
-* Attachments aren't backed up by the tools.
-* Backups aren't precise "point-in-time" snapshots.
+- `_security` settings aren't backed up by the tools.
+- Attachments aren't backed up by the tools.
+- Backups aren't precise "point-in-time" snapshots.
   The reason is that the documents in the database are retrieved in batches,
   but other applications might be updating documents at the same time.
   Therefore, data in the database can change between the times when the first and last batches are read.
-* Index definitions that are held in design documents are backed up,
+- Index definitions that are held in design documents are backed up,
   but the content of indexes isn't backed up.
   This limitation means that when data is restored,
   the indexes must be rebuilt.
@@ -133,10 +133,10 @@ by describing the use of the tools for specific tasks.
 
 The CouchBackup package provides two ways of using its core functions.
 
-* The command-line tools can be embedded into standard UNIX&trade; command pipelines.
+- The command-line tools can be embedded into standard UNIX&trade; command pipelines.
   For many scenarios,
   a combination of `cron` and simple shell scripting of the `couchbackup` application is sufficient.
-* A library usable from Node.js.
+- A library usable from Node.js.
   The library allows more complicated backup processes to be created and deployed,
   such as determining dynamically which databases must be backed up.
 
@@ -153,8 +153,8 @@ for long-term retention.
 
 You frequently need to meet the following two requirements:
 
-* Saving disk space by ['zipping' the backup](#compressing-a-backup-file) file as you create it.
-* Creating a backup of a database automatically at [regular intervals](#hourly-or-daily-backups-that-use-cron-).
+- Saving disk space by ['zipping' the backup](#compressing-a-backup-file) file as you create it.
+- Creating a backup of a database automatically at [regular intervals](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compressing a backup file
 {: #compressing-a-backup-file}
@@ -235,10 +235,10 @@ that can be used in your own Node.js applications.
 The library is useful for more complicated scenarios,
 for example:
 
-* Backing up several databases in one task.
+- Backing up several databases in one task.
   You might do this backup by identifying all the databases by using the [`_all_dbs`](/apidocs/cloudant#getalldbs){: new_window}{: external} call,
   then doing a backup of each database individually.
-* Longer pipelines increase the risk of errors.
+- Longer pipelines increase the risk of errors.
   By using the CouchBackup library,
   your application can detect and address any error at the earliest opportunity.
 

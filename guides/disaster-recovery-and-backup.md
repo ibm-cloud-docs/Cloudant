@@ -133,21 +133,21 @@ The basic steps in creating cross-region redundancy are included in the followin
 When you design your applications to work with data across multiple regions,
 consider the following points:
 
-* Applications can send requests to the database hosted nearest to their physical location.
+- Applications can send requests to the database hosted nearest to their physical location.
   This use of proximity can reduce network latency and improve response times.
   This configuration is referred to as an "Active-Active" method.
   An actve-active method is characterized by the concurrent use of multiple copies of data.
   Applications that work within an active-active configuration must have
   a [strategy for handling conflicts](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts) to avoid problems with multiple copies of data.
-* Applications can request data from a single region by default.
+- Applications can request data from a single region by default.
   If the region isn't available,
   the application can switch to requesting data from another region.
   This configuration is referred to as an "Active-Passive" method. An active-passive method is characterized by the active use of only one set of data at a time.
-* An application might use a hybrid configuration,
+- An application might use a hybrid configuration,
   where a single account is used for all data write requests,
   and other locations as used exclusively for read-only requests.
   This configuration is considered Active-Active for reads.
-* In a disaster scenario,
+- In a disaster scenario,
   your application must reroute data requests to access the accounts
   that are hosted in the regions that are still online.
   This requirement means that your application must detect the loss of a region,
@@ -184,21 +184,21 @@ and later restore databases from those files.
 Specifically,
 {{site.data.keyword.cloudant_short_notm}} supports tools that help you perform the following tasks:
 
-*	Backup complete databases to a file that is
+-	Backup complete databases to a file that is
 	suitable for further processing and off-site storage.
-*	Restore complete databases from a previous state that is contained in your backup file.
+-	Restore complete databases from a previous state that is contained in your backup file.
 
 The tools that are supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
 {: tip}
 
-*	`_security` settings aren't backed up by the tools.
-*	Attachments aren't backed up by the tools.
-*	Backups aren't precisely accurate "point-in-time" snapshots.
+-	`_security` settings aren't backed up by the tools.
+-	Attachments aren't backed up by the tools.
+-	Backups aren't precisely accurate "point-in-time" snapshots.
 	The reason is that the documents in the database are retrieved in batches,
 	but other applications might be updating documents at the same time.
 	Therefore,
 	the data in the database can change between the times when the first and last batches are read.
-*	Index definitions held design documents are backed up,
+-	Index definitions held design documents are backed up,
 	but when data is restored the indexes must be rebuilt.
 	This rebuilding might take a considerable amount of time,
 	depending on how much data is restored.
@@ -210,9 +210,9 @@ You can develop applications that build on basic {{site.data.keyword.cloudant_sh
 to enable more complex data protection strategies.
 Example scenarios are shown in the following list:
 
-*	Restoring single documents from previous states.
-*	Storing multiple previous document states to allow for restores from older backups.
-*	Migrating older data to cheaper storage, for more cost-effective retention.
+-	Restoring single documents from previous states.
+-	Storing multiple previous document states to allow for restores from older backups.
+-	Migrating older data to cheaper storage, for more cost-effective retention.
 
 The backup tools consist of an open source node.js command-line application and library.
 It's available on [NPM](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.

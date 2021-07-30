@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2020-03-31"
+lastupdated: "2020-08-02"
 
-keywords: principal, action, resource, timestamp, access audit logs
+keywords: principal, action, resource, timestamp, access audit logs, user-initiated activities
 
 subcollection: Cloudant
 

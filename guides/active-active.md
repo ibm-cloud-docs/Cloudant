@@ -45,15 +45,13 @@ one in each region:
 
 Remember these important facts:
 
-* Within each data center,
+- Within each data center,
   {{site.data.keyword.cloudant_short_notm}} already offers high availability
   by storing data in triplicate across three servers.
-* Replication occurs at the database rather than account level
+- Replication occurs at the database rather than account level
   and must be explicitly configured.
-* {{site.data.keyword.cloudant_short_notm}} doesn't provide any Service Level Agreements (SLAs)
-  or certainties about replication latency.
-* {{site.data.keyword.cloudant_short_notm}} doesn't monitor individual replications.
-  Your own strategy for detecting failed replications and restarting them is advisable.
+- {{site.data.keyword.cloudant_short_notm}} doesn't provide any Service Level Agreements (SLAs)
+  or certainties about replication latency. {{site.data.keyword.cloudant_short_notm}} doesn't monitor individual replications. Your own strategy for detecting failed replications and restarting them is advisable.
 
 ## Before you begin an active-active deployment
 {: #before-you-begin-an-active-active-deployment}
@@ -72,8 +70,8 @@ This configuration allows two databases to work in an active-active topology.
 
 The configuration assumes that you have two accounts in different regions:
 
-* `myaccount-dc1.cloudant.com`
-* `myaccount-dc2.cloudant.com`
+- `myaccount-dc1.cloudant.com`
+- `myaccount-dc2.cloudant.com`
 
 After these accounts are created, follow these steps: 
 
@@ -273,10 +271,10 @@ but the read load is distributed among the replicas.
 ## Step 7. Next steps
 {: #step-7-next-steps}
 
-* Consider monitoring the [replications](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication) between the databases.
-  Use the data to determine whether your configuration might be optimized further.
-*	Consider how your design documents and indexes are deployed and updated.
-  You might find it more efficient to automate these tasks.
+- Consider monitoring the [replications](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication) between the databases.
+    Use the data to determine whether your configuration might be optimized further.
+-	Consider how your design documents and indexes are deployed and updated.
+    You might find it more efficient to automate these tasks.
 
 ## Failing over between {{site.data.keyword.cloudant_short_notm}} regions
 {: #failing-over-between-ibm-cloudant-regions}
@@ -297,17 +295,8 @@ However,
 if you decide that you need the ability to manage failover,
 consider the following possible options:
 
-* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}}](https://github.com/greenmangaming/cloudant-nginx){: new_window}{: external}.
-  Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance.
-  This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}}
-  instances that are used by applications can be handled through a modification to the proxy configuration
-  rather than a modification to the application settings.
-  Many proxies can balance the load,
-  based on user-defined health checks.
-* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
-  This option requires a `CNAME` definition that routes to
-  different {{site.data.keyword.cloudant_short_notm}} accounts,
-  based on a health check or latency rule.
+- Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}}](https://github.com/greenmangaming/cloudant-nginx){: new_window}{: external}. Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance. This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}} instances that are used by applications can be handled through a modification to the proxy configuration rather than a modification to the application settings. Many proxies can balance the load, based on user-defined health checks.
+- Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}. This option requires a `CNAME` definition that routes to different {{site.data.keyword.cloudant_short_notm}} accounts, based on a health check or latency rule.
 
 
 ## Recovering from failover
@@ -325,8 +314,8 @@ to help decide when a database is in a suitable state to service your production
 As a guide,
 a typical list of checks to apply include:
 
-* [Replications](#replications)
-* [Indexes](#indexes)
+- [Replications](#replications)
+- [Indexes](#indexes)
 
 If you implement rerouting for requests or failover based on a health test, you might want to incorporate corresponding checks to avoid premature rerouting back to a service instance that is still recovering.
 {: note}
@@ -334,9 +323,9 @@ If you implement rerouting for requests or failover based on a health test, you 
 ### Replications
 {: #replications}
 
-* Are any replications in an error state?
-* Do any replications need restarting?
-* How many pending changes are still waiting for replication into the database?
+- Are any replications in an error state?
+- Do any replications need restarting?
+- How many pending changes are still waiting for replication into the database?
 
 For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: new_window}{: external} and monitor replication status.
 
@@ -346,7 +335,7 @@ If a database is being changed continuously, the replication status is unlikely 
 ### Indexes
 {: #indexes}
 
-* Are the indexes sufficiently up to date?
+- Are the indexes sufficiently up to date?
   Verify that indexes are updated by using the [active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
-* Test the level of "index readiness" by sending a query to the index,
+- Test the level of "index readiness" by sending a query to the index,
   and deciding whether it returns within an acceptable time.

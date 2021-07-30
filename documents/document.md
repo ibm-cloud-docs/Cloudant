@@ -400,26 +400,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID?rev=$REV" -X DELETE
 ```
 {: codeblock}
 
-<!--
-
-### Example of a delete request, using Javascript
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-var db = account.use($DATABASE);
-
-// make sure $JSON contains the correct `_rev` value!
-db.destroy($JSON._id, $REV, function (err, body, headers) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 See an example response after a successful deletion request:
 
 ```json

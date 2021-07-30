@@ -365,8 +365,8 @@ Rule | URL | Rewrite to | Tokens
 All queries operate on pre-defined indexes that are defined in design documents.
 These indexes are defined in the following list:
 
-*	[Search](/docs/Cloudant?topic=Cloudant-search#search)
-*	[MapReduce](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce)
+-	[Search](/docs/Cloudant?topic=Cloudant-search#search)
+-	[MapReduce](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce)
 
 For example,
 to create a design document that is used for searching,
@@ -417,8 +417,8 @@ you use it by sending a `GET` request to
 
 This request includes the following functions:
 
-*	`$LIST_FUNCTION` is the name of list function you defined.
-*	`$MAPREDUCE_INDEX` is the name of the index that provides the query results that you want to format.
+-	`$LIST_FUNCTION` is the name of list function you defined.
+-	`$MAPREDUCE_INDEX` is the name of the index that provides the query results that you want to format.
 
 List functions require two arguments:
 [`head`](#head) and [`req`](#req).
@@ -854,10 +854,10 @@ function(doc, req){
 
 A number of predefined filter functions are available:
 
-*	[`_design`](#the-design-filter) - accepts only changes to design documents.
-*	[`_doc_ids`](#the-doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
-*	[`_view`](#the-view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
+-	[`_design`](#the-_design-filter) - accepts only changes to design documents.
+-	[`_doc_ids`](#the-_doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
+-	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
+-	[`_view`](#the-_view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
 {: #the-design-filter}

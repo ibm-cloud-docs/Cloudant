@@ -35,7 +35,6 @@ You can migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard
 Plan | Description
 -----|------------
 {{site.data.keyword.cloudant_short_notm}} Enterprise | Dedicated, single-tenant clusters
-{{site.data.keyword.cloudant_localfull}} | The self-hosted, packaged installation of {{site.data.keyword.cloudant_short_notm}}.
 Apache CouchDB | The self-hosted, open source database on which {{site.data.keyword.cloudant_short_notm}} is based.
 {: caption="Table 1. {{site.data.keyword.cloudant_short_notm}} migration paths" caption-side="top"}
 

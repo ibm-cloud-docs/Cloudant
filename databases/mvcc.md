@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-07-30"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -204,9 +204,9 @@ it is easy to merge them.
 For more complex conflicts,
 other resolution strategies might be required:
 
-*   Time based - use the first or last edit.
-*   User intervention - report conflicts to users and let them decide on the best resolution.
-*   Sophisticated algorithms - for example, 3-way merges of text fields.
+-   Time based - use the first or last edit.
+-   User intervention - report conflicts to users and let them decide on the best resolution.
+-   Sophisticated algorithms - for example, 3-way merges of text fields.
 
 For a practical example of how to implement a merge of changes,
 see this project with [sample code](https://github.com/glynnbird/deconflict){: new_window}{: external}.

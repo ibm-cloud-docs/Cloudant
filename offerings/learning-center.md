@@ -50,9 +50,9 @@ This video is part 1 - *What is {{site.data.keyword.cloudant_short_notm}}?*
 
 {{site.data.keyword.cloudant_short_notm}} is a database, run as a service in the {{site.data.keyword.cloud}}. Its job is to store your application's data securely and make it possible for you to retrieve it quickly and efficiently. {{site.data.keyword.cloudant_short_notm}}'s key features are shown in the following list:
 
-  - Database - stores and retrieves data. More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. 
-  - "Document" - the unit of storage in {{site.data.keyword.cloudant_short_notm}}. Documents are added, updated, and deleted in their entirety.
-  - HTTP API - Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so!).
+- Database - stores and retrieves data. More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. 
+- "Document" - the unit of storage in {{site.data.keyword.cloudant_short_notm}}. Documents are added, updated, and deleted in their entirety.
+- HTTP API - Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so!).
 
 {{site.data.keyword.cloudant_short_notm}} wasn't written entirely by IBM. It is based on Apache CouchDB, an open source project run by the Apache Foundation. {{site.data.keyword.cloudant_short_notm}} employs a number of CouchDB contributors but by the rules of Apache, they cannot monopolize its development.
 
