@@ -122,6 +122,7 @@ Cloudant
     Enhancing security for IBM Cloudant
         security/access-iam.md
         security/architecture-workload-isolation.md
+        security/service-endpoints.md
         security/secure-connection.md
         security/manage-scc.md
         security/secure-data.md
