@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-08-03"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -50,9 +50,9 @@ submit a `GET` request with the following format:
 
 The request runs either:
 
-- The specified `view-name` from the specified `design-doc` design document
+-   The specified `view-name` from the specified `design-doc` design document
     within the database.
-- The specified `view-name` from the specified `design-doc` design document
+-   The specified `view-name` from the specified `design-doc` design document
     within the database, which is constrained to results within a specific data partition.
 
 The examples in this document vary between partition and global queries for

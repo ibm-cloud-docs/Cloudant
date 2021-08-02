@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-08-03"
 
-keywords: compare couchdb and cloudant
+keywords: feature comparison, function comparison
 
 subcollection: Cloudant
 

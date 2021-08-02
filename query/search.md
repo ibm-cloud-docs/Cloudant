@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-08-03"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -249,40 +249,40 @@ These analyzers omit common words in the specific language,
 and many also [remove prefixes and suffixes](http://en.wikipedia.org/wiki/Stemming){: new_window}{: external}.
 The name of the language is also the name of the analyzer.
 
-* `arabic`
-* `armenian`
-* `basque`
-* `bulgarian`
-* `brazilian`
-* `catalan`
-* `cjk` (Chinese, Japanese, Korean)
-* `chinese` ([`smartcn`](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window}{: external})
-* `czech`
-* `danish`
-* `dutch`
-* `english`
-* `finnish`
-* `french`
-* `german`
-* `greek`
-* `galician`
-* `hindi`
-* `hungarian`
-* `indonesian`
-* `irish`
-* `italian`
-* `japanese` ([`kuromoji`](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window}{: external})
-* `latvian`
-* `norwegian`
-* `persian`
-* `polish` ([`stempel`](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window}{: external})
-* `portuguese`
-* `romanian`
-* `russian`
-* `spanish`
-* `swedish`
-* `thai`
-* `turkish`
+- `arabic`
+- `armenian`
+- `basque`
+- `bulgarian`
+- `brazilian`
+- `catalan`
+- `cjk` (Chinese, Japanese, Korean)
+- `chinese` ([`smartcn`](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window}{: external})
+- `czech`
+- `danish`
+- `dutch`
+- `english`
+- `finnish`
+- `french`
+- `german`
+- `greek`
+- `galician`
+- `hindi`
+- `hungarian`
+- `indonesian`
+- `irish`
+- `italian`
+- `japanese` ([`kuromoji`](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window}{: external})
+- `latvian`
+- `norwegian`
+- `persian`
+- `polish` ([`stempel`](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window}{: external})
+- `portuguese`
+- `romanian`
+- `russian`
+- `spanish`
+- `swedish`
+- `thai`
+- `turkish`
 
 Language-specific analyzers are optimized for the specified language. You can't combine a generic analyzer with a language-specific analyzer. Instead, you might use a [`perfield` analyzer](#per-field-analyzers) to select different analyzers for different fields within the documents.
 {: note}
@@ -668,7 +668,7 @@ The `group_field`, `group_limit`, and `group_sort` options are only available wh
 
 The following characters require escaping if you want to search on them:
 
-```
+```http
 + - && || ! ( ) { } [ ] ^ " ~ * ? : \ /
 ```
 {: codeblock}

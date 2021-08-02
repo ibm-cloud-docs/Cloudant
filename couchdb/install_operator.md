@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-16"
+lastupdated: "2021-08-03"
 
-keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
+keywords: subscription, operatorgroup, namespace, openshift, kubernetes
 
 subcollection: Cloudant
 

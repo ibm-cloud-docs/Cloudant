@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-08-03"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -179,19 +179,15 @@ As of 24 July 2017, {{site.data.keyword.cloudant_short_notm}} Shared Plan accoun
 ## Error handling
 {: #error-handling}
 
-- If you rely on 500 replies for your application, you might have issues. To fix the problem, 
-update your application to rely on 400 responses. 
+- If you rely on 500 replies for your application, you might have issues. To fix the problem, update your application to rely on 400 responses. 
 
-- If you don't take care of reduce overflow errors as part of a row in the response body, 
-issues occur. To fix this problem, change the application to handle the errors 
+- If you don't take care of reduce overflow errors as part of a row in the response body, issues occur. To fix this problem, change the application to handle the errors 
 from view requests.  
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 {: #incompatibility-between-couchdb-version-1-6-and-ibm-cloudant-version-2-0-0}
 
-- An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
-in the request body is ignored. However, the parameter in the request URL is respected. In recent versions of 
-{{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body isn't ignored.
+- An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter in the request body is ignored. However, the parameter in the request URL is respected. In recent versions of {{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body isn't ignored.
 
 ## Revised error message
 {: #revised-error-message}
@@ -217,6 +213,4 @@ to the list of allowed `origins`.
 ## `dbcopy` (4 February 2016)
 {: #-dbcopy-february-4-2016-}
 
-- The `dbcopy` feature can cause problems under some circumstances.
-  Information about the feature was removed from the documentation.
-  Use of `dbcopy` is discouraged.
+- The `dbcopy` feature can cause problems under some circumstances. Information about the feature was removed from the documentation. Use of `dbcopy` is discouraged.

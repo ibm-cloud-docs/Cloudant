@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-17"
+lastupdated: "2021-08-03"
 
-keywords: port forward, openshift route
+keywords: port forward, openshift route, tls
 
 subcollection: Cloudant
 

@@ -37,15 +37,15 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 {{site.data.keyword.cloudant_short_notm}} forwards two types of events to {{site.data.keyword.at_full_notm}}:
 
 - **Management Events** are administrative events that impact the state of an  {{site.data.keyword.cloudant_short_notm}} instance, such as the following management events:
-  - Creating or deleting a database.
-  - Updating security settings.
-  - Creating a replication job.
-  - Creating an index.
+    - Creating or deleting a database.
+    - Updating security settings.
+    - Creating a replication job.
+    - Creating an index.
 - **Data Events** are all the other events that are involved with interacting with {{site.data.keyword.cloudant_short_notm}}, such as the following events:
-  - Reading or writing JSON documents.
-  - Reading a list of databases.
-  - Viewing monitoring endpoints.
-  - Authenticating against the service.
+    - Reading or writing JSON documents.
+    - Reading a list of databases.
+    - Viewing monitoring endpoints.
+    - Authenticating against the service.
 
 
 By default, only management events are automatically collected and sent to the {{site.data.keyword.at_full_notm}} service.
@@ -65,7 +65,7 @@ You can change what types of events are sent to {{site.data.keyword.at_full_notm
 
 1. Go to the Resource list, and select an {{site.data.keyword.cloudant_short_notm}} instance.
 
-   The Manage page opens.
+    The Manage page opens.
 
 2. Click **Overview**.<br>
    The Deployment Details pane opens.
@@ -120,14 +120,14 @@ See the following example request by using cURL. Complete the following steps:
 
 When you check what events are enabled, you get one of the following responses.
 
-* Response when both management and data event types are sent:
+- Response when both management and data event types are sent:
 
     ```json
     {"types": ["management", "data"]}
     ```
     {: codeblock}
 
-* Response when only management events are sent:
+- Response when only management events are sent:
 
     ```json
     {"types": ["management"]}

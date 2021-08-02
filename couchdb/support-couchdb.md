@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-02"
+lastupdated: "2021-08-02"
 
 keywords: apache couchdb, support, extension
 
@@ -144,15 +144,15 @@ You can see what is included with support and what is not in the following lists
 2. Choose {{site.data.keyword.cloudant_short_notm}} from the list of products.
 3. In the Subject field, type "Apache CouchDB:" followed by a short description of the issue.
 4. In the Description field, include as much detail as possible on the issue. <br>The following list includes the minimum amount of information that is required:
-  - Versions of Apache CouchDB, OS, or any Kubernetes environment.
-  - CRN of the Extension for Apache CouchDB instance to verify support entitlement. The CRN can be found in the Manage instance page. Support is not provided without including the CRN.
-  - Details of the issues.
+    - Versions of Apache CouchDB, OS, or any Kubernetes environment.
+    - CRN of the Extension for Apache CouchDB instance to verify support entitlement. The CRN can be found in the Manage instance page. Support is not provided without including the CRN.
+    - Details of the issues.
 5. Attach any relevant logs or screen captures.<br>
   For customers who deploy Apache CouchDB in containerized environments, provide the following details:
-  - Version of the Operator for Apache CouchDB that is deployed.
-  - YAML files that are related to the deployment of the following Kubernetes resources - couchdbcluster, formation, stateful set, pods, and configmap.
-  - Logs of CouchDB container, management container, and operator container.
-  - Contents found on the CouchDB pod in the following files - /conf/couchdb/user.ini, /conf/couchdb/local.ini, /conf/couchdb/clouseau.ini, and /conf/couchdb/vm.args.
+    - Version of the Operator for Apache CouchDB that is deployed.
+    - YAML files that are related to the deployment of the following Kubernetes resources - couchdbcluster, formation, stateful set, pods, and configmap.
+    - Logs of CouchDB container, management container, and operator container.
+    - Contents found on the CouchDB pod in the following files - /conf/couchdb/user.ini, /conf/couchdb/local.ini, /conf/couchdb/clouseau.ini, and /conf/couchdb/vm.args.
 6. Under Resources, select the Extension for Apache CouchDB instance for support entitlement, which has an {{site.data.keyword.cloudant_short_notm}} logo. 
 7. Click **Continue**.
 8. Click **Submit case**.

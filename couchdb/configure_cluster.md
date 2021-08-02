@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-08-03"
 
-keywords: operator, field reference
+keywords: operator, field reference, user-defined configuration parameters
 
 subcollection: Cloudant
 

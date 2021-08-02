@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-01"
+lastupdated: "2021-08-03"
 
-keywords: public isolation for cloudant, compute isolation for cloudant, cloudant architecture, workload isolation in cloudant
+keywords: public isolation, compute isolation, cloudant architecture, workload isolation, byok
 
 ---
 

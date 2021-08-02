@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-26"
+lastupdated: "2021-08-03"
 
-keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
+keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
 subcollection: Cloudant
 
@@ -280,23 +280,23 @@ Ensure that you select the specified instance, either the Source or Target.
 1. Log in to `cloud.ibm.com`.
 2. From the Resource list, select **Services** and your Source instance.
 
-   a. Click **Service credentials** and click **New credential**.
+    a. Click **Service credentials** and click **New credential**.
 
-   b. Name the new credential `replicator-source`, and select the Manager role.
+    b. Name the new credential `replicator-source`, and select the Manager role.
 
-	 c. Click **Add**, and make note of its `apikey`, which is under View Credentials in the Actions column.
+	  c. Click **Add**, and make note of its `apikey`, which is under View Credentials in the Actions column.
 
 3. Repeat steps 2 through 2.c. for the Target instance.
 
-   a. Create a credential called `replicator-target` with the Manager role.
+    a. Create a credential called `replicator-target` with the Manager role.
 
-   b. Make note of its IAM API key, which is under View Credentials in the Actions column.
+    b. Make note of its IAM API key, which is under View Credentials in the Actions column.
 
 4. Select the Source instance, and click **Service credentials** and **New credential**.
 
-   a. Name the new credential `apiaccess`, and select the Manager role.
+    a. Name the new credential `apiaccess`, and select the Manager role.
 
-   b. Make note of the actual IAM API key under View Credentials in the Actions column.
+    b. Make note of the actual IAM API key under View Credentials in the Actions column.
 
 5. Make note of Source and Target instance URLs.
 
