@@ -1,7 +1,7 @@
 ---
 
 copyright: 2020, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-08-05"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -67,7 +67,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
-2.  Type `Cloudant` in the Search bar and click to open it. 
+2.  Type `Cloudant` in the Search bar and open it. 
 
     ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
@@ -86,7 +86,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     ![Host selection](images/img0005d.png){: caption="Figure 4. Host selection" caption-side="bottom"}
 
-    c. Select the {{site.data.keyword.cloud_notm}} region.
+    c. Select from the {{site.data.keyword.cloud_notm}} regions.
 
 5.  Configure the Host.
 

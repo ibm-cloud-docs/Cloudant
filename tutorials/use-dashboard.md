@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-08-05"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -35,7 +35,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-By using the {{site.data.keyword.cloudantfull}} dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information, see the [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}.
+By using the {{site.data.keyword.cloudantfull}} dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}.
 {: shortdesc}
 
 ## Objectives

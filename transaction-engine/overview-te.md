@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-21"
+lastupdated: "2021-08-05"
 
-keywords: recommendations
+keywords: recommendations, database recovery, in-database encryption, in-region strong consistency, synchronous secondary index building, provisioned throughput capacity, scalability, cost
 
 subcollection: Cloudant
 
@@ -42,6 +42,7 @@ The key features that {{site.data.keyword.cloudant_short_notm}} on the new Trans
 The following discussion elaborates on the benefits of using {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
 
 ## In-region consistency
+{: #in-region-consistency}
 
 In {{site.data.keyword.cloudant_short_notm}} on the Classic architecture, the database is eventually consistent. The application can't safely read its own documents writes and might inadvertently create conflicts when a document is updated frequently in a short time window. 
 
@@ -52,6 +53,7 @@ In {{site.data.keyword.cloudant_short_notm}} on the Classic architecture, the da
 - The changes feed is strictly ordered ("linearized") making it much easier for changes feed listeners to consume the changes feed without having to deal with duplicates of the same change.
 
 ## Synchronous index building
+{: #synchronous-index-buiding}
 
 {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture updates {{site.data.keyword.cloudant_short_notm}} Query indexes in the same database transaction as document updates. When you add, update, or delete a document by using the API, any secondary {{site.data.keyword.cloudant_short_notm}} Query indexes that are associated with that database are updated at the same time as the document. This process keeps the database and its indexes in lockstep. 
 
@@ -61,6 +63,7 @@ MapReduce indexes are still built in the background, in the same way as {{site.d
 {: note}
 
 ## Data Durability
+{: #data-durability}
 
 {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine architecture has an entirely redesigned persistence layer, which is built on open source foundations. The new database underpinnings offer the following functionality:
 - Cross-zone data durability able to survive availability zone failure. Multiple availability zones need to be available in region, otherwise cross-server within the same data center can occur.
@@ -68,6 +71,7 @@ MapReduce indexes are still built in the background, in the same way as {{site.d
 - Database recovery APIs that recover quickly from inadvertent deletion of databases.
 
 ## Scalability and cost
+{: #scalability-and-cost}
 
 The new pricing model allows a number of _read_ and _write_ units per second to be provisioned. The number of reads and writes consumed by each API call is listed in the [pricing](/docs/Cloudant?topic=Cloudant-pricing-te) guide. It rewards bulk API operations that fetch or modify several documents over their piecemeal equivalents. This pricing model makes it much cheaper to run query-based workloads, especially if efficient secondary indexes are used to complement each query. Storage costs one-fourth less in the new Transaction Engine architecture than in Classic. Resharding is automatic and doesn't require user input at database creation time.
 
@@ -82,5 +86,6 @@ The new pricing model allows a number of _read_ and _write_ units per second to 
 Instances that are provisioned with the new `Standard on Transaction Engine` plan are deployed by using the new architecture, while instances on the `Lite` and `Standard` plans are deployed on the "Classic" architecture. Therefore, users can't change plans between architectures. Plan changes from `Standard on Transaction Engine` to `Lite` or `Standard` aren't allowed. (Users receive a `BXNUI0112E: The plan could not be updated` message upon attempting a plan change.) Users who want to migrate between architectures must spin up a new instance and replicate the data between them. 
 
 ## Feature Parity between {{site.data.keyword.cloudant_short_notm}} on the Transaction Engine vs "Classic" architecture
+{: #feature-parity-txe-classic}
 
 Not all {{site.data.keyword.cloudant_short_notm}} features currently available in the Cloudant "classic" architecture are available in the new `Standard on Transaction Engine` plan. Customers must evaluate their requirements and choose the appropriate plan for their use case. Multiple upcoming features rely solely on the Transaction Engine architecture that is related to scalability, security, and compliance. It is recommended that you use this plan whenever feasible. 

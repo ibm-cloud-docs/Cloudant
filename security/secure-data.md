@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-15"
+lastupdated: "2021-08-03"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -47,11 +47,11 @@ Therefore,
 your data is protected by the network and physical security measures that are employed by those providers,
 including (but not limited to):
 
-- Certifications - Compliance with SSAE16, SOC2 Type 1, ISAE 3402, ISO 27001, CSA, and other standards.
-- Access and identity management.
-- General physical security of data centers and network operations center monitoring.
-- Server hardening.
-- {{site.data.keyword.cloudant_short_notm}} gives you the flexibility to
+-   Certifications - Compliance with SSAE16, SOC2 Type 1, ISAE 3402, ISO 27001, CSA, and other standards.
+-   Access and identity management.
+-   General physical security of data centers and network operations center monitoring.
+-   Server hardening.
+-   {{site.data.keyword.cloudant_short_notm}} gives you the flexibility to
   choose or switch among the different providers
   as your SLA and cost requirements change.
 

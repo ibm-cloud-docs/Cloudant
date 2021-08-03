@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-09"
+lastupdated: "2021-08-05"
 
-keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits
+keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
 
 subcollection: Cloudant
 

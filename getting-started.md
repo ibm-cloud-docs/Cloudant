@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-18"
+lastupdated: "2021-08-05"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -59,7 +59,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
     you're presented with the {{site.data.keyword.cloud_notm}} dashboard. 
     {: note}
     
-2.  Type `Cloudant` in the Search bar, and click to open it:
+2.  Type `Cloudant` in the Search bar and click to open it:
 
     ![{{site.data.keyword.cloud_notm}} database services](/tutorials/images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
@@ -118,5 +118,5 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 The service credentials in this example were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
 {: note}
 
-For more information about the fields in your credentials, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
+For more information about the fields in your credentials, see [Understanding your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#the-service-credentials).
 

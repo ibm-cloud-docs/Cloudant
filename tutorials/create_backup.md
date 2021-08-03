@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-08-05"
 
-keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
+keywords: create database, create documents, set environment variable, back up database, create log file, restore backup from log file
 
 subcollection: Cloudant
 
