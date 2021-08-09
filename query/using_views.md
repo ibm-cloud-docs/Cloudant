@@ -109,7 +109,7 @@ GET /$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 See the example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view.
 
@@ -126,7 +126,7 @@ See the example of using the command line to retrieve a list of the first five d
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5" \
      -H "Content-Type: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 See the example of using the command line to retrieve a list of the first five documents from a database, applying the user-created `by_title` view.
 
