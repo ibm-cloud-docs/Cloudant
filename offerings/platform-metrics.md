@@ -26,7 +26,7 @@ subcollection: Cloudant
 {: #monitor-ibm-cloud-pm}
 
 {{site.data.keyword.mon_full}} is a third-party, cloud-native, and container-intelligent management system that you can include as part of your {{site.data.keyword.cloud}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. 
-{:shortdesc}
+{: shortdesc}
 
 Currently, {{site.data.keyword.mon_full_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
 
