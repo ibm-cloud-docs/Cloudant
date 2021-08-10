@@ -32,11 +32,11 @@ Cloudant
         couchdb/overview-couchdb.md
         couchdb/comparison.md
         couchdb/install-couchdb.md
-        operator/install_operator.md
-        operator/configure_cluster.md
-        operator/deploy_cluster.md
-        operator/access_couchdb.md
-        operator/troubleshoot-operator.md
+        couchdb/install_operator.md
+        couchdb/configure_cluster.md
+        couchdb/deploy_cluster.md
+        couchdb/access_couchdb.md
+        couchdb/troubleshoot-operator.md
         couchdb/support-couchdb.md
     {: .navgroup-end}
 
