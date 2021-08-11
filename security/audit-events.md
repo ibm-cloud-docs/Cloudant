@@ -2,13 +2,13 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-22"
+lastupdated: "2021-08-11"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
 subcollection: Cloudant
 
----                                 
+---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
