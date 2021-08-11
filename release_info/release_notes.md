@@ -39,6 +39,11 @@ Changes and updates to {{site.data.keyword.cloudant_short_notm}} Transaction Eng
 
 See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine.
 
+### Build 2.94 (July 2021)
+{: #build-2.94-july-2021}
+
+- Upgrade to Erlang/OTP 23.3.4.4
+
 ### Build 2.93 (July 2021)
 {: #build-2.93-july-2021}
 
