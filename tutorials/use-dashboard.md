@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-09-29"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -218,11 +218,10 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
     Use the following information in the Source section:
       - Type - Select **Remote database**.
       - Name - Enter the database URL:
-
-      ```sh
-      https://examples.cloudant.com/query-movies
-      ```
-      {: codeblock}
+          ```http
+          https://examples.cloudant.com/query-movies
+          ``` 
+          {: codeblock}
 
       - Authentication - Leave as `None`.
 

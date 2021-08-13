@@ -506,34 +506,65 @@ db.view_with_list($DESIGN_ID, $MAPREDUCE_INDEX, $LIST_FUNCTION, function (err, b
 ### `head`
 {: #head}
 
-Field        | Description
--------------|-------------
-`offset`     | Offset where the document list started.
-`total_rows` | Number of documents in the view.
-{: caption="Table 6. Fields for the `head` argument" caption-side="top"}
+The `head` argument contains the following fields:
+
+`offset`
+:   Offset where the document list started.
+
+`total_rows`
+:   Number of documents in the view.
 
 
 ### `req`
 {: #req}
 
-Field            | Description
------------------|-------------
-`body`           | Request body data as string. If the request method is `GET`, this field contains the value `undefined`. If the method is `DELETE` or `HEAD`, the value is "" (the empty string).
-`cookie`         | Cookies object.
-`form`           | Form data object. Contains the decoded body as key-value pairs if the Content-Type header was `application/x-www-form-urlencoded`.
-`headers`        | Request headers object.
-`id`             | Requested document ID string if it was specified or null otherwise.
-`info`           | Database information.
-`method`         | Request method as string or array. String value is one of the methods: `HEAD`, `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, or `TRACE`. Alternatively, the method is represented as an array of character codes.
-`path`           | List of requested path sections.
-`peer`           | Request source IP address.
-`query`          | URL query parameters object. Therefore, multiple keys aren't supported, the last duplicate key overrides the others.
-`requested_path` | List of actual requested path section.
-`raw_path`       | Raw requested path string.
-`secObj`         | The database's [security object](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
-`userCtx`        | Context about the currently authenticated user, specifically, their `name` and `roles` within the current database.
-`uuid`           | A generated UUID.
-{: caption="Table 7. Fields for the `req` argument" caption-side="top"}
+The `req` argument contains the following fields:
+
+`body`
+:  Request body data as string. If the request method is `GET`, this field contains the value `undefined`. If the method is `DELETE` or `HEAD`, the value is "" (the empty string).
+
+`cookie`
+:   Cookies object.
+
+`form`
+:   Form data object. Contains the decoded body as key-value pairs if the Content-Type header was `application/x-www-form-urlencoded`.
+
+`headers`
+:   Request headers object.
+
+`id`
+:   Requested document ID string if it was specified or null otherwise.
+
+`info`
+:   Database information.
+
+`method`
+:   Request method as string or array. String value is one of the methods: `HEAD`, `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, or `TRACE`. Alternatively, the method is represented as an array of character codes.
+
+`path`
+:   List of requested path sections.
+
+`peer`
+:   Request source IP address.
+
+`query`
+:   URL query parameters object. Therefore, multiple keys aren't supported, the last duplicate key overrides the others.
+
+`requested_path`
+:   List of actual requested path section.
+
+`raw_path`
+:   Raw requested path string.
+
+`secObj`
+:   The database's [security object](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
+
+`userCtx`
+:   Context about the currently authenticated user, specifically, their `name` and `roles` within the current database.
+
+`uuid`
+:   A generated UUID.
+
 
 ## Show functions
 {: #show-functions}
@@ -854,10 +885,17 @@ function(doc, req){
 
 A number of predefined filter functions are available:
 
--	[`_design`](#the-_design-filter) - accepts only changes to design documents.
--	[`_doc_ids`](#the-_doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
--	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
--	[`_view`](#the-_view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
+[`_design`](#the-_design-filter)
+:   Accepts only changes to design documents.
+
+[`_doc_ids`](#the-_doc_ids-filter)
+:   Accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
+
+[`_selector`](#the-_selector-filter)
+:   Accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
+
+[`_view`](#the-_view-filter)
+:   With this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
 {: #the-design-filter}
@@ -1232,14 +1270,27 @@ curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/descripti
 
 The JSON structure includes the following individual fields:
 
--	`name` - Name or ID of the Search within the design document.
--	`search_index` - The Search Index
-	-	`pending_seq` - The sequence number of changes in the database that reached the Lucene index,
+`name`
+:   Name or ID of the Search within the design document.
+
+`search_index`
+:   The Search Index
+
+	`pending_seq`
+		:   The sequence number of changes in the database that reached the Lucene index,
 		both in memory and on disk.
-	-	`doc_del_count` - Number of deleted documents in the index.
-	-	`doc_count` - Number of documents in the index.
-	-	`disk_size` - The size of the index on disk, in bytes.
-	-	`committed_seq` - The sequence number of changes in the database that were committed
+
+		`doc_del_count`
+		:   Number of deleted documents in the index.
+
+		`doc_count`
+		:   Number of documents in the index.
+
+		`disk_size`
+		:   The size of the index on disk, in bytes.
+
+		`committed_seq`
+		:   The sequence number of changes in the database that were committed
 		to the Lucene index on disk.
 
 See the following example response in JSON format:
