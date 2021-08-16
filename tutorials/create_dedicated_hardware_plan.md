@@ -110,7 +110,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
        Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance that is chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default). 
 
-   ![Host configuration](images/img0005f.png){: caption="Figure 5. Host configuration" caption-side="bottom"}
+    ![Host configuration](images/img0005f.png){: caption="Figure 5. Host configuration" caption-side="bottom"}
 
 6.  Click **Create** to start the provisioning process.
 

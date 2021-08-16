@@ -5,6 +5,7 @@
 toc:
   properties:
     subcollection: Cloudant
+    version: 2
     category: database
     audience: service
     href: /docs/Cloudant?topic=Cloudant-getting-started-with-cloudant

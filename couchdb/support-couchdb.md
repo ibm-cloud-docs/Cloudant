@@ -70,6 +70,7 @@ Pricing is based on the number of vCPUs in the database nodes of the Apache Couc
 | 201 - 1,500 vCPUs | USD$30 per vCPU | 
 | 1,501 - 10,000 vCPUs | USD$20 per vCPU | 
 | 10,001+ vCPUs | USD$15 per vCPU | 
+{: caption="Table 1. Price by vCPU" caption-side="top"}
 
 ### vCPU definition
 {: #vcpu-aka-virtual-processor-core-def-support}
@@ -87,7 +88,7 @@ Apache CouchDB version | 3.x or later
 OS | Officially supported Linux&trade; distributions of Apache CouchDB installers or containers
 CPU Architecture | x86 or Power
 Installation Artifacts | Supported artifacts are listed at [Apache CouchDB - Installation](/docs/Cloudant?topic=Cloudant-apache-couchdb-install).
-{: caption="Table 1. Apache CouchDB support requirements" caption-side="top"}
+{: caption="Table 2. Apache CouchDB support requirements" caption-side="top"}
 
 For customers who deploy Apache CouchDB in containerized environments, the following list outlines the support requirements that are required to qualify for support for Apache CouchDB:
 
@@ -97,7 +98,7 @@ Kubernetes | 1.14 or later
 Red Hat OpenShift | 4.x or later
 Installation | Install only by using [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator). 
 Storage | POSIX-compliant storage is required. NFS that doesn't meet POSIX compliance causes instability and errors if used. Apache CouchDB is an I/O intensive database, and we recommend that you use SSDs for heavy workloads. For more information, see the [Operator for Apache CouchDB configuration](/docs/Cloudant?topic=Cloudant-configure-couchdb-cluster#couchdb-storage) documentation for details on specific persistent storage requirements. 
-{: caption="Table 2. Apache CouchDB support requirements in containerized environments" caption-side="top"}
+{: caption="Table 3. Apache CouchDB support requirements in containerized environments" caption-side="top"}
 
 #### Logging
 {: #logging-supportcdb}
