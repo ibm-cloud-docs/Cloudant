@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-08-19"
 
 keywords: couchapp, 3-tier application
 
@@ -63,7 +63,7 @@ When is each appropriate?
 -   Your server provides only an API to {{site.data.keyword.cloudant_short_notm}} anyway.
 -   You're OK with {{site.data.keyword.cloudant_short_notm}}'s
     [cookie-based authentication](/apidocs/cloudant#authentication){: new_window}{: external}.
--   You're OK with {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/Cloudant?topic=Cloudant-work-with-your-account#using-the-_users-database-with-cloudant-nosql-db)
+-   You're OK with {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/Cloudant?topic=Cloudant-work-with-your-account#using-the-users-database-with-cloudant-nosql-db)
     databases to manage users and permissions.
 -   You don't need to schedule cron jobs or other regular tasks.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-08-18"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -217,7 +217,7 @@ it is not possible to specify a different replica count value when you create a 
 For further help, email support@cloudant.com.
 
 ### What are the `R` and `W` arguments?
-{: #what-are-the-_r_-and-_w_-arguments-}
+{: #what-are-the-r-and-w-arguments-}
 
 Some requests can have arguments that affect the coordinator's behavior when it answers the request.
 These arguments are known as `R` and `W` after their names in the request query string.
@@ -230,7 +230,7 @@ For example,
 specifying either `R` or `W` does not alter consistency for the read or write.
 
 #### What is `R`?
-{: #what-is-_r_-}
+{: #what-is-r-}
 
 The `R` argument can be specified on single document requests only.
 `R` affects how many responses must be received by the coordinator before it replies to the client.
@@ -249,7 +249,7 @@ This value corresponds to most of the replicas for a typical database that uses 
 If the database has multiple replicas that are greater than or less than 3, the default value for `R` changes correspondingly.
 
 #### What is *W*?
-{: #what-is-_w_-}
+{: #what-is-w-}
 
 `W` can be specified on single document write requests only.
 

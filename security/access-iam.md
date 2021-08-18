@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-18"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -93,7 +93,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 {{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups) about how to migrate.
 
 ### {{site.data.keyword.cloudant_short_notm}} API keys and _Use only IAM_
-{: #ibm-cloudant-api-keys-and-_use-only-iam_ai}
+{: #ibm-cloudant-api-keys-and-use-only-iam_ai}
 
 Use of {{site.data.keyword.cloudant_short_notm}} API keys alongside IAM is possible but **not recommended**. This recommendation is made because
 {{site.data.keyword.cloudant_short_notm}} API keys and permissions are not visible or manageable by using the IAM policy interface, rendering
@@ -168,13 +168,26 @@ values, and look like the following example.
 
 Each value in the previous JSON example must be interpreted by using the following definitions:
 
-- `apikey` - IAM API key.
-- `iam_apikey_description` - Description of IAM API key.
-- `iam_apikey_name` - ID of IAM API key.
-- `iam_role_crn` - The IAM role that the IAM API key has.
-- `iam_serviceid_crn` - The CRN of service ID.
-- `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
-- `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
+`apikey`
+:  IAM API key.
+
+`iam_apikey_description`
+:  Description of IAM API key.
+
+`iam_apikey_name`
+:  ID of IAM API key.
+
+`iam_role_crn` 
+:  The IAM role that the IAM API key has.
+
+`iam_serviceid_crn`
+:  The CRN of service ID.
+
+`url` 
+:  {{site.data.keyword.cloudant_short_notm}} service URL.
+
+`username` 
+:  The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
 When you select *Use both legacy credentials and IAM*, the service credentials that are generated contain both IAM and legacy credentials, and look like the values in the following example.
 
@@ -196,23 +209,42 @@ When you select *Use both legacy credentials and IAM*, the service credentials t
 
 Each value in the previous JSON example must be interpreted by using the following definitions:
 
-- `apikey` - IAM API key.
-- `host` - {{site.data.keyword.cloudant_short_notm}} service hostname.
-- `iam_apikey_description` - Description of IAM API key.
-- `iam_apikey_name` - ID of IAM API key.
-- `iam_role_crn` - The IAM role that the IAM API key has.
-- `iam_serviceid_crn` - The CRN of service ID.
-- `password` - The {{site.data.keyword.cloudant_short_notm}} legacy credential password.
-- `port` - {{site.data.keyword.cloudant_short_notm}} service port.
-- `url` - {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} legacy credentials.
-- `username` - The {{site.data.keyword.cloudant_short_notm}} legacy credential username.
+`apikey`
+:  IAM API key.
+
+`host`
+:  {{site.data.keyword.cloudant_short_notm}} service hostname.
+
+`iam_apikey_description`
+:  Description of IAM API key.
+
+`iam_apikey_name` 
+:  ID of IAM API key.
+
+`iam_role_crn` 
+:  The IAM role that the IAM API key has.
+
+`iam_serviceid_crn` 
+:  The CRN of service ID.
+
+`password` 
+: The {{site.data.keyword.cloudant_short_notm}} legacy credential password.
+
+`port`
+:  {{site.data.keyword.cloudant_short_notm}} service port.
+
+`url` 
+:  {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} legacy credentials.
+
+`username`
+:  The {{site.data.keyword.cloudant_short_notm}} legacy credential username.
 
 Note the included `username` and `password` are always equivalent to IAM's
 Manager credentials. Therefore, the use of *Use both legacy credentials and IAM* is
 insecure when used with `Reader`, `Writer`, `Monitor`, or `Checkpointer` IAM roles.
 
 ## Must I use *Use only IAM* or *Use both legacy credentials and IAM*?
-{: #must-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-ai}
+{: #must-i-use-use-only-iam-or-use-both-legacy-credentials-and-iam-ai}
 
 If possible, *Use only IAM* is preferred. The major advantages for using
 {{site.data.keyword.cloud_notm}} IAM are shown in the following list:
@@ -341,7 +373,7 @@ export TOK="Bearer eyJraWQiOiIyMDE5MD...tIwkCO9A"
 {: codeblock}
 
 ### Creating the `_replicator` database on the Source side
-{: #create-_replicator-database-source-side-ai}
+{: #createreplicator-database-source-side-ai}
 
 URL is the Source instance URL that you previously wrote down in step 4.b.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-18"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -113,7 +113,7 @@ Continuous replication forces checks to be made continuously on the source datab
 {: note}
 
 ## The `_replicator` database
-{: #the-_replicator-database}
+{: #the-replicator-database}
 
 The `_replicator` database is a special database within your account,
 where you can `PUT` or `POST` replication documents to specify the replications you want.

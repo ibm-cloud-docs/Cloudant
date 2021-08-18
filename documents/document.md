@@ -4,10 +4,6 @@ copyright:
   years: 2015, 2021
 lastupdated: "2021-09-02"
 
-keywords: create, read, read many, update, delete, tombstone documents, database compaction, bulk operations, quorum, ttl
-
-subcollection: Cloudant
-
 ---
 
 {:new_window: target="_blank"}
@@ -608,7 +604,7 @@ you must provide the document ID,
 revision information,
 and new document values.
 
-A special case of bulk operations is the [`_bulk_get`](#the-_bulk_get-endpoint) endpoint.
+A special case of bulk operations is the [`_bulk_get`](#the-bulk_get-endpoint) endpoint.
 {: tip}
 
 ### Bulk request structure
@@ -1066,7 +1062,7 @@ See an example error message from a validation function:
 {: codeblock}
 
 ### The `_bulk_get` endpoint
-{: #the-_bulk_get-endpoint}
+{: #the-bulk_get-endpoint}
 
 You might need to access all the available information about multiple documents.
 The `_bulk_get` endpoint is similar to the [`_all_docs`](/apidocs/cloudant#postalldocs){: new_window}{: external} endpoint,

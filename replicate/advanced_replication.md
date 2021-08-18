@@ -70,7 +70,7 @@ and consists of seven distinct states:
 1.  `initializing` - The replication was added to the scheduler,
   but isn't yet initialized or scheduled to run.
   The status occurs when a new or updated replication document is stored within
-  the [`_replicator` database](/docs/Cloudant?topic=Cloudant-replication-api#the-_replicator-database). 
+  the [`_replicator` database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database). 
 2.  `error` - The replication can't be turned into a job.
   This error might be caused in several different ways.
   For example,
@@ -105,7 +105,7 @@ You can manage and determine replication status more quickly and easily by using
 See the typical process for using the replication scheduler to manage and monitor replications:
 
 1.  Create a [replication document](/apidocs/cloudant#postreplicate){: new_window}{: external} that describes the needed replication,
-    and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-_replicator-database).
+    and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
 ## Authentication during replication
@@ -381,7 +381,7 @@ For more information about the effect of attachments on replication performance,
 see [Performance considerations](/docs/Cloudant?topic=Cloudant-attachments#performance-considerations).
 
 ### Avoiding the `/_replicate` endpoint
-{: #avoiding-the-_replicate-endpoint}
+{: #avoiding-the-replicate-endpoint}
 
 Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_replicate` endpoint.
 {: important}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-08-19"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -242,7 +242,7 @@ In the following example, a quantity of 0-Gigabyte Hours reflects that the insta
 
 In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or by using an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
-![IBM Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}{: caption="Figure 3. IBM Cloudant capacity" caption-side="bottom"}
+![IBM Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}
 
 Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units based on how complex it is. It's in your interest to try to achieve your application's goals while it consumes the fewest units possible.
 
@@ -280,7 +280,7 @@ The "time-boxed databases" approach detailed in the [Time-series Data Storage](h
 Writes and bulk writes are charged not only on the number of documents that are written but the number of {{site.data.keyword.cloudant_short_notm}} Query secondary indexes that are defined. As a result, each document write needs to be processed and written out into each index. The more indexes that you have, the more expensive each write costs, so the fewer indexes the better. It is worth exploring the technique for using [a handful of indexes that service many use cases](https://blog.cloudant.com/2019/05/10/Optimal-Cloudant-Indexing.html).
 
 ### Using the `_id` field as a free index
-{: #using-the-_id-field-as-a-free-index}
+{: #using-the-id-field-as-a-free-index}
 
 Storing data in the `_id` field rather than by using {{site.data.keyword.cloudant_short_notm}}'s auto-generated IDs can give you a "free" index for range querying, as shown in the following list:
 

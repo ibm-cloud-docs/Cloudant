@@ -110,4 +110,4 @@ The values for the previous example are described in the following list:
 - `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
 - `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
-For more information, see [{{site.data.keyword.cloud_notm}} API keys and Use only IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-api-keys-and-_use-only-iam_ai).
+For more information, see [{{site.data.keyword.cloud_notm}} API keys and Use only IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-api-keys-and-use-only-iam_ai).
