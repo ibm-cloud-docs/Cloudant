@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-08-05"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -54,7 +54,7 @@ If you decide not to set up `acurl`, use the following URL with `curl` instead o
 The `acurl` alias is more secure. It prevents someone from reading your password over your shoulder as you type. It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
 {: important}
 
-Now, we're ready to learn how to run queries against the database you created in *Create an {{site.data.keyword.cloudant_short_notm}} instance*.
+Now, we're ready to learn how to run queries against the database you created in step two.
 
 ## Creating an index
 {: #creating-an-index-to-query-the-database-qt}

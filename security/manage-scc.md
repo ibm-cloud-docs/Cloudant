@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-08-03"
 
-keywords: security, compliance, 
+keywords: security, compliance, standardize resource configuration
 
 subcollection: Cloudant
 
@@ -33,8 +33,8 @@ subcollection: Cloudant
 
 With the {{site.data.keyword.compliance_short}}, you can:
 
-* Monitor controls and goals that pertain to {{site.data.keyword.cloudant_short_notm}}.
-* Define rules that standardize resource configuration for {{site.data.keyword.cloudant_short_notm}}.
+- Monitor controls and goals that pertain to {{site.data.keyword.cloudant_short_notm}}.
+- Define rules that standardize resource configuration for {{site.data.keyword.cloudant_short_notm}}.
 
 ## Monitoring security and compliance posture with {{site.data.keyword.cloudant_short_notm}}
 {: #monitor-ibm-cloudant}

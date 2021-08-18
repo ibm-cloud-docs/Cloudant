@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-16"
+lastupdated: "2021-08-05"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -41,7 +41,7 @@ This document explores the implicit *incentives* that the pricing model is prese
 ## Provisioned Throughput Capacity
 {: #provisioned-throughput-capacity-te}
 
-You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads per second and 50 writes per second. You then pay pro-rated hourly based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a specific number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a specific number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occurs for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
+You can scale your provisioned throughput capacity up and down in granular blocks of 50 reads per second and 50 writes per second. You then pay a pro-rated hourly fee based on the peak capacity for the hour. The provisioned throughput capacity is based on read and write capacity, or in other words, the ability to do a specific number of reads per second or writes per second. No separate global query capacity exists in the Standard on Transaction Engine plan as global queries are counted as reads. For each hour that an instance is provisioned, a specific number of read capacity units and write capacity units are submitted for usage.  So at the minimum capacity setting in an hour, 50 Read Capacity Unit Hours and 50 Write Capacity Unit Hours are submitted. Further accumulation of Capacity Unit Hours quantities occurs for each hour and quantity of capacity set. See the catalog for pricing for read and write capacity.
 
 Read and write capacity can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads per second or writes per second required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads per second and 1,000 writes per second. You must make this selection even if you don't need the corresponding number of writes.
 

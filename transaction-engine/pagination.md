@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-16"
+lastupdated: "2021-08-05"
 
-keywords: _all_docs endpoint, page_size, bookmarks, query, search, paging, mapreduce views
+keywords: _all_docs endpoint, page_size parameter, bookmarks, query, search, paging, mapreduce views
 
 subcollection: Cloudant
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-08-05"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -11,7 +11,7 @@ subcollection: Cloudant
 content-type: tutorial
 services: Cloudant
 account-plan: lite
-completion-time: 10m
+completion-time: 20m
 ---
 
 {:new_window: target="_blank"}
@@ -290,7 +290,7 @@ Next, you learn how to retrieve your service credentials. You need your service 
   ```
   {: pre}
 
-Now, the tutorial is complete. Optionally, you can delete the service credentials or service instance as shown in the following steps.
+Now, the tutorial is complete. Optionally, you can delete the service credentials or service instance as shown in the steps in the next two sections.
 
 For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud){: new_window} tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created.
 
