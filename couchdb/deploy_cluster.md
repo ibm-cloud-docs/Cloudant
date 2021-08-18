@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-08-03"
 
-keywords: access, status, resource
+keywords: access, status, resource, kubernetes, operator for apache couchdb
 
 subcollection: Cloudant
 

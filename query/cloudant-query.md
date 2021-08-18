@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-15"
+lastupdated: "2021-08-03"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -1671,8 +1671,8 @@ When you specify an index to use,
 -	If a `json` type index *and* a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
 - The `text` type index is chosen when the following conditions are met:
-	- A `json` type index *and* a `text` type index exist in the same field (for example `fieldone`).
-	- The selector can be satisfied only by using a `text` type index.
+    - A `json` type index *and* a `text` type index exist in the same field (for example `fieldone`).
+    - The selector can be satisfied only by using a `text` type index.
 
 For example,
 assume that you have a `text` type index and a `json` type index for the field `foo`,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-08-03"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -588,8 +588,8 @@ Several considerations apply when you use replication.
 For replication to proceed optimally when you replicate from database "a" to database "b",
 the credentials that are supplied must have:
 
-* `_reader` and `_replicator` permissions on database "a".
-* `_writer` permissions on database "b".
+- `_reader` and `_replicator` permissions on database "a".
+- `_writer` permissions on database "b".
 
 API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](/apidocs/cloudant){: new_window}{: external}.
 Each key can be given individual permissions that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
@@ -681,10 +681,10 @@ with replication treated as a background process.
 
 [Advanced replication API options](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication) are available. These options enable an increase or decrease in the amount of computing power that is used during replication, as shown in the following examples:
 
-* If your documents contain attachments, you might want to consider reducing the batch_size and increasing the worker_processes, to accommodate larger documents in smaller batches.
-* If you have many tiny documents, then you might consider increasing the [`worker_process`](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) and [`http_connections`](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) values.
-* If you want to run replication with minimal impact, setting `worker_processes` and `http_connections` to 1 might be appropriate.
-* For more information, see [Consumption of Read and Write Operations by Replication](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#consumption-of-read-and-write-operations-by-replication) or [Consumption of Read and Write Operations by Replication for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-pricing-te#replication-throughput-te).
+- If your documents contain attachments, you might want to consider reducing the batch_size and increasing the worker_processes, to accommodate larger documents in smaller batches.
+- If you have many tiny documents, then you might consider increasing the [`worker_process`](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) and [`http_connections`](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) values.
+- If you want to run replication with minimal impact, setting `worker_processes` and `http_connections` to 1 might be appropriate.
+- For more information, see [Consumption of Read and Write Operations by Replication](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#consumption-of-read-and-write-operations-by-replication) or [Consumption of Read and Write Operations by Replication for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-pricing-te#replication-throughput-te).
 
 For further assistance about the best configuration for your use case,
 email support@cloudant.com.

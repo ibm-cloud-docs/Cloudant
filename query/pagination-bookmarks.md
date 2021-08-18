@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-08-03"
 
-keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
+keywords: _all_docs endpoint, skip, limit, endkey, query, search, paging, mapreduce views
 
 subcollection: Cloudant
 

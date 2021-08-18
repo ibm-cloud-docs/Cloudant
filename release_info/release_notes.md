@@ -63,9 +63,9 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 - Improve validation of design documents.
 - Fix inline attachments to design documents.
 - Improve error messages for the following endpoints:
-  - `/{db}/_all_docs/queries`
-  - `/{db}/_design/update/_update/`
-  - `/_db_updates`
+    - `/{db}/_all_docs/queries`
+    - `/{db}/_design/update/_update/`
+    - `/_db_updates`
 
 ### Build 2.91 (April 2021)
 {: #build-2.91-april-2021}
@@ -122,8 +122,8 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 {: #bug-fixes-2.75}
 
 - Disable non-IAM authentication and authorization methods.
-  - Block write to `/_security` endpoint.
-  - Block creation of `/_users` databases.
+    - Block write to `/_security` endpoint.
+    - Block creation of `/_users` databases.
 - Fix intermittent error when you re-create database instances.
 - Add `local_seq` options to views.
 - Add support for `_active_tasks`.
