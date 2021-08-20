@@ -212,7 +212,7 @@ Endpoint                                | Description
 [`rate/verb`](#rate-verb)               | The rate of requests, which are grouped by HTTP verb.
 [`rps`](#rps)                           | The number of reads per second.
 [`wps`](#wps)                           | The number of writes per second.
-{: caption="Table 2. Monitoring API endpoints" caption-side="top"}
+{: caption="Table 3. Monitoring API endpoints" caption-side="top"}
 
 See an example showing how to obtain a list of the currently supported monitoring endpoints:
 

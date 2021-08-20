@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-08-20"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -298,10 +298,10 @@ For more information, see the [Creating and populating a simple {{site.data.keyw
 
 Delete the credentials called `creds_for_cs20170517a` by running a command like this one.
 
-    ```sh
-    ibmcloud resource service-key-delete creds_for_cs20170517a
-    ```
-    {: pre}
+```sh
+ibmcloud resource service-key-delete creds_for_cs20170517a
+```
+{: pre}
 
 ## (Optional) Deleting a service instance
 {: #deleting-service-create-cli-instance}
@@ -309,10 +309,10 @@ Delete the credentials called `creds_for_cs20170517a` by running a command like 
 
 Delete the `cs20170517a` instance of an {{site.data.keyword.cloudant_short_notm}} service by running a command like this one.
 
-    ```sh
-    ibmcloud resource service-instance-delete cs20170517a
-    ```
-    {: pre}
+```sh
+ibmcloud resource service-instance-delete cs20170517a
+```
+{: pre}
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-08-24"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -95,9 +95,6 @@ To create an index, follow these steps:
 
 2.  Run the following command to create an index:
 
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
-
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_index" \
         -X POST \
@@ -106,6 +103,9 @@ To create an index, follow these steps:
     ```
     {: codeblock}
 
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
+	
 3.  Review the results:
 
     ```json
@@ -129,22 +129,17 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
 To run the query, follow these steps:
 
-1.  Copy the following sample JSON into a data file named `query1.json`.
-
+1.  Copy the following sample JSON into a data file named `query1.json`. 
     ```json
-      {
-      	"selector": {
-      		"descriptionField": "boiling"
-      	}
-      }   
-    ```    
+     {
+      "selector": {
+        "descriptionField": "boiling"
+       }
+     }
+    ```
     {: codeblock}
 
 2.  Run the following command to query the database:
-
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
-
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_find" \
         -X POST \
@@ -153,24 +148,26 @@ To run the query, follow these steps:
     ```
     {: codeblock}
 
-3.  Review the query results:
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
 
+3.  Review the query results:
     ```json
       {
       	"docs": [{
       		"_id": "91d1fa833d28efe15069604f98de701d",
 
       		"_rev": "1-f998fc7b89d4466c1e7bb204b1b00f74",
-      		"numberField": 1,
+    		"numberField": 1,
       		"nameField": "one",
       		"descriptionField": "boiling",
       		"temperatureField": 100
-      	}],
-      	"bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorWBqmGKYlWhgbpxhZpKalGpoamFmaGZikWVqkpJobGKaA9HHA9BGlIwsAmn8eLw",
+       	}],
+      	"bookmark":  "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYorWBqmGKYlWhgbpxhZpKalGpoamFmaGZikWVqkpJobGKaA9HHA9BGlIwsAmn8eLw",
       	"warning": "No matching index found, create an index to optimize query time."
-      }
+       }
     ```
-    {: codeblock}
+    {: codeblock}}
 
 Next, you find a document in the database by using two fields.  
 
@@ -211,7 +208,6 @@ The `fields` parameter specifies the fields to include with the results. In our 
 To run the query, follow these steps:
 
 1.  Copy the sample JSON into a data file named `query2.json`.
-
     ```json
       {
       	"selector": {
@@ -228,10 +224,6 @@ To run the query, follow these steps:
     {: codeblock}
 
 2.  Run the following command to query the database:
-
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
-
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_find" \
         -X POST \
@@ -240,8 +232,10 @@ To run the query, follow these steps:
     ```
     {: codeblock}
 
-3.  Review the query results:
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
 
+3.  Review the query results:
     ```json
     {
     	"docs": [{
@@ -291,7 +285,6 @@ You use a selector expression like the following example:
 To run the query, follow these steps:
 
 1.  Copy the following sample JSON to a file named `query3.json`.
-
     ```json
       {
       	"selector": {
@@ -315,10 +308,6 @@ To run the query, follow these steps:
     {: codeblock}
 
 2. Run this query:
-
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
-
     ```sh
       acurl "https://$ACCOUNT.cloudant.com/databasedemo/_find" \
         -X POST \
@@ -327,8 +316,10 @@ To run the query, follow these steps:
     ```
     {: codeblock}
 
-3.  Review the query results:
+    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
+    {: tip}
 
+3.  Review the query results:
     ```json
     {
     	"docs": [{

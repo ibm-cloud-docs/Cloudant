@@ -103,7 +103,7 @@ Value  | Description           | Notes
 ---------|---------------------|------------
 `true` | Create the index as partitioned.   | Can be used only in a partitioned database.
 `false`    | Create the index as global.  | Can be used in any database.
-{: caption="Table 1. Values for the `options.partitioned` field" caption-side="top"}
+{: caption="Table 1. Values for the options.partitioned field" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
