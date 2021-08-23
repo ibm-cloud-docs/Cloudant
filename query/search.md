@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-23"
 
-keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
+keywords: search index partitioning, csindex functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
 subcollection: Cloudant
 
@@ -23,8 +23,8 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2020-04-23 -->
 
-# Search
-{: #search}
+# Using {{site.data.keyword.cloudant_short_notm}} Search
+{: #cloudant-search}
 
 Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one or more fields from your documents. You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
 {: shortdesc}
@@ -54,6 +54,7 @@ See the following example design document that defines a search index:
 {: codeblock}
 
 ## Search index partitioning type
+{: #search-index-partitioning-type}
 
 A search index inherits the partitioning type from the `options.partitioned`
 field of the design document that contains it.
