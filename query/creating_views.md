@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-24"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -23,12 +23,13 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-13 -->
 
-# Views (MapReduce)
-{: #views-mapreduce}
+# Creating Views (MapReduce)
+{: #creating-views-mapreduce}
 
-Views are used to obtain data stored within a database.
-Views are written by using JavaScript functions. Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. 
+Views are used to obtain data stored within a database. Within views, you use reduce functions, map/reduce functions, and storing a view definition.
 {: shortdesc}
+
+Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. Views are written by using JavaScript.  
 
 In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
@@ -38,7 +39,7 @@ In this documentation, when a feature, or an aspect of a feature, applies only t
 
 Views are mechanisms for working with document content in databases.
 A view can selectively filter documents and speed up searching for content.
-It can be used to "pre-process" the results before they're returned to the client.
+It can be used to pre-process the results before they're returned to the client.
 
 Views are simply JavaScript functions, which are defined within the `views` field of a design document.
 When you use a view,

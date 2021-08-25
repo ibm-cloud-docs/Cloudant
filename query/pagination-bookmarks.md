@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-27"
 
 keywords: _all_docs endpoint, skip, limit, endkey, query, search, paging, mapreduce views
 
@@ -27,11 +27,13 @@ subcollection: Cloudant
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
 
-The pagination approach changed for {{site.data.keyword.cloudantfull}} on Transaction Engine. For more information, see how {{site.data.keyword.cloudant_short_notm}} on Transaction Engine uses [pagination and bookmarks](/docs/Cloudant?topic=Cloudant-pagination-te).
-{: important}
+Bookmarks help release the next page of results from a result set. While with pagination, you iterate through a range of documents in an efficient manner.
+{: shortdesc} 
 
 You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=Cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
-{: shortdesc} 
+
+The pagination approach changed for {{site.data.keyword.cloudantfull}} on Transaction Engine. For more information, see how {{site.data.keyword.cloudant_short_notm}} on Transaction Engine uses [pagination and bookmarks](/docs/Cloudant?topic=Cloudant-pagination-te).
+{: important}
 
 [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#postfind){: new_window}{: external} and [{{site.data.keyword.cloudant_short_notm}} Search](/apidocs/cloudant#getsearchinfo){: new_window}{: external} both use bookmarks as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the bookmark that was received in the first response to the second request.
 
@@ -106,7 +108,7 @@ The `startkey`/`endkey` values are in double quotation marks because they're exp
 ## Pagination options
 {: #pagination-options}
 
-To iterate through a range of documents in an orderly and performant manner, you must devise an algorithm to page through the range. For example, you must page through `_all_docs` in blocks of 10. 
+You must devise an algorithm to page through the range of documents in an orderly and performant manner. For example, you must page through `_all_docs` in blocks of 10. 
 
 You can use the options that are described in the following sections.
 
@@ -196,7 +198,7 @@ GET /mydb/_all_docs?limit=10&startkey="frog%00"
 ## Pagination of views
 {: #pagination-of-views}
 
-MapReduce views, secondary indexes, which are defined by `key-value` pairs that are produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /$DATABASE/_design/$DDOC/_view/$VIEW` endpoint instead. You can define your query in the following ways:
+MapReduce views, secondary indexes, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /$DATABASE/_design/$DDOC/_view/$VIEW` endpoint instead. MapReduce views are defined by `key-value` pairs that are produced from user-supplied JavaScript functions. You can define your query in the following ways:
 
 - Spool all the data from a view with no parameters.
 - Include document bodies by supplying `include_docs=true`.
