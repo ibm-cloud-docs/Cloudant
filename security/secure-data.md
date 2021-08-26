@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-25"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-09 -->
 
-# Securing your data
+# Securing your data in {{site.data.keyword.cloudant_short_notm}}
 {: #securing-your-data-in-cloudant}
 
 ## {{site.data.keyword.cloudant_short_notm}} DBaaS data protection and security
@@ -109,3 +109,72 @@ Feature | Description
 Redundant and durable data storage | By default, {{site.data.keyword.cloudant_short_notm}} saves to disk three copies of every document to three different nodes in a cluster. Saving the copies ensures that a working failover copy of your data is always available, regardless of failures.
 Data replication and export | You can replicate your databases continuously between clusters in different data centers or Apache CouchDB. Another option is to export data from {{site.data.keyword.cloudant_short_notm}} (in JSON format) to other locations or sources (such as your own data center) for added data redundancy.
 {: caption="Table 2. IBM Cloudant data quality and availability features" caption-side="top"}
+
+## Deleting your data in {{site.data.keyword.cloudant_short_notm}}
+{: #data-delete}
+
+You can delete individual documents in the {{site.data.keyword.cloudant_short_notm}} dashboard or by using an API. Documents are not technically deleted but instead are compacted.  
+
+For more information on deleting data, see [Deletion of data](https://test.cloud.ibm.com/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data).
+
+To delete a document, follow these steps:
+
+1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
+2. On the Databases page, click the database that contains the documents you want to delete. 
+3. Click the checkbox next to the documents you want to delete.
+4. Click **Delete**. 
+
+    The document is selected for compaction. 
+
+For more information, see [Delete a document](https://cloud.ibm.com/apidocs/cloudant#deletedocument) in the API Reference documentation. 
+
+<!--
+Document how users can delete their data within the service.
+
+If applicable, add H3s in this section to tailor the information to particular types of data. For example, you might have a "Deleting keys" section and a "Deleting a database" section.
+-->
+
+### Deleting {{site.data.keyword.cloudant_short_notm}} instances
+{: #service-delete}
+
+You can delete a database instance in the {{site.data.keyword.cloudant_short_notm}} dashboard or by using an API.
+
+Once an instance is deleted, all data within the database, as well as the account-level information, such as authentication data, is deleted automatically after the 7-day grace period ends. {{site.data.keyword.cloudant_short_notm}} doesn’t hold any contact details for the instances created via the platform. If you have support tickets with {{site.data.keyword.cloudant_short_notm}} where you shared information, such as email addresses, that information isn’t removed by this process.
+
+To delete a database, follow these steps:
+
+1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
+2. On the Databases page next to the database you want to delete, click **Delete**.
+3. Type in the name of the database you want to delete.
+4. Click **Delete Database**. 
+
+    The database is removed from the list of databases.
+
+For more information, see [Delete a database](https://cloud.ibm.com/apidocs/cloudant#deletedatabase) in the API Reference documentation.
+
+There is no way to undo a database deletion.
+{: important}
+
+The {{site.data.keyword.cloudant_short_notm}} data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.cloudant_short_notm}} service description, which you can find in the {{site.data.keyword.cloud_notm}} Terms and Notices.
+
+<!--
+Include information about whether deleting the service fully erases all data. If deleting the service doesn't remove all personal data, include information about how users can completely delete their data.
+
+Information about how long services keep data after instances are deleted is covered in the service description. Include the following reference for users to find their data retention period.
+
+The servicename data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the service-name service description, which you can find in the {{site.data.keyword.cloud_notm}} Terms and Notices.
+-->
+
+### Restoring deleted data for {{site.data.keyword.cloudant_short_notm}}
+{: #data-restore}
+
+If you delete your account, you have a 7-day grace period during which you can cancel the request to delete it. 
+
+There is no way to undo a database deletion. 
+{: important}
+
+<!--
+If users can restore deleted data within your service, include this optional section and the task that users can complete to do so.
+
+Important: Don't include information about restoring your resource via the reclamation controller because it's available only on a limited basis.
+-->
