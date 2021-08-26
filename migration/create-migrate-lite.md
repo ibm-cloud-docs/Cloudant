@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-01"
+lastupdated: "2021-10-05"
 
 keywords: lite plan, standard plan, pricing plans
 
@@ -31,13 +31,14 @@ Migration from the free Lite plan to the Standard plan includes the tasks that a
 {: shortdesc}
 
 1.  Go to the [{{site.data.keyword.cloud}} dashboard](https://cloud.ibm.com/).
-2. Authenticate with your user name and password. <br>The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
+2. Authenticate with your user name and password. 
+   The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
 3.  Under Services, open the {{site.data.keyword.cloudant_short_notm}} instance that you want to migrate. 
 4.  Select **Plan**. 
-5.  From the list of pricing plans, select **Standard**. <br> 
-![Standard plan](../images/migrate3.png){: caption="Figure 1. Standard plan" caption-side="bottom"} 
-6.  Click **Upgrade**.<br>
-    All your existing data is kept.
+5.  From the list of pricing plans, select **Standard**.  
+   ![Standard plan](../images/migrate3.png){: caption="Figure 1. Standard plan" caption-side="bottom"} 
+6.  Click **Upgrade**.  
+   All your existing data is kept.
 
 Adjust your capacity by using the Throughput Capacity slider to increase or decrease capacity as needed.
 {: tip} 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-05"
 
 keywords: _all_docs endpoint, skip, limit, endkey, query, search, paging, mapreduce views
 
@@ -324,7 +324,7 @@ You feed the bookmark from the first response into the second request for the ne
 ### How does {{site.data.keyword.cloudant_short_notm}} Search work?
 {: #how-cloudant-search-works}
 
-Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=Cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
+Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=Cloudant-cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
 
 ```sh
 curl "$URL/cities/_search/search/_search/freetext?q=country:US&bookmark=g1AAAAA-eJzLYW"

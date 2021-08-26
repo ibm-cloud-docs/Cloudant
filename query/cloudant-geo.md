@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-14"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -361,10 +361,10 @@ Relation                | Description
 `Q contains_properly R` | True if `R` intersects the interior of `Q` but not the boundary (or exterior) of `Q`.
 `Q covered_by R`        | True if `Q` is entirely within `R`. `covered_by` returns the exact opposite result of `covers`.
 `Q covers R`            | True if `R` is entirely within `Q`. `covers` returns the exact opposite result of `covered_by`.
-`Q crosses R`           | **Case 1** - True if the interiors intersect, *and* at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`. <br>**Case 2** - True if the intersection of the interiors of `Q` and `R` is a point. Apply to the geometry pairs of `linestring/linestring`, `linestring/multilinestring`, and `multilinestring/multilinestring`.
+`Q crosses R`           | **Case 1** - True if the interiors intersect, *and* at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`.    **Case 2** - True if the intersection of the interiors of `Q` and `R` is a point. Apply to the geometry pairs of `linestring/linestring`, `linestring/multilinestring`, and `multilinestring/multilinestring`.
 `Q disjoint R`          | True if the two geometries of `Q` and `R` don't intersect. `disjoint` returns the exact opposite result of `intersects`.
 `Q intersects R`        | True if the two geometries of `Q` and `R` intersect. `intersects` returns the exact opposite result of `disjoint`.
-`Q overlaps R`          | **Case 1** - True if the interior of both geometries intersects the interior and exterior of the other. Apply to the geometry pairs of `polygon/polygon`, `multipoint/multipoint`, and `multipolygon/multipolygon`. <br>**Case 2** - True if the intersection of the geometries is a `linestring`. Apply to the geometry pairs of `linestring` and `linestring`, and `multilinestring` and `multilinestring`.
+`Q overlaps R`          | **Case 1** - True if the interior of both geometries intersects the interior and exterior of the other. Apply to the geometry pairs of `polygon/polygon`, `multipoint/multipoint`, and `multipolygon/multipolygon`.    **Case 2** - True if the intersection of the geometries is a `linestring`. Apply to the geometry pairs of `linestring` and `linestring`, and `multilinestring` and `multilinestring`.
 `Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a `linestring`, polygon, `multilinestring`, or `multipolygon`.
 `Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`.
 {: caption="Table 3. Geometric relations" caption-side="top"}

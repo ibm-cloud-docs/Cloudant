@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-10"
+lastupdated: "2021-10-05"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -34,22 +34,23 @@ Migration from the Enterprise plans to {{site.data.keyword.cloudant_short_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
 1.  Go to the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/).
-2. Authenticate with your user name and password. <br>The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
+2. Authenticate with your user name and password.  
+   The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
 
 ## Step 2. Create an {{site.data.keyword.cloudant_short_notm}} instance
 {: #step-2-create-an-ibm-cloudant-instance}
 
 1. Click `Create resource `.
-2. Click `Databases` > `Cloudant`. <br>
+2. Click `Databases` > `Cloudant`.  
    ![{{site.data.keyword.cloudant_short_notm}} dashboard](../tutorials/images/img0003.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
-  For more information, see the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.  
+   For more information, see the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.  
 
 ## Step 3. Find out whether your application is ready for {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
 
-1. Revisit your application’s usage of {{site.data.keyword.cloudant_short_notm}} to make sure it is ready to handle the capacity limits of the Standard plan. <br>
-  For more information, see [how the {{site.data.keyword.cloudant_short_notm}} API works](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity). 
+1. Revisit your application’s usage of {{site.data.keyword.cloudant_short_notm}} to make sure it is ready to handle the capacity limits of the Standard plan.  
+   For more information, see [how the {{site.data.keyword.cloudant_short_notm}} API works](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity). 
 2. Verify that your application can handle a `429: too many requests` HTTP response. 
   
 The following table provides more information about these HTTP responses:
@@ -63,7 +64,8 @@ HTTP response | Issue
 ## Step 4. Migrate data from the old service to the new service 
 {: #step-4-migrate-data-from-the-old-service-to-the-new-service}
 
-1. Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account. <br><br>For more information, see the [Replication guide](/docs/Cloudant?topic=Cloudant-replication-api) and [Using {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics) about how to set up and monitor replication tasks.
+1. Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account.  
+  For more information, see the [Replication guide](/docs/Cloudant?topic=Cloudant-replication-api) and [Using {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics) about how to set up and monitor replication tasks.
 2. Alternatively, use the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate){: new_window}{: external} tool to coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. 
 
   The `couchreplicate` tool sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.

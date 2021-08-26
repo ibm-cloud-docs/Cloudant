@@ -1,7 +1,7 @@
 ---
 
 copyright: 2020, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-14"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -156,7 +156,7 @@ After your instance is created, you must create a Standard plan on it by selecti
 
     ![Existing host ](images/img0005g.png){: caption="Figure 10. Existing host" caption-side="bottom"}
 
-    c. Select the dedicated environment that you created from the drop-down menu.<br>
+    c. Select the dedicated environment that you created from the drop-down menu.    
        The screen capture shows the example environment, `Dedicated Hardware Environment (staging)`. 
 
     ![Dedicated environment](images/img0005h.png){: caption="Figure 11. Dedicated environment" caption-side="bottom"}
@@ -173,12 +173,12 @@ After your instance is created, you must create a Standard plan on it by selecti
 
     c. (Optional) Add a tag.
 
-    d. Select an authentication method.<br>
+    d. Select an authentication method.    
        The Standard plan is the only plan you can use with the Dedicated Hardware environment. 
 
     ![{{site.data.keyword.cloudant_short_notm}} instance](images/img0005e.png){: caption="Figure 13. {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
 
-6.  Click **Create**.<br>
+6.  Click **Create**.    
     After a few seconds, the instance is provisioned on the environment you selected. 
 
     ![Standard instance](images/create_button_provision_standard.png){: caption="Figure 14. Standard instance" caption-side="bottom"}
@@ -191,7 +191,7 @@ After your instance is created, you must create a Standard plan on it by selecti
 {: #provisioning-a-dedicated-hardware-plan-instance-with-the-ibm-cloud-cli}
 {: step}
 
-1. Log in to {{site.data.keyword.cloud_notm}} to use {{site.data.keyword.cloud_notm}} CLI. <br>
+1. Log in to {{site.data.keyword.cloud_notm}} to use {{site.data.keyword.cloud_notm}} CLI.     
     For more information, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window} to learn about how to log in and set a target resource group.
 
 2. Use the following basic command format to create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance by using {{site.data.keyword.cloud_notm}} CLI.
@@ -230,7 +230,7 @@ ibmcloud resource service-instance-create cloudant-dedicated-with-byok cloudantn
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment-with-the-ibm-cloud-cli}
 {: step} 
 
-1.  Log in to use the {{site.data.keyword.cloud_notm}} CLI. <br>For more information about how to log in and set a target resource group, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}.
+1.  Log in to use the {{site.data.keyword.cloud_notm}} CLI.     For more information about how to log in and set a target resource group, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}.
 
 2.  Create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment by using the following basic command format.
 

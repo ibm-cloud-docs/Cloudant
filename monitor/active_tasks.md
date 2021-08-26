@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-14"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -35,10 +35,10 @@ see the [Managing tasks](/docs/Cloudant?topic=Cloudant-managing-tasks#managing-t
 ## Retrieving a list of active tasks
 {: #retrieving-a-list-of-active-tasks}
 
-Method - `GET` <br>
-Path - `/_active_tasks` <br>
-Response - List of running tasks, including the task type, name, status, and process ID. <br>
-Roles permitted - `_admin` <br>
+Method - `GET`    
+Path - `/_active_tasks`    
+Response - List of running tasks, including the task type, name, status, and process ID.    
+Roles permitted - `_admin`    
 
 You can get a list of active tasks by using the `/_active_tasks` URL.
 The result is a JSON array of the currently running tasks,

@@ -50,8 +50,9 @@ The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_win
 ### Provisioning an instance
 {: #provisioning-an-instance-support}
 
-1. Go to the [{{site.data.keyword.cloudant_short_notm}} catalog tile](](https://cloud.ibm.com/catalog/services/cloudant), and click **Create**.
-2. Select the Extension for Apache CouchDB option. <br>(If the Extension for Apache CouchDB option is not available, contact support to enable the option for your account.)
+1. Go to the [{{site.data.keyword.cloudant_short_notm}} catalog tile](https://cloud.ibm.com/catalog/services/cloudant), and click **Create**.
+2. Select the Extension for Apache CouchDB option.  
+   (If the Extension for Apache CouchDB option is not available, contact support to enable the option for your account.)
 3. Enter an Instance name, and use "CouchDB" somewhere in the name to distinguish it from {{site.data.keyword.cloudant_short_notm}} instances.
 4. Select a Resource group.
 5. Select the number of virtual processor cores (vCPUs) to match that of the vCPUs used in all Apache CouchDB database nodes that require support entitlement. The minimum value is 24. 
@@ -145,12 +146,13 @@ You can see what is included with support and what is not in the following lists
 1. Go to the [{{site.data.keyword.cloud}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter), and click **Create a case**.
 2. Choose {{site.data.keyword.cloudant_short_notm}} from the list of products.
 3. In the Subject field, type "Apache CouchDB:" followed by a short description of the issue.
-4. In the Description field, include as much detail as possible on the issue. <br>The following list includes the minimum amount of information that is required:
+4. In the Description field, include as much detail as possible on the issue.  
+   The following list includes the minimum amount of information that is required:
     - Versions of Apache CouchDB, OS, or any Kubernetes environment.
     - CRN of the Extension for Apache CouchDB instance to verify support entitlement. The CRN can be found in the Manage instance page. Support is not provided without including the CRN.
     - Details of the issues.
-5. Attach any relevant logs or screen captures.<br>
-  For customers who deploy Apache CouchDB in containerized environments, provide the following details:
+5. Attach any relevant logs or screen captures.  
+   For customers who deploy Apache CouchDB in containerized environments, provide the following details:
     - Version of the Operator for Apache CouchDB that is deployed.
     - YAML files that are related to the deployment of the following Kubernetes resources - couchdbcluster, formation, stateful set, pods, and configmap.
     - Logs of CouchDB container, management container, and operator container.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-10-14"
 
 keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
 
@@ -45,23 +45,23 @@ The comparison tables break down the features into the following categories:
 
 All prices are shown in USD. A capacity is the ability to perform one operation per second, for example, a `read capacity` is the ability to perform one read per second. 
 
-| Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic" | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine|
+| Feature | {{site.data.keyword.cloudant_short_notm}}    "Classic" | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine|
 |---------|----------|--------------------------|
-| `Provisioned Throughput Capacity` | Fixed ratio of<br>100 reads/sec<br>50 writes/sec<br>5 global queries/sec | Fixed ratio of<br>50 reads/sec<br>50 writes/sec |
-| `Read Capacity` | $0.00034 per hour<br>$0.25 per month | $0.00012 per hour<br>$0.0876 per month |
-| `Write Capacity` | $0.00068 per hour<br>$0.50 per month | $0.00048 per hour<br>$0.3504 per month |
-| `Global Query Capacity` | $0.0068 per hour<br>$5.00 per month | Not applicable |
-| `Storage` | $1 per GB per month<br>20 GB included | $0.25 per GB per month<br>25 GB included |
+| `Provisioned Throughput Capacity` | Fixed ratio of    100 reads/sec    50 writes/sec    5 global queries/sec | Fixed ratio of    50 reads/sec    50 writes/sec |
+| `Read Capacity` | $0.00034 per hour    $0.25 per month | $0.00012 per hour    $0.0876 per month |
+| `Write Capacity` | $0.00068 per hour    $0.50 per month | $0.00048 per hour    $0.3504 per month |
+| `Global Query Capacity` | $0.0068 per hour    $5.00 per month | Not applicable |
+| `Storage` | $1 per GB per month    20 GB included | $0.25 per GB per month    25 GB included |
 | `Dedicated Hardware` | $5000 per month add-on | Not applicable |
 | `Bandwidth` | Included | Included |
-| `Proration` | Hourly<br>(Dedicated Hardware is daily.) | Hourly |
+| `Proration` | Hourly    (Dedicated Hardware is daily.) | Hourly |
 | `Standard Plan Minimum Cost` | ~$75 per month | ~$22 per month | 
 {: caption="Table 1. Pricing" caption-side="top"}
 
 ## Features and functions
 {: #features-and-functions}
 
-| Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic" | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
+| Feature | {{site.data.keyword.cloudant_short_notm}}    "Classic" | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|--------------------------|
 | `Tenancy` | Multi-tenant or Dedicated | Multi-tenant | 
 | `Conflicts` | Quorum-based eventually consistent | No write conflicts in region. | 
@@ -72,9 +72,9 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Attachments` | Yes | No |
 | `Global Queries` | Yes | Yes |
 | `Partition Queries` | Yes | No |
-| `Cloudant Query`<br>(JSON type) | Yes | Yes |
-| `Cloudant Query`<br>(Text type) | Yes | No |
-| `MapReduce` | Yes | Map-side JS functions and built-in reduce functions.<br>No custom JS reduces.<br>No common JS modules.  |
+| `Cloudant Query`    (JSON type) | Yes | Yes |
+| `Cloudant Query`    (Text type) | Yes | No |
+| `MapReduce` | Yes | Map-side JS functions and built-in reduce functions.    No custom JS reduces.    No common JS modules.  |
 | `Search` | Yes | No |
 | `Geospatial` | Yes | No |
 | `Logging with {{site.data.keyword.loganalysisfull_notm}}` | Yes | Yes |
@@ -85,7 +85,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 ## Limits
 {: #limits-feature-compare}
 
-| Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic" | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
+| Feature | {{site.data.keyword.cloudant_short_notm}}    "Classic" | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|--------------------------|
 | `Max Database Size` | ~5 TB | 100 TB+ |
 | `Max Database Name Length` | 238 bytes | 256 bytes | 
@@ -102,32 +102,32 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Max Number of Keys to All Docs` | Not applicable | 2,000 |
 | `Max Queries in Queries Request` | Not applicable | 2,000 | 
 | `Results - MapReduce` | Unlimited | 2,000 |
-| `Results - Cloudant Query`<br>(JSON type) | Unlimited | 2,000 | 
+| `Results - Cloudant Query`    (JSON type) | Unlimited | 2,000 | 
 {: caption="Table 3. Limits" caption-side="top"}
 
 ## HA, DR, and backup
 {: #hadr-feature-compare}
 
-| Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br> | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
+| Feature | {{site.data.keyword.cloudant_short_notm}}    "Classic"     | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|-------------------------------|
-| `In-region HA/DR` | Data automatically stored in triplicate.<br>Leverage multi-zone in regions where available. | Data automatically stored in triplicate.<br>Leverage multi-zone in regions where available. |
+| `In-region HA/DR` | Data automatically stored in triplicate.    Leverage multi-zone in regions where available. | Data automatically stored in triplicate.    Leverage multi-zone in regions where available. |
 | `Cross-region HA/DR` | User-managed replications to another instance. | User-managed replications to another instance. |
-| `Database recovery API` | No | Yes<br>(within 48 hours) |
-| `Backups`<br>(Self-managed) | Self-managed with Couch backup. | Self-managed with Couch backup. |
-| `Instance Reclamation` | {{site.data.keyword.cloud_notm}} 7-day reclamation<br>(instance-level deletions) | IBM Cloud 7-day reclamation<br>(instance-level deletions) |
+| `Database recovery API` | No | Yes    (within 48 hours) |
+| `Backups`    (Self-managed) | Self-managed with Couch backup. | Self-managed with Couch backup. |
+| `Instance Reclamation` | {{site.data.keyword.cloud_notm}} 7-day reclamation    (instance-level deletions) | IBM Cloud 7-day reclamation    (instance-level deletions) |
 {: caption="Table 4. HA, DR, and backup" caption-side="top"}
 
 ## Security
 {: #security-feature-compare}
 
-| Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Multi-tenant) | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Dedicated Hardware) | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
+| Feature | {{site.data.keyword.cloudant_short_notm}}    "Classic"    (Multi-tenant) | {{site.data.keyword.cloudant_short_notm}}    "Classic"    (Dedicated Hardware) | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|--------------------------|-------------------------------|
-| `Locations/Data Sovereignty` | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul | Dallas<br>Washington DC<br>London<br>Frankfurt<br>Sydney<br>Tokyo<br>Chennai<br>Seoul<br>Amsterdam<br>Hong Kong<br>Milan<br>Montreal<br>Oslo<br>Paris<br>Queretaro<br>San Jose<br>Sao Paulo<br>Singapore<br>Toronto | Dallas |
+| `Locations/Data Sovereignty` | Dallas    Washington DC    London    Frankfurt    Sydney    Tokyo    Chennai    Seoul | Dallas    Washington DC    London    Frankfurt    Sydney    Tokyo    Chennai    Seoul    Amsterdam    Hong Kong    Milan    Montreal    Oslo    Paris    Queretaro    San Jose    Sao Paulo    Singapore    Toronto | Dallas |
 | `Authentication` | Legacy and IAM | Legacy and IAM | IAM-only |
 | `IP allowlisting` | No | Yes | No |
 | `Service Endpoints` | Public | Public and private | Public |
-| `At-Rest Encryption`<br>(Key per data volume) | Yes | Yes | Yes |
-| `Native In-Database Encryption`<br>(Key (DEK) per database) | No | No | Yes |
+| `At-Rest Encryption`    (Key per data volume) | Yes | Yes | Yes |
+| `Native In-Database Encryption`    (Key (DEK) per database) | No | No | Yes |
 | `Data Value Encryption` | No | No | Yes |
 | `BYOK with Key Protect` | No | Yes | No |
 | `Bare Metal Isolation` | No | Yes | No |
@@ -136,9 +136,9 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 ## Compliance
 {: #compliance-feature-compare}
 
-| Feature | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Multi-tenant) | {{site.data.keyword.cloudant_short_notm}}<br>"Classic"<br>(Dedicated Hardware) | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
+| Feature | {{site.data.keyword.cloudant_short_notm}}    "Classic"    (Multi-tenant) | {{site.data.keyword.cloudant_short_notm}}    "Classic"    (Dedicated Hardware) | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
 |---------|----------|--------------------------|-------------------------------|
-| `EU Supported` | Yes<br>Upon request | Yes<br>Upon request | No |
+| `EU Supported` | Yes    Upon request | Yes    Upon request | No |
 | `GDPR` | Yes | Yes | Yes |
 | `HIPAA` | No | Yes | No |
 | `ISO27001` | Yes | Yes | Yes |

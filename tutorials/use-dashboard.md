@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-30"
+lastupdated: "2021-10-14"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -98,7 +98,7 @@ that you create in this exercise include the data that you use to query the `das
 
     The New Document window opens.
 
-2.  Copy the following sample text and replace the existing text in the new document.<br>
+2.  Copy the following sample text and replace the existing text in the new document.    
     Use the following sample text for document 1:
 
     ```json
@@ -112,7 +112,7 @@ that you create in this exercise include the data that you use to query the `das
     ```
     {: codeblock}
 
-3.  Repeat steps 1 and 2 to add the remaining four documents to the database.<br>
+3.  Repeat steps 1 and 2 to add the remaining four documents to the database.    
   Use the following sample text for document 2:
 
     ```json
@@ -214,7 +214,7 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
     Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
     {: note} 
 
-3. Enter the following information for your replication job. <br>
+3. Enter the following information for your replication job.     
     Use the following information in the Source section:
       - Type - Select **Remote database**.
       - Name - Enter the database URL: `http://examples.cloudant.com/query-movies`.
