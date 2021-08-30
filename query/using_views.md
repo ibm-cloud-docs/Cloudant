@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-27"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -27,9 +27,10 @@ subcollection: Cloudant
 {: #using-views}
 
 Use views to search for content within a database that matches specific criteria.
-The criteria are specified within the view definition,
-or supplied as arguments when you use the view.
+The criteria are specified within the view definition.
 {: shortdesc}
+
+Criteria can also be supplied as arguments when you use the view. 
 
 In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag, ![TXE tag](../images/txe_icon.svg).
 {: important}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-24"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -23,16 +23,15 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-19 -->
 
-# {{site.data.keyword.cloudant_short_notm}} Geospatial
-{: #cloudant-nosql-db-geospatial}
+# Using {{site.data.keyword.cloudant_short_notm}} Geospatial
+{: #using-cloudant-nosql-db-geospatial}
 
-{{site.data.keyword.cloudantfull}} Geospatial,
-or `{{site.data.keyword.cloudant_short_notm}} Geo`,
-combines the advanced geospatial queries of a Geographic Information System (GIS)
-with the flexibility and adaptability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities. These capabilities include GeoJSON, {{site.data.keyword.cloudant_short_notm}} Geo index, and more. 
+{{site.data.keyword.cloudant_short_notm}} Geospatial
+combines the advanced geospatial queries of a Geographic Information System 
+with {{site.data.keyword.cloudant_short_notm}}'s flexibility and adaptability.
 {: shortdesc}
 
-You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:
+These capabilities include GeoJSON, {{site.data.keyword.cloudantfull}} Geospatial index, or {{site.data.keyword.cloudant_short_notm}} Geo index, and more. You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:
 
 - Enable web and mobile developers to enhance their applications by using geospatial operations that go beyond simple bounding boxes.
 - Integrate with existing GIS applications, so that they can scale to accommodate different data sizes, concurrent users, and multiple locations.

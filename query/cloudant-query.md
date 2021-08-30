@@ -27,7 +27,7 @@ subcollection: Cloudant
 {: #query}
 
 {{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for
-{{site.data.keyword.cloudant_short_notm}} databases. {{site.data.keyword.cloudant_short_notm}} Query uses two types of indexes: `json` and `text`.
+{{site.data.keyword.cloudant_short_notm}} databases. You can use a `json` or `text` type of index with {{site.data.keyword.cloudant_short_notm}}.
 {: shortdesc}
 
 In the following cases, you can specify how the index is created by
