@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-16"
+lastupdated: "2021-09-02"
 
-keywords: account, ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication
+keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
 subcollection: Cloudant
 
@@ -30,9 +30,9 @@ subcollection: Cloudant
 Your account is your entry point for the {{site.data.keyword.cloudantfull}} API.
 You access your account by using the address prefix
 `https://$ACCOUNT.cloudant.com`.
-Your {{site.data.keyword.cloudant_short_notm}} Dashboard is always
-`https://$ACCOUNT.cloudant.com/dashboard.html`.
 {: shortdesc}
+
+For your {{site.data.keyword.cloudant_short_notms}} Dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
 
 If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: new_window}{: external}.
 

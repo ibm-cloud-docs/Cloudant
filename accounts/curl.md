@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-09-02"
 
-keywords: encode username, encode password, create alias, activate alias, test acurl
+keywords: encode username, encode password, create alias, activate alias, test acurl, acurl
 
 subcollection: Cloudant
 
@@ -26,8 +26,10 @@ subcollection: Cloudant
 # Working with curl
 {: #working-with-curl}
 
-You use curl examples in the following steps. However, curl by itself is not secure. It is suggested that you use `acurl`, which is described in a later section. 
+`Curl` by itself is not secure. We suggest `acurl`, which can run `curl` {{site.data.keyword.cloudantfull}} commands to URLs without entering your username and password repeatedly.
 {: shortdesc}
+
+You use curl examples in the following steps. 
 
 ## For the curl samples
 {: #for-the-curl-samples}
@@ -81,9 +83,8 @@ explains how to create a more complex `acurl` command that uses this technique.
 *(The following section is based on a blog article that was written by Samantha Scharr: [
 "Authorized curl, also known as `acurl`"] originally published 27 November 2013.)*
 
-`acurl` is a handy alias that you can use to run `curl` {{site.data.keyword.cloudantfull}} commands to URLs
-without having to enter your username and password for every request.
-That means a simple `GET` request to a database no longer needs to be written as
+
+You no longer need to write a simple `GET` request to a database as
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`. Instead, you can use, `https://$ACCOUNT.cloudant.com/foo`.
 {: shortdesc}
 
