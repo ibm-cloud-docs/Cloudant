@@ -170,7 +170,7 @@ toc:
           label: Other offerings
           topics: 
           - offerings/bluemix_dedicated.md
-          - offerings/cloudant.md
+          - offerings/cloudant.com.md
       - link:
           label: API & SDK reference docs
           href: https://cloud.ibm.com/apidocs/cloudant
