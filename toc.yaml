@@ -1,0 +1,197 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://console.test.cloud.ibm.com/docs/developing/writing?topic=writing-create-nav-2
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+
+toc:
+  properties:
+    subcollection: Cloudant
+    category: database
+    audience: service
+    href: /docs/Cloudant?topic=Cloudant-getting-started-with-cloudant
+    console-page: /docs/Cloudant
+    product-page: https://www.ibm.com/cloud/cloudant
+    path: Cloudant
+    label: Cloudant
+
+#  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group. See https://test.cloud.ibm.com/docs/writing?topic=writing-navigation for more details on the toc design.
+  entries: 
+  - navgroup: 
+      id: learn
+      topics:
+      - topic: getting-started.md
+        navtitle: Getting started
+      - offerings/bluemix.md
+      - offerings/pricing.md
+      - offerings/limits.md
+      - offerings/connecting.md
+      - offerings/learning-center.md
+      - topicgroup: 
+          label: Security & compliance
+          topics:
+          - offerings/security.md
+          - offerings/compliance.md
+          - offerings/dataprivacygovernance.md
+          - offerings/audit.md
+          - offerings/gdpr.md
+      - topicgroup: 
+          label: What is Transaction Engine?
+          topics:
+          - transaction-engine/overview-te.md
+          - transaction-engine/feature-compare.md
+          - transaction-engine/pricing-te.md
+          - transaction-engine/pagination.md
+      - topicgroup: 
+          label: Apache CouchDB
+          topics:
+          - couchdb/overview-couchdb.md
+          - couchdb/comparison.md
+          - couchdb/install-couchdb.md
+          - couchdb/install_operator.md
+          - couchdb/configure_cluster.md
+          - couchdb/deploy_cluster.md
+          - couchdb/access_couchdb.md
+          - couchdb/troubleshoot-operator.md
+          - couchdb/support-couchdb.md
+          
+  - navgroup: 
+      id: tutorial
+      topics: 
+      - tutorials/locate-service-credentials.md
+      - tutorials/use-dashboard.md
+      - tutorials/create_service_cli.md
+      - tutorials/create_dedicated_hardware_plan.md
+      - tutorials/create_database.md
+      - tutorials/create_query.md
+      - tutorials/create_backup.md
+
+  - navgroup: 
+      id: howto
+      topics:
+      - basics/basics.md
+      - topicgroup: 
+          label: Managing your accounts
+          topics:   
+          - accounts/account.md
+          - accounts/curl.md
+          - accounts/cors.md
+          - accounts/http.md
+          - accounts/json.md
+      - topicgroup: 
+          label: Working with databases
+          topics: 
+          - databases/database.md
+          - databases/sharding.md
+          - databases/mvcc.md
+          - databases/database_partitioning.md
+          - databases/conflicts.md
+          - databases/cap_theorem.md
+          - databases/couchapps.md
+      - topicgroup: 
+          label: How documents work
+          topics: 
+          - documents/document.md
+          - documents/design_documents.md
+          - documents/design_document_management.md
+          - documents/transactions.md
+          - documents/attachments.md
+      - topicgroup: 
+          label: Monitoring your instance
+          topics: 
+          - monitor/monitoring.md
+          - monitor/capacity.md
+          - monitor/active_tasks.md
+          - monitor/managing_tasks.md      
+      - topicgroup: 
+          label: Querying the database
+          topics: 
+          - query/cloudant-query.md
+          - query/creating_views.md
+          - query/using_views.md
+          - query/search.md
+          - query/search-analyzers.md
+          - query/pagination-bookmarks.md
+          - query/cloudant-geo.md 
+      - topicgroup: 
+          label: Replicating databases
+          topics: 
+          - replicate/replication_guide.md
+          - replicate/replication.md
+          - replicate/advanced_replication.md
+      - topicgroup: 
+          label: Recovery and backup
+          topics: 
+          - guides/disaster-recovery-and-backup.md
+          - guides/active-active.md
+          - guides/backup-cookbook.md
+      - topicgroup: 
+          label: Enhancing security for IBM Cloudant
+          topics: 
+          - security/access-iam.md
+          - security/architecture-workload-isolation.md
+          - security/service-endpoints.md
+          - security/secure-connection.md
+          - security/manage-scc.md
+          - security/secure-data.md
+          - security/audit-events.md                
+
+#  Links to your REST API docs should be included in the Reference navigation group. For details on publishing API docs, see https://test.cloud.ibm.com/docs/api-docs.
+#  Links to your command line reference docs should be included in the Reference navigation group.
+  - navgroup:
+      id: reference
+      topics: 
+      - offerings/responsibilities.md
+      - topicgroup:
+          label: Observability
+          topics: 
+          - offerings/log-analysis.md
+          - offerings/at-integration.md
+          - offerings/platform-metrics.md
+      - topicgroup:
+          label: Sample apps
+          links: 
+          - link:
+              label: Offline First shopping list
+              href: https://developer.ibm.com/patterns/create-an-offline-first-shopping-list-progressive-web-app/
+          - link:
+              label: Serverless web application and API
+              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-api-webapp#serverless-api-webapp
+          - link:
+              label: Create a climate rating system on the IBM Cloud
+              href: https://developer.ibm.com/tutorials/provision-a-couchdb-instance-using-cloudant-cfc-starter-kit-2/
+          - link:
+              label: Mobile application with serverless backend
+              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend
+          - link:
+              label: Gather, visualize, and analyze IoT data
+              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-gather-visualize-analyze-iot-data#gather-visualize-analyze-iot-data
+      - libraries/client-libraries.md
+      - basics/compare.md
+      - topicgroup:
+          label: Other offerings
+          topics: 
+          - offerings/bluemix_dedicated.md
+          - offerings/cloudant.md
+      - link:
+          label: API & SDK reference docs
+          href: https://cloud.ibm.com/apidocs/cloudant
+      - /cloudant-cli-plugin/cloudant-cli-plugin-cloudant-cli
+
+  - navgroup:
+      id: help
+      topics:
+      - topicgroup: 
+          label: FAQs
+          topics: 
+          - faqs/authenticating-faq.md
+          - faqs/availability-zones-faq.md
+          - faqs/document-version-conflicts-faq.md
+          - faqs/model-data-faq.md
+          - faqs/pricing-faq.md
+          - faqs/provisioned-throughput-capacity-faq.md
+          - faqs/resource-groups-faq.md
+          - faqs/migration-faq.md
+      - topicgroup: 
+          label: Release information
+          topics: 
+          - release_info/release_notes.md
+          - release_info/deprecations.md
