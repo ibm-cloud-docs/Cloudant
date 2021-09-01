@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-09-01"
 
 keywords: subscription, operatorgroup, namespace, openshift, kubernetes
 
@@ -26,11 +26,10 @@ subcollection: Cloudant
 # Installing the Operator
 {: #installing-the-operator}
 
-Learn how to install the Operator on Kubernetes and Red Hat OpenShift. Three separate sections describe how to install the Operator depending on the Kubernetes flavor and version. The sections discuss the following topics:
-
-- Installing the Operator on Kubernetes
-- Installing the Operator on Red Hat OpenShift 4.x
+Learn how to install the Operator on Kubernetes and Red Hat OpenShift depending on the Kubernetes flavor and version. 
 {: shortdesc}
+
+The discussion includes Installing the Operator on Kubernetes and Installing the Operator on Red Hat OpenShift 4.x
 
 ## Installing the Operator on Kubernetes
 {: #installing-operator-kubernetes}
