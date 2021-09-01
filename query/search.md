@@ -24,10 +24,12 @@ subcollection: Cloudant
 <!-- Acrolinx: 2020-04-23 -->
 
 # Using {{site.data.keyword.cloudant_short_notm}} Search
-{: #cloudant-search}
+{: #using-cloudant-search}
 
-Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one or more fields from your documents. You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
+Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one or more fields from your documents. 
 {: shortdesc}
+
+You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
 
 To create a search index, you add a JavaScript function to a design document in the database. An index builds after it processes one search request or after the server detects a document update. The `index` function takes the following parameters: 
 
