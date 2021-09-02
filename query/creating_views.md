@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-09-02"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -139,7 +139,7 @@ See an example response from running the simple view query:
 
 The following sections describe indexing, complex keys, and reduce functions.
 
-Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
+Your indexing functions works in a memory-constrained environment where the document forms part of the memory used in the environment. Your code's stack and document must fit within the memory. We limit documents to a maximum size of 64 MB.
 
 ### Indexing a field
 {: #indexing-a-field}
@@ -495,7 +495,7 @@ characteristic restriction.
 ### Execution environment
 {: #execution-environment}
 
-Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
+Your indexing functions works in a memory-constrained environment where the document forms part of the memory used in the environment. Your code's stack and document must fit within the memory. We limit documents to a maximum size of 64 MB.
 
 ### No JavaScript reducers when `options.partitioned` is `true`
 {: #no-javascript-reducers-when-options.partitioned-is-true-}
