@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-09-02"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -30,8 +30,11 @@ subcollection: Cloudant
 {: faq}
 {: support}
 
-Since 16 July 2018, new {{site.data.keyword.cloudantfull}} resource instances are provisioned into resource groups, rather than Cloud Foundry spaces. 
+You can migrate {{site.data.keyword.cloudantfull}} resource instances into resource groups. 
 {: shortdesc}
+
+Since 16 July 2018, new {{site.data.keyword.cloudant_short_notm}} resource instances are provisioned into resource groups, rather than Cloud Foundry spaces. 
+{: note}
 
 ## How do I migrate an existing {{site.data.keyword.cloudant_short_notm}} instance to a resource group?
 {: #faq-migrate-an-existing-instance-to-a-resource-group}

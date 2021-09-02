@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-08"
+lastupdated: "2021-09-02"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -31,10 +31,10 @@ subcollection: Cloudant
 {: support}
 
 The way you model data on {{site.data.keyword.cloudantfull}} significantly impacts how your application can scale. The underlying data model differs substantially from a relational model, and ignoring this distinction can be the cause of performance issues down the road.
+{: shortdesc}
 
 As always, successful modeling involves achieving a balance between ease of use versus the 
 performance characteristics you're hoping to achieve.
-{: shortdesc}
 
 (The FAQ for modeling data to scale is based on a blog article by Mike Rhodes, *My top five tips for modeling your data to scale*, originally published 17 December 2013.)
 

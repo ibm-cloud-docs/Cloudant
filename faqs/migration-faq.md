@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-09-02s"
 
-keywords: lite plan, pricing plans, standard plan, enterprise plan
+keywords: lite plan, pricing plans, standard plan, enterprise plan, backup, support
 
 subcollection: Cloudant
 

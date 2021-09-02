@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-09-02"
 
-keywords: read, write, global query, throughput, operation type, event, reject request, retry, provision, capacity
+keywords: read, write, global query, throughput, operation type, event, reject request, retry, provision, capacity, provision throughput capacity calculated, exceed the provisioned throughput capacity limit
 
 subcollection: Cloudant
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-09-02"
 
-keywords: legacy, iam access controls, use only iam mode, service credentials
+keywords: legacy, iam access controls, use only iam mode, generate service credentials
 
 subcollection: Cloudant
 
