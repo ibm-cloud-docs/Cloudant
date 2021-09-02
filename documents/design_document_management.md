@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-09-02"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -26,22 +26,23 @@ subcollection: Cloudant
 # Design document management
 {: #design-document-management}
 
+The scalable JSON data store for {{site.data.keyword.cloudant_short_notm}} has several querying mechanisms,
+all of which generate indices that are created and maintained separately from the core data.
+{: shortdesc}
+
 *Article contributed by Glynn Bird, Developer Advocate at {{site.data.keyword.cloudant_short_notm}}, glynn@cloudant.com.*
 
-The scalable JSON data store for {{site.data.keyword.cloudantfull}} has several querying mechanisms,
-all of which generate indices that are created and maintained separately from the core data.
 Indexing isn't performed immediately when a document is saved.
 Instead,
 indexing is scheduled to happen later, providing a faster,
 non-blocking write throughput.
-{: shortdesc}
 
 -   MapReduce views are indexes into the data set
     with key value pairs that are stored in a BTree for efficient retrieval by key or range of keys.
 -   Search Indexes are constructed by using Apache Lucene to allow free-text search,
     faceting, and complex ad hoc queries.
 
-{{site.data.keyword.cloudant_short_notm}}'s [search indexes](/docs/Cloudant?topic=Cloudant-search#search) and [MapReduce views](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce)
+{{site.data.keyword.cloudantfull}}'s [search indexes](/docs/Cloudant?topic=Cloudant-search#search) and [MapReduce views](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce)
 are configured by adding design documents to a database.
 Design documents are JSON documents that include the instructions about how the view or index is to be built.
 Let's take a simple example.
