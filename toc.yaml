@@ -118,6 +118,13 @@ toc:
           - replicate/replication.md
           - replicate/advanced_replication.md
       - topicgroup: 
+          label: Migrating your plan
+          topics: 
+          - migration/migration-overview.md
+          - migration/create-migrate-lite.md
+          - migration/create-migrate-enterprise.md
+          - migration/find-your-plan.md
+      - topicgroup: 
           label: Recovery and backup
           topics: 
           - guides/disaster-recovery-and-backup.md
