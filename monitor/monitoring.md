@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-09-02"
 
-keywords: syntax of monitoring request, monitoring endpoints
+keywords: syntax of monitoring request, monitoring endpoints, monitoring metrics, monitoring requests
 
 subcollection: Cloudant
 
@@ -26,13 +26,13 @@ subcollection: Cloudant
 # Monitoring an {{site.data.keyword.cloudant_short_notm}} cluster
 {: #monitoring-an-ibm-cloudant-cluster}
 
-The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enterprise customers with dedicated clusters and not to {{site.data.keyword.cloud}} Public customers.
-{: important}
-
 A key part of ensuring best performance,
 or troubleshooting any problems,
 is monitoring the affected system.
 {: shortdesc}
+
+The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enterprise customers with dedicated clusters and not to {{site.data.keyword.cloud}} Public customers.
+{: important}
 
 You want to be able to answer the question:
 ```

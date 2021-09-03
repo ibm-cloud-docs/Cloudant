@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-03"
+lastupdated: "2021-09-02"
 
-keywords: ibm cloudant plan, standard plan, lite plan, enterprise plan
+keywords: ibm cloudant plan, standard plan, lite plan, legacy enterprise plan
 
 subcollection: Cloudant
 
