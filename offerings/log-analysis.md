@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-02"
 
-keywords: log analysis, integration
+keywords: log analysis, integration, provisioning log analysis, hipaa
 
 subcollection: Cloudant
 

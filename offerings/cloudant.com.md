@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-03"
+lastupdated: "2021-09-02"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -26,16 +26,16 @@ subcollection: Cloudant
 # cloudant.com
 {: #ibm-cloudant.com}
 
-{{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
-Starting  24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}{: external}. 
-{: deprecated}
-
-{{site.data.keyword.cloudant_short_notm}} is a hosted and fully managed database-as-a-service (DBaaS). 
+{{site.data.keyword.cloudantfull}} is a hosted and fully managed database-as-a-service (DBaaS). 
 It was built to scale globally, run non-stop, and handle a wide variety of data types 
 like [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview-basics),
 [full-text](/docs/Cloudant?topic=Cloudant-query#creating-an-index),
 and [geospatial](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial).
 {: shortdesc}
+
+{{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on 31 March 2018. 
+Starting 24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}{: external}. 
+{: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} is an operational data store optimized to handle concurrent 
 reads and writes, and enable high availability and data durability.

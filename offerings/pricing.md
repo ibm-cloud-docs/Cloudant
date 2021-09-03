@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-09-02"
 
-keywords: pricing examples, data usage, ibm cloud usage dashboard
+keywords: pricing examples, data usage, ibm cloud usage dashboard, data usage pricing
 
 subcollection: Cloudant
 

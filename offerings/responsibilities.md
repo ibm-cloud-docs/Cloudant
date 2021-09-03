@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-09-02"
 
 keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Understanding your responsibilities when you use {{site.data.keyword.cloudant_short_notm}}
 {: #cloudant-responsibilities}
 
-Learn about the management responsibilities, and terms and conditions, that you own when you use {{site.data.keyword.cloudant_short_notm}}. For a high-level view of the service types in {{site.data.keyword.cloud}}, and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for using {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities). 
+Learn about the management responsibilities, and terms and conditions, that you own when you use {{site.data.keyword.cloudantfull}}. For a high-level view of the service types in {{site.data.keyword.cloud}}, and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM}} for each type, see [Shared responsibilities for using {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities). 
 {: shortdesc}
 
 Review the following sections to understand the specific responsibilities between you and {{site.data.keyword.IBM_notm}} when you use {{site.data.keyword.cloudant_short_notm}}. For the overall terms of use, see [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview/terms-of-use?topic=overview-terms). 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-22"
+lastupdated: "2021-09-02"
 
-keywords: videos
+keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
 subcollection: Cloudant
 

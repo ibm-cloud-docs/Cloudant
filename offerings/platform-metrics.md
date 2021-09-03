@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-09-02"
 
-keywords: cloud monitoring, monitoring, platform metrics, observability page
+keywords: cloud monitoring, monitoring, platform metrics, observability page, enable platform metrics, view metrics, launch monitoring
 
 subcollection: Cloudant
 
@@ -187,7 +187,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Resource group` | `ibm_resource_group_id` | The unique ID of the resource group where the service instance was created. |
 {: caption="Table 5. More attributes" caption-side="top"}
 
-## {{site.data.keyword.cloudant_short_notm}} dashboards dictionary
+## {{site.data.keyword.cloudant_short_notm}} dashboard's dictionary
 {: #dashboards_dictionary-pm}
 
 The following table outlines the pre-defined dashboards that you can use to monitor {{site.data.keyword.cloudant_short_notm}} metrics:
