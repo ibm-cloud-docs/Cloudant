@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-08-30"
 
-keywords: numbers, strings, booleans, arrays, objects
+keywords: numbers, strings, booleans, arrays, objects, JSON parser, JavaScript
 
 subcollection: Cloudant
 
@@ -23,8 +23,8 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-13 -->
 
-# JavaScript Object Notation (JSON)
-{: #json}
+# How JavaScript Object Notation (JSON) works
+{: #how-json-works}
 
 Most requests and responses to and from {{site.data.keyword.cloudantfull}}
 use [JSON](https://en.wikipedia.org/wiki/JSON){: new_window}{: external} for formatting the content and structure of the data and responses.

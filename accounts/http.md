@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-08-30"
 
-keywords: http headers, response headers, http status codes
+keywords: http headers, response headers, request headers, http status codes
 
 subcollection: Cloudant
 
@@ -23,8 +23,8 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-12 -->
 
-# HTTP
-{: #http}
+# How HTTP works with {{site.data.keyword.cloudant_short_notm}}
+{: #how-http-works-with-cloudant}
 
 Learn details about the HTTP headers you need to know when you use {{site.data.keyword.cloudantfull}}.
 {: shortdesc}

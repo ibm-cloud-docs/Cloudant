@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-03"
+lastupdated: "2021-08-30"
 
-keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
+keywords: cross-domain, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard, same origin security policy
 
 subcollection: Cloudant
 
@@ -23,13 +23,15 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-16 -->
 
-# CORS
-{: #cors}
+# How Cross-origin resource sharing (CORS) works
+{: #cross-origin-resource-sharing}
 
-[Cross-origin resource sharing (CORS)](https://www.w3.org/wiki/CORS){: new_window}{: external} is a mechanism that allows resources
+[CORS](https://www.w3.org/wiki/CORS){: new_window}{: external} is a mechanism that allows resources
 such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested
-from JavaScript. The JavaScript is running on a website that is loaded from another domain.
+from JavaScript.
 {: shortdesc}
+
+In this case, the JavaScript is running on a website that is loaded from another domain.
 
 These "cross-domain" requests would normally be forbidden by web browsers. The requests use the [same origin security policy](http://en.wikipedia.org/wiki/Same-origin_policy){: new_window}{: external}.
 
