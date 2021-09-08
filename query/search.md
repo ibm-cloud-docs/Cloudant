@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-08"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -24,7 +24,7 @@ subcollection: Cloudant
 <!-- Acrolinx: 2020-04-23 -->
 
 # Using {{site.data.keyword.cloudant_short_notm}} Search
-{: #using-cloudant-search}
+{: #cloudant-search}
 
 Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one or more fields from your documents. 
 {: shortdesc}
