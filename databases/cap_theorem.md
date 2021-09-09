@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-09-02"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # CAP Theorem
 {: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}} uses an ["Eventually Consistent"](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}{: external} model.
+{{site.data.keyword.cloudantfull}} uses an ["Eventually Consistent"](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}{: external} model. When you make an update to one part of {{site.data.keyword.cloudant_short_notm}}, the update is eventually seen by other parts of the system.  
 {: shortdesc}
 
 To understand how this model works,
@@ -39,8 +39,7 @@ that are necessary for transactions within a database to be processed and report
 Additionally,
 consistency is one of the three attributes in the ["CAP"](http://en.wikipedia.org/wiki/CAP_Theorem){: new_window}{: external} theorem.
 The attributes are **C**onsistency,
-**A**vailability, and **P**artition tolerance.
-The theorem states that it's not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
+**A**vailability, and **P**artition tolerance. The theorem states that it's not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
 to guarantee three attributes *simultaneously*:
 
 - Consistency, where all nodes see the same data at the same time.
@@ -49,9 +48,6 @@ to guarantee three attributes *simultaneously*:
 
 The impossibility of guaranteeing all three attributes at the same time
 means that {{site.data.keyword.cloudant_short_notm}} doesn't guarantee the Consistency attribute.
-In an eventually consistent model,
-like {{site.data.keyword.cloudant_short_notm}},
-when you make an update to one part of the system, the update is *eventually* seen by other parts of the system.
 As the update propagates,
 the system is said to "converge" on complete consistency.
 
