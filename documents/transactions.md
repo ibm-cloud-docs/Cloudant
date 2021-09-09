@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-09-02"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
@@ -32,10 +32,11 @@ These databases typically use a number of tables joined to record sales,
 customer details,
 purchased products,
 and delivery tracking information.
+{: shortdesc}
+
 Relational databases offer high consistency, which means that application developers can build their applications to a database's strengths. This practice includes joins between collections,
 enumerations to record the state of an object,
 and database transactions to guarantee atomic operations.
-{: shortdesc}
 
 {{site.data.keyword.cloudantfull}} favors availability over consistency.
 It's a high-availability,

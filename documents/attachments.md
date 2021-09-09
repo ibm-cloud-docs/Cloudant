@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-09-02"
 
-keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
+keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
 subcollection: Cloudant
 
@@ -23,8 +23,8 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-16 -->
 
-# Attachments
-{: #attachments}
+# How to use attachments
+{: #how-to-use-attachments}
 
 Another way to store data is to use attachments.
 Attachments are Binary Large OBject ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external})

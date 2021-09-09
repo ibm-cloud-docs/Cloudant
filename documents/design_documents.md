@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-09-02"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 
 <!-- Acrolinx: 2021-04-16 -->
 
-# Design documents
+# How design documents work
 {: #design-documents}
 
 {{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
