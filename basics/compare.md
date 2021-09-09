@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-09-01"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -26,8 +26,10 @@ subcollection: Cloudant
 # Comparison of {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB API endpoints
 {: #comparison-of-ibm-cloudant-and-couchdb-api-endpoints}
 
-The {{site.data.keyword.cloudantfull}} and Apache CouchDB 3.x API endpoints, and the methods for accessing them, are described here. The table shows you which endpoints are present in the CouchDB or {{site.data.keyword.cloudant_short_notm}} service.
+The {{site.data.keyword.cloudantfull}} and Apache CouchDB 3.x API endpoints, and the methods for accessing them, are described here. 
 {: shortdesc}
+
+The table shows you which endpoints are present in the CouchDB or {{site.data.keyword.cloudant_short_notm}} service.
 
 Some CouchDB endpoints don't have {{site.data.keyword.cloudant_short_notm}} equivalents
 because it wouldn't be meaningful.

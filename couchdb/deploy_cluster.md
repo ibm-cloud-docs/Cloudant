@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-09-01"
 
-keywords: access, status, resource, kubernetes, operator for apache couchdb
+keywords: access, status, resource, kubernetes, operator for apache couchdb, openshift
 
 subcollection: Cloudant
 
@@ -26,13 +26,13 @@ subcollection: Cloudant
 # Deploying a CouchDB cluster
 {: #deploy-couchdb-cluster}
 
-Learn how to deploy a CouchDB Cluster on Kubernetes and OpenShift. 
+Learn how to deploy a CouchDB Cluster on Kubernetes and OpenShift by deploying a three-node CouchDB Cluster with ephemeral storage on Kubernetes. 
 {: shortdesc}
 
 ## Deploying a CouchDB cluster on Kubernetes
 {: #deploy-couchdb-cluster-kubernetes}
 
-Now, you walk through deploying a three-node CouchDB Cluster with ephemeral storage on Kubernetes.
+Now, you walk through deploying a three-node CouchDB Cluster.
 
 ### Prerequisites
 {: #prerequisites-cluster-kubernetes}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-09-01"
 
-keywords: apache couchdb, support, extension, containers, helm chart
+keywords: apache couchdb, support, extension, containers, helm chart, docker hub, red hat ecosystem, kubernetes, helm chart
 
 subcollection: Cloudant
 

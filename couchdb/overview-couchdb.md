@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-09-01"
 
-keywords: compare
+keywords: compare, open source, replication protocol, database ecosystem, features, high availability, security
 
 subcollection: Cloudant
 
@@ -26,8 +26,10 @@ subcollection: Cloudant
 # Overview of Apache CouchDB and the Operator
 {: #apache-couchdb-overview}
 
-[Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external} is a powerful and scalable Apache-licensed open source database with an intuitive HTTP API that scales from a developer's laptop to production database clusters. Furthermore, the Apache CouchDB replication protocol allows data to be synchronized between clusters spread across the globe, to devices in your customers' pockets, and to {{site.data.keyword.cloudantfull}} managed service instances. It is proven for production and is available at no charge to download and use for any purpose.
+[Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external} is a powerful and scalable database with an intuitive HTTP API that scales from a developer's laptop to production database clusters. 
 {: shortdesc}
+
+Apache CouchDb is an Apache-licensed open source database. Furthermore, the Apache CouchDB replication protocol allows data to be synchronized between clusters spread across the globe, to devices in your customers' pockets, and to {{site.data.keyword.cloudantfull}} managed service instances. It is proven for production and is available at no charge to download and use for any purpose.
 
 {{site.data.keyword.IBM}} recommends the use of Apache CouchDB for any self-managed installations to pair alongside {{site.data.keyword.cloudant_short_notm}}. Using {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB together provides teams with the following functions:
 

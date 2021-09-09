@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-09-01"
 
-keywords: operator, field reference, user-defined configuration parameters
+keywords: operator, field reference, user-defined configuration parameters, cluster size, scaling, persistent storage, resource requests, resource limits
 
 subcollection: Cloudant
 
