@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-09-02"
 
 keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency
 
@@ -31,9 +31,9 @@ subcollection: Cloudant
 {: support}
 
 When you use distributed databases, copies of your data might be stored in multiple locations. Keeping this data in sync is important. However, your work environment might prevent your users from updating documents with their changes immediately, or even replicating to the database. 
+{: shortdesc}
 
 As a result, the copies of a document might have different updates. "Conflicts" occur because {{site.data.keyword.cloudantfull}} can't determine which copy is the correct one.
-{: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} uses multi-version concurrency control (MVCC) to ensure that all nodes in each database cluster include only the newest version of a document.
 
