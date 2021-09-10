@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-14"
+lastupdated: "2021-09-02"
 
-keywords: database-as-a-service,json document store, lite plan, standard plan, enterprise plan
+keywords: database-as-a-service,json document store, lite plan, standard plan, enterprise plan, benefits of lite and standard plans
 
 subcollection: Cloudant
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-09-02"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -26,10 +26,11 @@ subcollection: Cloudant
 # Active tasks
 {: #active-tasks}
 
-The `/_active_tasks` endpoint provides a list of the tasks that are running on the server. This list is often helpful when you're [monitoring](/docs/Cloudant?topic=Cloudant-monitoring-an-ibm-cloudant-cluster#monitoring-an-ibm-cloudant-cluster) the performance of your system. 
+The `/_active_tasks` endpoint provides a list of the tasks that are running on the server, which is helpful for [monitoring](/docs/Cloudant?topic=Cloudant-monitoring-an-ibm-cloudant-cluster#monitoring-an-ibm-cloudant-cluster) the performance of your system. 
+{: shortdesc}
+
 You can retrieve a list of active tasks, including compaction, replication, and indexing tasks. For more examples on using the `/_active_tasks` endpoint,
 see the [Managing tasks](/docs/Cloudant?topic=Cloudant-managing-tasks#managing-tasks) guide.
-{: shortdesc}
 
 ## Retrieving a list of active tasks
 {: #retrieving-a-list-of-active-tasks}

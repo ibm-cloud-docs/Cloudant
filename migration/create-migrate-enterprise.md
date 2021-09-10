@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-01"
+lastupdated: "2021-09-02"
 
-keywords: lite plan, pricing plans, standard plan, enterprise plan
+keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
 subcollection: Cloudant
 
