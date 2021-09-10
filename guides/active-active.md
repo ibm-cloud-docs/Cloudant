@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-09-02"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -28,13 +28,13 @@ subcollection: Cloudant
 
 The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 explains that one way to enable disaster recovery is to use
-{{site.data.keyword.cloudantfull}} replication to create redundancy across regions.
+{{site.data.keyword.cloudant_short_notm}} replication to create redundancy across regions.
 {: shortdesc}
 
 [
 For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs) and monitor replication status.
 
-You can configure replication in {{site.data.keyword.cloudant_short_notm}} by using an "active-active"
+You can configure replication in {{site.data.keyword.cloudantfull}} by using an "active-active"
 or "active-passive" topology across data centers.
 
 The following diagram shows a typical configuration that
