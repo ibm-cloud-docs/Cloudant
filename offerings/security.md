@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-09-02"
 
-keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
+keywords: dbaas data protection, tier 1 physical platforms, secure access control, data loss, corruption, byok, encryption, protection 
 
 subcollection: Cloudant
 

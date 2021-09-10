@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-09-02"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -26,15 +26,14 @@ subcollection: Cloudant
 # Data privacy and governance
 {: #data-privacy-and-governance}
 
-*(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance update was originally published 20 April 2016.)*
-
-As a pioneer in the provision of a fully managed and globally distributable Database-as-a-Service,
-{{site.data.keyword.cloudant_short_notm}} allows customers to locate data in any
+{{site.data.keyword.cloudantfull}} allows customers to locate data in any
 global {{site.data.keyword.cloud}} or AWS region.
 By providing customers with such high levels of data mobility to serve the local needs of customers,
 {{site.data.keyword.IBM}},
 and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance seriously.
 {: shortdesc}
+
+*(This {{site.data.keyword.cloudant_short_notm}} Data Privacy and Governance update was originally published 20 April 2016.)*
 
 To govern the movement of data from the EU to the US,
 {{site.data.keyword.cloudant_short_notm}} complied with both US-EU and US-Swiss
