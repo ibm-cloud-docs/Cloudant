@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-27"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -42,7 +42,7 @@ non-blocking write throughput.
 -   Search Indexes are constructed by using Apache Lucene to allow free-text search,
     faceting, and complex ad hoc queries.
 
-{{site.data.keyword.cloudantfull}}'s [search indexes](/docs/Cloudant?topic=Cloudant-search#search) and [MapReduce views](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce)
+{{site.data.keyword.cloudantfull}}'s [search indexes](/docs/Cloudant?topic=Cloudant-cloudant-search) and [MapReduce views](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce)
 are configured by adding design documents to a database.
 Design documents are JSON documents that include the instructions about how the view or index is to be built.
 Let's take a simple example.
