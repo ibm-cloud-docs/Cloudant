@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-27"
 
 keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery
 
@@ -41,8 +41,8 @@ Incident and operations management includes tasks such as monitoring, event mana
 |HA/DR (multi-zone region) | {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on separate servers that are spread across three separate availability zones by default.  | |
 |HA/DR (single-zone region)| {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on three separate physical servers within the availability zone by default.  | |
 |Back up and restore|   | Customer is responsible for backup and restore of data to roll back to a previous state in the database. See [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery) documentation for recommended tooling. |
-{: caption="Table 1. Responsibilities for incident and operations" caption-side="top"}
 {: summary="The first column describes the task that the customer or {{site.data.keyword.IBM_notm}} might be responsible for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+{: caption="Table 1. Responsibilities for incident and operations" caption-side="top"}
 
 ## Change management
 {: #change-management-responsibilities}
@@ -53,8 +53,9 @@ Change management includes tasks such as deployment, configuration, upgrades, pa
 |----------|-----------------------|--------|
 |Scaling| {{site.data.keyword.IBM_notm}} scales infrastructure to meet capacity selected by the customer.  | Customer chooses the provisioned throughput capacity for their {{site.data.keyword.cloudant_short_notm}} instances. |
 |Upgrades| {{site.data.keyword.IBM_notm}} handles all upgrades and patches of the {{site.data.keyword.cloudant_short_notm}} service for the customer.  | |
-{: caption="Table 2. Responsibilities for change management" caption-side="top"}
 {: summary="The first column describes the task that the customer or {{site.data.keyword.IBM_notm}} might be responsible for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+{: caption="Table 2. Responsibilities for change management" caption-side="top"}
+
 
 ## Security and regulation compliance
 {: #security-compliance-responsibilities}
@@ -64,8 +65,9 @@ Security and regulation compliance includes tasks such as security controls impl
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |At-rest encryption| By default, {{site.data.keyword.IBM_notm}} encrypts all disks by using {{site.data.keyword.cloudant_short_notm}}-managed encryption keys.   | If the customer wants bring-your-own-key (BYOK) encryption, then the customer is required to use Key Protect to store the customer-managed encryption key. The customer must select an appropriate key management service instance, and select a disk encryption key option during provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. |
-{: caption="Table 3. Responsibilities for security and regulation compliance" caption-side="top"}
 {: summary="The first column describes the task that the customer or {{site.data.keyword.IBM_notm}} might be responsible for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+{: caption="Table 3. Responsibilities for security and regulation compliance" caption-side="top"}
+
 
 ## Disaster recovery
 {: #disaster-recovery-responsibilities}
@@ -81,5 +83,6 @@ Disaster recovery includes the following tasks:
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |HA/DR (cross-region)|  | Customer is responsible for creating more {{site.data.keyword.cloudant_short_notm}} instances in separate regions and configuring replications to achieve the cross-region HA/DR architecture they want. See [Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/Cloudant?topic=Cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery) for more details.  |
-{: caption="Table 4. Responsibilities for disaster recovery" caption-side="top"}
 {: summary="The first column describes the task that the customer or {{site.data.keyword.IBM_notm}} might be responsible for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+{: caption="Table 4. Responsibilities for disaster recovery" caption-side="top"}
+
