@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-09-27"
 
 keywords: endpoints, service credentials, authentication,cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -27,14 +27,14 @@ subcollection: Cloudant
 {: #securing-your-connection-to-cloudant}
 
 {{site.data.keyword.cloudantfull}} is accessed through an HTTP API. This document describes the different parts that you use to connect to {{site.data.keyword.cloudant_short_notm}}:
-- Endpoints
+- Endpoints (Public and Private)
 - Service credentials
 - Authentication
 - Accessing the {{site.data.keyword.cloudant_short_notm}} Dashboard
 - Programmatically accessing {{site.data.keyword.cloudant_short_notm}} through [curl](https://curl.haxx.se/){: new_window}{: external} or client libraries
 {: shortdesc}
 
-## Endpoints
+## Endpoints (Public and Private)
 {: #endpoints-sc}
 
 {{site.data.keyword.cloudant_short_notm}} is accessed through HTTP API endpoints. The endpoints for an instance are
@@ -42,6 +42,8 @@ shown in both the URL field of the Service Credentials that are generated for th
 {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 Therefore, all {{site.data.keyword.cloudant_short_notm}} HTTP endpoints must be accessed over TLS and prefaced by `https://`.
+
+### Public Endpoints
 
 The publicly facing external endpoint is shown in the following example:
 
@@ -52,6 +54,8 @@ external endpoint is shown in the following example:
 
 `https://$ACCOUNT.cloudantnosqldb.appdomain.cloud`
 
+### Private Endpoints
+
 Private (internal) endpoints are added to all instances deployed on Dedicated Hardware plan environments. The {{site.data.keyword.cloud_notm}} internal network endpoint is shown in the following example:
 
 `https://$ACCOUNT.private.cloudantnosqldb.appdomain.cloud`
@@ -59,6 +63,8 @@ Private (internal) endpoints are added to all instances deployed on Dedicated Ha
 In this example, ACCOUNT is the service name of the service instance user in the URL. An example ACCOUNT is
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud.
+
+For more information on Private endpoints, see the [Service Endpoints](/docs/Cloudant?topic=Cloudant-service-endpoints) documentation.
 
 For more information about how to block public network connectivity by using IP allowlisting, see [Secure access control](/docs/Cloudant?topic=Cloudant-security#secure-access-control).
 {: note}
