@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-17"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -1001,21 +1001,21 @@ Some "meta" condition operators are also available.
 Some condition operators accept any valid JSON content as the argument.
 Other condition operators require the argument to be in a specific JSON format.
 
-Operator type | Operator  | Argument             | Purpose
---------------|-----------|----------------------|--------
-(In) equality | `$lt`     | Any JSON             | The field is less than the argument.
-              | `$lte`    | Any JSON             | The field is less than or equal to the argument.
-              | `$eq`     | Any JSON             | The field is equal to the argument.
-              | `$ne`     | Any JSON             | The field isn't equal to the argument.
-              | `$gte`    | Any JSON             | The field is greater than or equal to the argument.
-              | `$gt`     | Any JSON             | The field is greater than the argument.
-Object        | `$exists` | Boolean              | Check whether the field exists or not, no matter what its value is.
-              | `$type`   | String               | Check the document field's type. Accepted values are `null`, `boolean`, `number`, `string`, `array`, and `object`.
-Array         | `$in`     | Array of JSON values | The document field must exist in the list provided.
-              | `$nin`    | Array of JSON values | The document field must not exist in the list provided.
-              | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields can't match this condition.
-Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}. Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
-              | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
+|Operator type | Operator  | Argument             | Purpose|
+|--------------|-----------|----------------------|--------|
+| (In) equality | `$lt`     | Any JSON             | The field is less than the argument. |
+|              | `$lte`    | Any JSON             | The field is less than or equal to the argument. |
+|              | `$eq`     | Any JSON             | The field is equal to the argument. |
+|              | `$ne`     | Any JSON             | The field isn't equal to the argument. |
+|              | `$gte`    | Any JSON             | The field is greater than or equal to the argument. |
+|              | `$gt`     | Any JSON             | The field is greater than the argument. |
+| Object        | `$exists` | Boolean              | Check whether the field exists or not, no matter what its value is. |
+|              | `$type`   | String               | Check the document field's type. Accepted values are `null`, `boolean`, `number`, `string`, `array`, and `object`. |
+| Array         | `$in`     | Array of JSON values | The document field must exist in the list provided. |
+|              | `$nin`    | Array of JSON values | The document field must not exist in the list provided. |
+|              | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields can't match this condition. |
+| Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}. Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer. |
+|              | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression. |
 {: caption="Table 10. Condition operator argument requirements" caption-side="top"}
 
 Regular expressions don't work with indexes,

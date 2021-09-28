@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-05"
+stupdated: "2021-08-16"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -101,73 +101,73 @@ that you create in this exercise include the data that you use to query the `das
 2.  Copy the following sample text and replace the existing text in the new document.<br>
   Use the following sample text for document 1:
 
-  ```json
-  {
-    "firstname": "Sally",
-    "lastname": "Brown",
-    "age": 16,
-    "location": "New York City, NY",
-    "_id": "doc1"
-  }
-  ```
-  {: codeblock}
+    ```json
+    {
+      "firstname": "Sally",
+      "lastname": "Brown",
+      "age": 16,
+      "location": "New York City, NY",
+      "_id": "doc1"
+    }
+    ```
+    {: codeblock}
 
 3.  Repeat steps 1 and 2 to add the remaining four documents to the database.<br>
-  Use the following sample text for document 2:
+    Use the following sample text for document 2:
 
-  ```json
-  {
-    "firstname": "John",
-    "lastname": "Brown",
-    "age": 21,
-    "location": "New York City, NY",
-    "_id": "doc2"
-  }
-  ```
-  {: codeblock}
+    ```json
+    {
+      "firstname": "John",
+      "lastname": "Brown",
+      "age": 21,
+      "location": "New York City, NY",
+      "_id": "doc2"
+    }
+    ```
+    {: codeblock}
 
   Use the following sample text for document 3:
 
-  ```json
-  {
-    "firstname": "Greg",
-    "lastname": "Greene",
-    "age": 35,
-    "location": "San Diego, CA",
-    "_id": "doc3"
-  }
-  ```
-  {: codeblock}
+    ```json
+    {
+      "firstname": "Greg",
+      "lastname": "Greene",
+      "age": 35,
+      "location": "San Diego, CA",
+      "_id": "doc3"
+    }
+    ```
+    {: codeblock}
 
   Use the following sample text for document 4:
 
-  ```json
-  {
-    "firstname": "Anna",
-    "lastname": "Greene",
-    "age": 44,
-    "location": "Baton Rouge, LA",
-    "_id": "doc4"
-  }
-  ```
+    ```json
+    {
+      "firstname": "Anna",
+      "lastname": "Greene",
+      "age": 44,
+      "location": "Baton Rouge, LA",
+      "_id": "doc4"
+    }
+    ```
   {: codeblock}
 
-  Use the following sample text for document 5:
+    Use the following sample text for document 5:
 
-  ```json
-  {
-    "firstname": "Lois",
-    "lastname": "Brown",
-    "age": 33,
-    "location": "New York City, NY",
-    "_id": "doc5"
-  }
-  ```
-  {: codeblock}
+    ```json
+    {
+      "firstname": "Lois",
+      "lastname": "Brown",
+      "age": 33,
+      "location": "New York City, NY",
+      "_id": "doc5"
+    }
+    ```
+    {: codeblock}
 
-  You populated the `dashboard-demo` with five documents. You can see the documents from the Table view in the following screen capture:
+    You populated the `dashboard-demo` with five documents. You can see the documents from the Table view in the following screen capture:
 
-   ![Example documents shown in the Table view.](../images/docs1.png){: caption="Figure 1. Sample documents" caption-side="bottom"} 
+    ![Example documents shown in the Table view.](../images/docs1.png){: caption="Figure 1. Sample documents" caption-side="bottom"} 
 
 ### Running a simple query
 {: #running-a-simple-query-dt}
@@ -177,15 +177,15 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
 1.  Click **Query**.
 2.  Copy the following sample JSON and replace the existing text in the new query window:
-  ```json
-   {
-      "selector": {
-            "lastname" : "Greene",
-            "firstname" : "Anna"            
-         }        
-   }
-  ```
-  {: codeblock}
+    ```json
+     {
+        "selector": {
+              "lastname" : "Greene",
+              "firstname" : "Anna"            
+           }        
+     }
+    ```
+    {: codeblock}
 
 3.  Click **Run Query**.
 
@@ -207,52 +207,52 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
 2. Click **New Replication**. 
 
-   The Job configuration page opens. 
+    The Job configuration page opens. 
 
-   ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 3. Job configuration page" caption-side="bottom"} 
-   
-   Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
-   {: note} 
+    ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 3. Job configuration page" caption-side="bottom"} 
+    
+    Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
+    {: note} 
 
 3. Enter the following information for your replication job. <br>
-   Use the following information in the Source section:
-      - Type - Select **Remote database**.
-      - Name - Enter the database URL:
-        ```http
-        https://examples.cloudant.com/query-movies
-        ``` 
-        {: codeblock}
+    Use the following information in the Source section:
+       - Type - Select **Remote database**.
+       - Name - Enter the database URL:
+         ```sh
+         https://examples.cloudant.com/query-movies
+         ``` 
+         {: codeblock}
 
-      - Authentication - Leave as `None`.
+       - Authentication - Leave as `None`.
 
-   Use the following information in the Target section:
-      - Type - Select **New local database**.
-      - New database - Enter the name for the new database, **`query-movies`**. 
-      - New database options - Do not select the Partitioned option.
-      - Authentication - Select **IAM Authentication**. 
-      - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
+    Use the following information in the Target section:
+       - Type - Select **New local database**.
+       - New database - Enter the name for the new database, **`query-movies`**. 
+       - New database options - Do not select the Partitioned option.
+       - Authentication - Select **IAM Authentication**. 
+       - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
         
-        For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
+         For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
-   Use the following information in the Options section:
-     - Replication type - Leave as `One time`
-     - Replication document - Leave as `Custom ID (optional)` 
+    Use the following information in the Options section:
+      - Replication type - Leave as `One time`
+      - Replication document - Leave as `Custom ID (optional)` 
 
-    ![Replication configuration page](images/job-configuration.png){: caption="Figure 4. Replication configuration page" caption-side="bottom"}
+     ![Replication configuration page](images/job-configuration.png){: caption="Figure 4. Replication configuration page" caption-side="bottom"}
 
 4. Click **Start Replication**. 
 
-   The Replication page opens where you can see that your replication job is running. 
+    The Replication page opens where you can see that your replication job is running. 
 
-   ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 5. Status of your replication job" caption-side="bottom"} 
+    ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 5. Status of your replication job" caption-side="bottom"} 
 
 5. See the status when your job finishes. 
 
-   ![Completed job status](images/complete-status.png){: caption="Figure 6. Completed job status" caption-side="bottom"} 
+    ![Completed job status](images/complete-status.png){: caption="Figure 6. Completed job status" caption-side="bottom"} 
 
 6. Check that the database was created on the databases page. 
 
-   ![Databases page](images/databases.png){: caption="Figure 7. Databases page" caption-side="bottom"} 
+    ![Databases page](images/databases.png){: caption="Figure 7. Databases page" caption-side="bottom"} 
 
 ## Monitoring active tasks
 {: #monitoring-active-tasks-dt}
@@ -265,9 +265,9 @@ If your instance does not have any active tasks, you can return to the previous 
 
 1. Click **Active Tasks**. 
 
-   The Active Tasks page opens. 
+    The Active Tasks page opens. 
 
-   ![Active tasks](images/active-tasks-page.png){: caption="Figure 8. Active tasks" caption-side="bottom"} 
+    ![Active tasks](images/active-tasks-page.png){: caption="Figure 8. Active tasks" caption-side="bottom"} 
 
 2. Click the associated tab to see task-specific information. 
 
@@ -281,21 +281,21 @@ Your service instance contains no data because it is for demonstration purposes 
 
 1. Click **Monitoring**. 
 
-   The Monitoring page opens to the Current Operations tab. 
-   Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
+    The Monitoring page opens to the Current Operations tab. 
+    Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
-   ![Current Operations](images/current-operations-tab.png){: caption="Figure 9. Current Operations" caption-side="bottom"}
+    ![Current Operations](images/current-operations-tab.png){: caption="Figure 9. Current Operations" caption-side="bottom"}
 
 2. Click **Denied Requests**. 
 
-   Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
+    Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
-   ![Denied Requests](images/denied-requests-tab.png){: caption="Figure 10. Denied Requests" caption-side="bottom"}
+    ![Denied Requests](images/denied-requests-tab.png){: caption="Figure 10. Denied Requests" caption-side="bottom"}
 
 3. Click **Storage**.
 
-   Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
+    Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 
-   ![Storage](images/storage-tab.png){: caption="Figure 11. Storage" caption-side="bottom"}
+    ![Storage](images/storage-tab.png){: caption="Figure 11. Storage" caption-side="bottom"}
 
 For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).

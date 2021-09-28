@@ -106,8 +106,7 @@ Throughput provision is identified and measured as one of the following types of
         -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-search#queries))
         -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: new_window}{: external})
     
-        The number of read operations that are consumed by a partitioned query request
-        varies depending on the results returned.
+        The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
 
 2.	*Writes*,
     which are creation,

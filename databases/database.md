@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-08-17"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -299,7 +299,7 @@ Argument | Description  | Optional | Type | Default
 `inclusive_end`     | Include rows whose key equals the "`endkey`" value.                                             | Yes      | Boolean         | True
 `key`               | Return only documents with IDs that match the specified key.                                    | Yes      | String          |
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings |
-`limit` [^transaction-engine] | Limit the number of returned documents to the specified number.                       | Yes      | Numeric         |
+`limit` | Limit the number of returned documents to the specified number. For Transaction Engine, the `limit` parameter restricts the total number of returned documents.    | Yes      | Numeric         |
 `meta`              | Short-hand combination of the following three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False
 `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.                                                   | Yes      | Numeric
 `r`                 | Specify the [read quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2
@@ -308,8 +308,6 @@ Argument | Description  | Optional | Type | Default
 `startkey`          | Return records, starting with the specified key.                                                | Yes      | String          |
 `startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String |
 {: caption="Table 4. Query string and JSON body arguments" caption-side="top"}
-
-[^transaction-engine]: For Transaction Engine, the `limit` parameter restricts the total number of returned documents.
 
 ### Notes
 {: #get-documents-notes}

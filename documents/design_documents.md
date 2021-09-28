@@ -345,8 +345,6 @@ See the following example JSON describing some rewrite rules:
 While {{site.data.keyword.cloudant_short_notm}} is API-compliant with CouchDB, {{site.data.keyword.cloudant_short_notm}} doesn't support URL rewrites by using the JavaScript function.
 {: note}
 
-See the following example rewrite rules:
-
 The following table has some more examples of rewriting URL components:
 
 Rule | URL | Rewrite to | Tokens

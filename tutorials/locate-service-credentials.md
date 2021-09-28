@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-08-13"
 
 keywords: service credentials, locate service credentials
 
@@ -90,7 +90,7 @@ Field | Purpose | Legacy-auth enabled
 `password` | The legacy credentials password that is required for applications to access the service instance. | X
 `host` | The host name that is used by applications to locate the service instance. | X
 `port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. | X
-`url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. | X (If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password.)
+`url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. | X <br>(If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password.)
 `apikey` | The IAM API key. |
 `iam_apikey_description` | Description of the IAM API key. |
 `iam_apikey_name` | ID of the IAM API key. |

@@ -191,8 +191,11 @@ Name | Description
 
 In the `phase` field, the value indicates the stage that was reached by compaction:
 
--   `ids` - Document compaction is in progress.
--   `views` - View compaction is in progress.
+`ids`
+:  Document compaction is in progress.
+
+`views`
+:  View compaction is in progress.
 
 ### Specific response fields for replication tasks
 {: #specific-response-fields-for-replication-tasks}

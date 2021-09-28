@@ -59,10 +59,17 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput"
 
 The returned structure includes the following fields:
 
-- `current` - Details the current capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
-- `target` - Details the target capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
-- `blocks` - Number of provisioned throughput capacity blocks, where a block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
-- `throughput` - Breakdown of the specific number of reads/sec, writes/sec, and global queries/sec.
+`current`
+:  Details the current capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
+
+`target`
+:  Details the target capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
+
+`blocks`
+:  Number of provisioned throughput capacity blocks, where a block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
+
+`throughput`
+:  Breakdown of the specific number of reads/sec, writes/sec, and global queries/sec.
 
 See the following example JSON response with the current and target capacity:
 

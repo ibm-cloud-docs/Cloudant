@@ -79,7 +79,7 @@ Argument         | Description | Optional | Type | Default | Supported values | 
 `inclusive_end`  | Include rows with the specified `endkey`. | Yes | Boolean | True | | Yes
 `key`            | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON strings or arrays | | | Yes
 `keys`           | Return only documents that match the specified keys. Keys are JSON values, and must be URL encoded. | Yes | Array of JSON strings or arrays | || Yes
-`limit` [^transaction-engine] | Limit the number of returned documents to the specified count. | Yes | Numeric | | | Yes
+`limit` | Limit the number of returned documents to the specified count. For Transaction Engine, the `limit` parameter restricts the total number of returned documents. | Yes | Numeric | | | Yes
 `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.  | Yes | Numeric | | |
 `reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes
 `skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes
@@ -90,13 +90,11 @@ Argument         | Description | Optional | Type | Default | Supported values | 
  `update`        | Ensure that the view is updated before results are returned. | Yes | String | `true` | Yes
 {: caption="Table 2. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
-[^transaction-engine]: For Transaction Engine, the `limit` parameter restricts the total number of returned documents.
-
 This table shows the supported values for the following arguments:
 
 Argument | Supported values
 ---------|-----------------
-`stale`  | `ok`- Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
+`stale`  | `ok` - Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
 `update` | `true` - Return results after the view is updated.<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
 {: caption="Table 3. Supported values" caption-side="top"}
 
