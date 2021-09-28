@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-17"
+lastupdated: "2021-08-18"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -416,7 +416,7 @@ See the following example response after a request for all documents in a databa
 Now, the following instructions describe how to send multiple queries to a database by using `_all_docs` and `_view` endpoints. 
 
 ### Send multiple queries to a database by using `_all_docs`
-{: #send-multiple-queries-to-a-database-by-using-_all_docs}
+{: #send-multiple-queries-to-a-database-by-using-all_docs}
 
 To send multiple queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
@@ -548,7 +548,7 @@ Multiple queries are also supported in `/$DATABASE/_design_docs/queries`, which 
 {: note}
 
 ### Send multiple view queries to a database by using `_view`
-{: #send-multiple-view-queries-to-a-database-by-using-_view}
+{: #send-multiple-view-queries-to-a-database-by-using-view}
 
 To send multiple view queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
@@ -584,7 +584,7 @@ The database endpoint to view deleted databases and recover them with the undele
 The undelete API capability does not automatically or immediately remove the data and any indexes in the database after a delete operation. Instead, the undelete API restores the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion after which time they are permanently deleted and cannot be recovered by using this API endpoint.
 
 ### `GET /_deleted_dbs`
-{: get-_deleted_dbs}
+{: get-deleted_dbs}
 
 Send a `GET` request to find a list of all the deleted databases in the {{site.data.keyword.cloudant_short_notm}} instance. 
 
@@ -689,7 +689,7 @@ Server: CouchDB (Erlang/OTP)
 {: codeblock}
 
 ### `POST /_deleted_dbs`
-{: #post-_deleted_dbs_undelete}
+{: #post-deleted_dbs_undelete}
 
 Send a `POST` request to restore (undelete) a deleted database.
 
@@ -765,7 +765,7 @@ Content-Type –
 {: caption="Table 10. HTTP request codes" caption-side="top"}
 
 ##### `DELETE /_deleted_dbs/{db}`
-{: #get-_deleted_dbs-db}
+{: #get-deleted_dbs-db}
 
 Send a `DELETE` request to permanently delete the database instance, which was soft-deleted with the specified timestamp.
 
@@ -1031,7 +1031,7 @@ For more information about the behavior of the `_changes` response, see the
 [replication guide](/docs/Cloudant?topic=Cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 ### Responses from the `_changes` request
-{: #responses-from-the-_changes-request}
+{: #responses-from-the-changes-request}
 
 The response from a `_changes` request is a JSON object that contains
 a list of the changes that were made to documents within the database.
@@ -1069,7 +1069,7 @@ See the following example (abbreviated) response to a `_changes` request:
 {: codeblock}
 
 ### Important notes about `_changes`
-{: #important-notes-about-_changes}
+{: #important-notes-about-changes}
 
 -	The results that are returned by `_changes` are partially ordered.
 	In other words,

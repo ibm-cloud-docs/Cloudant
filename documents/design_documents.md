@@ -854,13 +854,13 @@ function(doc, req){
 
 A number of predefined filter functions are available:
 
-*	[`_design`](#the-_design-filter) - accepts only changes to design documents.
-*	[`_doc_ids`](#the-_doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-_selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
-*	[`_view`](#the-_view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
+*	[`_design`](#the-design-filter) - accepts only changes to design documents.
+*	[`_doc_ids`](#the-doc_ids-filter) - accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
+*	[`_selector`](#the-selector-filter) - accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
+*	[`_view`](#the-view-filter) - with this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
-{: #the-_design-filter}
+{: #the-design-filter}
 
 The `_design` filter accepts changes only for design documents within the requested database.
 
@@ -914,7 +914,7 @@ See the following example response (abbreviated) after you apply the `_design` f
 {: codeblock}
 
 #### The `_doc_ids` filter
-{: #the-_doc_ids-filter}
+{: #the-doc_ids-filter}
 
 The `_doc-ids` filter accepts only changes for documents with specified IDs.
 The IDs are specified in a `doc_ids` parameter,
@@ -967,7 +967,7 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 {: codeblock}
 
 #### The `_selector` filter
-{: #the-_selector-filter}
+{: #the-selector-filter}
 
 The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
 for [`_find`](/apidocs/cloudant#postfind){: new_window}{: external}.
@@ -1044,7 +1044,7 @@ See the following example response (abbreviated) after you filter by using a sel
 {: codeblock}
 
 #### The `_view` filter
-{: #the-_view-filter}
+{: #the-view-filter}
 
 Using the `_view` filter, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
@@ -1143,10 +1143,10 @@ See the following example response from an update validator:
 {: #retrieving-information-about-a-design-document}
 
 Two endpoints provide you with more information about
-design documents: [`_info`](#the-_info-endpoint) and [`_search_info`](#the-_search_info-endpoint).
+design documents: [`_info`](#the-info-endpoint) and [`_search_info`](#thesearch_info-endpoint).
 
 ### The `_info` endpoint
-{: #the-_info-endpoint}
+{: #the-info-endpoint}
 
 The `_info` endpoint returns information about a specific design document,
 including the view index,
@@ -1207,7 +1207,7 @@ See the following example response in JSON format:
 {: codeblock}
 
 ### The `_search_info` endpoint
-{: #the-_search_info-endpoint}
+{: #the-search_info-endpoint}
 
 The `_search_info` endpoint returns information about a specified search that is defined within a specific design document.
 

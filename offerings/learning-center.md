@@ -154,14 +154,14 @@ These tips are especially relevant if you have some relational database experien
 That's the end of this part. The next part is called *The Document ID*.
 
 ## The `_id` video
-{: #the-_id-video}
+{: #the-id-video}
 
 Learn how `_id`s work in {{site.data.keyword.cloudant_short_notm}}, how they are different from relational databases, and how you can define your own `_id`. 
 
-![The _id](https://youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-_id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The _id](https://youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The _id video script
-{: #the-_id-video-script}
+{: #the-id-video-script}
 {: notoc}
 
 Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.

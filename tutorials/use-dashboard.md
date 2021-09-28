@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-stupdated: "2021-08-16"
+lastupdated: "2021-08-20"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -75,15 +75,15 @@ Now, you can create a database, and run queries against it.
 In this exercise, you create the `dashboard-demo` [database](/apidocs/cloudant#putdatabase){: new_window}{: external}, which 
 is the database that you use in this tutorial.
 
-1. From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
+1.  From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
 
-   The Create database window opens. 
+    The Create database window opens. 
 
-2. Enter the database name `dashboard-demo`.
+2.  Enter the database name `dashboard-demo`.
 
-3. Select **Non-partitioned**, and click **Create**.
+3.  Select **Non-partitioned**, and click **Create**.
 
-   The `dashboard-demo` database opens automatically.
+    The `dashboard-demo` database opens automatically.
 
 Now, you can create some documents. 
 
@@ -99,7 +99,7 @@ that you create in this exercise include the data that you use to query the `das
     The New Document window opens.
 
 2.  Copy the following sample text and replace the existing text in the new document.<br>
-  Use the following sample text for document 1:
+    Use the following sample text for document 1:
 
     ```json
     {
@@ -126,7 +126,7 @@ that you create in this exercise include the data that you use to query the `das
     ```
     {: codeblock}
 
-  Use the following sample text for document 3:
+    Use the following sample text for document 3:
 
     ```json
     {
@@ -139,7 +139,7 @@ that you create in this exercise include the data that you use to query the `das
     ```
     {: codeblock}
 
-  Use the following sample text for document 4:
+    Use the following sample text for document 4:
 
     ```json
     {
@@ -150,7 +150,7 @@ that you create in this exercise include the data that you use to query the `das
       "_id": "doc4"
     }
     ```
-  {: codeblock}
+    {: codeblock}
 
     Use the following sample text for document 5:
 
@@ -178,7 +178,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 1.  Click **Query**.
 2.  Copy the following sample JSON and replace the existing text in the new query window:
     ```json
-     {
+    {
         "selector": {
               "lastname" : "Greene",
               "firstname" : "Anna"            
@@ -203,22 +203,22 @@ When you replicate a database, it synchronizes the state of two databases: sourc
 
 For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replication-api#replication-operation).
 
-1. Click **Replication**.
+1.  Click **Replication**.
 
-2. Click **New Replication**. 
+2.  Click **New Replication**. 
 
     The Job configuration page opens. 
 
     ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 3. Job configuration page" caption-side="bottom"} 
-    
+   
     Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
     {: note} 
 
-3. Enter the following information for your replication job. <br>
+3.  Enter the following information for your replication job. <br>
     Use the following information in the Source section:
        - Type - Select **Remote database**.
        - Name - Enter the database URL:
-         ```sh
+         ```http
          https://examples.cloudant.com/query-movies
          ``` 
          {: codeblock}
@@ -240,17 +240,17 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
      ![Replication configuration page](images/job-configuration.png){: caption="Figure 4. Replication configuration page" caption-side="bottom"}
 
-4. Click **Start Replication**. 
+4.  Click **Start Replication**. 
 
     The Replication page opens where you can see that your replication job is running. 
 
     ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 5. Status of your replication job" caption-side="bottom"} 
 
-5. See the status when your job finishes. 
+5.  See the status when your job finishes. 
 
     ![Completed job status](images/complete-status.png){: caption="Figure 6. Completed job status" caption-side="bottom"} 
 
-6. Check that the database was created on the databases page. 
+6.  Check that the database was created on the databases page. 
 
     ![Databases page](images/databases.png){: caption="Figure 7. Databases page" caption-side="bottom"} 
 
@@ -279,20 +279,20 @@ Monitor your usage with a graph that shows your throughput by reads, writes, and
 
 Your service instance contains no data because it is for demonstration purposes only. However, you can see what monitoring information is available to you by following these steps. 
 
-1. Click **Monitoring**. 
+1.  Click **Monitoring**. 
 
     The Monitoring page opens to the Current Operations tab. 
     Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
     ![Current Operations](images/current-operations-tab.png){: caption="Figure 9. Current Operations" caption-side="bottom"}
 
-2. Click **Denied Requests**. 
+2.  Click **Denied Requests**. 
 
     Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
     ![Denied Requests](images/denied-requests-tab.png){: caption="Figure 10. Denied Requests" caption-side="bottom"}
 
-3. Click **Storage**.
+3.  Click **Storage**.
 
     Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 

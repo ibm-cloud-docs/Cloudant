@@ -182,7 +182,7 @@ The focused roles are defined in the following table:
 Role | Description | API Endpoints
 -----|-------------|---------------
 `_design`     | Allows create, read, modify, or delete access to design documents. | [`_design`](/docs/Cloudant?topic=Cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes), [`_index`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes)
-`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/apidocs/cloudant?code=node#postreplicate){: new_window}{: external}, [`_replicate`](/apidocs/cloudant#postreplicate){: new_window}{: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-_replicator-database)
+`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/apidocs/cloudant?code=node#postreplicate){: new_window}{: external}, [`_replicate`](/apidocs/cloudant#postreplicate){: new_window}{: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database)
 `_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/apidocs/cloudant#getsecurity){: new_window}{: external}
 {: caption="Table 2. Focused roles" caption-side="top"}
 
@@ -343,7 +343,7 @@ send an HTTP `PUT` request to the same `_security` API endpoint you used to [cre
 The updated list must not include the API key.
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
-{: #using-the-_users-database-with-cloudant-nosql-db}
+{: #using-the-users-database-with-cloudant-nosql-db}
 
 The following section only applies to legacy credentials. 
 {: tip}
