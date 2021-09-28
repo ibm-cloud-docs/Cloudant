@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-27"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -261,7 +261,7 @@ Learn how Legacy authentication and IAM authentication work. You can also learn 
 
 ### Authentication video script
 {: #authentication-video-script}
-{: script}
+{: #video-transcript-ui}
 {: notoc}
 
 Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.

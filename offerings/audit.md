@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-22"
+lastupdated: "2021-09-27"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -25,6 +25,7 @@ subcollection: Cloudant
 
 # Audit logging
 {: #audit-logging}
+
 Audit logs are available for {{site.data.keyword.cloudantfull}}. You can find more details on how to obtain audit logs depending on whether you use {{site.data.keyword.cloudant_short_notm}} or outside {{site.data.keyword.cloud}}.
 {: shortdesc}
 

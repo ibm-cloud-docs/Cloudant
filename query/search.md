@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-08"
+lastupdated: "2021-09-27"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -444,7 +444,7 @@ GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?inclu
 Content-Type: application/json
 Host: account.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 See the following example that uses HTTP to query a global index:
 
