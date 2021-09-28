@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-08-20"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -772,7 +772,7 @@ Send a `DELETE` request to permanently delete the database instance, which was s
 | Parameters | Description |
 |------------|-------------|
 | `timestamp` | Timestamp when the database was deleted. |
-{: caption="Table 11. Parameters for `_deleted_dbs` endpoint" caption-side="top"}
+{: caption="Table 11. Parameter for _deleted_dbs endpoint" caption-side="top"}
 
 ###### Request headers 
 {: #request-headers2-db}
@@ -838,7 +838,7 @@ Argument       | Description | Supported values | Default
 `since`        | Start the results from changes after the specified sequence identifier. For more information, see the [`since` information](#the-since-argument). | Sequence identifier or `now` | 0 
 `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` 
 `timeout`      | Wait this number of milliseconds for data, then stop the response. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | Any positive number | 
-{: caption="Table 14. Query arguments for `_changes`" caption-side="top"}
+{: caption="Table 14. Query arguments for _changes endpoint" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
 {: important}
@@ -1045,7 +1045,7 @@ Field      | Description | Type
 `last_seq` | Identifier of the last of the sequence identifiers. Currently, this identifier is the same as the sequence identifier of the last item in the `results`. | String
 `results`  | Array of changes that were made to the database. | Array
 `seq`      | Update sequence identifier. | String
-{: caption="Table 15. JSON object response fields for `_changes`" caption-side="top"}
+{: caption="Table 15. JSON object response fields for _changes" caption-side="top"}
 
 See the following example (abbreviated) response to a `_changes` request:
 

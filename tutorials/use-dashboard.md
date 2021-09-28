@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-08-24"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -113,7 +113,7 @@ that you create in this exercise include the data that you use to query the `das
     {: codeblock}
 
 3.  Repeat steps 1 and 2 to add the remaining four documents to the database.<br>
-    Use the following sample text for document 2:
+  Use the following sample text for document 2:
 
     ```json
     {
@@ -178,7 +178,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 1.  Click **Query**.
 2.  Copy the following sample JSON and replace the existing text in the new query window:
     ```json
-    {
+     {
         "selector": {
               "lastname" : "Greene",
               "firstname" : "Anna"            
@@ -214,31 +214,32 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
     Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
     {: note} 
 
-3.  Enter the following information for your replication job. <br>
+3. Enter the following information for your replication job. <br>
     Use the following information in the Source section:
-       - Type - Select **Remote database**.
-       - Name - Enter the database URL:
-         ```http
-         https://examples.cloudant.com/query-movies
-         ``` 
-         {: codeblock}
+      - Type - Select **Remote database**.
+      - Name - Enter the database URL:
 
-       - Authentication - Leave as `None`.
+      ```sh
+      https://examples.cloudant.com/query-movies
+      ```
+      {: codeblock}
+
+      - Authentication - Leave as `None`.
 
     Use the following information in the Target section:
-       - Type - Select **New local database**.
-       - New database - Enter the name for the new database, **`query-movies`**. 
-       - New database options - Do not select the Partitioned option.
-       - Authentication - Select **IAM Authentication**. 
-       - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
-        
-         For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
+      - Type - Select **New local database**.
+      - New database - Enter the name for the new database, **`query-movies`**. 
+      - New database options - Do not select the Partitioned option.
+      - Authentication - Select **IAM Authentication**. 
+      - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
+
+      For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
     Use the following information in the Options section:
       - Replication type - Leave as `One time`
-      - Replication document - Leave as `Custom ID (optional)` 
+      - Replication document - Leave as `Custom ID (optional` 
 
-     ![Replication configuration page](images/job-configuration.png){: caption="Figure 4. Replication configuration page" caption-side="bottom"}
+      ![Replication configuration page](images/job-configuration.png){: caption="Figure 4. Replication configuration page" caption-side="bottom"}
 
 4.  Click **Start Replication**. 
 

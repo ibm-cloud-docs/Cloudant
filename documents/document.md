@@ -627,7 +627,7 @@ Field      | Description                           | Type    | Optional
 `_id`      | Document ID                           | String  | Optional only for new documents. Otherwise, it's mandatory.
 `_rev`     | Document revision                     | String  | Mandatory for updates and deletes, not used for new documents.
 `_deleted` | Determines whether the document must be deleted. | Boolean | (Optional) The default value is `false`.
-{: caption="Table 3. Structure of the `docs` array object" caption-side="top"}
+{: caption="Table 3. Structure of the docs array object" caption-side="top"}
 
 Recall that for a partitioned database the `_id` field is formed from
 a partition key part and a document key part.
@@ -1020,7 +1020,7 @@ Field    | Description                        | Type
 `id`     | Document ID                        | String
 `error`  | Error type.                        | String
 `reason` | Error string with extended reason. | String
-{: caption="Table 6. Structure for the `docs` array object" caption-side="top"}
+{: caption="Table 6. Structure for the docs array object" caption-side="top"}
 
 When a document (or document revision) is not correctly committed to the database because of an error,
 you must check the `error` field to determine error type and course of action.

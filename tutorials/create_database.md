@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-27"
+lastupdated: "2021-08-20"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -65,7 +65,7 @@ Ensure that you have the following resources or information ready
 before you start working through the tutorial.
 
 This tutorial walks you through the steps of creating and populating 
-a database. You can follow each step, or go to the end of the tutorial, [execute the Python script](#execute-the-complete-python-script), and return to *Step 5. Retrieving data*. 
+a database. You can follow each step, or go to the end of the tutorial, [execute the Python script](#execute-the-complete-python-script), and return to [Step 5. Retrieving data](#retrieving-data). 
 
 Normally, you don't run commands individually in Python. You usually
 create a script, which is a list of the commands you want to run,
@@ -137,7 +137,7 @@ You must connect to your service instance before you create a database.
 
 The following components are identified as normal `import` statements.
 
-You can follow steps 1 - 5 to learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to *Step 5. Retrieving data*. 
+You can follow steps 1 - 5 to learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to [Step 5. Retrieving data](#retrieving-data). 
 
 1. Run these `import` statements to connect to the service instance.
 
@@ -527,4 +527,4 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
     ```
     {: codeblock}
 
-Once you run the script, return to *Step 5. Retrieving data* to complete the tutorial. 
+Once you run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial. 
