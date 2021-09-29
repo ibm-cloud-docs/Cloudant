@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-09-29"
 
 keywords: endpoints, service credentials, authentication,cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -44,6 +44,7 @@ shown in both the URL field of the Service Credentials that are generated for th
 Therefore, all {{site.data.keyword.cloudant_short_notm}} HTTP endpoints must be accessed over TLS and prefaced by `https://`.
 
 ### Public Endpoints
+{: #public-endpoints-sc}
 
 The publicly facing external endpoint is shown in the following example:
 
@@ -54,15 +55,19 @@ external endpoint is shown in the following example:
 
 `https://$ACCOUNT.cloudantnosqldb.appdomain.cloud`
 
+In this example, ACCOUNT is the service name of the service instance user in the URL. An example ACCOUNT is
+de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example public endpoint would be
+de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud.
+
 ### Private Endpoints
+{: #private-endpoints-sc}
 
 Private (internal) endpoints are added to all instances deployed on Dedicated Hardware plan environments. The {{site.data.keyword.cloud_notm}} internal network endpoint is shown in the following example:
 
 `https://$ACCOUNT.private.cloudantnosqldb.appdomain.cloud`
 
-In this example, ACCOUNT is the service name of the service instance user in the URL. An example ACCOUNT is
-de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be
-de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud.
+In this example, ACCOUNT is the service name of the service instance user in the URL. An example ACCOUNT is de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example private endpoint would be
+de810d0e-763f-46a6-ae88-50823dc85581-bluemix.private.cloudantnosqldb.appdomain.cloud.
 
 For more information on Private endpoints, see the [Service Endpoints](/docs/Cloudant?topic=Cloudant-service-endpoints) documentation.
 
