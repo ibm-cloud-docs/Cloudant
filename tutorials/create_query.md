@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-09-30"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -44,10 +44,10 @@ Here you run the commands from the command line, but you can also complete these
 
 Before you begin, follow these tutorials to create an instance, and then create and populate a database.
 
-1. [Create an {{site.data.keyword.cloudant_short_notm}} instance](/docs/Cloudant/getting-started.html#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+1. [Create an {{site.data.keyword.cloudant_short_notm}} instance](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#creating-an-ibm-cloudant-instance-on-ibm-cloud).
 2. [Create a database](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
 3. [Populate the database](/docs/services/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#storing-a-small-collection-of-data-as-documents-within-the-database).
-4. (Optional) [Create an `acurl` alias](/docs/Cloudant?topic=Cloudant-authorized-curl-acurl-#authorized-curl-acurl-). </br>
+4. (Optional) [Create an `acurl` alias](/docs/Cloudant?topic=Cloudant-working-with-curl#encode-user-name-and-password). </br>
 
 If you decide not to set up `acurl`, use the following URL with `curl` instead of the one provided in the exercises, `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`.
 

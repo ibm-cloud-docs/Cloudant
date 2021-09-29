@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-10-05"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -85,7 +85,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
     After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see that the status for your instance is, `Provision in progress`. 
 
-7.  When the status changes to `Active`, click the instance, and proceed to the next section, [Creating service credentials](/docs/Cloudant?topic=Cloudant-creating-service-credentials).   
+7.  When the status changes to `Active`, click the instance, and proceed to the next section, [Creating service credentials](#creating-service-credentials).   
 
 ## Creating service credentials
 {: #creating-service-credentials}

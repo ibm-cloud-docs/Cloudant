@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-09-30"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -890,7 +890,7 @@ But you might also get changes that were made before the change indicated by the
 The reason these extra changes are included,
 along with the implications for applications,
 is explained in the
-[replication guide](/docs/Cloudant?topic=Cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
+[Replication guide](/docs/Cloudant?topic=Cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 Any application that uses the `_changes` request must be able to process a list of changes correctly as shown in the following list:
 - A different order for the changes that are listed in the response, when compared with an earlier request for the same information.
@@ -986,7 +986,7 @@ several built-in filters are available:
     The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
     {: note}
 	
--   `_view` - Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
+-   `_view` - Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
 
 ### The `since` argument
 {: #the-since-argument}

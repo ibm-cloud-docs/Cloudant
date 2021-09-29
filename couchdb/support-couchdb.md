@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-30"
 
 keywords: apache couchdb, support, extension, provision an instance, pricing, vCPU definition
 
@@ -26,7 +26,8 @@ subcollection: Cloudant
 # Support for Apache CouchDB
 {: #support-for-apache-couchdb-support}
 
-Apache CouchDB is Apache-licensed open source software and free to use. For customers who need support from {{site.data.keyword.IBM}} for Apache CouchDB, see [this section](/docs/Cloudant?topic=Cloudant-apache-couchdb-support#cloud-extenstion-for-apache-couchdb-support).
+Apache CouchDB is Apache-licensed open source software and free to use. For customers who need support from {{site.data.keyword.IBM}} for Apache CouchDB, see [Cloud extenstion for apache couchdb support](/docs/Cloudant?topic=Cloudant-support-for-apache-couchdb-support#cloud-extenstion-for-apache-couchdb-support).
+
 {: shortdesc}
 
 ## Chat
@@ -96,7 +97,7 @@ Requirement | Supported
 ------------|---------
 Kubernetes | 1.14 or later
 Red Hat OpenShift | 4.x or later
-Installation | Install only by using [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-operator). 
+Installation | Install only by using [Operator for Apache CouchDB](/docs/Cloudant?topic=Cloudant-apache-couchdb-overview). 
 Storage | POSIX-compliant storage is required. NFS that doesn't meet POSIX compliance causes instability and errors if used. Apache CouchDB is an I/O intensive database, and we recommend that you use SSDs for heavy workloads. For more information, see the [Operator for Apache CouchDB configuration](/docs/Cloudant?topic=Cloudant-configure-couchdb-cluster#couchdb-storage) documentation for details on specific persistent storage requirements. 
 {: caption="Table 3. Apache CouchDB support requirements in containerized environments" caption-side="top"}
 
