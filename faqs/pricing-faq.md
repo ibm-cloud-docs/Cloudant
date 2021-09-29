@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-09-02"
 
-keywords: capacity settings, capacity limit, exceed limit, usage data
+keywords: capacity settings, capacity limit, exceed limit, usage data, provisioned throughput capacity
 
 subcollection: Cloudant
 

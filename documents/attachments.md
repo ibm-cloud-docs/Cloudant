@@ -194,24 +194,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV"
 ```
 {: codeblock}
 
-<!--
-
-See the following example of deleting an attachment by using Javascript:
-
-```javascript
-var nano = require('nano');
-var account = nano("https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com");
-var db = account.use($DATABASE);
-db.attachment.destroy($DOCUMENT_ID, $FILENAME, $REV, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 If the deletion is successful,
 the response includes `"ok": true`,
 and the ID and new revision of the document.

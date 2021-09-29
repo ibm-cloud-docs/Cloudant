@@ -39,9 +39,9 @@ Now, walk through installing the Operator for Apache CouchDB on Kubernetes 1.14 
 ### Prerequisites
 {: #prerequisites-operator-kubernetes}
 
- * A working knowledge of Kubernetes.
- * Access to a user with cluster-admin privileges (called `admin` here).
- * A target cluster with access to the internet and the ability to pull from public container registries.
+- A working knowledge of Kubernetes.
+- Access to a user with cluster-admin privileges (called `admin` here).
+- A target cluster with access to the internet and the ability to pull from public container registries.
 
 ### Installing the Operator
 {: #install-steps-operator-kubernetes}
@@ -52,27 +52,27 @@ If it isn't installed already, you must install [Operator Lifecycle Manager](htt
 
 1. Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster, by running the following command: 
 
-  ```
-  curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/$OLM_RELEASE/install.sh | bash -s $OLM_RELEASE
-  ```
-  {: codeblock}
+    ```
+    curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/$OLM_RELEASE/install.sh | bash -s $OLM_RELEASE
+    ```
+    {: codeblock}
 
   For more information, see the [How do I install OLM](https://operator-framework.github.io/olm-book/docs/install-olm.html) guide?
 
 2. Install the operator by running the following command. 
   This Operator is installed in the "operators" namespace and is usable from all namespaces in the cluster.
    
-   ```
-   kubectl create -f https://operatorhub.io/install/couchdb-operator.yaml
-   ```
-   {: codeblock}
+    ```
+    kubectl create -f https://operatorhub.io/install/couchdb-operator.yaml
+    ```
+    {: codeblock}
 
 3. After the installation is complete, validate that the operator is running by using the following command.
 
-  ```
-  kubectl get csv -n operators
-  ```
-  {: codeblock}
+    ```
+    kubectl get csv -n operators
+    ```
+    {: codeblock}
 
 ## Installing the Operator on Red Hat OpenShift version 4
 {: #install-the-operator-openshift-4}

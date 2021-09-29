@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2021
 lastupdated: "2021-09-02"
 
-keywords: databases, indexes, request payload, request timeouts, query
+keywords: databases, indexes, request payload, request timeouts, query, query results
 
 subcollection: Cloudant
 

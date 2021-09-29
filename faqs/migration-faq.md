@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02s"
+lastupdated: "2021-09-02"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, backup, support
 
@@ -35,7 +35,6 @@ Migrate your plan to an {{site.data.keyword.cloudantfull}} Lite or Standard plan
 You can migrate to a Lite or Standard plan from one of the following plans: 
 
 - {{site.data.keyword.cloudant_short_notm}} Enterprise
-- {{site.data.keyword.cloudant_localfull}}
 - Apache CouchDB
 
 For more information, see [Migrating an Enterprise plan to a Lite or Standard plan](/docs/Cloudant?topic=Cloudant-migrating-an-enterprise-plan-to-a-lite-or-standard-plan).

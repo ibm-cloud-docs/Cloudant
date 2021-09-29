@@ -150,15 +150,15 @@ The following simple guidelines might be helpful during the early planning stage
 Remember to validate your proposed configuration by testing with representative data,
 particularly for larger databases:
 
-*	If your data is trivial in size,
+-	If your data is trivial in size,
 	such as a few tens or hundreds of MB,
 	or thousands of documents,
 	then there is little need for more than a single shard.
-*	For databases of a few GB or few million documents,
+-	For databases of a few GB or few million documents,
 	then a single-digit shard count such as 8 is likely to be acceptable.
-*	For larger databases of tens to hundreds of millions of documents or tens of GB,
+-	For larger databases of tens to hundreds of millions of documents or tens of GB,
 	consider configuring your database to use 16 shards.
-*	For even larger databases,
+-	For even larger databases,
 	consider manually sharding your data into several databases.
 	For such large databases,
 	email support@cloudant.com for advice.

@@ -93,10 +93,10 @@ For GCE, Persistent Disk can be used but a [storage class](https://docs.openshif
 
 For on-premises deployments, the following storage providers meet these requirements:
 
- * [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
- * [Complete Example Using Ceph RBD for Dynamic Provisioning](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
- * [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: new_window}{: external}
- * [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: new_window}{: external}
+ - [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
+ - [Complete Example Using Ceph RBD for Dynamic Provisioning](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
+ - [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: new_window}{: external}
+ - [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: new_window}{: external}
 
 ### Changing the pod UID/GID
 {: #change-pod-uid-gid}

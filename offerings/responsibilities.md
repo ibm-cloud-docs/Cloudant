@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2021
 lastupdated: "2021-09-27"
 
-keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery
+keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery, responsibilities
 
 subcollection: Cloudant
 

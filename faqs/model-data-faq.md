@@ -36,7 +36,7 @@ The way you model data on {{site.data.keyword.cloudantfull}} significantly impac
 As always, successful modeling involves achieving a balance between ease of use versus the 
 performance characteristics you're hoping to achieve.
 
-(The FAQ for modeling data to scale is based on a blog article by Mike Rhodes, *My top five tips for modeling your data to scale*, originally published 17 December 2013.)
+(The FAQ for modeling data to scale is based on a blog article by Mike Rhodes, *My top five tips for modeling your data to scale*.)
 
 ## When must I make my documents immutable?
 {: #consider-immutable-data}

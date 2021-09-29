@@ -39,8 +39,7 @@ non-blocking write throughput.
 
 -   MapReduce views are indexes into the data set
     with key value pairs that are stored in a BTree for efficient retrieval by key or range of keys.
--   Search Indexes are constructed by using Apache Lucene to allow free-text search,
-    faceting, and complex ad hoc queries.
+-   Search Indexes are constructed by using Apache Lucene to allow free-text search, faceting, and complex ad hoc queries.
 
 {{site.data.keyword.cloudantfull}}'s [search indexes](/docs/Cloudant?topic=Cloudant-cloudant-search) and [MapReduce views](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce)
 are configured by adding design documents to a database.

@@ -37,11 +37,11 @@ Now, you walk through deploying a three-node CouchDB Cluster.
 ### Prerequisites
 {: #prerequisites-cluster-kubernetes}
 
- * You have a working knowledge of Kubernetes.
- * You can access a user with privileges to create a `CouchDBCluster` resource.
- * Operator for Apache CouchDB is installed.
- * Operator for Apache CouchDB is configured to watch the namespace `my-couchdb` (for example, by using an `OperatorGroup`).
- * A TLS certificate.
+- You have a working knowledge of Kubernetes.
+- You can access a user with privileges to create a `CouchDBCluster` resource.
+- Operator for Apache CouchDB is installed.
+- Operator for Apache CouchDB is configured to watch the namespace `my-couchdb` (for example, by using an `OperatorGroup`).
+- A TLS certificate.
 
 ### Create a TLS certificate
 {: #create-tls-certificate-cluster-kubernetes}
@@ -66,34 +66,35 @@ Management of TLS certificates is beyond the scope of this discussion, but the s
 
 1. Install `cfssl`. On MacOS, use this command, `brew install cfssl`. On Linux&trade;, use a command similar to the following one:
 
-     ```
-     mkdir ~/bin
-     curl -s -L -o ~/bin/cfssl https://pkg.cfssl.org/R1.2/cfssl_linux-amd64
-     curl -s -L -o ~/bin/cfssljson https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64
-     chmod +x ~/bin/{cfssl,cfssljson}
-     export PATH=$PATH:~/bin
-     ```
-     {: codeblock}
+    ```
+    mkdir ~/bin
+    curl -s -L -o ~/bin/cfssl https://pkg.cfssl.org/R1.2/cfssl_linux-amd64
+    curl -s -L -o ~/bin/cfssljson https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64
+    chmod +x ~/bin/{cfssl,cfssljson}
+    export PATH=$PATH:~/bin
+    ```
+    {: codeblock}
 
-   - For other platforms, see the [cfssl docs](https://github.com/cloudflare/cfssl){: new_window}{: external}.
+    - For other platforms, see the [cfssl docs](https://github.com/cloudflare/cfssl){: new_window}{: external}.
 
 2. Create a directory to store the certificates.
-   ```
-   mkdir ~/cfssl
-   cd ~/cfssl
-   ```
-   {: codeblock}
+    
+    ```
+    mkdir ~/cfssl
+    cd ~/cfssl
+    ```
+    {: codeblock}
 
 3. Generate the CA and server certificates. Set `ADDRESS` to match the name and namespace of the `CouchDBCluster` you intend to create.
 
-   ```
-   echo '{"CN":"CA","key":{"algo":"rsa","size":2048}}' | cfssl gencert -initca - | cfssljson -bare ca -
-   echo '{"signing":{"default":{"expiry":"43800h","usages":["signing","key encipherment","server auth","client      auth"]}}}' > ca-config.json
-   export ADDRESS=<couchdbclustername>.<namespace>.svc
-   export NAME=couchdb
-   echo '{"CN":"'$NAME'","hosts":[""],"key":{"algo":"rsa","size":2048}}' | cfssl gencert -config=ca-config.json -ca=ca.pem -ca-key=ca-key.pem -hostname="$ADDRESS" - | cfssljson -bare $NAME
-   ```
-   {: codeblock}
+    ```
+    echo '{"CN":"CA","key":{"algo":"rsa","size":2048}}' | cfssl gencert -initca - | cfssljson -bare ca -
+    echo '{"signing":{"default":{"expiry":"43800h","usages":["signing","key encipherment","server auth","client      auth"]}}}' > ca-config.json
+    export ADDRESS=<couchdbclustername>.<namespace>.svc
+    export NAME=couchdb
+    echo '{"CN":"'$NAME'","hosts":[""],"key":{"algo":"rsa","size":2048}}' | cfssl gencert -config=ca-config.json -ca=ca.pem -ca-key=ca-key.pem -hostname="$ADDRESS" - | cfssljson -bare $NAME
+    ```
+    {: codeblock}
 
 4. Verify that you have the following three files: `couchdb.pem`, `couchdb-key.pem`, `ca.pem`.
 
@@ -190,10 +191,10 @@ Now, you walk through deploying a three-node CouchDB Cluster with ephemeral stor
 ### Prerequisites
 {: #prerequisites-cluster-openshift}
 
- * You have a working knowledge of Kubernetes.
- * You have access to a user with privileges to create a `CouchDBCluster` resource.
- * Operator for Apache CouchDB is installed.
- * Operator for Apache CouchDB is configured to watch the namespace `my-couchdb` (for example, by using an `OperatorGroup`).
+- You have a working knowledge of Kubernetes.
+- You have access to a user with privileges to create a `CouchDBCluster` resource.
+- Operator for Apache CouchDB is installed.
+- Operator for Apache CouchDB is configured to watch the namespace `my-couchdb` (for example, by using an `OperatorGroup`).
 
 ### TLS
 {: #tls-cluster-openshift}

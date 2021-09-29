@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-07-30"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -51,9 +51,9 @@ For example, if you don't check for conflicts,
 or fail to address them,
 your {{site.data.keyword.cloudant_short_notm}} database can exhibit the following behaviors:
 
-* Increasing inconsistencies in document content because more conflicting documents occur.
-* Increasing database size because all conflicting documents must be kept until the conflict is resolved.
-* Decreasing performance because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each request as it tries to identify the "best possible" version of a conflicted document.
+- Increasing inconsistencies in document content because more conflicting documents occur.
+- Increasing database size because all conflicting documents must be kept until the conflict is resolved.
+- Decreasing performance because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each request as it tries to identify the "best possible" version of a conflicted document.
 
 The following suggested practices might help you decide when to check for, and resolve, conflicts:
 
@@ -235,9 +235,9 @@ To help,
 you might choose from various conflict resolution strategies,
 such as:
 
-*	Time based - uses a simple test of the first or most recent edit.
-*	User assessment - the conflicts are reported to users, who then decide on the best resolution.
-*	Sophisticated merging algorithms - often used with [version control systems](https://en.wikipedia.org/wiki/Merge_%28version_control%29). An example is the [3-way merge](https://en.wikipedia.org/wiki/Merge_%28version_control%29#Three-way_merge).
+-	Time based - uses a simple test of the first or most recent edit.
+-	User assessment - the conflicts are reported to users, who then decide on the best resolution.
+-	Sophisticated merging algorithms - often used with [version control systems](https://en.wikipedia.org/wiki/Merge_%28version_control%29). An example is the [3-way merge](https://en.wikipedia.org/wiki/Merge_%28version_control%29#Three-way_merge).
 
 For a practical example of how to implement these changes, see [this project with sample code](https://github.com/glynnbird/deconflict).
 

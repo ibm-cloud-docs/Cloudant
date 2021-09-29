@@ -27,13 +27,13 @@ subcollection: Cloudant
 # Finding your {{site.data.keyword.cloudant_short_notm}} plan
 {: #find-your-ibm-cloudant-plan}
 
-You can subscribe to different {{site.data.keyword.cloudant_short_notm}} plans, including the Standard, Lite, or Enterprise plans. 
+You can subscribe to different {{site.data.keyword.cloudant_short_notm}} plans, including the Lite, Standard, or Enterprise plans. 
 {: shortdesc}
 
 The following steps show where you can see the type of plan that you selected.   
 
 1.  Go to the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/).
-2. Authenticate with your username and password. <br>The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
+2. Authenticate with your user name and password. <br>The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
 3. Click an instance to find more information.
 4. Click **Plan**.<br>
    A checkmark indicates the plan that you use as shown in the following screen capture.<br>

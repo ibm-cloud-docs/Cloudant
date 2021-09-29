@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-09-02"
 
-keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency
+keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency, conflict
 
 subcollection: Cloudant
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-26"
+lastupdated: "2021-07-30"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -186,8 +186,7 @@ Review the following assumptions:
 - Each device has a unique ID.
 - Each piece of infrastructure has a unique ID.
 - Devices aren't moved between pieces of infrastructure.
-- Each device writes a reading to {{site.data.keyword.cloudant_short_notm}} every 10 seconds. Likely this reading is
-    delivered by using a message bus to {{site.data.keyword.cloudant_short_notm}}.
+- Each device writes a reading to {{site.data.keyword.cloudant_short_notm}} every 10 seconds. Likely this reading is delivered by using a message bus to {{site.data.keyword.cloudant_short_notm}}.
 
 In a non-partitioned database, you might allow {{site.data.keyword.cloudant_short_notm}} to generate document
 IDs. Another alternative is to name documents by device ID and record timestamp.

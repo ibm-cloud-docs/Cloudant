@@ -973,20 +973,20 @@ The `filter` argument designates a pre-defined
 Additionally,
 several built-in filters are available:
 
-*   `_design` - The `_design` filter accepts only changes to design documents.
-*   `_doc_ids` - This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
+-   `_design` - The `_design` filter accepts only changes to design documents.
+-   `_doc_ids` - This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
     
-   The `_docs_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
-   {: note}
+    The `_docs_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+    {: note}
 
-*   `_selector` - Accepts only changes for documents that match a specified selector,
+-   `_selector` - Accepts only changes for documents that match a specified selector,
     which is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} that is used
     for [`_find`](/apidocs/cloudant#postexplain){: new_window}{: external}.
 
-   The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
-   {: note}
+    The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+    {: note}
 	
-*   `_view` - Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
+-   `_view` - Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
 
 ### The `since` argument
 {: #the-since-argument}

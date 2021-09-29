@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-08-02"
 
-keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
+keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup, ip allowlisting
 
 subcollection: Cloudant
 

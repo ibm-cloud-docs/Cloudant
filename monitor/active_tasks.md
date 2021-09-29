@@ -59,25 +59,6 @@ curl "https://$ACCOUNT.cloudant.com/_active_tasks" \
 ```
 {: codeblock}
 
-<!--
-
-*Example request to retrieve list of active tasks using Javascript
-
-```javascript
-var nano = require('nano');
-var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
-account.request({
-	path: '_active_tasks'
-}, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 The returned structure includes the following fields for each task:
 
 | Name | Description |
