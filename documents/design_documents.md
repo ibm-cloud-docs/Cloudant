@@ -1280,18 +1280,18 @@ The JSON structure includes the following individual fields:
 		:   The sequence number of changes in the database that reached the Lucene index,
 		both in memory and on disk.
 
-		`doc_del_count`
-		:   Number of deleted documents in the index.
+			`doc_del_count`
+			:   Number of deleted documents in the index.
 
-		`doc_count`
-		:   Number of documents in the index.
+			`doc_count`
+			:   Number of documents in the index.
 
-		`disk_size`
-		:   The size of the index on disk, in bytes.
+			`disk_size`
+			:   The size of the index on disk, in bytes.
 
-		`committed_seq`
-		:   The sequence number of changes in the database that were committed
-		to the Lucene index on disk.
+			`committed_seq`
+			:   The sequence number of changes in the database that were committed
+			to the Lucene index on disk.
 
 See the following example response in JSON format:
 

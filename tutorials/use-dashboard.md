@@ -217,7 +217,7 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 3. Enter the following information for your replication job. <br>
     Use the following information in the Source section:
       - Type - Select **Remote database**.
-      - Name - Enter the database URL: `https://examples.cloudant.com/query-movies`.
+      - Name - Enter the database URL: `http://examples.cloudant.com/query-movies`.
       - Authentication - Leave as `None`.
 
     Use the following information in the Target section:
