@@ -50,9 +50,14 @@ This video is part 1 - *What is {{site.data.keyword.cloudant_short_notm}}?*
 
 {{site.data.keyword.cloudant_short_notm}} is a database, run as a service in the {{site.data.keyword.cloud}}. Its job is to store your application's data securely and make it possible for you to retrieve it quickly and efficiently. {{site.data.keyword.cloudant_short_notm}}'s key features are shown in the following list:
 
-- Database - stores and retrieves data. More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. 
-- "Document" - the unit of storage in {{site.data.keyword.cloudant_short_notm}}. Documents are added, updated, and deleted in their entirety.
-- HTTP API - Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so!).
+Database
+:   Stores and retrieves data. More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. 
+
+"Document"
+:   The unit of storage in {{site.data.keyword.cloudant_short_notm}}. Documents are added, updated, and deleted in their entirety.
+
+HTTP API
+:   Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so!).
 
 {{site.data.keyword.cloudant_short_notm}} wasn't written entirely by IBM. It is based on Apache CouchDB, an open source project run by the Apache Foundation. {{site.data.keyword.cloudant_short_notm}} employs a number of CouchDB contributors but by the rules of Apache, they cannot monopolize its development.
 
@@ -540,8 +545,11 @@ To summarize, the official libraries for {{site.data.keyword.cloudant_short_notm
 
 The libraries handle two things for you, which is useful:
 
-- Authentication - exchanging your keys for tokens, whether it be legacy authentication or IAM.
-- Retry logic - the libraries can be configured to retry API calls that exceeded your provisioned capacity. If configured this way, they pause and reattempt the API call multiple times with exponential back-off.
+Authentication
+:   Exchanging your keys for tokens, whether it be legacy authentication or IAM.
+
+Retry logic
+:   The libraries can be configured to retry API calls that exceeded your provisioned capacity. If configured this way, they pause and reattempt the API call multiple times with exponential back-off.
 
 Retrying such API calls is sensible if you have a temporary and unexpected elevation in traffic. If you are routinely exceeding your provisioned capacity, no amount of retrying gets the database work done - you need more capacity!
 {: note}
@@ -589,9 +597,14 @@ If you need to access objects within documents, you can use standard dot notatio
 
 We can also add the following parameters:
 
-- Fields - Specifies the document attributes that we want returned (the default is the entire document).
-- Sort – Defines how the data is to be sorted. Sort is an array, allowing the sort to be calculated on multiple attributes.
-- Limit – The number of documents to return.
+Fields 
+:   Specifies the document attributes that we want returned (the default is the entire document).
+
+Sort 
+:   Defines how the data is to be sorted. Sort is an array, allowing the sort to be calculated on multiple attributes.
+
+Limit 
+:  The number of documents to return.
 
 If you are from a relational database background, this query is the equivalent SQL query to that last {{site.data.keyword.cloudant_short_notm}} query example.
 
@@ -725,10 +738,17 @@ Indexes build asynchronously and cannot be used until they build completely. Onc
 
 {{site.data.keyword.cloudant_short_notm}} includes the four built-in reducers (or five if you count `none`).
 
-- `_count` - for counting things.
-- `_sum` - for totalizing values.
-- `_stats` - for providing counts and totals suitable for calculating means, variances, and standard deviations.
-- `_approx_count_distinct` - for approximate counting of unique values of the key.
+`_count`
+:   For counting things.
+
+`_sum` 
+:   For totalizing values.
+
+`_stats` 
+:   For providing counts and totals suitable for calculating means, variances, and standard deviations.
+
+`_approx_count_distinct` 
+:   sFor approximate counting of unique values of the key.
 
 The design document's `MAP` function is passed a `doc` - the function is called once per document in the database. Any key-value pairs that `emit` from the `MAP` function create the index.
 
@@ -890,8 +910,11 @@ In the first example, the products database is created as a partitioned database
 
 When you add documents to a partitioned database, you must supply a document _ID - (no auto-generated document _IDs exist). A document `_id` has two parts, which are separated by a colon character:
 
-- Partition key - a string that defines on which partition to store the document.
-- Document key - a string that uniquely identifies a document within the partition.
+Partition key
+:   A string that defines on which partition to store the document.
+
+Document key 
+:   A string that uniquely identifies a document within the partition.
 
 In the first example, a book is being added into the book partition of the products database.
 

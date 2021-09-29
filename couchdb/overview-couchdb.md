@@ -62,23 +62,28 @@ The Operator for Apache CouchDB uses the following defaults when it deploys a ne
 #### Security
 {: #security-overview-operator}
 
-**TLS**
+TLS 
 :   The Operator leverages the Red Hat OpenShift cert-manager to create certificates and enable HTTPS/SSL on the cluster. On other Kubernetes distributions, TLS is supported by using user-provided certificates. You can review Apache CouchDB HTTPS (SSL/TLS) Options, or install Jetstack cert-manager to manage TLS elsewhere.
-****Encryption**
-:   Encrypted intra-cluster communication, which means that the communication between database nodes is encrypted in addition to TLS on the HTTPS API.</dd>
-**Authentication****
+
+Encryption 
+:   Encrypted intra-cluster communication, which means that the communication between database nodes is encrypted in addition to TLS on the HTTPS API.
+
+Authentication 
 :   The parameter `require_valid_user` is set to `true`, which means that no requests are allowed from anonymous users. Every request must be authenticated.
-**Authorization**
+
+Authorization 
 :   Databases are initially accessible by Apache CouchDB admins only.
 
 #### High Availability
 {: #high-availability-overview-operator}
 
-**Nodes**
+Nodes 
 :   Each database node in an Apache CouchDB cluster requires its own Kubernetes node. You can run it with a minimum of three nodes for any production deployment.
-**Zones**
+
+Zones 
 :   The Apache CouchDB cluster database nodes are spread across available Kubernetes fault zones where available.
-**Replicas**
+
+Replicas 
 :   The default configuration for each database is eight shards (Q=8) and three shard copies (N=3), where each shard copy is deployed on a separate node in the cluster.
 
 ### Supported Apache CouchDB Versions

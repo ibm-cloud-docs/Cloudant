@@ -101,13 +101,28 @@ You can generate service credentials in the primary {{site.data.keyword.cloud_no
 
 The values for the previous example are described in the following list:
 
-- `apikey` - IAM API key.
-- `host` - The DNS that resolves domain names with their corresponding IP addresses.
-- `iam_apikey_description` - Description of IAM API key.
-- `iam_apikey_name` - ID of IAM API key.
-- `iam_role_crn` - The IAM role that the IAM API key has.
-- `iam_serviceid_crn` - The CRN of service ID.
-- `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
-- `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
+`apikey`
+:   IAM API key.
+
+`host`
+:   The DNS that resolves domain names with their corresponding IP addresses.
+
+`iam_apikey_description`
+:   Description of IAM API key.
+
+`iam_apikey_name`
+:   ID of IAM API key.
+
+`iam_role_crn`
+:   The IAM role that the IAM API key has.
+
+`iam_serviceid_crn`
+:   The CRN of service ID.
+
+`url`
+:   {{site.data.keyword.cloudant_short_notm}} service URL.
+
+`username`
+:   The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
 For more information, see [{{site.data.keyword.cloud_notm}} API keys and Use only IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-api-keys-and-use-only-iam_ai).

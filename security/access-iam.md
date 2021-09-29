@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-09-29"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -373,7 +373,7 @@ export TOK="Bearer eyJraWQiOiIyMDE5MD...tIwkCO9A"
 {: codeblock}
 
 ### Creating the `_replicator` database on the Source side
-{: #createreplicator-database-source-side-ai}
+{: #create-replicator-database-source-side-ai}
 
 URL is the Source instance URL that you previously wrote down in step 4.b.
 
