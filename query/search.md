@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-10-01"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -124,8 +124,8 @@ The third, optional, parameter is a JavaScript object with the following fields:
 | Option | Description | Values | Default | 
 |--------|-------------|--------|---------|
 | `boost` | A number that specifies the relevance in search results. Content that is indexed with a boost value greater than 1 is more relevant than content that is indexed without a boost value. Content with a boost value less than one isn't so relevant. | A positive floating point number | 1 (No boosting) |
-| `facet` | Creates a faceted index. For more information, see [Faceting](/docs/Cloudant?topic=Cloudant-search#faceting). | `true` | `false` | `false` |
-| `index` | Whether the data is indexed, and if so, how. If set to `false`, the data can't be used for searches, but can still be retrieved from the index if `store` is set to `true`. For more information, see [Analyzers](/docs/Cloudant?topic=Cloudant-search#analyzers). | `true`, `false` | `true` |
+| `facet` | Creates a faceted index. For more information, see [Faceting](/docs/Cloudant?topic=Cloudant-cloudant-search#faceting). | `true` | `false` | `false` |
+| `index` | Whether the data is indexed, and if so, how. If set to `false`, the data can't be used for searches, but can still be retrieved from the index if `store` is set to `true`. For more information, see [Analyzers](/docs/Cloudant?topic=Cloudant-search-analyzers). | `true`, `false` | `true` |
 | `store` | If `true`, the value is returned in the search result; otherwise, the value isn't returned. | `true`, `false` | `false` |
 {: caption="Table 1. Fields for the JavaScript object (optional parameter)" caption-side="top"}
 
@@ -479,8 +479,8 @@ You must enable [faceting](#faceting) before you can use the following parameter
 | Argument | Description | Optional | Type | Supported Values | Partition Query |
 |---------|---------|--------|--------|--------|----------|
 | `bookmark` | A bookmark that was received from a previous search. This parameter enables paging through the results. If no results exist after the bookmark, you get a response with an empty rows array and the same bookmark, confirming the end of the result list. | `yes` | String | | Yes |
-| `counts` | This field defines an array of names of string fields, for which counts are requested. The response includes counts for each unique value of this field name among the documents that match the search query. [Faceting](/docs/Cloudant?topic=Cloudant-search#faceting) must be enabled for this parameter to function. | Yes | JSON | A JSON array of field names. | No |
-| `drilldown` | This field can be used several times. Each use defines a pair of a field name and a value. The search matches only documents that include the value that was provided in the named field. It differs from using `"fieldname:value"` in the `q` parameter only in that the values aren't analyzed. [Faceting](/docs/Cloudant?topic=Cloudant-search#faceting) must be enabled for this parameter to function. | No | JSON | A JSON array that includes two elements: the field name and the value. | Yes |
+| `counts` | This field defines an array of names of string fields, for which counts are requested. The response includes counts for each unique value of this field name among the documents that match the search query. [Faceting](#faceting) must be enabled for this parameter to function. | Yes | JSON | A JSON array of field names. | No |
+| `drilldown` | This field can be used several times. Each use defines a pair of a field name and a value. The search matches only documents that include the value that was provided in the named field. It differs from using `"fieldname:value"` in the `q` parameter only in that the values aren't analyzed. [Faceting](#faceting) must be enabled for this parameter to function. | No | JSON | A JSON array that includes two elements: the field name and the value. | Yes |
 | `group_field` | Field by which to group search matches. | Yes | String | A string that includes the name of a string field. Fields that include other data such as numbers, objects, or arrays can't be used. | No |
 | `group_limit` | Maximum group count. This field can be used only if `group_field` is specified. | Yes | Numeric |  | No |
 | `group_sort` | This field defines the order of the groups in a search that uses `group_field`. The default sort order is relevance. | Yes | JSON | This field can have the same values as the sort field, so single fields and arrays of fields are supported. | No |

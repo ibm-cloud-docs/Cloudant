@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-10-01"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -64,7 +64,7 @@ See an example of a simple data document:
 Each data document includes a name,
 a body,
 and a timestamp.
-You create a [MapReduce view](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce) to sort your documents by timestamp.
+You create a [MapReduce view](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce) to sort your documents by timestamp.
 
 You can sort your documents by timestamp by creating a Map function.
 

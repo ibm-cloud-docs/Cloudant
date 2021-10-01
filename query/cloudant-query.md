@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-10-01"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -275,7 +275,7 @@ Key        | Description
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
-the index can be queried by using the `$text` operator. For more information, see the [Search documentation](/docs/Cloudant?topic=Cloudant-search#analyzers) for alternative analyzers.
+the index can be queried by using the `$text` operator. For more information, see the [Search documentation](/docs/Cloudant?topic=Cloudant-search-analyzers) for alternative analyzers.
 You might choose an alternative analyzer when documents are indexed in languages other than English,
 or when you have other special requirements for the analyzer, such as matching email addresses.
 
@@ -363,7 +363,7 @@ such as wildcards,
 fuzzy matches,
 or proximity detection.
 For more information,
-see the [Search documentation](/docs/Cloudant?topic=Cloudant-search#search).
+see the [Search documentation](/docs/Cloudant?topic=Cloudant-cloudant-search).
 The `$text` operator applies to all strings found in the document.
 If you place this operator in the context of a field name, it's invalid.
 

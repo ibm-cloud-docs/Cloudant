@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-01"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -40,7 +40,7 @@ The BLOB holds data that includes the following information:
 
 Examples of BLOBs would be images and multimedia.
 
-If you include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
+If you include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-how-to-use-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
 The content type corresponds to a [MIME type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}.
@@ -57,7 +57,7 @@ Attachments aren't permitted on documents in [`_replicator`](/apidocs/cloudant#p
 ## Create or update
 {: #create-update}
 
-To create a new attachment at the same time as creating a new document, include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-attachments#inline) component of the JSON content.
+To create a new attachment at the same time as creating a new document, include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-how-to-use-attachments#inline) component of the JSON content.
 
 To create a new attachment on an existing document,
 or to update an attachment on a document,
