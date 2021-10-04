@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-04"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -32,7 +32,7 @@ You access your account by using the address prefix
 `https://$ACCOUNT.cloudant.com`.
 {: shortdesc}
 
-For your {{site.data.keyword.cloudant_short_notms}} Dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
+For your {{site.data.keyword.cloudant_short_notm}} Dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
 
 If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: new_window}{: external}.
 
