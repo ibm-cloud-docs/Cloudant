@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-01"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -299,7 +299,7 @@ See the following example response that includes the deleted document ID and rev
 ## Views
 {: #view-design-documents}
 
-An important use of design documents is for creating views. For more information about creating views, see [Views (MapReduce)](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce).
+An important use of design documents is for creating views. For more information about creating views, see [Views (MapReduce)](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce).
 
 ## Rewrite rules
 {: #rewrite-rules}
@@ -365,15 +365,15 @@ Rule | URL | Rewrite to | Tokens
 All queries operate on pre-defined indexes that are defined in design documents.
 These indexes are defined in the following list:
 
--	[Search](/docs/Cloudant?topic=Cloudant-search#search)
--	[MapReduce](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce)
+-	[Search](/docs/Cloudant?topic=Cloudant-cloudant-search)
+-	[MapReduce](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce)
 
 For example,
 to create a design document that is used for searching,
 you must ensure that two conditions are true:
 
 1.	You defined the document as a design document when you started the `_id` with `_design/`.
-2.	You created a [search index](/docs/Cloudant?topic=Cloudant-search#search) within the document where you 
+2.	You created a [search index](/docs/Cloudant?topic=Cloudant-cloudant-search) within the document where you 
 	[updated](/docs/Cloudant?topic=Cloudant-documents#update) the document with the appropriate field
 	or [created](/docs/Cloudant?topic=Cloudant-documents#create-document) a new document that includes the search index.
 
@@ -579,7 +579,7 @@ and need data to be returned in a different format,
 such as HTML.
 
 The result of a show function isn't stored. This fact means that the function is executed every time that a request is made. As a consequence,
-[map functions](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations that are done in a show function would be better placed in the application tier.
+[map functions](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations that are done in a show function would be better placed in the application tier.
 {: note}
 
 Show functions require two arguments: `doc`, and [`req`](#req).
@@ -895,7 +895,7 @@ A number of predefined filter functions are available:
 :   Accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
 
 [`_view`](#the-_view-filter)
-:   With this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
+:   With this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
 {: #the-design-filter}
@@ -1084,7 +1084,7 @@ See the following example response (abbreviated) after you filter by using a sel
 #### The `_view` filter
 {: #the-view-filter}
 
-Using the `_view` filter, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#a-simple-view) as the filter.
+Using the `_view` filter, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
 
 The map function might emit output as the result of processing a specific document. When this situation occurs, the filter considers the document that is allowed and includes it in the list of documents that you changed.
 

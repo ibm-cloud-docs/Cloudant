@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-10-01"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -86,7 +86,7 @@ function (doc) {
 ```
 
 To find conflicts for multiple documents in a database,
-write a [view](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce).
+write a [view](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce).
 Using a map function such as the example provided,
 you can find all the revisions for every document with a conflict.
 

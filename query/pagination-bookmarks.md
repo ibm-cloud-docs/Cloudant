@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-10-01"
 
 keywords: _all_docs endpoint, skip, limit, endkey, query, search, paging, mapreduce views
 
@@ -241,7 +241,7 @@ Now you can see how to do that with code.
 ### How can I use {{site.data.keyword.cloudant_short_notm}} Query to search?
 {: #use-cloudant-query-search}
 
-First, you search for all the cities in the US. You're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query), so the operation is specified as a block of JSON:
+First, you search for all the cities in the US. You're using [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query), so the operation is specified as a block of JSON:
 
 ```js
 {
@@ -324,18 +324,18 @@ You feed the bookmark from the first response into the second request for the ne
 ### How does {{site.data.keyword.cloudant_short_notm}} Search work?
 {: #how-cloudant-search-works}
 
-Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
+Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=Cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
 
 ```sh
 curl "$URL/cities/_search/search/_search/freetext?q=country:US&bookmark=g1AAAAA-eJzLYW"
 ```
 
-See the documentation about [query parameters](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-search#query-parameters-search) for further details.
+See the documentation about [query parameters](/docs/Cloudant?topic=Cloudant-cloudant-search#query-parameters-search) for further details.
 
 ### Do MapReduce views accept bookmarks?
 {: #mapreduce-views-accept-bookmarks}
 
-No. MapReduce views don't accept a `bookmark`. Use the [skip and limit](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-using-views) to page through results.
+No. MapReduce views don't accept a `bookmark`. Use the [skip and limit](/docs/Cloudant?topic=Cloudant-using-views) to page through results.
 
 ### Can I jump straight to page X of the results?
 {: #jump-page-x-results}
