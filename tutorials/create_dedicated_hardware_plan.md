@@ -1,7 +1,7 @@
 ---
 
 copyright: 2020, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-09-30"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -59,7 +59,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found by using the following website:
-    [`https://cloud.ibm.com/`](https://cloud.ibm.com/){: new_window}{: external}.
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your user name and password,
     the {{site.data.keyword.cloud_notm}} dashboard opens. 
 

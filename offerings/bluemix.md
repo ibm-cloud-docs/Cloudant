@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-10-05"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -103,7 +103,7 @@ Throughput provision is identified and measured as one of the following types of
         including the following types:
         -	Primary Index ([`_all_docs`](/apidocs/cloudant#postalldocs){: new_window}{: external})
         -	MapReduce View ([`_view`](/docs/Cloudant?topic=Cloudant-using-views#using-views))
-        -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-search#queries))
+        -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-cloudant-search#queries))
         -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: new_window}{: external})
     
         The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
@@ -119,8 +119,8 @@ Throughput provision is identified and measured as one of the following types of
     including the following types:
 	-	Primary Index ([`_all_docs`](/apidocs/cloudant#postalldocs){: new_window}{: external})
 	-	MapReduce View ([`_view`](/docs/Cloudant?topic=Cloudant-using-views#using-views))
-	-	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-search#queries))
-	-	Geospatial Index ([`_geo`](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
+	-	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-cloudant-search#queries))
+	-	Geospatial Index ([`_geo`](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
 	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: new_window}{: external})
 
 ## Provisioned throughput capacity

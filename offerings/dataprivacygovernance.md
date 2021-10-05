@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-30"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -64,7 +64,7 @@ to include the content (including any personal data) in the {{site.data.keyword.
 A list of countries where content might be held,
 or from where content might be accessed,
 for delivering and supporting a Cloud Service,
-is available at [www.ibm.com/cloud/data-centers/](http://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
+is available at [Global Data Centers](http://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
 
 {{site.data.keyword.cloudant_short_notm}} does not move your data without notification. {{site.data.keyword.cloudant_short_notm}} relies on centralized components for aspects of the service. Of particular interest for data residency are logs that contain URLs. These logs are sent out of region-specific infrastructure, 
 to centralized logging components. For any data where residency is a concern, do not include such data in the URLs, for example, path, query string, and so on. {{site.data.keyword.cloudant_short_notm}} documentation describes how this can be achieved for various areas of our API. For more information, see [Multi-query a MapReduce view](https://cloud.ibm.com/apidocs/cloudant#postviewqueries) for an example on how to use `POST` for view queries rather than `GET`.

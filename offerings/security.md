@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-09-30"
 
 keywords: dbaas data protection, tier 1 physical platforms, secure access control, data loss, corruption, byok, encryption, protection 
 
@@ -71,7 +71,7 @@ TLS | {{site.data.keyword.cloudant_short_notm}} requires the use of TLS 1.2+. Th
 Public Endpoints | All {{site.data.keyword.cloudant_short_notm}} instances are provided with external endpoints that are publicly accessible. 
 Private Endpoints | All instances that you deploy on Dedicated Hardware plan environments also have private (internal) endpoints. Using private endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Service Endpoint documentation](/docs/account?topic=account-service-endpoints-overview){: new_window}{: external}, and also, see documentation about [enabling Service Endpoints](/docs/Cloudant?topic=Cloudant-service-endpoints) for your {{site.data.keyword.cloud}} account. If you want to only allow a subset of IP addresses to be able to access your application, refer to IP allowlisting below.
 IP allowisting | {{site.data.keyword.cloudant_short_notm}} customers who have an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can allowist IP addresses to restrict access to only specified servers and users. IP allowisting isn't available for any {{site.data.keyword.cloud_notm}} Public Lite or Standard plans that are deployed on multi-tenant environments. Open a support ticket to request an IP allowist for a specific set of IP addresses or IP ranges. The public and private network allowlists can be managed independently, and the public allowist can be set to block all traffic so that all traffic is over the private endpoints. IP allowlists apply to both the {{site.data.keyword.cloudant_short_notm}} API and Dashboard, so be mindful to include any administrator IP addresses that need to access the {{site.data.keyword.cloudant_short_notm}} Dashboard directly. 
-CORS | Enable CORS support for specific domains by using the {{site.data.keyword.cloudant_short_notm}} Dashboard or API. For more information, see the [CORS API documentation](/docs/Cloudant?topic=Cloudant-cors#cross-origin-resource-sharing){: new_window}.
+CORS | Enable CORS support for specific domains by using the {{site.data.keyword.cloudant_short_notm}} Dashboard or API. For more information, see the [CORS API documentation](/apidocs/cloudant#getcorsinformation){: new_window}.
 {: caption="Table 1. {{site.data.keyword.cloudant_short_notm}} security features" caption-side="top"}
 
 <!--

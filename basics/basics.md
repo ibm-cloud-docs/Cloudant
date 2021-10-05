@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-30"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication, proper tools, organize documents, organize databases, primary index, secondary index, query
 
@@ -52,7 +52,7 @@ All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} ar
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
-For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP](/docs/Cloudant?topic=Cloudant-http) in the API reference.
+For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP](/docs/Cloudant?topic=Cloudant-how-http-works-with-cloudant) in the API reference.
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
@@ -106,7 +106,7 @@ videos,
 and audio,
 are called BLOBs (Binary Large Objects). BLOBs can be stored as attachments associated with documents.
 
-More information about JSON can be found in the [JSON Guide](/docs/Cloudant?topic=Cloudant-json).
+More information about JSON can be found in the [JSON Guide](/docs/Cloudant?topic=Cloudant-how-json-works).
 
 ## Distributed systems
 {: #distributed-systems-basics}
