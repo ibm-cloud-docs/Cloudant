@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-04"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -30,7 +30,7 @@ subcollection: Cloudant
 It was built to scale globally, run non-stop, and handle a wide variety of data types 
 like [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview-basics),
 [full-text](/docs/Cloudant?topic=Cloudant-query#creating-an-index),
-and [geospatial](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial).
+and [geospatial](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial).
 {: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on 31 March 2018. 

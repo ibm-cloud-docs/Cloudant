@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-05"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -121,7 +121,7 @@ documents with a specific tag.
 
 In {{site.data.keyword.cloudant_short_notm}}, you'd store tags in a list in each document. You would then use a view to get the 
 documents with a specific tag by 
-[emitting each tag as a key in your view's map function](/docs/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce). 
+[emitting each tag as a key in your view's map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce). 
 Querying the view for a specific key then provides all the documents with that tag.
 
 ## How does this help me de-normalize my data?

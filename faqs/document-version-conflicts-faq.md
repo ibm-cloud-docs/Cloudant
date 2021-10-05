@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-05"
 
 keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency, conflict
 
@@ -68,7 +68,7 @@ function (doc) {
 ```
 {: codeblock}
 
-If you want to find conflicts within multiple documents in a database, write a [view](/docs/services/Cloudant?topic=Cloudant-views-mapreduce#views-mapreduce).
+If you want to find conflicts within multiple documents in a database, write a [view](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce).
 
 ## What happens if I ignore conflicts? 
 {: #what-if-ignore-conflicts}

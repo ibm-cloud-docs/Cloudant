@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-10-05"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8220, 8202, 8201, 8194, 8192, 8182, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.92, 2.93, operator, classic, transaction engine, 1.4.2, 1.4.1, 1.4.0, 1.3.0, 1.2.1, 1.2.0, 1.1.0, couchdb
 
@@ -435,7 +435,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 #### New features
 {: #new-features-7668}
 
-- This build introduces a new feature, [Partition Query](/docs/Cloudant?topic=Cloudant-database-partitioning#database-partitioning).
+- This build introduces a new feature, [partition query](/docs/Cloudant?topic=Cloudant-database-partitioning#database-partitioning).
 
 #### Bug fixes
 {: #bug-fixes-7668}
@@ -818,7 +818,7 @@ Now, the error is a 409 error with the following information:
   A fix was introduced so that the replication document is not updated unless the reason for the error changes.
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
-  the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial)
+  the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial)
   results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} response.
 
 ### Build 5834 (13 February 2017)
