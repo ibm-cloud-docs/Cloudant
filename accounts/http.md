@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-10-07"
 
 keywords: http headers, response headers, request headers, http status codes
 
@@ -83,7 +83,7 @@ See the following example of a returned header when the client is assumed to acc
 The returned content type is `text/plain` even though the information that is returned by the request is in JSON format.
 {: note}
 
-```
+```http
 Server: CouchDB/1.0.2 (Erlang OTP/R14B)
 Date: Thu, 13 Jan 2011 13:39:34 GMT
 Content-Type: text/plain;charset=utf-8
@@ -112,7 +112,7 @@ Accept: application/json
 
 See the following example of the headers returned in response, including the `application/json` content type:
 
-```
+```http
 Server: CouchDB/1.0.2 (Erlang OTP/R14B)
 Date: Thu, 13 Jan 2011 13:40:11 GMT
 Content-Type: application/json

@@ -66,7 +66,7 @@ Management of TLS certificates is beyond the scope of this discussion, but the s
 
 1. Install `cfssl`. On MacOS, use this command, `brew install cfssl`. On Linux&trade;, use a command similar to the following one:
 
-    ```
+    ```sh
     mkdir ~/bin
     curl -s -L -o ~/bin/cfssl https://pkg.cfssl.org/R1.2/cfssl_linux-amd64
     curl -s -L -o ~/bin/cfssljson https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64
@@ -79,7 +79,7 @@ Management of TLS certificates is beyond the scope of this discussion, but the s
 
 2. Create a directory to store the certificates.
     
-    ```
+    ```sh
     mkdir ~/cfssl
     cd ~/cfssl
     ```
@@ -87,7 +87,7 @@ Management of TLS certificates is beyond the scope of this discussion, but the s
 
 3. Generate the CA and server certificates. Set `ADDRESS` to match the name and namespace of the `CouchDBCluster` you intend to create.
 
-    ```
+    ```sh
     echo '{"CN":"CA","key":{"algo":"rsa","size":2048}}' | cfssl gencert -initca - | cfssljson -bare ca -
     echo '{"signing":{"default":{"expiry":"43800h","usages":["signing","key encipherment","server auth","client      auth"]}}}' > ca-config.json
     export ADDRESS=<couchdbclustername>.<namespace>.svc

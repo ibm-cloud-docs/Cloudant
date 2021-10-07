@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-07"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl, acurl
 
@@ -130,7 +130,7 @@ python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".e
 
 You then get the following output:
 
-```
+```sh
 NTFkZGM5YTAtZmE2MC00M2Q1LTgyNmJeKGNmYjBhNTVkMzFiLWJsdWVtaXguY2xvdWRhbnQuY29tOjY4ODIyZGQ5YTU5YzNhZjA1NDY5YzRhMGRjODUzZjVhYjQzMmQxMDI0NTFiNTQ0ZTUxZjA5MjkwODU2NDcxNWM=
 ```
 {: codeblock}
