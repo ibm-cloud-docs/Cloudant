@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-10-07"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -60,7 +60,7 @@ In the previous example, ACCOUNT is the service name of the service instance use
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud.
 
-For more information about how to block public network connectivity by using IP allowlisting, see [Secure access control](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-security#secure-access-control).
+For more information about how to block public network connectivity by using IP allowlisting, see [Secure access control](/docs/Cloudant?topic=Cloudant-security#secure-access-control).
 {: note}
 
 ## Service credentials

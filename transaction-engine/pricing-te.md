@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-10-07"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -141,7 +141,7 @@ a few new indexes to be created.
 
 Using the default parameters to replicate a database with a large backlog of documents creates a single replication job. This job consumes almost 650 reads per second on the source database and batches of 500 - 1000 writes per second on the target database. 
 
-Users can reduce the approximate read and write throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+Users can reduce the approximate read and write throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads per second on source database |
 |------------------|------------------|-------------------------------------|

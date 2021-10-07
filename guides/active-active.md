@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-07"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -295,7 +295,7 @@ if you decide that you need the ability to manage failover,
 consider the following possible options:
 
 - Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}}](https://github.com/greenmangaming/cloudant-nginx){: new_window}{: external}. Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance. This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}} instances that are used by applications can be handled through a modification to the proxy configuration rather than a modification to the application settings. Many proxies can balance the load, based on user-defined health checks.
-- Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](https://cloud.ibm.com/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}. This option requires a `CNAME` definition that routes to different {{site.data.keyword.cloudant_short_notm}} accounts, based on a health check or latency rule.
+- Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}. This option requires a `CNAME` definition that routes to different {{site.data.keyword.cloudant_short_notm}} accounts, based on a health check or latency rule.
 
 
 ## Recovering from failover

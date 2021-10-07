@@ -1,7 +1,7 @@
 ---
 
 copyright: 2020, 2021
-lastupdated: "2021-09-30"
+lastupdated: "2021-10-07"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -96,7 +96,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     b. Select `Yes` or `No` to answer whether HIPAA is required.
 
-       HIPAA is only valid for US locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only created upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. For more information, see [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
+       HIPAA is only valid for US locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only created upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. For more information, see [Enabling the HIPAA Supported setting](/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
        {: note}
 
     c. Select a key management service instance.

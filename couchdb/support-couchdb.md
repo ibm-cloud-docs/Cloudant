@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-30"
+lastupdated: "2021-10-14"
 
 keywords: apache couchdb, support, extension, provision an instance, pricing, vCPU definition
 
@@ -50,7 +50,7 @@ The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_win
 ### Provisioning an instance
 {: #provisioning-an-instance-support}
 
-1. Go to the [{{site.data.keyword.cloudant_short_notm}} catalog tile](https://cloud.ibm.com/catalog/services/cloudant), and click **Create**.
+1. Go to the [{{site.data.keyword.cloudant_short_notm}} catalog tile](](https://cloud.ibm.com/catalog/services/cloudant), and click **Create**.
 2. Select the Extension for Apache CouchDB option. <br>(If the Extension for Apache CouchDB option is not available, contact support to enable the option for your account.)
 3. Enter an Instance name, and use "CouchDB" somewhere in the name to distinguish it from {{site.data.keyword.cloudant_short_notm}} instances.
 4. Select a Resource group.

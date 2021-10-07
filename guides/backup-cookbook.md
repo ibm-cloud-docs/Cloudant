@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-07"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library, compress backup, schedule backup
 
@@ -249,7 +249,7 @@ The following script sample shows how to combine the `couchbackup` library
 with use of {{site.data.keyword.IBM}} Cloud Object Storage.
 This code illustrates how you might use Cross Region S3 API to back up a database to an object store.
 
-A prerequisite for the code is that you initialize the S3 client object for {{site.data.keyword.IBM_notm}} Cloud Object Storage by following the instructions in [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}{: external}.
+A prerequisite for the code is that you initialize the S3 client object for {{site.data.keyword.IBM_notm}} Cloud Object Storage by following the instructions in [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro](/docs/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}{: external}.
 {: note}
 
 ```javascript
