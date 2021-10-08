@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-10-07"
 
 keywords: operator, field reference, user-defined configuration parameters, cluster size, scaling, persistent storage, resource requests, resource limits
 
@@ -38,7 +38,7 @@ All `CouchDBCluster` resources that are managed by an operator are updated to ma
 
 By default, a `CouchDBCluster` uses the `3.x` images. If you want to use version `2.3.1` explicitly, you can set the `spec.version` field:
 
-```
+```sh
 apiVersion: couchdb.databases.cloud.ibm.com/v1
 kind: CouchDBCluster
 metadata:
@@ -53,11 +53,11 @@ Users of CouchDB 2 are encouraged to upgrade to CouchDB 3 by either removing the
 ## Cluster size and scaling
 {: #couchdb-sizing}
 
-By default, a `CouchDBCluster` is deployed with three database nodes. This number can be overridden by specifying the `spec.size ` field. Since CouchDB stores three replicas of each shard, it is recommended to use multiples of `3` for this value. Also, this number must be less than or equal to the number of nodes in the Kubernetes cluster. The operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
+By default, a `CouchDBCluster` is deployed with three database nodes. This number can be overridden by specifying the `spec.size` field. Since CouchDB stores three replicas of each shard, it is recommended to use multiples of `3` for this value. Also, this number must be less than or equal to the number of nodes in the Kubernetes cluster. The operator specifies an anti-affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability and disaster recovery purposes.
 
 Scaling CouchDB clusters is not supported. While the `CouchDBCluster` resource allows the `size` to be changed, it is recommended that you do not alter the size after the initial deployment. The operator *does not* rebalance the  data to take advantage of more CouchDB nodes and does not prevent data loss when nodes are removed.
 
-```
+```sh
 apiVersion: couchdb.databases.cloud.ibm.com/v1
 kind: CouchDBCluster
 metadata:
@@ -75,10 +75,10 @@ For development and testing purposes, the `spec.devMode` field can be set to `tr
 
 Persistent storage can be attached by specifying the `spec.storageClass` field. To work with the CouchDB Operator, storage classes must support the following options:
 
- * Dynamic volume provisioning.
- * `ReadWriteOnce` access modes.
- * `volumeBindingMode: WaitForFirstConsumer` (zone-local storage)
- * POSIX file system compatibility (for example, not NFS).
+* Dynamic volume provisioning.
+* `ReadWriteOnce` access modes.
+* `volumeBindingMode: WaitForFirstConsumer` (zone-local storage)
+* POSIX file system compatibility (for example, not NFS).
 
 These options map to the following preferred options for common public cloud environments:
 
@@ -93,17 +93,17 @@ For GCE, Persistent Disk can be used but a [storage class](https://docs.openshif
 
 For on-premises deployments, the following storage providers meet these requirements:
 
- - [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
- - [Complete Example Using Ceph RBD for Dynamic Provisioning](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
- - [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: new_window}{: external}
- - [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: new_window}{: external}
+- [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: new_window}{: external}
+- [Complete Example Using Ceph RBD for Dynamic Provisioning](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: new_window}{: external}
+- [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: new_window}{: external}
+- [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: new_window}{: external}
 
 ### Changing the pod UID/GID
 {: #change-pod-uid-gid}
 
 Unless overridden by the environment (For example, OpenShift sets these values automatically.), the `CouchDBCluster` uses the following UID/GID settings in the pod `securityContext`:
 
-```
+```sh
 securityContext:
   runAsUser: 1001
   runAsGroup: 0
@@ -115,7 +115,7 @@ In most cases, the default values that are combined with a dynamic provisioner c
 
 To override the defaults, you can specify `runAsUser` and `fsGroup` in the  `spec.securityContext`:
 
-```
+```sh
 apiVersion: couchdb.databases.cloud.ibm.com/v1
 kind: CouchDBCluster
 metadata:
@@ -138,7 +138,7 @@ For most use cases, the `spec.cpu` and `spec.memory` fields can be used to speci
 
 If per-container resource requests and limits are required, you can specify these limits explicitly in the `spec.resources` field.
 
-```
+```sh
 apiVersion: couchdb.databases.cloud.ibm.com/v1
 kind: CouchDBCluster
 metadata:
@@ -198,7 +198,7 @@ The CouchDBCluster field reference section defines the major parameters on how A
 
 CouchDB configuration options are exposed through the `spec.environment` field, as shown in the following example:
 
-```
+```sh
 apiVersion: couchdb.databases.cloud.ibm.com/v1
 kind: CouchDBCluster
 metadata:
