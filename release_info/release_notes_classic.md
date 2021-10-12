@@ -1,0 +1,1121 @@
+---
+
+copyright:
+  years: 2015, 2021
+lastupdated: "2021-11-03"
+
+keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, feature comparison, new features, partition query, dedicated hardware plan, replication scheduler, 8220, 8202, 8201, 8194, 8192, 8182, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
+
+subcollection: Cloudant
+
+content-type: release-note
+
+---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
+{:release-note: data-hd-content-type='release-note'}
+
+# Release notes for {{site.data.keyword.cloudant_short_notm}} Classic 
+{: #classic-release-notes}
+
+Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
+{: shortdesc}
+
+
+## October 2021
+{: #cloudant-oct21}
+
+### Build 8238 (October 2021)
+{: #cloudant-oct0121}
+{: release-note}
+
+Shards
+:   Use shards moved from other nodes to help prevent changes feed rewind.
+
+Error message
+:   Reduce frequency of `No DB shards could be opened` error message.
+
+Shards with purge sequences
+:   Fix splitting shards with large purge sequences.
+
+View results
+:   Fix view results with `limit=0` and `sorted=false`.
+
+Sort view results
+:   Properly sort view results with `descending=true` when a key list is provided.
+
+Row aggregation
+:   Stabilize view merge row aggregation.
+
+## September 2021
+{: #cloudant-sep21}
+
+### 1 September 2021 - Build 8220 
+{: #cloudant-sep0121}
+{: release-note}
+
+Changes feed rewinds
+:   Avoid changes feed rewinds after shard moves.
+
+Response code
+:   Fix response code for attachment deletion with wrong revision.
+
+Indexes
+:   Ensure indexes are correctly closed.
+
+## August 2021
+{: #cloudant-aug21}
+
+### 1 August 2021 - Build 8202
+{: #cloudant-aug0121}
+{: release-note}
+
+IAM Trusted Profiles
+:   Support IAM Trusted Profiles.
+
+### 15 August 2021 - Build 8201
+{: #cloudant-aug1521}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+## June 2021
+{: #cloudant-jun21}
+
+### 1 June 2021 - Build 8194
+{: #cloudant-jun0121}
+{: release-note}
+
+API task filtering
+:   Bug fixes, including account API key task filtering.
+
+Replication support
+:   Support replication [basic auth credentials in auth object](https://github.com/apache/couchdb/pull/3586).
+
+Basic auth credentials
+:   No longer display basic auth credentials (for example, `username:*****`) in the output of these endpoints:    
+
+- `_scheduler/jobs`    
+- `_scheduler/docs`    
+- `_active_tasks`    
+
+## April 2021
+{: #cloudant-apr21}
+
+### 1 April 2021 - Build 8192 
+{: #cloudant-apr0121}
+{: release-note}
+
+New! Fair share replicator
+:   Added Fair share replicator. For more information, see [Fair Share Replication Scheduler Implementation](https://github.com/apache/couchdb/commit/ab38c2dd3f429ce8f347fa4f04e2815b810a8a19){: external}.
+
+Improvements
+:   Internal bug fixes.
+
+## March 2021
+{: #cloudant-mar21}
+
+### 15 March 2021 - Build 8182
+{: #cloudant-mar1521}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+Caching
+:   Apply caching to account-local `_users` dbs.
+
+Error condition
+:   Treat 408 as a retryable error condition for replicator.
+
+Compressed requests
+:   Allow compressed (`gzipped`) requests to `/_session` endpoint.
+
+`/_active_tasks` endpoint
+:   Show process status in `/_active_tasks` endpoint.
+
+`/{DB}/_changes` endpoint
+:   Validate JSON payload on `POST` to `/{DB}/_changes` endpoint.
+
+## December 2020
+{: #cloudant-dec20}
+
+### 1 December 2020 - Build 8169
+{: #cloudant-dec0120}
+{: release-note}
+
+New! Mango query operator
+:   Introduce the Mango query operator, `$keyMapMatch`, that offers the ability to make queries on the keys of a map.
+
+Improvements
+:   Internal bug fixes.
+
+Database reporting
+:   Report the database that was used for authentication for a `GET /_session` request, provided it is configured.
+
+## September 2020
+{: #cloudant-sep20}
+
+### 1 September 2020 - Build 8162
+{: #cloudant-sep0120}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.  
+
+`Drilldown` parameters
+:   `Drilldown` parameters for text index searches can now be specified as a list of lists, which gives you the ability to avoid having to define it redundantly in a single query. (Some languages don't have this facility.)  
+
+`couch_index` server
+:   The `couch_index` server doesn't crash and log errors in the following cases: If a design document is deleted while that index is building, or when a design document is added immediately after database creation.  
+
+Invalid parameters
+:   {{site.data.keyword.cloudant_short_notm}} now checks for and reports invalid parameters on database creation.  
+
+## July 2020
+{: #cloudant-july20}
+
+### 1 July 2020 - Build 8158
+{: #build-8158-jul0120}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+## May 2020
+{: #cloudant-may20}
+
+### 15 May 2020 - Build 8153 
+{: #cloudant-may1520}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+## April 2020
+{: #cloudant-april20}
+
+### 1 April 2020 - Build 8152
+{: #cloudant-apr0120}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+## March 2020
+{: #cloudant-mar20}
+
+### 15 March 2020 - Build 8142
+{: #cloudant-mar1520}
+{: release-note}
+
+New! Endpoints
+:   New endpoints were added, so you can post multiple queries: `POST /{db}/_all_docs/queries` and `POST /{db}/_design_docs/queries`.
+
+Multiple queries
+:   The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs` and `_design_docs`endpoints. Specify a `keys` object when you `POST` to these endpoints. 
+
+`disk_size` and `data_size` fields
+:   The `disk_size` and `data_size` fields were retired from the database information object that is returned by `GET /{db}`. 
+
+`/{db}/_changes` feed
+:   The `/{db}/_changes` feed immediately returns headers now, even when no changes are available. This process prevents client blocking.
+
+Negative and non-integer heartbeat values
+:   Negative and non-integer heartbeat values now return a `400 Bad Request` response status code.
+
+Separate proxies
+:   Allow specifying separate proxies for both the source and target in a replication by using `source_proxy` and `target_proxy` keys.  
+
+`POST` view functionality
+:   The `POST` view functionality now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
+
+Replication errors
+:   Replication `"info"` errors are now JSON objects. Previously, they were strings. 
+
+Replication support
+:   A compatibility change was made to support replication with future databases that contain per-document access control fields.
+
+Warning message
+:   Add a warning to the `_find` endpoint if multiple document scans were required to generate a result.
+
+`_find` endpoint error
+:   Fix a bug in the `_find` endpoint whereby an error would be returned if a document matched by a text index was deleted while the query was being processed.  
+
+## January 2020
+{: #cloudant-jan20}
+
+### 15 January 2020 - Build 8126
+{: #cloudant-jan1520}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+Replication error reporting
+:   Improvements to replication error reporting - instead of a function_clause, human-readable markers are returned, for example, `bulk_docs_failed`. Stack traces are no longer included.
+
+Replication job statistics
+:   Replication job statistics, such as `docs_read`, `docs_written`, and `doc_write_failures` are preserved when replication jobs restart.
+
+Replication jobs
+:   Replication jobs to a target endpoint by using IAM Writer permissions no longer crash and continuously restart when they write design documents. Instead, the `doc_write_failures` statistic is incremented for each failed design document write. This behavior is consistent with replicating by using the legacy API-key-based authentication.
+
+## November 2019
+{: #cloudant-nov19}
+
+### 1 November 2019 - Build 8111
+{: #cloudant-nov0119}
+{: release-note}
+
+Improvements
+:   Internal bug fixes. 
+
+Replication statistics
+:   The `_scheduler/docs` endpoint now includes more detailed replication statistics to match `_active_tasks` output. It also includes details on replications that started with `_replicate`.
+
+Replication error
+:   Fix an instance where the replicator failed a replication but the error was recoverable.
+
+Empty payload
+:   Fix a bug introduced in recent builds where sending an empty payload to `_bulk_docs` would result in a 400 response status code rather than accepting the no-op operation.
+
+## October 2019
+{: #cloudant-oct19}
+
+### 21 October 2019
+{: #cloudant-oct2119}
+{: release-note}
+
+Multiple restrictions employed for performance gains 
+:   {{site.data.keyword.IBM_notm}} has released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} has documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email. The following functions are affected by this deprecation: 
+
+- Remove the `offset` field from the response body of an `all_docs` request. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use paging with `start_key` / `end_key` and `limit`.
+- The `_sorted` field has no functional effect because all responses are sorted automatically. 
+- Duration of operations has a 5-second limit. Transactions lasting more than 5 seconds fail. 
+- Limitations on keys (10 KB) and values (100 KB) that are emitted from a map function are shown in the following list: 
+   - The sum of all keys that are emitted for a document cannot exceed 100 KB.
+   - Emitted keys cannot exceed 10 KB.
+   - Values cannot exceed 100 KB.
+   - In rare cases, the number of key-value pairs that are emitted for a map function can affect database performance or violate {{site.data.keyword.cloudant_short_notm}} rules. For example, the number of key-value pairs might lead to a transaction either exceeding 10 MB, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
+- The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
+
+### 15 October 2019 - Build 8106
+{: #cloudant-oct1519}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+### 1 October 2019 - Build 8103
+{: #cloudant-oct0119}
+{: release-note}
+
+`X-Cloudant-Action` HTTP response header
+:   New `X-Cloudant-Action` HTTP response header that returns the {{site.data.keyword.cloud}}    IAM actions that are associated with a request.
+
+Search requests
+:   Previously, search requests would return a `400` status code both on a bad request and on internal server errors. Now, internal server errors correctly return a `500` response status code.
+
+## September 2019
+{: #cloudant-sep19}
+
+### 18 September 2019
+{: #cloudant-sep1819}
+{: release-note}
+
+Replaced deprecated database information fields
+:   Calls to `GET /{db}` were replaced by the following fields:
+
+   | Old Field | New Field |
+   |-----------|-----------|
+   | `data_size` | `sizes.active` |
+   | `disk_size` | `sizes.file` |
+   | `other.data_size` | `sizes.external` |
+   {: caption="Table 1. Database information fields" caption-side="top"}
+
+   Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
+
+   | Old Field | New Field|
+   |-----------|----------|
+   | `data_size` | `sizes.external` |
+   | `disk_size` | `sizes.file` | 
+   {: caption="Table 2. Design doc information fields" caption-side="top"}
+
+## June 2019
+{: #cloudant-jun19}
+
+### 1 June 2019 - Build 8076
+{: #cloudant-jun0119}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+Stability
+:   Stability improvements.
+
+## May 2019
+{: #cloudant-may19}
+
+### 15 May 2019 -  Build 8070
+{: #cloudant-may1519}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+### 1 May 2019 - Build 8062
+{: #cloudant-may0119}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+## April 2019
+{: #cloudant-april19}
+
+### 15 April 2019 - Build 8058
+{: #cloudant-apr1519}
+{: release-note}
+
+`ibrowse` HTTP client
+:   Fixed bug in `ibrowse` HTTP client that leaves dead process IDs in the connection pool, and in some cases, caused persistent IAM-based replication failures.
+
+### 1 April 2019 - Build 8052
+{: #cloudant-apr0119}
+{: release-note}
+
+`partitioned_indexes` field
+:   Accessing the database information endpoint (`/db/`) for a partitioned database
+    now includes information about the contained partitioned indexes. The new field, `partitioned_indexes`, contains the following
+    information:
+
+- The current number of partitioned indexes in the database (`count`).
+- A breakdown of those indexes by type (`indexes`).
+- The maximum partitioned indexes allowed for this database (`limit`).
+
+## March 2019
+{: #cloudant-mar19}
+
+### 15 March 2019 - Build 8048
+{: #cloudant-mar1519}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+### 1 March 2019 - Build 8038
+{: #cloudant-mar0119}
+{: release-note}
+
+Partition queries
+:   Allow `POST` when you search [partition queries](/docs/Cloudant?topic=Cloudant-database-partitioning#database-partitioning).
+
+## February 2019
+{: #cloudant-feb19}
+
+### 15 February 2019
+{: #cloudant-feb1519}
+{: release-note}
+
+The `stale` option
+:   The `stale` option is deprecated and is replaced by `stable` and `update`, which
+allow controlling the two orthogonal behaviors that are caused by `stale` separately.
+
+   `stable` value   | Equivalent by using `stable` and `update`
+   ---------|-----------------------------------------------
+   `false`  | `stable=false`, `update=true`
+   `ok`  | `stable=true`, `update=false`
+   `update_after`  | `stable=true`, `update=lazy`
+   {: caption="Table 3. Stale option replacement" caption-side="top"}
+
+### 1 February 2019 - Build 7681
+{: #cloudant-feb0119}
+{: release-note}
+
+Partition query
+:   Partition query bug fixes.
+
+## January 2019
+{: #cloudant-jan19}
+
+### 15 January 2019 - Build 7668
+{: #cloudant-jan1519}
+{: release-note}
+
+New! Partition query
+:   This build introduces a new feature, [partition query](/docs/Cloudant?topic=Cloudant-database-partitioning#database-partitioning).
+
+`limit`
+:   Allow `limit` when you use `POST` for search.
+
+View requests
+:   Previously, view requests that use a `limit` parameter greater than 268435456 would have the limit that is silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 are rejected with a `400 Bad Request` error.
+
+### 1 January 2019 - Build 7631
+{: #cloudant-jan0119}
+{: release-note}
+
+Improvements
+:   Internal changes and bug fixes.
+
+## December 2018
+{: #cloudant-dec18}
+
+### 1 December 2018 - Build 7544
+{: #cloudant-dec0118}
+{: release-note}
+
+Replicator statistics
+:   Fixed a problem where the replicator would sometimes reset statistics during
+    replications. The reset would affect values in the [replication status
+    information](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication).
+     See [PR](https://github.com/apache/couchdb/pull/1722){: external}.
+
+{{site.data.keyword.cloudant_short_notm}} Query and `_find` request
+:   Fixed an issue with {{site.data.keyword.cloudant_short_notm}} Query. After you delete a document, if you issue
+    a `_find` request to a text index with `update=false`, it might return a
+    `500` response.
+    See [PR](https://github.com/apache/couchdb/pull/1709){: external}.
+
+`_bulk_get`
+:   You can now use `multipart/mixed` and `multipart/related` when you use
+    `_bulk_get`. See [PR](https://github.com/apache/couchdb/pull/1195){: external}.
+
+`_design_docs` handler
+:   Fix a bug with total row count in the `_design_docs` handler.
+     See [PR](https://github.com/apache/couchdb/pull/1744){: external}.
+
+Replication filters
+:   Optimizations to the `_doc_id` and `_design_docs` replication filters.
+     See [issue](https://github.com/apache/couchdb/issues/1737){: external}.
+
+Index jobs
+:   Fix a regression where long-running index jobs can fail.
+
+## November 2018
+{: #cloudant-nov18} 
+
+### 4 November 18 - Build 7410
+{: #cloudant-nov0418}
+{: release-note}
+
+Improvements
+:   Internal changes and bug fixes.
+
+### 1 November 2018 - Build 7426
+{: #cloudant-nov0118}
+{: release-note}
+
+Improvements
+:   Internal bug fixes to data compression, search, and core database components.
+
+Audit logs
+:   Include [CRN](/docs/account?topic=account-crn) in audit logs.
+
+Replicator
+:   Replicator stability improvements.
+
+`q` parameter 
+:   Improve validation of `q` parameter on database creation. See [COUCHDB-1582](https://issues.apache.org/jira/browse/COUCHDB-1582){: external}.
+
+`_bulk_get` endpoint
+:   Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650](https://issues.apache.org/jira/browse/COUCHDB-1650){: external}.
+
+JavaScript URL rewrites
+:   Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612](https://issues.apache.org/jira/browse/COUCHDB-1612){: external}.
+
+{{site.data.keyword.cloudant_short_notm}} Query and invalid `reduce` functions
+:   Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666](https://issues.apache.org/jira/browse/COUCHDB-1666){: external}.
+
+## October 2018
+{: #cloudant-oct18} 
+
+### 11 October 2018 - Build 7304
+{: #cloudant-oct1118}
+{: release-note}
+
+Improvements
+:   This build is identical to build 7302 except that it's built on Erlang 17.5 instead of Erlang 20.
+
+## September 2018
+{: #cloudant-sep18} 
+
+### 25 September 2018 - Build 7302
+{: #cloudant-sep2518}
+{: release-note}
+
+Mango Query
+:   Improve Mango Query so that mixed clusters return correct results during upgrades.
+
+Downgrade function
+:   Add a downgrade function to support future cluster purge releases.
+
+Search blocklist
+:   Improve search blocklist.
+
+### 18 September 2018 - Build 7276
+{: #cloudant-sep1818}
+{: release-note}
+
+Improvements
+:   Add a filter for databases that are being opened asynchronously to prevent exceptions when `couch_server` terminates.
+
+Concurrency error
+:   Fix `couch_server` concurrency error.
+
+Configuration option
+:   Add a configuration option to disable off-heap messages.
+
+### 13 September 2018 - TLS 1.3 Supported
+{: #cloudant-sep1318}
+{: release-note}
+
+From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
+
+{{site.data.keyword.cloudant_short_notm}} recommends that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
+***(In June 2019, {{site.data.keyword.cloudant_short_notm}} retired the use of older
+versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ is supported.)*** Find more information on the [Security page](/docs/Cloudant?topic=Cloudant-security#security).
+
+### 7 September 2018 - Build 7205
+{: #cloudant-sep0718}
+{: release-note}
+
+Refactor Mango Query selectors
+:   Refactor Mango Query selectors to reduce the amount of traffic sent between nodes in the cluster.
+
+Document update errors
+:   Expose document update errors on concurrent document updates to client.
+
+`render_error` errors
+:   Fix `render_error` errors where the `req` object that is passed to the JavaScript list function is set to `noproc` atom.
+
+## August 2018
+{: #cloudant-aug18}
+
+### 1 August 2018 - Build 7138
+{: #cloudant-aug0118}
+{: release-note}
+
+Erlang
+:   Upgrade to Erlang OTP 20.
+
+### 15 August 2018 - Build 7137
+{: #cloudant-aug1518}
+{: release-note}
+
+Validation of configuration parameters
+:   Improve validation of configuration parameters supplied by administrator.
+
+Compaction
+:   While compaction is running, delete compaction files when database is deleted.
+
+Sandboxing feature
+:   Improve sandboxing features.
+
+Authentication check
+:   Optimize authentication check.
+
+Semantics
+:   Change semantics of status codes for delete database.
+
+`conflicts: true` support
+:   Support `conflicts: true` for queries to the `/{db}/_find` endpoint.
+
+`update_seq` field
+:   Preserve `update_seq` field across view compaction.
+
+## July 2018
+{: #cloudant-jul18}
+
+### 12 July 2018 - Build 7084
+{: #cloudant-jul1218}
+{: release-note}
+
+`stats` reducer
+:   Refactor code for `_stats` reducer.
+
+Views
+:   Fix active size calculations for views.
+
+`couch_key_tree` algorithm
+:   Rewrite the `couch_key_tree` algorithm to reduce its computational complexity and avoid calling stemming when unnecessary.
+
+Allocation strategy
+:   Change the allocation strategy for the message queue for each important process, so it's not stored on the heap of that process.
+
+Internal audit facility
+:   Improvements to internal audit facility.
+
+Constant fields
+:   Any constant fields that are in the selector, and are part of the index, for example, `{A: {$eq: 10}}`, are inserted into the sort list if they aren't already included. This method increases the chance that the best index is selected for the query, for example, index = `[A, B]`, sort = `[B]`, and selector = `{A: 1}`. The sort then becomes `[A, B]`.
+
+Only the fields that are in front of the current sort fields in the list are added.
+{: tip}
+
+## June 2018
+{: #cloudant-jun18}
+
+### 29 June 2018 - Build 7051
+{: #cloudant-jun2918}
+{: release-note}
+
+Forward compatibility clause
+:   Add forward compatibility clause for `_stats` disk format change.
+
+Compatibility clause
+:   Add compatibility clause for attachment receiver to facilitate Erlang upgrade.
+
+Audit facility
+:   Improvements to internal audit facility.
+
+Geo index
+:   Reduce the possibility that a race condition occurs between the time you delete a database that triggers a geo index to close and when a compaction destroys a geo index. 
+
+### 12 June 2018 - Build 7014
+{: #cloudant-jun1218}
+{: release-note}
+
+Query selector
+:   Remove the requirement to cover `_id` or `_rev` in the query selector in order to use a JSON index that explicitly contains them.
+
+## May 2018
+{: #cloudant-may18}
+
+### 29 May 2018 - Build 6979
+{: #cloudant-may2918}
+{: release-note}
+
+Audit facility
+:   Improve internal audit facility.
+
+### 14 May 2018 - Build 6919
+{: #cloudant-may1418}
+{: release-note}
+
+New! Action, `DELETE`
+:   Introduce new action, `DELETE`, on the `/_iam_session` endpoint, which invalidates the IAM session cookie.
+
+Improvements
+:   Remove outdated dependencies.
+
+## April 2018
+{: #cloudant-apr18}
+
+### 26 April 2018 - Build 6909
+{: #cloudant-apr2618}
+{: release-note}
+
+Improvements
+:   Improve compatibility with IAM.
+
+`http` multipart requests
+:   Fix `badarg` error in the module that parses `http` multipart requests.
+
+### 25 April 2018 - Build 6900
+{: #cloudant-apr2518}
+{: release-note}
+
+New! Support replication
+:   Support replication with IAM.
+
+Validation
+:   Improve validation of password schemes.
+
+State field
+:   In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash.
+
+`_design/$DDOC/_rewrite` and `_design/$DDOC/_update`
+:   Disallow `_design/$DDOC/_rewrite` and `_design/$DDOC/_update` endpoints with IAM.
+
+### 17 April 2018 - Build 6895
+{: #cloudant-apr1718}
+{: release-note}
+
+Pluggable storage engine
+:   Fix a regression that is introduced with pluggable storage engine.
+
+### 6 April 2019
+{: #cloudant-apr0619}
+{: release-note}
+
+Replaced `queries` parameter
+:   The `queries` parameter for performing multiple view queries in a single request is no longer accepted as a URL parameter for `GET /{db}/_design/{ddoc}/_view/{view}` or a request body parameter for `POST /{db}/_design/{ddoc}/_view/{view}`. The parameter was replaced with the endpoint `POST /{db}/_design/{ddoc}/_view/{view}/queries` and is supplied as a `queries` request body parameter. You can also make multiple queries with the following new endpoints: 
+
+- `POST /{db}/_all_docs/queries`
+- `POST /{db}/_design_docs/queries`
+
+Sending several queries to a view
+:   Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: external}. For more information, see the previous deprecation note about replacing the `queries` parameter.
+
+### 4 April 2018 - Build 6875
+{: #cloudant-apr0418}
+{: release-note}
+
+New! Audit facility
+:   Internal audit facility is added to the platform.
+
+{{site.data.keyword.cloudant_short_notm}} Query error messages
+:   Improve error messages for {{site.data.keyword.cloudant_short_notm}} Query.
+
+## March 2018
+{: #cloudant-mar18}
+
+### 30 March 2018 - Build 6870
+{: #cloudant-mar3018}
+{: release-note}
+
+`kill` command 
+:   Fix how the `kill` command works when you terminate an operating system process.
+
+`_changes` endpoint
+:   Fix `_changes` endpoint shard substitution.
+
+Compaction resumption
+:   Fix compaction resumption for terminated compactions.
+
+### 13 March 2018 - Build 6761
+{: #cloudant-mar1318}
+{: release-note}
+
+New! `_dbs_info` endpoint
+:   Introduce new `_dbs_info` endpoint to get information from a list of databases. See
+[Get a list of all databases in the instance](/apidocs/cloudant#getalldbs){: external}.
+
+New! Pluggable storage engine
+:   Add a pluggable storage engine.
+
+Improvement
+:   Update MochiWeb to version 2.17.
+
+Attachments
+:   Ensure deterministic revisions for attachments. See [COUCHDB-3255](https://issues.apache.org/jira/browse/COUCHDB-3255){: external}.
+
+`chttpd` multipart
+:   Prevent `chttpd` multipart zombie processes.
+
+Unconditional retries
+:   Avoid unconditional retries in replicator's HTTP client.
+
+Session support
+:   Prepare for session support in replicator.
+
+## February 2018
+{: #cloudant-feb18}
+
+### 15 February 2018 - Build 6656
+{: #cloudant-feb1518}
+{: release-note}
+
+Query parameters
+:   Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/apidocs/cloudant#postalldocs){: external}.
+
+`COPY` request
+:   When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
+
+Replication document
+:   Remove headers from replication document on read.
+
+`update_seq` and `offset` parameters
+:   If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response.
+
+Semantics
+:   Change semantics of status codes for create database.
+
+### 7 February 2018
+{: #cloudant-feb0718}
+{: release-note}
+
+{{site.data.keyword.dashdbshort_notm}} feature is deprecated
+:   To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
+[data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples){: external} for tutorials on 
+extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
+{{site.data.keyword.dashdbshort_notm}} table.
+
+## January 2018
+{: #cloudant-jan18}
+
+### 10 January 2018 - Build 6620
+{: #cloudant-jan1018}
+{: release-note}
+
+{{site.data.keyword.cloudant_short_notm}} Query and empty `partial_filter_selector` field
+:   {{site.data.keyword.cloudant_short_notm}} Query falls back to `selector` on an empty `partial_filter_selector` field.
+
+## December 2017
+{: #cloudant-dec17}
+
+### 28 December 2017 - Build 6600
+{: #cloudant-dec2817}
+{: release-note}
+
+{{site.data.keyword.cloudant_short_notm}} Query and `$or` operations
+:   {{site.data.keyword.cloudant_short_notm}} Query fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} Query determines the usable
+indexes for a particular selector.
+
+### 7 December 2017 - Build 6588
+{: #cloudant-dec0717}
+{: release-note}
+
+New!`create_target_params` parameter
+:   A new parameter, `create_target_params`, was added for you to customize the target database
+that is created on a new replication. You can now customize the cluster's default values for the number of shards and
+replicas to create.
+
+`/_scheduler`
+:   A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
+
+`new_edits` value
+:   A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request`.
+
+`eval()` and `Function()` constructors
+:   For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in
+JavaScript.
+
+`Prefer: return=minimal` header
+:   Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to non-browser clients.
+
+Disabled JavaScript constructors
+:   If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message similar to this one is returned, *Call to `eval()` was blocked by CSP.* You can fix the problem by replacing `eval()` calls with the calls from the [expr-eval library](https://github.com/silentmatt/expr-eval){: external}.
+
+### 4 December 2017
+{: #cloudant-dec0417}
+{: release-note}
+
+Removed support for virtual hosts
+:   {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality on 4 December 2017. Support for insecure HTTP connections was replaced by HTTPS only. After you turn off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
+
+## November 2017
+{: #cloudant-nov17}
+
+### 7 November 2017
+{: #cloudant-nov0717}
+{: release-note}
+
+Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
+:   An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter in the request body is ignored. However, the parameter in the request URL is respected. In recent versions of {{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body isn't ignored.
+
+## October 2017
+{: #cloudant-oct17}
+
+### 17 October 2017
+{: #cloudant-oct1717}
+{: release-note}
+
+Query (`_find` endpoint) improved
+:   {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: external}.
+
+Index validation
+:   The logic for determining whether a specific index is valid for a query that changed, addressing a bug that might lead to incorrect results.
+
+Text indexes
+:   Queries that use text indexes no longer fail when `$exists`: `false` is used.
+
+Partial indexes
+:   Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](/apidocs/cloudant#postindex){: external} to learn about the `partial_filter_selector` parameter.
+
+Execution statistics
+:   Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](/apidocs/cloudant#postfind){: external} to learn more about `execution_stats=true` parameter.
+
+Pagination
+:   [Pagination](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks) is supported by using the bookmark field. Bookmarks are enabled for all index types.
+
+`use_index` field invalid
+:   `_find` now falls back to any valid index if the value specified in the `use_index` field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
+
+### 9 October 2017
+{: #cloudant-oct0917}
+{: release-note}
+
+Error handling
+:   If you rely on 500 replies for your application, you might have issues. To fix the problem, update your application to rely on 400 responses.
+:   If you don't take care of reduce overflow errors as part of a row in the response body, issues occur. To fix this problem, change the application to handle the errors from view requests.
+
+## August 2017
+{: #cloudant-aug17}
+
+### 17 August 2017 - Build 6365
+{: #cloudant-aug1717}
+{: release-note}
+
+New! X-Frame-Options 
+:   Add the `X-Frame-Options` header settings. The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent click jacking.
+
+   You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned.
+
+   This change might impact customers who are accessing the database directly from the browser. If you see the error message, "X-Frame-Options: DENY", and it's breaking your service, you must enable CORS by [modifying the CORS configuration](/apidocs/cloudant#putcorsconfiguration){: external}. After you enable CORS, add the value of the HOST header that you send in the request to the list of allowed `origins`.
+
+New! Replication scheduler
+:   Add the replication scheduler. Learn more about [replication scheduler](/docs/Cloudant?topic=Cloudant-advanced-replication#the-replication-scheduler).
+
+`_revs-diff` endpoint
+:   `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
+
+## July 2017
+{: #cloudant-jul17}
+
+### 24 July 2017
+{: #cloudant-jul2417}
+{: release-note}
+
+Retire Shared plan
+:   {{site.data.keyword.cloudant_short_notm}} Shared Plan accounts can no longer be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: external}.
+
+### 4 July 2017 - Build 6276
+{: #cloudant-jul0417}
+{: release-note}
+
+Error message
+:   An error message changed that occurs when you try to put a document attachment with a non-existent revision. Now, the error is a 409 error with the following information: 
+
+    ```json
+    {"error":"not_found","reason":"missing_rev"}
+    ```
+    {: codeblock}
+
+## June 2017
+{: #cloudant-jun17}
+
+### 26 June 2017 - Build 6233
+{: #cloudant-jun2617}
+{: release-note}
+
+{{site.data.keyword.cloudant_short_notm}} Query and indexes
+:   Fixes an {{site.data.keyword.cloudant_short_notm}} Query issue where indexes that excluded potentially matching documents were selected by the query planner.
+
+### 14 June 2017
+{: #cloudant-jun1417}
+{: release-note}
+
+Revised error message
+:   The error message that occurs when you try to put a document attachment with a non-existent revision. This error is changed to a 409 error with the following information:
+
+```sh
+{"error":"not_found","reason":"missing_rev"}
+```
+{: codeblock}
+
+## May 2017
+{: #cloudant-may17}
+
+### 11 May 2017 - Build 6069
+{: #cloudant-may1117}
+{: release-note}
+
+New! `$allmatch` operator support
+:   Added support for the `$allmatch` operator.
+
+Replication
+:   Previously, a replication job that failed for some reason, which resulted in an update to the replication document, was followed by a fresh attempt to start a new replication. Under some circumstances, this behavior might continue indefinitely: many duplicates of the same error message. A fix was introduced so that the replication document is not updated unless the reason for the error changes.
+
+Geospatial index
+:   If the design document that is intended to specify a geospatial index is invalid,an attempt to retrieve information about the index by using the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial) results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: external} response.
+
+## February 2017
+{: #cloudant-feb17}
+
+### 13 February 2017 - Build 5834 
+{: #cloudant-feb1317}
+{: release-note}
+
+Document `id` length
+:   The maximum length of a document `id` is now 7168 characters (7k).
+
+## November 2016
+{: #cloudant-nov16}
+
+### 25 November 2016 - Build 5728
+{: #cloudant-nov2516}
+{: release-note}
+
+Malformed user documents
+:   {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents that are stored within the `_users` database. 
+
+Structure for user documents
+:   User documents must be structured and populated to comply with [Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: external}.
+
+## October 2016
+{: #cloudant-oct16}
+
+### 11 October 2016 - Build 5638
+{: #cloudant-oct1116}
+{: release-note}
+
+New! Parameters
+:   Introduces new `stable` and `update` query parameters for views.
+
+Replicator retries
+:   Replicator no longer retries forever if it cannot write checkpoints to the source database.
+
+## June 2016
+{: #cloudant-jun16}
+
+### 14 June 2016 - Build 5421
+{: #cloudant-jun1416}
+{: release-note}
+
+View-based filters
+:   Changes feeds support view-based filters.
+
+`_docs_ids` filter
+:   Changes feeds support the `_doc_ids` filter.
+
+`POST` requests
+:   `POST` requests are supported for `_changes`.
+
+`attachments=true` parameter support
+:   Both `_all_docs` and `_changes` support the `attachments=true` parameter.
+
+CouchDB 1.6 `_users` database support
+:   Support for the CouchDB 1.6 `_users` database features, including server-side hashing of passwords when documents are created in the `_users` database.
+
+`/_bulk_get` endpoint
+:   `/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
+
+Design document metadata
+:   Design document metadata contains an `update pending` field.
+
+Eliminate error
+:   {{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
+
+## February 2016
+{: #cloudant-feb16}
+
+### 4 February 2016
+{: #cloudant-feb0416}
+{: release-note}
+
+`dbcopy`
+:   The `dbcopy` feature can cause problems under some circumstances. Information about the feature was removed from the documentation. Use of `dbcopy` is discouraged.
+
+## November 2014
+{: #cloudant-nov14}
+
+### 6 November 2014
+{: #cloudant-nov0614}
+{: release-note}
+
+`POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated 
+:   An earlier method of generating API keys by issuing the `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
+
+## July 2014
+{: #cloudant-jul14}
+
+### 1 July 2014
+{: #cloudant-jul0114}
+{: release-note}
+
+New! Introducing {{site.data.keyword.cloudant_short_notm}} Classic
+:   {{site.data.keyword.cloudantfull}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. It is built with scalability, high availability, and durability in mind. 

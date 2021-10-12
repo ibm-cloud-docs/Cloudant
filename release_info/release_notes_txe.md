@@ -1,0 +1,231 @@
+---
+
+copyright:
+  years: 2015, 2021
+lastupdated: "2021-11-03"
+
+keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, operator, classic, transaction engine, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.92, 2.93, couchdb
+
+subcollection: Cloudant
+
+content-type: release-note
+
+---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
+{:release-note: data-hd-content-type='release-note'}
+
+# Release notes for {{site.data.keyword.cloudant_short_notm}} for Transaction Engine
+{: #release-notes-txe}
+
+Use these release notes to learn about the latest updates to {{site.data.keyword.cloudant_short_notm}} that are grouped by date and build number.
+{: shortdesc}
+
+## October 2021
+{: #cloudant-oct21}
+
+### 15 October 2021 - Build 2.96
+{: #cloudant-oct1521}
+
+IAM Trusted Profiles
+:   Support IAM Trusted Profiles.
+
+Replicator "auth" object
+:   Support basic auth credentials in replicator "auth" object.
+
+Changes feed filtering
+:   Use couch_eval for changes feed filtering.
+
+Validate doc update
+:   Use couch_eval to validate doc update.
+
+Response code
+:   Fix response code for deleting attachment with a bad revision.
+
+Response code
+:   Fix response code for getting nonexistent attachment.
+
+Revision
+:   Use correct winning revision when `latest=true`.
+
+Case sensitivity
+: Remove case sensitivity for basic auth.
+
+`aegis_server`
+:   Improve stability of `aegis_server` under load.
+
+Improve reliability
+:   Improve reliability of document creation.
+
+Replicator authentication
+:   Fix bug in Replicator authentication for passwords containing `@`.
+
+## July 2021
+{: #cloudant-jul21}
+
+### 15 July 2021 - Build 2.94
+{: #cloudant-jul1521}
+{: release-note}
+
+Upgrade version
+:   Upgrade your environment to Erlang/OTP 23.3.4.4.
+
+### 1 July 2021 - Build 2.93 
+{: #cloudant-jul0121}
+{: release-note}
+
+Validate deprecated parameters
+:   Fix regression related to validation of deprecated parameters: `q` and `n`.
+
+Disable parameter
+:   Disable placement parameter.
+
+Testing dependencies
+:   Update testing dependencies.
+
+## May 2021
+{: #cloudant-may21}
+
+### 15 May 2021 - Build 2.92 
+{: #cloudant-may1521}
+{: release-note}
+
+Design document validation
+:   Improve validation of design documents.
+
+Inline attachments
+:   Fix inline attachments to design documents.
+
+Error messages
+:   Improve error messages for the following endpoints:
+
+- `/{db}/_all_docs/queries`    
+- `/{db}/_design/update/_update/`    
+- `/_db_updates`    
+
+## April 2021
+{: #cloudant-april21}
+
+### 15 April 2021 - Build 2.91 
+{: #cloudant-apr1521}
+{: release-note}
+
+Improvements
+:   Fix bug that can corrupt view indices. If the view index returns inconsistent data even after database updates stop, re-create the index by deleting and re-adding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
+
+Indexing performance
+:   Improve indexing performance when concurrent database updates exist.
+
+`multipart/related` document 
+:   `multipart/related` document `PUT` requests can now accept chunked data transfer format.
+
+`_session` endpoint
+:   The `_session` endpoint accepts compressed (`gzipped`) requests.
+
+Replicator error
+:   Replicator treats a client `408` error code as retryable.
+
+## November 2020
+{: #cloudant-nov20}
+
+### 15 November 2020 - Build 2.88
+{: #cloudant-nov1520}
+{: release-note}
+
+Replicator support
+:   Add replicator support.
+
+Built-in view
+:   Add built-in view reduce functionality.
+
+## September 2020
+{: #cloudant-sept20}
+
+### 15 September 2020 - Build 2.80
+{: #cloudant-sep1520}
+{: release-note}
+
+Improvements
+:   Internal bug fixes.
+
+### 1 September 2020 - Build 2.79
+{: #cloudant-sep0120}
+{: release-note}
+
+Empty entries
+:   Remove empty entries from `_active_tasks`.
+
+Order of results
+:   Fix the order of results for page_size-based pagination for views.
+
+`_active_tasks`
+:   Remove completed Couch jobs from `_active_tasks`.
+
+Performance improvement
+:   Improve performance of view builds when there are no emits from JavaScript function.
+
+## August 2020
+{: #cloudant-aug20}
+
+### 15 August 2020 - Build 2.77 
+{: #cloudant-aug1520}
+{: release-note}
+
+Dashboard access
+:   Fixed dashboard access for {{site.data.keyword.cloudant_short_notm}} Transaction Engine instances.
+
+### 1 August 2020 - Build 2.75
+{: #cloudant-aug0120}
+{: release-note}
+
+Authentication and authorization methods
+:   Disable non-IAM authentication and authorization methods.    
+
+- Block write to `/_security` endpoint.    
+- Block creation of `/_users` databases.    
+
+Re-create database instance
+:   Fix intermittent error when you re-create database instances.
+
+`local_seq` options
+:   Add `local_seq` options to views.
+
+`_active_tasks`
+:   Add support for `_active_tasks`.
+
+## June 2020
+{: #cloudant-jun20}
+
+### 15 June 2020 - Build 2.69
+{: #cloudant-jun1520}
+{: release-note}
+
+Query parameters
+:   Query parameters for `_all_docs` and view requests are not ignored anymore.
+
+`_bulk_get` request 
+:   Limit maximum number of documents in a `_bulk_get` request to 10,000.
+
+Error messages
+:   Reword view and query pagination limit error messages that are returned with the HTTP 400 responses.
+
+### 1 June 2020 - Build 2.67
+{: #cloudant-jun0120}
+{: release-note}
+
+New! Introducing {{site.data.keyword.cloudant_short_notm}} on Transaction Engine!
+:   See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. 
+- [Initial deployment announcement](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine){: external}.    
+- [Feature comparison](/docs/Cloudant?topic=Cloudant-feature-comparison) between {{site.data.keyword.cloudant_short_notm}} on Transaction Engine and {{site.data.keyword.cloudant_short_notm}} Classic.
+
+

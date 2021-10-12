@@ -203,7 +203,8 @@ toc:
           - faqs/resource-groups-faq.md
           - faqs/migration-faq.md
       - topicgroup: 
-          label: Release information
+          label: Release notes
           topics: 
-          - release_info/release_notes.md
-          - release_info/deprecations.md
+          - release_info/release_notes_classic.md
+          - release_info/release_notes_txe.md
+          - release_info/release_notes_operator.md
