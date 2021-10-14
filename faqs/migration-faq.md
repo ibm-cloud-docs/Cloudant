@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-10"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, backup, support
 

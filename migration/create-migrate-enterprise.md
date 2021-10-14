@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-10"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -66,8 +66,8 @@ HTTP response | Issue
 1. Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account. <br><br>For more information, see the [Replication guide](/docs/Cloudant?topic=Cloudant-replication-api) and [Using {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics) about how to set up and monitor replication tasks.
 2. Alternatively, use the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate){: new_window}{: external} tool to coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. 
 
-    The `couchreplicate` tool sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
-    {: tip}
+  The `couchreplicate` tool sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
+  {: tip}
 
   ![Couchreplicate tool](../images/couchreplicate.mp4){: video controls loop}
 
