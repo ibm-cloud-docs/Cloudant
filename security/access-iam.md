@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-07"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -41,7 +41,7 @@ Access Management. The following topics are discussed:
 - Description of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
 
-For more information, see an overview of [IAM](https://cloud.ibm.com/docs/account?topic=account-iamoverview){: new_window}{: external} that includes the following topics:
+For more information, see an overview of [IAM](/docs/account?topic=account-iamoverview){: new_window}{: external} that includes the following topics:
 
 - Manage user and service IDs.
 - Manage available credentials.
@@ -334,7 +334,7 @@ Ensure that you select the specified instance, either the Source or Target.
 
 Depending on your workflow, instead of creating a service-level credential (step 4), you can use a personal IAM API key, as detailed in [Creating an API key](/docs/account?topic=account-userapikey#create_user_key){: new_window}{: external}.
 
-You can also complete these steps on the command line by using the [{{site.data.keyword.cloud_notm}} CLI tool chain](https://cloud.ibm.com/docs/cli?topic=cli-getting-started){: new_window}{: external}.
+You can also complete these steps on the command line by using the [{{site.data.keyword.cloud_notm}} CLI tool chain](/docs/cli?topic=cli-getting-started){: new_window}{: external}.
 
 ### Generating a bearer token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API
 {: #generate-bearer-token-authenticate-cloudant-api-ai}
@@ -460,7 +460,7 @@ Now, the following section describes how to use {{site.data.keyword.cloudant_sho
 service instances through IAM authentication. It uses the
 details from the [Service credential JSON examples for each option](#service-credential-json-examples-for-each-option-ai).
 
-{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key](https://cloud.ibm.com/docs/account?topic=account-iamtoken_from_apikey){: new_window}{: external} documentation for more details.
+{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key](/docs/account?topic=account-iamtoken_from_apikey){: new_window}{: external} documentation for more details.
 
 {{site.data.keyword.cloudant_short_notm}}'s official client libraries handle obtaining a token from an API key for you. You can access {{site.data.keyword.cloudant_short_notm}} directly by using an HTTP client rather than an {{site.data.keyword.cloudant_short_notm}} client library. However, you must handle exchanging and refreshing a time-limited access token by using an IAM API key with the IAM token service. After a token expires, {{site.data.keyword.cloudant_short_notm}} returns an HTTP `401` status code.
 

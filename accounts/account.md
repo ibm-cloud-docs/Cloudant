@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-10-07"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -54,7 +54,7 @@ You can perform the following tasks with IAM:
 - Allow a user or service to access many different resources by using the same set of credentials (for  example, same username and password or IAM API key).
 - IAM API keys can be granted access to account management functions, like creating new databases.
 
-For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or an overview of [IAM](https://cloud.ibm.com/docs/account?topic=account-iamoverview){: new_window}{: external}.
+For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or an overview of [IAM](/docs/account?topic=account-iamoverview){: new_window}{: external}.
 
 ## Authentication
 {: #authentication}
@@ -234,7 +234,7 @@ then assign a focused role, such as `_design` or `_security`.
 ## API keys
 {: #api-keys}
 
-The following section only applies to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](https://cloud.ibm.com/docs/account?topic=account-manapikey){: new_window}{: external}.
+The following section only applies to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](/docs/account?topic=account-manapikey){: new_window}{: external}.
 {: tip}
 
 Use API keys to enable database access for a person or application,

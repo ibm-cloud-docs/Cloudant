@@ -84,7 +84,7 @@ These options map to the following preferred options for common public cloud env
 
 |Provider |Type|Storage Class|Documentation|
 |---------|----|---------|----|
-|IBM Cloud|IBM Block Storage|`ibm-block-*` |[{{site.data.keyword.IBM}} documentation](https://cloud.ibm.com/docs/containers?topic=containers-block_storage){: new_window}{: external}
+|IBM Cloud|IBM Block Storage|`ibm-block-*` |[{{site.data.keyword.IBM}} documentation](/docs/containers?topic=containers-block_storage){: new_window}{: external}
 |AWS      |Elastic Block Storage|`aws-ebs`      |[Red Hat OpenShift documentation](https://docs.openshift.com/container-platform/4.4/storage/dynamic-provisioning.html#aws-definition_dynamic-provisioning){: new_window}{: external}|
 |Azure    |Azure Disk|`default` or `managed-premium`|[Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk){: new_window}{: external}|
 {: caption="Table 1. Options for common public cloud environments" caption-side="top"}

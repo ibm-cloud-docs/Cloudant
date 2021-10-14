@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-07"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -105,7 +105,7 @@ up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
 page through them by using the arrows.
 
-For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center){: new_window}{: external}.
+For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center](/docs/Cloudant?topic=Cloudant-learning-center){: new_window}{: external}.
 
 ## GeoJSON
 {: #geojson}

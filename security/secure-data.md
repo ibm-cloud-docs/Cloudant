@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-10-07"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -127,7 +127,7 @@ To delete a document, follow these steps:
 
     The document is selected for compaction. 
 
-For more information, see [Delete a document](https://cloud.ibm.com/apidocs/cloudant#deletedocument) in the API Reference documentation. 
+For more information, see [Delete a document](/apidocs/cloudant#deletedocument) in the API Reference documentation. 
 
 <!--
 Document how users can delete their data within the service.
@@ -151,7 +151,7 @@ To delete a database, follow these steps:
 
     The database is removed from the list of databases.
 
-For more information, see [Delete a database](https://cloud.ibm.com/apidocs/cloudant#deletedatabase) in the API Reference documentation.
+For more information, see [Delete a database](/apidocs/cloudant#deletedatabase) in the API Reference documentation.
 
 There is no way to undo a database deletion.
 {: important}
