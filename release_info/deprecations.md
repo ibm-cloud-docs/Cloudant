@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-10-15"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -76,10 +76,10 @@ The following functions are affected by this deprecation:
 2. The `_sorted` field has no functional effect because all responses are sorted automatically. 
 3. Duration of operations has a 5-second limit. Transactions lasting more than 5 seconds fail. 
 4. Limitations on keys (10 KB) and values (100 KB) that are emitted from a map function are shown in the following list: 
-- The sum of all keys that are emitted for a document cannot exceed 100 KB.
-- Emitted keys cannot exceed 10 KB.
-- Values cannot exceed 100 KB.
-- In rare cases, the number of key-value pairs that are emitted for a map function can affect database performance or violate {{site.data.keyword.cloudant_short_notm}} rules. For example, the number of key-value pairs might lead to a transaction either exceeding 10 MB, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
+   - The sum of all keys that are emitted for a document cannot exceed 100 KB.    
+   - Emitted keys cannot exceed 10 KB.    
+   - Values cannot exceed 100 KB.    
+   - In rare cases, the number of key-value pairs that are emitted for a map function can affect database performance or violate {{site.data.keyword.cloudant_short_notm}} rules. For example, the number of key-value pairs might lead to a transaction either exceeding 10 MB, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
 5. The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
 
 ## The `stale` option (February 2019)
@@ -163,6 +163,12 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to re
 similar to this one is returned, *Call to `eval()` was blocked by CSP.* You can fix the problem 
 by replacing `eval()` calls with the calls from the 
 [expr-eval library](https://github.com/silentmatt/expr-eval){: new_window}{: external}.
+
+## `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated
+{: #post-command-to-generate_api_key}
+
+An earlier method of generating API keys by issuing the `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
+{: deprecated}
 
 ## Removed support for virtual hosts (4 December 2017)
 {: #disabled-vhosts-december-4-2017}
