@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-15"
+lastupdated: "2021-10-21"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -151,8 +151,8 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to re
        
 1. From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
 
-  To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the Postfix `login`, you can sign in with the following URL, `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
-  {: note}
+   To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the Postfix `login`, you can sign in with the following URL, `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
+   {: note}
 
 2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
 
@@ -200,7 +200,7 @@ from view requests.
 
 - The error message that occurs when you try to put a document attachment with a non-existent revision that is changed to a 409 error with the following information:
 
-	```
+	```http
 	{"error":"not_found","reason":"missing_rev"}
 	```
   {: codeblock}

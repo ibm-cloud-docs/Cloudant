@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-10-20"
 
 keywords: access, status, resource, kubernetes, operator for apache couchdb, openshift
 
@@ -104,7 +104,7 @@ Management of TLS certificates is beyond the scope of this discussion, but the s
 
 Create a secret by using the name and namespace of the `CouchDBCluster` you intend to create.
 
-```
+```sh
 kubectl create secret generic --type=kubernetes.io/tls <couchdbclustername>-cert --namespace=<namespace> \
 --from-file=tls.crt=couchdb.pem \
 --from-file=tls.key=couchdb-key.pem \
@@ -119,7 +119,7 @@ If your secret was created by using a well-known CA, you don't need to add the c
 
 The CouchDB cluster is defined by using the `CouchDBCluster` custom resource. To create a three-node cluster in the `my-couchdb` namespace, create a new `CouchDBCluster`:
 
-```
+```sh
 kubectl apply -f - <<END
 apiVersion: couchdb.databases.cloud.ibm.com/v1
 kind: CouchDBCluster
@@ -145,7 +145,7 @@ Behind the scenes, this command creates a CouchDB Cluster and exposes it as a `C
 
 Check the status of the deployment by using `oc describe couchdbcluster example -n my-couchdb`:
 
-```
+```sh
 kubectl describe couchdbcluster -n my-couchdb
 Name:         example
 Namespace:    my-couchdb
@@ -176,7 +176,7 @@ To verify that the `CouchDBCluster` resource is fully deployed, check that `Stat
 
 You must be able to see a new `ClusterIP` service, `example` in the `my-couchdb` namespace:
 
-```
+```sh
 kubectl get service example -n my-couchdb
 NAME                           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE
 example                        ClusterIP   172.21.248.198   <none>        443/TCP    8m
@@ -208,7 +208,7 @@ If you want to use a different certificate, you can manually create one by follo
 
 The CouchDB cluster is defined by using the `CouchDBCluster` custom resource. To create a three-node cluster in the `my-couchdb` namespace, create a new `CouchDBCluster`:
 
-```
+```sh
 oc apply -f - <<END
 apiVersion: couchdb.databases.cloud.ibm.com/v1
 kind: CouchDBCluster
@@ -234,7 +234,7 @@ Behind the scenes, this command creates a CouchDB Cluster and exposes it as a `C
 
 Check the status of the deployment by using `oc describe couchdbcluster example -n my-couchdb`:
 
-```
+```sh
 oc describe couchdbcluster -n my-couchdb
 Name:         example
 Namespace:    my-couchdb
@@ -265,7 +265,7 @@ To verify that the `CouchDBCluster` resource is fully deployed, check that `Stat
 
 You must be able to see a new `ClusterIP` service, `example` in the `my-couchdb` namespace:
 
-```
+```sh
 oc get service example -n my-couchdb
 NAME                           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE
 example                        ClusterIP   172.21.248.198   <none>        443/TCP    8m

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-21"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -90,7 +90,7 @@ The first parameter is the name of the field you intend to use when querying the
 which is specified in the Lucene syntax portion of later queries.
 An example appears in the following query:
 
-```
+```java
 query=color:red
 ```
 {: codeblock}
@@ -100,7 +100,7 @@ The Lucene field name `color` is the first parameter of the `index` function.
 The `query` parameter can be abbreviated to `q`,
 so another way of writing the query is shown in the  following example.
 
-```
+```java
 q=color:red
 ```
 {: codeblock}
@@ -109,7 +109,7 @@ If the special value `"default"` is used when you define the name,
 you don't have to specify a field name at query time.
 The effect is that the query can be simplified:
 
-```
+```java
 query=red
 ```
 {: codeblock}
@@ -427,13 +427,18 @@ See the following result of testing the `standard` analyzer:
 After you create a search index, you can query it.
 
 - Run a partition query by using the following request:
-  ```
-  GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME
-  ```
+
+   ```http
+   GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME
+   ```
+   {: codeblock}
+
 - Run a global query by using the following request:
-  ```
-  GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME
-  ```
+
+   ```http
+   GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME
+   ```
+   {: codeblock}
 
 Specify your search by using the `query` parameter.
 

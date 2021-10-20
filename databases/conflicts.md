@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-20"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -77,7 +77,7 @@ which includes a list of all the conflicting revisions.
 
 See the following example map function to find document conflicts:
 
-```
+```sh
 function (doc) {
   if (doc._conflicts) {
     emit(null, [doc._rev].concat(doc._conflicts));
@@ -220,8 +220,8 @@ for example `...rev=2-61ae00e029d4f5edd2981841243ded13` and `...rev=1-7438df87b6
 Each of these other conflicting versions is also retrieved and stored,
 for example:
 
-  `https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13`
-  `https://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299`
+   `https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13`
+   `https://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299`
 
 Once you have all of the conflicting revisions of a document available,
 you can resolve the conflicts.

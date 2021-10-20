@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-20"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -163,9 +163,9 @@ db.attachment.get($DOCUMENT_ID, $FILENAME, function (err, body) {
 	if (!err) {
 		console.log(body);
 	}
-});
-```
-{: codeblock}
+   });
+   ```
+   {: codeblock}
 
 -->
 

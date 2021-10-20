@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-10-21"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -94,8 +94,8 @@ This table shows the supported values for the following arguments:
 
 Argument | Supported values
 ---------|-----------------
-`stale`  | `ok` - Allow stale views.<br/>`update_after` - Allow stale views, but update them immediately after the request.
-`update` | `true` - Return results after the view is updated.<br/>`false` - Return results without updating the view.<br/>`lazy` - Return the view results without waiting for an update, but update them immediately after the request.
+`stale`  | `ok` - Allow stale views. \n `update_after` - Allow stale views, but update them immediately after the request.
+`update` | `true` - Return results after the view is updated. \n `false` - Return results without updating the view. \n `lazy` - Return the view results without waiting for an update, but update them immediately after the request.
 {: caption="Table 3. Supported values" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
