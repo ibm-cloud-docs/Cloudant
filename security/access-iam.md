@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-14"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -650,7 +650,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/HEAD` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.read` |
 | `PUT` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.write` |
 | `GET/HEAD` | `/$DATABASE/_shards` | `cloudantnosqldb.database-shards.read` |
-| `COPY`<br>(Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` +   `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` either or both `cloudantnosqldb.data-document.write` |
+| `COPY`    (Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` +   `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` either or both `cloudantnosqldb.data-document.write` |
 | `GET` | `/_membership` | `cloudantnosqldb.cluster-membership.read` |
 | `POST` | `/$DATABASE/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` |
 | `PUT` | `/_users` | `cloudantnosqldb.users-database.create`  |
@@ -673,7 +673,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `PUT` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
 | `DELETE` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-| `COPY`<br>(Depends on write document type.) | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` either or both `cloudantnosqldb.data-document.write` |
+| `COPY`    (Depends on write document type.) | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` either or both `cloudantnosqldb.data-document.write` |
 | `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
 | `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
 | `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |

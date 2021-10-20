@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-11"
+lastupdated: "2021-10-14"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -67,7 +67,7 @@ You can change what types of events are sent to {{site.data.keyword.at_full_notm
 
     The Manage page opens.
 
-2. Click **Overview**.<br>
+2. Click **Overview**.    
    The Deployment Details pane opens.
 3. Find *Activity Tracker event types* in the list.
 4. Select the appropriate type, either **Management** or **Management & Data**, from the drop-down menu.
