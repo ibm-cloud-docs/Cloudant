@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-21"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -67,27 +67,13 @@ Finally,
 the state of a replication is now more detailed,
 and consists of seven distinct states:
 
-1.  `initializing` - The replication was added to the scheduler,
-  but isn't yet initialized or scheduled to run.
-  The status occurs when a new or updated replication document is stored within
-  the [`_replicator` database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database). 
-2.  `error` - The replication can't be turned into a job.
-  This error might be caused in several different ways.
-  For example,
-  the replication must be [filtered](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions),
-  but it wasn't possible to fetch the filter code from the source database.
-3.  `pending` - The replication job is scheduled to run,
-  but isn't yet running.
+1.  `initializing` - The replication was added to the scheduler, but isn't yet initialized or scheduled to run. The status occurs when a new or updated replication document is stored within the [`_replicator` database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database). 
+2.  `error` - The replication can't be turned into a job. This error might be caused in several different ways. For example, the replication must be [filtered](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions), but it wasn't possible to fetch the filter code from the source database.
+3.  `pending` - The replication job is scheduled to run, but isn't yet running.
 4.  `running` - The replication job is running.
-5.  `crashing` - A temporary error occurred that affects the replication job.
-  The job is automatically retried later.
-6.  `completed` - The replication job completed.
-  This state doesn't apply to [continuous replications](/docs/Cloudant?topic=Cloudant-replication-api#continuous-replication).
-7.  `failed`- The replication job failed.
-  The failure is permanent.
-  This state means that no further attempt is made to replicate by using this replication task.
-  The failure might be caused in several different ways,
-  for example, if the source or target URLs aren't valid.
+5.  `crashing` - A temporary error occurred that affects the replication job. The job is automatically retried later.
+6.  `completed` - The replication job completed. This state doesn't apply to [continuous replications](/docs/Cloudant?topic=Cloudant-replication-api#continuous-replication).
+7.  `failed`- The replication job failed. The failure is permanent. This state means that no further attempt is made to replicate by using this replication task. The failure might be caused in several different ways, for example, if the source or target URLs aren't valid.
 
 The `error` and `initializing` states do not exist on Transaction Engine. ![TXE tag](../images/txe_icon.svg) 
 
@@ -104,8 +90,7 @@ You can manage and determine replication status more quickly and easily by using
 
 See the typical process for using the replication scheduler to manage and monitor replications:
 
-1.  Create a [replication document](/apidocs/cloudant#postreplicate){: new_window}{: external} that describes the needed replication,
-    and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
+1.  Create a [replication document](/apidocs/cloudant#postreplicate){: new_window}{: external} that describes the needed replication, and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
 ## Authentication during replication

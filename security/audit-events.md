@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-21"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -98,7 +98,7 @@ See the following example request by using cURL. Complete the following steps:
 
 1. Get an IAM token. For example, you can run the following command from the command line:
 
-    ```
+    ```sh
     ibmcloud iam oauth-tokens | awk '{print $4}'
     ```
     {: pre}
@@ -112,7 +112,7 @@ See the following example request by using cURL. Complete the following steps:
 
 3. Run a cURL command to get the information:
 
-    ```
+    ```sh
     curl -X GET -H "Authorization: Bearer $JWT" https://499678c3-ead7-4731-b96a-fcb2974cb042-bluemix.cloudant.com/_api/v2/user/activity_tracker/events
     ```
     {: pre}
@@ -144,7 +144,7 @@ You can configure data events by sending a `POST` to the `/_api/v2/user/activity
 
 See the following example request by using a cURL command:
 
-```
+```shßß
 curl https://4ca678c3-ead7-4731-b96a-fcb2974cb042-bluemix.cloudant.com/_api/v2/user/activity_tracker/events -X POST   -d '{"types": ["management", "data"]}' -H "content-type: application/json" -H "Authorization: Bearer $JWT"
 ```
 {: pre}

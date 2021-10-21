@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-21"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8238, 8220, 8202, 8201, 8194, 8192, 8182, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.92, 2.93, 2.94, 2.96, operator, classic, transaction engine, 1.4.2, 1.4.1, 1.4.0, 1.3.0, 1.2.1, 1.2.0, 1.1.0, couchdb
 
@@ -92,11 +92,11 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 #### Bug fixes
 {: #bug-fixes-2.91}
 
- - Fix bug that can corrupt view indices. If the view index returns inconsistent data even after database updates stop, re-create the index by deleting and re-adding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
- - Improve indexing performance when concurrent database updates exist.
- - `multipart/related` document `PUT` requests can now accept chunked data transfer format.
- - The `_session` endpoint accepts compressed (`gzipped`) requests.
- - Replicator treats a client `408` error code as retryable.
+- Fix bug that can corrupt view indices. If the view index returns inconsistent data even after database updates stop, re-create the index by deleting and re-adding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
+- Improve indexing performance when concurrent database updates exist.
+- `multipart/related` document `PUT` requests can now accept chunked data transfer format.
+- The `_session` endpoint accepts compressed (`gzipped`) requests.
+- Replicator treats a client `408` error code as retryable.
 
 ### Build 2.88 (November 2020)
 {: #build-2.88-november-2020}
@@ -910,7 +910,7 @@ Changes and updates to {{site.data.keyword.cloudant_short_notm}} Operator for Ap
 #### Bug fixes
 {: #bug-fixes-142}
 
- - Fixes memory leak in the `mgmt` container.
+- Fixes memory leak in the `mgmt` container.
 
 ### v1.4.1 (9 November 2020)
 {: #v1.4.1}
@@ -918,7 +918,7 @@ Changes and updates to {{site.data.keyword.cloudant_short_notm}} Operator for Ap
 #### Bug fixes
 {: #bug-fixes-141}
 
- - Fixes permissions issue with `pre_stop` scripts.
+- Fixes permissions issue with `pre_stop` scripts.
  
 ### v1.4.0 (30 October 2020)
 {: #v1.4.0}
@@ -928,9 +928,9 @@ This bug fix release addresses an issue that occurs during upgrades to operator 
 #### Bug fixes
 {: #bug-fixes-140}
 
- - Fixes syntax error in `pre_stop` script.
- - Fixes resource leak in health check.
- - Fixes symlink creation error when init container is restarted.
+- Fixes syntax error in `pre_stop` script.
+- Fixes resource leak in health check.
+- Fixes symlink creation error when init container is restarted.
 
 ### v1.3.0 (23 October 2020)
 {: #v1.3.0}
@@ -938,14 +938,14 @@ This bug fix release addresses an issue that occurs during upgrades to operator 
 #### New features
 {: #new-features-v1.3.0}
 
- - Updates CouchDB to [3.1.1](https://docs.couchdb.org/en/latest/whatsnew/3.1.html#version-3-1-1).
- - Improves logging output for `runit`.
+- Updates CouchDB to [3.1.1](https://docs.couchdb.org/en/latest/whatsnew/3.1.html#version-3-1-1).
+- Improves logging output for `runit`.
 
 #### Bug fixes
 {: #bug-fixes-130}
 
- - CouchDB no longer stops when the search container restarts.
- - Fixes missing `findmnt` error in the `mgmt` container.
+- CouchDB no longer stops when the search container restarts.
+- Fixes missing `findmnt` error in the `mgmt` container.
 
 ### v1.2.1 (15 September 2020)
 {: #v1.2.1}
@@ -953,7 +953,7 @@ This bug fix release addresses an issue that occurs during upgrades to operator 
 #### Bug fixes
 {: #bug-fixes-121}
 
- - Configuration files are incorrectly created with read-only file permissions.
+- Configuration files are incorrectly created with read-only file permissions.
 
 ### v1.2.0 (14 September 2020)
 {: #v1.2.0}
@@ -965,10 +965,10 @@ Adds a number of configuration options to the search container, enabled by using
 
 The following new, optional fields are added to the CouchDBCluster CRD:
 
- - `spec.environment.clouseau.logLevel`
- - `spec.environment.clouseau.maxIndexesOpen`
- - `spec.environment.clouseau.closeIfIdle`
- - `spec.environment.clouseau.idleCheckIntervalSecs`
+- `spec.environment.clouseau.logLevel`
+- `spec.environment.clouseau.maxIndexesOpen`
+- `spec.environment.clouseau.closeIfIdle`
+- `spec.environment.clouseau.idleCheckIntervalSecs`
 
 #### Bug fixes
 {: #bug-fixes-120}
@@ -987,23 +987,23 @@ Adds more configuration for resource management, including the ability to set re
 
 The following new, optional fields are added to the CouchDBCluster CRD:
 
- - `spec.securityContext`
- - `spec.resources`
+- `spec.securityContext`
+- `spec.resources`
 
 #### Enhancements
 {: #enhancements-v1.1.0}
 
- - Erlang scheduler count is based on the database container CPU requests, rounded up to the nearest integer.
- - Adds a liveness check so that search containers restart if they lose connectivity to the CouchDB node. This situation can happen if the CouchDB container is restarted by the OOMkiller.
- - JVM now uses cgroup aware memory settings.
- - Support CouchDBClusters deployed to the same namespace.
- - Changes to the CouchDBCluster CRD now propagate to CouchDB nodes without a manual pod restart.
- - Adds option to set resource constraints for CouchDB containers.
- - Adds option to set securityContext for the CouchDBCluster pods.
+- Erlang scheduler count is based on the database container CPU requests, rounded up to the nearest integer.
+- Adds a liveness check so that search containers restart if they lose connectivity to the CouchDB node. This situation can happen if the CouchDB container is restarted by the OOMkiller.
+- JVM now uses cgroup aware memory settings.
+- Support CouchDBClusters deployed to the same namespace.
+- Changes to the CouchDBCluster CRD now propagate to CouchDB nodes without a manual pod restart.
+- Adds option to set resource constraints for CouchDB containers.
+- Adds option to set securityContext for the CouchDBCluster pods.
 
 #### Bug fixes
 {: #bug-fixes-110}
 
- - Resource limits and requests propagate correctly to the search container.
+- Resource limits and requests propagate correctly to the search container.
 
 

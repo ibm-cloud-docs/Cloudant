@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-10-21"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -95,7 +95,7 @@ You must have a current version of the [Python programming language](https://www
 
 2. Verify that you get a result similar to the following example:
 
-    ```
+    ```sh
     Python 3.8.1
     ```
     {: codeblock}
@@ -117,7 +117,7 @@ The examples below use the deprecated `python-cloudant` client library.
 
 2. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following example:
 
-    ```
+    ```sh
     cloudant==2.14.0
     ```
     {: codeblock}
@@ -165,7 +165,7 @@ You can follow steps 1 - 5 to learn about the individual commands, or go to the 
     ```
     {: codeblock}
 
-3. Or replace `ACCOUNT_NAME` and `API_KEY` with the values from your IAM API service credentials.
+4. Or replace `ACCOUNT_NAME` and `API_KEY` with the values from your IAM API service credentials.
 
     ```json
     client = Cloudant.iam(ACCOUNT_NAME, API_KEY, connect=True)

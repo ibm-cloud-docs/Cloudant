@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-21"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -57,18 +57,15 @@ legacy access controls and {{site.data.keyword.cloud_notm}} IAM's access control
 {: #ibm-cloud-identity-and-access-management-ai}
 
 - Centrally managed access management across {{site.data.keyword.cloud_notm}}.
-- Allow a user or service to access many different resources by using the same set
-  of credentials (for example, same username and password or IAM API key).
-- IAM API keys can be granted access to account management functions, like
-  creating new databases.
+- Allow a user or service to access many different resources by using the same set of credentials (for example, same username and password or IAM API key).
+- IAM API keys can be granted access to account management functions, like creating new databases.
 
 ### {{site.data.keyword.cloudant_short_notm}} legacy access controls
 {: #ibm-cloudant-legacy-ai}
 
 - Unique to {{site.data.keyword.cloudant_short_notm}}.
 - Access to each service instance requires its own set of credentials.
-- Uses HTTP basic authentication with credentials that are not bound to an individual
-  user or service.
+- Uses HTTP basic authentication with credentials that are not bound to an individual user or service.
 - {{site.data.keyword.cloudant_short_notm}} API keys can be granted permissions only at a database level.
 
 ### API key notes
@@ -101,8 +98,7 @@ holistic access management impossible.
 
 The choice between *Use only IAM* or *Use both legacy credentials and IAM* affects the following factors:
 
-1. Whether legacy {{site.data.keyword.cloudant_short_notm}} account-level credentials are available to manage databases and other
-    account-level actions.
+1. Whether legacy {{site.data.keyword.cloudant_short_notm}} account-level credentials are available to manage databases and other account-level actions.
 2. The style of credentials that are delivered during service credential generation.
 
 In particular, {{site.data.keyword.cloudant_short_notm}} API keys can still be used to manage database access. These credentials must be
@@ -387,7 +383,7 @@ curl -k -X PUT \
 
 See the results in the following example:
 
-```
+```sh
 {"ok": "true"}
 ```
 {: codeblock}
@@ -433,7 +429,7 @@ curl -k -X PUT \
 
 See the results in the following example:
 
-```
+```sh
 {"ok":true,"id":"source_dest","rev":"1-89b01e42968acd5944ed657b87c49f0c"}
 ```
 {: codeblock}
@@ -588,7 +584,7 @@ The following table lists the available IAM service roles for {{site.data.keywor
 | `Manager` | Includes the ability to access all endpoints and perform all administrative functions on an instance, such as creating databases, changing capacity, reading and writing data and indexes, and accessing the Dashboard. |
 | `Writer` | Includes the ability to read and write to all databases and documents, but not able to create indexes. |
 | `Reader` | Includes the ability to read all databases and documents, but not able to write new documents or create indexes. |
-| `Monitor` | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler ` endpoints. |
+| `Monitor` | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler` endpoints. |
 | `Checkpointer` | Includes the ability to write replication `checkpointer` `_local` documents. Required on source databases during replication. |
 {: caption="Table 1. IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
@@ -622,7 +618,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET` | `/_api/v2/usage/data_volume` and `/_api/v2/usage/$YEAR/$MONTH` | `cloudantnosqldb.sapi.usage-data-volume` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 | `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` |
-| `GET/HEAD` | `/_replicator` | `cloudantnosqldb.replicator-database-info.read ` |
+| `GET/HEAD` | `/_replicator` | `cloudantnosqldb.replicator-database-info.read` |
 | `GET/HEAD` | `/_replicator/$DOCUMENT` | `cloudantnosqldb.replication.read` |
 | `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication-scheduler.read` |
 | `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication-scheduler.read` |
@@ -699,7 +695,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
+| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 {: class="simple-tab-table"}
@@ -744,7 +740,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
+| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
@@ -783,7 +779,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
+| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |

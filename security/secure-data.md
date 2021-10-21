@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-21"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -51,9 +51,7 @@ including (but not limited to):
 -   Access and identity management.
 -   General physical security of data centers and network operations center monitoring.
 -   Server hardening.
--   {{site.data.keyword.cloudant_short_notm}} gives you the flexibility to
-  choose or switch among the different providers
-  as your SLA and cost requirements change.
+-   {{site.data.keyword.cloudant_short_notm}} gives you the flexibility to choose or switch among the different providers as your SLA and cost requirements change.
 
 More details about the certifications are available in the [Compliance information](/docs/Cloudant?topic=Cloudant-compliance#compliance).
 {: tip}

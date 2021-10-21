@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-21"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -68,10 +68,7 @@ index row, and how that relates to the results the client receives in the HTTP
 response. See the difference by index type in the following list:
 
 - For view indexes, each row includes both key and value.
-- For Mango indexes, each row is not seen by the client, but includes a document
-  ID that is used internally to complete processing of the query. As further
-  processing is required, the number of rows that are read from an index can differ
-  significantly from the number of results the response contains. 
+- For Mango indexes, each row is not seen by the client, but includes a document ID that is used internally to complete processing of the query. As further processing is required, the number of rows that are read from an index can differ significantly from the number of results the response contains. 
 
 ## Write requests
 {: #write-requests-te}
@@ -79,12 +76,8 @@ response. See the difference by index type in the following list:
 Write requests create, update, or delete documents. They consume write units in the following way:
 
 - 1 write unit to open the request's transaction.
-- A further 1 write unit for each document written. This write unit includes writing
-    the document content and the entries into the automatic primary and
-    sequence indexes.
-- A further 1 write unit for each row of an index written during foreground
-  indexing of user-defined indexes (currently only Mango indexes support
-  foreground indexing).
+- A further 1 write unit for each document written. This write unit includes writing the document content and the entries into the automatic primary and sequence indexes.
+- A further 1 write unit for each row of an index written during foreground indexing of user-defined indexes (currently only Mango indexes support foreground indexing).
 
 Therefore, writing a single document amplifies, in terms of write units
 that are consumed, the amount of foreground indexing it causes. Foreground and
@@ -96,15 +89,11 @@ background indexing are discussed next.
 As well as serving requests, {{site.data.keyword.cloudant_short_notm}} needs to build indexes to serve queries. A
 database can contain many indexes. {{site.data.keyword.cloudant_short_notm}} updates indexes in the following ways.
 
-- Foreground indexing happens within a document write transaction. It costs one
-  write unit per row that is emitted into an index. Only Mango indexes support
-  foreground indexing.
+- Foreground indexing happens within a document write transaction. It costs one write unit per row that is emitted into an index. Only Mango indexes support foreground indexing.
 - Background indexing is further discussed later and is used in the follow way:
     - To keep view and search indexes up to date with document writes. It is
-      guaranteed to happen after a document is written but before non-stale
-      queries to an index occur.
-    - To build newly created indexes of any type. Background indexing and
-      indexing units.
+      guaranteed to happen after a document is written but before non-stale queries to an index occur.
+    - To build newly created indexes of any type. Background indexing and indexing units.
 
 Background indexing is used to keep view indexes up to date with
 document writes and to build newly created indexes of any type.
@@ -114,13 +103,8 @@ document writes and to build newly created indexes of any type.
       indexing unit. A document is read when it is created, updated, or deleted.
     - Each row emitted to an index during background indexing costs one indexing
       unit.
-- Each account includes a number of indexing units, which is set in proportion
-  to the write unit throughput of an account. Indexing units are not charged for
-  separately.
-- The amount of indexing unit throughput is a multiple of the write unit
-  throughput for an account. It is designed to allow a moderate number of
-  indexes to be kept up to date when you maintain maximum write throughput, as
-a few new indexes to be created.
+- Each account includes a number of indexing units, which is set in proportion to the write unit throughput of an account. Indexing units are not charged for separately.
+- The amount of indexing unit throughput is a multiple of the write unit throughput for an account. It is designed to allow a moderate number of indexes to be kept up to date when you maintain maximum write throughput, as a few new indexes to be created.
     - In the case where you have many indexes, it is possible to write
       documents fast enough to exhaust background indexing capacity, meaning
       that indexes may never "catch up with new writes. If indexes are failing
@@ -151,7 +135,7 @@ Users can reduce the approximate read and write throughput that is consumed by a
 | 20 | 4 | 650 (This value is the default.) |
 {: caption="Table 1. Options" caption-side="top"}
 
-Write capacity that is consumed on the target database can be adjusted by using the `worker_batch_size` parameter. The default is 500 documents in a batch write. This parameter can be adjusted down to reduce the peak write throughput that is seen on the batch writes. 
+Write capacity that is consumed on the target database can be adjusted by using the `worker_batch_size` parameter. The default is 500 documents in a batch write. This parameter can be adjusted down to reduce the peak write throughpsut that is seen on the batch writes. 
 
 ## Examples
 {: #request-examples-te}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-21"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -113,7 +113,7 @@ that you create in this exercise include the data that you use to query the `das
     {: codeblock}
 
 3.  Repeat steps 1 and 2 to add the remaining four documents to the database.    
-  Use the following sample text for document 2:
+   Use the following sample text for document 2:
 
     ```json
     {
