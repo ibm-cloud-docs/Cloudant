@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-29"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -34,12 +34,12 @@ You access your account by using the address prefix
 
 For your {{site.data.keyword.cloudant_short_notm}} Dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
 
-If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: new_window}{: external}.
+If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: external}.
 
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspell your account name,
-you might get the following error, [*503: Service unavailable.*](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
+you might get the following error, [*503: Service unavailable.*](/apidocs/cloudant#list-of-http-codes){: external}.
 
 -    [{{site.data.keyword.cloud}} Identity and Access Management (IAM)](#authentication-iam)
 -    [Basic authentication](#basic-authentication)
@@ -54,7 +54,7 @@ You can perform the following tasks with IAM:
 - Allow a user or service to access many different resources by using the same set of credentials (for  example, same username and password or IAM API key).
 - IAM API keys can be granted access to account management functions, like creating new databases.
 
-For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or an overview of [IAM](/docs/account?topic=account-iamoverview){: new_window}{: external}.
+For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or an overview of [IAM](/docs/account?topic=account-iamoverview){: external}.
 
 ## Authentication
 {: #authentication}
@@ -78,7 +78,7 @@ pass your credentials as part of every request.
 You pass your credentials by adding an `Authorization` header to the request.
 
 The header includes the authentication scheme (`Basic`),
-followed by the [BASE64](https://en.wikipedia.org/wiki/Base64){: new_window}{: external} encoding of a string created by concatenating:
+followed by the [BASE64](https://en.wikipedia.org/wiki/Base64){: external} encoding of a string created by concatenating:
 
 -	Your username
 -	The `:` character
@@ -87,7 +87,7 @@ followed by the [BASE64](https://en.wikipedia.org/wiki/Base64){: new_window}{: e
 In practice,
 many application libraries that are used for creating HTTP requests can do this encoding for you.
 
-For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: new_window}{: external} on basic authentication.
+For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: external} on basic authentication.
 
 ### Cookie authentication
 {: #cookie-authentication}
@@ -113,7 +113,7 @@ Method | Path | Description | Headers | Form Parameters
 `DELETE` | `/_session` | Log out cookie-based user. | AuthSession cookie returned by POST request. | 
 {: caption="Table 1. Cookie authentication and methods" caption-side="top"}
 
-For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: new_window}{: external} on basic authentication.
+For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: external} on basic authentication.
 
 ## Authorization
 {: #authorization}
@@ -146,7 +146,7 @@ then you can do all the tasks that are associated with that role.
 ## Roles
 {: #roles}
 
-The following section only applies to legacy credentials. For more information about using roles with IAM credentials, see [{{site.data.keyword.cloudant_short_notm}} roles](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-roles-ai){: new_window}{: external}.
+The following section only applies to legacy credentials. For more information about using roles with IAM credentials, see [{{site.data.keyword.cloudant_short_notm}} roles](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-roles-ai){: external}.
 {: tip}
 
 {{site.data.keyword.cloudant_short_notm}} has a number of roles available.
@@ -182,8 +182,8 @@ The focused roles are defined in the following table:
 Role | Description | API Endpoints
 -----|-------------|---------------
 `_design`     | Allows create, read, modify, or delete access to design documents. | [`_design`](/docs/Cloudant?topic=Cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes), [`_index`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes)
-`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/apidocs/cloudant?code=node#postreplicate){: new_window}{: external}, [`_replicate`](/apidocs/cloudant#postreplicate){: new_window}{: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database)
-`_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/apidocs/cloudant#getsecurity){: new_window}{: external}
+`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/apidocs/cloudant?code=node#postreplicate){: external}, [`_replicate`](/apidocs/cloudant#postreplicate){: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database)
+`_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/apidocs/cloudant#getsecurity){: external}
 {: caption="Table 2. Focused roles" caption-side="top"}
 
 The nature of the access that is granted depends on the specific API endpoint.
@@ -234,7 +234,7 @@ then assign a focused role, such as `_design` or `_security`.
 ## API keys
 {: #api-keys}
 
-The following section only applies to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](/docs/account?topic=account-manapikey){: new_window}{: external}.
+The following section only applies to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](/docs/account?topic=account-manapikey){: external}.
 {: tip}
 
 Use API keys to enable database access for a person or application,
@@ -272,7 +272,7 @@ An earlier method of generating API keys by issuing the `POST` command to the `h
 You can create an API key in two ways:
 
 1.  Use the dashboard.
-2.  Use the {{site.data.keyword.cloudant_short_notm}} API to [modify the permissions](/apidocs/cloudant#postapikeys){: new_window}{: external}.
+2.  Use the {{site.data.keyword.cloudant_short_notm}} API to [modify the permissions](/apidocs/cloudant#postapikeys){: external}.
 
 No matter what method you choose,
 remember to record the key name and password.
@@ -299,12 +299,12 @@ The database doesn't have to be in the same account as the account used for gene
 To give an existing API key permissions to access a database in another account,
 do the following steps:
 
-1.  Retrieve the existing [security permissions](/apidocs/cloudant#getsecurity){: new_window}{: external} for the database.
-2.  [Add](/apidocs/cloudant#putsecurity){: new_window}{: external} the details of the API key to the database security permissions, along with the roles required.
+1.  Retrieve the existing [security permissions](/apidocs/cloudant#getsecurity){: external} for the database.
+2.  [Add](/apidocs/cloudant#putsecurity){: external} the details of the API key to the database security permissions, along with the roles required.
 
 For an example of this process,
 see the blog article:
-[Using an {{site.data.keyword.cloudant_short_notm}} API key with multiple {{site.data.keyword.cloudant_short_notm}} databases and accounts](https://dx13.co.uk/articles/2016/04/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts/){: new_window}{: external}.
+[Using an {{site.data.keyword.cloudant_short_notm}} API key with multiple {{site.data.keyword.cloudant_short_notm}} databases and accounts](https://dx13.co.uk/articles/2016/04/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts/){: external}.
 
 ### Deleting API keys
 {: #deleting-api-keys}
@@ -331,7 +331,7 @@ All the permissions that were previously assigned to the API key for it to work 
 #### To remove an API key by using the {{site.data.keyword.cloudant_short_notm}} API
 {: #to-remove-an-api-key-by-using-the-cloudant-nosql-db-api}
 
-Use the [modifying permissions](/apidocs/cloudant#putcloudantsecurity){: new_window}{: external} technique to remove the API key from the list of users with access permission.
+Use the [modifying permissions](/apidocs/cloudant#putcloudantsecurity){: external} technique to remove the API key from the list of users with access permission.
 
 This technique works because an API key is similar to a user,
 and is granted access permissions.
@@ -339,7 +339,7 @@ By removing the API key from the list of users that have access permissions,
 you remove the API key from the list of users that have access to the database.
 
 To remove the API key,
-send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/apidocs/cloudant#putcloudantsecurity){: new_window}{: external}. This request removes the API key from the list of users with access permission. Provide an updated list of the usernames that have access permission.
+send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/apidocs/cloudant#putcloudantsecurity){: external}. This request removes the API key from the list of users with access permission. Provide an updated list of the usernames that have access permission.
 The updated list must not include the API key.
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
@@ -349,11 +349,11 @@ The following section only applies to legacy credentials.
 {: tip}
 
 You can use the
-[`_users` database](http://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: new_window}{: external}
+[`_users` database](http://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: external}
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
 User documents that are stored in the `_users` database must be structured and populated to comply with
-[Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: new_window}{: external}.
+[Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: external}.
 
 You can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
 To disable {{site.data.keyword.cloudant_short_notm}} security,

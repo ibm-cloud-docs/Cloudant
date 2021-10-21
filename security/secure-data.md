@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-10-25"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -143,7 +143,7 @@ Once an instance is deleted, all data within the database, as well as the accoun
 To delete a database, follow these steps:
 
 1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
-2. On the Databases page next to the database you want to delete, click **Delete**.
+2. On the Databases page, click **Delete** next to the database you want to delete.
 3. Type in the name of the database you want to delete.
 4. Click **Delete Database**. 
 

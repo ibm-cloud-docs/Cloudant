@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-21"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -86,31 +86,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV"
 	 --data-binary @$ATTACHMENT_FILEPATH
 ```
 {: codeblock}
-
-<!--
-
-See the following example for creating or updating an attachment by using Javascript:
-
-```javascript
-var nano = require('nano');
-var fs = require('fs');
-var account = nano("https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com");
-var db = account.use($DATABASE);
-fs.readFile($FILEPATH, function (err, data) {
-	if (!err) {
-		db.attachment.insert($DOCUMENT_ID, $ATTACHMENT, data, $ATTACHMENT_MIME_TYPE, {
-			rev: $REV
-		},
-		function (err, body) {
-			if (!err)
-				console.log(body);
-		}
-	}
-});
-```
-{: codeblock}
-
--->
 
 The response includes the document ID and the new document revision.
 
