@@ -1,7 +1,7 @@
 ---
 
 copyright: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-21"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -67,15 +67,15 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
-2.  Type `Cloudant` in the Search bar and open it. 
+3.  Type `Cloudant` in the Search bar and open it. 
 
     ![{{site.data.keyword.cloud_notm}} database services](images/img0003.png){: caption="Figure 2. {{site.data.keyword.cloud_notm}} database services" caption-side="bottom"}
 
-3. Select an offering. 
+4. Select an offering. 
 
     ![{{site.data.keyword.cloudant_short_notm}} offerings](images/img0005.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} offering" caption-side="bottom"}
 
-4.  Select an environment.
+5.  Select an environment.
 
     For Dedicated Hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
     {: note}
@@ -88,7 +88,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     c. Select from the {{site.data.keyword.cloud_notm}} regions.
 
-5.  Configure the Host.
+6.  Configure the Host.
 
     a. Select a location for deployment.
 
@@ -112,7 +112,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     ![Host configuration](images/img0005f.png){: caption="Figure 5. Host configuration" caption-side="bottom"}
 
-6.  Click **Create** to start the provisioning process.
+7.  Click **Create** to start the provisioning process.
 
     Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click **Create**. 
     {: note}
