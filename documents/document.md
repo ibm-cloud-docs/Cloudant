@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-20"
 
 ---
 
@@ -64,7 +64,7 @@ each document is defined as part of the document ID as detailed in the next sect
 When you use a partitioned database, the document ID specifies both the partition key and the document key. These keys are specified by splitting the document ID
 into two parts that are separated by a colon:
 
-```
+```json
 $PARTITION_KEY:$DOCUMENT_KEY
 ```
 

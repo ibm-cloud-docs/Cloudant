@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-30"
+lastupdated: "2021-10-20"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -258,8 +258,8 @@ var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com
 account.db.list(function (err, body, headers) {
   if (!err) {
     console.log(body);
-  }
-});
+   }
+   });
 ```
 {: codeblock}
 
@@ -696,7 +696,7 @@ Send a `POST` request to restore (undelete) a deleted database.
 #### Parameters
 {: #parameters-db}
 
-    None
+None
 
 #### Request headers
 {: #request-headers-db}
@@ -1166,7 +1166,7 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 	if (!err) {
 		console.log(body);
 	}
-});
+   });
 ```
 {: codeblock}
 

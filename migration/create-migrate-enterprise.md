@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-05"
+lastupdated: "2021-10-20"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -40,7 +40,7 @@ Migration from the Enterprise plans to {{site.data.keyword.cloudant_short_notm}}
 ## Step 2. Create an {{site.data.keyword.cloudant_short_notm}} instance
 {: #step-2-create-an-ibm-cloudant-instance}
 
-1. Click `Create resource `.
+1. Click `Create resource`.
 2. Click `Databases` > `Cloudant`.  
    ![{{site.data.keyword.cloudant_short_notm}} dashboard](../tutorials/images/img0003.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
@@ -72,7 +72,6 @@ HTTP response | Issue
   {: tip}
 
   ![Couchreplicate tool](../images/couchreplicate.mp4){: video controls loop}
-
 3. Verify that all your data replicates to the new service and that indexes are built.
 
 ## Step 5. Test your application

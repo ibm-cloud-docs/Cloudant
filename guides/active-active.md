@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-20"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -44,13 +44,9 @@ one in each region:
 
 Remember these important facts:
 
-- Within each data center,
-  {{site.data.keyword.cloudant_short_notm}} already offers high availability
-  by storing data in triplicate across three servers.
-- Replication occurs at the database rather than account level
-  and must be explicitly configured.
-- {{site.data.keyword.cloudant_short_notm}} doesn't provide any Service Level Agreements (SLAs)
-  or certainties about replication latency. {{site.data.keyword.cloudant_short_notm}} doesn't monitor individual replications. Your own strategy for detecting failed replications and restarting them is advisable.
+- Within each data center, {{site.data.keyword.cloudant_short_notm}} already offers high availability by storing data in triplicate across three servers.
+- Replication occurs at the database rather than account level and must be explicitly configured.
+- {{site.data.keyword.cloudant_short_notm}} doesn't provide any Service Level Agreements (SLAs) or certainties about replication latency. {{site.data.keyword.cloudant_short_notm}} doesn't monitor individual replications. Your own strategy for detecting failed replications and restarting them is advisable.
 
 ## Before you begin an active-active deployment
 {: #before-you-begin-an-active-active-deployment}
@@ -75,13 +71,11 @@ The configuration assumes that you have two accounts in different regions:
 After these accounts are created, follow these steps: 
 
 1. [Create](#step-1-create-your-databases) a pair of peer databases within the accounts.
-2. [Set up](#step-2-create-an-api-key-for-your-replications) API keys
-  to use for the replications between these databases.
+2. [Set up](#step-2-create-an-api-key-for-your-replications) API keys to use for the replications between these databases.
 3. Grant appropriate permissions.
 4. Set up replications.
 5. Test replications are working as expected.
-6. Configure application and infrastructure for either active-active
-  or active-passive use of the databases.
+6. Configure application and infrastructure for either active-active or active-passive use of the databases.
 
 ## Step 1. Create your databases
 {: #step-1-create-your-databases}
@@ -226,8 +220,7 @@ while application "B" might write to database `myaccount-dc2.cloudant.com/mydb`.
 This configuration offers several benefits:
 
 - Load can be spread over several accounts.
-- You can configure applications to access an account with
-  reduced latency (not always the geographically closest).
+- You can configure applications to access an account with reduced latency (not always the geographically closest).
 
 An application can be set up to communicate with the "nearest"
 {{site.data.keyword.cloudant_short_notm}} account.
@@ -335,6 +328,6 @@ If a database is being changed continuously, the replication status is unlikely 
 {: #indexes}
 
 - Are the indexes sufficiently up to date?
-  Verify that indexes are updated by using the [active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
+   Verify that indexes are updated by using the [active tasks](/docs/Cloudant?topic=Cloudant-active-tasks#active-tasks) endpoint.
 - Test the level of "index readiness" by sending a query to the index,
-  and deciding whether it returns within an acceptable time.
+   and deciding whether it returns within an acceptable time.

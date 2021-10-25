@@ -63,24 +63,16 @@ A design document's structure includes the following parts:
     -   **Partitioned (optional, boolean)** - Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
 -	**Views (optional)** - An object that describes MapReduce views.
 	-	**`Viewname`** (one for each view) - View Definition.
-		-	**Map** - Map Function for the view.
-		-	**Reduce (optional)** - Reduce Function for the view.
+	        **Map** - Map Function for the view.
+            **Reduce (optional)** - Reduce Function for the view.
 -	**Indexes (optional)** - An object that describes search indexes.
 	-	**Index name** (one for each index) - Index definition.
-		-	**Analyzer** - Object that describes the analyzer to be used or an object with the following fields:
-			-	**Name** - Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
-			-	**Stopwords (optional)** - An array of stop words.
-				Stop words are words that must not be indexed.
-				If this array is specified,
-				it overrides the default list of stop words.
-				The default list of stop words depends on the analyzer.
-				The standard analyzer includes the following list of stop words:
-				`a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
-			-	**Default (for the per field analyzer)** - default language to use if no language is specified for the field.
-			-	**Fields (for the per field analyzer)** - An object that specifies which language to use to analyze each field of the index.
-				Field names in the object correspond to field names in the index, that is, the first parameter of the index function.
-				The values of the fields are the languages to be used, for example `english`.
-		-	**Index** - Function that handles the indexing.
+            **Analyzer** - Object that describes the analyzer to be used or an object with the following fields:
+                **Name** - Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
+                **Stopwords (optional)** - An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
+                **Default (for the per field analyzer)** - default language to use if no language is specified for the field.
+                **Fields (for the per field analyzer)** - An object that specifies which language to use to analyze each field of the index. Field names in the object correspond to field names in the index, that is, the first parameter of the index function. The values of the fields are the languages to be used, for example `english`.
+            **Index** - Function that handles the indexing.
 -	**Rewrites (optional, disallowed when `partitioned` is `true`)** - Rewrite functions.
 	-	**Function name** (one for each function) - Function definition.
 -	**Lists (optional, disallowed when `partitioned` is `true`)** - List functions.
@@ -168,13 +160,13 @@ See the following example response to the copy request:
 -	**Roles permitted** - `_design`
 -	**Query Arguments** 
 	-	**Argument** - `rev`
-		-	**Description** -  Revision to copy from.
-		-	**Optional** - yes
-		-	**Type** - string
+            **Description** -  Revision to copy from.
+            **Optional** - yes
+            **Type** - string
 -	**HTTP Headers**
 	-	**Header** - `Destination`
-		-	**Description** - Destination document (and optional revision)
-		-	**Optional** - no
+            **Description** - Destination document (and optional revision)
+            **Optional** - no
 
 The source design document is specified on the request line, while the `Destination` HTTP Header of the request specifies the target document.
 
@@ -288,13 +280,13 @@ See the following example response that includes the deleted document ID and rev
 -	**Roles permitted** - `_design`
 -	**Query Arguments**
 	-	**Argument** - `rev`
-		-	**Description** - Current revision of the document for validation.
-		-	**Optional**- yes
-		-	**Type** - string
+            **Description** - Current revision of the document for validation.
+            **Optional**- yes
+            **Type** - string
 -	**HTTP Headers**
 	-	**Header** - `If-Match`
-		-	**Description** - Current revision of the document for validation.
-		-	**Optional** - yes
+            **Description** - Current revision of the document for validation.
+            **Optional** - yes
 
 ## Views
 {: #view-design-documents}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-21"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -56,7 +56,7 @@ a geospatial characteristic that fits within a given geospatial polygon, which i
 
 See an example of a relationship that uses a geospatial polygon:
 
-```
+```json
 relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
 ```
 {: codeblock}
@@ -133,12 +133,7 @@ It must be present and include the value `Feature`.
 
 It must include two fields: `type` and `coordinates`. These fields specify the definition shown in the following list:
 
-- `type` field specifies a GeoJSON geometry type that must be one of `Point`,
-  `LineString`,
-  `Polygon`,
-  `MultiPoint`,
-  `MultiLineString`,
-  or `MultiPolygon`.
+- `type` field specifies a GeoJSON geometry type that must be one of `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, or `MultiPolygon`.
 - `coordinates` field specifies an array of latitude and longitude values.
 
 See the example GeoJSON document in the following example:

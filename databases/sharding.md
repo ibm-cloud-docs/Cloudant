@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-10-20"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -173,9 +173,7 @@ The numbers in these guidelines are derived from observation and experience rath
 {: #setting-shard-count}
 
 The number of shards,
-`Q,
-for a database is set when the database is created.
-The `Q` value cannot be changed later.
+`Q`, for a database is set when the database is created. The `Q` value cannot be changed later.
 
 To specify the `Q` when you create a database,
 use the `q` query string parameter.

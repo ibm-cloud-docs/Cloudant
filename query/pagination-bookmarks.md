@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-05"
+lastupdated: "2021-10-21"
 
 keywords: _all_docs endpoint, skip, limit, endkey, query, search, paging, mapreduce views
 
@@ -139,7 +139,7 @@ GET /mydb/_all_docs?limit=11
 ```
 {: codeblock}
 
-```
+```http
 # second request
 GET /mydb/_all_docs?limit=11&startkey="gazelle"
 {

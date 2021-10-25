@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-10-20"
 
 keywords: syntax of monitoring request, monitoring endpoints, monitoring metrics, monitoring requests
 
@@ -35,9 +35,9 @@ The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enter
 {: important}
 
 You want to be able to answer the question:
-```
-In what way has the system behavior changed as a result of any configuration or application modifications?
-```
+
+*In what way has the system behavior changed as a result of any configuration or application modifications?*
+
 
 To answer the question,
 you need data.
@@ -110,7 +110,7 @@ you can choose to receive the results in [`raw` format](#with-format=raw).
 The results include a text string that identifies the metric that is stored on the server that provides the API capability,
 for example:
 
-```
+```sh
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.used)
 ```
 {: codeblock}
@@ -187,7 +187,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=mycluste
 
 See an example result after you request disk use data in `raw` format:
 
-```
+```sh
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.used),1391019780,1391020080,60|344708448256.0,345318227968.0,346120126464.0,346716471296.0,175483256832.0
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.free),1391019780,1391020080,60|6.49070326579e+12,6.4896982057e+12,6.48884414054e+12,6.48801589658e+12,4.32277107507e+12
 ```

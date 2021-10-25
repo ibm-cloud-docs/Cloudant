@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-20"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library, compress backup, schedule backup
 
@@ -76,7 +76,7 @@ including the ones in this list:
     {: note}
 
 - Sending the backup text file to a named output file,
-  rather than redirecting the `stdout` output.
+   rather than redirecting the `stdout` output.
 
 The CouchBackup tools have [limitations](#limitations).
 {: important}
@@ -113,15 +113,15 @@ The CouchBackup tools have the following limitations:
 - `_security` settings aren't backed up by the tools.
 - Attachments aren't backed up by the tools.
 - Backups aren't precise "point-in-time" snapshots.
-  The reason is that the documents in the database are retrieved in batches,
-  but other applications might be updating documents at the same time.
-  Therefore, data in the database can change between the times when the first and last batches are read.
+   The reason is that the documents in the database are retrieved in batches,
+   but other applications might be updating documents at the same time.
+   Therefore, data in the database can change between the times when the first and last batches are read.
 - Index definitions that are held in design documents are backed up,
-  but the content of indexes isn't backed up.
-  This limitation means that when data is restored,
-  the indexes must be rebuilt.
-  The rebuilding might take a considerable amount of time,
-  depending on how much data is restored.
+   but the content of indexes isn't backed up.
+   This limitation means that when data is restored,
+   the indexes must be rebuilt.
+   The rebuilding might take a considerable amount of time,
+   depending on how much data is restored.
 
 ## Using the tools
 {: #using-the-tools}
@@ -134,11 +134,11 @@ by describing the use of the tools for specific tasks.
 The CouchBackup package provides two ways of using its core functions.
 
 - The command-line tools can be embedded into standard UNIX&trade; command pipelines.
-  For many scenarios,
-  a combination of `cron` and simple shell scripting of the `couchbackup` application is sufficient.
+   For many scenarios,
+   a combination of `cron` and simple shell scripting of the `couchbackup` application is sufficient.
 - A library usable from Node.js.
-  The library allows more complicated backup processes to be created and deployed,
-  such as determining dynamically which databases must be backed up.
+   The library allows more complicated backup processes to be created and deployed,
+   such as determining dynamically which databases must be backed up.
 
 Use either the command-line backup tool,
 or the library with application code,
@@ -236,11 +236,11 @@ The library is useful for more complicated scenarios,
 for example:
 
 - Backing up several databases in one task.
-  You might do this backup by identifying all the databases by using the [`_all_dbs`](/apidocs/cloudant#getalldbs){: new_window}{: external} call,
-  then doing a backup of each database individually.
+   You might do this backup by identifying all the databases by using the [`_all_dbs`](/apidocs/cloudant#getalldbs){: new_window}{: external} call,
+   then doing a backup of each database individually.
 - Longer pipelines increase the risk of errors.
-  By using the CouchBackup library,
-  your application can detect and address any error at the earliest opportunity.
+   By using the CouchBackup library,
+   your application can detect and address any error at the earliest opportunity.
 
 For more information,
 see the [NPM page](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.

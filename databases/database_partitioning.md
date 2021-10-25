@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-10-20"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -94,11 +94,8 @@ If you're thinking of using {{site.data.keyword.cloudant_short_notm}}'s new *par
 the choice of a partition key is important. A partition key must have:
 
 - Many values - lots of small partitions are better than a few large ones. A million partitions are perfectly fine, but keep each partition under 10 GB in total size. 
-- No hot spots - avoid designing a system that makes one partition handle a high
-  proportion of the workload. If the work is evenly distributed around the
-  partitions, the database performs more smoothly.
-- Repeating - If each partition key is unique, one document per
-  partition exists. To get the best out of partitioned databases, multiple documents per partition must exist - documents that logically belong together.
+- No hot spots - avoid designing a system that makes one partition handle a high proportion of the workload. If the work is evenly distributed around the partitions, the database performs more smoothly.
+- Repeating - If each partition key is unique, one document per partition exists. To get the best out of partitioned databases, multiple documents per partition must exist - documents that logically belong together.
 
 Let's look at some use cases and some good and bad choices for a partition key.
 
@@ -193,7 +190,7 @@ IDs. Another alternative is to name documents by device ID and record timestamp.
 
 Using the second approach, we'd end up with document IDs like the following example:
 
-```
+```sh
 device-123456:20181211T11:13:24.123456Z
 ```
 {: codeblock}
@@ -235,7 +232,7 @@ Now, you use a database that is called `readings` and an account called
 `acme`. To create a partitioned database, pass `true` as the
 `partitioned` argument to the database creation request:
 
-```
+```curl
 curl -XPUT "https://acme.cloudant.com/readings?partitioned=true"
 ```
 {: codeblock}
@@ -259,7 +256,7 @@ First, let's define a simple document format to work with:
 
 This document uses the partitioning scheme based on a piece of infrastructure. The document ID might include the infrastructure ID as the partition key, and include both device and timestamp as the document key:
 
-```
+```sh
 bridge-9876:device-123456-20181211T11:13:24.123456Z
 ```
 {: codeblock}
@@ -296,7 +293,7 @@ this document would look something like this:
 
 Assuming the previous document in `./view.json`, this document is uploaded to the database by using:
 
-```
+```sh
 curl -XPOST "https://acme.cloudant.com/readings" -d @view.json
 ```
 {: codeblock}
@@ -336,7 +333,7 @@ The definition of by timestamp is shown in the following example:
 Assuming the previous document is `./query-index1.json`, upload the index to the
 database by using this command:
 
-```
+```sh
 curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index1.json
 ```
 {: codeblock}
@@ -361,7 +358,7 @@ The definition of by device ID and timestamp is shown in the following example:
 Assuming the previous document is `./query-index2.json`, upload the index to the
 database by using this command:
 
-```
+```sh
 curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index2.json
 ```
 {: codeblock}
@@ -383,7 +380,7 @@ These partitions are infrastructure-based, so you can use `_all_docs` for a
 partition. For example, query all readings for the `bridge-1234`
 infrastructure piece by using the following command.
 
-```
+```sh
 curl -XGET \
     "https://acme.cloudant.com/readings/_partition/bridge-1234/_all_docs?include_docs=true"
 ```
@@ -408,7 +405,7 @@ issue a query to the partition to get the readings for today:
 
 The partition is embedded in the HTTP path when you issue the request to {{site.data.keyword.cloudant_short_notm}}:
 
-```
+```sh
 curl -XPOST \
     "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json
@@ -437,7 +434,7 @@ application.
 To find the relevant partition for a device, you query the `by-device` view,
 sending the device ID as the key:
 
-```
+```sh
 curl -XGET \
   "https://acme.cloudant.com/readings/_design/infrastructure-mapping/_view/by-device?keys=["device-123456"]&limit=1"
 ```
@@ -481,7 +478,7 @@ used, as if one were issuing a global query.
 
 The partition is embedded in the HTTP path when you issue the request to {{site.data.keyword.cloudant_short_notm}}:
 
-```
+```sh
 curl -XPOST \
     "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json

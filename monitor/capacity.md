@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-10"
+lastupdated: "2021-10-20"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
@@ -114,7 +114,7 @@ Content-Type: application/json
 
 See the following example JSON object to set target capacity:
 
-```
+```sh
 {
   "blocks": NUMBER_OF_BLOCKS
 }

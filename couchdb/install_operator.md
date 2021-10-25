@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-10-20"
 
 keywords: subscription, operatorgroup, namespace, openshift, kubernetes
 
@@ -52,24 +52,24 @@ If it isn't installed already, you must install [Operator Lifecycle Manager](htt
 
 1. Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster, by running the following command: 
 
-    ```
+    ```curl
     curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/$OLM_RELEASE/install.sh | bash -s $OLM_RELEASE
     ```
     {: codeblock}
 
-  For more information, see the [How do I install OLM](https://operator-framework.github.io/olm-book/docs/install-olm.html) guide?
+   For more information, see the [How do I install OLM](https://operator-framework.github.io/olm-book/docs/install-olm.html) guide?
 
 2. Install the operator by running the following command. 
-  This Operator is installed in the "operators" namespace and is usable from all namespaces in the cluster.
+   This Operator is installed in the "operators" namespace and is usable from all namespaces in the cluster.
    
-    ```
+    ```sh
     kubectl create -f https://operatorhub.io/install/couchdb-operator.yaml
     ```
     {: codeblock}
 
 3. After the installation is complete, validate that the operator is running by using the following command.
 
-    ```
+    ```sh
     kubectl get csv -n operators
     ```
     {: codeblock}
