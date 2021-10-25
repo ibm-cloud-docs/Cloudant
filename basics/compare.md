@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-15"
+lastupdated: "2021-10-21"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -83,8 +83,8 @@ click the corresponding link.
 | `POST /{db}/_all_docs` \n [Cloudant](/apidocs/cloudant#postalldocs){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/bulk-api.html?highlight=_all_docs#post--db-_all_docs) | Query a list of all documents in a database by using the HTTP `POST` method where the query is submitted as a JSON object in the request body. \n CouchDB documentation references more query parameters (`end_key`, `endkey_docid`, `end_key_doc_id`, `stale`, `start_key`, `startkey_docid`, `start_key_doc_id`, `update_seq`). |
 | `POST /{db}/_bulk_docs` \n [Cloudant](/apidocs/cloudant#postbulkdocs){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/bulk-api.html?highlight=_all_docs#post--db-_bulk_docs) | Create and update multiple documents at the same time within a single request. \n CouchDB documentation references an extra request object field (`new_edits`). |
 | `POST /{db}/_bulk_get` \n [Cloudant](/apidocs/cloudant#postbulkget){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/bulk-api.html?highlight=_all_docs#post--db-_bulk_get) | Retrieve specific revisions or revision histories for multiple documents. |
-| `GET /{db}/_changes` \n [Cloudant](/apidocs/cloudant#getchanges){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/changes.html#get--db-_changes) | List of changes that are made to documents in the database, including insertions, updates, and deletions. \n CouchDB includes query parameters (`attachments`, `att_encoding_info`, `last-event-id`, `view`).|
-| `POST /{db}/_changes` \n [Cloudant](/apidocs/cloudant#postchanges){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/changes.html#post--db-_changes) | List of changes that are made to documents in the database, including insertions, updates, and deletions. |
+| `GET /{db}/_changes` \n [Cloudant](/apidocs/cloudant#getchanges-databases){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/changes.html#get--db-_changes) | List of changes that are made to documents in the database, including insertions, updates, and deletions. \n CouchDB includes query parameters (`attachments`, `att_encoding_info`, `last-event-id`, `view`).|
+| `POST /{db}/_changes` \n [Cloudant](/apidocs/cloudant#postchanges-databases){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/changes.html#post--db-_changes) | List of changes that are made to documents in the database, including insertions, updates, and deletions. |
 | `POST /{db}/_compact` \n [CouchDB](https://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_compact) | Request compaction of the specified database. |
 | `POST /{db}/_compact/{ddoc}` \n [CouchDB](https://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_compact-ddoc) | Compact the view indexes associated with the specified design document. |
 | `HEAD /{db}/_design/{ddoc}` \n [Cloudant](/apidocs/cloudant#headdesigndocument){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html?highlight=_design#head--db-_design-ddoc) | Retrieve the HTTP headers that contain a minimal amount of information about the specified design document. |
@@ -115,7 +115,7 @@ click the corresponding link.
 | `GET /{db}/_design/{ddoc}/{attname}` \n [Cloudant](/apidocs/cloudant#getdesigndocumentattachment){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc-attname) | Retrieve the file attachment associated with the design document. |
 | `PUT /{db}/_design/{ddoc}/{attname}` \n [Cloudant](/apidocs/cloudant#putdesigndocumentattachment){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc-attname) | Upload the supplied content as an attachment to the specified design document. |
 | `DELETE /{db}/_design/{ddoc}/{attname}` \n [Cloudant](/apidocs/cloudant#deletedesigndocumentattachment){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html#delete--db-_design-ddoc-attname) | Delete the attachment of the specified design document. |
-| `POST /{db}/_ensure_full_commit` \n Cloudant, [CouchDB](https://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_ensure_full_commit) | Commit any recent changes to the specified database to disk. |
+| `POST /{db}/_ensure_full_commit` \n [CouchDB](https://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_ensure_full_commit) | Commit any recent changes to the specified database to disk. |
 | `POST /{db}/_explain` \n [Cloudant](/apidocs/cloudant#postexplain){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_explain) | Identify which index is being used by a particular query. |
 | `POST /{db}/_find` \n [Cloudant](/apidocs/cloudant#postfind){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_find) | Find documents that use a declarative JSON querying syntax. \n {{site.data.keyword.cloudant_short_notm}} documentation references more request body fields (r, bookmark). | 
 | `GET /{db}/_index` \n [Cloudant](/apidocs/cloudant#getindexesinformation){: new_window}{: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#get--db-_index) | List indexes. |
