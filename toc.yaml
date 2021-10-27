@@ -183,7 +183,10 @@ toc:
           label: API & SDK reference docs
           href: https://cloud.ibm.com/apidocs/cloudant
       - /Cloudant-cli-plugin/Cloudant-cli-plugin-cloudant-cli
-
+      - link:
+          label: Terraform reference docs
+          href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant
+   
   - navgroup:
       id: help
       topics:
