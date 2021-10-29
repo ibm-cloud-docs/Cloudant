@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-10-29"
 
 keywords: compare, open source, replication protocol, database ecosystem, features, high availability, security
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Overview of Apache CouchDB and the Operator
 {: #apache-couchdb-overview}
 
-[Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external} is a powerful and scalable database with an intuitive HTTP API that scales from a developer's laptop to production database clusters. 
+[Apache CouchDB](http://couchdb.apache.org/){: external} is a powerful and scalable database with an intuitive HTTP API that scales from a developer's laptop to production database clusters. 
 {: shortdesc}
 
 Apache CouchDb is an Apache-licensed open source database. Furthermore, the Apache CouchDB replication protocol allows data to be synchronized between clusters spread across the globe, to devices in your customers' pockets, and to {{site.data.keyword.cloudantfull}} managed service instances. It is proven for production and is available at no charge to download and use for any purpose.
@@ -42,7 +42,7 @@ Apache CouchDb is an Apache-licensed open source database. Furthermore, the Apac
 ## Apache CouchDB Operator
 {: #apache-couchdb-operator-overview}
 
-An [Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/){: new_window}{: external} is a method of packaging, deploying, and managing a Kubernetes-native application. 
+An [Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/){: external} is a method of packaging, deploying, and managing a Kubernetes-native application. 
 
 The Operator for Apache CouchDB helps you deploy and manage an Apache CouchDB cluster on Kubernetes. 
 
@@ -89,7 +89,7 @@ Replicas
 ### Supported Apache CouchDB Versions
 {: #couchdb-supported-versions}
 
-The currently supported Apache CouchDB version is [Apache CouchDB 3.x](https://docs.couchdb.org/en/3.1.1/){: new_window}{: external}.
+The currently supported Apache CouchDB version is [Apache CouchDB 3.x](https://docs.couchdb.org/en/3.1.1/){: external}.
  
 ### Using the Operator
 {: #using-operator}

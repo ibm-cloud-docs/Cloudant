@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-29"
 
 keywords: apache couchdb, support, extension, provision an instance, pricing, vCPU definition
 
@@ -27,18 +27,17 @@ subcollection: Cloudant
 {: #support-for-apache-couchdb-support}
 
 Apache CouchDB is Apache-licensed open source software and free to use. For customers who need support from {{site.data.keyword.IBM}} for Apache CouchDB, see [Cloud extenstion for apache couchdb support](/docs/Cloudant?topic=Cloudant-support-for-apache-couchdb-support#cloud-extenstion-for-apache-couchdb-support).
-
 {: shortdesc}
 
 ## Chat
 {: #chat-support}
 
-The Apache CouchDB community has Slack and IRC channels where you can ask questions. For more information, see the Slack sign-up form and the IRC details on the [Apache CouchDB website](http://couchdb.apache.org/){: new_window}{: external}.
+The Apache CouchDB community has Slack and IRC channels where you can ask questions. For more information, see the Slack sign-up form and the IRC details on the [Apache CouchDB website](http://couchdb.apache.org/){: external}.
 
 ## Documentation
 {: #documentation-support}
 
-The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_window}{: external} includes installation, configuration, and maintenance information along with an HTTP API reference guide.
+The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: external} includes installation, configuration, and maintenance information along with an HTTP API reference guide.
 
 ## {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB
 {: #cloud-extenstion-for-apache-couchdb-support}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-29"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -86,6 +86,7 @@ A design document's structure includes the following parts:
 -	**Validate_doc_update (optional, disallowed when `partitioned` is `true`)** - Update validation function.
 
 ### The `options.partitioned` field
+{: #the-options.partitioned-field}
 
 This field sets whether the created index is a partitioned or global index.
 
@@ -364,10 +365,10 @@ For example,
 to create a design document that is used for searching,
 you must ensure that two conditions are true:
 
-1.	You defined the document as a design document when you started the `_id` with `_design/`.
-2.	You created a [search index](/docs/Cloudant?topic=Cloudant-cloudant-search) within the document where you 
-	[updated](/docs/Cloudant?topic=Cloudant-documents#update) the document with the appropriate field
-	or [created](/docs/Cloudant?topic=Cloudant-documents#create-document) a new document that includes the search index.
+1.   You defined the document as a design document when you started the `_id` with `_design/`.
+
+2.   You created a [search index](/docs/Cloudant?topic=Cloudant-cloudant-search) within the document where you 
+   [updated](/docs/Cloudant?topic=Cloudant-documents#update) the document with the appropriate field or [created](/docs/Cloudant?topic=Cloudant-documents#create-document) a new document that includes the search index.
 
 As soon as the search index design document exists and the index is built,
 you can make queries by using it.
@@ -378,7 +379,7 @@ you can make queries by using it.
 Functions in design documents are run on multiple nodes for each document,
 and might be run several times.
 To avoid inconsistencies,
-they need to be [idempotent](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning){: new_window}{: external},
+they need to be [idempotent](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning){: external},
 meaning they need to behave identically when run multiple times or on different nodes.
 In particular,
 you must not use functions that generate random numbers or return the current time.
@@ -420,7 +421,7 @@ The `head` argument identifies the documents to be processed by the list functio
 The `req` argument includes more information about the request. With this argument, you can create list functions that are more dynamic
 because they're based on multiple factors such as query parameters or the user context.
 
-The values within the `req` argument are described in  [Retrieve a design document](/apidocs/cloudant#getdesigndocument){: new_window}{: external} in the Response section under Filters.
+The values within the `req` argument are described in  [Retrieve a design document](/apidocs/cloudant#getdesigndocument){: external} in the Response section under Filters.
 
 See the following example design document that references a list function, expressed by using JSON:
 
@@ -530,7 +531,7 @@ The `req` argument contains the following fields:
 :   Raw requested path string.
 
 `secObj`
-:   The database's [security object](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
+:   The database's [security object](/apidocs/cloudant#getdatabaseinformation){: external}.
 
 `userCtx`
 :   Context about the currently authenticated user, specifically, their `name` and `roles` within the current database.
@@ -827,7 +828,7 @@ A number of predefined filter functions are available:
 :   Accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
 
 [`_selector`](#the-_selector-filter)
-:   Accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
+:   Accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: external}.
 
 [`_view`](#the-_view-filter)
 :   With this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
@@ -943,7 +944,7 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 {: #the-selector-filter}
 
 The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
-for [`_find`](/apidocs/cloudant#postfind){: new_window}{: external}.
+for [`_find`](/apidocs/cloudant#postfind){: external}.
 
 For more examples that show use of this filter,
 see the information on [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax).
@@ -1074,7 +1075,7 @@ Argument  | Purpose
 ----------|--------
 `newDoc`  | The version of the document passed in the request.
 `oldDoc`  | The version of the document currently in the database, or `null` if none exists.
-`secObj`  | The [security object](/apidocs/cloudant#getsecurity){: new_window}{: external} for the database.
+`secObj`  | The [security object](/apidocs/cloudant#getsecurity){: external} for the database.
 `userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`.
 {: caption="Table 10. Arguments for the update validator" caption-side="top"}
 
@@ -1147,17 +1148,17 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info"
 
 The JSON response includes the following individual fields:
 
--	`name` - Name or ID of design document.
--	`view_index` - View Index
-	-	`compact_running` - Indicates whether a compaction routine runs on the view.
-	-	`disk_size` - Size in bytes of the view as stored on disk.
-	-	`language` - Language that is used for defining views.
-	-	`purge_seq` - The purge sequence that was processed.
-	-	`signature`	 - MD5 signature of the views for the design document.
-	-	`update_seq` - The update sequence of the corresponding database that was indexed.
-	-	`updater_running` - Indicates whether the view is being updated.
-	-	`waiting_clients` - Number of clients that are waiting on views from this design document.
-	-	`waiting_commit` - Indicates whether the underlying database has outstanding commits that need to process. 
+-   `name` - Name or ID of design document.
+-   `view_index` - View Index
+   -	`compact_running` - Indicates whether a compaction routine runs on the view.
+   -	`disk_size` - Size in bytes of the view as stored on disk.
+   -	`language` - Language that is used for defining views.
+   -	`purge_seq` - The purge sequence that was processed.
+   -	`signature`	 - MD5 signature of the views for the design document.
+   -	`update_seq` - The update sequence of the corresponding database that was indexed.
+   -	`updater_running` - Indicates whether the view is being updated.
+   -	`waiting_clients` - Number of clients that are waiting on views from this design document.
+   -	`waiting_commit` - Indicates whether the underlying database has outstanding commits that need to process. 
 
 See the following example response in JSON format:
 

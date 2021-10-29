@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-11-01"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -297,7 +297,7 @@ The acceptable types are shown in the following list:
 -	`"number"`
 
 #### The `index_array_lengths` field
-{: the-index_array_lengths-field}
+{: #the-index_array_lengths-field}
 
 {{site.data.keyword.cloudant_short_notm}} Query text indexes have a property that is called `index_array_lengths`.
 If the property isn't explicitly set,
@@ -408,7 +408,7 @@ Methods  | Path                | Description
 ## Creating a partial index
 {: #creating-a-partial-index}
 
-{{site.data.keyword.cloudant_short_notm}} Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){: new_window}{: external}
+{{site.data.keyword.cloudant_short_notm}} Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){: external}
 and the original example. 
 
 The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still compatible with an earlier version for text indexes only.
@@ -1014,7 +1014,7 @@ Other condition operators require the argument to be in a specific JSON format.
 | Array         | `$in`     | Array of JSON values | The document field must exist in the list provided. |
 |              | `$nin`    | Array of JSON values | The document field must not exist in the list provided. |
 |              | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields can't match this condition. |
-| Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}. Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer. |
+| Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/apidocs/cloudant#list-of-http-codes){: external}. Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer. |
 |              | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression. |
 {: caption="Table 10. Condition operator argument requirements" caption-side="top"}
 
@@ -1419,10 +1419,10 @@ The `$mod` operator matches documents where the expression (`field % Divisor == 
 and only when the document field is an integer.
 The Divisor and Remainder must be integers.
 They can be positive or negative integers.
-A query where the Divisor or Remainder is a non-integer returns a [404 status](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
+A query where the Divisor or Remainder is a non-integer returns a [404 status](/apidocs/cloudant#list-of-http-codes){: external}.
 
 When you use negative integer values for the Divisor or Remainder,
-the {{site.data.keyword.cloudant_short_notm}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: new_window}{: external}. Both the [Erlang `rem` modulo operator](http://erlang.org/doc/reference_manual/expressions.html){: new_window}{: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: new_window}{: external},
+the {{site.data.keyword.cloudant_short_notm}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: external}. Both the [Erlang `rem` modulo operator](http://erlang.org/doc/reference_manual/expressions.html){: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: external},
 behave in a similar way.
 {: tip}
 
@@ -1486,13 +1486,13 @@ resulting in poor performance. Only equality operators, such as `$eq`,
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently *based* on
-the [Perl Compatible Regular Expression (PCRE) library](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions){: new_window}{: external}.
+the [Perl Compatible Regular Expression (PCRE) library](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions){: external}.
 However,
 not all of the PCRE library is implemented.
 Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
-see the [Erlang Regular Expression](http://erlang.org/doc/man/re.html){: new_window}{: external} information.
+see the [Erlang Regular Expression](http://erlang.org/doc/man/re.html){: external} information.
 
 ## Sort syntax
 {: #sort-syntax}
@@ -1666,10 +1666,8 @@ When you specify an index to use,
 	and finds the index with the closest match to operators and fields that are used in the query.
 	If two or more JSON type indexes match,
 	the index with the smallest number of fields in the index is preferred.
-  If two or more candidate indexes still exist,
-  the index with the first alphabetical name is chosen.
--	If a `json` type index *and* a `text` type index might both satisfy a selector,
-	the `json` index is chosen by default.
+   If two or more candidate indexes still exist, the index with the first alphabetical name is chosen.
+-	If a `json` type index *and* a `text` type index might both satisfy a selector, the `json` index is chosen by default.
 - The `text` type index is chosen when the following conditions are met:
     - A `json` type index *and* a `text` type index exist in the same field (for example `fieldone`).
     - The selector can be satisfied only by using a `text` type index.
@@ -1855,6 +1853,7 @@ See the following example query to be converted:
 {: codeblock}
 
 #### The corresponding Lucene query
+{: #corresponding-lucene-query}
 
 ```javascript
 (age_3anumber:{5 TO Infinity])
@@ -1867,6 +1866,7 @@ See the following example query to be converted:
 The following example illustrates some important points.
 
 #### JSON query to be converted to Lucene
+{: #json-query-convert-lucene}
 
 ```json
 {

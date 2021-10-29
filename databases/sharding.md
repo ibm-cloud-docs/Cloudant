@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-29"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -80,6 +80,7 @@ and returns this response to the client.
 The number of shards for a database can affect the performance in two ways:
 
 1.	Each document in the database is stored on a single shard.
+
 	Therefore,
 	having many shards enables greater parallelism for any single document request.
 	The reason is that the coordinator sends requests only to the nodes that hold the document.
@@ -88,6 +89,7 @@ The number of shards for a database can affect the performance in two ways:
 	there are likely to be many other nodes that do not need to respond to the request.
 	These nodes can continue to work on other tasks without interruption from the coordinator request.
 2.	To respond to a query request,
+
 	a database must process the results from all the shards.
 	Therefore,
 	having more shards introduces a greater processing demand.
@@ -120,7 +122,7 @@ to estimate an appropriate shard count.
 When you consider data size,
 an important consideration is the number of documents per shard.
 Each shard holds its documents in a large
-[B-tree](https://en.wikipedia.org/wiki/B-tree){: new_window}{: external}
+[B-tree](https://en.wikipedia.org/wiki/B-tree){: external}
 on disk.
 Indexes are stored in the same way.
 As more documents are added to a shard,
@@ -191,7 +193,7 @@ You can configure `Q`. However, you want to prohibit large values of `Q` since t
 {: note}
 
 If you attempt to set the `Q` value where it is not available,
-the result is a [`403` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} with a JSON body
+the result is a [`403` response](/apidocs/cloudant#list-of-http-codes){: external} with a JSON body
 similar to the following example:
 
 ```json
@@ -206,7 +208,7 @@ similar to the following example:
 {: #setting-the-replica-count}
 
 In CouchDB version 2 onwards,
-you are allowed to [specify the replica count](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}{: external}
+you are allowed to [specify the replica count](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: external}
 when you create a database.
 However,
 you are not allowed to change the replica count value from the default of 3.

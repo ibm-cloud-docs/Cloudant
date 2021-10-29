@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-11-01"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -31,7 +31,7 @@ subcollection: Cloudant
 - Service credentials
 - Authentication
 - Accessing the {{site.data.keyword.cloudant_short_notm}} Dashboard
-- Programmatically accessing {{site.data.keyword.cloudant_short_notm}} by using [curl](https://curl.haxx.se/){: new_window}{: external} or client libraries
+- Programmatically accessing {{site.data.keyword.cloudant_short_notm}} by using [curl](https://curl.haxx.se/){: external} or client libraries
 {: shortdesc}
 
 ## Endpoints
@@ -115,7 +115,7 @@ credentials tab for your instance. For more information, see the
  and [legacy authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) document for details about using
  either style of authentication.
 
-The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, you must use [API keys](/apidocs/cloudant#introduction){: new_window} rather than account-level credentials for programmatic access and replication jobs.
+The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, you must use [API keys](/apidocs/cloudant#introduction){: external} rather than account-level credentials for programmatic access and replication jobs.
 {: important}
 
 ## {{site.data.keyword.cloudant_short_notm}} Dashboard
@@ -141,7 +141,7 @@ You can leverage the curl command-line utility to access the {{site.data.keyword
 For more information, see [Working with curl](/docs/Cloudant?topic=Cloudant-working-with-curl). *Working with curl* provides details on supplying a username and 
 password to access the {{site.data.keyword.cloudant_short_notm}} API with curl.
 
-If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. You pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. For more information, see [Passing an {{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](/docs/account?topic=account-iamapikeysforservices#token_auth){: new_window}{: external}
+If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. You pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. For more information, see [Passing an {{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](/docs/account?topic=account-iamapikeysforservices#token_auth){: external}
 tutorial.
 
 You can't use an IAM API key directly to authenticate against {{site.data.keyword.cloudant_short_notm}}.

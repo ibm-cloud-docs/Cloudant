@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-10-29"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -27,7 +27,7 @@ subcollection: Cloudant
 {: #how-to-use-attachments}
 
 Another way to store data is to use attachments.
-Attachments are Binary Large OBject ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external})
+Attachments are Binary Large OBject ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: external})
 files that are included within documents.
 {: shortdesc}
 
@@ -43,7 +43,7 @@ Examples of BLOBs would be images and multimedia.
 If you include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-how-to-use-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
-The content type corresponds to a [MIME type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}.
+The content type corresponds to a [MIME type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}.
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
@@ -51,7 +51,7 @@ you specify the attachment MIME type as `image/jpeg`.
 It's a good idea to keep attachments small in size and number because attachments can impact performance.
 {: important}
 
-Attachments aren't permitted on documents in [`_replicator`](/apidocs/cloudant#postreplicate){: new_window}{: external} or [`_users`](/apidocs/cloudant#putsecurity){: new_window}{: external} databases.
+Attachments aren't permitted on documents in [`_replicator`](/apidocs/cloudant#postreplicate){: external} or [`_users`](/apidocs/cloudant#putsecurity){: external} databases.
 {: important}
 
 ## Create or update
@@ -62,7 +62,7 @@ To create a new attachment at the same time as creating a new document, include 
 To create a new attachment on an existing document,
 or to update an attachment on a document,
 make a PUT request with the document's most recent `_rev` to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
-The attachment's [content type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}
+The attachment's [content type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}
 must be specified by using the `Content-Type` header.
 The `$ATTACHMENT` value is the name by which the attachment is associated with the document.
 
@@ -126,24 +126,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT" \
 ```
 {: codeblock}
 
-<!--
-
-See the following example of reading an attachment by using Javascript:
-
-```javascript
-var nano = require('nano');
-var account = nano("https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com");
-var db = account.use($DATABASE);
-db.attachment.get($DOCUMENT_ID, $FILENAME, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-   });
-   ```
-   {: codeblock}
-
--->
-
 ## Delete an attachment
 {: #delete-an-attachment}
 
@@ -151,7 +133,7 @@ To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you don't supply the most recent `_rev`,
-the response is a [409 error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
+the response is a [409 error](/apidocs/cloudant#list-of-http-codes){: external}.
 
 See the following example of deleting an attachment by using HTTP:
 
@@ -188,10 +170,10 @@ See the following example response after a successful delete of an attachment:
 {: #inline}
 
 Inline attachments are attachments that are included as part of the JSON content.
-The content must be provided by using [BASE64](https://en.wikipedia.org/wiki/Base64){: new_window}{: external} representation,
+The content must be provided by using [BASE64](https://en.wikipedia.org/wiki/Base64){: external} representation,
 as shown in the example.
 
-A full list of media types is available in the [media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external} article.
+A full list of media types is available in the [media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external} article.
 
 See the following example JSON document that includes an inline attachment of a jpeg image:
 
@@ -219,7 +201,7 @@ having too many attachments can have an adverse performance impact during replic
 
 For example,
 if your application requires storage for multiple images as attachments or includes large images,
-you must use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
+you must use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: external}
 storage mechanism to store the images.
 You might then use {{site.data.keyword.cloudant_short_notm}} to keep
 the image metadata,

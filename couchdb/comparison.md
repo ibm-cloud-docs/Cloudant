@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-10-29"
 
 keywords: feature comparison, function comparison
 
@@ -51,6 +51,6 @@ The following table shows the feature and function differences that you must be 
 | Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings | User-defined settings |
 | Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB | 64 MB |
 | Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB | Not applicable |
-| Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: new_window}{: external} |  [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) |
+| Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} |  [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) |
 | LDAP    | No     | No | No | No | No |
 {: caption="Table 1. Feature and function differences between {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB" caption-side="top"}

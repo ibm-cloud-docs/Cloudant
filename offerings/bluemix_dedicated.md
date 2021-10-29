@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-02"
+lastupdated: "2021-11-01"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup, ip allowlisting
 
@@ -66,15 +66,15 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 ## Security, encryption, and compliance 
 {: #security-encryption-and-compliance}
 
-All plans are provided on servers with [at rest](https://en.wikipedia.org/wiki/Data_at_rest){: new_window}{: external}
+All plans are provided on servers with [at rest](https://en.wikipedia.org/wiki/Data_at_rest){: external}
 disk encryption. Access is over the public network connection and encrypted by 
-using HTTPS. For more detail, see [Security](/docs/Cloudant?topic=Cloudant-security#security){: new_window}{: external}. 
+using HTTPS. For more detail, see [Security](/docs/Cloudant?topic=Cloudant-security#security){: external}. 
 IP allowlisting is available upon request to {{site.data.keyword.cloudant_short_notm}} Support and applies to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
 The plan also offers [Compliance Certification](/docs/Cloudant?topic=Cloudant-compliance#compliance). 
 
-[HIPAA](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}{: external} 
+[HIPAA](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: external} 
 compliance is available upon request, so request HIPAA compliance during the purchase process with an {{site.data.keyword.IBM_notm}} sales representative. 
 
 ## High availability, disaster recovery, and backup 

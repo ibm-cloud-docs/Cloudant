@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-11-01"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -32,7 +32,7 @@ Audit logs are available for {{site.data.keyword.cloudantfull}}. You can find mo
 ## IBM Cloudant for IBM Cloud
 {: #audit-logs-ibm-cloud}
 
-Users of {{site.data.keyword.cloudant_short_notm}} can use {{site.data.keyword.at_full}} to access audit logs for the service. {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the {{site.data.keyword.cloud_notm}} Auditing Data Federation (CADF) standard. For more information, see [{{site.data.keyword.at_full_notm}} events](/docs/services/Cloudant?topic=Cloudant-at_events){: new_window}.
+Users of {{site.data.keyword.cloudant_short_notm}} can use {{site.data.keyword.at_full}} to access audit logs for the service. {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the {{site.data.keyword.cloud_notm}} Auditing Data Federation (CADF) standard. For more information, see [{{site.data.keyword.at_full_notm}} events](/docs/services/Cloudant?topic=Cloudant-at_events){: external}.
 
 ## {{site.data.keyword.cloudant_short_notm}} not in {{site.data.keyword.cloud_notm}}
 {: #audit-logs-not-ibm-cloud}
@@ -56,8 +56,7 @@ Information | Description
 
 {{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:
 
-- What and when databases and documents were accessed within an account, 
-and by whom.
+- What and when databases and documents were accessed within an account, and by whom.
 - What and when queries were run, and by whom.
 - What a specific principal or user that is accessed, updated, or deleted, and when.
 - What and when replication documents were created or deleted.

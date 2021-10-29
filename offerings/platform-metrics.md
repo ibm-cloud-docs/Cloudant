@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: cloud monitoring, monitoring, platform metrics, observability page, enable platform metrics, view metrics, launch monitoring
 
@@ -40,7 +40,6 @@ Deployment Region | {{site.data.keyword.mon_full_notm}} Region
 `Sydney` | `Sydney`
 `Tokyo` | `Tokyo`
 `Washington DC` | `Washington DC`
-
 {: caption="Table 1. {{site.data.keyword.mon_full_notm}} regions" caption-side="top"}
 
 
@@ -157,10 +156,10 @@ The number of operations that were rate-limited:
 {: caption="Table 3. Rate-limited operations metric metadata" caption-side="top"}
 
 ## Attributes for segmentation
-{: attributes}
+{: #attributes-pm}
 
 ### Global Attributes
-{: global-attributes-pm}
+{: #global-attributes-pm}
 
 The following attributes are available for segmenting all the metrics that are listed previously:
 
@@ -174,7 +173,7 @@ The following attributes are available for segmenting all the metrics that are l
 {: caption="Table 4. Global attributes" caption-side="top"}
 
 ### More Attributes
-{: additional-attributes}
+{: #additional-attributes}
 
 The following attributes are available for segmenting one or more attributes as described in the previous reference. See the individual metrics for segmentation options in the following table:
 

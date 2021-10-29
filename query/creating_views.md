@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-11-01"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -328,7 +328,7 @@ Function | Description
 `_count` | Produces the row count for a specific key. The values can be any valid JSON.
 `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
 `_sum`   | Produces the sum of all values for a key. The values must be numeric.
-`_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: new_window}{: external} algorithm.
+`_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: external} algorithm.
 {: caption="Table 1. Built-in reduce functions" caption-side="top"}
 
 
@@ -368,17 +368,11 @@ function (keys, values, rereduce) {
 Reduce functions must handle two cases:
 
 1.	When `rereduce` is false:
-	-	`keys` is an array whose elements are arrays of the form `[key, id]`,
-		where `key` is a key that is emitted by the map function,
-		and `id` identifies the document from which the key was generated.
-	-	`values` is an array of the values that are emitted for the respective elements in `keys`,
-		for example:
-		`reduce([ [key1,id1], [key2,id2], [key3,id3] ], [value1,value2,value3], false)`.
+	-	`keys` is an array whose elements are arrays of the form `[key, id]`, where `key` is a key that is emitted by the map function, and `id` identifies the document from which the key was generated `values` is an array of the values that are emitted for the respective elements in `keys`, for example: `reduce([ [key1,id1], [key2,id2], [key3,id3] ], [value1,value2,value3], false)`.
 
 2.	When `rereduce` is true:
 	-	`keys` is `null`.
-	-	`values` is an array of the values that are returned by previous calls to the reduce function,
-		for example: `reduce(null, [intermediate1,intermediate2,intermediate3], true)`.
+	-	`values` is an array of the values that are returned by previous calls to the reduce function, for example: `reduce(null, [intermediate1,intermediate2,intermediate3], true)`.
 
 Reduce functions must return a single value,
 suitable for both the `value` field of the final view,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-11-01"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -37,12 +37,12 @@ and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance s
 
 To govern the movement of data from the EU to the US,
 {{site.data.keyword.cloudant_short_notm}} complied with both US-EU and US-Swiss
-[Safe Harbour Frameworks](https://www.export.gov/safeharbor_eu){: new_window}{: external}.
+[Safe Harbour Frameworks](https://www.export.gov/safeharbor_eu){: external}.
 The European Court of Justice
-[invalidated](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){: new_window}{: external}
+[invalidated](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){: external}
 the Safe Harbour agreement in 2015. 
 {{site.data.keyword.IBM_notm}} was quick to urge policymakers to work expediently
-to ensure *[unbroken data flows between the European Union and the United States](https://ec.europa.eu/commission/presscorner/detail/en/IP_16_216){: new_window}{: external}*.
+to ensure *[unbroken data flows between the European Union and the United States](https://ec.europa.eu/commission/presscorner/detail/en/IP_16_216){: external}*.
 
 {{site.data.keyword.IBM_notm}} prepared an EU Model Clauses agreement for {{site.data.keyword.cloudant_short_notm}} customers
 to facilitate the transfer of personal data outside the EU
@@ -64,7 +64,7 @@ to include the content (including any personal data) in the {{site.data.keyword.
 A list of countries where content might be held,
 or from where content might be accessed,
 for delivering and supporting a Cloud Service,
-is available at [Global Data Centers](http://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
+is available at [Global Data Centers](http://www.ibm.com/cloud/data-centers/){: external}.
 
 {{site.data.keyword.cloudant_short_notm}} does not move your data without notification. {{site.data.keyword.cloudant_short_notm}} relies on centralized components for aspects of the service. Of particular interest for data residency are logs that contain URLs. These logs are sent out of region-specific infrastructure, 
 to centralized logging components. For any data where residency is a concern, do not include such data in the URLs, for example, path, query string, and so on. {{site.data.keyword.cloudant_short_notm}} documentation describes how this can be achieved for various areas of our API. For more information, see [Multi-query a MapReduce view](/apidocs/cloudant#postviewqueries) for an example on how to use `POST` for view queries rather than `GET`.
@@ -72,10 +72,10 @@ to centralized logging components. For any data where residency is a concern, do
 For more information, see [Compliance](/docs/Cloudant?topic=Cloudant-compliance#compliance) about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance.
 Similar information can be found for these IaaS business partners:
 
-- [Amazon](https://aws.amazon.com/compliance/){: new_window}{: external}
-- [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/compliance){: new_window}{: external}
+- [Amazon](https://aws.amazon.com/compliance/){: external}
+- [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/compliance){: external}
 
-The [General Data Protection Regulations](https://www.gov.uk/government/publications/guide-to-the-general-data-protection-regulation){: new_window}{: external} were recently approved. {{site.data.keyword.cloudant_short_notm}} customers need to be aware of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
+The [General Data Protection Regulations](https://www.gov.uk/government/publications/guide-to-the-general-data-protection-regulation){: external} were recently approved. {{site.data.keyword.cloudant_short_notm}} customers need to be aware of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation. 
 Customers also need to be aware of {{site.data.keyword.IBM_notm}}'s wider ability to provide a comprehensive suite of solutions
 to assist businesses of all sizes with their own internal data governance requirements.
