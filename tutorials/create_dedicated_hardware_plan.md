@@ -1,7 +1,7 @@
 ---
-
-copyright: 2020, 2021
-lastupdated: "2021-10-21"
+copyright:
+  years: 2020, 2021
+lastupdated: "2021-10-29"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -59,7 +59,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found by using the following website:
-    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
     After you authenticate with your user name and password,
     the {{site.data.keyword.cloud_notm}} dashboard opens. 
 
@@ -92,7 +92,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     a. Select a location for deployment.
 
-       This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
+       This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){: external}.
 
     b. Select `Yes` or `No` to answer whether HIPAA is required.
 
@@ -128,7 +128,7 @@ After your instance is created, you must create a Standard plan on it by selecti
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
     After you authenticate with your user name and password,
     you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click **Create resource** that is shown in the following image. 
 
@@ -185,14 +185,14 @@ After your instance is created, you must create a Standard plan on it by selecti
 
 7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance.
 
-    For more information, see [how to locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials){: new_window}.
+    For more information, see [how to locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials){: external}.
 
 ## Provisioning a Dedicated Hardware plan instance with the {{site.data.keyword.cloud_notm}} CLI
 {: #provisioning-a-dedicated-hardware-plan-instance-with-the-ibm-cloud-cli}
 {: step}
 
 1. Log in to {{site.data.keyword.cloud_notm}} to use {{site.data.keyword.cloud_notm}} CLI.     
-    For more information, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window} to learn about how to log in and set a target resource group.
+    For more information, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: external} to learn about how to log in and set a target resource group.
 
 2. Use the following basic command format to create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance by using {{site.data.keyword.cloud_notm}} CLI.
 
@@ -213,7 +213,7 @@ Field | Description
 
 Parameter | Description
 ----------|------------
-`location` | The actual physical location of the Dedicated Hardware plan instance, which might differ from the REGION. The location can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
+`location` | The actual physical location of the Dedicated Hardware plan instance, which might differ from the REGION. The location can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){: external}.
 `hipaa` | Either `true` or `false`.
 `kms_instance_crn` | An optional parameter that must be set to the CRN of the Key Protect instance housing the encryption key for BYOK. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to BYOK with Key Protect, supply the CRN of the Key Protect instance that holds the encryption key. Otherwise, don't supply this parameter in the CLI, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.
 `kms_key_crn` | This parameter is required if you use the `kms_instance_crn` parameter. Otherwise, it must not be supplied in the CLI command. The `kms_key_crn` parameter is set to the CRN of the encryption key that is stored in the Key Protect instance that is defined by the `kms_instance_crn` parameter.
@@ -230,7 +230,7 @@ ibmcloud resource service-instance-create cloudant-dedicated-with-byok cloudantn
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment-with-the-ibm-cloud-cli}
 {: step} 
 
-1.  Log in to use the {{site.data.keyword.cloud_notm}} CLI.     For more information about how to log in and set a target resource group, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}.
+1.  Log in to use the {{site.data.keyword.cloud_notm}} CLI.     For more information about how to log in and set a target resource group, see [log in to your {{site.data.keyword.cloud_notm}} account](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: external}.
 
 2.  Create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment by using the following basic command format.
 
@@ -293,8 +293,7 @@ ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INST
 The fields for the basic command format are described in the previous table.
 {: note}
 
-1. Create credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service, and name the credentials `creds_for_cs20170517a`. 
+1. Create credentials for the `cs20170517a` instance of an {{site.data.keyword.cloudant_short_notm}} service, and name the credentials `creds_for_cs20170517a`. 
 
     ```sh
     ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
@@ -355,7 +354,7 @@ an {{site.data.keyword.cloudant_short_notm}} service, and name the credentials `
                     iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4fo0                  90-b072-bfffafb68b3e
     ```
     {: pre}
-
+    
 ## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
 {: #listing-the-service-credentials-for-your-ibm-cloudant-service}
 {: step}

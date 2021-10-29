@@ -476,25 +476,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$M
 ```
 {: codeblock}
 
-<!--
-
-_Example invocation of a list function by using Javascript:_
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-var db = account.use($DATABASE);
-
-db.view_with_list($DESIGN_ID, $MAPREDUCE_INDEX, $LIST_FUNCTION, function (err, body, headers) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 ### `head`
 {: #head}
 
@@ -627,25 +608,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION
 ```
 {: codeblock}
 
-<!--
-
-_Example of a show function query by using Javascript:_
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-var db = account.use($DATABASE);
-
-db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 ## Update handlers
 {: #update-handlers}
 
@@ -738,25 +700,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HAND
 	-d "$JSON"
 ```
 {: codeblock}
-
-<!--
-
-### Example of an update handler query, using Javascript
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-var db = account.use($DATABASE);
-
-db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
 
 ## Filter functions
 {: #filter-functions}

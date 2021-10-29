@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-21"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -246,25 +246,6 @@ See the following example that uses the command line to list all databases:
 curl "https://$ACCOUNT.cloudant.com/_all_dbs"
 ```
 {: codeblock}
-
-<!--
-
-### Example of using JavaScript to list all databases
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-
-account.db.list(function (err, body, headers) {
-  if (!err) {
-    console.log(body);
-   }
-   });
-```
-{: codeblock}
-
--->
-
 
 See the following example response that is a JSON array with all the database names:
 
@@ -1154,23 +1135,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE" \
 ```
 {: codeblock}
 
-<!--
-
-See the following example that uses JavaScript to delete an {{site.data.keyword.cloudant_short_notm}} database:
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-
-account.db.destroy($DATABASE, function (err, body, headers) {
-	if (!err) {
-		console.log(body);
-	}
-   });
-```
-{: codeblock}
-
--->
 
 If deletion succeeds, you get a 200 or 202 response.
 An error response uses the HTTP status code to indicate what went wrong.

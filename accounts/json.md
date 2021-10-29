@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-10-29"
 
 keywords: numbers, strings, booleans, arrays, objects, JSON parser, JavaScript
 
@@ -27,7 +27,7 @@ subcollection: Cloudant
 {: #how-json-works}
 
 Most requests and responses to and from {{site.data.keyword.cloudantfull}}
-use [JSON](https://en.wikipedia.org/wiki/JSON){: new_window}{: external} for formatting the content and structure of the data and responses.
+use [JSON](https://en.wikipedia.org/wiki/JSON){: external} for formatting the content and structure of the data and responses.
 {: shortdesc}
 
 In {{site.data.keyword.cloudant_short_notm}} databases,
@@ -51,6 +51,7 @@ JSON supports the same basic types that are supported by JavaScript: numbers, st
 Numbers can be integer or floating point values.
 
 ### Example of a number in JSON format
+{: #example-number-json-format}
 
 ```json
 123
@@ -63,6 +64,7 @@ Numbers can be integer or floating point values.
 Strings must be enclosed by double quotation marks. Strings support Unicode characters and escaping a backslash.
 
 ### Example of a string in JSON format
+{: #example-string-json-format}
 
 ```json
 "A String"
@@ -75,6 +77,7 @@ Strings must be enclosed by double quotation marks. Strings support Unicode char
 A `true` or `false` value.
 
 ### Example of a boolean in JSON format
+{: #example-boolean-json-format}
 
 ```json
 {
@@ -89,6 +92,7 @@ A `true` or `false` value.
 A list of values enclosed in brackets. The values that are enclosed can be any valid JSON.
 
 ### Example of an array in JSON format
+{: #example-array-json-format}
 
 ```json
 [
@@ -106,6 +110,7 @@ A list of values enclosed in brackets. The values that are enclosed can be any v
 {: codeblock}
 
 ### Example of an array in JSON format (linear)
+{: #example-array-json-format}
 
 ```json
 [ "one", 2, "three", [], true, { "foo": "bar" } ]
@@ -122,6 +127,7 @@ The key must be a string,
 but the value can be any of the supported JSON values.
 
 ### Example of a JSON object
+{: #example-json-object}
 
 ```json
 {

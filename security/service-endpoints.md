@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-10-21"
 
 keywords: isolation for IBM Cloudant, service endpoints for IBM Cloudant, private network for IBM Cloudant, network isolation in IBM Cloudant, non-public routes for IBM Cloudant, private connection for IBM Cloudant, private connectivity for IBM Cloudant
 
@@ -93,7 +93,7 @@ This option is not available to multi-tenant users.
 
 
 <!--
-_Review the following example: https://cloud.ibm.com/docs/containers?topic=containers-cs_network_cluster#set-up-public-se. Depending on how and if your service supports users to disable public endpoints, document the steps for disabling a public endpoint to ensure a user can connect over only the private endpoint, if this is an option._
+_Review the following example: /docs/containers?topic=containers-cs_network_cluster#set-up-public-se. Depending on how and if your service supports users to disable public endpoints, document the steps for disabling a public endpoint to ensure a user can connect over only the private endpoint, if this is an option._
 -->
 
 

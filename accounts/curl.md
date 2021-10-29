@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-29"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl, acurl
 
@@ -36,12 +36,12 @@ You use curl examples in the following steps.
 
 You can supply the username and password data for a request in three ways.
 
-1.	If you use the `-u $ACCOUNT` parameter, curl prompts
-	you to enter your password interactively on the command line before you perform the request.
+1.	If you use the `-u $ACCOUNT` parameter, curl prompts you to enter your password interactively on the command line before you perform the request.
+
 	This option is used for the curl examples in the {{site.data.keyword.cloudant_short_notm}} API reference.
 
-2.	**[Caution: This option isn't secure]** Entering the combination parameter `-u $ACCOUNT:$PASSWORD`
-	as part of your command means that you aren't asked to enter your password interactively.
+2.	**[Caution: This option isn't secure]** Entering the combination parameter `-u $ACCOUNT:$PASSWORD` as part of your command means that you aren't asked to enter your password interactively.
+
 	However,
 	a plain text copy of your password appears in the terminal log.
 
@@ -65,8 +65,7 @@ You can supply the username and password data for a request in three ways.
 	Remember to exclude the control file from backups,
 	since it includes the password in clear text.
 
-3.	**[Caution: This option isn't secure]** For an `https` curl request,
-	you can supply the username and password as part of the URL:
+3.	**[Caution: This option isn't secure]** For an `https` curl request, you can supply the username and password as part of the URL:
 
 	`... https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com ...`
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-28"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -12,6 +12,7 @@ content-type: tutorial
 services: Cloudant
 account-plan: lite
 completion-time: 20m
+
 ---
 
 {:new_window: target="_blank"}
@@ -32,7 +33,7 @@ completion-time: 20m
 {: #creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli}
 {: toc-content-type="tutorial"}
 {: toc-services="Cloudant"}
-{: toc-completion-time="10m"}
+{: toc-completion-time="20m"}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} service instance on {{site.data.keyword.cloud}}
 by using the {{site.data.keyword.cloud_notm}} CLI.
@@ -167,7 +168,7 @@ Now, we create a service instance that is called, `cs20170517a`.
     ```
     {: codeblock}
 
-4. Create an instance of an {{site.data.keyword.cloudant_short_notm}} service by using the `Lite` plan. </br>
+4. Create an instance of an {{site.data.keyword.cloudant_short_notm}} service by using the `Lite` plan.    
     The instance name is `cs20170517a` in the US-South location and uses IAM credentials only.
 
     ```sh

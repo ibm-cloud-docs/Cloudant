@@ -75,7 +75,8 @@ Complete the following steps to configure platform metrics:
     {: note}
 
     ![Monitoring menu](../images/monitoring_add.png){: caption="Figure 1. Monitoring menu" caption-side="bottom"}
-51. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
+
+5. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
    After you provision the Monitoring instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
    {: note}

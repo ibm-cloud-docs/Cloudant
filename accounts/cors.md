@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-10-29"
 
 keywords: cross-domain, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard, same origin security policy
 
@@ -26,28 +26,30 @@ subcollection: Cloudant
 # How Cross-origin resource sharing (CORS) works
 {: #cross-origin-resource-sharing}
 
-[CORS](https://www.w3.org/wiki/CORS){: new_window}{: external} is a mechanism that allows resources
+[CORS](https://www.w3.org/wiki/CORS){: external} is a mechanism that allows resources
 such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested
 from JavaScript.
 {: shortdesc}
 
 In this case, the JavaScript is running on a website that is loaded from another domain.
 
-These "cross-domain" requests would normally be forbidden by web browsers. The requests use the [same origin security policy](http://en.wikipedia.org/wiki/Same-origin_policy){: new_window}{: external}.
+These "cross-domain" requests would normally be forbidden by web browsers. The requests use the [same origin security policy](http://en.wikipedia.org/wiki/Same-origin_policy){: external}.
 
 CORS defines a way in which the browser and the server interact to determine whether or not to allow the request.
 For {{site.data.keyword.cloudant_short_notm}},
 CORS might be a good solution in the following use cases.
 
-1.	You have a website on `https://www.example.com`,
-	and you want scripts on this website that can access data from `https://example.cloudant.com`.
+1.	You have a website on `https://www.example.com`, and you want scripts on this website that can access data from `https://example.cloudant.com`.
+
 	To make this access possible,
 	add `https://www.example.com` to your list of allowed origins.
 	The effect is that scripts that are loaded from this domain are then
 	permitted to make Ajax requests to your {{site.data.keyword.cloudant_short_notm}} databases.
 	By using HTTP authorization with CORS requests,
 	users of your application can access only their database.
+
 2.	You want to allow third parties access to your database.
+
 	For example, if you have a database that includes product information, add their domain to your list of allowed origins. After that, you can give sales partners access to the information from JavaScript running on their domain.
 	The effect is that scripts that run on their website can access your {{site.data.keyword.cloudant_short_notm}} database.
 
@@ -84,7 +86,7 @@ To reduce the risk of man-in-the-middle attacks, follow these guidelines:
 -	Ensure that web applications that run on allowed origin domains are trusted
 	and do not have security vulnerabilities.
 
-For more information, see the [API and SDK documentation](/apidocs/cloudant#getcorsinformation){: new_window}{: external} about the configuration endpoints for CORS.
+For more information, see the [API and SDK documentation](/apidocs/cloudant#getcorsinformation){: external} about the configuration endpoints for CORS.
 
 ## Dashboard
 {: #dashboard}
@@ -99,7 +101,7 @@ To see the current CORS configuration,
 open **Account** > **CORS** in the dashboard.
 
 You can enable or disable CORS by using `Enable CORS`.
-This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration){: new_window}{: external}.
+This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration){: external}.
 when you change the CORS configuration from within an application.
 
 To specify that CORS is enabled for all domains,

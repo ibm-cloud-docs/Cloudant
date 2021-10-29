@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-21"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -111,7 +111,7 @@ For example,
 the following command requests an API key for the account `myaccount-dc1`:
 
 ```sh
-$ curl -XPOST "https://myaccount-dc1.cloudant.com/_api/v2/api_keys" -u myaccount-dc1
+curl -XPOST "https://myaccount-dc1.cloudant.com/_api/v2/api_keys" -u myaccount-dc1
 ```
 {: codeblock}
 
