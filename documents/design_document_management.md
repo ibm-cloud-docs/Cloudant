@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-29"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -293,7 +293,7 @@ If the incoming design document is the same as the incumbent one,
 then the script returns almost immediately.
 
 The source code for the script is available here:
-[`couchmigrate`](https://github.com/glynnbird/couchmigrate){: new_window}{: external}.
+[`couchmigrate`](https://github.com/glynnbird/couchmigrate){: external}.
 
 ## The '`stale`' parameter
 {: #the-stale-parameter}

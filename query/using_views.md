@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -315,7 +315,7 @@ responds first.
 
 The data that is returned by a view query is in the form of an array.
 Each element within the array is sorted by using standard
-[UTF-8](https://en.wikipedia.org/wiki/UTF-8){: new_window}{: external} sorting.
+[UTF-8](https://en.wikipedia.org/wiki/UTF-8){: external} sorting.
 The sort is applied to the key defined in the view function. 
 
 The basic order of the output is shown in the following table:

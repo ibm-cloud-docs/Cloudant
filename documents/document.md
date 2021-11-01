@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-29"
 
 ---
 
@@ -23,12 +23,12 @@ lastupdated: "2021-10-20"
 {: #documents}
 
 Documents are
-[JSON objects](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: new_window}{: external}.
+[JSON objects](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: external}.
 Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
 
-If you're using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
+If you're using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/apidocs/cloudant#list-of-http-codes){: external}.
 {: tip}
 
 {{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem) model for data.
@@ -77,7 +77,7 @@ colon characters.
 {: #ids-in-non-partitioned-databases}
 
 For non-partitioned databases, the `_id` field is either created by you, or
-generated automatically as a [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window}{: external}
+generated automatically as a [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: external}
 by {{site.data.keyword.cloudant_short_notm}}.
 
 If you choose to specify the document `_id` field, it must be limited to no more than 7168 characters (7k).
@@ -147,6 +147,7 @@ To create a document,
 send a `POST` request with the document's JSON content to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
 ### Creating a document by using HTTP
+{: #creating-document-using-http}
 
 ```http
 POST /$DATABASE HTTP/1.1
@@ -155,6 +156,7 @@ Content-Type: application/json
 {: codeblock}
 
 ### Creating a document by using the command line
+{: #creating-document-using-command-line}
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE" \
@@ -201,7 +203,7 @@ and `"ok": true`.
 
 If you didn't provide an `_id` field,
 {{site.data.keyword.cloudant_short_notm}} generates one automatically as a
-[UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window}{: external}.
+[UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: external}.
 
 A failure to create the document results in a
 response that contains a description of the error.
@@ -217,7 +219,7 @@ See an example response after successfully creating a document:
 ```
 {: codeblock}
 
-If the write [quorum](#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} is returned.
+If the write [quorum](#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/apidocs/cloudant#list-of-http-codes){: external} is returned.
 {: tip}
 
 ## Read
@@ -229,7 +231,7 @@ send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 Recall that for a partitioned database the `$DOCUMENT_ID` is formed of a partition key part and a document key part.
 
 If you don't know the `_id` for a particular document,
-you can [query the database](/apidocs/cloudant#postalldocsqueries){: new_window}{: external} for all documents.
+you can [query the database](/apidocs/cloudant#postalldocsqueries){: external} for all documents.
 
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
 data that were written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
@@ -297,7 +299,7 @@ Name                | Type | Description | Default
 {: #read-many}
 
 To fetch more than one document at a time,
-[query the database](/apidocs/cloudant#postalldocs){: new_window}{: external}
+[query the database](/apidocs/cloudant#postalldocs){: external}
 by using the `include_docs` option.
 
 ## Update
@@ -311,7 +313,7 @@ in which case you don't need to supply the most recent `_rev` value.
 
 Recall that for a partitioned database the `$DOCUMENT_ID` is formed from a partition key part and a document key part.
 
-If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}. This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: external}. This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: external} is returned.
 {: note}
 
 Any document update can lead to a conflict, especially when you replicate updated documents. For more information about avoiding and resolving conflicts, see the [Document versioning and MVCC guide](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
@@ -378,7 +380,7 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
-If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}. This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} is returned.
+If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: external}. This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: external} is returned.
 {: note}
 
 {{site.data.keyword.cloudant_short_notm}} doesn't completely delete the specified document. Instead, it leaves a [tombstone](#tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
@@ -439,15 +441,16 @@ To remove tombstones manually,
 do the following steps:
 
 1.	Create a database to hold the required documents.
-	The new database is intended to hold all documents except the tombstone documents.
-2.	Set up a [filtered replication](/docs/Cloudant?topic=Cloudant-advanced-replication#filtered-replication-adv-repl) to
-	replicate documents from the original database to the new database.
-	Configure the filter so that documents with the "`_deleted`" attribute aren't replicated.
-3.	When replication is complete,
-	switch your application logic to use the new database.
-4.	Verify that your applications work correctly with the new database.
-	When you're satisfied that everything is working correctly,
-	you might want to delete the old database.
+
+   The new database is intended to hold all documents except the tombstone documents.
+1.	Set up a [filtered replication](/docs/Cloudant?topic=Cloudant-advanced-replication#filtered-replication-adv-repl) to replicate documents from the original database to the new database.
+
+   Configure the filter so that documents with the "`_deleted`" attribute aren't replicated.
+1.	When replication is complete, switch your application logic to use the new database.
+
+1.	Verify that your applications work correctly with the new database.
+
+   When you're satisfied that everything is working correctly, you might want to delete the old database.
 
 In general, try to design and implement your applications to do the minimum necessary amount of deletion.
 {: tip}
@@ -481,7 +484,7 @@ the document that was deleted from the source database is not deleted from the t
 causing an inconsistency.
 
 A solution is to do more advanced removal of tombstones by using
-a [`validate_doc_update` function](http://docs.couchdb.org/en/1.6.1/couchapp/ddocs.html#validate-document-update-functions){: new_window}{: external}.
+a [`validate_doc_update` function](http://docs.couchdb.org/en/1.6.1/couchapp/ddocs.html#validate-document-update-functions){: external}.
 
 A `validate_doc_update` function is stored in a design document.
 The function is run every time that a document is updated in the database.
@@ -489,10 +492,10 @@ The function can be used to prevent invalid or unauthorized document updates.
 
 The function works by using the following parameters:
 
--	The new version of the document.
--	The current version of the document in the database.
--	A user context,
-	which provides details about the user that supplied the updated document.
+-   The new version of the document.
+-   The current version of the document in the database.
+-   A user context,
+-   which provides details about the user that supplied the updated document.
 
 The function inspects the request to determine whether the update is allowed to proceed. If the update is acceptable, the function returns. If the update is not acceptable, a suitable error object is returned.
 In particular, if the user is not authorized to make the update,
@@ -502,14 +505,12 @@ again with an explanatory error message.
 For tombstone removal,
 a suitable `validate_doc_update` function would work as follows:
 
-1.	If the update is to apply a change to an existing document (`oldDoc`) within the target database,
-	the function allows the change by returning.
-	The reason is that the update affected a document that was copied to the target database during the replication,
-	but then changed in the source database during the replication.
-	It's possible that the change was a `DELETE`,
-	resulting in a tombstone record in the target database.
-	The tombstone record is removed by a subsequent replication process at some point in the future.
-2.	The target database does not have a copy of the current document, and the document to be updated has the `_deleted` property (indicating that it's a tombstone). Therefore, the updated document must be a tombstone and was encountered before, so the update to the target database must be rejected.
+1.   If the update is to apply a change to an existing document (`oldDoc`) within the target database, the function allows the change by returning.
+
+   The reason is that the update affected a document that was copied to the target database during the replication, but then changed in the source database during the replication. 
+   It's possible that the change was a `DELETE`, resulting in a tombstone record in the target database.
+   The tombstone record is removed by a subsequent replication process at some point in the future.
+2.   The target database does not have a copy of the current document, and the document to be updated has the `_deleted` property (indicating that it's a tombstone). Therefore, the updated document must be a tombstone and was encountered before, so the update to the target database must be rejected.
 
 See an example JavaScript `validate_doc_update` function to reject deleted documents not already present in the target database:
 
@@ -532,24 +533,21 @@ function(newDoc, oldDoc, userCtx) {
 
 To use a `validate_doc_update` function to remove tombstone documents:
 
-1.	Stop replication from the source to the target database.
-2.	If appropriate,
-	delete the target database,
-	then create a new target database.
-3.	Add a suitable `validate_doc_update` function,
-	similar to the example provided.
+1.   Stop replication from the source to the target database.
+1.   If appropriate, delete the target database, then create a new target database.
+1.   Add a suitable `validate_doc_update` function, similar to the example provided.
+
 	Add it to a design document in the target database.
-4.	Restart replication between the source and the (new) target database.
-5.	When replication is complete,
-	switch your application logic to use the new database.
-6.	Verify that your applications work correctly with the new database.
-	When you're satisfied that everything is working correctly,
-	you might want to delete the old database.
+1.   Restart replication between the source and the (new) target database.
+1.   When replication is complete, switch your application logic to use the new database.
+1.   Verify that your applications work correctly with the new database.
+
+   When you're satisfied that everything is working correctly, you might want to delete the old database.
 
 Here is another variation for using the `validate_doc_update` function to remove tombstone documents if possible.
 
-1.	Add some metadata to the tombstone documents, for example, to record the deletion date.
-2.	Use the function to inspect the metadata and allow deletion documents through if they must be applied to the target database.
+1.   Add some metadata to the tombstone documents, for example, to record the deletion date.
+1.   Use the function to inspect the metadata and allow deletion documents through if they must be applied to the target database.
 
 This check helps ensure correct replication of the deletion.
 
@@ -629,25 +627,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs" \
 	-d "$JSON"
 ```
 {: codeblock}
-
-<!--
-
-#### Example request to create, update, or delete multiple documents, using Javascript
-
-```javascript
-var nano = require('nano');
-var account = nano("https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com");
-var db = account.use($DATABASE);
-
-db.bulk($JSON, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
 
 See an example JSON describing the update, creation, and deletion of three documents in one bulk request:
 
@@ -757,7 +736,7 @@ See an example JSON for a bulk insert of three documents:
 ```
 {: codeblock}
 
-The return code from a successful bulk insertion is [`201`](/apidocs/cloudant#list-of-http-codes){: new_window}{: external}.
+The return code from a successful bulk insertion is [`201`](/apidocs/cloudant#list-of-http-codes){: external}.
 The content of the returned structure indicates success
 or other information messages on a per-document basis.
 
@@ -940,7 +919,7 @@ See an example JSON structure that is returned after bulk delete:
 ### Bulk documents transaction semantics
 {: #bulk-documents-transaction-semantics}
 
-If your request receives a [`202` response](/apidocs/cloudant#list-of-http-codes){: new_window}{: external},
+If your request receives a [`202` response](/apidocs/cloudant#list-of-http-codes){: external},
 the only certainty is that some of the document tasks were processed completely.
 The response body contains the list of documents that were successfully inserted or updated during the process.
 
@@ -1045,7 +1024,7 @@ See an example error message from a validation function:
 {: #the-bulk_get-endpoint}
 
 You might need to access all the available information about multiple documents.
-The `_bulk_get` endpoint is similar to the [`_all_docs`](/apidocs/cloudant#postalldocs){: new_window}{: external} endpoint,
+The `_bulk_get` endpoint is similar to the [`_all_docs`](/apidocs/cloudant#postalldocs){: external} endpoint,
 but returns information about the requested documents only.
 
 Like the `_bulk_docs` endpoint,
@@ -1133,7 +1112,7 @@ contact {{site.data.keyword.cloudant_short_notm}} support.
 ## Time to live
 {: #ttl-time-to-live}
 
-[Time to live](https://en.wikipedia.org/wiki/Time_to_live){: new_window}{: external} (TTL) is a property of data,
+[Time to live](https://en.wikipedia.org/wiki/Time_to_live){: external} (TTL) is a property of data,
 where after a relative amount of time,
 or at an absolute time,
 the data is considered expired.

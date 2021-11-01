@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-10-29"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -42,8 +42,8 @@ The [Grouping related documents together in {{site.data.keyword.cloudant_short_n
 
 {{site.data.keyword.cloudant_short_notm}} supports two types of databases:
 
--	Partitioned
--	Non-partitioned
+-   Partitioned
+-   Non-partitioned
 
 A partitioned database offers significant query performance and cost advantages but requires you to specify a logical partitioning of your data. The partitioning is specified as part of each document's ID. A partitioned database allows performing both global and partition queries. Partition queries target queries at a single, given document partition, meaning they need to process less data to return results. Therefore, partition queries offer significant performance advantages, and also often provide cost advantages over global queries. Global queries target the entire database, which leads to extra complexity, slower performance, and increased cost, but offer results that draw from all data.
 
@@ -77,13 +77,14 @@ submit a `PUT` request with the following format:
 {: caption="Table 1. Query arguments" caption-side="top"}
 
 ### Database naming
+{: #database-naming}
 
 The database name must start with a lowercase letter,
 and contain only the following characters:
 
--	Lowercase characters (a-z)
--	Digits (0-9)
--	Any of the characters _, $, (, ), +, -, and /
+-   Lowercase characters (a-z)
+-   Digits (0-9)
+-   Any of the characters _, $, (, ), +, -, and /
 
 See the following example that uses HTTP to create a partitioned database:
 
@@ -293,12 +294,11 @@ Argument | Description  | Optional | Type | Default
 ### Notes
 {: #get-documents-notes}
 
-1. Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
+1.   Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
 
-2. When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require multiple strings to list the keys you want.
+2.   When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require multiple strings to list the keys you want.
 
-3. When you use the `keys` argument and the revision
-is deleted, the `value` attribute that is returned is a JSON object with the current `_rev` of the document and a `_deleted` attribute. The `doc` attribute is only populated if you specified `include_docs=true` in the request and is `null` if the document is deleted.
+3.   When you use the `keys` argument and the revision is deleted, the `value` attribute that is returned is a JSON object with the current `_rev` of the document and a `_deleted` attribute. The `doc` attribute is only populated if you specified `include_docs=true` in the request and is `null` if the document is deleted.
 
 See the following example that uses HTTP to list all documents in a database:
 
@@ -313,25 +313,6 @@ See the following example that uses the command line to list all documents in a 
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs"
 ```
 {: codeblock}
-
-<!--
-
-### Example of using JavaScript to list all documents in a database
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-var db = account.use($DATABASE);
-
-db.list(function (err, body, headers) {
-  if (!err) {
-    console.log(body);
-  }
-});
-```
-{: codeblock}
-
--->
 
 See the following example that uses HTTP to list all documents in a database that match at least one of the specified keys:
 
@@ -565,11 +546,13 @@ The database endpoint to view deleted databases and recover them with the undele
 The undelete API capability does not automatically or immediately remove the data and any indexes in the database after a delete operation. Instead, the undelete API restores the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion after which time they are permanently deleted and cannot be recovered by using this API endpoint.
 
 ### `GET /_deleted_dbs`
-{: get-deleted_dbs}
+{: #get-deleted_dbs}
 
 Send a `GET` request to find a list of all the deleted databases in the {{site.data.keyword.cloudant_short_notm}} instance. 
 
 #### Request headers
+{: #request-headers-db}
+
 
 ```sh    	
 Accept –
@@ -592,6 +575,7 @@ Accept –
 {: caption="Table 7. Query parameters" caption-side="top"}
 
 #### Response headers
+{: #response-headers-db}
 
 ```sh     	
 Content-Type –
@@ -704,9 +688,9 @@ Accept –
 {: codeblock}
 
 In this case, the request body parameters are shown in the following list:
-- `timestamp` - The timestamp of the database deletion as shown in the GET `_deleted_dbs` endpoint.
-- `source` - The `db_name` of the database that was deleted as shown in the GET `_deleted_dbs` endpoint.
-- `target` - This field is optional. Defaults to the same database name as source.
+-   `timestamp` - The timestamp of the database deletion as shown in the GET `_deleted_dbs` endpoint.
+-   `source` - The `db_name` of the database that was deleted as shown in the GET `_deleted_dbs` endpoint.
+-   `target` - This field is optional. Defaults to the same database name as source.
 
 See the following example request with curl to restore a database `testdb` back to its original name `testdb`:
 ```sh
@@ -809,7 +793,7 @@ Argument       | Description | Supported values | Default
 ----------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False 
 `descending`   | Return the changes in sequential order. | Boolean | False 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](/apidocs/cloudant#getserverinformation){: new_window}{: external} documentation. | A JSON array of document IDs | 
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](/apidocs/cloudant#getserverinformation){: external} documentation. | A JSON array of document IDs | 
 `feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
 `filter`       | Name of [filter function](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=Cloudant-design-documents#design-documents). | `string` | No filter.
 `heartbeat`    | If no changes occurred during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | Any positive number | No heartbeat 
@@ -838,24 +822,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes"
 ```
 {: codeblock}
 
-<!--
-
-### Example of using JavaScript to get a list of changes made to documents in a database:
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-
-account.db.changes($DATABASE, function (err, body, headers) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 ### Changes in a distributed database
 {: #changes-in-a-distributed-database}
 
@@ -874,8 +840,8 @@ is explained in the
 [Replication guide](/docs/Cloudant?topic=Cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 Any application that uses the `_changes` request must be able to process a list of changes correctly as shown in the following list:
-- A different order for the changes that are listed in the response, when compared with an earlier request for the same information.
-- Changes that occur before the change specified by the sequence identifier.
+-   A different order for the changes that are listed in the response, when compared with an earlier request for the same information.
+-   Changes that occur before the change specified by the sequence identifier.
 
 
 ### The `feed` argument
@@ -957,15 +923,13 @@ several built-in filters are available:
 -   `_design` - The `_design` filter accepts only changes to design documents.
 -   `_doc_ids` - This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
     
-    The `_docs_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
-    {: note}
+   The `_docs_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+   {: note}
 
--   `_selector` - Accepts only changes for documents that match a specified selector,
-    which is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} that is used
-    for [`_find`](/apidocs/cloudant#postexplain){: new_window}{: external}.
+-   `_selector` - Accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: external} that is used for [`_find`](/apidocs/cloudant#postexplain){: external}.
 
-    The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
-    {: note}
+   The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+   {: note}
 	
 -   `_view` - Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
 
@@ -1052,28 +1016,20 @@ See the following example (abbreviated) response to a `_changes` request:
 ### Important notes about `_changes`
 {: #important-notes-about-changes}
 
--	The results that are returned by `_changes` are partially ordered.
-	In other words,
-	the order might not be preserved for multiple calls.
-	You might decide to get a current list by using `_changes` and including the [`last_seq` value](#get-changes).
-	The resulting list provides the starting point for subsequent `_changes` lists that use the `since` query argument.
--	Although shard copies of the same range contain the same data,
-	their `_changes` history is often unique.
-	This difference is a result of how writes were applied to the shard. For example,
-	they might be applied in a different order.
-	To be sure that all changes are reported for your specified sequence,
-	it might be necessary to go further back into the shard's history to find a suitable starting point.
-	The changes are then reported from that starting point.
-	This "rolling back" might give the appearance of duplicate updates,
-	or updates that are apparently before the specified `since` value.
--	`_changes` reported by a shard are always presented in order.
-	But the ordering between all the contributing shards might appear to be different.
-	For more information,
-	see [A Changes Feed Example](https://gist.github.com/smithsz/30fb97662c549061e581){: new_window}{: external}.
--	Sequence values are unique for a shard,
-	but might vary between shards.
-	This variation means that, if you have sequence values from different shards,
-	you can't assume that the same sequence value refers to the same document within the different shards.
+-   The results that are returned by `_changes` are partially ordered.
+   In other words, the order might not be preserved for multiple calls.
+   You might decide to get a current list by using `_changes` and including the [`last_seq` value](#get-changes).
+   The resulting list provides the starting point for subsequent `_changes` lists that use the `since` query argument.
+-   Although shard copies of the same range contain the same data, their `_changes` history is often unique.
+   This difference is a result of how writes were applied to the shard. For example, they might be applied in a different order.
+   To be sure that all changes are reported for your specified sequence, it might be necessary to go further back into the shard's history to find a suitable starting point.
+   The changes are then reported from that starting point.
+   This "rolling back" might give the appearance of duplicate updates, or updates that are apparently before the specified `since` value.
+-   `_changes` reported by a shard are always presented in order.
+   But the ordering between all the contributing shards might appear to be different.
+   For more information, see [A Changes Feed Example](https://gist.github.com/smithsz/30fb97662c549061e581){: external}.
+-	Sequence values are unique for a shard, but might vary between shards.
+   This variation means that, if you have sequence values from different shards, you can't assume that the same sequence value refers to the same document within the different shards.
 
 ### Using `POST` to get changes
 {: #using-post-to-get-changes}
@@ -1135,7 +1091,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE" \
 ```
 {: codeblock}
 
-
 If deletion succeeds, you get a 200 or 202 response.
 An error response uses the HTTP status code to indicate what went wrong.
 
@@ -1160,16 +1115,6 @@ See the following example response that is received after a database is deleted 
 
 You must protect your data by taking good quality backups.
 For more information, see an overview of [backing up your data](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).
-
-<!--
-Removed for 96973.
-## Using a different domain
-
-
-Virtual hosts (vhosts) are a way to make {{site.data.keyword.cloudant_short_notm}} serve data from a different domain
-than the one normally associated with your {{site.data.keyword.cloudant_short_notm}} account.
-
--->
 
 ## Creating database applications
 {: #creating-database-applications}

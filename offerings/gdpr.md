@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-08-02"
+lastupdated: "2021-11-01"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -32,7 +32,7 @@ those who host and "process" this data, anywhere in the world. The Regulation al
 rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
 
-With the [General Data Protection Regulation](https://gdpr.eu/){: new_window}{: external},
+With the [General Data Protection Regulation](https://gdpr.eu/){: external},
 {{site.data.keyword.cloudantfull}} customers can rely on
 the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation. Customers can
@@ -43,7 +43,7 @@ to assist businesses of all sizes with their own internal data governance requir
 ## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
 {: #how-do-i-audit-access-to-ibm-cloudant-}
 
-You can find information about auditing in [Audit logging](/docs/Cloudant?topic=Cloudant-audit-logging#audit-logging){: new_window}.
+You can find information about auditing in [Audit logging](/docs/Cloudant?topic=Cloudant-audit-logging#audit-logging){: external}.
 
 ## Supported classifications of Personal Data
 {: #supported-classifications-of-personal-data}
@@ -59,14 +59,14 @@ for GDPR:
 
 **Sensitive Personal Data** is restricted to the following category:
 
-- Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: new_window}{: external}.
+- Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: external}.
 
 If you're storing healthcare data, you *must* complete the following tasks:
 - Notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
 - Request a HIPAA-compliant Dedicated Cluster.
 
 For more information about supported classifications of Personal Data, see the
-[Data Sheet Addendum (DSA) under 2. Personal Data](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
+[Data Sheet Addendum (DSA) under 2. Personal Data](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: external}.
 
 ## Data about me
 {: #data-about-me}
@@ -121,7 +121,7 @@ since PI is always visible and written to the access logs.
 Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data are made available, and kept up to date, through the DSA.
 
 For more information about data locations, see the
-[DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
+[DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: external}.
 
 ## Service security
 {: #service-security}
@@ -174,11 +174,9 @@ When a document is deleted, the database creates a "tombstone." What the tombsto
 on how you delete it:
 
 - If you make a `DELETE` call, the tombstone includes the `_id`, `_rev`, and `_deleted` fields.
-- If you delete by updating the document with a `_deleted: true` field and add a `PUT` or `POST` request to it,
-the tombstone includes what you set in the document body. This practice can be useful in some
-circumstances, for example, when recording why a document was deleted in its tombstone.
+- If you delete by updating the document with a `_deleted: true` field and add a `PUT` or `POST` request to it, the tombstone includes what you set in the document body. This practice can be useful in some circumstances, for example, when recording why a document was deleted in its tombstone.
 
-For more information, see [Simple removal of "tombstone" documents](/docs/Cloudant?topic=Cloudant-documents#tombstone-documents){: new_window}.
+For more information, see [Simple removal of "tombstone" documents](/docs/Cloudant?topic=Cloudant-documents#tombstone-documents){: external}.
 
 ### When is a deleted document removed?
 {: #when-is-a-deleted-document-removed-}
@@ -196,7 +194,7 @@ the storage tier. Databases are always being compacted. It isn't guaranteed that
 data that you deleted or changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting the *Right to be forgotten* requests through
-the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external}.
+the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: external}.
 When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request,
 explicitly triggers database compaction, and verifies that compaction occurred.
 At the end of this process, the only version of the document is its tombstone
@@ -222,7 +220,7 @@ to {{site.data.keyword.cloudant_short_notm}}.
 
 If a document needs removal through a *Right to be forgotten* request, follow these steps:
 
-1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external} to request purging of specific document `_id` values along with the reason.
+1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](http://w3-03.ibm.com/ibm/privacy/index.html){: external} to request purging of specific document `_id` values along with the reason.
 1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} doesn't purge data that doesn't have PI in the `_id`.
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
@@ -247,7 +245,7 @@ Deleting a database adds it to the trash for up to 48 hours. After which time, t
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the
 *responsibility of the customer*. You must ensure that all copies of your
 database are removed from your system. For more information, see
-[{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}.
+[{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: external}.
 
 If you need more help, email `support@cloudant.com`.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-29"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -163,10 +163,11 @@ this number stays small, increasing data size has no effect on query latency,
 unlike global queries.
 
 ## Partitioned databases tutorials
+{: #partitioned-databases-tutorials}
 
 You can see two examples of using partitioned databases:
 
-1. Read about [partitioned databases and Node.js](https://blog.cloudant.com/2019/05/24/Partitioned-Databases-with-Cloudant-Libraries.html){: new_window}{: external} in this blog article that includes how to create a partitioned database, search, views, and a global index. 
+1. Read about [partitioned databases and Node.js](https://blog.cloudant.com/2019/05/24/Partitioned-Databases-with-Cloudant-Libraries.html){: external} in this blog article that includes how to create a partitioned database, search, views, and a global index. 
 2. Read the following example about using views and the `_all_docs` endpoint.
 
 ## Example - Partitioning IoT reading data
@@ -393,6 +394,7 @@ This query needs to use the partitioned `timestamped-readings` index. You can
 issue a query to the partition to get the readings for today:
 
 ##### Find recent readings with query.json, assuming today is 13 December 2018
+{: #find-recent-readings-with-query.json}
 
 ```json
 {
@@ -464,6 +466,7 @@ within the `bridge-9876` partition. A standard {{site.data.keyword.cloudant_shor
 used, as if one were issuing a global query.
 
 ##### query.json
+{: #query.json-dbp}
 
 ```json
 {
@@ -493,7 +496,7 @@ within the `bridge-9876` partition. The selector is only slightly more
 complicated, but still the same as an equivalent global query.
 
 ##### Query for recent results with query.json, assuming today is 13 December 2018
-{: query-for recent-results-with-query.json-assume-date-is-dec-13}
+{: #query-for recent-results-with-query.json-assume-date-is-dec-13}
 
 ```json
 {

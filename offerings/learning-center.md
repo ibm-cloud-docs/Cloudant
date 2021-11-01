@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-01"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -385,8 +385,9 @@ We're going to learn the API by using curl, a free, open source command-line too
 Let's first use curl to fetch a web page - Google's home page.
 
 1. In a command-line terminal, type `curl https://www.google.com`.    
-You get a pageful of HTML in reply.    
-If this method works, then curl is installed, and you can proceed with the next tasks.    Now, we don't want to type the URL of our {{site.data.keyword.cloudant_short_notm}} service every time, so let's save the {{site.data.keyword.cloudant_short_notm}} URL in an environment variable called URL.
+
+   You get a pageful of HTML in reply.    
+   If this method works, then curl is installed, and you can proceed with the next tasks.    Now, we don't want to type the URL of our {{site.data.keyword.cloudant_short_notm}} service every time, so let's save the {{site.data.keyword.cloudant_short_notm}} URL in an environment variable called URL.
 
 2. Run the `export URL` command to create a variable that is called `URL`, which we can access later.
 

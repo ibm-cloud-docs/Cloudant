@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-02"
+lastupdated: "2021-11-01"
 
 keywords: tier-1 physical system, hipaa, iso, pci dss, soc 2 type 2 certification, gdpr
 
@@ -45,7 +45,7 @@ your data is protected by the network and physical security measures that are em
 The GDPR seeks to create a harmonized data protection law 
 framework across the EU. It also aims to give citizens back the control of their personal data, while
 it imposes strict rules on those entities who host and "process" this data, anywhere in the world. The 
-Regulation also introduces rules that relate to the free movement of personal data within and outside the EU. For more information, see the [{{site.data.keyword.IBM_notm}} privacy statement](https://www.ibm.com/privacy/){: new_window}{: external}.
+Regulation also introduces rules that relate to the free movement of personal data within and outside the EU. For more information, see the [{{site.data.keyword.IBM_notm}} privacy statement](https://www.ibm.com/privacy/){: external}.
 
 ## HIPAA
 {: #hipaa}
@@ -61,7 +61,7 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 ## International Organization for Standardization (ISO)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} and {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster are audited by a third-party security firm and meet ISO 27001, ISO 27017, and ISO 27018 requirements. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Compliance page]( https://www.ibm.com/cloud/compliance){: new_window}{: external} for links to the certificates. The following descriptions on the {{site.data.keyword.cloudant_short_notm}} Compliance page cover the {{site.data.keyword.cloudant_short_notm}} service and respective certifications:
+{{site.data.keyword.cloudant_short_notm}} and {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster are audited by a third-party security firm and meet ISO 27001, ISO 27017, and ISO 27018 requirements. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Compliance page]( https://www.ibm.com/cloud/compliance){: external} for links to the certificates. The following descriptions on the {{site.data.keyword.cloudant_short_notm}} Compliance page cover the {{site.data.keyword.cloudant_short_notm}} service and respective certifications:
  
 - {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certified cloud product listing
 - {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certificate - ISO 27001
@@ -84,7 +84,7 @@ Customers are responsible for the storing, processing, and transmission of their
 
 {{site.data.keyword.cloudant_short_notm}} documentation on [service security](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#service-security) and [deletion of data](/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data) covers methods to manage cardholder data within the environment in accordance with PCI requirements. It is the customer’s responsibility to familiarize themselves with these processes and to manage data retention and removal from the service according to the customer’s policies. To facilitate this process, no cardholder data can be used in an {{site.data.keyword.cloudant_short_notm}} document ID. If PAN data is to be stored in {{site.data.keyword.cloudant_short_notm}}, they must be rendered unreadable (in accordance with PCI requirement 3.4) before transmission to the {{site.data.keyword.cloudant_short_notm}} service.
 
-A full list of PCI DSS-ready {{site.data.keyword.cloud_notm}} Platform services and options to request that a PCI DSS AOC and SRM guide can be found at the [{{site.data.keyword.cloud_notm}} compliance page](https://www.ibm.com/cloud/compliance/industry){: new_window}{: external}.
+A full list of PCI DSS-ready {{site.data.keyword.cloud_notm}} Platform services and options to request that a PCI DSS AOC and SRM guide can be found at the [{{site.data.keyword.cloud_notm}} compliance page](https://www.ibm.com/cloud/compliance/industry){: external}.
 
 ## SOC 2 Type 2 Certification
 {: #soc-2-type-2-certification}
@@ -98,6 +98,6 @@ for service providers such as {{site.data.keyword.cloud_notm}} to safeguard thei
 You can request an SOC 2 Type 2 report from the Customer portal 
 or contact your sales representative. Alternatively, you can open 
 a support ticket with 
-[{{site.data.keyword.cloud_notm}} support](https://www.ibm.com/cloud/support){: new_window}{: external} 
+[{{site.data.keyword.cloud_notm}} support](https://www.ibm.com/cloud/support){: external} 
 or email support@cloudant.com.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-11-01"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -236,7 +236,7 @@ the database.
 {: #what-to-do-about-a-stuck-task-}
 
 To resolve a stalled replication,
-you might have to [cancel the replication process](/apidocs/cloudant#deletereplicationdocument){: new_window}{: external} and start it again.
+you might have to [cancel the replication process](/apidocs/cloudant#deletereplicationdocument){: external} and start it again.
 
 If that doesn't help,
 the replication might be stalled because the user who is accessing the source or target databases

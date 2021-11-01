@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -26,7 +26,7 @@ subcollection: Cloudant
 # Using {{site.data.keyword.cloudant_short_notm}} Search
 {: #cloudant-search}
 
-Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one or more fields from your documents. 
+Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}. A search index uses one or more fields from your documents. 
 {: shortdesc}
 
 You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
@@ -226,7 +226,7 @@ Analyzer     | Description
 `email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token.
 `keyword`    | Input isn't tokenized at all.
 `simple`     | Divides text at non-letters.
-`standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: new_window}{: external}.
+`standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: external}.
 `whitespace` | Divides text at white space boundaries.
 {: caption="Table 2. Generic analyzers" caption-side="top"}
 
@@ -249,7 +249,7 @@ See the following example analyzer document:
 {: #language-specific-analyzers}
 
 These analyzers omit common words in the specific language,
-and many also [remove prefixes and suffixes](http://en.wikipedia.org/wiki/Stemming){: new_window}{: external}.
+and many also [remove prefixes and suffixes](http://en.wikipedia.org/wiki/Stemming){: external}.
 The name of the language is also the name of the analyzer.
 
 - `arabic`
@@ -259,7 +259,7 @@ The name of the language is also the name of the analyzer.
 - `brazilian`
 - `catalan`
 - `cjk` (Chinese, Japanese, Korean)
-- `chinese` ([`smartcn`](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window}{: external})
+- `chinese` ([`smartcn`](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: external})
 - `czech`
 - `danish`
 - `dutch`
@@ -274,11 +274,11 @@ The name of the language is also the name of the analyzer.
 - `indonesian`
 - `irish`
 - `italian`
-- `japanese` ([`kuromoji`](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window}{: external})
+- `japanese` ([`kuromoji`](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: external})
 - `latvian`
 - `norwegian`
 - `persian`
-- `polish` ([`stempel`](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window}{: external})
+- `polish` ([`stempel`](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: external})
 - `portuguese`
 - `romanian`
 - `russian`
@@ -519,7 +519,7 @@ By default,
 the sorting order is determined by 'relevance'.
 
 Relevance is measured according to
-[Apache Lucene Scoring](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}{: external}.
+[Apache Lucene Scoring](https://lucene.apache.org/core/3_6_0/scoring.html){: external}.
 As an example,
 if you search a simple database for the word `example`,
 two documents might contain the word.
@@ -579,14 +579,14 @@ See the following example JSON document that includes a search request:
 {: #query-syntax}
 
 The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
-[Lucene syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}.
+[Lucene syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}.
 Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
 as demonstrated in the following examples:
 
 See the following example search query expressions:
 
-```
+```sh
 // Birds
 class:bird
 
@@ -688,7 +688,7 @@ The response to a search query includes an `order` field for each of the results
 The `order` field is an array where the first element is the field or fields that are specified
 in the `sort` parameter.
 If no [`sort` parameter](#query-parameters-search) is included in the query,
-then the `order` field contains the [Lucene relevance score](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}{: external}.
+then the `order` field contains the [Lucene relevance score](https://lucene.apache.org/core/3_6_0/scoring.html){: external}.
 If you use the `sort by distance` feature as described in [Geographical searches](#geographical-searches),
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-29"
 
 keywords: subscription, operatorgroup, namespace, openshift, kubernetes
 
@@ -34,7 +34,7 @@ The discussion includes Installing the Operator on Kubernetes and Installing the
 ## Installing the Operator on Kubernetes
 {: #installing-operator-kubernetes}
 
-Now, walk through installing the Operator for Apache CouchDB on Kubernetes 1.14 or later by going to the [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} website and clicking the **Install** button. 
+Now, walk through installing the Operator for Apache CouchDB on Kubernetes 1.14 or later by going to the [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: external} website and clicking the **Install** button. 
 
 ### Prerequisites
 {: #prerequisites-operator-kubernetes}
@@ -48,7 +48,7 @@ Now, walk through installing the Operator for Apache CouchDB on Kubernetes 1.14 
 
 To install the Operator, follow these steps:
 
-If it isn't installed already, you must install [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM), a tool from Red Hat to help manage the Operators running on your cluster.  If the OLM is already installed, you can skip step 1 in the following steps: 
+If it isn't installed already, you must install [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: external} (OLM), a tool from Red Hat to help manage the Operators running on your cluster.  If the OLM is already installed, you can skip step 1 in the following steps: 
 
 1. Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster, by running the following command: 
 
@@ -77,4 +77,4 @@ If it isn't installed already, you must install [Operator Lifecycle Manager](htt
 ## Installing the Operator on Red Hat OpenShift version 4
 {: #install-the-operator-openshift-4}
 
-To install the Operator for Apache CouchDB on Red Hat OpenShift version 4, see the [Red Hat guide to installing certified operators](https://docs.openshift.com/container-platform/4.1/applications/operators/olm-adding-operators-to-cluster.html){: new_window}{: external}.
+To install the Operator for Apache CouchDB on Red Hat OpenShift version 4, see the [Red Hat guide to installing certified operators](https://docs.openshift.com/container-platform/4.1/applications/operators/olm-adding-operators-to-cluster.html){: external}.

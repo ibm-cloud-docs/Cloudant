@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-10-29"
 
 keywords: access, status, resource, kubernetes, operator for apache couchdb, openshift
 
@@ -75,7 +75,7 @@ Management of TLS certificates is beyond the scope of this discussion, but the s
     ```
     {: codeblock}
 
-    - For other platforms, see the [cfssl docs](https://github.com/cloudflare/cfssl){: new_window}{: external}.
+    - For other platforms, see the [cfssl docs](https://github.com/cloudflare/cfssl){: external}.
 
 2. Create a directory to store the certificates.
     

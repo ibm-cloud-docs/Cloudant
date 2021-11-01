@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -62,11 +62,12 @@ You can also make multiple queries with the following new endpoints:
 ## Sending several queries to a view
 {: #sending-several-queries-to-a-view}
 
-Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: new_window}{: external}.
+Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: external}.
 
 For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=Cloudant-deprecations#replaced-queries-parameter).
 
 ## Multiple restrictions employed for performance gains (21 October 2019)
+{: #multiple-restrictions-employed-performance-gains}
 
 {{site.data.keyword.IBM_notm}} has released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} has documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email.  
 
@@ -99,7 +100,7 @@ allow controlling the two orthogonal behaviors that are caused by `stale` separa
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
 
 To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
-[data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples){: new_window}{: external} for tutorials on 
+[data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples){: external} for tutorials on 
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
 
@@ -159,10 +160,7 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to re
 ## Disabled JavaScript constructors (7 December 2017)
 {: #disabled-javascript-constructors-december-7-2017}
 
-- If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
-similar to this one is returned, *Call to `eval()` was blocked by CSP.* You can fix the problem 
-by replacing `eval()` calls with the calls from the 
-[expr-eval library](https://github.com/silentmatt/expr-eval){: new_window}{: external}.
+- If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message similar to this one is returned, *Call to `eval()` was blocked by CSP.* You can fix the problem by replacing `eval()` calls with the calls from the [expr-eval library](https://github.com/silentmatt/expr-eval){: external}.
 
 ## `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated
 {: #post-command-to-generate_api_key}
@@ -179,7 +177,7 @@ An earlier method of generating API keys by issuing the `POST` command to the `h
 ## Retire Shared plan
 {: #retire-shared-plan}
 
-As of 24 July 2017, {{site.data.keyword.cloudant_short_notm}} Shared Plan accounts can no longer be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}{: external}. 
+As of 24 July 2017, {{site.data.keyword.cloudant_short_notm}} Shared Plan accounts can no longer be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: external}. 
 
 
 ## Error handling
@@ -187,8 +185,7 @@ As of 24 July 2017, {{site.data.keyword.cloudant_short_notm}} Shared Plan accoun
 
 - If you rely on 500 replies for your application, you might have issues. To fix the problem, update your application to rely on 400 responses. 
 
-- If you don't take care of reduce overflow errors as part of a row in the response body, issues occur. To fix this problem, change the application to handle the errors 
-from view requests.  
+- If you don't take care of reduce overflow errors as part of a row in the response body, issues occur. To fix this problem, change the application to handle the errors from view requests.  
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 {: #incompatibility-between-couchdb-version-1-6-and-ibm-cloudant-version-2-0-0}
@@ -200,10 +197,10 @@ from view requests.
 
 - The error message that occurs when you try to put a document attachment with a non-existent revision that is changed to a 409 error with the following information:
 
-	```http
-	{"error":"not_found","reason":"missing_rev"}
-	```
-  {: codeblock}
+	 ```http
+	 {"error":"not_found", "reason":"missing_rev"}
+	  ```
+    {: codeblock}
 
 ## X-Frame-Options setting (17 August 2017)
 {: #x-frame-options-setting}
@@ -213,7 +210,7 @@ The `X-Frame-Options` setting is a response header that controls whether an HTTP
 You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned.
  
 This change might impact customers who are accessing the database directly from the browser. If you see the error message, "X-Frame-Options: DENY", 
-and it's breaking your service, you must enable CORS by [modifying the CORS configuration](/apidocs/cloudant#putcorsconfiguration){: new_window}{: external}. After you enable CORS, add the value of the HOST header that you send in the request 
+and it's breaking your service, you must enable CORS by [modifying the CORS configuration](/apidocs/cloudant#putcorsconfiguration){: external}. After you enable CORS, add the value of the HOST header that you send in the request 
 to the list of allowed `origins`.
 
 ## `dbcopy` (4 February 2016)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-29"
 
 keywords: port forward, openshift route, tls, credentials
 
@@ -55,7 +55,7 @@ You can then access your cluster locally by pointing a client to `http://localho
 ## OpenShift route
 {: #openshift-route}
 
-On OpenShift, the CouchDB service is configured to use an [OpenShift service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html){: new_window}{: external}.
+On OpenShift, the CouchDB service is configured to use an [OpenShift service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html){: external}.
 
 This configuration allows the `CouchDBCluster` to be exposed by using a reencrypting route, ensuring traffic is encrypted internally within the OpenShift cluster. To create a route from the CLI, run the following command:
 
@@ -99,4 +99,4 @@ In the previous example, you can access the Apache CouchDB API at `https://<exam
 ## Credentials
 {: #credentials-cluster-couchdb}
 
-The `CouchDBCluster` is configured with a cluster admin account, `admin`. The password is specified at deployment time by using the `environment.adminPassword` field. Further, non-admin users can be added by using the [`_users` database](https://docs.couchdb.org/en/3.1.1/intro/security.html#authentication-database){: new_window}{: external}.
+The `CouchDBCluster` is configured with a cluster admin account, `admin`. The password is specified at deployment time by using the `environment.adminPassword` field. Further, non-admin users can be added by using the [`_users` database](https://docs.couchdb.org/en/3.1.1/intro/security.html#authentication-database){: external}.
