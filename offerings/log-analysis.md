@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-12 -->
-
 # {{site.data.keyword.loganalysisfull_notm}} integration
 {: #log-analysis-integration}
 

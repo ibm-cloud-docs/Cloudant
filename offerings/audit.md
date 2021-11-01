@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-12-24 -->
-
 # Audit logging
 {: #audit-logging}
 

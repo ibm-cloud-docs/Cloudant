@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: numbers, strings, booleans, arrays, objects, JSON parser, JavaScript
 

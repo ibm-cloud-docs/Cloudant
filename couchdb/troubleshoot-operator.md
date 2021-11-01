@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-11-01"
 
 keywords: troubleshoot, view logs, adjust log level
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2020-12-24 -->
 
 # Troubleshooting the CouchDB Operator
 {: #troubleshoot-couchdb-operator}

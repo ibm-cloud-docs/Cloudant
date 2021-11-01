@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: feature comparison, function comparison
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-13 -->
 
 # Comparing Apache CouchDB and {{site.data.keyword.cloudant_short_notm}}
 {: #couchdb-and-cloudant}

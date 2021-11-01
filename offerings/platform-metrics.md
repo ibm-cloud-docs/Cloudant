@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2021-04-16 -->
-
 # {{site.data.keyword.mon_full_notm}} integration
 {: #monitor-ibm-cloud-pm}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-15 -->
 
 # Conflicts
 {: #conflicts}

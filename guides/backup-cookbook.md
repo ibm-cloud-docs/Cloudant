@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-11-01"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library, compress backup, schedule backup
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-16 -->
 
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}

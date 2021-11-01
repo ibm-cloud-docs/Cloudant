@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-28"
+lastupdated: "2021-11-01"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -26,8 +26,6 @@ completion-time: 20m
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
-
-<!-- Acrolinx: 2021-04-12 -->
 
 # Creating an instance with CLI
 {: #creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli}

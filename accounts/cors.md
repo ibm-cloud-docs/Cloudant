@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: cross-domain, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard, same origin security policy
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-16 -->
 
 # How Cross-origin resource sharing (CORS) works
 {: #cross-origin-resource-sharing}

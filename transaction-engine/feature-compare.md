@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-01"
 
 keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-16 -->
 
 # Feature comparison
 {: #feature-comparison}

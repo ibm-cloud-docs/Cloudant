@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-01"
 
 keywords: service credentials, locate service credentials
 
@@ -26,8 +26,6 @@ completion-time: 5m
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
-
-<!-- Acrolinx: 2020-12-23 -->
 
 # Locating your service credentials
 {: #locating-your-service-credentials}

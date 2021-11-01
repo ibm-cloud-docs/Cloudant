@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-11-01"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup from log file
 
@@ -26,8 +26,6 @@ completion-time: 20m
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
-
-<!-- Acrolinx: 2020-12-22 -->
 
 # Creating a backup
 {: #creating-a-backup}

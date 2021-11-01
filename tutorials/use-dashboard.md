@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -26,8 +26,6 @@ completion-time: 20m
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
-
-<!-- Acrolinx: 2021-05-06 -->
 
 # Using the {{site.data.keyword.cloudant_short_notm}} dashboard
 {: #navigate-the-dashboard}

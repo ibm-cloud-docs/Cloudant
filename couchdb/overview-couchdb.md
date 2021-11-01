@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: compare, open source, replication protocol, database ecosystem, features, high availability, security
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-14 -->
 
 # Overview of Apache CouchDB and the Operator
 {: #apache-couchdb-overview}

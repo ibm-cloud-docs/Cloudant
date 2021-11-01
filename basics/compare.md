@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-19 -->
 
 # Comparison of {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB API endpoints
 {: #comparison-of-ibm-cloudant-and-couchdb-api-endpoints}

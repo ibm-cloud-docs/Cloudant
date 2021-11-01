@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-24 -->
-
 # Managing tasks
 {: #managing-tasks}
 

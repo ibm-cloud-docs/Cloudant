@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-11-01"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
@@ -19,9 +19,6 @@ subcollection: Cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
-{:external: target="_blank" .external}
-
-<!-- Acrolinx: 2020-03-16 -->
 
 # Capacity
 {: #capacity}

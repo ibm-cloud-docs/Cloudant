@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -19,8 +19,6 @@ subcollection: Cloudant
 {:note: .note}
 {:important: .important}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2020-12-21 -->
 
 # Managing access
 {: #managing-access-for-cloudant}

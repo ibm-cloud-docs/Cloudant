@@ -22,8 +22,6 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:video: .video}
 
-<!-- Acrolinx: 2021-04-14 -->
-
 # Migration overview
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 

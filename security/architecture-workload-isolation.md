@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-11-01"
 
 keywords: public isolation, compute isolation, cloudant architecture, workload isolation, byok
 
@@ -18,8 +18,6 @@ keywords: public isolation, compute isolation, cloudant architecture, workload i
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-09 -->
 
 # Learning about {{site.data.keyword.cloudant_short_notm}} architecture and workload isolation
 {: #compute-isolation}

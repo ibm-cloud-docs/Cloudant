@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-11-01"
 
 keywords: _all_docs endpoint, page_size parameter, bookmarks, query, search, paging, mapreduce views
 
@@ -20,9 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-19 -->
-
 
 # Pagination
 {: #pagination-te}

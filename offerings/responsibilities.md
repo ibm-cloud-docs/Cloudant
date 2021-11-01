@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-11-01"
 
 keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery, responsibilities
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2020-12-24 -->
 
 # Understanding your responsibilities when you use {{site.data.keyword.cloudant_short_notm}}
 {: #cloudant-responsibilities}

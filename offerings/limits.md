@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-11-01"
 
 keywords: databases, indexes, request payload, request timeouts, query, query results
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2019-01-11 -->
 
 # Limits
 {: #limits}

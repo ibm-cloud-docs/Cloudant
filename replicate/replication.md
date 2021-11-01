@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2020-04-23 -->
 
 # Replication
 {: #replication-api}

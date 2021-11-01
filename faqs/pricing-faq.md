@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-11-01"
 
 keywords: capacity settings, capacity limit, exceed limit, usage data, provisioned throughput capacity
 
@@ -22,8 +22,6 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
-
-<!-- Acrolinx: 2020-12-23 -->
 
 # Pricing FAQ
 {: #faq-pricing}

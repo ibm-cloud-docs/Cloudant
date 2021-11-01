@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-11-01"
 
 keywords: legacy, iam access controls, use only iam mode, generate service credentials
 
@@ -22,8 +22,6 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
-
-<!-- Acrolinx: 2021-04-09 -->
 
 # Authenticating with {{site.data.keyword.cloudant_short_notm}} FAQ
 {: #faq-authenticating-cloudant}
