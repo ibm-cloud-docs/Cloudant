@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency, conflict
 
@@ -41,7 +41,7 @@ As a result, the copies of a document might have different updates. "Conflicts" 
 
 {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=Cloudant-cap-theorem#cap-theorem), which means {{site.data.keyword.cloudant_short_notm}} must ensure that no differences exist between nodes. These inconsistencies can happen when out-of-date documents are synchronized.
 
-It's important for {{site.data.keyword.cloudant_short_notm}} databases to have concurrent read and write access. MVCC enables that capability. MVCC is a form of [optimistic concurrency control](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}{: external} that makes read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because a database lock isn't necessary for read and write operations.  At the same time, MVCC enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
+It's important for {{site.data.keyword.cloudant_short_notm}} databases to have concurrent read and write access. MVCC enables that capability. MVCC is a form of [optimistic concurrency control](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: external} that makes read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because a database lock isn't necessary for read and write operations.  At the same time, MVCC enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
 ## How do I know whether there's a conflict?
 {: #how-know-conflict}

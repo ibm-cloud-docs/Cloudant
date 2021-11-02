@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: _all_docs endpoint, page_size parameter, bookmarks, query, search, paging, mapreduce views
 
@@ -97,7 +97,7 @@ GET /$DATABASE/_all_docs?page_size=10  HTTP/1.1
 The maximum value of the `page_size` parameter is 2,000.
 
 ## How to use pagination?
-{: pagination-how-te}
+{: #pagination-how-te}
 
 To iterate through a range of documents, you must devise an algorithm to page
 through the range. For example, you want to page through `_all_docs` in blocks

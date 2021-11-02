@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: operator, field reference, user-defined configuration parameters, cluster size, scaling, persistent storage, resource requests, resource limits
 
@@ -230,11 +230,11 @@ Update the `adminPassword` to a password of your choosing. Keep the default valu
 | `requireValidUser` | Require valid user for all requests. | `true` *      | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/auth.html#chttpd/require_valid_user){: external} |
 | `tls` | Enable TLS support.  | `true`        |   |
 | `search` | Enable CouchDB full-text search (CouchDB 3.x only).  | `false` |  |
-|  `maxHttpRequestSize`  |  Maximum size of HTTP requests (bytes).  |  `67108864` *  |  [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/http.html#httpd/max_http_request_size){: external}  |
+| `maxHttpRequestSize` | Maximum size of HTTP requests (bytes). | `67108864` * | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/http.html#httpd/max_http_request_size){: external} |
 | `erlang.processLimit` | Set the maximum number of concurrent processes.  | `1048576`  ||
 | `fabric.requestTimeout` | Timeout for internal cluster RPC (ms). | `60000` ||
 | `mango`  | Mango is the Query Engine that services the `_find` endpoint.  |    | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/query-servers.html#mango){: external} |
-| `dreyfus` | CouchDB’s search subsystem can be configured by using the dreyfus configuration section.  | | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/query-servers.html#search){: external} |
+| `dreyfus` | CouchDB’s search subsystem can be configured by using the Dreyfus configuration section.  | | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/query-servers.html#search){: external} |
 | `ken` | The daemon responsible for automatically starting background jobs to keep secondary indexes “warm”. |  | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/indexbuilds.html#ken){: external} |
 | `smoosh`  | An automated, event-driven daemon that continuously reprioritizes the database and secondary index files on each node and automatically compacts the files that recover the most free space. | | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/compaction.html#smoosh){: external} |
 | `reshard`  | Resharding configuration. |   | [CouchDB documentation](https://docs.couchdb.org/en/3.1.1/config/resharding.html){: external} |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -33,7 +33,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-By using the {{site.data.keyword.cloudantfull}} dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/apidocs/cloudant#introduction){: new_window}{: external}.
+By using the {{site.data.keyword.cloudantfull}} dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/apidocs/cloudant#introduction){: external}.
 {: shortdesc}
 
 ## Objectives
@@ -70,7 +70,7 @@ Now, you can create a database, and run queries against it.
 {: #creating-a-database-dt}
 {: step}
 
-In this exercise, you create the `dashboard-demo` [database](/apidocs/cloudant#putdatabase){: new_window}{: external}, which 
+In this exercise, you create the `dashboard-demo` [database](/apidocs/cloudant#putdatabase){: external}, which 
 is the database that you use in this tutorial.
 
 1.  From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
@@ -191,7 +191,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     ![Query results](../images/dashboard_query1_results.png){: caption="Figure 2. Query results" caption-side="bottom"}
 
-For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#getindexesinformation){: new_window}{: external}.
+For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#getindexesinformation){: external}.
 
 ## Replicating a database
 {: #replicate-database-dt}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -32,8 +32,8 @@ You can learn about advanced replication concepts and tasks, such as the ones in
 {: shortdesc}
 
 You might also find it helpful to review details of the underlying
-[replication protocol](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window}{: external},
-and review the [API reference](/apidocs/cloudant#introduction){: new_window}{: external} documentation.
+[replication protocol](http://docs.couchdb.org/en/stable/replication/protocol.html){: external},
+and review the [API reference](/apidocs/cloudant#introduction){: external} documentation.
 
 In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
@@ -81,14 +81,14 @@ The transition between these states is illustrated in the following diagram:
 
 The scheduler introduces two new endpoints:
 
-- [`/_scheduler/docs`](/apidocs/cloudant#getschedulerdocs){: new_window}{: external}
-- [`/_scheduler/jobs`](/apidocs/cloudant#getschedulerjobs){: new_window}{: external}
+- [`/_scheduler/docs`](/apidocs/cloudant#getschedulerdocs){: external}
+- [`/_scheduler/jobs`](/apidocs/cloudant#getschedulerjobs){: external}
 
 You can manage and determine replication status more quickly and easily by using these endpoints.
 
 See the typical process for using the replication scheduler to manage and monitor replications:
 
-1.  Create a [replication document](/apidocs/cloudant#postreplicate){: new_window}{: external} that describes the needed replication, and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
+1.  Create a [replication document](/apidocs/cloudant#postreplicate){: external} that describes the needed replication, and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
 ## Authentication during replication
@@ -96,7 +96,7 @@ See the typical process for using the replication scheduler to manage and monito
 
 In any production application, security of the source and target databases is essential.
 In order for replication to continue, authentication is necessary to access the databases.
-Checkpoints for replication are [enabled by default](/apidocs/cloudant#postreplicate){: new_window}{: external},
+Checkpoints for replication are [enabled by default](/apidocs/cloudant#postreplicate){: external},
 which means that replicating the source database requires write access.
 
 To enable authentication during replication,
@@ -134,7 +134,7 @@ A filter function returns a `true` or `false` value.
 If the result is true,
 the document is replicated.
 
-To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/apidocs/cloudant#postfind){: new_window}{: external} documentation. 
+To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/apidocs/cloudant#postfind){: external} documentation. 
 {: note}
 
 See the following example of a filter function:
@@ -194,7 +194,7 @@ See example JSON for starting a filtered replication with supplied parameters:
 ```
 {: codeblock}
 
-The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/apidocs/cloudant#postfind){: new_window}{: external} documentation.
+The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/apidocs/cloudant#postfind){: external} documentation.
 {: note}
 
 ## Named document replication
@@ -335,7 +335,7 @@ by including them in the replication document.
 `socket_options` 
 :   A list of options to pass to the connection sockets.
 	The available options can be found in the
-	[documentation for the Erlang function `setopts` of the `inet` module](http://www.erlang.org/doc/man/inet.html#setopts-2){: new_window}{: external}. 
+	[documentation for the Erlang function `setopts` of the `inet` module](http://www.erlang.org/doc/man/inet.html#setopts-2){: external}. 
 	Default value is `[{keepalive, true},{nodelay, false}]`.
 
 `worker_batch_size` 
@@ -384,8 +384,9 @@ If a problem occurs during replication, such as a stall, timeout, or application
 a replication that is defined within the `_replicator` database is automatically restarted by the system. However, if you define a replication by sending a request to the `/_replicate` endpoint, it can't be restarted by the system if a problem occurs because the replication request doesn't persist. Replications that are defined in the `_replicator` database are easier to monitor.
 
 ### TXE API differences
+{: #txe-api-differences}
 
 ![TXE tag](../images/txe_icon.svg) On TXE, just like in Apache CouchDB version 3.x and higher, replication documents are not updated with transient states "triggered" and "error". To monitor replication job status, use these API endpoints:
 
-- [`/_scheduler/docs`](/apidocs/cloudant#getschedulerdocs){: new_window}{: external}
-- [`/_scheduler/jobs`](/apidocs/cloudant#getschedulerjobs){: new_window}{: external}
+- [`/_scheduler/docs`](/apidocs/cloudant#getschedulerdocs){: external}
+- [`/_scheduler/jobs`](/apidocs/cloudant#getschedulerjobs){: external}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: generate uuid, record payments, add more documents, advantages, uuid
 
@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 
 # Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}
-{: grouping-related-documents-together-in-ibm-cloudant}
+{: #grouping-related-documents-together-in-ibm-cloudant}
 
 Traditionally,
 e-commerce systems are built with relational databases.
@@ -127,7 +127,7 @@ While in distributed databases, data is spread around a cluster of servers, and 
 
 To create a unique identifier for use in your application,
 such as an `order_id`,
-call the [`GET _uuids` endpoint](/apidocs/cloudant#getuuids){: new_window}{: external} on the {{site.data.keyword.cloudant_short_notm}} API.
+call the [`GET _uuids` endpoint](/apidocs/cloudant#getuuids){: external} on the {{site.data.keyword.cloudant_short_notm}} API.
 The database generates an identifier for you.
 The same endpoint can be used to generate multiple IDs by adding a `count` parameter,
 for example, `/_uuids?count=10`.
@@ -139,6 +139,7 @@ When the customer successfully pays for their items,
 more records are added to the database to record the order.
 
 ### Example of a payment record
+{: #example-of-a-payment-record}
 
 ```json
 {
@@ -177,6 +178,7 @@ The view would enable a ledger that contains the following information:
 A map function might be used to identify the required values.
 
 ### Example map function to find purchase total and payment values
+{: #example-map-function-to-find-purchase-total}
 
 ```javascript
 function (doc) {
@@ -195,6 +197,7 @@ Use the built-in [`_sum` reducer](/docs/Cloudant?topic=Cloudant-creating-views-m
 to produce output as a ledger of payment events.
 
 ### Example of using the built-in `_sum` reducer, which is queried with `?reduce=false`
+{: #example-of-using-the-buil0in-_sum-reducer-with-reduce=false}
 
 ```json
 {
@@ -223,6 +226,7 @@ Alternatively,
 you could produce totals that are grouped by `order_id`.
 
 ### Example of totals grouped by `order_id`, with `?group_level=1`
+{: #example-of-totals-grouped-by-order_id-with-group-level}
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup from log file
 
@@ -34,7 +34,7 @@ completion-time: 20m
 {: toc-completion-time="20m"}
 
 This tutorial demonstrates how to use the 
-[CouchBackup](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external} utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. CouchBackup backs up 
+[CouchBackup](https://www.npmjs.com/package/@cloudant/couchbackup){: external} utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. CouchBackup backs up 
 the database to a file. If the database fails, you can use the backup file to 
 restore the information to an existing database. 
 {: shortdesc}

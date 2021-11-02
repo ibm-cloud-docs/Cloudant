@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -32,8 +32,8 @@ In this documentation, when a feature, or an aspect of a feature, applies only t
 {: important}
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
-using [{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external}
-or [PouchDB](http://pouchdb.com/){: new_window}{: external}.
+using [{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: external}
+or [PouchDB](http://pouchdb.com/){: external}.
 Replication can run in one direction or in both directions,
 as a "single shot" or continuous operation,
 and can be finely tuned by using parameters.
@@ -71,7 +71,7 @@ Complete the following Replication form:
 
 ![Replication form](../images/replication_guide_2.png){: caption="Figure 2. Replication form" caption-side="bottom"}
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window} and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window} documentation.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys) rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization) documentation.
 {: important}
 
 Using the form, define the source and target databases,
@@ -188,7 +188,7 @@ This point is identified by using checkpoints.
 
 Therefore,
 an application that uses the `_changes` feed must
-be ['idempotent'](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window}{: external}. Idempotency means that the application must be able safely to receive the same data multiple times,
+be ['idempotent'](http://www.eaipatterns.com/IdempotentReceiver.html){: external}. Idempotency means that the application must be able safely to receive the same data multiple times,
 and potentially in a different order for repeated requests.
 
 ## Checkpoints
@@ -200,7 +200,7 @@ in both the source and destination databases.
 Checkpoints allow a replication task to be resumed from where it stopped,
 without having to start from the beginning.
 Checkpoint creation can be prevented by supplying the
-[`"use_checkpoints": false`](/apidocs/cloudant#postreplicate){: new_window}{: external} option when you request replication.
+[`"use_checkpoints": false`](/apidocs/cloudant#postreplicate){: external} option when you request replication.
 It is helpful to leave the feature on if your replication is to resume efficiently from its last known position.
 
 ## Permissions
@@ -229,7 +229,7 @@ on a per-database basis.
 
 They can also be created [programmatically](/apidocs/cloudant#introduction) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window}, and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window} documentation.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys) rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication), and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization) documentation.
 {: important}
 
 ## Two-way replication
@@ -255,7 +255,7 @@ data flows continuously.
 All subsequent changes to the source database are transmitted to the target database in real time.
 
 Continuous replication is triggered by clicking the `Make this replication continuous` check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or by setting the [`continuous`](/apidocs/cloudant#postreplicate){: new_window}{: external} flag in the {{site.data.keyword.cloudant_short_notm}} API.
+or by setting the [`continuous`](/apidocs/cloudant#postreplicate){: external} flag in the {{site.data.keyword.cloudant_short_notm}} API.
 
 Two-way replication can be made continuous in one or both of the directions,
 by setting the `continuous` flag.
@@ -300,7 +300,7 @@ See the following example of a JSON document that defines a continuous replicati
 ### Apache CouchDB
 {: #apache-couchdb}
 
-[Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external} is an open source database
+[Apache CouchDB](http://couchdb.apache.org/){: external} is an open source database
 that can communicate with {{site.data.keyword.cloudant_short_notm}},
 and that requires minimal setup.
 The following applications are included:
@@ -308,7 +308,7 @@ The following applications are included:
 -   Backup - Replicate your data from {{site.data.keyword.cloudant_short_notm}} to your own CouchDB databases
     and take nightly snapshots of your data for archiving purposes.
     Send the data to a backup service such as
-    [Amazon Glacier](https://aws.amazon.com/glacier/){: new_window}{: external} for safe keeping.
+    [Amazon Glacier](https://aws.amazon.com/glacier/){: external} for safe keeping.
 -   Local-first data collection - Write your data to local Apache CouchDB first,
     then replicate it to {{site.data.keyword.cloudant_short_notm}} for long-term storage,
     aggregation,
@@ -317,7 +317,7 @@ The following applications are included:
 ### PouchDB
 {: #pouchdb}
 
-[PouchDB](http://pouchdb.com/){: new_window}{: external} is an open source,
+[PouchDB](http://pouchdb.com/){: external} is an open source,
 in-browser database that allows data to be replicated in both directions between the browser and {{site.data.keyword.cloudant_short_notm}}.
 Storing the data in a web browser on the client side allows web applications to function
 even without an internet connection.
@@ -336,7 +336,7 @@ db.sync(URL, { live: true });
 ### {{site.data.keyword.cloudant_short_notm}} Sync
 {: #cloudantsync}
 
-[{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} is a set of libraries
+[{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: external} is a set of libraries
 for iOS and Android that allows data to be stored locally in a mobile device
 and synchronized with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
 As with [PouchDB](#pouchdb),
@@ -589,7 +589,7 @@ the credentials that are supplied must have:
 - `_reader` and `_replicator` permissions on database "a".
 - `_writer` permissions on database "b".
 
-API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](/apidocs/cloudant){: new_window}{: external}.
+API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](/apidocs/cloudant){: external}.
 Each key can be given individual permissions that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.

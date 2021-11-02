@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -46,13 +46,13 @@ by using the {{site.data.keyword.cloud_notm}} CLI.
 ## Before you begin
 {: #before-you-begin-service-create-cli}
 
-To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. Install the tools by following the [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: new_window}{: external} tutorial.
+To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. Install the tools by following the [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external} tutorial.
 
 ## Logging in to your {{site.data.keyword.cloud_notm}} account
 {: #logging-in-to-your-ibm-cloud-account}
 {: step}
 
-The following example describes how to log in. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: new_window}{: external} under `ibmcloud login`.
+The following example describes how to log in. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
 
 1.  Start the login process for your {{site.data.keyword.cloud_notm}} account by using the following command.
 
@@ -116,7 +116,7 @@ The following example describes how to log in. If you use a federated user ID, i
 {: #creating-service-create-cli}
 {: step}
 
-{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups){: new_window}{: external}.
+{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups){: external}.
 
 In this example, you create a service instance within {{site.data.keyword.cloud_notm}} by running the following command.
 
@@ -139,13 +139,13 @@ Field  | Description
 `SERVICE_PLAN_NAME` is the type of pricing plan you select when you create an instance. For more information, see [Plans](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#plans-and-provisioning) in the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
 {: tip}
 
-For more information about choosing an authentication method, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+For more information about choosing an authentication method, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant). The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
 {: important}
 
 Now, we create a service instance that is called, `cs20170517a`.
 
 1. Set your target resource group and region by using the following format. </br>To run this command, you need to know the region and resource groups, which you find in the following steps. </br>
-    For more information, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_target){: new_window}{: external} under `ibmcloud target`.
+    For more information, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_target){: external} under `ibmcloud target`.
 
     ```sh
     ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]
@@ -197,7 +197,7 @@ must have the necessary credentials.
 Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
 {: important}
 
-For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window}.
+For more information about the fields included in the service credentials, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant).
 
 In the next example, you create credentials for a service instance within {{site.data.keyword.cloud_notm}} by running the following command.
 
@@ -289,7 +289,7 @@ Next, you learn how to retrieve your service credentials. You need your service 
 
 Now, the tutorial is complete. Optionally, you can delete the service credentials or service instance as shown in the steps in the next two sections.
 
-For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud){: new_window} tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created.
+For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created.
 
 ## (Optional) Deleting service credentials
 {: #deleting-service-create-cli}

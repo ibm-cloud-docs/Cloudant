@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2021-11-01"
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
-{:externa
+{:external: target="_blank" .external}
 
 # How documents work 
 {: #documents}

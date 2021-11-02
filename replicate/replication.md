@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -125,7 +125,7 @@ For more information, see [Databases](/docs/Cloudant?topic=Cloudant-databases).
 To cancel a replication,
 you `DELETE` the replication document.
 The fields that are supplied in the replication document are
-described in the [Create or modify a replication operation](/apidocs/cloudant#postreplicate){: new_window}{: external} description under Request information.
+described in the [Create or modify a replication operation](/apidocs/cloudant#postreplicate)}{: external} description under Request information.
 
 All design documents and `_local` documents that are added to the `/_replicator` database are ignored.
 {: note}
@@ -139,5 +139,5 @@ All design documents and `_local` documents that are added to the `/_replicator`
 - The target database must exist. It is not automatically created if it does not exist. Add `"create_target":true` to the JSON document that describes the replication if the target database does not exist before replication. For more information, see [Creating a target database during replication](#creating-a-target-database-during-replication).
 - Replicator databases must be maintained and looked after, just like any other valuable data store. For more information, see [replication database maintenance](/docs/Cloudant?topic=Cloudant-advanced-replication#replication-database-maintenance).
   
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant){: new_window} or the legacy [Authentication API document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication){: new_window} and the legacy [Authorization API document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys)} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant)} or the legacy [Authentication API document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication)} and the legacy [Authorization API document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization)}.
 {: important}

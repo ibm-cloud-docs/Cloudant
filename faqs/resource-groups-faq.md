@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate, cloud foundry spaces
 
@@ -44,7 +44,7 @@ You can migrate {{site.data.keyword.cloudant_short_notm}} instances on the follo
 - Standard
 - Dedicated Hardware
 
-To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [Migrating Cloud Foundry service instances and apps to a resource group](/docs/account?topic=account-migrate){: new_window}.
+To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [Migrating Cloud Foundry service instances and apps to a resource group](/docs/account?topic=account-migrate){: external}.
 
 ## How much downtime occurs when you migrate an instance to a resource group?
 {: #faq-downtime-occurs-when-you-migrate-an-instance-to-a-resource-group}
@@ -69,7 +69,7 @@ New Standard plan instances are provisioned into resource groups. In order to
 create these instances onto a Dedicated Hardware instance, the Dedicated
 Hardware instance must first be migrated into a resource group.
 
-For more information about how to do this migration, see [Migrating Cloud Foundry service instances and apps to a resource group](/docs/account?topic=account-migrate){: new_window}{: external}.
+For more information about how to do this migration, see [Migrating Cloud Foundry service instances and apps to a resource group](/docs/account?topic=account-migrate){: external}.
 
 Once the Dedicated Hardware instance is migrated to a resource group, it
 appears in the Location drop-down menu when you create Standard plans.

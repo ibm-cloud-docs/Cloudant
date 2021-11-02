@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -78,7 +78,7 @@ After these accounts are created, follow these steps:
 ## Step 1. Create your databases
 {: #step-1-create-your-databases}
 
-[Create the databases](/apidocs/cloudant#putdatabase){: new_window}{: external} that you want to replicate between
+[Create the databases](/apidocs/cloudant#putdatabase){: external} that you want to replicate between
 within each account.
 
 In this example,
@@ -130,7 +130,7 @@ Take careful note of the password. It isn't possible to retrieve the password la
 ## Step 3. Grant access permission
 {: #step-3-grant-access-permission}
 
-Give the API Key [permission](/apidocs/cloudant#getsecurity){: new_window}{: external}
+Give the API Key [permission](/apidocs/cloudant#getsecurity){: external}
 to read and to write on both databases.
 
 If you also need to replicate indexes,
@@ -244,7 +244,7 @@ A simple test of whether a failover is required would be to
 use the main database endpoint as a "heartbeat".
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
-[details about the database](/apidocs/cloudant#getdatabaseinformation){: new_window}{: external}.
+[details about the database](/apidocs/cloudant#getdatabaseinformation){: external}.
 If no response is received,
 it might indicate that a failover is necessary.
 
@@ -285,8 +285,8 @@ However,
 if you decide that you need the ability to manage failover,
 consider the following possible options:
 
-- Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}}](https://github.com/greenmangaming/cloudant-nginx){: new_window}{: external}. Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance. This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}} instances that are used by applications can be handled through a modification to the proxy configuration rather than a modification to the application settings. Many proxies can balance the load, based on user-defined health checks.
-- Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}. This option requires a `CNAME` definition that routes to different {{site.data.keyword.cloudant_short_notm}} accounts, based on a health check or latency rule.
+- Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}}](https://github.com/greenmangaming/cloudant-nginx){: external}. Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance. This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}} instances that are used by applications can be handled through a modification to the proxy configuration rather than a modification to the application settings. Many proxies can balance the load, based on user-defined health checks.
+- Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](/docs/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: external} to route to {{site.data.keyword.cloudant_short_notm}}. This option requires a `CNAME` definition that routes to different {{site.data.keyword.cloudant_short_notm}} accounts, based on a health check or latency rule.
 
 
 ## Recovering from failover
@@ -317,7 +317,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 - Do any replications need restarting?
 - How many pending changes are still waiting for replication into the database?
 
-For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: new_window}{: external} and monitor replication status.
+For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: external} and monitor replication status.
 
 If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}
