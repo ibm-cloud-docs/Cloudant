@@ -21,9 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-13 -->
-
-
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
 

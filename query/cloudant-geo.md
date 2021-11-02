@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-19 -->
-
 # Using {{site.data.keyword.cloudant_short_notm}} Geospatial
 {: #using-cloudant-nosql-db-geospatial}
 

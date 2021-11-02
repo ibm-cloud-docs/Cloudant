@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-19 -->
-
 # Working with {{site.data.keyword.cloudant_short_notm}} Query
 {: #query}
 

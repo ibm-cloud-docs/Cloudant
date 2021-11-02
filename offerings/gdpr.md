@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-03-29 -->
-
 # General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2020-08-02"
+lastupdated: "2020-11-01"
 
 keywords: principal, action, resource, timestamp, access audit logs, user-initiated activities
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2020-03-17 -->
 
 # {{site.data.keyword.at_full_notm}} integration
 {: #auditing_events-for-cloudant}

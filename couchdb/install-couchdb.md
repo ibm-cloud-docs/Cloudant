@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: apache couchdb, support, extension, containers, helm chart, docker hub, red hat ecosystem, kubernetes, helm chart
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-08 -->
 
 # Installing Apache CouchDB
 {: #apache-couchdb-install}

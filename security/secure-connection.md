@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-11-01"
 
 keywords: endpoints, service credentials, authentication,cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-13 -->
 
 # Securing your connection
 {: #securing-your-connection-to-cloudant}

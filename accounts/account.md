@@ -22,8 +22,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2021-04-13 -->
-
 # Working with your {{site.data.keyword.cloudant_short_notm}} account
 {: #work-with-your-account}
 

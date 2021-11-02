@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-11-01"
 
 keywords: availability zones, single-zone region, multi-zone region, lite plan, standard plan
 
@@ -23,8 +23,6 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-03-13 -->
-
 # Availability zones FAQ
 {: #faq-availability-zones}
 {: faq}
@@ -44,7 +42,7 @@ If you want to create an {{site.data.keyword.cloudant_short_notm}} Dedicated Har
 {: #what-availability-zone}
 {: faq}
 
-When you create an instance, after you select the {{site.data.keyword.cloudant_short_notm}} tile, you must select a region. These locations are called availability zones. An availability zone is an {{site.data.keyword.cloud}} Public location that hosts your data. All Lite and Standard plans automatically deploy into a multi-zone region. Dedicated Hardware plan instances can be deployed in most [{{site.data.keyword.IBM_notm}} data center locations](https://www.ibm.com/cloud/data-centers/){: new_window}{: external}.
+When you create an instance, after you select the {{site.data.keyword.cloudant_short_notm}} tile, you must select a region. These locations are called availability zones. An availability zone is an {{site.data.keyword.cloud}} Public location that hosts your data. All Lite and Standard plans automatically deploy into a multi-zone region. Dedicated Hardware plan instances can be deployed in most [{{site.data.keyword.IBM_notm}} data center locations](https://www.ibm.com/cloud/data-centers/){: external}.
 
 
 ## What is the difference between a single-zone and a multi-zone region?

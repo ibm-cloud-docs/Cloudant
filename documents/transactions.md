@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-11-01"
 
 keywords: generate uuid, record payments, add more documents, advantages, uuid
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2018-08-08 -->
 
 # Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}
 {: grouping-related-documents-together-in-ibm-cloudant}

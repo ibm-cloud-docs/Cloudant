@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -26,8 +26,6 @@ completion-time: 15m
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
-
-<!-- Acrolinx: 2021-04-09 -->
 
 # Creating and populating a database
 {: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
@@ -121,13 +119,6 @@ The examples below use the deprecated `python-cloudant` client library.
     cloudant==2.14.0
     ```
     {: codeblock}
-
-
-<!--
-
-An [officially supported library](/docs/Cloudant?topic=Cloudant-client-libraries#python-supported) is included to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}}.
-
--->
 
 ## Connecting to a service instance
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}

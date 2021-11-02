@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-05"
+lastupdated: "2021-11-01"
 
 keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency, conflict
 
@@ -22,8 +22,6 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
-
-<!-- Acrolinx: 2021-04-19 -->
 
 # Document versioning and conflicts FAQ
 {: #faq-document-versioning-conflicts}

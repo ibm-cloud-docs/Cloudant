@@ -21,8 +21,6 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-18 -->
-
 # cloudant.com
 {: #ibm-cloudant.com}
 

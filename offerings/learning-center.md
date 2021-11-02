@@ -23,8 +23,6 @@ subcollection: Cloudant
 {:script: data-hd-video='script'}
 {:video: .video}
 
-<!-- Acrolinx: 2021-04-02 -->
-
 # Learning Center
 {: #learning-center}
 

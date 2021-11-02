@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: operator, field reference, user-defined configuration parameters, cluster size, scaling, persistent storage, resource requests, resource limits
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-15 -->
 
 # Configuring a CouchDB cluster
 {: #configure-couchdb-cluster}

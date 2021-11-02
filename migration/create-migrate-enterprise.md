@@ -22,8 +22,6 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:video: .video}
 
-<!-- Acrolinx: 2021-04-14 -->
-
 # Migrating an Enterprise plan to a Lite or Standard plan
 {: #migrating-an-enterprise-plan-to-a-lite-or-standard-plan}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-05"
+lastupdated: "2021-11-01"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate, cloud foundry spaces
 
@@ -22,8 +22,6 @@ subcollection: Cloudant
 {:external: target="_blank" .external}
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
-
-<!-- Acrolinx: 2020-12-24 -->
 
 # Resource Groups FAQ
 {: #faq-ibm-cloud-resource-groups}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-11-01"
 
 keywords: recommendations, database recovery, in-database encryption, in-region strong consistency, synchronous secondary index building, provisioned throughput capacity, scalability, cost
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-19 -->
 
 # Overview
 {: #overview-te}

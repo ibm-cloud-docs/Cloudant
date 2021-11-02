@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8238, 8220, 8202, 8201, 8194, 8192, 8182, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421, initial deployment announcement, feature comparison, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.92, 2.93, 2.94, 2.96, operator, classic, transaction engine, 1.4.2, 1.4.1, 1.4.0, 1.3.0, 1.2.1, 1.2.0, 1.1.0, couchdb
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-09 -->
 
 # Release notes
 {: #release-notes}
@@ -163,7 +161,7 @@ See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-
 #### Bug fixes
 {: #bug-fixes-2.67}
 
-- [Initial deployment announcement](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine){: new_window}{: external}.
+- [Initial deployment announcement](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine){: external}.
 - [Feature comparison](/docs/Cloudant?topic=Cloudant-feature-comparison) between {{site.data.keyword.cloudant_short_notm}} on Transaction Engine and {{site.data.keyword.cloudant_short_notm}} Classic.
 
 
@@ -193,7 +191,7 @@ A new Dedicated Hardware plan is available.
 
 For more information, see the following links:
 
-- Read about the [Dedicated Hardware plan](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#dedicated-hardware-plan){: new_window}{: external}.
+- Read about the [Dedicated Hardware plan](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#dedicated-hardware-plan){: external}.
 
 #### Replication scheduler
 {: #replication-scheduler}
@@ -248,9 +246,9 @@ The new replication scheduler has several improvements and enhancements. Learn m
 - Bug fixes, including account API key task filtering.
 - Support replication [basic auth credentials in auth object](https://github.com/apache/couchdb/pull/3586).
 - No longer display basic auth credentials (for example, `username:*****`) in the output of these endpoints:
-  - `_scheduler/jobs`
-  - `_scheduler/docs`
-  - `_active_tasks`
+   - `_scheduler/jobs`
+   - `_scheduler/docs`
+   - `_active_tasks`
 
 ### Build 8192 (April 2021)
 {: #build-8192-04-2021}
@@ -258,7 +256,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 #### New features
 {: #new-features-8192}
 
-- Added Fair share replicator. For more information, see [Fair Share Replication Scheduler Implementation](https://github.com/apache/couchdb/commit/ab38c2dd3f429ce8f347fa4f04e2815b810a8a19){: new_window}{: external}.
+- Added Fair share replicator. For more information, see [Fair Share Replication Scheduler Implementation](https://github.com/apache/couchdb/commit/ab38c2dd3f429ce8f347fa4f04e2815b810a8a19){: external}.
 
 #### Bug fixes
 {: #bug-fixes-8192}
@@ -492,17 +490,17 @@ The new replication scheduler has several improvements and enhancements. Learn m
 - Fixed a problem where the replicator would sometimes reset statistics during
     replications. The reset would affect values in the [replication status
     information](/docs/Cloudant?topic=Cloudant-advanced-replication#advanced-replication).
-     See [PR](https://github.com/apache/couchdb/pull/1722){: new_window}{: external}.
+     See [PR](https://github.com/apache/couchdb/pull/1722){: external}.
 - Fixed an issue with {{site.data.keyword.cloudant_short_notm}} Query. After you delete a document, if you issue
     a `_find` request to a text index with `update=false`, it might return a
     `500` response.
-    See [PR](https://github.com/apache/couchdb/pull/1709){: new_window}{: external}.
+    See [PR](https://github.com/apache/couchdb/pull/1709){: external}.
 - You can now use `multipart/mixed` and `multipart/related` when you use
-    `_bulk_get`. See [PR](https://github.com/apache/couchdb/pull/1195){: new_window}{: external}.
+    `_bulk_get`. See [PR](https://github.com/apache/couchdb/pull/1195){: external}.
 - Fix a bug with total row count in the `_design_docs` handler.
-     See [PR](https://github.com/apache/couchdb/pull/1744){: new_window}{: external}.
+     See [PR](https://github.com/apache/couchdb/pull/1744){: external}.
 - Optimizations to the `_doc_id` and `_design_docs` replication filters.
-     See [issue](https://github.com/apache/couchdb/issues/1737){: new_window}{: external}.
+     See [issue](https://github.com/apache/couchdb/issues/1737){: external}.
 - Fix a regression where long-running index jobs can fail.
 
 ### Build 7426 (15 November 2018)
@@ -513,10 +511,10 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 - Include [CRN](/docs/account?topic=account-crn) in audit logs.
 - Replicator stability improvements.
-- Improve validation of `q` parameter on database creation. See [COUCHDB-1582](https://issues.apache.org/jira/browse/COUCHDB-1582){: new_window}{: external}.
-- Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650](https://issues.apache.org/jira/browse/COUCHDB-1650){: new_window}{: external}.
-- Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612](https://issues.apache.org/jira/browse/COUCHDB-1612){: new_window}{: external}.
-- Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666](https://issues.apache.org/jira/browse/COUCHDB-1666){: new_window}{: external}.
+- Improve validation of `q` parameter on database creation. See [COUCHDB-1582](https://issues.apache.org/jira/browse/COUCHDB-1582){: external}.
+- Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650](https://issues.apache.org/jira/browse/COUCHDB-1650){: external}.
+- Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612](https://issues.apache.org/jira/browse/COUCHDB-1612){: external}.
+- Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666](https://issues.apache.org/jira/browse/COUCHDB-1666){: external}.
 - Internal bug fixes to data compression, search, and core database components.
 
 ### Build 7410 (4 November 18)
@@ -719,14 +717,13 @@ Only the fields that are in front of the current sort fields in the list are add
 #### New features
 {: #new-features-6761}
 
-- Introduce new `_dbs_info` endpoint to get information from a list of databases. See
-[Get a list of all databases in the instance](/apidocs/cloudant#getalldbs){: new_window}{: external}.
+- Introduce new `_dbs_info` endpoint to get information from a list of databases. See [Get a list of all databases in the instance](/apidocs/cloudant#getalldbs){: external}.
 - Add a pluggable storage engine.
 
 #### Bug fixes
 {: #bug-fixes-6761}
 
-- Ensure deterministic revisions for attachments. See [COUCHDB-3255](https://issues.apache.org/jira/browse/COUCHDB-3255){: new_window}{: external}.
+- Ensure deterministic revisions for attachments. See [COUCHDB-3255](https://issues.apache.org/jira/browse/COUCHDB-3255){: external}.
 - Prevent `chttpd` multipart zombie processes.
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
@@ -738,7 +735,7 @@ Only the fields that are in front of the current sort fields in the list are add
 #### Bug fixes
 {: #bug-fixes-6656}
 
-- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/apidocs/cloudant#postalldocs){: new_window}{: external}.
+- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/apidocs/cloudant#postalldocs){: external}.
 - When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response.
@@ -758,8 +755,7 @@ Only the fields that are in front of the current sort fields in the list are add
 #### Bug fixes
 {: #bug-fixes-6600}
 
-- Query fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} query determines the usable
-indexes for a particular selector.
+- Query fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} query determines the usable indexes for a particular selector.
 
 ### Build 6588 (7 December 2017)
 {: #build-6588-december-7-2017}
@@ -767,17 +763,14 @@ indexes for a particular selector.
 #### New features
 {: #new-features-6588}
 
-- A new parameter, `create_target_params`, was added for you to customize the target database
-that is created on a new replication. You can now customize the cluster's default values for the number of shards and
-replicas to create.
+- A new parameter, `create_target_params`, was added for you to customize the target database that is created on a new replication. You can now customize the cluster's default values for the number of shards and replicas to create.
 
 #### Bug fixes
 {: #bug-fixes-6588}
 
 - A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
 - A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request`.
-- For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in
-JavaScript.
+- For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in JavaScript.
 - Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to non-browser clients.
 
 ### Query (`_find` endpoint)
@@ -786,14 +779,13 @@ JavaScript.
 #### New features
 {: #new-features-query-endpoint}
 
-- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}{: external}.
+- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: external}.
 - The logic for determining whether a specific index is valid for a query that changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
-- Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](/apidocs/cloudant#postindex){: new_window}{: external} to learn about the `partial_filter_selector` parameter.
-- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](/apidocs/cloudant#postfind){: new_window}{: external} to learn more about `execution_stats=true` parameter.
+- Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](/apidocs/cloudant#postindex){: external} to learn about the `partial_filter_selector` parameter.
+- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](/apidocs/cloudant#postfind){: external} to learn more about `execution_stats=true` parameter.
 - [Pagination](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks) is supported by using the bookmark field. Bookmarks are enabled for all index types.
-- `_find` now falls back to any valid index if the value specified in the `use_index`
-field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
+- `_find` now falls back to any valid index if the value specified in the `use_index` field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
 
 ### Build 6365 (17 August 2017)
 {: #build-6365-august-17-2017}
@@ -816,8 +808,7 @@ field is invalid for the current query. When `find` falls back, the `warning` fi
 #### Bug fixes
 {: #bug-fixes-6276}
 
-- An error message changed that occurs when you try to put a document attachment with a non-existent revision.
-Now, the error is a 409 error with the following information: 
+- An error message changed that occurs when you try to put a document attachment with a non-existent revision. Now, the error is a 409 error with the following information: 
 	
 ```json
 {"error":"not_found","reason":"missing_rev"}
@@ -843,15 +834,8 @@ Now, the error is a 409 error with the following information:
 #### Bug fixes
 {: #bug-fixes-6069}
 
-- Previously, a replication job that failed for some reason, which resulted in an update to the replication document,
-  was followed by a fresh attempt to start a new replication.
-  Under some circumstances,
-  this behavior might continue indefinitely: many duplicates of the same error message.
-  A fix was introduced so that the replication document is not updated unless the reason for the error changes.
-- If the design document that is intended to specify a geospatial index is invalid,
-  an attempt to retrieve information about the index by using
-  the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial)
-  results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: new_window}{: external} response.
+- Previously, a replication job that failed for some reason, which resulted in an update to the replication document, was followed by a fresh attempt to start a new replication. Under some circumstances, this behavior might continue indefinitely: many duplicates of the same error message. A fix was introduced so that the replication document is not updated unless the reason for the error changes.
+- If the design document that is intended to specify a geospatial index is invalid, an attempt to retrieve information about the index by using the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial) results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: external} response.
 
 ### Build 5834 (13 February 2017)
 {: #build-5834-february-13-2017}
@@ -868,8 +852,7 @@ Now, the error is a 409 error with the following information:
 {: #bug-fixes-5728}
 
 - {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents that are stored within the `_users` database.
-  User documents must be structured and populated to comply with
-  [Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: new_window}{: external}.
+- User documents must be structured and populated to comply with [Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: external}.
 
 ### Build 5638 (11 October 2016)
 {: #build-5638-october-11-2016}
@@ -882,7 +865,7 @@ Now, the error is a 409 error with the following information:
 #### Bug fixes
 {: #bug-fixes-5638}
 
--   Replicator no longer retries forever if it cannot write checkpoints to the source database.
+- Replicator no longer retries forever if it cannot write checkpoints to the source database.
 
 ### Build 5421 (14 June 2016)
 {: #build-5421-june-14-2016}

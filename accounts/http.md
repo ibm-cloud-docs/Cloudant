@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 keywords: http headers, response headers, request headers, http status codes
 
@@ -20,8 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-12 -->
 
 # How HTTP works with {{site.data.keyword.cloudant_short_notm}}
 {: #how-http-works-with-cloudant}

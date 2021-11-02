@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
 ---
 
@@ -15,9 +15,7 @@ lastupdated: "2021-10-29"
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
-{:external: target="_blank" .external}
-
-<!-- Acrolinx: 2021-04-19 -->
+{:externa
 
 # How documents work 
 {: #documents}

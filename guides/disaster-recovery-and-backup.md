@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-11-01"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -20,7 +20,6 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
-<!-- Acrolinx: 2021-04-16 -->
 
 # Disaster recovery and backup for {{site.data.keyword.cloudant_short_notm}}
 {: #disaster-recovery-and-backup}
