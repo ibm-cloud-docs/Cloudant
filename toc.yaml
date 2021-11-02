@@ -64,6 +64,7 @@ toc:
       - tutorials/create_database.md
       - tutorials/create_query.md
       - tutorials/create_backup.md
+      - tutorials/locate-db2-warehouse-credentials.md
 
   - navgroup: 
       id: howto
