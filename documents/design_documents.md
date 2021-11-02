@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -1146,17 +1146,17 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info"
 
 The JSON response includes the following individual fields:
 
--   `name` - Name or ID of design document.
--   `view_index` - View Index
-   -	`compact_running` - Indicates whether a compaction routine runs on the view.
-   -	`disk_size` - Size in bytes of the view as stored on disk.
-   -	`language` - Language that is used for defining views.
-   -	`purge_seq` - The purge sequence that was processed.
-   -	`signature`	 - MD5 signature of the views for the design document.
-   -	`update_seq` - The update sequence of the corresponding database that was indexed.
-   -	`updater_running` - Indicates whether the view is being updated.
-   -	`waiting_clients` - Number of clients that are waiting on views from this design document.
-   -	`waiting_commit` - Indicates whether the underlying database has outstanding commits that need to process. 
+- `name` - Name or ID of design document.
+- `view_index` - View Index
+   - `compact_running` - Indicates whether a compaction routine runs on the view.
+   - `disk_size` - Size in bytes of the view as stored on disk.
+   - `language` - Language that is used for defining views.
+   - `purge_seq` - The purge sequence that was processed.
+   - `signature`	 - MD5 signature of the views for the design document.
+   - `update_seq` - The update sequence of the corresponding database that was indexed.
+   - `updater_running` - Indicates whether the view is being updated.
+   - `waiting_clients` - Number of clients that are waiting on views from this design document.
+   - `waiting_commit` - Indicates whether the underlying database has outstanding commits that need to process. 
 
 See the following example response in JSON format:
 
@@ -1211,21 +1211,19 @@ The JSON structure includes the following individual fields:
 :   The Search Index
 
 	`pending_seq`
-		:   The sequence number of changes in the database that reached the Lucene index,
-		both in memory and on disk.
+	:   The sequence number of changes in the database that reached the Lucene index, both in memory and on disk.
 
-			`doc_del_count`
-			:   Number of deleted documents in the index.
+	   `doc_del_count`
+	   :   Number of deleted documents in the index.
 
-			`doc_count`
-			:   Number of documents in the index.
+	      `doc_count`
+	      :   Number of documents in the index.
 
-			`disk_size`
-			:   The size of the index on disk, in bytes.
+	      `disk_size`
+	      :   The size of the index on disk, in bytes.
 
-			`committed_seq`
-			:   The sequence number of changes in the database that were committed
-			to the Lucene index on disk.
+	      `committed_seq`
+	      :   The sequence number of changes in the database that were committed to the Lucene index on disk.
 
 See the following example response in JSON format:
 

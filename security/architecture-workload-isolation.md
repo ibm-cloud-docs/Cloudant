@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: public isolation, compute isolation, cloudant architecture, workload isolation, byok
 
@@ -61,7 +61,7 @@ Standard and Lite plans are provisioned onto large, shared {{site.data.keyword.c
 Disk encryption is used to provide encryption at rest by using an {{site.data.keyword.IBM_notm}} owned and managed encryption key. Customer data resides in different files on disk. 
 
 ### Standard on Dedicated Hardware
-{: standard-on-dedicated-hardware}
+{: #standard-on-dedicated-hardware}
 
 A Dedicated Hardware instance offers improved storage and compute isolation for your most valuable data, including use of BYOK. After a Dedicated Hardware instance is provisioned, you can provision many Standard plan instances onto this Dedicated Hardware instance to store your data. While these Standard plan instances share the Dedicated Hardware's compute and storage, the instances do not share Dedicated Hardware's compute and storage with other customers.  
   

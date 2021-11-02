@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-02"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -26,8 +26,6 @@ completion-time: 20m
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
-
-<!-- Acrolinx: 0000-00-00 -->
 
 # Locating your {{site.data.keyword.dashdbshort_notm}} credentials
 {: #locating-db2-warehouse-credentials}

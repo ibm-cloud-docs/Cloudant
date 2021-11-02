@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -33,7 +33,7 @@ completion-time: 15m
 {: toc-services="Cloudant"}
 {: toc-completion-time="15m"}
 
-This tutorial shows you how to use the [Python programming language](https://www.python.org/){: new_window}{: external} to
+This tutorial shows you how to use the [Python programming language](https://www.python.org/){: external} to
 create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance. You also learn how to populate the database with a simple collection of data.
 {: shortdesc}
 
@@ -82,7 +82,7 @@ You must create a service instance and its credentials before you follow this tu
 ### Python version requirement
 {: #python-create-database}
 
-You must have a current version of the [Python programming language](https://www.python.org/){: new_window}{: external} installed on your system.
+You must have a current version of the [Python programming language](https://www.python.org/){: external} installed on your system.
 
 1. Check that Python is installed by running the following command at a prompt:
 
@@ -347,7 +347,7 @@ from within a Python application.
 In this example code,
 you again request a list of all the documents,
 including their content.
-However, this time you do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](/apidocs/cloudant#postalldocs){: new_window}{: external} endpoint.
+However, this time you do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](/apidocs/cloudant#postalldocs){: external} endpoint.
 
 1. Identify the endpoint to contact and any parameters to supply with it.
 
@@ -443,10 +443,11 @@ This script is the complete Python script for steps 2, 3, and 4. When you run
 the script, it connects to your service instance, creates the database,
 stores a small set of data in the database, and creates JSON documents.
 
-1. Replace the values for `serviceUsername`, `servicePassword`, and `serviceURL` with the values from your service credentials in the code example in the next step. </br>
+1. Replace the values for `serviceUsername`, `servicePassword`, and `serviceURL` with the values from your service credentials in the code example in the next step.    
+
 For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
 
-2. Copy the following script into a text editor and name it `demo.py`.
+1. Copy the following script into a text editor and name it `demo.py`.
 
     ```python
     #!/usr/bin/env python
@@ -511,7 +512,7 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
     ```
     {: codeblock}
 
-3. From the command line, run `demo.py` by typing a command similar to the following one.
+1. From the command line, run `demo.py` by typing a command similar to the following one.
 
     ```python
     python3 demo.py

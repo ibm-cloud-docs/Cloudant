@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-02"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -175,7 +175,7 @@ Next, you find a document in the database by using two fields.
 
 This example uses two fields to find a document with the values: `freezing` and `-5`. 
 
-The search is described by using a ['selector' expression](/apidocs/cloudant#postfind){: new_window}{: external}
+The search is described by using a ['selector' expression](/apidocs/cloudant#postfind){: external}
 that looks like the following example:
 
 ```json
