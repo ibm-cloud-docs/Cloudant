@@ -88,7 +88,8 @@ You can manage and determine replication status more quickly and easily by using
 
 See the typical process for using the replication scheduler to manage and monitor replications:
 
-1.  Create a [replication document](/apidocs/cloudant#postreplicate){: external} that describes the needed replication, and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
+1.  Create a [replication document](/apidocs/cloudant#postreplicate){: external} that describes the needed replication,
+    and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
 ## Authentication during replication
