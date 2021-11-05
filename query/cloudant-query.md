@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-05"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -24,8 +24,7 @@ subcollection: Cloudant
 # Working with {{site.data.keyword.cloudant_short_notm}} Query
 {: #query}
 
-{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for
-{{site.data.keyword.cloudant_short_notm}} databases. You can use a `json` or `text` type of index with {{site.data.keyword.cloudant_short_notm}}.
+{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for {{site.data.keyword.cloudant_short_notm}} databases. You can use a `json` or `text` type of index with {{site.data.keyword.cloudant_short_notm}}.
 {: shortdesc}
 
 In the following cases, you can specify how the index is created by

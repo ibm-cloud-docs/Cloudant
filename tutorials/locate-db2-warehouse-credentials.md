@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-08"
+lastupdated: "2021-11-05"
 
 keywords: db2 warehouse on cloud, db2 warehouse console, find your service credentials, log in to db2 warehouse console
 
@@ -37,6 +37,7 @@ To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.
 [data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples){: external} for tutorials on 
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
+{: shortdesc}
 
 This tutorial shows you how to find your {{site.data.keyword.dashdbshort_notm}} credentials. Keep in mind that the {{site.data.keyword.dashdbshort_notm}} feature is deprecated.
 {: deprecated}

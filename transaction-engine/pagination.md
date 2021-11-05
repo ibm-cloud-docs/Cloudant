@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-05"
 
 keywords: _all_docs endpoint, page_size parameter, bookmarks, query, search, paging, mapreduce views
 
@@ -23,6 +23,9 @@ subcollection: Cloudant
 
 # Pagination
 {: #pagination-te}
+
+With pagination, you iterate through a range of documents in an efficient manner.
+{: shortdesc}
 
 The content that is described here applies only to {{site.data.keyword.cloudantfull}} on Transaction Engine.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-05"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -25,7 +25,10 @@ subcollection: Cloudant
 # Pricing
 {: #pricing-te}
 
-[{{site.data.keyword.cloudantfull}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-overview-te) is the latest incarnation of the {{site.data.keyword.cloudant_short_notm}} JSON document store that runs as a service in {{site.data.keyword.cloud}}. It differs from the "Classic" {{site.data.keyword.cloudant_short_notm}} product, as a glance at the [feature comparison chart](/docs/Cloudant?topic=Cloudant-feature-comparison) shows, but it also has a different pricing model.
+[{{site.data.keyword.cloudantfull}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-overview-te) is the latest incarnation of the {{site.data.keyword.cloudant_short_notm}} JSON document store that runs as a service in {{site.data.keyword.cloud}}. 
+{: shortdesc}
+
+{{site.data.keyword.cloudant_short_notm}} on Transaction Engine differs from the *Classic* {{site.data.keyword.cloudant_short_notm}} product, as a glance at the [feature comparison chart](/docs/Cloudant?topic=Cloudant-feature-comparison) shows, but it also has a different pricing model.
 
 {{site.data.keyword.cloudant_short_notm}} Transaction Engine's pricing structure is closely aligned with the performance characteristics of the database. In other words, database operations that are cheap (in terms of the number of read/write units they consume) are relatively easy for the database to execute and are performant and scalable. 
 

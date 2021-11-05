@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-05"
 
-keywords: pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
+keywords: feature compare, pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
 
 subcollection: Cloudant
 
@@ -24,7 +24,8 @@ subcollection: Cloudant
 # Feature comparison
 {: #feature-comparison}
 
-The following tables show the differences between {{site.data.keyword.cloudantfull}} "Classic" architecture and {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
+The following tables show the differences between {{site.data.keyword.cloudantfull}} *Classic* architecture and {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
+{: shortdesc}
 
 The comparison tables serve as a point-in-time comparison to aid in choosing between the two plans at provisioning time. Customers must choose the plan to meet the needs of their application. Certain new features were delivered only on {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. For this reason, if possible, choose the {{site.data.keyword.cloudant_short_notm}} on Transaction Engine plan whenever possible.  
 {: note}
