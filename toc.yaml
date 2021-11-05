@@ -58,6 +58,7 @@ toc:
       id: tutorial
       topics: 
       - tutorials/locate-service-credentials.md
+      - tutorials/revoke-instance-url-style-credential.md
       - tutorials/use-dashboard.md
       - tutorials/create_service_cli.md
       - tutorials/create_dedicated_hardware_plan.md
