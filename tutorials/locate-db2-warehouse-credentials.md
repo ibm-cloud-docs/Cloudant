@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-08"
 
-keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
+keywords: db2 warehouse on cloud, db2 warehouse console, find your service credentials, log in to db2 warehouse console
 
 subcollection: Cloudant
 
