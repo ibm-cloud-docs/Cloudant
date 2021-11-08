@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-08"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -662,7 +662,7 @@ Send a `POST` request to restore (undelete) a deleted database.
 None
 
 #### Request headers
-{: #request-headers-db}
+{: #request-headers-delete-dbs}
 
 ```sh
 Accept –

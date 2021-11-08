@@ -44,7 +44,7 @@ This tutorial shows you how to find your {{site.data.keyword.dashdbshort_notm}} 
 Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need the URL and credentials. This information is located in the `warehouser` document.
 
 ## Objectives
-{: #objectives}
+{: #objectives-locate-db2-credentials}
 
 - Locate your {{site.data.keyword.dashdbshort_notm}} credentials.
 - Sign in to {{site.data.keyword.dashdbshort_notm}} console. 

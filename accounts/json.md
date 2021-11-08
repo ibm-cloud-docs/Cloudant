@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-08"
 
 keywords: numbers, strings, booleans, arrays, objects, JSON parser, JavaScript
 
@@ -108,7 +108,7 @@ A list of values enclosed in brackets. The values that are enclosed can be any v
 {: codeblock}
 
 ### Example of an array in JSON format (linear)
-{: #example-array-json-format}
+{: #example-array-json-format-linear}
 
 ```json
 [ "one", 2, "three", [], true, { "foo": "bar" } ]
