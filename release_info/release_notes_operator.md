@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-03"
+lastupdated: "2021-11-08"
 
 keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, feature comparison, 1.4.2, 1.4.1, 1.4.0, 1.3.0, 1.2.1, 1.2.0, 1.1.0, couchdb 
 
@@ -32,28 +32,28 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: shortdesc}
 
 ## November 2020
-{: #cloudant-nov20}
+{: #cloudant-operator-nov20}
 
 
 ### 30 November 2020 - Build 1.4.2
-{: #cloudant-nov0920}
+{: #cloudant-operator-nov0920}
 {: release-note}
 
 Memory leak
 :   Fixes memory leak in the `mgmt` container.
 
 ### 9 November 2020 - Build 1.4.1
-{: #cloudant-nov0120}
+{: #cloudant-operator-nov0120}
 {: release-note}
 
 Permissions
 :   Fixes permissions issue with `pre_stop` scripts.
  
 ## October 2020
-{: #cloudant-oct20}
+{: #cloudant-operator-oct20}
 
 ### 30 October 2020 - Build 1.4.0
-{: #cloudant-oct3020}
+{: #cloudant-operator-oct3020}
 {: release-note}
 
 Operator upgrade
@@ -69,7 +69,7 @@ Symlink creation error
 : Fixes symlink creation error when init container is restarted.
 
 ### 23 October 2020 - Build 1.3.0 
-{: #cloudant-oct2320}
+{: #cloudant-operator-oct2320}
 {: release-note}
 
 CouchDB updates
@@ -85,17 +85,17 @@ CouchDB improvement
 :   Fixes missing `findmnt` error in the `mgmt` container.
 
 ## September 2020
-{: #cloudant-sept20}
+{: #cloudant-operator-sept20}
 
 ### 15 September 2020 - Build 1.2.1
-{: #cloudant-sep1520}
+{: #cloudant-operator-sep1520}
 {: release-note}
 
 Configuration files creation
 :   Configuration files are incorrectly created with read-only file permissions.
 
 ### 14 September 2020 - Build 1.2.0
-{: #cloudant-sep1420}
+{: #cloudant-operator-sep1420}
 {: release-note}
 
 Configuration options
@@ -113,10 +113,10 @@ Search container
 - CouchDB Search must not log at `DEBUG` level by default. This following bug fix also fixes a performance regression in the search container that is caused by debug-level logs being enabled by default.
 
 ## August 2020
-{: #cloudant-aug20}
+{: #cloudant-operator-aug20}
 
 ### 17 August 2020 - Build 1.1.0 
-{: #cloudant-aug1720}
+{: #cloudant-operator-aug1720}
 {: release-note}
 
 New! Introducing the Operator and its functions

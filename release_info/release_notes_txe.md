@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-03"
+lastupdated: "2021-11-08"
 
 keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, operator, classic, transaction engine, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.92, 2.93, couchdb
 
@@ -32,10 +32,10 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: shortdesc}
 
 ## October 2021
-{: #cloudant-oct21}
+{: #cloudant-txe-oct21}
 
 ### 15 October 2021 - Build 2.96
-{: #cloudant-oct1521}
+{: #cloudant-txe-oct1521}
 
 IAM Trusted Profiles
 :   Support IAM Trusted Profiles.
@@ -71,17 +71,17 @@ Replicator authentication
 :   Fix bug in Replicator authentication for passwords containing `@`.
 
 ## July 2021
-{: #cloudant-jul21}
+{: #cloudant-txe-jul21}
 
 ### 15 July 2021 - Build 2.94
-{: #cloudant-jul1521}
+{: #cloudant-txe-jul1521}
 {: release-note}
 
 Upgrade version
 :   Upgrade your environment to Erlang/OTP 23.3.4.4.
 
 ### 1 July 2021 - Build 2.93 
-{: #cloudant-jul0121}
+{: #cloudant-txe-jul0121}
 {: release-note}
 
 Validate deprecated parameters
@@ -94,10 +94,10 @@ Testing dependencies
 :   Update testing dependencies.
 
 ## May 2021
-{: #cloudant-may21}
+{: #cloudant-txe-may21}
 
 ### 15 May 2021 - Build 2.92 
-{: #cloudant-may1521}
+{: #cloudant-txe-may1521}
 {: release-note}
 
 Design document validation
@@ -114,10 +114,10 @@ Error messages
 - `/_db_updates`    
 
 ## April 2021
-{: #cloudant-april21}
+{: #cloudant-txe-april21}
 
 ### 15 April 2021 - Build 2.91 
-{: #cloudant-apr1521}
+{: #cloudant-txe-apr1521}
 {: release-note}
 
 Improvements
@@ -136,10 +136,10 @@ Replicator error
 :   Replicator treats a client `408` error code as retryable.
 
 ## November 2020
-{: #cloudant-nov20}
+{: #cloudant-txe-nov20}
 
 ### 15 November 2020 - Build 2.88
-{: #cloudant-nov1520}
+{: #cloudant-txe-nov1520}
 {: release-note}
 
 Replicator support
@@ -149,17 +149,17 @@ Built-in view
 :   Add built-in view reduce functionality.
 
 ## September 2020
-{: #cloudant-sept20}
+{: #cloudant-txe-sept20}
 
 ### 15 September 2020 - Build 2.80
-{: #cloudant-sep1520}
+{: #cloudant-txe-sep1520}
 {: release-note}
 
 Improvements
 :   Internal bug fixes.
 
 ### 1 September 2020 - Build 2.79
-{: #cloudant-sep0120}
+{: #cloudant-txe-sep0120}
 {: release-note}
 
 Empty entries
@@ -175,17 +175,17 @@ Performance improvement
 :   Improve performance of view builds when there are no emits from JavaScript function.
 
 ## August 2020
-{: #cloudant-aug20}
+{: #cloudant-txe-aug20}
 
 ### 15 August 2020 - Build 2.77 
-{: #cloudant-aug1520}
+{: #cloudant-txe-aug1520}
 {: release-note}
 
 Dashboard access
 :   Fixed dashboard access for {{site.data.keyword.cloudant_short_notm}} Transaction Engine instances.
 
 ### 1 August 2020 - Build 2.75
-{: #cloudant-aug0120}
+{: #cloudant-txe-aug0120}
 {: release-note}
 
 Authentication and authorization methods
@@ -204,10 +204,10 @@ Re-create database instance
 :   Add support for `_active_tasks`.
 
 ## June 2020
-{: #cloudant-jun20}
+{: #cloudant-txe-jun20}
 
 ### 15 June 2020 - Build 2.69
-{: #cloudant-jun1520}
+{: #cloudant-txe-jun1520}
 {: release-note}
 
 Query parameters
@@ -220,7 +220,7 @@ Error messages
 :   Reword view and query pagination limit error messages that are returned with the HTTP 400 responses.
 
 ### 1 June 2020 - Build 2.67
-{: #cloudant-jun0120}
+{: #cloudant-txe-jun0120}
 {: release-note}
 
 New! Introducing {{site.data.keyword.cloudant_short_notm}} on Transaction Engine!
