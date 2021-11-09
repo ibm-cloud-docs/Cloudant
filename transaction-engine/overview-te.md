@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-05"
 
-keywords: recommendations, database recovery, in-database encryption, in-region strong consistency, synchronous secondary index building, provisioned throughput capacity, scalability, cost
+keywords: Transaction Engine, recommendations, database recovery, in-database encryption, in-region strong consistency, synchronous secondary index building, provisioned throughput capacity, scalability, cost
 
 subcollection: Cloudant
 
@@ -21,7 +21,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-# Overview
+# Overview of Transaction Engine
 {: #overview-te}
 
 {{site.data.keyword.cloudantfull}} has a new architecture option, which is underpinned by a Transaction Engine. The new architecture aims to provide the best of both non-relational and relational data stores combining scale, fault tolerance, consistency, security, and speed at optimal cost. The Transaction Engine architecture is compared to the "Classic" architecture for clarity in the documentation. Instances that are provisioned with the new `Standard on Transaction Engine` plan are deployed by using the new architecture, while instances on the `Lite` and `Standard` plan are deployed on the "Classic" architecture.

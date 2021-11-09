@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-05"
 
 keywords: endpoints, service credentials, authentication,cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -25,6 +25,7 @@ subcollection: Cloudant
 {: #securing-your-connection-to-cloudant}
 
 {{site.data.keyword.cloudantfull}} is accessed through an HTTP API. This document describes the different parts that you use to connect to {{site.data.keyword.cloudant_short_notm}}:
+
 - Endpoints (Public and Private)
 - Service credentials
 - Authentication

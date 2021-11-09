@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-05"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -22,7 +22,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-# Replication
+# {{site.data.keyword.cloudant_short_notm}} Replication
 {: #replication-api}
 
 {{site.data.keyword.cloudantfull}} replication is the process that synchronizes the state of two databases.
