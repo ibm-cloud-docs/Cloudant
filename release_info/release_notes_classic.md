@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-08"
+lastupdated: "2021-11-10"
 
 keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, feature comparison, new features, partition query, dedicated hardware plan, replication scheduler, 8243, 8238, 8220, 8202, 8201, 8194, 8192, 8182, 8169, 8162, 8158, 8152, 8142, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -931,7 +931,7 @@ Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_sho
 {: release-note}
 
 Query (`_find` endpoint) improved
-:   {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: external}.
+:   {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](https://www.ibm.com/support/pages/improving-cloudant-query-index-selection){: external}.
 
 Index validation
 :   The logic for determining whether a specific index is valid for a query that changed, addressing a bug that might lead to incorrect results.
