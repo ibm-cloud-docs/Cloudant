@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-11"
 
-keywords: port forward, openshift route, tls, credentials
+keywords: port forward, red hat openshift route, tls, credentials
 
 subcollection: Cloudant
 
@@ -27,7 +27,7 @@ subcollection: Cloudant
 The CouchDB cluster is exposed by using a `ClusterIP` service only. To access the deployment externally, you can either port-forward by using `oc`/`kubectl`. 
 {: shortdesc}
 
-You can also configure an external OpenShift route.
+You can also configure an external Red Hat OpenShift route.
 
 ## Port-forward
 {: #port-forward-access-couchdb}
@@ -50,12 +50,12 @@ kubectl port-forward svc/<couchdb name> 5984:5984 -n <namespace>
 
 You can then access your cluster locally by pointing a client to `http://localhost:5984`.
 
-## OpenShift route
-{: #openshift-route}
+## Red Hat OpenShift route
+{: #red-hat-openshift-route}
 
-On OpenShift, the CouchDB service is configured to use an [OpenShift service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html){: external}.
+On Red Hat OpenShift, the CouchDB service is configured to use an [Red Hat OpenShift service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html){: external}.
 
-This configuration allows the `CouchDBCluster` to be exposed by using a reencrypting route, ensuring traffic is encrypted internally within the OpenShift cluster. To create a route from the CLI, run the following command:
+This configuration allows the `CouchDBCluster` to be exposed by using a reencrypting route, ensuring traffic is encrypted internally within the Red Hat OpenShift cluster. To create a route from the CLI, run the following command:
 
 ```sh
 oc apply -f - <<END
@@ -97,4 +97,4 @@ In the previous example, you can access the Apache CouchDB API at `https://<exam
 ## Credentials
 {: #credentials-cluster-couchdb}
 
-The `CouchDBCluster` is configured with a cluster admin account, `admin`. The password is specified at deployment time by using the `environment.adminPassword` field. Further, non-admin users can be added by using the [`_users` database](https://docs.couchdb.org/en/3.1.1/intro/security.html#authentication-database){: external}.
+The `CouchDBCluster` is configured with a cluster admin account, `admin`. The password is specified at deployment time by using the `environment.adminPassword` field. Further, nonadmin users can be added by using the [`_users` database](https://docs.couchdb.org/en/3.1.1/intro/security.html#authentication-database){: external}.

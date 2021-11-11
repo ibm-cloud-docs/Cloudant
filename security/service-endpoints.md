@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-11"
 
 keywords: isolation for IBM Cloudant, service endpoints for IBM Cloudant, private network for IBM Cloudant, network isolation in IBM Cloudant, non-public routes for IBM Cloudant, private connection for IBM Cloudant, private connectivity for IBM Cloudant
 
@@ -24,7 +24,7 @@ subcollection: Cloudant
 # Using service endpoints to privately connect to {{site.data.keyword.cloudant_short_notm}}
 {: #service-endpoints}
 
-To ensure that you have enhanced control and security over your data when you use {{site.data.keyword.cloudantfull}}, you have the option of using private routes to {{site.data.keyword.cloud}} service endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private service endpoints feature, you can protect your data from threats from the public network and logically extend your private network.
+To ensure that you enhance control and security over your data when you use {{site.data.keyword.cloudantfull}}, you have the option of using private routes to {{site.data.keyword.cloud}} service endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} Private service endpoints feature, you can protect your data from threats from the public network and logically extend your private network.
 {: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} sends customer logs to LogDNA by using a private service endpoint.
@@ -32,7 +32,7 @@ To ensure that you have enhanced control and security over your data when you us
 ## Before you begin
 {: #prereq-service-endpoint}
 
-You must first enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
+You must first enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} Private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
 
 Only {{site.data.keyword.cloudant_short_notm}} users with the dedicated hardware plan can have a cloud service endpoint (CSE). All new dedicated hardware clusters have a CSE. If you are an existing user, and you do not have a CSE, contact the [{{site.data.keyword.cloud_notm}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter). 
 
@@ -56,7 +56,7 @@ If it succeeds, you are ready to go. Otherwise, you might want to check a few th
 -  Are your CSEs correctly enabled?
 -  Can you reach the CSE endpoints from where you're running the command?
 -  Do other CSE endpoints in the same account work correctly?
--  Are your firewall rules blocking access?
+-  Do your firewall rules block access?
 
 If none of these tasks fix the problem, you can talk to our [{{site.data.keyword.cloud_notm}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter) team.
 
