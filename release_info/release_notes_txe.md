@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-08"
+lastupdated: "2021-11-11"
 
 keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, operator, classic, transaction engine, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.92, 2.93, couchdb
 
@@ -43,7 +43,7 @@ IAM Trusted Profiles
 Replicator "auth" object
 :   Support basic auth credentials in replicator "auth" object.
 
-Changes feed filtering
+Filtering changes feed
 :   Use couch_eval for changes feed filtering.
 
 Validate doc update
@@ -64,11 +64,11 @@ Case sensitivity
 `aegis_server`
 :   Improve stability of `aegis_server` under load.
 
-Improve reliability
+Document creation
 :   Improve reliability of document creation.
 
 Replicator authentication
-:   Fix bug in Replicator authentication for passwords containing `@`.
+:   Fix bug in Replicator authentication for passwords that contain `@`.
 
 ## July 2021
 {: #cloudant-txe-jul21}
@@ -85,9 +85,9 @@ Upgrade version
 {: release-note}
 
 Validate deprecated parameters
-:   Fix regression related to validation of deprecated parameters: `q` and `n`.
+:   Fix regression that is related to validation of deprecated parameters: `q` and `n`.
 
-Disable parameter
+Placement parameter
 :   Disable placement parameter.
 
 Testing dependencies
@@ -121,7 +121,7 @@ Error messages
 {: release-note}
 
 Improvements
-:   Fix bug that can corrupt view indices. If the view index returns inconsistent data even after database updates stop, re-create the index by deleting and re-adding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
+:   Fix bug that can corrupt view indices. If the view index returns inconsistent data even after database updates stop, recreate the index by deleting and readding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
 
 Indexing performance
 :   Improve indexing performance when concurrent database updates exist.

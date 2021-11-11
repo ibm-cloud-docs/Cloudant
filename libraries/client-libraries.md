@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-11"
 
 keywords: develop applications, supported library, mobile, java, node.js, python, swift, go
 
@@ -36,14 +36,14 @@ reproducible problem in the current version of the library.
 ## Java
 {: #java-supported}
 
-The {{site.data.keyword.cloudant_short_notm}} SDK for Java is the official {{site.data.keyword.cloudant_short_notm}} library for Java.
+The {{site.data.keyword.cloudant_short_notm}} SDK for Java&trade; is the official {{site.data.keyword.cloudant_short_notm}} library for Java&trade;.
 
-To install the {{site.data.keyword.cloudant_short_notm}} SDK for the Java library, see [Installation](https://github.com/ibm/cloudant-java-sdk#installation) about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
+To install the {{site.data.keyword.cloudant_short_notm}} SDK for the Java&trade; library, see [Installation](https://github.com/ibm/cloudant-java-sdk#installation) about installing the library by adding it as a dependency to your Maven or Gradle builds. You can also see details and examples of how to use the library in the guide.  
 
 ### Library for Java
 {: #supported-library-for-java}
 
-- [{{site.data.keyword.cloudant_short_notm}} SDK for Java](https://github.com/ibm/cloudant-java-sdk){: external}
+- [{{site.data.keyword.cloudant_short_notm}} SDK for Java&trade;](https://github.com/ibm/cloudant-java-sdk){: external}
 
 ## Node.js
 {: #node-js-supported}
