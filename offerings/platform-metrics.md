@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-15"
 
 keywords: cloud monitoring, monitoring, platform metrics, observability page, enable platform metrics, view metrics, launch monitoring
 
@@ -23,7 +23,7 @@ subcollection: Cloudant
 # {{site.data.keyword.mon_full_notm}} integration
 {: #monitor-ibm-cloud-pm}
 
-{{site.data.keyword.mon_full}} is a third-party, cloud-native, and container-intelligent management system that you can include as part of your {{site.data.keyword.cloud}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. 
+{{site.data.keyword.mon_full}} is a third-party, cloud-native, and container-intelligent management system that you can include as part of your {{site.data.keyword.cloud}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards.
 {: shortdesc}
 
 Currently, {{site.data.keyword.mon_full_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
@@ -34,6 +34,7 @@ Deployment Region | {{site.data.keyword.mon_full_notm}} Region
 `Dallas` | `Dallas`
 `London` | `London`
 `Osaka` | `Osaka`
+`São Paulo` | `São Paulo`
 `Seoul` | `Tokyo`
 `Sydney` | `Sydney`
 `Tokyo` | `Tokyo`
@@ -68,7 +69,7 @@ Complete the following steps to configure platform metrics:
 
 4. Click **Actions** > **Add monitoring** to configure *platform metrics* in the region of your {{site.data.keyword.cloud_notm}} instance.
 
-    If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics. 
+    If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics.
     {: note}
 
     ![Monitoring menu](../images/monitoring_add.png){: caption="Figure 1. Monitoring menu" caption-side="bottom"}
@@ -102,7 +103,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
     The {{site.data.keyword.cloudant_short_notm}} *Manage* page opens.
 
-4. Click **Actions**, and select **Monitoring**. 
+4. Click **Actions**, and select **Monitoring**.
 
     ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 
@@ -118,7 +119,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
 4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
 
-    To access your deployment's {{site.data.keyword.mon_full_notm}} dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}. 
+    To access your deployment's {{site.data.keyword.mon_full_notm}} dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
 
     ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
