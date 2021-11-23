@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-01-21"
 
 ---
 
@@ -16,6 +16,8 @@ lastupdated: "2021-11-02"
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # How documents work 
 {: #documents}
@@ -142,58 +144,165 @@ See an example success message (abbreviated) returned when a nested field with a
 {: #create-document}
 
 To create a document,
-send a `POST` request with the document's JSON content to `https://$ACCOUNT.cloudant.com/$DATABASE`.
+send a `PUT` request with the document's JSON content to `$SERVICE_URL/$DATABASE/$DOC_ID`.
 
 ### Creating a document by using HTTP
 {: #creating-document-using-http}
 
 ```http
-POST /$DATABASE HTTP/1.1
+PUT /$DATABASE/$DOC_ID HTTP/1.1
 Content-Type: application/json
 ```
 {: codeblock}
 
-### Creating a document by using the command line
+### Examples of creating a document
 {: #creating-document-using-command-line}
 
+You can customize this section for the programming language that you want to use by selecting the language in the code examples.
+{: tip}
+
+Example of creating a {{site.data.keyword.cloudant_short_notm}}s document for this JSON in a non-partitioned database:
+
+```json
+{
+ 
+   "type": "event",
+   "userid": "abc123",
+   "eventType": "addedToBasket",
+   "productId": "1000042",
+   "date": "2019-01-28T10:44:22.000Z"
+ 
+}
+```
+{: codeblock}
+
+See an example of using the command line to create a document:
+
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE" \
-	-X POST \
-	-H "Content-Type: application/json" \
-	-d "$JSON"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/events/0007241142412418284" -H "Content-Type: application/json" --data '{ "type": "event", "userid": "abc123", "eventType": "addedToBasket", "productId": "1000042", "date": "2019-01-28T10:44:22.000Z }'
 ```
 {: codeblock}
+{: curl}
 
-See an example JSON document in a partitioned database with a partition key of `fruit` and a document key of `apple`:
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Document;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PutDocumentOptions;
 
-```json
-{
-	"_id": "fruit:apple",
-	"item": "Malus domestica",
-	"prices": {
-		"Fresh Mart": 1.59,
-		"Price Max": 5.99,
-		"Apples Express": 0.79
-	}
-}
-```	
-{: codeblock}
+Cloudant service = Cloudant.newInstance();
 
+Document eventDoc = new Document();
+eventDoc.put("type", "event");
+eventDoc.put("userid", "abc123");
+eventDoc.put("eventType", "addedToBasket");
+eventDoc.put("productId", "1000042");
+eventDoc.put("date", "2019-01-28T10:44:22.000Z");
 
-See an example JSON document in a non-partitioned database with a document ID `apple`:
+PutDocumentOptions documentOptions =
+    new PutDocumentOptions.Builder()
+        .db("events")
+        .docId("0007241142412418284")
+        .document(eventDoc)
+        .build();
 
-```json
-{
-	"_id": "apple",
-	"item": "Malus domestica",
-	"prices": {
-		"Fresh Mart": 1.59,
-		"Price Max": 5.99,
-		"Apples Express": 0.79
-	}
-}
+DocumentResult response =
+    service.putDocument(documentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+
 ```
 {: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const eventDoc = {
+  type: 'event',
+  userid: 'abc123',
+  eventType: 'addedToBasket',
+  productId: '1000042',
+  date: '2019-01-28T10:44:22.000Z'
+};
+
+service.putDocument({
+  db: 'events',
+  docId: '0007241142412418284',
+  document: eventDoc
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import Document, CloudantV1
+
+service = CloudantV1.new_instance()
+
+event_doc = Document(
+  type='event',
+  userid='abc123',
+  eventType='addedToBasket',
+  productId='1000042',
+  date='2019-01-28T10:44:22.000Z'
+)
+response = service.put_document(
+  db='events',
+  doc_id='0007241142412418284',
+  document=event_doc
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+eventDoc := cloudantv1.Document{}
+eventDoc.SetProperty("type", "event")
+eventDoc.SetProperty("userid", "abc123")
+eventDoc.SetProperty("eventType", "addedToBasket")
+eventDoc.SetProperty("productId", "1000042")
+eventDoc.SetProperty("date", "2019-01-28T10:44:22.000Z")
+
+putDocumentOptions := service.NewPutDocumentOptions(
+  "events",
+  "0007241142412418284",
+)
+putDocumentOptions.SetDocument(&eventDoc)
+
+documentResult, response, err := service.PutDocument(putDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block: 
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 The response is a JSON document that contains the ID of the created document,
 the revision string,
@@ -210,9 +319,9 @@ See an example response after successfully creating a document:
 
 ```json
 {
-	"ok":true,
-	"id":"apple",
-	"rev":"1-2902191555"
+  "id": "exampleid",
+  "ok": true,
+  "rev": "2-056f5f44046ecafc08a2bc2b9c229e20"
 }
 ```
 {: codeblock}
@@ -232,7 +341,7 @@ If you don't know the `_id` for a particular document,
 you can [query the database](/apidocs/cloudant#postalldocsqueries){: external} for all documents.
 
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
-data that were written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
+data written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
 a client can cache the state of data locally. Caching also helps to keep request counts down, increase application performance, and decrease load on the database cluster. This behavior also applies to other read requests such as to MapReduce and search indexes.
 {: note}
 
@@ -243,12 +352,101 @@ GET /$DATABASE/$DOCUMENT_ID HTTP/1.1
 ```
 {: codeblock}
 
-See an example of retrieving a document by using the command line:
+You can customize this section for the programming language that you want to use by selecting the language in the code examples.
+{: tip}
+
+See an example of retrieving a document:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/products/small-appliances:1000042"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Document;
+import com.ibm.cloud.cloudant.v1.model.GetDocumentOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+GetDocumentOptions documentOptions =
+    new GetDocumentOptions.Builder()
+        .db("products")
+        .docId("small-appliances:1000042")
+        .build();
+
+Document response =
+    service.getDocument(documentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getDocument({
+  db: 'products',
+  docId: 'small-appliances:1000042'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_document(
+  db='products',
+  doc_id='small-appliances:1000042'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getDocumentOptions := service.NewGetDocumentOptions(
+  "products",
+  "small-appliances:1000042",
+)
+
+document, response, err := service.GetDocument(getDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(document, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 The response contains the document that you requested,
 or a description of the error if the document can't be retrieved.
@@ -257,14 +455,32 @@ See an example response of retrieving a document:
 
 ```json
 {
-	"_id": "apple",
-	"_rev": "1-2902191555",
-	"item": "Malus domestica",
-	"prices": {
-		"Fresh Mart": 1.59,
-		"Price Max": 5.99,
-		"Apples Express": 0.79
-	}
+  "_id": "exampleid",
+  "brand": "Foo",
+  "colours": [
+    "red",
+    "green",
+    "black",
+    "blue"
+  ],
+  "description": "Slim Colourful Design Electronic Cooking Appliance for ...",
+  "image": "assets/img/0gmsnghhew.jpg",
+  "keywords": [
+    "Foo",
+    "Scales",
+    "Weight",
+    "Digital",
+    "Kitchen"
+  ],
+  "name": "Digital Kitchen Scales",
+  "price": 14.99,
+  "productid": "1000042",
+  "taxonomy": [
+    "Home",
+    "Kitchen",
+    "Small Appliances"
+  ],
+  "type": "product"
 }
 ```
 {: codeblock}
@@ -317,37 +533,160 @@ If you fail to provide the most recent `_rev` when you attempt to update an exis
 Any document update can lead to a conflict, especially when you replicate updated documents. For more information about avoiding and resolving conflicts, see the [Document versioning and MVCC guide](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
 {: note}
 
-See an example of using HTTP to update a document:
+You can customize this topic for the programming language that you want to use by selecting the language in the code examples.
+{: tip}
+
+See example of updating a document by using HTTP:
 
 ```http
-PUT /$DATABASE/$DOCUMENT_ID HTTP/1.1
+POST /$DATABASE HTTP/1.1
 ```
-{: codeblock}
+{: codeblock} 
 
-See an example of using the command line to update a document:
+See examples of updating a document:
 
 ```sh
-# make sure $JSON contains the correct `_rev` value!
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID" \
-	-X PUT \
-	-H "Content-Type: application/json" \
-	-d "$JSON"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/products" -H "Content-Type: application/json" --data '{ "_id": "small-appliances:1000042", "type": "product", "productid": "1000042", "brand": "Salter", "name": "Digital Kitchen Scales", "description": "Slim Colourful Design Electronic Cooking Appliance for Home / Kitchen, Weigh up to 5kg + Aquatronic for Liquids ml + fl. oz. 15Yr Guarantee - Green", "price: 14.99, "image": "assets/img/0gmsnghhew.jpg" }'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Document;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PostDocumentOptions;
+
+
+Cloudant service = Cloudant.newInstance();
+
+Document productsDocument = new Document();
+productsDocument.setId("small-appliances:1000042");
+productsDocument.put("type", "product");
+productsDocument.put("productid", "1000042");
+productsDocument.put("brand", "Salter");
+productsDocument.put("name", "Digital Kitchen Scales");
+productsDocument.put("description", "Slim Colourful Design Electronic"
+    + "Cooking Appliance for Home/Kitchen, Weigh up to 5kg + Aquatronic"
+    + "for Liquids ml + fl. oz. 15Yr Guarantee - Green");
+productsDocument.put("price", 14.99);
+productsDocument.put("image", "assets/img/0gmsnghhew.jpg");
+
+PostDocumentOptions documentOptions =
+    new PostDocumentOptions.Builder()
+        .db("products")
+        .document(productsDocument)
+        .build();
+
+DocumentResult response =
+    service.postDocument(documentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const productsDoc = {
+  _id: 'small-appliances:1000042',
+  type: 'product',
+  productid: '1000042',
+  brand: 'Salter',
+  name: 'Digital Kitchen Scales',
+  description: 'Slim Colourful Design Electronic Cooking Appliance for Home / Kitchen, Weigh up to 5kg + Aquatronic for Liquids ml + fl. oz. 15Yr Guarantee - Green',
+  price: 14.99,
+  image: 'assets/img/0gmsnghhew.jpg'
+};
+
+service.postDocument({
+  db: 'products',
+  document: productsDoc
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import Document, CloudantV1
+
+service = CloudantV1.new_instance()
+
+products_doc = Document(
+  id="small-appliances:1000042",
+  type="product",
+  productid="1000042",
+  brand="Salter",
+  name="Digital Kitchen Scales",
+  description="Slim Colourful Design Electronic Cooking Appliance for Home / Kitchen, Weigh up to 5kg + Aquatronic for Liquids ml + fl. oz. 15Yr Guarantee - Green",
+  price=14.99,
+  image="assets/img/0gmsnghhew.jpg")
+
+response = service.post_document(db='products', document=products_doc).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+productsDoc := cloudantv1.Document{
+  ID: core.StringPtr("small-appliances:1000042"),
+}
+productsDoc.SetProperty("type", "product")
+productsDoc.SetProperty("productid", "1000042")
+productsDoc.SetProperty("brand", "Salter")
+productsDoc.SetProperty("name", "Digital Kitchen Scales")
+productsDoc.SetProperty("description", "Slim Colourful Design Electronic Cooking Appliance for Home / Kitchen, Weigh up to 5kg + Aquatronic for Liquids ml + fl. oz. 15Yr Guarantee - Green")
+productsDoc.SetProperty("price", 14.99)
+productsDoc.SetProperty("image", "assets/img/0gmsnghhew.jpg")
+
+postDocumentOptions := service.NewPostDocumentOptions(
+  "products",
+)
+postDocumentOptions.SetDocument(&productsDoc)
+
+documentResult, response, err := service.PostDocument(postDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+   "github.com/IBM/go-sdk-core/v5/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See an example of JSON data that contains an updated document:
 
 ```json
 {
-	"_id": "apple",
-	"_rev": "1-2902191555",
-	"item": "Malus domestica",
-	"prices": {
-		"Fresh Mart": 1.59,
-		"Price Max": 5.99,
-		"Apples Express": 0.79,
-		"Gentlefop's Shackmart": 0.49
-	}
+   "id": "exampleid",
+   "ok": true,
+   "rev": "2-056f5f44046ecafc08a2bc2b9c229e20"
 }
 ```
 {: codeblock}
@@ -361,9 +700,9 @@ See an example response after a successful update:
 
 ```json
 {
-	"ok":true,
-	"id":"apple",
-	"rev":"2-9176459034"
+  "id": "exampleid",
+  "ok": true,
+  "rev": "2-056f5f44046ecafc08a2bc2b9c229e20"
 }
 ```
 {: codeblock}
@@ -396,17 +735,107 @@ See an example of using the command line to delete a document:
 
 ```sh
 # make sure $JSON contains the correct `_rev` value!
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID?rev=$REV" -X DELETE
+
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X DELETE "$SERVICE_URL/events/0007241142412418284?rev=2-9a0d1cd9f40472509e9aac6461837367"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DeleteDocumentOptions;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+
+Cloudant service = Cloudant.newInstance();
+
+DeleteDocumentOptions documentOptions =
+    new DeleteDocumentOptions.Builder()
+        .db("events")
+        .docId("0007241142412418284")
+        .rev("2-9a0d1cd9f40472509e9aac6461837367")
+        .build();
+
+DocumentResult response =
+    service.deleteDocument(documentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+const service = CloudantV1.newInstance({});
+
+service.deleteDocument({
+ db: 'events',
+ docId: '0007241142412418284',
+ rev: '2-9a0d1cd9f40472509e9aac6461837367'
+}).then(response => {
+ console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.delete_document(
+ db='events',
+ doc_id='0007241142412418284',
+ rev='2-9a0d1cd9f40472509e9aac6461837367'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+deleteDocumentOptions := service.NewDeleteDocumentOptions(
+ "events",
+ "0007241142412418284",
+)
+deleteDocumentOptions.SetRev("2-9a0d1cd9f40472509e9aac6461837367")
+
+documentResult, response, err := service.DeleteDocument(deleteDocumentOptions)
+if err != nil {
+ panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See an example response after a successful deletion request:
 
 ```json
 {
-	"id" : "apple",
-	"ok" : true,
-	"rev" : "3-2719fd4118"
+  "id": "exampleid",
+  "ok": true,
+  "rev": "2-056f5f44046ecafc08a2bc2b9c229e20"
 }
 ```
 {: codeblock}
@@ -534,8 +963,7 @@ To use a `validate_doc_update` function to remove tombstone documents:
 1.   Stop replication from the source to the target database.
 1.   If appropriate, delete the target database, then create a new target database.
 1.   Add a suitable `validate_doc_update` function, similar to the example provided.
-
-	Add it to a design document in the target database.
+1.   Add it to a design document in the target database.
 1.   Restart replication between the source and the (new) target database.
 1.   When replication is complete, switch your application logic to use the new database.
 1.   Verify that your applications work correctly with the new database.
@@ -619,37 +1047,203 @@ Content-Type: application/json
 See an example of using the command line to create, update, or delete multiple documents:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs" \
-	-X POST \
-	-H "Content-Type: application/json" \
-	-d "$JSON"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/events/_bulk_docs" -H "Content-Type: application/json" --data '{ "docs": [ { "_id": "0007241142412418284", "type": "event", "userid": "abc123", "eventType": "addedToBasket", "productId": "1000042", "date": "2019-01-28T10:44:22.000Z" }, { "_id": "0008001142412418285", "type": "event", "userid": "def456", "eventType": "addedToBasket", "productId": "1000043", "date": "2019-01-28T12:30:00.000Z" } ], "new_edits": true }'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.BulkDocs;
+import com.ibm.cloud.cloudant.v1.model.Document;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PostBulkDocsOptions;
+
+import java.util.Arrays;
+import java.util.List;
+
+Cloudant service = Cloudant.newInstance();
+
+Document eventDoc1 = new Document();
+eventDoc1.setId("0007241142412418284");
+eventDoc1.put("type", "event");
+eventDoc1.put("userid", "abc123");
+eventDoc1.put("eventType", "addedToBasket");
+eventDoc1.put("productId", "1000042");
+eventDoc1.put("date", "2019-01-28T10:44:22.000Z");
+
+Document eventDoc2 = new Document();
+eventDoc2.setId("0007241142412418285");
+eventDoc2.put("type", "event");
+eventDoc2.put("userid", "abc234");
+eventDoc2.put("eventType", "addedToBasket");
+eventDoc2.put("productId", "1000050");
+eventDoc2.put("date", "2019-01-28T10:44:22.000Z");
+
+BulkDocs bulkDocs = new BulkDocs.Builder()
+    .docs(Arrays.asList(eventDoc1, eventDoc2))
+    .build();
+
+PostBulkDocsOptions bulkDocsOptions = new PostBulkDocsOptions.Builder()
+    .db("events")
+    .bulkDocs(bulkDocs)
+    .build();
+
+List<DocumentResult> response =
+    service.postBulkDocs(bulkDocsOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const eventDoc1 = {
+   _id: '0007241142412418284',
+   type: 'event',
+   userid: 'abc123',
+   eventType:'addedToBasket',
+   productId: '1000042',
+   date: '2019-01-28T10:44:22.000Z'
+}
+
+const eventDoc2 = {
+   _id: '0007241142412418285',
+   type: 'event',
+   userid: 'abc234',
+   eventType: 'addedToBasket',
+   productId: '1000050',
+   date: '2019-01-25T20:00:00.000Z'
+}
+
+const bulkDocs = {  docs: [eventDoc1, eventDoc2] }
+
+service.postBulkDocs({
+   db: 'events',
+   bulkDocs: bulkDocs
+}).then(response => {
+   console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import Document, CloudantV1, BulkDocs
+
+service = CloudantV1.new_instance()
+
+event_doc_1 = Document(
+   id="0007241142412418284",
+   type="event",
+   userid="abc123",
+   eventType="addedToBasket",
+   productId="1000042",
+   date="2019-01-28T10:44:22.000Z"
+)
+event_doc_2 = Document(
+   id="0007241142412418285",
+   type="event",
+   userid="abc234",
+   eventType="addedToBasket",
+   productId="1000050",
+   date="2019-01-25T20:00:00.000Z"
+)
+
+bulk_docs = BulkDocs(docs=[event_doc_1, event_doc_2])
+
+response = service.post_bulk_docs(
+   db='events',
+   bulk_docs=bulk_docs
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+eventDoc1 := cloudantv1.Document{
+   ID: core.StringPtr("0007241142412418284"),
+}
+eventDoc1.SetProperty("type", "event")
+eventDoc1.SetProperty("userid", "abc123")
+eventDoc1.SetProperty("eventType", "addedToBasket")
+eventDoc1.SetProperty("productId", "1000042")
+eventDoc1.SetProperty("date", "2019-01-28T10:44:22.000Z")
+
+eventDoc2 := cloudantv1.Document{
+   ID: core.StringPtr("0007241142412418285"),
+}
+eventDoc2.SetProperty("type", "event")
+eventDoc2.SetProperty("userid", "abc234")
+eventDoc2.SetProperty("eventType", "addedToBasket")
+eventDoc2.SetProperty("productId", "1000050")
+eventDoc2.SetProperty("date", "2019-01-25T20:00:00.000Z")
+
+postBulkDocsOptions := service.NewPostBulkDocsOptions(
+   "events",
+)
+bulkDocs, err := service.NewBulkDocs(
+   []cloudantv1.Document{
+    eventDoc1,
+    eventDoc2,
+   },
+)
+if err != nil {
+   panic(err)
+}
+
+postBulkDocsOptions.SetBulkDocs(bulkDocs)
+
+documentResult, response, err := service.PostBulkDocs(postBulkDocsOptions)
+if err != nil {
+   panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block: 
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+   "github.com/IBM/go-sdk-core/v5/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See an example JSON describing the update, creation, and deletion of three documents in one bulk request:
 
 ```json
-{
-	"docs": [
-		{
-			"name": "Nicholas",
-			"age": 45,
-			"gender": "female",
-			"_id": "96f898f0-f6ff-4a9b-aac4-503992f31b01",
-			"_rev": "1-54dd23d6a630d0d75c2c5d4ef894454e"
-		},
-		{
-			"name": "Taylor",
-			"age": 50,
-			"gender": "female"
-		},
-		{
-			"_id": "d1f61e66-7708-4da6-aa05-7cbc33b44b7e",
-			"_rev": "1-a2b6e5dac4e0447e7049c8c540b309d6",
-			"_deleted": true
-		}
-	]
-}
+[
+  {
+    "id": "0007241142412418284",
+    "ok": true,
+    "rev": "1-5005d65514fe9e90f8eccf174af5dd64"
+  },
+  {
+    "id": "0008001142412418285",
+    "ok": true,
+    "rev": "1-2d7810b054babeda4812b3924428d6d6"
+  }
+]
 ```
 {: codeblock}
 
@@ -702,33 +1296,33 @@ See an example JSON for a bulk insert of three documents:
 ```json
 {
 	"docs": [
-		{
-			"name": "Nicholas",
-			"age": 45,
-			"gender": "male",
-			"_id": "96f898f0-f6ff-4a9b-aac4-503992f31b01",
-			"_attachments": {
+		 {
+		  "name": "Nicholas",
+		  "age": 45,
+		  "gender": "male",
+		  "_id": "96f898f0-f6ff-4a9b-aac4-503992f31b01",
+		  "_attachments": {
 
-			}
-		},
-		{
-			"name": "Taylor",
-			"age": 50,
-			"gender": "male",
-			"_id": "5a049246-179f-42ad-87ac-8f080426c17c",
-			"_attachments": {
+		 	}
+	  },
+	  {
+		  "name": "Taylor",
+		  "age": 50,
+		  "gender": "male",
+		  "_id": "5a049246-179f-42ad-87ac-8f080426c17c",
+		  "_attachments": {
 
-			}
-		},
-		{
-			"name": "Owen",
-			"age": 51,
-			"gender": "male",
-			"_id": "d1f61e66-7708-4da6-aa05-7cbc33b44b7e",
-			"_attachments": {
+		  }
+	  },
+	  {
+		  "name": "Owen",
+		  "age": 51,
+		  "gender": "male",
+		  "_id": "d1f61e66-7708-4da6-aa05-7cbc33b44b7e",
+		  "_attachments": {
 
-			}
-		}
+		  }
+	  }
 	]
 }
 ```
@@ -766,16 +1360,16 @@ See an example response content after successful bulk insert of two documents:
 
 ```json
 [
-  {
+    {
     "ok": true,
     "id": "id1",
     "rev": "2-402c81fee7ae6e723ff08bb166703a50"
-  },
-  {
+    },
+    {
     "id": "id2",
     "error": "conflict",
     "reason": "Document update conflict."
-  }
+    }
 ]
 ```
 {: codeblock}
@@ -797,46 +1391,223 @@ Accept: application/json
 See an example of using the command line to do a bulk update:
 
 ```sh
-curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs" \
-	-d @request.json
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/events/_bulk_docs" -H "Content-Type: application/json" --data '{ "docs": [ { "_id": "0007241142412418284", "type": "event", "userid": "abc123", "eventType": "addedToBasket", "productId": "1000042", "date": "2019-01-28T10:44:22.000Z" }, { "_id": "0008001142412418285", "type": "event", "userid": "def456", "eventType": "addedToBasket", "productId": "1000043", "date": "2019-01-28T12:30:00.000Z" } ], "new_edits": true }'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.BulkDocs;
+import com.ibm.cloud.cloudant.v1.model.Document;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PostBulkDocsOptions;
+
+import java.util.Arrays;
+import java.util.List;
+
+Cloudant service = Cloudant.newInstance();
+
+Document eventDoc1 = new Document();
+eventDoc1.setId("0007241142412418284");
+eventDoc1.put("type", "event");
+eventDoc1.put("userid", "abc123");
+eventDoc1.put("eventType", "addedToBasket");
+eventDoc1.put("productId", "1000042");
+eventDoc1.put("date", "2019-01-28T10:44:22.000Z");
+
+Document eventDoc2 = new Document();
+eventDoc2.setId("0007241142412418285");
+eventDoc2.put("type", "event");
+eventDoc2.put("userid", "abc234");
+eventDoc2.put("eventType", "addedToBasket");
+eventDoc2.put("productId", "1000050");
+eventDoc2.put("date", "2019-01-28T10:44:22.000Z");
+
+BulkDocs bulkDocs = new BulkDocs.Builder()
+    .docs(Arrays.asList(eventDoc1, eventDoc2))
+    .build();
+
+PostBulkDocsOptions bulkDocsOptions = new PostBulkDocsOptions.Builder()
+    .db("events")
+    .bulkDocs(bulkDocs)
+    .build();
+
+List<DocumentResult> response =
+    service.postBulkDocs(bulkDocsOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```python
+from ibmcloudant.cloudant_v1 import Document, CloudantV1, BulkDocs
+
+service = CloudantV1.new_instance()
+
+event_doc_1 = Document(
+   id="0007241142412418284",
+   type="event",
+   userid="abc123",
+   eventType="addedToBasket",
+   productId="1000042",
+   date="2019-01-28T10:44:22.000Z"
+)
+event_doc_2 = Document(
+   id="0007241142412418285",
+   type="event",
+   userid="abc234",
+   eventType="addedToBasket",
+   productId="1000050",
+   date="2019-01-25T20:00:00.000Z"
+)
+
+bulk_docs = BulkDocs(docs=[event_doc_1, event_doc_2])
+
+response = service.post_bulk_docs(
+   db='events',
+   bulk_docs=bulk_docs
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+eventDoc1 := cloudantv1.Document{
+   ID: core.StringPtr("0007241142412418284"),
+}
+eventDoc1.SetProperty("type", "event")
+eventDoc1.SetProperty("userid", "abc123")
+eventDoc1.SetProperty("eventType", "addedToBasket")
+eventDoc1.SetProperty("productId", "1000042")
+eventDoc1.SetProperty("date", "2019-01-28T10:44:22.000Z")
+
+eventDoc2 := cloudantv1.Document{
+   ID: core.StringPtr("0007241142412418285"),
+}
+eventDoc2.SetProperty("type", "event")
+eventDoc2.SetProperty("userid", "abc234")
+eventDoc2.SetProperty("eventType", "addedToBasket")
+eventDoc2.SetProperty("productId", "1000050")
+eventDoc2.SetProperty("date", "2019-01-25T20:00:00.000Z")
+
+postBulkDocsOptions := service.NewPostBulkDocsOptions(
+   "events",
+)
+bulkDocs, err := service.NewBulkDocs(
+   []cloudantv1.Document{
+     eventDoc1,
+     eventDoc2,
+    },
+)
+if err != nil {
+   panic(err)
+}
+
+postBulkDocsOptions.SetBulkDocs(bulkDocs)
+
+documentResult, response, err := service.PostBulkDocs(postBulkDocsOptions)
+if err != nil {
+   panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const eventDoc1 = {
+   _id: '0007241142412418284',
+   type: 'event',
+   userid: 'abc123',
+   eventType:'addedToBasket',
+   productId: '1000042',
+   date: '2019-01-28T10:44:22.000Z'
+}
+
+const eventDoc2 = {
+   _id: '0007241142412418285',
+   type: 'event',
+   userid: 'abc234',
+   eventType: 'addedToBasket',
+   productId: '1000050',
+   date: '2019-01-25T20:00:00.000Z'
+}
+
+const bulkDocs = { docs: [eventDoc1, eventDoc2] };
+
+service.postBulkDocs({
+   db: 'events',
+   bulkDocs: bulkDocs
+}).then(response => {
+   console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+   "github.com/IBM/go-sdk-core/v5/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See an example JSON structure to request bulk update of documents:
 
 ```json
 {
 	"docs": [
-		{
-			"name": "Nicholas",
-			"age": 45,
-			"gender": "female",
-			"_id": "96f898f0-f6ff-4a9b-aac4-503992f31b01",
-			"_attachments": {
+	  {
+		  "name": "Nicholas",
+		  "age": 45,
+		  "gender": "female",
+		  "_id": "96f898f0-f6ff-4a9b-aac4-503992f31b01",
+		  "_attachments": {
 
-			},
-			"_rev": "1-54dd23d6a630d0d75c2c5d4ef894454e"
-		},
-		{
-			"name": "Taylor",
-			"age": 50,
-			"gender": "female",
-			"_id": "5a049246-179f-42ad-87ac-8f080426c17c",
-			"_attachments": {
+		  },
+		  "_rev": "1-54dd23d6a630d0d75c2c5d4ef894454e"
+	  },
+	  {
+		  "name": "Taylor",
+		  "age": 50,
+		  "gender": "female",
+		  "_id": "5a049246-179f-42ad-87ac-8f080426c17c",
+		  "_attachments": {
 
-			},
-			"_rev": "1-0cde94a828df5cdc0943a10f3f36e7e5"
-		},
-		{
-			"name": "Owen",
-			"age": 51,
-			"gender": "female",
-			"_id": "d1f61e66-7708-4da6-aa05-7cbc33b44b7e",
-			"_attachments": {
+		  },
+		  "_rev": "1-0cde94a828df5cdc0943a10f3f36e7e5"
+	  },
+	  {
+		  "name": "Owen",
+		  "age": 51,
+		  "gender": "female",
+		  "_id": "d1f61e66-7708-4da6-aa05-7cbc33b44b7e",
+		  "_attachments": {
 
-			},
-			"_rev": "1-a2b6e5dac4e0447e7049c8c540b309d6"
-		}
+		  },
+		  "_rev": "1-a2b6e5dac4e0447e7049c8c540b309d6"
+	  }
 	]
 }
 ```
@@ -881,16 +1652,16 @@ with the new revision and ID information.
 ```json
 {
 	"docs": [
-		{
-			"_id": "person34567",
-			"_deleted": true,
-			"_rev": "2-54dd23d6a630d0d75c2c5d4ef894454e"
-		},
-		{
-			"_id": "person568",
-			"_deleted": true,
-			"_rev": "3-8a245604ee5e829d7fbd1b456aed01ac"
-		}
+	  {
+		  "_id": "person34567",
+		  "_deleted": true,
+		  "_rev": "2-54dd23d6a630d0d75c2c5d4ef894454e"
+	  },
+	  {
+		  "_id": "person568",
+		  "_deleted": true,
+		  "_rev": "3-8a245604ee5e829d7fbd1b456aed01ac"
+	  }
     ]
 }
 ```
@@ -937,19 +1708,19 @@ See an example bulk update response with errors:
 ```json
 [
 	{
-		"id" : "FishStew",
-		"error" : "conflict",
-		"reason" : "Document update conflict."
+	  "id" : "FishStew",
+	  "error" : "conflict",
+	  "reason" : "Document update conflict."
 	},
 	{
-		"id" : "LambStew",
-		"error" : "conflict",
-		"reason" : "Document update conflict."
+	  "id" : "LambStew",
+	  "error" : "conflict",
+	  "reason" : "Document update conflict."
 	},
 	{
-		"id" : "7f7638c86173eb440b8890839ff35433",
-		"error" : "conflict",
-		"reason" : "Document update conflict."
+	  "id" : "7f7638c86173eb440b8890839ff35433",
+	  "error" : "conflict",
+	  "reason" : "Document update conflict."
 	}
 ]
 ```
@@ -1039,23 +1810,170 @@ Accept: application/json
 See an example of using the command line to run the bulk `GET`request:
 
 ```sh
-curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
-	-H "Content-Type: application/json" \
-	-d @request.json
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/orders/_bulk_get" -H "Content-Type: application/json" --data '{
+  "docs": [
+    {
+      "id": "order00067",
+      "rev": "3-917fa2381192822767f010b95b45325b"
+    },
+    {
+      "id": "order00067"
+      "rev": "4-a5be949eeb7296747cc271766e9a498b"
+    }
+   ],
+}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.BulkGetQueryDocument;
+import com.ibm.cloud.cloudant.v1.model.BulkGetResult;
+import com.ibm.cloud.cloudant.v1.model.PostBulkGetOptions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+Cloudant service = Cloudant.newInstance();
+
+String docId = "order00067";
+List<BulkGetQueryDocument> bulkGetDocs = new ArrayList<>();
+
+bulkGetDocs.add(
+    new BulkGetQueryDocument.Builder()
+        .id(docId)
+        .rev("3-917fa2381192822767f010b95b45325b")
+        .build());
+bulkGetDocs.add(
+    new BulkGetQueryDocument.Builder()
+        .id(docId)
+        .rev("4-a5be949eeb7296747cc271766e9a498b")
+        .build());
+
+PostBulkGetOptions bulkGetOptions = new PostBulkGetOptions.Builder()
+    .db("orders")
+    .docs(bulkGetDocs)
+    .build();
+
+BulkGetResult response =
+    service.postBulkGet(bulkGetOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```python
+from ibmcloudant.cloudant_v1 import BulkGetQueryDocument, CloudantV1
+
+service = CloudantV1.new_instance()
+
+doc_id = 'order00067'
+bulk_get_doc_1 = BulkGetQueryDocument(
+    id=doc_id,
+    rev='3-917fa2381192822767f010b95b45325b')
+bulk_get_doc_2 = BulkGetQueryDocument(
+    id=doc_id,
+    rev='4-a5be949eeb7296747cc271766e9a498b')
+
+response = service.post_bulk_get(
+    db='orders',
+    docs=[bulk_get_doc_1, bulk_get_doc_2],
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+docID := "order00067"
+
+bulkGetDocs := []cloudantv1.BulkGetQueryDocument{
+   {
+    ID: &docID,
+    Rev: core.StringPtr("3-917fa2381192822767f010b95b45325b"),
+   },
+   {
+    ID: &docID,
+    Rev: core.StringPtr("4-a5be949eeb7296747cc271766e9a498b"),
+   },
+}
+
+postBulkGetOptions := service.NewPostBulkGetOptions(
+   "orders",
+   bulkGetDocs,
+)
+bulkGetResult, response, err := service.PostBulkGet(postBulkGetOptions)
+if err != nil {
+   panic(err)
+}
+
+b, _ := json.MarshalIndent(bulkGetResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+```javascript
+const service = CloudantV1.newInstance({});
+
+const docId = 'order00067';
+
+const bulkGetDoc1 = {
+   id: docId,
+   rev: '3-917fa2381192822767f010b95b45325b'
+};
+const bulkGetDoc2 = {
+   id: docId,
+   rev: '4-a5be949eeb7296747cc271766e9a498b'
+};
+
+const bulkGetDocs = [bulkGetDoc1, bulkGetDoc2];
+
+const postBulkGetParams = {
+   db: 'orders',
+   docs: bulkGetDocs,
+};
+
+service.postBulkGet(postBulkGetParams)
+   .then(response => {
+    console.log(response.result);
+   });
+```
+{: codeblock}
+{: javascript}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+   "github.com/IBM/go-sdk-core/v5/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See an example of a JSON object that uses `POST` to the `_bulk_get` endpoint:
 
 ```json
 {
 	"docs": [
-		{
-			"id": "doc1"
-		},
-		{
-			"id": "doc3"
-		}
+	  {
+	  	"id": "doc1"
+	  },
+	  {
+	  	"id": "doc3"
+	  }
 	]
 }
 ```
@@ -1066,30 +1984,30 @@ See an example JSON structure that is returned after bulk get:
 ```json
 {                                                         
 	"results": [                                                         
-		{                                                         
-			"id": "doc01",
-			"docs": [
-				{
-					"ok": {
-						"_id": "doc01",
-						"_rev": "1-f3751e2db1d92e13b0baa6bdeb874c8c",
-						"simplekey": "somedata"
-					}
-				}
-			]
-		},
-		{
-			"id": "doc03",
-			"docs": [
-				{
-					"ok": {
-						"_id": "doc03",
-						"_rev": "2-d4fc04ef748edf305a8c0ed347f269c4",
-						"simplekey": "somemoredata"
-					}
-				}
-			]
-		}
+	  {                                                         
+	  	"id": "doc01",
+	  	"docs": [
+	  		{
+	  			"ok": {
+	  				"_id": "doc01",
+	  				"_rev": "1-f3751e2db1d92e13b0baa6bdeb874c8c",
+	  				"simplekey": "somedata"
+	  			}
+	  		}
+    	]
+	  },
+	  {
+	  	"id": "doc03",
+	  	"docs": [
+	  		{
+	  			"ok": {
+	  				"_id": "doc03",
+	  				"_rev": "2-d4fc04ef748edf305a8c0ed347f269c4",
+	  				"simplekey": "somemoredata"
+	  			}
+	  		}
+	  	]
+	  }
 	]
 }
 ```
