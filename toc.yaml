@@ -53,7 +53,13 @@ toc:
           - couchdb/access_couchdb.md
           - couchdb/troubleshoot-operator.md
           - couchdb/support-couchdb.md
-          
+      - topicgroup: 
+          label: Release notes
+          topics: 
+          - release_info/release_notes_classic.md
+          - release_info/release_notes_txe.md
+          - release_info/release_notes_operator.md 
+                    
   - navgroup: 
       id: tutorial
       topics: 
@@ -203,9 +209,4 @@ toc:
           - faqs/provisioned-throughput-capacity-faq.md
           - faqs/resource-groups-faq.md
           - faqs/migration-faq.md
-      - topicgroup: 
-          label: Release notes
-          topics: 
-          - release_info/release_notes_classic.md
-          - release_info/release_notes_txe.md
-          - release_info/release_notes_operator.md
+

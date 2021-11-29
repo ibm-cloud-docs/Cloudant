@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-11"
+lastupdated: "2021-11-29"
 
-keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, operator, classic, transaction engine, 2.75, 2.69, 2.67, 2.77, 2.78. 2.79, 2.80, 2.88, 2.91, 2.92, 2.93, couchdb
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, operator, classic, transaction engine, couchdb
 
 subcollection: Cloudant
 
@@ -34,8 +34,10 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 ## October 2021
 {: #cloudant-txe-oct21}
 
-### 15 October 2021 - Build 2.96
+### 15 October 2021
 {: #cloudant-txe-oct1521}
+
+The following changes were made in build 2.96:
 
 IAM Trusted Profiles
 :   Support IAM Trusted Profiles.
@@ -73,16 +75,20 @@ Replicator authentication
 ## July 2021
 {: #cloudant-txe-jul21}
 
-### 15 July 2021 - Build 2.94
+### 15 July 2021
 {: #cloudant-txe-jul1521}
 {: release-note}
+
+The following changes were made in build 2.94:
 
 Upgrade version
 :   Upgrade your environment to Erlang/OTP 23.3.4.4.
 
-### 1 July 2021 - Build 2.93 
+### 1 July 2021 
 {: #cloudant-txe-jul0121}
 {: release-note}
+
+The following changes were made in build 2.93:
 
 Validate deprecated parameters
 :   Fix regression that is related to validation of deprecated parameters: `q` and `n`.
@@ -96,9 +102,11 @@ Testing dependencies
 ## May 2021
 {: #cloudant-txe-may21}
 
-### 15 May 2021 - Build 2.92 
+### 15 May 2021 
 {: #cloudant-txe-may1521}
 {: release-note}
+
+The following changes were made in build 2.92;
 
 Design document validation
 :   Improve validation of design documents.
@@ -116,9 +124,11 @@ Error messages
 ## April 2021
 {: #cloudant-txe-april21}
 
-### 15 April 2021 - Build 2.91 
+### 15 April 2021
 {: #cloudant-txe-apr1521}
 {: release-note}
+
+The following changes were made in build 2.91:
 
 Improvements
 :   Fix bug that can corrupt view indices. If the view index returns inconsistent data even after database updates stop, recreate the index by deleting and readding the design documents with a slight modification to the view code. This step ensures that the index is rebuilt.
@@ -138,9 +148,11 @@ Replicator error
 ## November 2020
 {: #cloudant-txe-nov20}
 
-### 15 November 2020 - Build 2.88
+### 15 November 2020
 {: #cloudant-txe-nov1520}
 {: release-note}
+
+The following changes were made in build 2.88:
 
 Replicator support
 :   Add replicator support.
@@ -151,16 +163,20 @@ Built-in view
 ## September 2020
 {: #cloudant-txe-sept20}
 
-### 15 September 2020 - Build 2.80
+### 15 September 2020
 {: #cloudant-txe-sep1520}
 {: release-note}
+
+The following changes were made in build 2.80:
 
 Improvements
 :   Internal bug fixes.
 
-### 1 September 2020 - Build 2.79
+### 1 September 2020
 {: #cloudant-txe-sep0120}
 {: release-note}
+
+The following changes were made in build 2.79:
 
 Empty entries
 :   Remove empty entries from `_active_tasks`.
@@ -177,16 +193,20 @@ Performance improvement
 ## August 2020
 {: #cloudant-txe-aug20}
 
-### 15 August 2020 - Build 2.77 
+### 15 August 2020
 {: #cloudant-txe-aug1520}
 {: release-note}
+
+The following changes were made in build 2.77:
 
 Dashboard access
 :   Fixed dashboard access for {{site.data.keyword.cloudant_short_notm}} Transaction Engine instances.
 
-### 1 August 2020 - Build 2.75
+### 1 August 2020
 {: #cloudant-txe-aug0120}
 {: release-note}
+
+The following changes were made in build 2.75:
 
 Authentication and authorization methods
 :   Disable non-IAM authentication and authorization methods.    
@@ -206,9 +226,11 @@ Re-create database instance
 ## June 2020
 {: #cloudant-txe-jun20}
 
-### 15 June 2020 - Build 2.69
+### 15 June 2020
 {: #cloudant-txe-jun1520}
 {: release-note}
+
+The following changes were made in build 2.69:
 
 Query parameters
 :   Query parameters for `_all_docs` and view requests are not ignored anymore.
@@ -219,9 +241,11 @@ Query parameters
 Error messages
 :   Reword view and query pagination limit error messages that are returned with the HTTP 400 responses.
 
-### 1 June 2020 - Build 2.67
+### 1 June 2020
 {: #cloudant-txe-jun0120}
 {: release-note}
+
+The following changes were made in build 2.67:
 
 New! Introducing {{site.data.keyword.cloudant_short_notm}} on Transaction Engine!
 :   See [new features](https://www.ibm.com/cloud/blog/announcements/ibm-cloudant-on-transaction-engine) for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. 
