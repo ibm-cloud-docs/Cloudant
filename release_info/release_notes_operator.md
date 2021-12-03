@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-08"
+lastupdated: "2021-11-30"
 
-keywords: Cloudant, release notes, new features, partition query, dedicated hardware plan, replication scheduler, initial deployment announcement, feature comparison, 1.4.2, 1.4.1, 1.4.0, 1.3.0, 1.2.1, 1.2.0, 1.1.0, couchdb 
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, couchdb 
 
 subcollection: Cloudant
 
@@ -35,16 +35,20 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #cloudant-operator-nov20}
 
 
-### 30 November 2020 - Build 1.4.2
+### 30 November 2020
 {: #cloudant-operator-nov0920}
 {: release-note}
+
+The following changes were made in build 1.4.2:
 
 Memory leak
 :   Fixes memory leak in the `mgmt` container.
 
-### 9 November 2020 - Build 1.4.1
+### 9 November 2020
 {: #cloudant-operator-nov0120}
 {: release-note}
+
+The following changes were made in build 1.4.1:
 
 Permissions
 :   Fixes permissions issue with `pre_stop` scripts.
@@ -52,9 +56,11 @@ Permissions
 ## October 2020
 {: #cloudant-operator-oct20}
 
-### 30 October 2020 - Build 1.4.0
+### 30 October 2020
 {: #cloudant-operator-oct3020}
 {: release-note}
+
+The following changes were made in build 1.4.0:
 
 Operator upgrade
 :   This bug fix release addresses an issue that occurs during upgrades to operator versions *1.2* and *1.3*, whereby pods can get into an unrecoverable state. An upgrade to version *1.4* forces the images to upgrade to the supported version, which resolves this problem.
@@ -68,9 +74,11 @@ Resource leak
 Symlink creation error
 : Fixes symlink creation error when init container is restarted.
 
-### 23 October 2020 - Build 1.3.0 
+### 23 October 2020 
 {: #cloudant-operator-oct2320}
 {: release-note}
+
+The following changes were made in build 1.3.0:
 
 CouchDB updates
 :   Updates CouchDB to [3.1.1](https://docs.couchdb.org/en/latest/whatsnew/3.1.html#version-3-1-1).
@@ -87,16 +95,20 @@ CouchDB improvement
 ## September 2020
 {: #cloudant-operator-sept20}
 
-### 15 September 2020 - Build 1.2.1
+### 15 September 2020
 {: #cloudant-operator-sep1520}
 {: release-note}
+
+The following changes were made in build 1.2.1:
 
 Configuration files creation
 :   Configuration files are incorrectly created with read-only file permissions.
 
-### 14 September 2020 - Build 1.2.0
+### 14 September 2020
 {: #cloudant-operator-sep1420}
 {: release-note}
+
+The following changes were made in build 1.2.0:
 
 Configuration options
 :   Adds a number of configuration options to the search container, enabled by using v1.5.0 of the management container.
@@ -115,9 +127,11 @@ Search container
 ## August 2020
 {: #cloudant-operator-aug20}
 
-### 17 August 2020 - Build 1.1.0 
+### 17 August 2020
 {: #cloudant-operator-aug1720}
 {: release-note}
+
+The following changes were made in build 1.1.0:
 
 New! Introducing the Operator and its functions
 :   Adds more configuration for resource management, including the ability to set resource constraints on the CouchDB containers:
@@ -150,3 +164,13 @@ securityContext
 
 Resource limits and requests
 :   Resource limits and requests propagate correctly to the search container.
+
+## September 2019
+{: #cloudant-operator-sep19}
+
+### 16 September 2019
+{: #cloudant-operator-sep1619}
+{: release-note}
+
+New! Introducing Apache CouchDB and the Operator
+:   The Operator for Apache CouchDB facilitates deploying and managing an Apache CouchDB cluster on Kubernetes. Currently, the Operator is targeted at Red Hat OpenShift environments. For more information, see [Overview of Apache CouchDB and the Operator](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-apache-couchdb-overview){: external}.
