@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-15"
+lastupdated: "2021-12-03"
 
 keywords: cloud monitoring, monitoring, platform metrics, observability page, enable platform metrics, view metrics, launch monitoring
 
@@ -32,6 +32,7 @@ Deployment Region | {{site.data.keyword.mon_full_notm}} Region
 ----------|-----------
 `Chennai` | `Tokyo`
 `Dallas` | `Dallas`
+`Frankfurt` | `Frankfurt`
 `London` | `London`
 `Osaka` | `Osaka`
 `São Paulo` | `São Paulo`
