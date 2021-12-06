@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-30"
+lastupdated: "2021-12-07"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler
 
@@ -31,6 +31,15 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
+## December 2021
+{: #cloudant-dec21}
+
+### 03 December 2021
+{: #cloudant-dec0321}
+{: release-note}
+
+{{site.data.keyword.cloud_notm}} monitoring integration
+:   Metrics are now available in the Frankfurt region.
 
 ## November 2021
 {: #cloudant-nov21}
