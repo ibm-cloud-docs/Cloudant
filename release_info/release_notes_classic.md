@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-12-07"
+lastupdated: "2021-12-09"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler
 
@@ -121,6 +121,7 @@ IAM Trusted Profiles
 {: release-note}
 
 The following changes were made in build 8201:
+
 Improvements
 :   Internal bug fixes.
 
