@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-12-10"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl, acurl
 
@@ -65,7 +65,10 @@ You can supply the username and password data for a request in three ways.
 
 3.	**[Caution: This option isn't secure]** For an `https` curl request, you can supply the username and password as part of the URL:
 
-	`... https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com ...`
+    ```http
+	... https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com ...
+	```
+	{: codeblock}
 
 	However, a plain text copy of your password appears in the terminal log.
 
