@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-15"
 
 keywords: operator, field reference, user-defined configuration parameters, cluster size, scaling, persistent storage, resource requests, resource limits
 
@@ -65,7 +65,7 @@ spec:
 ```
 {: codeblock}
 
-For development and testing purposes, the `spec.devMode` field can be set to `true`. This setting disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KIND](https://kind.sigs.k8s.io/docs/user/quick-start/){: external} or [CodeReady containers](https://developers.redhat.com/products/codeready-containers){: external}.
+For development and testing purposes, the `spec.devMode` field can be set to `true`. This setting disables the anti-affinity rules, allowing multi-node clusters to be deployed to a single-node test environment (for example, [KIND](https://kind.sigs.k8s.io/docs/user/quick-start/){: external} or [CodeReady containers](https://developers.redhat.com/products/codeready-containers/overview){: external}.
 
 
 ## Persistent storage
