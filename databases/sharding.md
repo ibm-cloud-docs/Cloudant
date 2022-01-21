@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2022
+<<<<<<< HEAD
 lastupdated: "2022-02-02"
+=======
+lastupdated: "2022-01-21"
+>>>>>>> 2abf25acc... Add note.
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -176,16 +180,7 @@ The number of shards,
 `Q`, for a database is set when the database is created. The `Q` value cannot be changed later.
 
 To specify the `Q` when you create a database,
-use the `q` query string parameter.
-
-In the following example,
-a database that is called `mynewdatabase` is created.
-The `q` parameter specifies that eight shards are created for the database.
-
-```sh
-curl -X PUT -u $USERNAME:$PASSWORD "https://$ACCOUNT.cloudant.com/mynewdatabase?q=8"
-```
-{: codeblock}
+use the `q` query string parameter. 
 
 You can configure `Q`. However, you want to prohibit large values of `Q` since they have a deleterious effect on the service with no performance gain for the user.
 {: note}
@@ -201,6 +196,10 @@ similar to the following example:
 }
 ```
 {: codeblock}
+
+It's possible to modify the configuration of a sharding topology for a database on dedicated database clusters. This modification can be done when the database is created. However, poor choices for configuration parameters can adversely affect database performance. For more information about modifying database configuration in a dedicated database environment, contact {{site.data.keyword.cloudant_short_notm}} support.
+{: important}
+
 
 ### Setting the replica count
 {: #setting-the-replica-count}
