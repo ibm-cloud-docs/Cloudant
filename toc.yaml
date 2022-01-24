@@ -64,6 +64,7 @@ toc:
       id: tutorial
       topics: 
       - tutorials/locate-service-credentials.md
+      - tutorials/migrate-to-iam-only.md
       - tutorials/revoke-instance-url-style-credential.md
       - tutorials/use-dashboard.md
       - tutorials/create_service_cli.md
