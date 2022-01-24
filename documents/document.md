@@ -18,7 +18,6 @@ lastupdated: "2022-01-21"
 {:external: target="_blank" .external}
 {{site.data.keyword.attribute-definition-list}}
 
-
 # How documents work 
 {: #documents}
 

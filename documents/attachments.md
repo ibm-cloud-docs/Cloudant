@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-02-11"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -20,6 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # How to use attachments
 {: #how-to-use-attachments}
@@ -75,15 +76,128 @@ Content-Type: $$ATTACHMENT_MIME_TYPE
 ```
 {: codeblock}
 
-See the following example for creating or updating an attachment by using the command line:
+See the following example for creating or updating an attachment:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
-	 -X PUT \
-	 -H "Content-Type: $ATTACHMENT_MIME_TYPE" \
-	 --data-binary @$ATTACHMENT_FILEPATH
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products/small-appliances:100001/product_details.txt" -H "Content-Type: text/plain" --data 'This appliance includes...'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PutAttachmentOptions;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+
+Cloudant service = Cloudant.newInstance();
+
+String detailedDescription = "This appliance includes...";
+
+InputStream detailedDescriptionStream =
+    new ByteArrayInputStream(detailedDescription
+        .getBytes(StandardCharsets.UTF_8));
+
+PutAttachmentOptions attachmentOptions =
+    new PutAttachmentOptions.Builder()
+        .db("products")
+        .docId("small-appliances:100001")
+        .attachmentName("product_details.txt")
+        .attachment(detailedDescriptionStream)
+        .contentType("text/plain")
+        .build();
+
+DocumentResult response =
+    service.putAttachment(attachmentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const stream = new Readable();
+stream.push('This appliance includes...');
+stream.push(null);
+
+service.putAttachment({
+  db: 'products',
+  docId: 'small-appliances:100001',
+  attachmentName: 'product_details.txt',
+  attachment: stream,
+  contentType: 'text/plain'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+detailed_description = "This appliance includes..."
+response = service.put_attachment(
+  db='products',
+  doc_id='small-appliances:100001',
+  attachment_name='product_details.txt',
+  attachment=detailed_description,
+  content_type='text/plain'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+putAttachmentOptions := service.NewPutAttachmentOptions(
+  "products",
+  "small-appliances:100001",
+  "product_details.txt",
+  ioutil.NopCloser(
+    bytes.NewReader([]byte("This appliance includes...")),
+  ),
+  "text/plain",
+)
+
+documentResult, response, err := service.PutAttachment(putAttachmentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "io/ioutil"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 The response includes the document ID and the new document revision.
 
@@ -115,14 +229,111 @@ GET /$DATABASE/$DOCUMENT_ID/$ATTACHMENT HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of reading an attachment by using the command line:
+See the following example of reading an attachment:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT" \
-	 -u $ACCOUNT blob_content.dat
-# store the response content into a file for further processing.
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/products/small-appliances:100001/product_details.txt"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.GetAttachmentOptions;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.stream.Collectors;
+
+Cloudant service = Cloudant.newInstance();
+
+GetAttachmentOptions attachmentOptions =
+    new GetAttachmentOptions.Builder()
+        .db("products")
+        .docId("small-appliances:100001")
+        .attachmentName("product_details.txt")
+        .build();
+
+InputStream streamResult =
+    service.getAttachment(attachmentOptions).execute()
+        .getResult();
+
+String response =
+    new BufferedReader(new InputStreamReader(streamResult))
+        .lines().collect(Collectors.joining("\n"));
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getAttachment({
+  db: 'products',
+  docId: 'small-appliances:100001',
+  attachmentName: 'product_details.txt'
+}).then(response => {
+  let attachment = response.result as Readable;
+  attachment.pipe(process.stdout);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response_attachment = service.get_attachment(
+  db='products',
+  doc_id='small-appliances:100001',
+  attachment_name='product_details.txt'
+).get_result().content
+
+print(response_attachment)
+```
+{: codeblock}
+{: python}
+
+```go
+getAttachmentOptions := service.NewGetAttachmentOptions(
+  "products",
+  "small-appliances:100001",
+  "product_details.txt",
+)
+
+result, response, err := service.GetAttachment(getAttachmentOptions)
+if err != nil {
+  panic(err)
+}
+
+data, _ := ioutil.ReadAll(result)
+fmt.Println("\n", string(data))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "fmt"
+   "io/ioutil"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 ## Delete an attachment
 {: #delete-an-attachment}
@@ -140,14 +351,106 @@ DELETE /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of deleting an attachment by using the command line:
+See the following example of deleting an attachment:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
-	-u $ACCOUNT \
-	-X DELETE
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X DELETE "$SERVICE_URL/products/small-appliances:100001/product_details.txt?rev=4-1a0d1cd6f40472509e9aac646183736a"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DeleteAttachmentOptions;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+
+Cloudant service = Cloudant.newInstance();
+
+DeleteAttachmentOptions attachmentOptions =
+    new DeleteAttachmentOptions.Builder()
+        .db("products")
+        .docId("small-appliances:100001")
+        .attachmentName("product_details.txt")
+        .rev("4-1a0d1cd6f40472509e9aac646183736a")
+        .build();
+
+DocumentResult response =
+    service.deleteAttachment(attachmentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.deleteAttachment({
+  db: 'products',
+  docId: 'small-appliances:100001',
+  attachmentName: 'product_details.txt',
+  rev: '4-1a0d1cd6f40472509e9aac646183736a'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.delete_attachment(
+  db='products',
+  doc_id='small-appliances:100001',
+  attachment_name='product_details.txt',
+  rev='4-1a0d1cd6f40472509e9aac646183736a'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+deleteAttachmentOptions := service.NewDeleteAttachmentOptions(
+  "products",
+  "small-appliances:100001",
+  "product_details.txt",
+)
+deleteAttachmentOptions.SetRev("4-1a0d1cd6f40472509e9aac646183736a")
+
+documentResult, response, err := service.DeleteAttachment(deleteAttachmentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 If the deletion is successful,
 the response includes `"ok": true`,
