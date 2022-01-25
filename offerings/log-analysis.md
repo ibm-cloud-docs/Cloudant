@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-01-25"
 
 keywords: log analysis, integration, provisioning log analysis, hipaa
 
@@ -24,7 +24,7 @@ subcollection: Cloudant
 # {{site.data.keyword.loganalysisfull_notm}} integration
 {: #log-analysis-integration}
 
-{{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.loganalysisfull}}](](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: external}, so you can view database logs.
+{{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.loganalysisfull}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){: external}, so you can view database logs.
 {: shortdesc}
 
 Currently, {{site.data.keyword.loganalysisfull_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
