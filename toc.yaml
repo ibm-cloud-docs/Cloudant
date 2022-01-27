@@ -209,9 +209,11 @@ toc:
           - faqs/authenticating-faq.md
           - faqs/availability-zones-faq.md
           - faqs/document-version-conflicts-faq.md
+          - faqs/migration-faq.md
           - faqs/model-data-faq.md
           - faqs/pricing-faq.md
           - faqs/provisioned-throughput-capacity-faq.md
           - faqs/resource-groups-faq.md
-          - faqs/migration-faq.md
+          - faqs/changes-feed-faq.md
+
 
