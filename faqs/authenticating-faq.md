@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-01"
+  years: 2020, 2022
+lastupdated: "2022-01-28"
 
-keywords: legacy, iam access controls, use only iam mode, generate service credentials
+keywords: legacy, iam access controls, use only iam mode, generate service credentials, iam mode
 
 subcollection: Cloudant
 
@@ -124,3 +124,32 @@ The values for the previous example are described in the following list:
 :   The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
 For more information, see [{{site.data.keyword.cloud_notm}} API keys and Use only IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-api-keys-and-use-only-iam_ai).
+
+
+## How do I rotate my credentials?
+{: #rotate-credentials}
+
+In most cases, rotating credentials is a straight-forward process:
+
+1. Generate a replacement service credential For more information, see [How can I generate service credentials?](#find-service-credentials-iam).
+1. Replace the current credential with the newly-generated credential.
+1. Delete the no-longer-used service credential.
+
+However, when rotating the credentials for a replication, if you are using legacy credentials in the replication document,
+the replication will start from the beginning. To keep changes arriving in a timely manner, we advise you to create a
+new replication once it has caught up with deleting the previous replication and the associated service credential.
+The process is described in the following list:
+
+1. Generate a replacement service credential. For more information, see [How can I generate service credentials?](#find-service-credentials-iam).
+
+1. Create a new replication with the same settings but new credentials.
+
+1. Monitor the new replication by using [Active Tasks](/docs/Cloudant?topic=Cloudant-active-tasks) or you can use [`_scheduler/jobs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerjobs).
+
+1. Once the `changes_pending` field for the new replication is a suitably low value for your requirements, the replication using the previous credentials can be deleted.
+
+1. Delete the no-longer-used service credential.
+
+Replications using IAM API keys can be updated to use a new API key directly, without delaying the changes being replicated.
+{: important}
+
