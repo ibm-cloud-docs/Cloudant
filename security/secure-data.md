@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-02"
+  years: 2017, 2022
+lastupdated: "2022-01-11"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -90,7 +90,7 @@ Data replication and export | You can replicate your databases continuously betw
 
 You can delete individual documents in the {{site.data.keyword.cloudant_short_notm}} dashboard or by using an API. Documents are not technically deleted but instead are compacted.  
 
-For more information on deleting data, see [Deletion of data](https://test.cloud.ibm.com/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data).
+For more information on deleting data, see [Deletion of data](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data).
 
 To delete a document, follow these steps:
 
