@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-26"
+lastupdated: "2022-01-27"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation
 
@@ -55,25 +55,25 @@ use `apikey-v2-<RANDOM_ID>`.
 
 
 ## Objectives
-{: #objectives}
+{: #objectives-revoke}
 
 - Update your applications to use the new style credentials in place of the instance URL style credentials.
 - Revoke access to the old style {{site.data.keyword.cloudant_short_notm}} legacy credential. 
 
 ## Generating new {{site.data.keyword.cloudant_short_notm}} legacy credentials
-{: #generate-new-service-credentials}
+{: #generate-new-service-credentials-url}
 {: step}
 
 1. Use the {{site.data.keyword.cloud_notm}} Dashboard or the {{site.data.keyword.cloud_notm}} CLI to [generate new service credentials](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#creating-service-credentials) for your {{site.data.keyword.cloudant_short_notm}} instance. See [Creating service credentials](#creating-service-credentials) for further instructions.
 
 ## Updating applications
-{: #rotate-application-credentials}
+{: #update-rotate-application-credentials}
 {: step}
 
 1. Update all applications that have access to the {{site.data.keyword.cloudant_short_notm}} instance to use the new username and password combination.
 
 ## Revoking access to the instance URL style credential
-{: #revoke-credentials}
+{: #revoke-credentials-url}
 {: step}
 
 This operation cannot be undone. Make sure all your applications are no longer using the old style credential before starting this procedure.
