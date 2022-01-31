@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-11-01"
+  years: 2018, 2022
+lastupdated: "2022-01-28"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -192,7 +192,7 @@ the storage tier. Databases are always being compacted. It isn't guaranteed that
 data that you deleted or changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting the *Right to be forgotten* requests through
-the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: external}.
+the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3.ibm.com/ibm/privacy/index.html){: external}.
 When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request,
 explicitly triggers database compaction, and verifies that compaction occurred.
 At the end of this process, the only version of the document is its tombstone
