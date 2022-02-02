@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-01"
+  years: 2017, 2022
+lastupdated: "2022-02-02"
 
 keywords: tier-1 physical system, hipaa, iso, pci dss, soc 2 type 2 certification, gdpr
 
@@ -95,7 +95,5 @@ for service providers such as {{site.data.keyword.cloud_notm}} to safeguard thei
 
 You can request an SOC 2 Type 2 report from the Customer portal 
 or contact your sales representative. Alternatively, you can open 
-a support ticket with 
-[{{site.data.keyword.cloud_notm}} support](https://www.ibm.com/cloud/support){: external} 
-or email support@cloudant.com.
+a support ticket with [{{site.data.keyword.cloud_notm}} Support](https://www.ibm.com/cloud/support).
 

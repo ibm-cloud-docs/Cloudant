@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-02-02"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -617,7 +617,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-email support@cloudant.com for further advice.
+go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support) for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -685,4 +685,4 @@ with replication treated as a background process.
 - For more information, see [Consumption of Read and Write Operations by Replication](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#consumption-of-read-and-write-operations-by-replication) or [Consumption of Read and Write Operations by Replication for {{site.data.keyword.cloudant_short_notm}} on Transaction Engine](/docs/Cloudant?topic=Cloudant-pricing-te#replication-throughput-te).
 
 For further assistance about the best configuration for your use case,
-email support@cloudant.com.
+go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).

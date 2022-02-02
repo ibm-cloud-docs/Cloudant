@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-02"
+  years: 2017, 2022
+lastupdated: "2022-02-02"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -52,7 +52,7 @@ Remember these important facts:
 For an active-active deployment, a strategy for managing conflicts must be in place, so be sure to understand how [replication](/docs/Cloudant?topic=Cloudant-replication-api#replication-api) and [conflicts](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc) work before you consider this architecture.
 {: note}
 
-Email support@cloudant.com if you need help with how to model data to handle conflicts effectively.
+Go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support) if you need help with how to model data to handle conflicts effectively.
 
 ## Overview
 {: #overview-active-active}

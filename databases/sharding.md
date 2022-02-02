@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-01"
+  years: 2017, 2022
+lastupdated: "2022-02-02"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -161,7 +161,7 @@ particularly for larger databases:
 -	For even larger databases,
 	consider manually sharding your data into several databases.
 	For such large databases,
-	email support@cloudant.com for advice.
+	go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support) for advice.
 
 The numbers in these guidelines are derived from observation and experience rather than precise calculation.
 {: tip}
@@ -212,7 +212,7 @@ However,
 you are not allowed to change the replica count value from the default of 3.
 In particular,
 it is not possible to specify a different replica count value when you create a database.
-For further help, email support@cloudant.com.
+For further help, go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
 
 ### What are the `R` and `W` arguments?
 {: #what-are-the-r-and-w-arguments-}
