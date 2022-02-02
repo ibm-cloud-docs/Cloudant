@@ -27,7 +27,7 @@ completion-time: 10m
 {:external: target="_blank" .external}
 {:step: data-tutorial-type='step'}
 
-# Revoking a credential tied to your instance URL
+# Revoking credential tied to your instance URL
 {: #revoke-instance-url-style-credential}
 {: toc-content-type="tutorial"}
 {: toc-services="Cloudant"}
