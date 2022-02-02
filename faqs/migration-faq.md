@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-02-02"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, backup, support
 
@@ -60,4 +60,4 @@ No, it's not possible to keep your domain. You must plan to update your applicat
 {: #who-do-i-contact-if-i-have-questions-}
 {: faq}
 
-Email `support@cloudant.com`, or open a ticket from within the {{site.data.keyword.cloudant_short_notm}} Dashboard if you have any questions about migration. {{site.data.keyword.cloudant_short_notm}} support is happy to provide more details. 
+Go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support), or open a ticket from within the {{site.data.keyword.cloudant_short_notm}} Dashboard if you have any questions about migration. {{site.data.keyword.cloudant_short_notm}} support is happy to provide more details. 

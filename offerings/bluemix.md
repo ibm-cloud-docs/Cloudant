@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-10"
+  years: 2015, 2022
+lastupdated: "2022-02-02"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -269,7 +269,7 @@ complete.
 
 ![Change confirmation](../images/cloudant_capacity_change.png){: caption="Figure 6. Change confirmation" caption-side="bottom"}
 
-In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capacity increase is limited to 10 units (1000 reads per second, 500 writes per second, and 50 global queries per second) per change. Decreases aren't limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, email support@cloudant.com.
+In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capacity increase is limited to 10 units (1000 reads per second, 500 writes per second, and 50 global queries per second) per change. Decreases aren't limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
 {: note}
 
 #### API
