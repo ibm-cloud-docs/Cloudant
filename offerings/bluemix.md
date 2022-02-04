@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-02"
+lastupdated: "2022-02-09"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -58,7 +58,7 @@ Storage usage is checked daily. If you exceed your 1-GB storage limit, requests 
 
 If you want to store more than one GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
-You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you can't create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, you see the following message, *You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan.*
+You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, you can't create a second Lite plan instance, or change a Standard plan instance to a Lite plan. If you try, you see the following message. *You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan.*
 
 ### Standard plan
 {: #standard-plan}
@@ -241,17 +241,24 @@ The method for managing the provisioned throughput capacity by using the UI depe
 #### UI - Resource Group
 {: #ui-resource-group}
 
-If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Resource Group**, go to the {{site.data.keyword.cloud_notm}} Dashboard Service Details page for the instance. Click **Manage** > **Capacity** where you can view the current and target capacity.  
+If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Resource Group**, you can change the capacity by following these instructions. 
 
-![Capacity](../images/capacity-1.png){: caption="Figure 2. Capacity" caption-side="bottom"}
+1.  Log in to the {{site.data.keyword.cloud_notm}} Dashboard.
+1.  Go to the Service Details page for the instance. 
+1.  Click **Manage** > **Capacity** to view the current and target capacity.  
 
-To change the target capacity, slide the capacity slider to the setting you need, and click **Update to Standard Plan**. Select the pricing plan that you want, and click **Save**. Select the type of account you're looking for by clicking **Go.**   
+    ![Capacity](../images/capacity-1.png){: caption="Figure 2. Capacity" caption-side="bottom"}
 
-![Capacity change confirmation](../images/capacity-3.png){: caption="Figure 3. Capacity change confirmation" caption-side="bottom"}
+1.  To change the target capacity, slide the capacity slider to the setting you want. 
+1.  Click **Update to Standard Plan**. 
+1.  Select the pricing plan that you want, and click **Save**. 
+1.  Select the type of account you're looking for by clicking **Go.**   
 
-The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, *Success. Your capacity will be updated shortly.*  
+    ![Capacity change confirmation](../images/capacity-3.png){: caption="Figure 3. Capacity change confirmation" caption-side="bottom"}
 
-![Success message](../images/capacity-4.png){: caption="Figure 4. Success message" caption-side="bottom"}
+    The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, *Success. Your capacity will be updated shortly.*  
+
+    ![Success message](../images/capacity-4.png){: caption="Figure 4. Success message" caption-side="bottom"}
 
 Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity. One hundred blocks of capacity equal 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the `Need additional capacity?` tab on the Capacity page.
 {: note}
@@ -259,15 +266,18 @@ Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard 
 #### UI - Cloud Foundry org and space
 {: #ui-cloud-foundry-org-space}
 
-If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud Foundry org and space, launch the {{site.data.keyword.cloudant_short_notm}} Dashboard. Click **Account** > **Capacity**.  
+If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud Foundry org and space, you can change the capacity by following these instructions. 
 
-![Capacity dashboard](../images/cloudant_capacity.png){: caption="Figure 5. Capacity dashboard" caption-side="bottom"}
+1.  Launch the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
+2.  Click **Account** > **Capacity**.  
+3.  To move to a different throughput capacity, select the provisioned throughput capacity that you need, then click **Update**. 
 
-To move to a different throughput capacity, select the provisioned throughput capacity that you need, then click **Update**. You're asked to confirm the change,
-and reminded that the provisioning change can take up to 24 hours to
-complete.   
+    ![Capacity dashboard](../images/cloudant_capacity.png){: caption="Figure 5. Capacity dashboard" caption-side="bottom"}
 
-![Change confirmation](../images/cloudant_capacity_change.png){: caption="Figure 6. Change confirmation" caption-side="bottom"}
+4. Confirm the change by clicking **Continue**. 
+   Keep in mind  that the provisioning change can take up to 24 hours. 
+
+    ![Change confirmation](../images/cloudant_capacity_change.png){: caption="Figure 6. Change confirmation" caption-side="bottom"}  
 
 In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capacity increase is limited to 10 units (1000 reads per second, 500 writes per second, and 50 global queries per second) per change. Decreases aren't limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
 {: note}
@@ -285,9 +295,21 @@ The API syntax for changing the capacity is also shown in the **Increase capacit
 
 Information about your usage of provisioned throughput capacity is available in the {{site.data.keyword.cloudant_short_notm}} Dashboard Monitoring tab. The **Current Operations** tab shows recent consumption of [provisioned throughput capacity](#provisioned-throughput-capacity) by showing the number of requests that are broken down by reads, writes, and global queries. The dotted line represents the peak capacity that is allowed according to the provisioned throughput capacity set for the instance.   
 
+*Current Operations* tab 
+- Shows recent consumption of [provisioned throughput capacity](#provisioned-throughput-capacity). 
+
+- Shows the number of requests that are broken down by reads, writes, and global queries. 
+
+- The peak capacity that is allowed according to the provisioned throughput capacity set for the instance is shown by a dotted line in the following screen capture.   
+
 ![Monitoring - Current Operations](../images/monitoring-current_operations.png){: caption="Figure 7. Monitoring - Current Operations" caption-side="bottom"}
 
-The **Denied Requests** tab shows the number of requests that were denied in a given second by showing the response, *429: too many requests.* Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.  
+*Denied Requests* tab 
+- Shows the number of requests that were denied in a given second.
+
+- Shows the response, *429: too many requests.* 
+
+- Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.
 
 ![Monitoring - Denied Requests](../images/monitoring-denied_requests.png){: caption="Figure 8. Monitoring - Denied Requests" caption-side="bottom"}
 
@@ -308,7 +330,7 @@ This value is the storage capacity that is included in the plan. The Lite plan h
 {: #data-overage}
 
 All Lite and Standard plans are monitored for disk space used. When you use more data than the
-plan allocates, you can expect the conditions that are described in the following table to apply:
+plan allocates, you can expect the conditions that are described in the following sections to apply:
 
 #### Lite plan
 {: #lite-plan-ibm-cloudant}
