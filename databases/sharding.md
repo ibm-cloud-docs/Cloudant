@@ -2,11 +2,7 @@
 
 copyright:
   years: 2017, 2022
-<<<<<<< HEAD
-lastupdated: "2022-02-02"
-=======
-lastupdated: "2022-01-21"
->>>>>>> 2abf25acc... Add note.
+lastupdated: "2022-02-04"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -261,3 +257,4 @@ By specifying a `W` value,
 the client can inspect the HTTP status code in the response to determine whether `W` replicas responded to the coordinator.
 The coordinator waits until a pre-determined timeout for `W` responses from nodes that host copies of the document 
 before it returns the response to the client.
+
