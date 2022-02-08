@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-23"
+  years: 2015, 2022
+lastupdated: "2022-02-07"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -20,6 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Database overview
 {: #databases}
@@ -31,7 +32,7 @@ These JSON objects are called [documents](/docs/Cloudant?topic=Cloudant-document
 In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
 {: important}
 
-All documents must be contained in a database. Also, learn more about [partitioned databases](#partitioned-databases-database).
+All documents must be contained in a database. For more information, see [partitioned databases](#partitioned-databases-database).
 
 The [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant) guide provides an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
@@ -100,19 +101,180 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-See the following example that uses the command line to create a partitioned database:
+See the following example to create a partitioned database:
 
 ```sh
-curl -X PUT "https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=true"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products?partitioned=true"
 ```
 {: codeblock}
+{: curl}
 
-See the following example that uses the command line to create a non-partitioned database:
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Ok;
+import com.ibm.cloud.cloudant.v1.model.PutDatabaseOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PutDatabaseOptions databaseOptions = new PutDatabaseOptions.Builder()
+    .db("products")
+    .partitioned(true)
+    .build();
+
+Ok response =
+    service.putDatabase(databaseOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.putDatabase({
+  db: 'products',
+  partitioned: true
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.put_database(db='products', partitioned=True).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+putDatabaseOptions := service.NewPutDatabaseOptions(
+  "products",
+)
+putDatabaseOptions.SetPartitioned(true)
+
+ok, response, err := service.PutDatabase(putDatabaseOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(ok, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
+
+See the following example to create a non-partitioned database:
 
 ```sh
-curl -X PUT "https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Ok;
+import com.ibm.cloud.cloudant.v1.model.PutDatabaseOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PutDatabaseOptions databaseOptions = new PutDatabaseOptions.Builder()
+    .db("products")
+    .build();
+
+Ok response =
+    service.putDatabase(databaseOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.putDatabase({
+  db: 'products'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.put_database(db='products').get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+putDatabaseOptions := service.NewPutDatabaseOptions(
+  "products",
+)
+
+ok, response, err := service.PutDatabase(putDatabaseOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(ok, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 If creation succeeds, you get a 201 or 202 response.
 An error response uses
@@ -168,12 +330,90 @@ GET /$DATABASE HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of using the command line to get database details:
+See the following example to get database details:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/products"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DatabaseInformation;
+import com.ibm.cloud.cloudant.v1.model.GetDatabaseInformationOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+GetDatabaseInformationOptions databaseInfoOptions =
+    new GetDatabaseInformationOptions.Builder()
+        .db("products")
+        .build();
+
+DatabaseInformation response =
+    service.getDatabaseInformation(databaseInfoOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getDatabaseInformation({db: 'products'}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_database_information(db='products').get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getDatabaseInformationOptions := service.NewGetDatabaseInformationOptions(
+  "products",
+)
+
+databaseInformation, response, err := service.GetDatabaseInformation(getDatabaseInformationOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(databaseInformation, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 The elements of the returned structure are shown in the following table:
 
@@ -239,12 +479,83 @@ GET /_all_dbs HTTP/1.1
 ```
 {: codeblock}
 
-See the following example that uses the command line to list all databases:
+See the following example to list all databases:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/_all_dbs"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/_all_dbs"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.GetAllDbsOptions;
+
+import java.util.List;
+
+Cloudant service = Cloudant.newInstance();
+
+List<String> response =
+    service.getAllDbs().execute().getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getAllDbs().then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_all_dbs().get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getAllDbsOptions := service.NewGetAllDbsOptions()
+
+result, response, err := service.GetAllDbs(getAllDbsOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.  
+{: go}
 
 See the following example response that is a JSON array with all the database names:
 
@@ -305,12 +616,105 @@ GET /_all_docs HTTP/1.1
 ```
 {: codeblock}
 
-See the following example that uses the command line to list all documents in a database:
+See the following example to list all documents in a database:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/orders/_all_docs" -H "Content-Type: application/json" --data '{ "include_docs": true, "startkey": "abc", "limit": 10}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.AllDocsResult;
+import com.ibm.cloud.cloudant.v1.model.PostAllDocsOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostAllDocsOptions docsOptions =
+    new PostAllDocsOptions.Builder()
+        .db("orders")
+        .includeDocs(true)
+        .startkey("abc")
+        .limit(10)
+        .build();
+
+AllDocsResult response =
+    service.postAllDocs(docsOptions).execute().getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postAllDocs({
+  db: 'orders',
+  includeDocs: true,
+  startkey: 'abc',
+  limit: 10
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_all_docs(
+  db='orders',
+  include_docs=True,
+  startkey='abc',
+  limit=10
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postAllDocsOptions := service.NewPostAllDocsOptions(
+  "orders",
+)
+postAllDocsOptions.SetIncludeDocs(true)
+postAllDocsOptions.SetStartkey("abc")
+postAllDocsOptions.SetLimit(10)
+
+allDocsResult, response, err := service.PostAllDocs(postAllDocsOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(allDocsResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See the following example that uses HTTP to list all documents in a database that match at least one of the specified keys:
 
@@ -319,12 +723,112 @@ GET /_all_docs?keys=["somekey","someotherkey"] HTTP/1.1
 ```
 {: codeblock}
 
-See the following example that uses the command line to list all documents in a database that match at least one of the specified keys:
+See the following example to list all documents in a database that match at least one of the specified keys:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?keys=["somekey","someotherkey"]"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/orders/_all_docs" -H "Content-Type: application/json" --data '{
+  "include_docs": true,
+  "keys": ["somekey", "someotherkey"],
+  "limit": 10
+}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.AllDocsResult;
+import com.ibm.cloud.cloudant.v1.model.PostAllDocsOptions;
+
+import java.util.Arrays;
+
+Cloudant service = Cloudant.newInstance();
+
+PostAllDocsOptions docsOptions =
+    new PostAllDocsOptions.Builder()
+        .db("orders")
+        .includeDocs(true)
+        .keys(Arrays.asList("somekey", "someotherkey"))
+        .limit(10)
+        .build();
+
+AllDocsResult response =
+    service.postAllDocs(docsOptions).execute().getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postAllDocs({
+  db: 'orders',
+  includeDocs: true,
+  keys: ['somekey', 'someotherkey'],
+  limit: 10
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_all_docs(
+  db='orders',
+  include_docs=True,
+  keys=['somekey', 'someotherkey'],
+  limit=10
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postAllDocsOptions := service.NewPostAllDocsOptions(
+		"orders",
+	)
+	postAllDocsOptions.SetIncludeDocs(true)
+	postAllDocsOptions.SetKeys([]string{"somekey", "someotherkey"})
+	postAllDocsOptions.SetLimit(10)
+	
+	allDocsResult, response, err := service.PostAllDocs(postAllDocsOptions)
+	if err != nil {
+		panic(err)
+	}
+	
+	b, _ := json.MarshalIndent(allDocsResult, "", "  ")
+	fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
+
 
 The response is a JSON object that contains all documents in the database that match the parameters.
 The following table describes the meaning of the individual fields:
@@ -388,12 +892,153 @@ POST /$DATABASE/_all_docs/queries HTTP/1.1
 ```
 {: codeblock}
 
-See the following example that uses the command line to send multiple queries to a database:
+See the following example to multi-query the list of all documents in a database:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/products/_all_docs/queries" -H "Content-Type: application/json" --data '{
+  "queries": [
+    {
+      "keys": [
+        "small-appliances:1000042",
+        "small-appliances:1000043"
+      ]
+    },
+    {
+      "limit": 3,
+      "skip": 2
+    }
+  ]
+}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.AllDocsQuery;
+import com.ibm.cloud.cloudant.v1.model.AllDocsQueriesResult;
+import com.ibm.cloud.cloudant.v1.model.PostAllDocsQueriesOptions;
+
+import java.util.Arrays;
+
+Cloudant service = Cloudant.newInstance();
+
+AllDocsQuery query1 = new AllDocsQuery.Builder()
+    .keys(Arrays.asList("small-appliances:1000042",
+        "small-appliances:1000043"))
+    .build();
+
+AllDocsQuery query2 = new AllDocsQuery.Builder()
+    .limit(3)
+    .skip(2)
+    .build();
+
+PostAllDocsQueriesOptions queriesOptions =
+    new PostAllDocsQueriesOptions.Builder()
+        .queries(Arrays.asList(query1, query2))
+        .db("products")
+        .build();
+
+AllDocsQueriesResult response =
+    service.postAllDocsQueries(queriesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+const allDocsQueries: CloudantV1.AllDocsQuery[] = [{
+    keys: ['small-appliances:1000042', 'small-appliances:1000043'],
+  },
+  {
+    limit: 3,
+    skip: 2
+}];
+
+service.postAllDocsQueries({
+  db: 'products',
+  queries: allDocsQueries
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import AllDocsQuery, CloudantV1
+
+service = CloudantV1.new_instance()
+
+all_docs_query1 = AllDocsQuery(
+  keys=['small-appliances:1000042', 'small-appliances:1000043']
+)
+
+all_docs_query2 = AllDocsQuery(
+  limit=3,
+  skip=2
+)
+
+response = service.post_all_docs_queries(
+  db='products',
+  queries=[all_docs_query1, all_docs_query2]
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+allDocsQueries := []cloudantv1.AllDocsQuery{
+  {
+    Keys: []string{
+      "small-appliances:1000042",
+      "small-appliances:1000043",
+    },
+  },
+  {
+    Limit: core.Int64Ptr(3),
+    Skip:  core.Int64Ptr(2),
+  },
+}
+postAllDocsQueriesOptions := service.NewPostAllDocsQueriesOptions(
+  "products",
+  allDocsQueries,
+)
+
+allDocsQueriesResult, response, err := service.PostAllDocsQueries(postAllDocsQueriesOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(allDocsQueriesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 If you `POST` to the `_all_docs/queries` endpoint, it runs multiple specified built-in view queries of all documents 
 in this database. You can use this endpoint to request multiple queries in a single request, instead 
@@ -520,12 +1165,150 @@ POST /_view/$VIEW/queries HTTP/1.1
 ```
 {: codeblock}
 
-See the following example that uses the command line to send multiple view queries to a database:
+See the following example that runs multiple specified view queries against the view function from the specified design document:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/users/_design/allusers/_view/getVerifiedEmails/queries" -H "Content-Type: application/json" --data '{ "queries": [ { "include_docs": true, "limit": 5 },{ "descending": true, "skip": 1 } ]}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewQueriesOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewQueriesResult;
+import com.ibm.cloud.cloudant.v1.model.ViewQuery;
+
+import java.util.Arrays;
+
+Cloudant service = Cloudant.newInstance();
+
+ViewQuery query1 = new ViewQuery.Builder()
+    .includeDocs(true)
+    .limit(5)
+    .build();
+
+ViewQuery query2 = new ViewQuery.Builder()
+    .descending(true)
+    .skip(1)
+    .build();
+
+PostViewQueriesOptions queriesOptions =
+    new PostViewQueriesOptions.Builder()
+        .db("users")
+        .ddoc("allusers")
+        .queries(Arrays.asList(query1, query2))
+        .view("getVerifiedEmails")
+        .build();
+
+ViewQueriesResult response =
+    service.postViewQueries(queriesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1, ViewQuery
+
+service = CloudantV1.new_instance()
+
+query1 = ViewQuery(
+  include_docs=True,
+  limit=5
+)
+query2 = ViewQuery(
+  descending=True,
+  skip=1
+)
+
+response = service.post_view_queries(
+  db='users',
+  ddoc='allusers',
+  queries=[query1, query2],
+  view='getVerifiedEmails'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+const viewQueries: CloudantV1.ViewQuery[] = [
+  {
+    include_docs: true,
+    limit: 5
+  },
+  {
+    descending: true,
+    skip: 1
+  }
+];
+service.postViewQueries({
+  db: 'users',
+  ddoc: 'allusers',
+  queries: viewQueries,
+  view: 'getVerifiedEmails'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```go
+postViewQueriesOptions := service.NewPostViewQueriesOptions(
+  "users",
+  "allusers",
+  "getVerifiedEmails",
+  []cloudantv1.ViewQuery{
+    {
+      IncludeDocs: core.BoolPtr(true),
+      Limit:       core.Int64Ptr(5),
+    },
+    {
+      Descending: core.BoolPtr(true),
+      Skip:       core.Int64Ptr(1),
+    },
+  },
+)
+
+viewQueriesResult, response, err := service.PostViewQueries(postViewQueriesOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewQueriesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
+
+The previous example requires the getVerifiedEmails view to exist. To create the design document with this view, see [Create or modify a design document](https://cloud.ibm.com/apidocs/cloudant#putdesigndocument){: external}.The previous Go example also requires an import for `github.com/IBM/go-sdk-core/v5/core`.
+{: go}
 
 Multiple queries are supported by the `_view` endpoint, 
 `/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
@@ -772,6 +1555,7 @@ Content-Type –
 | `412 Precondition Failed` | Database exists. |
 {: caption="Table 13. HTTP response codes" caption-side="top"}
 
+
 ## Get changes
 {: #get-changes}
 
@@ -813,12 +1597,13 @@ GET /$DATABASE/_changes HTTP/1.1
 ```
 {: codeblock}
 
-See the following example that uses the command line to get a list of changes made to documents in a database:
+See the following example to get a list of changes made to documents in a database:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/orders/_changes?limit=1"
 ```
 {: codeblock}
+{: curl}
 
 ### Changes in a distributed database
 {: #changes-in-a-distributed-database}
@@ -1048,19 +1833,102 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-See the following example that uses the command line to `POST` to the `_changes` endpoint:
+See the following example to `POST` to the `_changes` endpoint:
 
 ```sh
-curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector" -d @request.json
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/orders/_changes" -H "Content-Type: application/json"'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ChangesResult;
+import com.ibm.cloud.cloudant.v1.model.PostChangesOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostChangesOptions changesOptions = new PostChangesOptions.Builder()
+    .db("orders")
+    .build();
+
+ChangesResult response =
+    service.postChanges(changesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.postChanges({
+  db: 'orders'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+response = service.post_changes(
+  db='orders'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postChangesOptions := service.NewPostChangesOptions(
+  "orders",
+)
+
+changesResult, response, err := service.PostChanges(postChangesOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(changesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 When you `POST` to the `_changes` endpoint, you see an example similar to the following JSON object:
 
 ```json
-{
-	"selector": {"z" : {"$gte" : 1}}
-}
+{"results":[
+{"seq":"1-g1AAAA...","id":"0007741142412418284","changes":[{"rev":"1-9d0c2676941ec3a3b3cc2f08fe9a51e0"}]},
+{"seq":"2-g1AAAA...","id":"_design/applianceId","changes":[{"rev":"1-b1f67a8b672c1324680d6d7dc1e1fd3c"}]},
+...
+],
+"last_seq":"18-g1AAAA...","pending":0}
 ```
 {: codeblock}
 
@@ -1081,22 +1949,99 @@ Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-See the following example that uses the command line to delete an {{site.data.keyword.cloudant_short_notm}} database:
+See the following example to delete an {{site.data.keyword.cloudant_short_notm}} database:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE" \
-	-X DELETE \
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X DELETE "$SERVICE_URL/$DB_NAME"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DeleteDatabaseOptions;
+import com.ibm.cloud.cloudant.v1.model.Ok;
+
+Cloudant service = Cloudant.newInstance();
+
+DeleteDatabaseOptions databaseOptions =
+    new DeleteDatabaseOptions.Builder()
+        .db("<db-name>")
+        .build();
+
+Ok response =
+    service.deleteDatabase(databaseOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.deleteDatabase({db: '<db-name>'}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.delete_database(db='<db-name>').get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+deleteDatabaseOptions := service.NewDeleteDatabaseOptions(
+  "<db-name>",
+)
+
+ok, response, err := service.DeleteDatabase(deleteDatabaseOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(ok, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 If deletion succeeds, you get a 200 or 202 response.
 An error response uses the HTTP status code to indicate what went wrong.
 
-Code | Description 
+ Code | Description 
 ------|-------------
-200  | Database deleted successfully.
-202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
-404  | Database doesn't exist on all of the nodes.
+ 200  | Database deleted successfully. 
+ 202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
+ 404  | Database does not exist on all of the nodes. 
 {: caption="Table 16. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is deleted successfully:
