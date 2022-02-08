@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-11-15"
+  years: 2019, 2022
+lastupdated: "2022-02-04"
 
 keywords: operator, field reference, user-defined configuration parameters, cluster size, scaling, persistent storage, resource requests, resource limits
 
@@ -91,7 +91,7 @@ For GCE, Persistent Disk can be used but a [storage class](https://docs.openshif
 
 For on-premises deployments, the following storage providers meet these requirements:
 
-- [vSphere](https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html){: external}
+- [vSphere](https://github.com/vmware-archive/vsphere-storage-for-kubernetes/blob/master/documentation/policy-based-mgmt.md){: external}
 - [Complete Example Using Ceph RBD for Dynamic Provisioning](https://docs.openshift.com/container-platform/3.5/install_config/storage_examples/ceph_rbd_dynamic_example.html){: external}
 - [GlusterFS](https://kubernetes.io/docs/concepts/storage/storage-classes/#glusterfs){: external}
 - [Portworx](https://kubernetes.io/docs/concepts/storage/storage-classes/#portworx-volume){: external}
