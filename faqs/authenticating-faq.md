@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-28"
+lastupdated: "2022-02-08"
 
 keywords: legacy, iam access controls, use only iam mode, generate service credentials, iam mode
 
@@ -131,7 +131,7 @@ For more information, see [{{site.data.keyword.cloud_notm}} API keys and Use onl
 
 In most cases, rotating credentials is a straight-forward process:
 
-1. Generate a replacement service credential For more information, see [How can I generate service credentials?](#find-service-credentials-iam).
+1. Generate a replacement service credential For more information, see [how to generate service credentials](#find-service-credentials-iam).
 1. Replace the current credential with the newly-generated credential.
 1. Delete the no-longer-used service credential.
 
@@ -140,7 +140,7 @@ the replication will start from the beginning. To keep changes arriving in a tim
 new replication once it has caught up with deleting the previous replication and the associated service credential.
 The process is described in the following list:
 
-1. Generate a replacement service credential. For more information, see [How can I generate service credentials?](#find-service-credentials-iam).
+1. Generate a replacement service credential. For more information, see [how to generate service credentials](#find-service-credentials-iam).
 
 1. Create a new replication with the same settings but new credentials.
 
@@ -150,6 +150,6 @@ The process is described in the following list:
 
 1. Delete the no-longer-used service credential.
 
-Replications using IAM API keys can be updated to use a new API key directly, without delaying the changes being replicated.
+Replications using IAM API keys can be updated to use a new API key directly, without delaying the changes of the ones currently being replicated.
 {: important}
 

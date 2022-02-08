@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-08"
+lastupdated: "2022-02-09"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -65,7 +65,7 @@ The API call returns the following changes:
 - `results` - an array of changes.
 - `last_seq` - a token that can be supplied to the changes endpoint in a subsequent API call to get the next batch of changes.
 
-Fetching the next batch of changes:
+See an example of fetching the next batch of changes:
 
 ```http
 GET /orders/_changes?limit=5&since=5-g1AAAAB5eJzLYWBg
@@ -92,7 +92,7 @@ The {{site.data.keyword.cloudant_short_notm}} Standard changes feed promises to 
 
 A consumer of the changes feed must treat the changes _idempotently_. In practice, you must remember whether a change was already dealt with before you trigger an action from a change. A naive changes feed consumer might send a message to a smartphone on every change received. But a user might receive duplicate text messages if a change is not treated idempotently in the event of replayed changes.
 
-Usually these "rewinds" of the changes feed are short, replaying only a handful of changes. But in some cases, a request might see a response with thousands of changes being replayed - potentially all of the changes from the beginning of time. The potential for rewinds makes using the changes feed unsuitable for an application that expects queue-like behavior.
+Usually these "rewinds" of the changes feed are short, replaying only a handful of changes. But in some cases, a request might see a response with thousands of changes replayed - potentially all of the changes from the beginning of time. The potential for rewinds makes the use of the changes feed unsuitable for an application that expects queue-like behavior.
 
 To reiterate, {{site.data.keyword.cloudant_short_notm}}'s changes feed promises to deliver a document _at least once_ in a changes feed, and gives no guarantees about repeated values across multiple requests.
 
@@ -147,7 +147,7 @@ However, you can achieve this use case by storing the date of change in the docu
 ```
 {: codeblock}
 
-and creating a MapReduce view with `last_edit_date` as the key:
+And by creating a MapReduce view with `last_edit_date` as the key:
 
 ```javascript
 function(doc) {
@@ -160,7 +160,7 @@ This view can be queried to return any documents that are modified on or after a
 
 `/orders/_design/query/_view/by_last_edit?startkey="2022-01-13T00:00:00"`
 
-This technique produces a time-ordered set of results with no repeated values in a performant and repeatable fashion. The consumer of this data need _not_ handle the data idempotently, making for a simpler development process.
+This technique produces a time-ordered set of results with no repeated values in a performant and repeatable fashion. The consumer of this data need _not_ manage the data idempotently, making for a simpler development process.
 
 ## What is the {{site.data.keyword.cloudant_short_notm}} changes feed good for now?
 {: #changes-feed-good-for}
