@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-02"
+  years: 2017, 2022
+lastupdated: "2022-02-09"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -82,7 +82,7 @@ You must create a service instance and its credentials before you follow this tu
 ### Python version requirement
 {: #python-create-database}
 
-You must have a current version of the [Python programming language](https://www.python.org/){: external} installed on your system.
+You must have a current version of the [Python programming language](https://www.python.org/){: external} that is installed on your system.
 
 1. Check that Python is installed by running the following command at a prompt:
 
@@ -101,7 +101,7 @@ You must have a current version of the [Python programming language](https://www
 ### Python Client Library requirement
 {: #python-client-library-for-ibm-cloudant}
 
-The examples below use the deprecated `python-cloudant` client library.
+The following examples use the deprecated `python-cloudant` client library.
 {: deprecated}
 
 1. Check that the client library installed successfully by running the following command at a prompt:
