@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-10-29"
+  years: 2021, 2022
+lastupdated: "2022-02-09"
 
 keywords: IBM Cloudant, HA for IBM Cloudant, high availability for IBM Cloudant
 
@@ -37,7 +37,7 @@ To provide HA within a data center, all data is stored in triplicate across thre
 
 To find out more about responsibility ownership for using {{site.data.keyword.cloud}} products between {{site.data.keyword.IBM_notm}} and the customer, see [Shared responsibilities for {{site.data.keyword.cloud_notm}} products](/docs/overview?topic=overview-shared-responsibilities){: external}.
 
-For more information about your responsibilities when using {{site.data.keyword.cloudant_short_notm}}, see [Shared responsibilities for {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-cloudant-responsibilities).
+For more information about responsibilities when you use {{site.data.keyword.cloudant_short_notm}}, see [Shared responsibilities for {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-cloudant-responsibilities).
 
 ## What level of availability do I need?
 {: #ha-level}
@@ -56,7 +56,7 @@ Service level objectives (SLOs) describe the design points that the {{site.data.
 |  Availability % |  99.99% |
 {: caption="Table 1. SLA for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
-Refer to [Cloud Services terms](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: external} for commitments and credits that are issued for failure to meet any committed SLAs, and see the [{{site.data.keyword.cloudant_short_notm}} Service descriptions](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm-6627-07){: external} for more information.
+Refer to [Cloud Services terms](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: external} for commitments and credits that are issued for failure to meet any committed SLAs. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Service descriptions](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm-6627-07){: external}.
 
 
 ## Locations

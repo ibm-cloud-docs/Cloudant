@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-02-09"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -24,7 +24,7 @@ subcollection: Cloudant
 # Creating Views (MapReduce)
 {: #creating-views-mapreduce}
 
-Views are used to obtain data stored within a database. Within views, you use reduce functions, map/reduce functions, and storing a view definition.
+Views are used to obtain data stored within a database. Within views, you use reduce functions, map and reduce functions, and storing a view definition.
 {: shortdesc}
 
 Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. Views are written by using JavaScript.  
@@ -36,7 +36,7 @@ In this documentation, when a feature, or an aspect of a feature, applies only t
 {: #view-concepts}
 
 Views are mechanisms for working with document content in databases.
-A view can selectively filter documents and speed up searching for content.
+A view can selectively filter documents and speedup searching for content.
 It can be used to pre-process the results before they're returned to the client.
 
 Views are simply JavaScript functions, which are defined within the `views` field of a design document.
@@ -137,7 +137,7 @@ See an example response from running the simple view query:
 
 The following sections describe indexing, complex keys, and reduce functions.
 
-Your indexing functions works in a memory-constrained environment where the document forms part of the memory used in the environment. Your code's stack and document must fit within the memory. We limit documents to a maximum size of 64 MB.
+Your indexing functions work in a memory-constrained environment where the document forms part of the memory used in the environment. Your code's stack and document must fit within the memory. We limit documents to a maximum size of 64 MB.
 
 ### Indexing a field
 {: #indexing-a-field}
@@ -462,7 +462,7 @@ the same instance of a reduce call. You must not rely on any ordering. The
 reduce function that you use must consider all the values that are passed to it and return the correct
 answer irrespective of ordering. {{site.data.keyword.cloudant_short_notm}} is also guaranteed to call your reduce
 function with `rereduce=true` at query time even if it didn't need to do so when
-it built the index. It's essential that your function works correctly in that
+it built the index. It's essential that your functions work correctly in that
 case (`rereduce=true` means that the keys parameter is `null` and the values array is
 filled with results from previous reduce function calls).
 
@@ -487,7 +487,7 @@ characteristic restriction.
 ### Execution environment
 {: #execution-environment}
 
-Your indexing functions works in a memory-constrained environment where the document forms part of the memory used in the environment. Your code's stack and document must fit within the memory. We limit documents to a maximum size of 64 MB.
+Your indexing functions work in a memory-constrained environment where the document forms part of the memory used in the environment. Your code's stack and document must fit within the memory. We limit documents to a maximum size of 64 MB.
 
 ### No JavaScript reducers when `options.partitioned` is `true`
 {: #no-javascript-reducers-when-options.partitioned-is-true-}
