@@ -65,7 +65,7 @@ The API call returns the following changes:
 - `results` - an array of changes.
 - `last_seq` - a token that can be supplied to the changes endpoint in a subsequent API call to get the next batch of changes.
 
-See an example of fetching the next batch of changes:
+See how to fetch the next batch of changes in the following example:
 
 ```http
 GET /orders/_changes?limit=5&since=5-g1AAAAB5eJzLYWBg
@@ -90,9 +90,9 @@ On face value, it would seem like following the changes feed would be as simple 
 
 The {{site.data.keyword.cloudant_short_notm}} Standard changes feed promises to return each document _at least once_, which isn't the same as promising to return each document _only once_. Put another way, it is possible for a consumer of the changes feed to see the same change again, or indeed a set of changes repeated.
 
-A consumer of the changes feed must treat the changes _idempotently_. In practice, you must remember whether a change was already dealt with before you trigger an action from a change. A naive changes feed consumer might send a message to a smartphone on every change received. But a user might receive duplicate text messages if a change is not treated idempotently in the event of replayed changes.
+A consumer of the changes feed must treat the changes _idempotently_. In practice, you must remember whether a change was already dealt with before you trigger an action from a change. A naive changes feed consumer might send a message to a smartphone on every change received. But a user might receive duplicate text messages if a change is not treated idempotently when replayed changes occur.
 
-Usually these "rewinds" of the changes feed are short, replaying only a handful of changes. But in some cases, a request might see a response with thousands of changes replayed - potentially all of the changes from the beginning of time. The potential for rewinds makes the use of the changes feed unsuitable for an application that expects queue-like behavior.
+Usually these "rewinds" of the changes feed are short, replaying only a handful of changes. But in some cases, a request might see a response with thousands of changes replayed - potentially all of the changes from the beginning of time. The potential for rewinds make the use of the changes feed unsuitable for an application that expects queue-like behavior.
 
 To reiterate, {{site.data.keyword.cloudant_short_notm}}'s changes feed promises to deliver a document _at least once_ in a changes feed, and gives no guarantees about repeated values across multiple requests.
 
@@ -147,7 +147,7 @@ However, you can achieve this use case by storing the date of change in the docu
 ```
 {: codeblock}
 
-And by creating a MapReduce view with `last_edit_date` as the key:
+And you can create a MapReduce view with `last_edit_date` as the key:
 
 ```javascript
 function(doc) {
