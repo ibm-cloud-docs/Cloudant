@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-02-11"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -20,6 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Document versioning and MVCC
 {: #document-versioning-and-mvcc}
@@ -241,12 +242,101 @@ DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd298184
 ```
 {: codeblock}
 
-See the following example request to delete an old document revision by using the command line:
+See the following example request to delete an old document revision:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121" -X DELETE
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X DELETE "$SERVICE_URL/events/0007241142412418284?rev=2-9a0d1cd9f40472509e9aac6461837367"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DeleteDocumentOptions;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+
+Cloudant service = Cloudant.newInstance();
+
+DeleteDocumentOptions documentOptions =
+    new DeleteDocumentOptions.Builder()
+        .db("events")
+        .docId("0007241142412418284")
+        .rev("2-9a0d1cd9f40472509e9aac6461837367")
+        .build();
+
+DocumentResult response =
+    service.deleteDocument(documentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+const service = CloudantV1.newInstance({});
+
+service.deleteDocument({
+  db: 'events',
+  docId: '0007241142412418284',
+  rev: '2-9a0d1cd9f40472509e9aac6461837367'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.delete_document(
+  db='events',
+  doc_id='0007241142412418284',
+  rev='2-9a0d1cd9f40472509e9aac6461837367'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+deleteDocumentOptions := service.NewDeleteDocumentOptions(
+  "events",
+  "0007241142412418284",
+)
+deleteDocumentOptions.SetRev("2-9a0d1cd9f40472509e9aac6461837367")
+
+documentResult, response, err := service.DeleteDocument(deleteDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 Now,
 conflicts affecting the document are resolved.
