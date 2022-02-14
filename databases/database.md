@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-22"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -56,7 +56,7 @@ The partitioning type can't be changed for an existing database.
 
 For more information, see [Database partitioning](/docs/Cloudant?topic=Cloudant-database-partitioning).
 
-## Create
+## Creating a database
 {: #create-database}
 
 To create a database,
@@ -66,24 +66,6 @@ submit a `PUT` request with the following format:
 -   **Request body** - None
 -   **Response** - Success or failure of operation.
 -   **Roles permitted** - `_admin`
-
-### Query arguments
-{: #query-arguments-database}
-
-| Argument        | Description | Optional | Type | Default | Supported values |
-|-----------------|-------------|----------|------|---------|------------------|
-| `partitioned`   | Determines whether the database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
-{: caption="Table 1. Query arguments" caption-side="top"}
-
-### Database naming
-{: #database-naming}
-
-The database name must start with a lowercase letter,
-and contain only the following characters:
-
--   Lowercase characters (a-z)
--   Digits (0-9)
--   Any of the characters _, $, (, ), +, -, and /
 
 See the following example that uses HTTP to create a partitioned database:
 
@@ -101,7 +83,10 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-See the following example to create a partitioned database:
+### Example: Creating a partitioned database
+{: #example-creating-a-partitioned-db}
+
+To create a partitioned database, see the following example:
 
 ```sh
 curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products?partitioned=true"
@@ -190,7 +175,10 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
-See the following example to create a non-partitioned database:
+### Example: Creating a non-partitioned database
+{: #example-creating-a-non-partitioned-db}
+
+To create a non-partitioned database, see the following example:
 
 ```sh
 curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products"
@@ -276,9 +264,26 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
-If creation succeeds, you get a 201 or 202 response.
-An error response uses
-the HTTP status code to indicate what went wrong.
+
+### Query arguments
+{: #query-arguments-database}
+
+| Argument        | Description | Optional | Type | Default | Supported values |
+|-----------------|-------------|----------|------|---------|------------------|
+| `partitioned`   | Determines whether the database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
+{: caption="Table 1. Query arguments" caption-side="top"}
+
+### Database naming
+{: #database-naming}
+
+The database name must start with a lowercase letter,
+and contain only the following characters:
+
+-   Lowercase characters (a-z)
+-   Digits (0-9)
+-   Any of the characters _, $, (, ), +, -, and /
+
+If your database is successfully created, you get a 201 or 202 response. An error response uses the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
