@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-09"
+lastupdated: "2022-02-16"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -23,12 +23,12 @@ subcollection: Cloudant
 {:support: data-reuse='support'}
 {:faq: data-hd-content-type='faq'}
 
-# Using the {{site.data.keyword.cloudant_short_notm}} changes feed
+# Using the {{site.data.keyword.cloudant_short_notm}} changes feed FAQ
 {: #faq-using-changes-feed}
 {: faq}
 {: support}
 
-An {{site.data.keyword.cloudant_short_notm}} database's changes feed's primary use-case is to power the replication of data from a source to a target database. The {{site.data.keyword.cloudant_short_notm}} replicator is built to handle the changes feed and performs the necessary checks to ensure data is copied accurately to its destination.
+An {{site.data.keyword.cloudant_short_notm}} database's changes feed's primary use-case is to power the replication of data from a source to a target database. The {{site.data.keyword.cloudant_short_notm}} replicator is built to handle the changes feed and performs the necessary checks to ensure data is copied accurately to its destination. 
 
 {{site.data.keyword.cloudant_short_notm}} has a raw [changes feed API](https://cloud.ibm.com/apidocs/cloudant#getchanges-changes){: external} that can be used to consume a single database's changes but it must be used with care. 
 

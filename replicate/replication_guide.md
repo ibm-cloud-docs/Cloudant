@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-02"
+lastupdated: "2022-02-15"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -440,6 +440,8 @@ You can access the feed by using HTTP or `curl`,
 as shown in the examples.
 Using the `feed=continuous` option means that the stream provides you with
 every change that is necessary to get the most recent version of every document in the database.
+
+For more information, see [Using the {{site.data.keyword.cloudant_short_notm}} changes feed FAQ](/docs/Cloudant?topic=Cloudant-faq-using-changes-feed&code=javascript).
 
 See the following example that uses HTTP to query the changes feed:
 
