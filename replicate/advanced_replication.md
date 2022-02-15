@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-02-15"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -88,7 +88,7 @@ You can manage and determine replication status more quickly and easily by using
 
 See the typical process for using the replication scheduler to manage and monitor replications:
 
-1.  Create a [replication document](/apidocs/cloudant#postreplicate){: external} that describes the needed replication,
+1.  Create a [replication document](/apidocs/cloudant#putreplicationdocument){: external} that describes the needed replication,
     and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
