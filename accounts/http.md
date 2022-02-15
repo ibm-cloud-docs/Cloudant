@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-03-01"
 
 keywords: http headers, response headers, request headers, http status codes
 
@@ -196,8 +196,6 @@ The supported HTTP response headers that are important to {{site.data.keyword.cl
 *	`Content-Type`
 *	`Etag`
 
-The {{site.data.keyword.cloudant_short_notm}} design document API and its functions return HTML (for example as part of a show or list). After which, you can include custom HTTP headers through the `headers` field of the return object.
-
 #### Cache-Control
 {: #cache-control}
 
@@ -224,13 +222,12 @@ which is explicitly stated in the returned `Content-Type` as `text/plain;charset
 #### `Etag`
 {: #etag}
 
-The `Etag` header is used to show the revision for a document,
-or the response from a show function.
+The `Etag` header is used to show the revision for a document.
 For documents,
 the value is identical to the revision of the document.
 The value can be used with an `If-None-Match` request header
 to get a [`304 Not Modified`](/apidocs/cloudant#list-of-http-codes){: external} response if the revision is still current.
 
-ETags cannot currently be used with views or lists,
+ETags cannot currently be used with views,
 since the ETags returned from those requests are random numbers that change on every request.
 
