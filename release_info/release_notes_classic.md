@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-01-26"
+lastupdated: "2022-02-09"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler
 
@@ -38,7 +38,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #cloudant-janXX22}
 {: release-note}
 
-It is now possible to switch authentication methods from `Legacy Credentials and IAM` to `IAM only` using the {{site.data.keyword.cloud_notm}} console.
+It is now possible to switch authentication methods from `Legacy Credentials and IAM` to `IAM only` by using the {{site.data.keyword.cloud_notm}} console.
 
 ## December 2021
 {: #cloudant-dec21}
@@ -66,7 +66,7 @@ Changes feed
 :   Reduce changes feed rewinds when nodes are down or shards are moved.
 
 View collation
-:   Fix reduce view collation results for unicode equivalent keys.
+:   Fix reduce view collation results for Unicode equivalent keys.
 
 ## October 2021
 {: #cloudant-oct21}
@@ -111,7 +111,7 @@ Response code
 :   Fix response code for attachment deletion with wrong revision.
 
 Indexes
-:   Ensure indexes are correctly closed.
+:   Ensure that indexes are correctly closed.
 
 ## August 2021
 {: #cloudant-aug21}
@@ -184,7 +184,7 @@ Improvements
 :   Internal bug fixes.
 
 Caching
-:   Apply caching to account-local `_users` dbs.
+:   Apply caching to account-local `_users` databases.
 
 Error condition
 :   Treat 408 as a retryable error condition for replicator.
@@ -229,7 +229,7 @@ Improvements
 :   Internal bug fixes.
 
 `Drilldown` parameters
-:   `Drilldown` parameters for text index searches can now be specified as a list of lists, which gives you the ability to avoid having to define it redundantly in a single query. (Some languages don't have this facility.)
+:   `Drilldown` parameters for text index searches can now be specified as a list of lists, which gives you the ability to avoid having to define it redundantly in a single query. Some languages don't have this facility.
 
 `couch_index` server
 :   The `couch_index` server doesn't crash and log errors in the following cases: If a design document is deleted while that index is building, or when a design document is added immediately after database creation.
@@ -286,7 +286,7 @@ New! Endpoints
 :   New endpoints were added, so you can post multiple queries: `POST /{db}/_all_docs/queries` and `POST /{db}/_design_docs/queries`.
 
 Multiple queries
-:   The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs` and `_design_docs`endpoints. Specify a `keys` object when you `POST` to these endpoints.
+:   The ability to submit multiple queries against a view by using the `POST` to `/{db}/_design/{ddoc}/_view/{view}` with the `?queries` option was replaced by the new `queries` endpoint. The same is true of the `_all_docs` and `_design_docs` endpoints. Specify a `keys` object when you `POST` to these endpoints.
 
 `disk_size` and `data_size` fields
 :   The `disk_size` and `data_size` fields were retired from the database information object that is returned by `GET /{db}`.
@@ -294,8 +294,8 @@ Multiple queries
 `/{db}/_changes` feed
 :   The `/{db}/_changes` feed immediately returns headers now, even when no changes are available. This process prevents client blocking.
 
-Negative and non-integer heartbeat values
-:   Negative and non-integer heartbeat values now return a `400 Bad Request` response status code.
+Negative and noninteger heartbeat values
+:   Negative and noninteger heartbeat values now return a `400 Bad Request` response status code.
 
 Separate proxies
 :   Allow specifying separate proxies for both the source and target in a replication by using `source_proxy` and `target_proxy` keys.
@@ -365,7 +365,7 @@ Empty payload
 {: release-note}
 
 Multiple restrictions employed for performance gains
-:   {{site.data.keyword.IBM_notm}} has released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} has documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email. The following functions are affected by this deprecation:
+:   {{site.data.keyword.IBM_notm}} released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} has documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email. The following functions are affected by this deprecation:
 
 - Remove the `offset` field from the response body of an `all_docs` request. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use paging with `start_key` / `end_key` and `limit`.
 - The `_sorted` field has no functional effect because all responses are sorted automatically.
@@ -704,7 +704,7 @@ Document update errors
 :   Expose document update errors on concurrent document updates to client.
 
 `render_error` errors
-:   Fix `render_error` errors where the `req` object that is passed to the JavaScript list function is set to `noproc` atom.
+:   Fix `render_error` errors where the `req` object that is passed to the JavaScript list function is set to `noproc` Atom.
 
 ## August 2018
 {: #cloudant-aug18}
@@ -770,7 +770,7 @@ Internal audit facility
 :   Improvements to internal audit facility.
 
 Constant fields
-:   Any constant fields that are in the selector, and are part of the index, for example, `{A: {$eq: 10}}`, are inserted into the sort list if they aren't already included. This method increases the chance that the best index is selected for the query, for example, index = `[A, B]`, sort = `[B]`, and selector = `{A: 1}`. The sort then becomes `[A, B]`.
+:   Any constant fields that are in the selector, and are part of the index. For example, `{A: {$eq: 10}}` is inserted into the sort list if they aren't already included. This method increases the chance that the best index is selected for the query, for example, index = `[A, B]`, sort = `[B]`, and selector = `{A: 1}`. The sort then becomes `[A, B]`.
 
 Only the fields that are in front of the current sort fields in the list are added.
 {: tip}
@@ -1120,7 +1120,7 @@ Retire Shared plan
 The following changes were made in build 6276:
 
 Error message
-:   An error message changed that occurs when you try to put a document attachment with a non-existent revision. Now, the error is a 409 error with the following information:
+:   An error message changed that occurs when you try to put a document attachment with a nonexistent revision. Now, the error is a 409 error with the following information:
 
     ```json
     {"error":"not_found","reason":"missing_rev"}
@@ -1144,7 +1144,7 @@ The following changes were made in build 6233:
 {: release-note}
 
 Revised error message
-:   The error message that occurs when you try to put a document attachment with a non-existent revision. This error is changed to a 409 error with the following information:
+:   The error message that occurs when you try to put a document attachment with a nonexistent revision. This error is changed to a 409 error with the following information:
 
 ```sh
 {"error":"not_found","reason":"missing_rev"}
@@ -1167,7 +1167,7 @@ Replication
 :   Previously, a replication job that failed for some reason, which resulted in an update to the replication document, was followed by a fresh attempt to start a new replication. Under some circumstances, this behavior might continue indefinitely: many duplicates of the same error message. A fix was introduced so that the replication document is not updated unless the reason for the error changes.
 
 Geospatial index
-:   If the design document that is intended to specify a geospatial index is invalid,an attempt to retrieve information about the index by using the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial) results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: external} response.
+:   If the design document that is intended to specify a geospatial index is invalid, an attempt to retrieve information about the index by using the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial) results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: external} response.
 
 ## February 2017
 {: #cloudant-feb17}
