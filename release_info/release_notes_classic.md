@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-16"
+lastupdated: "2022-02-17"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler
 
@@ -30,6 +30,15 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## January 2022
+{: #cloudant-jan22}
+
+## 28 January 2022
+{: #cloudant-janXX22}
+{: release-note}
+
+It is now possible to switch authentication methods from `Legacy Credentials and IAM` to `IAM only` by using the {{site.data.keyword.cloud_notm}} console.
 
 ## December 2021
 {: #cloudant-dec21}
