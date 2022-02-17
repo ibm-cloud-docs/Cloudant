@@ -35,7 +35,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #cloudant-jan22}
 
 ## 28 January 2022
-{: #cloudant-janXX22}
+{: #cloudant-jan2822}
 {: release-note}
 
 It is now possible to switch authentication methods from `Legacy Credentials and IAM` to `IAM only` by using the {{site.data.keyword.cloud_notm}} console.
