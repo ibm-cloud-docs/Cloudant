@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-02-21"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -65,12 +65,12 @@ A design document's structure includes the following parts:
             **Reduce (optional)** - Reduce Function for the view.
 -	**Indexes (optional)** - An object that describes search indexes.
 	-	**Index name** (one for each index) - Index definition.
-            **Analyzer** - Object that describes the analyzer to be used or an object with the following fields:
-                **Name** - Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
-                **Stopwords (optional)** - An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
-                **Default (for the per field analyzer)** - default language to use if no language is specified for the field.
-                **Fields (for the per field analyzer)** - An object that specifies which language to use to analyze each field of the index. Field names in the object correspond to field names in the index, that is, the first parameter of the index function. The values of the fields are the languages to be used, for example `english`.
-            **Index** - Function that handles the indexing.
+        - **Analyzer** - Object that describes the analyzer to be used or an object with the following fields:
+        - **Name** - Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
+        - **Stopwords (optional)** - An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
+        -	**Default (for the per field analyzer)** - default language to use if no language is specified for the field.
+            -	**Fields (for the per field analyzer)** - An object that specifies which language to use to analyze each field of the index. Field names in the object correspond to field names in the index, that is, the first parameter of the index function. The values of the fields are the languages to be used, for example `english`.
+            -	**Index** - Function that handles the indexing.
 -	**Rewrites (optional, disallowed when `partitioned` is `true`)** - Rewrite functions.
 	-	**Function name** (one for each function) - Function definition.
 -	**Lists (optional, disallowed when `partitioned` is `true`)** - List functions.
