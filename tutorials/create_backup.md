@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-08"
+  years: 2017, 2022
+lastupdated: "2022-02-25"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup from log file
 
@@ -317,9 +317,14 @@ and specify the output file name.
 The `couchbackup` command uses these parameters to specify the database, 
 log file, and resume option. 
 
-*   `--db` = `couchbackup-demo`
-*   `--log` = `couchbackup-demo.log`
-*   `--resume` = `true`
+`--db`
+:  `couchbackup-demo`
+
+`--log`
+:  `couchbackup-demo.log`
+
+`--resume`
+:  `true`
 
 
 1.  Run the `couchbackup` command to create a log file. 

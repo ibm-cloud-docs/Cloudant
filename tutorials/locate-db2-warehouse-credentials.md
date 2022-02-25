@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-05"
+  years: 2021, 2022
+lastupdated: "2022-02-25"
 
 keywords: db2 warehouse on cloud, db2 warehouse console, find your service credentials, log in to db2 warehouse console
 
@@ -84,14 +84,20 @@ Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, yo
 
 The information that is returned in the previous example is described in the following list:
 
-| Field | Description |
-|-------|-------------|
-| `_id` | ID of the `_warehouser` document |
-| `dashboard_url` | URL of the {{site.data.keyword.dashdbshort_notm}} console |
-| `dynamite_token` | DB2 password |
-| `target` | DB2 JDBC connection URL, only used if the value for `dashboard_url` is null. |
-| `dynamite_user` | DB2 user name |
-{: caption="Table 4. Fields from the previous example response" caption-side="top"}
+`_id` 
+:  ID of the `_warehouser` document.
+
+`dashboard_url`
+:  URL of the {{site.data.keyword.dashdbshort_notm}} console.
+
+`dynamite_token`
+:  DB2 password.
+
+`target`
+:  DB2 JDBC connection URL, only used if the value for `dashboard_url` is null.
+
+`dynamite_user`
+:  DB2 user name. 
 
 ## Sign in to the {{site.data.keyword.dashdbshort_notm}} console
 {: #sign-in-db2-warehouse-console}

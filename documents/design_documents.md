@@ -24,7 +24,8 @@ subcollection: Cloudant
 # How design documents work
 {: #design-documents}
 
-{{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions. Design documents are used to [build indexes](#indexes-design-docs) and [validate updates](#update-validators). 
+{{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
+Design documents are used to [build indexes](#indexes-design-docs) and [validate updates](#update-validators).
 {: shortdesc}
 
 Each design document defines either *partitioned* or *global* indexes,
@@ -33,14 +34,14 @@ which are controlled by the `options.partitioned` field. A *partitioned* index a
 ## Creating or updating a design document
 {: #creating-or-updating-a-design-document}
 
-Method 
+Method
 :  `PUT /$DATABASE/_design/design-doc`
 
 Request
 :  JSON of the design document information
 
-Response 
-: JSON status
+Response
+:  JSON status
 
 Roles permitted
 :  `_admin`
@@ -61,25 +62,61 @@ If a design document is updated, {{site.data.keyword.cloudant_short_notm}} delet
 
 A design document's structure includes the following parts:
 
--	**`_id`** - Design document ID. This ID is *always* prefixed `_design` and *never* includes a partition key, regardless of database partitioning type.
--	**`_rev`** - Design document revision
--	**Options** - Contains options for this design document.
-    -   **Partitioned (optional, Boolean)** - Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
--	**Views (optional)** - An object that describes MapReduce views.
-	-	**`Viewname`** (one for each view) - View Definition.
-	        -	**Map** - Map Function for the view.
-            -	**Reduce (optional)** - Reduce Function for the view.
--	**Indexes (optional)** - An object that describes search indexes.
-	-	**Index name** (one for each index) - Index definition.
-        -	**Analyzer** - Object that describes the analyzer to be used or an object with the following fields:
-        -	**Name** - Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
-        -	**Stopwords (optional)** - An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
-        -	**Default (for the per field analyzer)** - default language to use if no language is specified for the field.
-            -	**Fields (for the per field analyzer)** - An object that specifies which language to use to analyze each field of the index. Field names in the object correspond to field names in the index, that is, the first parameter of the index function. The values of the fields are the languages to be used, for example `english`.
-            -	**Index** - Function that handles the indexing.
--	**Filters (optional, disallowed when `partitioned` is `true`)** - Filter functions.
-	-	**Function name** (one for each function) - Function definition.
--	**Validate_doc_update (optional, disallowed when `partitioned` is `true`)** - Update validation function.
+`_id`
+:  Design document ID. This ID is *always* prefixed `_design` and *never* includes a partition key, regardless of database partitioning type.
+
+`_rev` 
+:  Design document revision.
+
+Options
+:  Contains options for this design document.
+
+          Partitioned (optional, boolean)
+		  :  Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
+
+      Views (optional)
+      :  An object that describes MapReduce views.
+
+	      `Viewname`
+		   :  (one for each view) - View Definition.
+
+	          Map
+              :  Map Function for the view.
+
+              Reduce (optional)
+              :  Reduce Function for the view.
+
+    Indexes (optional)
+	: An object that describes search indexes.
+
+          Index name
+		  :  (one for each index) - Index definition.
+
+          Analyzer
+		  :  Object that describes the analyzer to be used or an object with the following fields:
+
+              Name
+              :  Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
+
+              Stopwords (optional)
+              :  An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
+
+              Default (for the per field analyzer)
+              :   Default language to use if no language is specified for the field.
+  
+                  Fields (for the per field analyzer)
+                  :  An object that specifies which language to use to analyze each field of the index. Field names in the object correspond to field names in the index, that is, the first parameter of the index function. The values of the fields are the languages to be used, for example `english`.
+
+                  Index 
+                  :  Function that handles the indexing.
+
+    Filters (optional, disallowed when `partitioned` is `true`) :  Filter functions.
+
+	          Function name (one for each function)
+              :  Function definition.
+
+    Validate_doc_update (optional, disallowed when `partitioned` is `true`)
+     :  Update validation function.
 
 ### The `options.partitioned` field
 {: #the-options.partitioned-field}
@@ -163,30 +200,29 @@ Response
 Roles permitted 
 :  `_design`
 
-Query Arguments
-    
-	Argument 
-	   :  `rev`
-		   
-   Description
-	:  Revision to copy from.
-           
-   Optional 
-	: yes
-           
-   Type 
-	: string
-	
+Query Arguments 
+
+    Argument 
+       :  `rev`
+
+       Description
+       :  Revision to copy from.
+
+       Optional 
+       : yes
+
+       Type 
+       : string
+
 HTTP Headers
-	
-   Header
-    :  `Destination`
-       
-   Description 
-    :  Destination document (and optional revision)
-       
-   Optional
-    :  no
+
+    Header - `Destination`
+
+        Description 
+          :  Destination document (and optional revision)
+
+        Optional
+          :  no
 
 The source design document is specified on the request line, while the `Destination` HTTP Header of the request specifies the target document.
 
@@ -825,32 +861,32 @@ The JSON response includes the following individual fields:
 `view_index` 
 :  View Index
 
-`compact_running` 
-:  Indicates whether a compaction routine runs on the view.
+	`compact_running` 
+	:  Indicates whether a compaction routine runs on the view.
 
-`disk_size` 
-:  Size in bytes of the view as stored on disk.
- 
-`language` 
-:  Language that is used for defining views.
+	`disk_size` 
+	Size in bytes of the view as stored on disk.
 
-`purge_seq` 
-:  The purge sequence that was processed.
+	`language` 
+	:  Language that is used for defining views.
 
-`signature`
-:  MD5 signature of the views for the design document.
+	`purge_seq` 
+	:  The purge sequence that was processed.
 
-`update_seq` 
-:  The update sequence of the corresponding database that was indexed.
+	`signature`
+	:  MD5 signature of the views for the design document.
 
-`updater_running` 
-:  Indicates whether the view is being updated.
+	`update_seq` 
+	:  The update sequence of the corresponding database that was indexed.
 
-`waiting_clients` 
-:  Number of clients that are waiting on views from this design document.
+	`updater_running` 
+	:  Indicates whether the view is being updated.
 
-`waiting_commit` 
-:  Indicates whether the underlying database has outstanding commits that need to process. 
+	`waiting_clients` 
+	:  Number of clients that are waiting on views from this design document.
+
+	`waiting_commit` 
+	:  Indicates whether the underlying database has outstanding commits that need to process. 
 
 See the following example response in JSON format:
 

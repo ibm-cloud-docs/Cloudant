@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-22"
+lastupdated: "2022-03-03"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -62,10 +62,17 @@ For more information, see [Database partitioning](/docs/Cloudant?topic=Cloudant-
 To create a database,
 submit a `PUT` request with the following format:
 
--   **Method** - `PUT /$DATABASE?partitioned=$BOOLEAN`
--   **Request body** - None
--   **Response** - Success or failure of operation.
--   **Roles permitted** - `_admin`
+Method
+:  `PUT /$DATABASE?partitioned=$BOOLEAN`
+
+Request body
+:  None
+
+Response
+:  Success or failure of operation.
+
+Roles permitted
+:  `_admin`
 
 See the following example that uses HTTP to create a partitioned database:
 
