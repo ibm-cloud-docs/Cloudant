@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-19"
+lastupdated: "2022-03-01"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -686,9 +686,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` |
 | `POST` | `/$DATABASE/_all_docs/queries` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` |
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
@@ -731,9 +729,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` |
 | `POST` | `/$DATABASE/_all_docs/queries` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` |
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
@@ -770,9 +766,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` |
 | `POST` | `/$DATABASE/_all_docs/queries` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` |
 | `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
