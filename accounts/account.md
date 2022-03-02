@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-10-29"
+  years: 2015, 2022
+lastupdated: "2022-02-24"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -21,6 +21,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Working with your {{site.data.keyword.cloudant_short_notm}} account
 {: #work-with-your-account}
@@ -366,15 +367,132 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-See the following example that uses the command line to submit a modification request:
+See the following example to submit a modification request:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_security" \
-	-X PUT \
-	-H "Content-Type: application/json" \
-	-d @request-body.json
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/events/0007241142412418284" -H "Content-Type:application/json" --data '{ "type": "event", "userid": "abc123","eventType": "addedToBasket", "productId": "1000042", "date": "2019-01-28T10:44:22.000Z" }'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Document;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PutDocumentOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+Document eventDoc = new Document();
+eventDoc.put("type", "event");
+eventDoc.put("userid", "abc123");
+eventDoc.put("eventType", "addedToBasket");
+eventDoc.put("productId", "1000042");
+eventDoc.put("date", "2019-01-28T10:44:22.000Z");
+
+PutDocumentOptions documentOptions =
+    new PutDocumentOptions.Builder()
+        .db("events")
+        .docId("0007241142412418284")
+        .document(eventDoc)
+        .build();
+
+DocumentResult response =
+    service.putDocument(documentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const eventDoc: CloudantV1.Document = {
+  type: 'event',
+  userid: 'abc123',
+  eventType: 'addedToBasket',
+  productId: '1000042',
+  date: '2019-01-28T10:44:22.000Z'
+};
+
+service.putDocument({
+  db: 'events',
+  docId: '0007241142412418284',
+  document: eventDoc
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import Document, CloudantV1
+
+service = CloudantV1.new_instance()
+
+event_doc = Document(
+  type='event',
+  userid='abc123',
+  eventType='addedToBasket',
+  productId='1000042',
+  date='2019-01-28T10:44:22.000Z'
+)
+response = service.put_document(
+  db='events',
+  doc_id='0007241142412418284',
+  document=event_doc
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+eventDoc := cloudantv1.Document{}
+eventDoc.SetProperty("type", "event")
+eventDoc.SetProperty("userid", "abc123")
+eventDoc.SetProperty("eventType", "addedToBasket")
+eventDoc.SetProperty("productId", "1000042")
+eventDoc.SetProperty("date", "2019-01-28T10:44:22.000Z")
+
+putDocumentOptions := service.NewPutDocumentOptions(
+  "events",
+  "0007241142412418284",
+)
+putDocumentOptions.SetDocument(&eventDoc)
+
+documentResult, response, err := service.PutDocument(putDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See the following example modification request in JSON format:
 
@@ -399,5 +517,4 @@ See the following example response from a modification request:
 }
 ```
 {: codeblock}
-
 
