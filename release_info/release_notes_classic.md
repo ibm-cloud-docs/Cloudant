@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-03-04"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views
 
 subcollection: Cloudant
 
@@ -31,10 +31,43 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
+## March 2022
+{: #cloudant-mar22}
+
+### 04 March 2022
+{: #cloudant-mar0422}
+{: release-note}
+
+The following changes were made in build 8266:
+
+Bulk docs
+:   Return 400 Bad Request error for `_bulk_docs` with `new_edits:false` and without `_rev`. Previously returned 500 error.
+
+:   Fix bug where Validate Document Update function interacts with `new_edits:false` setting.
+
+Indexing
+:   Improve scalability by sharding the index server.
+
+Replicator
+:   Set `instance_start_time` to the creation time of the database to restore the ability for the replicator to detect a database recreation event during a replication.
+
+Search
+:   Expose index signature in the `_search_info` endpoint response.
+
+Security
+:   Always send all the cookie attributes whenever we send a cookie. Only the value of AuthSession varies.
+
+Views
+:   Track ICU collator version used to build the view and expose this information in existing endpoints.
+
+   :   Exposes list of collator versions in `_design/*/_info` endpoint response.
+
+   :   The opaque collator version in `_node/*/_versions` endpoint response.
+
 ## January 2022
 {: #cloudant-jan22}
 
-## 28 January 2022
+### 28 January 2022
 {: #cloudant-jan2822}
 {: release-note}
 
