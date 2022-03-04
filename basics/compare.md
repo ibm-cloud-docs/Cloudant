@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-04-29"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -65,7 +65,7 @@ click the corresponding link.
 | `HEAD /_scheduler/jobs` \n [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#scheduler-jobs) | Retrieve the HTTP headers for replication scheduler jobs.  |
 | `GET /_scheduler/jobs/{job_id}` \n [Cloudant](/apidocs/cloudant#getschedulerjob){: external} | Retrieve the state of a single replication task based on its replication ID. |
 | `HEAD /_scheduler/jobs/{job_id}` \n [Cloudant](/apidocs/cloudant#headschedulerjob){: external} | Retrieve the HTTP headers of a single replication task based on its replication ID. |
-| `POST /_search_analyze` \n [Cloudant](/apidocs/cloudant#postsearchanalyze){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#scheduler-jobs) | Retrieve the results of analyzer tokenization of the provided sample text. |
+| `POST /_search_analyze` \n [Cloudant](/apidocs/cloudant#postsearchanalyze){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/common.html#search-analyze) | Retrieve the results of analyzer tokenization of the provided sample text. |
 | `GET /_session` \n [Cloudant](/apidocs/cloudant#getsessioninformation){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/authn.html?highlight=_session#get--_session) | Retrieve information about the authenticated user. \n CouchDB documentation references a query parameter (basic). |
 | `POST /_session` \n [Cloudant](/apidocs/cloudant#postsession){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/authn.html?highlight=_session#post--_session) | Start a new session for the specified user credentials. Cookie-based user login. \n CouchDB documentation references an extra query parameter (next). |
 | `DELETE /_session` \n [Cloudant](/apidocs/cloudant#deletesession){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/server/authn.html?highlight=_session#delete--_session) | Retrieve a response that instructs the HTTP client to clear the cookie. |
@@ -106,13 +106,13 @@ click the corresponding link.
 | `POST /{db}/_explain` \n [Cloudant](/apidocs/cloudant#postexplain){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_explain) | Identify which index is being used by a particular query. |
 | `POST /{db}/_find` \n [Cloudant](/apidocs/cloudant#postfind){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_find) | Find documents that use a declarative JSON querying syntax. \n {{site.data.keyword.cloudant_short_notm}} documentation references more request body fields (r, bookmark). | 
 | `GET /{db}/_index` \n [Cloudant](/apidocs/cloudant#getindexesinformation){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#get--db-_index) | List indexes. |
-| `POST /{db}/_index` \n [Cloudant](/apidocs/cloudant#postindex){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_find) | Create an index on a database. |
+| `POST /{db}/_index` \n [Cloudant](/apidocs/cloudant#postindex){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#post--db-_index) | Create an index on a database. |
 | `DELETE /{db}/_index/_design/{ddoc}/{type}/{index}` \n [Cloudant](/apidocs/cloudant#deleteindex){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/find.html#delete--db-_index-designdoc-json-name) | Delete an index. |
 | `GET /{db}/_local/{doc_id}` \n [Cloudant](/apidocs/cloudant#getlocaldocument){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/local.html#get--db-_local-docid) | Get the specified local document. |
 | `PUT /{db}/_local/{doc_id}` \n [Cloudant](/apidocs/cloudant#putlocaldocument){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/local.html#put--db-_local-docid) | Store the specified local document. \n Local documents aren't replicated to other databases. |
 | `COPY /{db}/_local/{doc_id}` \n Cloudant, [CouchDB](https://docs.couchdb.org/en/latest/api/local.html#copy--db-_local-docid) | Copy the specified local document. |
 | `DELETE /{db}/_local/{doc_id}` \n [Cloudant](/apidocs/cloudant#deletelocaldocument){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/local.html#delete--db-_local-docid) | Delete the specified local document. |
-| `POST /{db}/_missing_revs` \n [Cloudant](/apidocs/cloudant#postmissingrevs){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_missing_revs) | Retrieve the document revisions from the list that don't exist in the database. |
+| `POST /{db}/_missing_revs` \n Cloudant (This endpoint is deprecated. See [POST /{db}/_revs_diff](/apidocs/cloudant#postrevsdiff){: external}.), [CouchDB](https://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_missing_revs) | Retrieve the document revisions from the list that don't exist in the database. |
 | `POST /{db}/_purge` \n [CouchDB](https://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_purge) | Remove the references to deleted documents from the database. |
 | `POST /{db}/_revs_diff` \n [Cloudant](/apidocs/cloudant#postrevsdiff){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_revs_diff) | Given a set of document or revision IDs, retrieve the subset of document or revision IDs that don't correspond to revisions stored in the database. |
 | `GET /{db}/_security` \n [Cloudant](/apidocs/cloudant#getsecurity){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security) | Retrieve the current security object from the specified database. |
