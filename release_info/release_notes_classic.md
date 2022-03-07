@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-03-04"
+lastupdated: "2022-03-08"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views
 
@@ -60,9 +60,9 @@ Security
 Views
 :   Track ICU collator version used to build the view and expose this information in existing endpoints.
 
-   :   Exposes list of collator versions in `_design/*/_info` endpoint response.
+- Exposes list of collator versions in `_design/*/_info` endpoint response.
 
-   :   The opaque collator version in `_node/*/_versions` endpoint response.
+- The opaque collator version in `_node/*/_versions` endpoint response.
 
 ## January 2022
 {: #cloudant-jan22}
