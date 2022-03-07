@@ -95,7 +95,6 @@ toc:
           - databases/database_partitioning.md
           - databases/conflicts.md
           - databases/cap_theorem.md
-          - databases/couchapps.md
       - topicgroup: 
           label: How documents work
           topics: 
