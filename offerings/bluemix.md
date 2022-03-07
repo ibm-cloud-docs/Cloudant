@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-09"
+lastupdated: "2022-03-10"
 
-keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
+keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
 subcollection: Cloudant
 
@@ -84,10 +84,10 @@ You can provision one or more Standard plan instances on a single Dedicated Hard
 The Dedicated Hardware plan isn't available to {{site.data.keyword.cloud_notm}} Dedicated customers. The Dedicated Hardware plan is only available to {{site.data.keyword.cloud_notm}} customers.
 {: important}
 
-## Event types
-{: #event-types}
+## Request classes
+{: #request-classes}
 
-Throughput provision is identified and measured as one of the following types of events:
+Throughput provision is identified and measured as one of the following types of request classes:
 
 1.	*Reads*
     (formerly called lookups) which are described in this list.
@@ -124,19 +124,19 @@ Throughput provision is identified and measured as one of the following types of
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
 
-Throughput provision is identified and measured as events of the following
+Throughput provision is identified and measured as a request class of the following
 operation types: *Read*, *Write*, and *Global Query*.
 
-The measurement of throughput is a simple count of the number of events of each type,
+The measurement of throughput is a simple count of the number of units of each request class,
 per second,
 where the second is a *sliding* window.
 
-If your account exceeds the number of throughput events that are allotted, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of events within the sliding window no longer exceeds the number that is provisioned. It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
+If your account exceeds the number of throughput units that are allotted for a request class, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of units of the request class within the sliding window no longer exceeds the number that is provisioned. It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 read events during a consecutive period of 1,000 milliseconds (1 second). Subsequent read requests that are made during the sliding 1,000-millisecond period
-are rejected until the number of read events in that period drops to less than 200 again.
+For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 reads during a consecutive period of 1,000 milliseconds (1 second). Subsequent reads that are made during the sliding 1,000-millisecond period
+are rejected until the number of reads in that period drops to less than 200 again.
 
-When a request is rejected because the number of events is exceeded,
+When a request is rejected because the number of a request class is exceeded,
 applications receive a [`429` Too Many Requests](/apidocs/cloudant#list-of-http-codes){: external}
 response.
 
@@ -268,8 +268,8 @@ Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard 
 
 If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud Foundry org and space, you can change the capacity by following these instructions. 
 
-1.  Launch the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
-2.  Click **Account** > **Capacity**.  
+1.  Launch the {{site.data.keyword.cloudant_short_notm}} Dashboard.
+2.  Click **Account** > **Capacity**.
 3.  To move to a different throughput capacity, select the provisioned throughput capacity that you need, then click **Update**. 
 
     ![Capacity dashboard](../images/cloudant_capacity.png){: caption="Figure 5. Capacity dashboard" caption-side="bottom"}
@@ -471,8 +471,5 @@ You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard 
 - Using the dashboard. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant){: external} tutorial that describes the process.
 - Using the Cloud Foundry command tool. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} CLI](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: external} tutorial that describes the process.
 - Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. For more information, see the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: external} tutorial that describes the process.
-
-
-
 
 
