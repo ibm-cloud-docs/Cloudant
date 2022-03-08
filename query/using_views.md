@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-03-01"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -39,13 +39,17 @@ In this documentation, when a feature, or an aspect of a feature, applies only t
 To query a view,
 submit a `GET` request with the following format:
 
-|Parameter | Description |
-|----------|-------------|
-| Method | Issue a partition query by using the following command, `GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME`. Or issue a global query by using the following command, `GET /$DATABASE/_design/$DDOC/_view/$VIEW_NAME`. |
-| Request | None |
-| Response | JSON of the documents that are returned by the view. |
-| Roles permitted | `_reader` |
-{: caption="Table 1. Format for querying a view" caption-side="top"}
+Method
+:  Issue a partition query by using the following command, `GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME`. Or issue a global query by using the following command, `GET /$DATABASE/_design/$DDOC/_view/$VIEW_NAME`.
+
+Request
+:  None
+
+Response
+:  JSON of the documents that are returned by the view.
+
+Roles permitted
+:  `_reader`
 
 The request runs either:
 
