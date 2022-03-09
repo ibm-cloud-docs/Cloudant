@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-03-11"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment
 
 subcollection: Cloudant
 
@@ -33,6 +33,15 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 ## March 2022
 {: #cloudant-mar22}
+
+### 11 March 2022
+{: #cloudant-mar1122}
+{: release-note}
+
+The following changes were made in build 8269:
+
+Runtime environment
+:   Upgrade runtime environment to Erlang/OTP 23.
 
 ### 04 March 2022
 {: #cloudant-mar0422}
@@ -1306,3 +1315,4 @@ Eliminate error
 
 New! Introducing {{site.data.keyword.cloudant_short_notm}} Classic
 :   {{site.data.keyword.cloudantfull}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. It is built with scalability, high availability, and durability in mind.
+
