@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-03-09"
 
 ---
 
@@ -518,11 +518,7 @@ by using the `include_docs` option.
 ## Update
 {: #update}
 
-To update a document,
-send a `PUT` request with the updated JSON content and the latest `_rev` value
-to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
-You can also use this `PUT` method to create a document,
-in which case you don't need to supply the most recent `_rev` value.
+To update a document, send a `POST` request with the updated JSON content, the `_id` of the document, and the latest `_rev` value to `$SERVICE_URL/$DATABASE`. You can also use the `PUT` method against `$SERVICE_URL/$DATABASE/$DOCUMENT_ID` with the latest revision provided as `rev` in the request query or as `_rev` in the JSON body content to update a document.
 
 Recall that for a partitioned database the `$DOCUMENT_ID` is formed from a partition key part and a document key part.
 
@@ -545,7 +541,7 @@ POST /$DATABASE HTTP/1.1
 See examples of updating a document:
 
 ```sh
-curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/products" -H "Content-Type: application/json" --data '{ "_id": "small-appliances:1000042", "type": "product", "productid": "1000042", "brand": "Salter", "name": "Digital Kitchen Scales", "description": "Slim Colourful Design Electronic Cooking Appliance for Home / Kitchen, Weigh up to 5kg + Aquatronic for Liquids ml + fl. oz. 15Yr Guarantee - Green", "price: 14.99, "image": "assets/img/0gmsnghhew.jpg" }'
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X POST "$SERVICE_URL/products" -H "Content-Type: application/json" --data '{ "_id": "small-appliances:1000042", "_rev": "1-967a00dff5e02add41819138abb3284d", "type": "product", "productid": "1000042", "brand": "Salter", "name": "Digital Kitchen Scales", "description": "Slim Colourful Design Electronic Cooking Appliance for Home / Kitchen, Weigh up to 5kg + Aquatronic for Liquids ml + fl. oz. 15Yr Guarantee - Green", "price: 14.99, "image": "assets/img/0gmsnghhew.jpg" }'
 ```
 {: codeblock}
 {: curl}
@@ -561,6 +557,7 @@ Cloudant service = Cloudant.newInstance();
 
 Document productsDocument = new Document();
 productsDocument.setId("small-appliances:1000042");
+productsDocument.setRev("1-967a00dff5e02add41819138abb3284d");
 productsDocument.put("type", "product");
 productsDocument.put("productid", "1000042");
 productsDocument.put("brand", "Salter");
@@ -593,6 +590,7 @@ const service = CloudantV1.newInstance({});
 
 const productsDoc = {
   _id: 'small-appliances:1000042',
+  _rev: '1-967a00dff5e02add41819138abb3284d'
   type: 'product',
   productid: '1000042',
   brand: 'Salter',
@@ -619,6 +617,7 @@ service = CloudantV1.new_instance()
 
 products_doc = Document(
   id="small-appliances:1000042",
+  rev="1-967a00dff5e02add41819138abb3284d"
   type="product",
   productid="1000042",
   brand="Salter",
@@ -638,6 +637,7 @@ print(response)
 productsDoc := cloudantv1.Document{
   ID: core.StringPtr("small-appliances:1000042"),
 }
+productsDoc.Rev = "1-967a00dff5e02add41819138abb3284d"
 productsDoc.SetProperty("type", "product")
 productsDoc.SetProperty("productid", "1000042")
 productsDoc.SetProperty("brand", "Salter")
@@ -2043,3 +2043,4 @@ This small record or "tombstone" is required for replication purposes. It helps 
 If the TTL capability was available in {{site.data.keyword.cloudant_short_notm}},
 the resulting potential increase in short-lived documents and soft deletion records
 would mean that the database size might grow in an unbounded fashion.
+
