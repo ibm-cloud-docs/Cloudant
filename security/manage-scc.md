@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-01"
+  years: 2020, 2022
+lastupdated: "2022-03-11"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -22,6 +22,7 @@ subcollection: Cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing security and compliance with {{site.data.keyword.cloudant_short_notm}}
 {: #manage-security-compliance}
@@ -32,7 +33,7 @@ subcollection: Cloudant
 With the {{site.data.keyword.compliance_short}}, you can:
 
 - Monitor controls and goals that pertain to {{site.data.keyword.cloudant_short_notm}}.
-- Define rules that standardize resource configuration for {{site.data.keyword.cloudant_short_notm}}.
+- Define rules that standardize resource configuration for {{site.data.keyword.cloudant_short_notm}}. 
 
 ## Monitoring security and compliance posture with {{site.data.keyword.cloudant_short_notm}}
 {: #monitor-ibm-cloudant}
@@ -42,14 +43,11 @@ As a security or compliance focal, you can use the {{site.data.keyword.cloudant_
 {{site.data.keyword.cloudant_short_notm}} goals are added to the {{site.data.keyword.cloud_notm}} best practices 1.0 profile but can also be mapped to other profiles.
 {: note}
 
-To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started ).
+To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started).
 
 ### Available goals for {{site.data.keyword.cloudant_short_notm}}
-{: #ibm-cloudant-available-goals}
+{: #cloudant-available-goals}
 
-- Ensure that {{site.data.keyword.cloudant_short_notm}} is only accessible by using HTTPS (no HTTP).
-- Ensure that you enable {{site.data.keyword.cloudant_short_notm}} encryption.
-- Ensure that you enable {{site.data.keyword.cloudant_short_notm}} encryption with BYOK.
-
-
-
+- Ensure that Cloudant is only accessible by using HTTPS (no HTTP).
+- Ensure that you enable Cloudant encryption.
+- Ensure that you enable Cloudant encryption with BYOK.
