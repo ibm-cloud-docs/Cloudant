@@ -5,6 +5,7 @@
 toc:
   properties:
     subcollection: Cloudant
+    service-name: cloudantnosqldb
     version: 2
     category: database
     audience: service
