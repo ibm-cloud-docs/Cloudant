@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-01-25"
+lastupdated: "2022-03-08"
 
 keywords: log analysis, integration, provisioning log analysis, hipaa
 
@@ -88,7 +88,7 @@ Log Lines | Description
 `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
 `sslVersion` | The version of Transport Layer Security that the request is using.
 `cipherSuite` | The cipher suite used for the request.
-`requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#event-types){: external}.
+`requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Request classes](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#request-classes){: external}.
 `parsedQueryString` | A parsed version that shows the breakdown of the parameters that are passed in the query string. If {{site.data.keyword.cloudant_short_notm}} cannot parse the `rawQueryString`, this value is null.
 `rawQueryString` | Full text of the query string as passed to the service.
 `logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.
