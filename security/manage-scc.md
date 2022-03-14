@@ -48,6 +48,6 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ### Available goals for {{site.data.keyword.cloudant_short_notm}}
 {: #cloudant-available-goals}
 
-- Ensure that Cloudant is only accessible by using HTTPS (no HTTP).
-- Ensure that you enable Cloudant encryption.
-- Ensure that you enable Cloudant encryption with BYOK.
+- Check whether Cloudant is accessible only through HTTPS
+- Check whether Cloudant is enabled with encryption
+- Check whether Cloudant is enabled with customer-managed encryption and Bring Your Own Key (BYOK)
