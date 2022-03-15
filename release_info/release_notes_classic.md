@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-03-11"
+lastupdated: "2022-03-29"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction
 
 subcollection: Cloudant
 
@@ -33,6 +33,18 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 ## March 2022
 {: #cloudant-mar22}
+
+### 24 March 2022
+{: #cloudant-mar2422}
+{: release-note}
+
+The following changes were made in build 8278:
+
+IAM auth
+:   Improve compatibility during upgrades.
+
+Document updates and compaction:
+    Improve efficiency of updating and compacting conflicted documents.
 
 ### 11 March 2022
 {: #cloudant-mar1122}
