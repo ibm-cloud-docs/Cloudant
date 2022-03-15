@@ -370,35 +370,35 @@ Content-Type: application/json
 See the following example to submit a modification request:
 
 ```sh
-curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/events/0007241142412418284" -H "Content-Type:application/json" --data '{ "type": "event", "userid": "abc123","eventType": "addedToBasket", "productId": "1000042", "date": "2019-01-28T10:44:22.000Z" }'
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products/_security" -H "Content-Type: application/json" --data '{"members": {"names": ["user1", "user2"], "roles": ["developers"]}}'
 ```
 {: codeblock}
 {: curl}
 
 ```java
 import com.ibm.cloud.cloudant.v1.Cloudant;
-import com.ibm.cloud.cloudant.v1.model.Document;
-import com.ibm.cloud.cloudant.v1.model.DocumentResult;
-import com.ibm.cloud.cloudant.v1.model.PutDocumentOptions;
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Ok;
+import com.ibm.cloud.cloudant.v1.model.PutSecurityOptions;
+import com.ibm.cloud.cloudant.v1.model.SecurityObject;
+
+import java.util.Arrays;
 
 Cloudant service = Cloudant.newInstance();
 
-Document eventDoc = new Document();
-eventDoc.put("type", "event");
-eventDoc.put("userid", "abc123");
-eventDoc.put("eventType", "addedToBasket");
-eventDoc.put("productId", "1000042");
-eventDoc.put("date", "2019-01-28T10:44:22.000Z");
+SecurityObject members = new SecurityObject.Builder()
+    .names(Arrays.asList("user1", "user2"))
+    .roles(Arrays.asList("developers"))
+    .build();
 
-PutDocumentOptions documentOptions =
-    new PutDocumentOptions.Builder()
-        .db("events")
-        .docId("0007241142412418284")
-        .document(eventDoc)
+PutSecurityOptions securityOptions =
+    new PutSecurityOptions.Builder()
+        .db("products")
+        .members(members)
         .build();
 
-DocumentResult response =
-    service.putDocument(documentOptions).execute()
+Ok response =
+    service.putSecurity(securityOptions).execute()
         .getResult();
 
 System.out.println(response);
@@ -411,18 +411,14 @@ const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
 
-const eventDoc: CloudantV1.Document = {
-  type: 'event',
-  userid: 'abc123',
-  eventType: 'addedToBasket',
-  productId: '1000042',
-  date: '2019-01-28T10:44:22.000Z'
+const members: CloudantV1.SecurityObject = {
+  names: ['user1', 'user2'],
+  roles: ['developers']
 };
 
-service.putDocument({
-  db: 'events',
-  docId: '0007241142412418284',
-  document: eventDoc
+service.putSecurity({
+  db: 'products',
+  members: members
 }).then(response => {
   console.log(response.result);
 });
@@ -431,21 +427,18 @@ service.putDocument({
 {: javascript}
 
 ```python
-from ibmcloudant.cloudant_v1 import Document, CloudantV1
+from ibmcloudant.cloudant_v1 import CloudantV1, SecurityObject
 
 service = CloudantV1.new_instance()
 
-event_doc = Document(
-  type='event',
-  userid='abc123',
-  eventType='addedToBasket',
-  productId='1000042',
-  date='2019-01-28T10:44:22.000Z'
+members = SecurityObject(
+  names=['user1', 'user2'],
+  roles=['developers']
 )
-response = service.put_document(
-  db='events',
-  doc_id='0007241142412418284',
-  document=event_doc
+
+response = service.put_security(
+  db='products',
+  members=members
 ).get_result()
 
 print(response)
@@ -454,25 +447,20 @@ print(response)
 {: python}
 
 ```go
-eventDoc := cloudantv1.Document{}
-eventDoc.SetProperty("type", "event")
-eventDoc.SetProperty("userid", "abc123")
-eventDoc.SetProperty("eventType", "addedToBasket")
-eventDoc.SetProperty("productId", "1000042")
-eventDoc.SetProperty("date", "2019-01-28T10:44:22.000Z")
-
-putDocumentOptions := service.NewPutDocumentOptions(
-  "events",
-  "0007241142412418284",
+putSecurityOptions := service.NewPutSecurityOptions(
+  "products",
 )
-putDocumentOptions.SetDocument(&eventDoc)
+putSecurityOptions.SetMembers(&cloudantv1.SecurityObject{
+  Names: []string{"user1", "user2"},
+  Roles: []string{"developers"},
+})
 
-documentResult, response, err := service.PutDocument(putDocumentOptions)
+ok, response, err := service.PutSecurity(putSecurityOptions)
 if err != nil {
   panic(err)
 }
 
-b, _ := json.MarshalIndent(documentResult, "", "  ")
+b, _ := json.MarshalIndent(ok, "", "  ")
 fmt.Println(string(b))
 ```
 {: codeblock}
