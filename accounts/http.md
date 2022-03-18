@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-03-17"
 
 keywords: http headers, response headers, request headers, http status codes
 
@@ -147,7 +147,7 @@ See the following example of creating a compressed (`gzipped`) request body:
 
 ```sh
 # create gzipped document
-echo '{"foo":"bar"}' | gzip >doc.gzip
+echo '{"foo":"bar"}' | gzip > doc.gzip
 ```
 {: codeblock}
 
@@ -169,6 +169,9 @@ curl "https://example.cloudant.com/db/doc" \
 	-H "Content-Encoding: gzip"
 ```
 {: codeblock}
+
+By default, the SDKs compress the request body.
+{: tip}
 
 #### If-None-Match
 {: #if-none-match}
