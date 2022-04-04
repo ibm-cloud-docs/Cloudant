@@ -193,9 +193,9 @@ toc:
           topics: 
           - offerings/bluemix_dedicated.md
           - offerings/cloudant.com.md
-          - link:
-              label: API & SDK reference docs
-              href: https://cloud.ibm.com/apidocs/cloudant
+      - link:
+          label: API & SDK reference docs
+          href: https://cloud.ibm.com/apidocs/cloudant
       - topicgroup:
           label: CLI
           topics:
