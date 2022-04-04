@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-17"
+lastupdated: "2021-04-04"
 
 keywords: _all_docs endpoint, page_size parameter, bookmarks, query, search, paging, mapreduce views
 
@@ -26,7 +26,7 @@ The content that is described here applies only to {{site.data.keyword.cloudantf
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views-te}
 
-If you use the `GET /$DATABASE/all_docs` endpoint to fetch documents in bulk, and if the result has more than 2,000 rows, you get the following error message:
+If you use the `GET /$DATABASE/_all_docs` endpoint to fetch documents in bulk, and if the result has more than 2,000 rows, you get the following error message:
 
 ```json
 {
