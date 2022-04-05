@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-03-17"
 
 keywords: feature compare, pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
 
@@ -14,6 +14,9 @@ subcollection: Cloudant
 
 # Feature comparison
 {: #feature-comparison}
+
+The {{site.data.keyword.cloudant_short_notm}} on Transaction Engine service ends on 1 February 2023. You can no longer create new instances of {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. On 1 February 2023, all instances of {{site.data.keyword.cloudant_short_notm}} on Transaction Engine will be permanently disabled and deprovisioned. Users of existing instances need to migrate from the service before the end of service date. You can find guidance on migrating from {{site.data.keyword.cloudant_short_notm}} on Transaction Engine to {{site.data.keyword.cloudant_short_notm}} Standard here: [Migrating from TXE](https://blog.cloudant.com/2022/01/14/Migrating-from-Cloudant-TXE-to-Standard ){: external}.
+{: important}
 
 The following tables show the differences between {{site.data.keyword.cloudantfull}} *Classic* architecture and {{site.data.keyword.cloudant_short_notm}} on the new Transaction Engine architecture.
 {: shortdesc}
