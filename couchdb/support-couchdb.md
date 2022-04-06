@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-11-01"
+  years: 2019, 2022
+lastupdated: "2022-04-04"
 
 keywords: apache couchdb, support, extension, provision an instance, pricing, vCPU definition
 
@@ -10,16 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Support for Apache CouchDB
 {: #support-for-apache-couchdb-support}
@@ -39,6 +30,9 @@ The [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: externa
 
 ## {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB
 {: #cloud-extenstion-for-apache-couchdb-support}
+
+The {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB support service ends on 1 February 2023. As of that date, no further support for CouchDB is available via this service. No additional customers are being accepted for this service. Support might be available via [{{site.data.keyword.IBM_notm}} Open Source Support](https://www.ibm.com/services/technology-support/open-source){: external}.
+{: important}
 
 {{site.data.keyword.IBM_notm}} support for open source Apache CouchDB is offered by using the {{site.data.keyword.cloud_notm}} Extension for Apache CouchDB, which is only available to allow listed users. Contact your {{site.data.keyword.cloud_notm}} Sales representative if you are interested in this service.
 
