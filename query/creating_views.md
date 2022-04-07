@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-09"
+lastupdated: "2022-04-29"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -20,6 +20,7 @@ subcollection: Cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating Views (MapReduce)
 {: #creating-views-mapreduce}
@@ -59,14 +60,13 @@ The simplest form of view is a map function.
 The map function produces output data that represents an analysis (a mapping) of the documents that are stored within the database.
 
 For example,
-you might want to find out which employees had some safety training,
-and the date when that training was completed.
+you might want to find out which user completed the online registration and has a verified email to contact.
 You might find this information by inspecting each document, and
-looking for a field in the document called "training".
-If the field is present,
-the employee completed the training on the date that is recorded as the value.
-If the field isn't present,
-the employee didn't complete the training.
+looking for a field in the document called "email_verified" and getting the value of "email".
+If the field is present and has the value `true`,
+the user has completed the registration and you can contact them by email.
+If the field isn't present or has a value of something else than `true`,
+the user didn't complete the registration.
 
 Using the `emit` function in a view function makes it easy to produce a list
 in response to running a query by using the view.
@@ -80,10 +80,10 @@ The document `_id` is automatically included in each of the `key:value` pair res
 See an example of a simple view by using a map function:
 
 ```javascript
-function(employee) {
-	if(employee.training) {
-		emit(employee.number, employee.training);
-	}
+function(user) {
+  if(user.email_verified === true) {
+    emit(user.email, {name: user.name, email_verified: user.email_verified, joined: user.joined});
+  }
 }
 ```
 {: codeblock}
@@ -93,18 +93,18 @@ See sample data for demonstrating the simple view example:
 ```json
 [
     {
-        "_id":"23598567",
-        "number":"23598567",
-        "training":"2014/05/21 10:00:00"
+        "_id":"abc123",
+        "name": "Bob Smith",
+        "email": "bob.smith@aol.com",
+        "email_verified": true,
+        "joined": "2019-01-24T10:42:59.000Z"
     },
     {
-        "_id":"10278947",
-        "number":"10278947"
-    },
-    {
-        "_id":"42987103",
-        "number":"42987103",
-        "training":"2014/07/30 12:00:00"
+        "_id":"abc125",
+        "name": "Amelie Smith",
+        "email": "amelie.smith@aol.com",
+        "email_verified": true,
+        "joined": "2020-04-24T10:42:59.000Z"
     }
 ]
 ```
@@ -118,14 +118,22 @@ See an example response from running the simple view query:
   "offset": 0,
   "rows": [
     {
-      "id": "23598567",
-      "key": "23598567",
-      "value": "2014/05/21 10:00:00"
+      "id": "abc125",
+      "key": "amelie.smith@aol.com",
+      "value": {
+        "name": "Amelie Smith",
+        "email_verified": true,
+        "joined": "2020-04-24T10:42:59.000Z"
+      }
     },
     {
-      "id": "42987103",
-      "key": "42987103",
-      "value": "2014/07/30 12:00:00"
+      "id": "abc123",
+      "key": "bob.smith@aol.com",
+      "value": {
+        "name": "Bob Smith",
+        "email_verified": true,
+        "joined": "2019-01-24T10:42:59.000Z"
+      }
     }
   ]
 }
@@ -135,24 +143,27 @@ See an example response from running the simple view query:
 ## Map function examples
 {: #map-function-examples}
 
-The following sections describe indexing, complex keys, and reduce functions.
+The definition of a view within a design document also creates an index based on the key information. 
+The production and use of the index significantly increases the speed of access and searching or selecting documents from the view.
+
+The following sections describe indexing with simple and complex keys, and reduce functions. 
 
 Your indexing functions work in a memory-constrained environment where the document forms part of the memory used in the environment. Your code's stack and document must fit within the memory. We limit documents to a maximum size of 64 MB.
 
 ### Indexing a field
 {: #indexing-a-field}
 
-The following map function checks whether the object has a `foo` field,
+The following map function checks whether the object has a `name` field,
 and if so emits the value of this field.
-With this check, you can query against the value of the `foo` field.
+With this check, you can query against the value of the `name` field.
 
 See an example of indexing a field:
 
 ```javascript
 function(doc) {
-	if (doc.foo) {
-		emit(doc.foo);
-	}
+  if (doc.name) {
+    emit("name", doc.name);
+  }
 }
 ```
 {: codeblock}
@@ -167,11 +178,11 @@ See an example of indexing a one-to-many relationship:
 
 ```javascript
 function(doc) {
-	if (doc.friends) {
-		for (friend in doc.friends) {
-			emit(doc._id, { "_id": friend });
-		}
-	}
+  if (doc.friends) {
+    for (friend in doc.friends) {
+      emit(doc._id, { "_id": friend });
+    }
+  }
 }
 ```
 {: codeblock}
@@ -205,16 +216,16 @@ A view definition inside a design document is permitted to have no reduce attrib
 
 ```json
 {
-    "views" : {
-        "hadtraining" : {
-            "map" : "function(employee) { if(employee.training) { emit(employee.number); } }"
+    "views": {
+        "getVerifiedEmails": {
+            "map": "function(user) { if(user.email_verified === true) { emit(user.email); } }"
         }
     }
 }
 ```
 {: codeblock}
 
-The previous map function generates a secondary index suitable for selection only. The index is always ordered by the key (the emit function's first parameter) - in this case `employee.number`. This view is ideal for fetching documents by a known employee number or ranges of employee numbers.
+The previous map function generates a secondary index suitable for selection only. The index is always ordered by the key (the emit function's first parameter) - in this case `user.email`. This view is ideal for fetching documents by a known user email or ranges of users email addresses.
 
 ### Built-in reduce functions
 {: #built-in-reduce-functions}
@@ -229,48 +240,47 @@ put the name into the `reduce` field of the view object in your design document.
 
 ```json
 {
-    "views" : {
-        "sumSalary" : {
-            "map" : "function(doc) {  emit(doc.department, doc.salary); }",
-	    "reduce": "_sum"
+    "views": {
+        "sumPrices": {
+            "map": "function(user) { if(user.email_verified === true) { emit(user.name, user.email); } }",
+            "reduce": "_count"
         }
     }
 }
 ```
 {: codeblock}
 
-The previous MapReduce view creates an index that is keyed on the employee department and whose value is the employee's salary. As the reducer is `_sum`, the view outputs the total salaries for the selection of data queried. It is suitable for calculating the total salaries of all employees, the total salaries of a single department or salary totals grouped by department.
+The previous MapReduce view creates an index that is keyed on the username and whose counts all active email. As the reducer is `_count`, the view outputs the total email count for the selection of data queried. It is suitable for counting the registered users.
 
-The numeric reducers `_stats`/`_sum` act upon the value (the emit function's second parameter) which can be a number, array, or object. Consider the following MapReduce definition:
+The numeric reducers `_stats`/`_sum` act upon the value (the emit function's second parameter) which can be a number, array, or object. Consider the following MapReduce definition on the `products` partitioned database:
 
 ```json
 {
-    "views" : {
-        "statsReadingsObject" : {
-            "map" : "function(doc) {  emit(doc.date, { price: doc.price, tax: doc.tax }); }",
-	    "reduce": "_sum"
+    "views": {
+        "statsReadingsObject": {
+            "map": "function(product) {  emit(product.type, { price: product.price, tax: product.tax }); }",
+            "reduce": "_sum"
         }
     }
 }
 ```
 {: codeblock}
 
-The view is keyed on a sale's date, and the value is an object that contains two values: price and tax. The `_sum` reduce calculates totals for each attribute of the object that it finds:
+The view is keyed on the type of the product, and the value is an object that contains two values: price and tax. The `_sum` reduce calculates totals for each attribute of the object that it finds:
 
 ```json
 {"rows":[
-{"key":null,"value":{"tax":7.32,"price":157.25}}
+    {"key":null,"value":{"price":144.97, "tax":7.32}}
 ]}
 ```
 {: codeblock}
 
-Or add `?group=true` when querying the view. The output is grouped and summed by a unique key, in this case, `date`:
+Or add `?group=true` when querying the view. The output is grouped and summed by a unique key, in this case, `type`:
 
 ```json
 {"rows":[
-{"key":"2020-06-25","value":{"price":49.75,"tax":4.56}},
-{"key":"2020-06-26","value":{"price":51.25,"tax":1.62}},
-{"key":"2020-06-27","value":{"price":56.25,"tax":1.14}}
+    {"key":"portable","value":{"price":14.99,"tax":1.14}},
+    {"key":"product","value":{"price":129.98,"tax":6.18}}
 ]}
 ```
 {: codeblock}
@@ -279,10 +289,10 @@ The numeric reducers also calculate multiple reductions when the value of an ind
 
 ```json
 {
-    "views" : {
-        "statsReadingsArray" : {
-            "map" : "function(doc) { emit(doc.date, [doc.temperature, doc.pressure]); }",
-	    "reduce": "_stats"
+    "views": {
+        "statsReadingsArray": {
+            "map": "function(doc) { emit(doc.date, [doc.price, doc.tax]); }",
+            "reduce": "_stats"
         }
     }
 }
@@ -293,11 +303,15 @@ The previous definition calculates statistics on the numerical values it finds i
 
 ```json
 {"rows":[
-{"key":"2020-06-25","value":[{"sum":49.75,"count":3,"min":15.25,"max":17.25,"sumsqr":827.6875},{"sum":4.56,"count":3,"min":1.42,"max":1.62,"sumsqr":6.9512}]},
-{"key":"2020-06-26","value":[{"sum":51.25,"count":1,"min":51.25,"max":51.25,"sumsqr":2626.5625},{"sum":1.62,"count":1,"min":1.62,"max":1.62,"sumsqr":2.6244}]},
-{"key":"2020-06-27","value":[{"sum":56.25,"count":1,"min":56.25,"max":56.25,"sumsqr":3164.0625},{"sum":1.14,"count":1,"min":1.14,"max":1.14,"sumsqr":1.2996}]}
+    {"key":"portable","value":[
+        {"sum":14.99,"count":1,"min":14.99,"max":14.99,"sumsqr":224.7001},
+        {"sum":1.14,"count":1,"min":1.14,"max":1.14,"sumsqr":1.2995}
+    ]},
+    {"key":"product","value":[
+        {"sum":129.98,"count":2,"min":29.99,"max":99.99,"sumsqr":10897.4002},
+        {"sum":6.18,"count":2,"min":1.62,"max":4.56,"sumsqr":23.418}
+    ]}
 ]}
-
 ```
 {: codeblock}
 
@@ -305,9 +319,7 @@ The `_count` reducer simply counts the number of `key-value` pairs that are emit
 
 ```json
 {"rows":[
-{"key":"2020-06-25","value":3},
-{"key":"2020-06-26","value":1},
-{"key":"2020-06-27","value":1}
+    {"key":"product","value":3}
 ]}
 ```
 {: codeblock}
@@ -316,7 +328,7 @@ The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as oppose
 
 ```json
 {"rows":[
-{"key":null,"value":3685292}
+    {"key":null,"value":2}
 ]}
 ```
 {: codeblock}
@@ -328,7 +340,6 @@ Function | Description
 `_sum`   | Produces the sum of all values for a key. The values must be numeric.
 `_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: external} algorithm.
 {: caption="Table 1. Built-in reduce functions" caption-side="top"}
-
 
 ## Custom reduce functions
 {: #custom-reduce-functions}
@@ -358,7 +369,7 @@ See the following example of a custom reduce function:
 
 ```javascript
 function (keys, values, rereduce) {
-	return sum(values);
+  return sum(values);
 }
 ```
 {: codeblock}
@@ -510,34 +521,170 @@ To store a view definition,
 `PUT` the view definition content into a `_design` document.
 
 In the following example,
-the `hadtraining` view is defined as a map function,
+the `getVerifiedEmails` view is defined as a map function,
 and is available within the `views` field of the design document.
 
-See an example that uses `PUT` to add a view into a design document that is called `training` by using HTTP:
+Use the `PUT` method to add a view into a design document:
 
 ```http
-PUT /$DATABASE/_design/training HTTP/1.1
+PUT $SERVICE_URL/$DATABASE/_design/$DDOC HTTP/1.1
 Content-Type: application/json
 ```
 {: codeblock}
 
-See an example that uses `PUT` to add a view into a design document that is called `training` by using the command line:
-
-```sh
-curl -X PUT "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/training" --data-binary @view.def
-	# where the design document is stored in the file `view.def`
-```
-{: codeblock}
-
-See an example view definition:
+Following sample will add a new `getVerifiedEmails` named view function to the `allusers` design document with view definition:
 
 ```json
 {
-	"views" : {
-		"hadtraining" : {
-			"map" : "function(employee) { if(employee.training) { emit(employee.number, employee.training); } }"
-		}
-	}
+    "views": {
+        "getVerifiedEmails": {
+            "map": "function(user) { if(user.email_verified === true){ emit(doc.email, {name: user.name, email_verified: user.email_verified, joined: user.joined}) }}  "
+        }
+    }
 }
 ```
+
+See the request examples:
+
+```sh
+curl -X PUT "$SERVICE_URL/users/_design/allusers" --data '{
+  "views": {
+    "getVerifiedEmails": {
+      "map": "function(user) { if(user.email_verified === true){ emit(doc.email, {name: user.name, email_verified: user.email_verified, joined: user.joined}) }}"
+    }
+  }
+}'
+```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DesignDocument;
+import com.ibm.cloud.cloudant.v1.model.DesignDocumentViewsMapReduce;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PutDesignDocumentOptions;
+
+import java.util.Collections;
+
+Cloudant service = Cloudant.newInstance();
+
+DesignDocumentViewsMapReduce emailViewMapReduce =
+    new DesignDocumentViewsMapReduce.Builder()
+        .map("function(user) { if(user.email_verified === true){ emit(doc.email,{name: user.name, email_verified: user.email_verified, joined: user.joined}) }")
+        .build();
+
+DesignDocument designDocument = new DesignDocument();
+designDocument.setViews(
+        Collections.singletonMap("getVerifiedEmails", emailViewMapReduce));
+
+PutDesignDocumentOptions designDocumentOptions =
+    new PutDesignDocumentOptions.Builder()
+        .db("users")
+        .designDocument(designDocument)
+        .ddoc("allusers")
+        .build();
+
+DocumentResult response =
+    service.putDesignDocument(designDocumentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+const emailViewMapReduce: CloudantV1.DesignDocumentViewsMapReduce = {
+  map: 'function(user) { if(user.email_verified === true){ emit(doc.email, {name: user.name, email_verified: user.email_verified, joined: user.joined}) }}'
+}
+
+const designDocument: CloudantV1.DesignDocument = {
+  views: {'getVerifiedEmails': emailViewMapReduce}
+}
+
+service.putDesignDocument({
+  db: 'users',
+  designDocument: designDocument,
+  ddoc: 'allusers'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+email_view_map_reduce = DesignDocumentViewsMapReduce(
+  map='function(user) { if(user.email_verified === true){ emit(doc.email, {name: user.name, email_verified: user.email_verified, joined: user.joined}) }}'
+)
+
+design_document = DesignDocument(
+  views={'getVerifiedEmails': email_view_map_reduce}
+)
+
+response = service.put_design_document(
+  db='users',
+  design_document=design_document,
+  ddoc='allusers'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+emailViewMapReduce, err := service.NewDesignDocumentViewsMapReduce(
+  "function(user) { if(user.email_verified === true){ emit(doc.email, {name: user.name, email_verified: user.email_verified, joined: user.joined}) }}",
+)
+if err != nil {
+  panic(err)
+}
+
+designDocument := &cloudantv1.DesignDocument{
+  Views: map[string]cloudantv1.DesignDocumentViewsMapReduce{
+    "getVerifiedEmails": *emailViewMapReduce,
+  },
+}
+
+putDesignDocumentOptions := service.NewPutDesignDocumentOptions(
+  "users",
+  "allusers",
+  designDocument,
+)
+
+documentResult, _, err := service.PutDesignDocument(putDesignDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+  "encoding/json"
+  "fmt"
+  "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
