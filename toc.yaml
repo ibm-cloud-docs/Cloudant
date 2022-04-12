@@ -68,6 +68,7 @@ toc:
       - tutorials/migrate-to-iam-only.md
       - tutorials/revoke-instance-url-style-credential.md
       - tutorials/use-dashboard.md
+      - tutorials/todo-list.md
       - tutorials/create_service_cli.md
       - tutorials/create_dedicated_hardware_plan.md
       - tutorials/create_database.md
@@ -100,6 +101,12 @@ toc:
           label: How documents work
           topics: 
           - documents/document.md
+          - documents/creating-a-document.md
+          - documents/reading-a-document.md
+          - documents/updating-a-document.md
+          - documents/deleting-a-document.md
+          - documents/tombstone-documents.md
+          - documents/bulk-operations.md
           - documents/design_documents.md
           - documents/design_document_management.md
           - documents/transactions.md
@@ -204,7 +211,6 @@ toc:
       - link:    
           label: Terraform reference docs
           href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant
-   
   - navgroup:
       id: help
       topics:
@@ -220,5 +226,3 @@ toc:
           - faqs/provisioned-throughput-capacity-faq.md
           - faqs/resource-groups-faq.md
           - faqs/changes-feed-faq.md
-
-
