@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-04-14"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction
 
@@ -31,6 +31,18 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
+## April 2022
+{: #cloudant-apr22}
+
+### 14 April 2022
+{: #cloudant-apr1422}
+{: release-note}
+
+The following changes were made in build 8287:
+
+Runtime environment
+:   Downgrade runtime environment to Erlang/OTP 20.
+
 ## March 2022
 {: #cloudant-mar22}
 
@@ -40,7 +52,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 The following changes were made in build 8278:
 
-IAM auth 
+IAM auth
 :   Improve compatibility during upgrades.
 
 Document updates and compaction
