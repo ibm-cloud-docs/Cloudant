@@ -96,6 +96,7 @@ toc:
           - databases/database_partitioning.md
           - databases/conflicts.md
           - databases/cap_theorem.md
+          - databases/cloudant-redis-cache.md
       - topicgroup: 
           label: How documents work
           topics: 
