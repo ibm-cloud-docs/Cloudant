@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-03-18"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -376,7 +376,6 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products/
 {: curl}
 
 ```java
-import com.ibm.cloud.cloudant.v1.Cloudant;
 import com.ibm.cloud.cloudant.v1.Cloudant;
 import com.ibm.cloud.cloudant.v1.model.Ok;
 import com.ibm.cloud.cloudant.v1.model.PutSecurityOptions;
