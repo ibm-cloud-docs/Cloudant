@@ -129,6 +129,7 @@ toc:
           - query/search-analyzers.md
           - query/pagination-bookmarks.md
           - query/cloudant-geo.md 
+          - query/dig-deeper-dashboard.md
       - topicgroup: 
           label: Replicating databases
           topics: 
