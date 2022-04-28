@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-04-28"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -10,16 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using {{site.data.keyword.cloudant_short_notm}} Geospatial
 {: #using-cloudant-nosql-db-geospatial}
@@ -81,7 +72,7 @@ To access the geospatial area of the dashboard,
 follow these steps:
 
 1. Select the database that contains spatially indexed data.
-2. Select the Design Documents menu.
+2. Select the **Design Documents** menu.
 3. Select the design document that contains the definition of the spatial index.
     A `Geospatial Indexes` menu appears for the spatial index.
 4. Select the Geospatial Index for your data.
@@ -173,20 +164,20 @@ When you create a geospatial index,
 you must use the {{site.data.keyword.cloudant_short_notm}} Geo defined keyword `st_indexes` to hold one or more {{site.data.keyword.cloudant_short_notm}} Geo index definitions.
 Each index must be defined by the {{site.data.keyword.cloudant_short_notm}} Geo `st_index` function. 
 
-### `geoidx` - An example {{site.data.keyword.cloudant_short_notm}} Geo index
-{: #-geoidx-an-example-cloudant-nosql-db-geo-index}
+### `pointsInEngland` - An example {{site.data.keyword.cloudant_short_notm}} Geo index
+{: #-pointsInEngland-an-example-cloudant-nosql-db-geo-index}
 
 For example,
-you can create a design document with the `_id` value `"_design/geodd"` that includes an index that is called `"geoidx"`.
+you can create a design document with the `_id` value `"_design/places"` that includes an index that is called `"pointsInEngland"`.
 The index is a simple JavaScript function that checks for the presence of a valid geometry object in the document. If a valid geometry object is found, it ensures that the document is included in the `st_index` {{site.data.keyword.cloudant_short_notm}} Geo index function.
 
 See the {{site.data.keyword.cloudant_short_notm}} Geo design document that includes an index in the following example:
 
 ```json
 {
-	"_id": "_design/geodd",
+	"_id": "_design/places",
 	"st_indexes": {
-		"geoidx": {
+		"pointsInEngland": {
 			"index": "function(doc) {if (doc.geometry && doc.geometry.coordinates) {st_index(doc.geometry);}}"
 		}
 	}
@@ -209,26 +200,108 @@ the resulting index offers much better performance in responding to geospatial q
 ## Finding information about an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #obtaining-information-about-a-cloudant-nosql-db-geo-index}
 
-You can find information about a geospatial index within a database. Use the `_geo_info` endpoint to get the information.
+You can find information about a geospatial index within a database. Use the `_geo_info` endpoint to get the information. For more information, see [Using {{site.data.keyword.cloudant_short_notm}} Geospatial](/apidocs/cloudant#getgeoindexinformation).
 
 For example,
-you might want to find information about the `geoidx` geospatial index,
-held within the `geodd` design document of the `crimes` database.
+you might want to find information about the `pointsInEngland` geospatial index,
+held within the `places` design document of the `stores` database.
 
 See an example request, by using HTTP:
 
 ```http
-GET /crimes/_design/geodd/_geo_info/geoidx HTTP/1.1
-Host: $ACCOUNT.cloudant.com
+GET /stores/_design/places/_geo_info/pointsInEngland HTTP/1.1
 ```
 {: codeblock}
 
-See an example request, by using the command line:
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.GeoIndexInformation;
+import com.ibm.cloud.cloudant.v1.model.GetGeoIndexInformationOptions;
 
-```sh
-curl "https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx"
+Cloudant service = Cloudant.newInstance();
+
+GetGeoIndexInformationOptifons informationOptions =
+    new GetGeoIndexInformationOptions.Builder()
+        .db("stores")
+        .ddoc("places")
+        .index("pointsInEngland")
+        .build();
+
+GeoIndexInformation response =
+    service.getGeoIndexInformation(informationOptions).execute()
+        .getResult();
+
+System.out.println(response);
 ```
 {: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+
+const service = CloudantV1.newInstance({});
+
+service.getGeoIndexInformation({
+  db: 'stores',
+  ddoc: 'places',
+  index: 'pointsInEngland'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_geo_index_information(
+  db='stores',
+  ddoc='places',
+  index='pointsInEngland'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getGeoIndexInformationOptions := service.NewGetGeoIndexInformationOptions(
+  "stores",
+  "places",
+  "pointsInEngland",
+)
+
+geoIndexInformation, response, err := service.GetGeoIndexInformation(getGeoIndexInformationOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(geoIndexInformation, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 The data that is returned within the `geo_index` portion of the JSON response includes
 the following fields:
@@ -244,12 +317,12 @@ See an example response in JSON format:
 
 ```json
 {
-	"name": "_design/geodd/geoidx",
-	"geo_index": {
-		"doc_count": 269,
-		"disk_size": 33416,
-		"data_size": 26974
-	}
+  "name": "_design/places/pointsInEngland",
+  "geo_index": {
+    "doc_count": 3,
+    "disk_size": 25982,
+    "data_size": 7206
+  }
 }
 ```
 {: codeblock}
@@ -372,14 +445,10 @@ the `nearest=true` search returns all results by sorting their distances to the 
 This geometric relation `nearest=true` can be used either with all the geometric relations described earlier,
 or alone.
 
-For example,
-one police officer might search five crimes that occurred near a specific location
-by typing the query in the following example.
-
-See an example query to find nearest five crimes against a specific location:
+See an example query to find the nearest stores against a specific location:
 
 ```http
-https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POINT(-71.0537124 42.3681995)&nearest=true&limit=5
+$SERVICE_URL/stores/_design/places/_geo/pointsInEngland?g=POINT(53.4 -2.31)&nearest=true&limit=5
 ```
 {: codeblock}
 
@@ -420,30 +489,139 @@ you use the `contains` relation.
 See an example query to find documents that have a geospatial position within a circle:
 
 ```sh
-curl -X GET "https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?lat=42.3397&lon=-71.07959&radius=10&relation=contains&format=geojson"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/stores/_design/places/_geo/pointsInEngland?lat=53.4&lon=-2.31&radius=10&relation=contains&format=geojson"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.GeoResult;
+import com.ibm.cloud.cloudant.v1.model.GetGeoOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+GetGeoOptions geoOptions = new GetGeoOptions.Builder()
+    .db("stores")
+    .ddoc("places")
+    .index("pointsInEngland")
+    .lat(53.4)
+    .lon(-2.31)
+    .radius(10.0)
+    .relation("contains")
+    .format("geojson")
+    .build();
+
+GeoResult response =
+    service.getGeo(geoOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getGeo({
+  db: 'stores',
+  ddoc: 'places',
+  index: 'pointsInEngland',
+  lat: 53.4,
+  lon: -2.31,
+  radius: 10,
+  relation: 'contains',
+  format: 'geojson'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_geo(
+    db='stores',
+    ddoc='places',
+    index='pointsInEngland',
+    lat=53.4,
+    lon=-2.31,
+    radius=10,
+    relation='contains',
+    format='geojson'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getGeoOptions := service.NewGetGeoOptions(
+	"stores",
+	"places",
+	"pointsInEngland",
+)
+getGeoOptions.SetLat(53.4)
+getGeoOptions.SetLon(-2.31)
+getGeoOptions.SetRadius(10)
+getGeoOptions.SetRelation("contains")
+getGeoOptions.SetFormat("geojson")
+	
+geoResult, response, err := service.GetGeo(getGeoOptions)
+if err != nil {
+	panic(err)
+}
+
+b, _ := json.MarshalIndent(geoResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+{: go}
 
 See an example response to the query that has a geospatial position within a circle:
 
 ```json
 {
-	"bookmark": "g2wAAAABaANkAB9kYmNvcmVAZGIyLmJpZ2JsdWUuY2xvdWRhbnQubmV0bAAAAAJuBAAAAADAbgQA_____2poAm0AAAAgNzlmMTRiNjRjNTc0NjE1ODRiMTUyMTIzZTM4YThlOGJGPv4LlS19_ztq",
-	"features": [
-		{
-			"_id": "79f14b64c57461584b152123e38a8e8b",
-			"geometry": {
-				"coordinates": [
-					-71.07958956,
-					42.33967135
-				],
-				"type": "Point"
-			},
-			"properties": [],
-			"type": "Feature"
-		}
-	],
-	"type": "FeatureCollection"
+  "bookmark": "g2wAAAABaANkACtkYmNvcmVAZGIzLmludGVncmF0aW9uc3Rlc3QwMDEuY2xvdWRhbnQubmV0bAAAAAJuBAAAAADgbgQA_____2poAm0AAAAKMjE1MTI1MTIyMEY9EBH161QUcGo",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "_id": "2151251220",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.31,
+          53.4
+        ]
+      },
+      "type": "Feature",
+      "properties": []
+    }
+  ]
 }
 ```
 {: codeblock}
@@ -462,7 +640,7 @@ and then request that the query return details of documents within the database 
 See an example query to find documents that have a geospatial position within a polygon:
 
 ```http
-https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POLYGON((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))&relation=contains&format=geojson
+$SERVICE_URL/stores/_design/places/_geo/pointsInEngland?g=POLYGON((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))&relation=contains&format=geojson
 ```
 {: codeblock}
 
