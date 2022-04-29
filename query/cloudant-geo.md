@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-04-28"
+lastupdated: "2022-04-29"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -212,6 +212,14 @@ See an example request, by using HTTP:
 GET /stores/_design/places/_geo_info/pointsInEngland HTTP/1.1
 ```
 {: codeblock}
+
+See an example request:
+
+```sh
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/stores/_design/places/_geo_info/pointsInEngland"
+```
+{: codeblock}
+{: curl}
 
 ```java
 import com.ibm.cloud.cloudant.v1.Cloudant;
