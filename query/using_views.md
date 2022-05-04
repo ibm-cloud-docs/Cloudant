@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-05-02"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -10,16 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using Views
 {: #using-views}
@@ -40,7 +31,7 @@ To query a view,
 submit a `GET` request with the following format:
 
 Method
-:  Issue a partition query by using the following command, `GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME`. Or issue a global query by using the following command, `GET /$DATABASE/_design/$DDOC/_view/$VIEW_NAME`.
+:  Issue a partition query by using the following command, `GET $SERVICE_URL/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$VIEW_NAME`. Or issue a global query by using the following command, `GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME`.
 
 Request
 :  None
@@ -53,10 +44,12 @@ Roles permitted
 
 The request runs either:
 
--   The specified `view-name` from the specified `design-doc` design document
-    within the database.
--   The specified `view-name` from the specified `design-doc` design document
-    within the database, which is constrained to results within a specific data partition.
+-   The specified `$VIEW_NAME` from the specified `$DDOC` design document
+    within the `$DATABASE` database, which is constrained to results within the specified
+    `$PARTITION_KEY` data
+    partition.
+-   The specified `$VIEW_NAME` from the specified `$DDOC` design document
+    within the `$DATABASE` database.
 
 The examples in this document vary between partition and global queries for
 illustrative purposes. Unless otherwise noted, modifying the path to
@@ -71,14 +64,14 @@ subset that is indicated in the table.
 Argument         | Description | Optional | Type | Default | Supported values | Partition query
 -----------------|-------------|----------|------|---------|------------------|-----------------
 `bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | | |
-`conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes | Boolean | False || No
+`conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes | Boolean | False || Yes
 `descending`     | Return the documents in `descending by key` order. | Yes | Boolean | False | | Yes
-`endkey`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes
-`endkey_docid`   | Stop returning records when the specified document ID is reached. | Yes | String | | | Yes
+`end_key`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes
+`end_key_docid`   | Stop returning records when the specified document ID is reached. | Yes | String | | | Yes
 `group`          | Using the `reduce` function, group the results to a group or single row. | Yes | Boolean | False | | Yes
 `group_level`    | Only applicable if the view uses complex keys: keys that are JSON arrays. Groups reduce results for the specified number of array fields. | Yes | Numeric | | | Yes
 `include_docs`   | Include the full content of the documents in the response. | Yes | Boolean | False | | Yes
-`inclusive_end`  | Include rows with the specified `endkey`. | Yes | Boolean | True | | Yes
+`inclusive_end`  | Include rows with the specified `end_key`. | Yes | Boolean | True | | Yes
 `key`            | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON strings or arrays | | | Yes
 `keys`           | Return only documents that match the specified keys. Keys are JSON values, and must be URL encoded. | Yes | Array of JSON strings or arrays | || Yes
 `limit` | Limit the number of returned documents to the specified count. For Transaction Engine, the `limit` parameter restricts the total number of returned documents. | Yes | Numeric | | | Yes
@@ -87,8 +80,8 @@ Argument         | Description | Optional | Type | Default | Supported values | 
 `skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes
 `stable`         | Prefer view results from a 'stable' set of shards. The results are from a view that is less likely to be updated soon. | Yes | Boolean | False | | No
 `stale`          | Allow the results from a stale view to be used. The request returns immediately, even if the view isn't built yet. If this parameter isn't specified, a response is returned only after the view is built. | Yes | String | False | | No
-`startkey`       | Return records, starting with the specified key. | Yes | String or JSON array | | | Yes
-`startkey_docid` | Return records, starting with the specified document ID. | Yes | String | || Yes
+`start_key`       | Return records, starting with the specified key. | Yes | String or JSON array | | | Yes
+`start_key_docid` | Return records, starting with the specified document ID. | Yes | String | || Yes
  `update`        | Ensure that the view is updated before results are returned. | Yes | String | `true` | Yes
 {: caption="Table 2. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
@@ -103,88 +96,271 @@ Argument | Supported values
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
 
-See the example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view.
+See the example of using HTTP to retrieve a list of the first 10 documents including the full content of them from a partition of a database, applying a user-created view.
 
 ```http
-GET /$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
-Accept: application/json
-Content-Type: application/json
+GET $SERVICE_URL/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$VIEW_NAME?include_docs=true&limit=10 HTTP/1.1
 ```
 {: codeblock}
 
-See the example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view.
+See the example of using HTTP to retrieve a list of the first 10 documents from a database, 
+applying a user-created view.
 
 ```http
-GET /$DATABASE/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
-Accept: application/json
-Content-Type: application/json
+GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?limit=10 HTTP/1.1
 ```
 {: codeblock}
 
-See the example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view.
+See the example to retrieve a list of the first 10 documents including the full content of them from the `small-appliances` partition of a database, applying the user-created `byApplianceProdId` view.
+
+Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+{: tip}
+{: java}
+{: node}
+{: python}
+{: go}
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5" \
-     -H "Content-Type: application/json"
+curl -X GET "$SERVICE_URL/products/_partition/small-appliances/_design/appliances/_view/byApplianceProdId?include_docs=true&limit=10"
 ```
 {: codeblock}
+{: curl}
 
-See the example of using the command line to retrieve a list of the first five documents from a database, applying the user-created `by_title` view.
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostPartitionViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostPartitionViewOptions viewOptions =
+    new PostPartitionViewOptions.Builder()
+        .db("products")
+        .ddoc("appliances")
+        .includeDocs(true)
+        .limit(10)
+        .partitionKey("small-appliances")
+        .view("byApplianceProdId")
+        .build();
+
+ViewResult response =
+    service.postPartitionView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postPartitionView({
+  db: 'products',
+  ddoc: 'appliances',
+  includeDocs: true,
+  limit: 10,
+  partitionKey: 'small-appliances',
+  view: 'byApplianceProdId'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_partition_view(
+  db='products',
+  ddoc='appliances',
+  include_docs=True,
+  limit=10,
+  partition_key='small-appliances',
+  view='byApplianceProdId'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postPartitionViewOptions := service.NewPostPartitionViewOptions(
+  "products",
+  "small-appliances",
+  "appliances",
+  "byApplianceProdId",
+)
+postPartitionViewOptions.SetIncludeDocs(true)
+postPartitionViewOptions.SetLimit(10)
+
+viewResult, response, err := service.PostPartitionView(postPartitionViewOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+See the example to retrieve a list of the first 10 documents from a database, applying the user-created `getVerifiedEmails` view.
+
+Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+{: tip}
+{: java}
+{: node}
+{: python}
+{: go}
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5" \
-     -H "Content-Type: application/json"
+curl -X GET "$SERVICE_URL/users/_design/allusers/_view/getVerifiedEmails?limit=10"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostViewOptions viewOptions = new PostViewOptions.Builder()
+    .db("users")
+    .ddoc("allusers")
+    .view("getVerifiedEmails")
+    .limit(10)
+    .build();
+
+ViewResult response =
+    service.postView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postView({
+  db: 'users',
+  ddoc: 'allusers',
+  view: 'getVerifiedEmails',
+  limit: 10
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_view(
+  db='users',
+  ddoc='allusers',
+  view='getVerifiedEmails',
+  limit=10
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postViewOptions := service.NewPostViewOptions(
+  "users",
+  "allusers",
+  "getVerifiedEmails",
+)
+
+postViewOptions.SetLimit(10)
+
+viewResult, response, err := service.PostView(postViewOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 See the following example response to the request:
 
 ```json
 {
-    "offset" : 0,
-    "rows" : [
-        {
-            "id" : "3-tiersalmonspinachandavocadoterrine",
-            "key" : "3-tier salmon, spinach and avocado terrine",
-            "value" : [
-                null,
-                "3-tier salmon, spinach and avocado terrine"
-                ]
-        },
-        {
-            "id" : "Aberffrawcake",
-            "key" : "Aberffraw cake",
-            "value" : [
-                null,
-                "Aberffraw cake"
-            ]
-        },
-        {
-            "id" : "Adukiandorangecasserole-microwave",
-            "key" : "Aduki and orange casserole - microwave",
-            "value" : [
-                null,
-                "Aduki and orange casserole - microwave"
-            ]
-        },
-        {
-            "id" : "Aioli-garlicmayonnaise",
-            "key" : "Aioli - garlic mayonnaise",
-            "value" : [
-                null,
-                "Aioli - garlic mayonnaise"
-            ]
-        },
-        {
-            "id" : "Alabamapeanutchicken",
-            "key" : "Alabama peanut chicken",
-            "value" : [
-                null,
-                "Alabama peanut chicken"
-            ]
-        }
-    ],
-    "total_rows" : 2667
+  "offset": 0,
+  "rows": [
+    {
+      "id": "abc125",
+      "key": "amelie.smith@aol.com",
+      "value": [
+        "Amelie Smith",
+        true,
+        "2020-04-24T10:42:59.000Z"
+      ]
+    },
+    {
+      "id": "abc123",
+      "key": "bob.smith@aol.com",
+      "value": [
+        "Bob Smith",
+        true,
+        "2019-01-24T10:42:59.000Z"
+      ]
+    }
+  ],
+  "total_rows": 2
 }
 ```
 {: codeblock}
@@ -231,7 +407,7 @@ For newly created databases,
 you might reduce the delays by creating the view definition in the design document in your database
 before you insert or update documents.
 Creating the view definition in the design document
-causes incremental updates to the index when the documents or inserted.
+causes incremental updates to the index when the documents are inserted.
 
 If speed of response is more important than having up-to-date data,
 an alternative is to allow users to access an old version of the view index. To allow access to an old version of the view index, use the `update` query string parameter when you make a view query.
@@ -240,36 +416,36 @@ If you want to save old index versions without incurring indexing processor usag
 {: tip}
 
 ```json
-	{
-	    "_id": "_design/lookup",
-	    "autoupdate": false,
-	    "views": {
-	        "view": {
-	            "map": "function(doc)..."
-	        }
-	    }
-	}
+{
+  "_id": "_design/lookup",
+  "autoupdate": false,
+  "views": {
+    "view": {
+      "map": "function(doc)..."
+    }
+  }
+}
 ```
 ```json
-	{
-	    "_id": "_design/lookup",
-	    "autoupdate": {"views": false},
-	    "views": {
-	        "view": {
-	            "map": "function(doc)..."
-	        }
-	    }
-	}
+{
+  "_id": "_design/lookup",
+  "autoupdate": {"views": false},
+  "views": {
+    "view": {
+      "map": "function(doc)..."
+    }
+  }
+}
 ```
 
 ## View freshness
 {: #view-freshness}
 
 By default, all index results reflect the current state of the database. {{site.data.keyword.cloudant_short_notm}} builds its indexes automatically and asynchronously in the background.
-This practice usually means that the index is fully up-to-date 
-when you query it.  If not, you call the index "stale," and by default, the remaining updates occur when you query the index. 
-The results of your query include these updates. {{site.data.keyword.cloudant_short_notm}} builds three copies of every index in 
-alignment with the three copies of your primary data.
+This practice usually means that the index is fully up-to-date
+when you query it. If not, the default behavior for the remaining updates occur when you query the index
+so the results of your query include these updates. The `update` parameter can be used to change this default behavior.
+{{site.data.keyword.cloudant_short_notm}} builds three copies of every index in alignment with the three copies of your primary data.
 
 {{site.data.keyword.cloudant_short_notm}} supplies better results and
 performance with the defaults for these parameters. If the performance of your view and your application can tolerate inconsistent results when queried, use `stable=false&update=false`. These settings avoid directing all queries to a single copy of 
@@ -339,71 +515,148 @@ You can reverse the order of the returned view information by setting the `desce
 When you issue a view request that specifies the `keys` parameter, the results are returned in the same order as the supplied `keys` array. 
 {: tip}
 
-See the example of using HTTP to request the last five records in reversed sort order:
+See the example of using HTTP to request the records in reversed sort order:
 
 ```http
-GET /$DATABASE/_design/$DDOC/_view/by_title?limit=5&descending=true HTTP/1.1
+GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?descending=true HTTP/1.1
 Accept: application/json
-Content-Type: application/json
 ```
 {: codeblock}
 
-See the example of requesting the last five records in reverse sort order by using the command line:
+See the example of requesting the records in reverse sort order.
+
+Client libraries use `POST` method instead of `GET` because they have a similar behavior.
+{: tip}
+{: java}
+{: node}
+{: python}
+{: go}
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5&descending=true" \
-     -H "Content-Type: application/json"
+curl -X GET "$SERVICE_URL/users/_design/allusers/_view/getVerifiedEmails?descending=true"
 ```
 {: codeblock}
+{: curl}
 
-See the example response of requesting the last five records in reverse sort order:
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostViewOptions viewOptions = new PostViewOptions.Builder()
+    .db("users")
+    .ddoc("allusers")
+    .view("getVerifiedEmails")
+    .descending(true)
+    .build();
+
+ViewResult response =
+    service.postView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postView({
+  db: 'users',
+  ddoc: 'allusers',
+  view: 'getVerifiedEmails',
+  descending: true
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_view(
+  db='users',
+  ddoc='allusers',
+  view='getVerifiedEmails',
+  descending=True
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postViewOptions := service.NewPostViewOptions(
+  "users",
+  "allusers",
+  "getVerifiedEmails",
+)
+
+postViewOptions.SetDescending(true)
+
+viewResult, response, err := service.PostView(postViewOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+See the example response of requesting the records in reverse sort order:
 
 ```json
 {
-    "offset" : 0,
-    "rows" : [
-        {
-            "id" : "Zucchiniinagrodolcesweet-sourcourgettes",
-            "key" : "Zucchini in agrodolce (sweet-sour courgettes)",
-            "value" : [
-                null,
-                "Zucchini in agrodolce (sweet-sour courgettes)"
-            ]
-        },
-        {
-            "id" : "Zingylemontart",
-            "key" : "Zingy lemon tart",
-            "value" : [
-                null,
-                "Zingy lemon tart"
-            ]
-        },
-        {
-            "id" : "Zestyseafoodavocado",
-            "key" : "Zesty seafood avocado",
-            "value" : [
-                null,
-                "Zesty seafood avocado"
-            ]
-        },
-        {
-            "id" : "Zabaglione",
-            "key" : "Zabaglione",
-            "value" : [
-                null,
-                "Zabaglione"
-            ]
-        },
-        {
-            "id" : "Yogurtraita",
-            "key" : "Yogurt raita",
-            "value" : [
-                null,
-                "Yogurt raita"
-            ]
-        }
-    ],
-    "total_rows" : 2667
+  "total_rows": 2,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "abc123",
+      "key": "bob.smith@aol.com",
+      "value": [
+        "Bob Smith",
+        true,
+        "2019-01-24T10:42:59.000Z"
+      ]
+    },
+    {
+      "id": "abc125",
+      "key": "amelie.smith@aol.com",
+      "value": [
+        "Amelie Smith",
+        true,
+        "2020-04-24T10:42:59.000Z"
+      ]
+    }
+  ]
 }
 ```
 {: codeblock}
@@ -411,91 +664,393 @@ See the example response of requesting the last five records in reverse sort ord
 ## Specifying start and end keys
 {: #specifying-start-and-end-keys}
 
-The `startkey` and `endkey` query arguments can be used to specify the range of values
+The `start_key` and `end_key` query arguments can be used to specify the range of values
 that are returned when querying the view.
 
 The sort direction is always applied first.
+Next, filtering is applied by using the `start_key` and `end_key` query arguments.
+It is possible that no rows will match your key range if sorting and filtering don't make sense when combined.
 
-Next,
-filtering is applied by using the `startkey` and `endkey` query arguments.
-The combination of sorting and filtering means that it is possible to have empty view results because
-the sorting and filtering don't make sense when combined.
-
-See the example of using HTTP to make a global query that includes `startkey` and `endkey` query arguments:
+See the example of using HTTP to make a global query that includes `start_key` and `end_key` 
+query arguments:
 
 ```http
-GET /recipes/_design/recipes/_view/by_ingredient?startkey="alpha"&endkey="beta" HTTP/1.1
-Accept: application/json
-Content-Type: application/json
+GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?start_key="alpha"&end_key="beta" HTTP/1.1
 ```
 {: codeblock}
 
-See the example of a global query that uses the command line that includes `startkey` and `endkey` query arguments:
+See the example of a global query that includes `start_key` and `end_key` query arguments.
+
+Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+{: tip}
+{: java}
+{: node}
+{: python}
+{: go}
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?startkey="alpha"&endkey="beta"" \
-     -H "Content-Type: application/json"
+curl -X GET "$SERVICE_URL/users/_design/allusers/_view/getVerifiedEmails?start_key=\"alpha\"&end_key=\"beta\""
 ```
 {: codeblock}
+{: curl}
 
-For example,
-if you have a database that returns 10 results when you use a `startkey` of `alpha` and an `endkey` of `beta`,
-you would get no results with a reversed order.
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostViewOptions viewOptions = new PostViewOptions.Builder()
+    .db("users")
+    .ddoc("allusers")
+    .view("getVerifiedEmails")
+    .startKey("alpha")
+    .endKey("beta")
+    .build();
+
+ViewResult response =
+    service.postView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postView({
+  db: 'users',
+  ddoc: 'allusers',
+  view: 'getVerifiedEmails',
+  startKey: 'alpha',
+  endKey: 'beta'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_view(
+  db='users',
+  ddoc='allusers',
+  view='getVerifiedEmails',
+  start_key='alpha',
+  end_key='beta'  
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postViewOptions := service.NewPostViewOptions(
+  "users",
+  "allusers",
+  "getVerifiedEmails",
+)
+
+postViewOptions.StartKey = "alpha"
+postViewOptions.EndKey = "beta"
+
+viewResult, response, err := service.PostView(postViewOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+For example, if you have a database that returns 1 result when you use a `start_key` of `alpha`
+and an `end_key` of `beta`, you would get a `400` (Bad request) error with a reversed order.
 The reason is that the entries in the view are reversed before the key filter is applied.
 
-See the example that uses HTTP to illustrate why reversing the order of `startkey` and `endkey` might not yield any results:
+See the example that uses HTTP to illustrate why reversing the order of `start_key` and `end_key` 
+might error with query parse error:
 
 ```http
-GET /recipes/_design/recipes/_view/by_ingredient?descending=true&startkey="beta"&endkey="alpha" HTTP/1.1
-Accept: application/json
-Content-Type: application/json
+GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?descending=true&start_key="alpha"&end_key="beta" HTTP/1.1
 ```
 {: codeblock}
 
-See the example illustrating why reversing the order of `startkey` and `endkey` might not yield any results when you use the command line:
+See the example illustrating why reversing the order of `start_key` and `end_key` might cause a `400` error.
+
+Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+{: tip}
+{: java}
+{: node}
+{: python}
+{: go}
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="beta"&endkey="alpha"" \
-     -H "Content-Type: application/json"
+curl -X GET "$SERVICE_URL/users/_design/allusers/_view/getVerifiedEmails?descending=true&start_key=\"alpha\"&end_key=\"beta\""
 ```
 {: codeblock}
+{: curl}
 
-The `endkey` of `beta` is seen before the `startkey` of `alpha`, resulting in an empty list.
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
 
-See the example that shows the global view query returns no entries because `alpha` is alphabetically before `beta`. That's why the returned result is empty:
+Cloudant service = Cloudant.newInstance();
 
-```json
-{
-    "total_rows" : 26453,
-    "rows" : [],
-    "offset" : 21882
+PostViewOptions viewOptions = new PostViewOptions.Builder()
+    .db("users")
+    .ddoc("allusers")
+    .view("getVerifiedEmails")
+    .descending(true)
+    .startKey("alpha")
+    .endKey("beta")
+    .build();
+
+ViewResult response =
+    service.postView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postView({
+  db: 'users',
+  ddoc: 'allusers',
+  view: 'getVerifiedEmails',
+  descending: true,
+  startKey: 'alpha',
+  endKey: 'beta'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_view(
+  db='users',
+  ddoc='allusers',
+  view='getVerifiedEmails',
+  descending=True,  
+  start_key='alpha',
+  end_key='beta'  
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postViewOptions := service.NewPostViewOptions(
+  "users",
+  "allusers",
+  "getVerifiedEmails",
+)
+
+postViewOptions.SetDescending(true)
+postViewOptions.StartKey = "alpha"
+postViewOptions.EndKey = "beta"
+
+viewResult, response, err := service.PostView(postViewOptions)
+if err != nil {
+  panic(err)
 }
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
 ```
 {: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+
+The `end_key` of `beta` is seen before the `start_key` of `alpha`, resulting in a query parse error.
 
 The solution is to reverse not just the sort order,
-but also the `startkey` and `endkey` parameter values.
+but also the `start_key` and `end_key` parameter values.
 
 The following example shows correct filtering and reversing the order of output,
 by using the `descending` query argument,
-and reversing the `startkey` and `endkey` query arguments.
+and reversing the `start_key` and `end_key` query arguments.
 
 See the example that uses HTTP to apply correct filtering and sorting to a global query:
 
 ```http
-GET /recipes/_design/recipes/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots" HTTP/1.1
-Accept: application/json
-Content-Type: application/json
+GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?descending=true&start_key="beta"&end_key="alpha" HTTP/1.1
 ```
 {: codeblock}
 
-See the example that uses the command line to apply correct filtering and sorting to a global query:
+See the example to apply correct filtering and sorting to a global query.
+
+Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+{: tip}
+{: java}
+{: node}
+{: python}
+{: go}
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots"" \
-    -H "Content-Type: application/json"
+curl -X GET "$SERVER_URL/users/_design/allusers/_view/getVerifiedEmails?descending=true&start_key=\"beta\"&end_key=\"alpha\""
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostViewOptions viewOptions = new PostViewOptions.Builder()
+    .db("users")
+    .ddoc("allusers")
+    .view("getVerifiedEmails")
+    .descending(true)
+    .startKey("beta")
+    .endKey("alpha")
+    .build();
+
+ViewResult response =
+    service.postView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postView({
+  db: 'users',
+  ddoc: 'allusers',
+  view: 'getVerifiedEmails',
+  descending: true,
+  startKey: 'beta',
+  endKey: 'alpha'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_view(
+  db='users',
+  ddoc='allusers',
+  view='getVerifiedEmails',
+  descending=True,  
+  start_key='beta',
+  end_key='alpha'  
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postViewOptions := service.NewPostViewOptions(
+  "users",
+  "allusers",
+  "getVerifiedEmails",
+)
+
+postViewOptions.SetDescending(true)
+postViewOptions.StartKey = "beta"
+postViewOptions.EndKey = "alpha"
+
+viewResult, response, err := service.PostView(postViewOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 ## Querying a view by using a list of keys
 {: #querying-a-view-by-using-a-list-of-keys}
@@ -503,7 +1058,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?
 You can also run a query by providing a list of keys to use.
 
 Requesting information from a database in this way uses
-the specified `view-name` from the specified `design-doc` design document.
+the specified `$VIEW_NAME` from the specified `$DDOC` design document.
 Like the `keys` parameter for the [`GET`](#querying-a-view) method,
 you can use the `POST` method to specify the keys to use to retrieve the view results.
 In all other aspects,
@@ -511,32 +1066,130 @@ the `POST` method is the same as the [`GET`](#querying-a-view) API request.
 In particular,
 you can use any of its query parameters in either the query string or the JSON body.
 
-See the example HTTP request that returns all recipes, where the key for the view matches either `claret` or `clear apple juice`:
+See the example HTTP request that returns all users, where the key for the view matches either `amelie.smith@aol.com` or `bob.smith@aol.com`:
 
 ```http
-POST /$DATABASE/_design/$DDOC/_view/$VIEWNAME HTTP/1.1
+POST $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME HTTP/1.1
 Content-Type: application/json
-```
-{: codeblock}
 
-See the example of a global query that returns all recipes (where the key for the view matches either `claret` or `clear apple juice`) when you use the command line:
-
-```sh
-curl -X POST "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -d @request.json
-```
-{: codeblock}
-
-See the example JSON document that provides a list of keys to use in the query:
-
-```json
 {
-    "keys" : [
-        "claret",
-        "clear apple juice"
-    ]
+  "keys": [
+    "amelie.smith@aol.com",
+    "bob.smith@aol.com"
+  ]
 }
 ```
 {: codeblock}
+
+See the example of a global query that returns all users (where the key for the view matches are
+either `amelie.smith@aol.com` or `bob.smith@aol.com`):
+
+```sh
+curl -X POST "$SERVICE_URL/users/_design/allusers/_view/getVerifiedEmails" -H "Content-Type: application/json" --data '{
+  "keys": [
+    "amelie.smith@aol.com",
+    "bob.smith@aol.com"
+  ]
+}'
+```
+{: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+
+import java.util.Arrays;
+
+Cloudant service = Cloudant.newInstance();
+
+PostViewOptions viewOptions = new PostViewOptions.Builder()
+    .db("users")
+    .ddoc("allusers")
+    .view("getVerifiedEmails")
+    .keys(Arrays.asList("amelie.smith@aol.com", "bob.smith@aol.com"))
+    .build();
+
+ViewResult response =
+    service.postView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postView({
+  db: 'users',
+  ddoc: 'allusers',
+  view: 'getVerifiedEmails',
+  keys: ['amelie.smith@aol.com', 'bob.smith@aol.com']
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_view(
+  db='users',
+  ddoc='allusers',
+  view='getVerifiedEmails',
+  keys=['amelie.smith@aol.com', 'bob.smith@aol.com'] 
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postViewOptions := service.NewPostViewOptions(
+  "users",
+  "allusers",
+  "getVerifiedEmails",
+)
+
+keys := []interface{}{"amelie.smith@aol.com", "bob.smith@aol.com"}
+postViewOptions.SetKeys(keys)
+
+viewResult, response, err := service.PostView(postViewOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 The response contains the standard view information,
 but only documents where the keys match.
@@ -545,24 +1198,28 @@ See the example response after you run a query by using a list of keys:
 
 ```json
 {
-    "total_rows" : 26484,
-    "rows" : [
-        {
-            "value" : [
-              "Scotch collops"
-            ],
-            "id" : "Scotchcollops",
-            "key" : "claret"
-        },
-        {
-            "value" : [
-              "Stand pie"
-            ],
-            "id" : "Standpie",
-            "key" : "clear apple juice"
-        }
-    ],
-    "offset" : 6324
+  "total_rows": 2,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "abc125",
+      "key": "amelie.smith@aol.com",
+      "value": [
+        "Amelie Smith",
+        true,
+        "2020-04-24T10:42:59.000Z"
+      ]
+    },
+    {
+      "id": "abc123",
+      "key": "bob.smith@aol.com",
+      "value": [
+        "Bob Smith",
+        true,
+        "2019-01-24T10:42:59.000Z"
+      ]
+    }
+  ]
 }
 ```
 {: codeblock}
@@ -570,7 +1227,7 @@ See the example response after you run a query by using a list of keys:
 ## Multi-document fetching
 {: #multi-document-fetching}
 
-If you combine a `POST` request to a many documents from a database.
+This section covers a `POST` request to many documents from a database.
 
 For a client application, this technique is more efficient than using multiple [`GET`](#querying-a-view) API requests.
 
@@ -583,132 +1240,223 @@ One way to mitigate this effect is by retrieving results directly from the view 
 For example, in your map function, you might use the following design specification:
 
 ```javascript
-function(employee_doc) {
-    emit(employee_doc.number, {
-        employee_doc.training,
-        employee_doc.manager,
-        employee_doc.skills
-    });
+function(user) {
+  if(user.email_verified === true) {
+    emit(user.email, {name: user.name, email_verified: user.email_verified, joined: user.joined});
+  }
 }
 ```
 
-See the example request that uses HTTP to obtain the full content of documents that match the listed keys within the `british` partition:
+See the example request that uses HTTP to obtain the full content of documents that match the listed keys within a partition:
 
 ```http
-POST /recipes/_partition/british/_design/recipes/_view/by_ingredient?include_docs=true HTTP/1.1
+POST $SERVICE_URL/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$VIEW_NAME HTTP/1.1
 Content-Type: application/json
-```
-{: codeblock}
 
-See the example JSON document that lists the keys to match:
-
-```json
 {
-    "keys" : [
-        "claret",
-        "clear apple juice"
-    ]
+  "include_docs": true,
+  "keys" : [
+    "1000043",
+    "1000044"
+  ]
 }
 ```
 {: codeblock}
 
-See the example request that uses the command line to obtain the full content of documents that match the listed keys within the `british` partition:
+See the example request to obtain the full content of documents that match the listed keys within the `products` partition:
 
 ```sh
-curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_partition/british/_design/$DDOC/_view/by_ingredient?include_docs=true"
-    -X POST \
-    -H "Content-Type: application/json" \
-    -d '{ "keys" : [ "claret", "clear apple juice" ] }'
+curl -X POST "$SERVICE_URL/products/_partition/small-appliances/_design/appliances/_view
+/byApplianceProdId" -H "Content-Type: application/json" --data '{
+  "include_docs": true,
+  "keys" : [
+    "1000043",
+    "1000044"
+  ]
+}'
 ```
 {: codeblock}
+{: curl}
 
-See the example (abbreviated) response, returning the full document for each recipe that matches a provided key:
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostPartitionViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+
+import java.util.Arrays;
+
+Cloudant service = Cloudant.newInstance();
+
+PostPartitionViewOptions viewOptions =
+    new PostPartitionViewOptions.Builder()
+        .db("products")
+        .ddoc("appliances")
+        .keys(Arrays.asList("1000043", "1000044"))
+        .includeDocs(true)
+        .partitionKey("small-appliances")
+        .view("byApplianceProdId")
+        .build();
+
+ViewResult response =
+    service.postPartitionView(viewOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postPartitionView({
+  db: 'products',
+  ddoc: 'appliances',
+  keys: ['1000043', '1000044'],
+  includeDocs: true,
+  partitionKey: 'small-appliances',
+  view: 'byApplianceProdId'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_partition_view(
+  db='products',
+  ddoc='appliances',
+  keys=['1000043', '1000044'],
+  include_docs=True,  
+  partition_key='small-appliances',
+  view='byApplianceProdId'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postPartitionViewOptions := service.NewPostPartitionViewOptions(
+  "products",
+  "small-appliances",
+  "appliances",
+  "byApplianceProdId",
+)
+
+keys := []interface{}{"1000043", "1000044"}
+postPartitionViewOptions.SetKeys(keys)
+postPartitionViewOptions.SetIncludeDocs(true)
+
+viewResult, response, err := service.PostPartitionView(postPartitionViewOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(viewResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+See the example (abbreviated) response, returning the full document for each appliance that matches a provided key:
 
 ```json
 {
-    "offset" : 6324,
-    "rows" : [
-        {
-            "doc" : {
-                "_id" : "Scotchcollops",
-                "_rev" : "1-bcbdf724f8544c89697a1cbc4b9f0178",
-                "cooktime" : "8",
-                "ingredients" : [
-                    {
-                        "ingredient" : "onion",
-                        "ingredtext" : "onion, peeled and chopped",
-                        "meastext" : "1"
-                    },
-                    ...
-                ],
-                "keywords" : [
-                    "cook method.hob, oven, grill@hob",
-                    "diet@wheat-free",
-                    "diet@peanut-free",
-                    "special collections@classic recipe",
-                    "cuisine@british traditional",
-                    "diet@corn-free",
-                    "diet@citrus-free",
-                    "special collections@very easy",
-                    "diet@shellfish-free",
-                    "main ingredient@meat",
-                    "occasion@christmas",
-                    "meal type@main",
-                    "diet@egg-free",
-                    "diet@gluten-free"
-                ],
-                "preptime" : "10",
-                "servings" : "4",
-                "subtitle" : "This recipe ... short time.",
-                "title" : "Scotch collops",
-                "totaltime" : "18"
-            },
-            "id" : "Scotchcollops",
-            "key" : "claret",
-            "value" : [
-                "Scotch collops"
-            ]
-        },
-        {
-            "doc" : {
-                "_id" : "Standpie",
-                "_rev" : "1-bff6edf3ca2474a243023f2dad432a5a",
-                "cooktime" : "92",
-                "ingredients" : [
-                  ...
-                ],
-                "keywords" : [
-                    "diet@dairy-free",
-                    "diet@peanut-free",
-                    "special collections@classic recipe",
-                    "cuisine@british traditional",
-                    "diet@corn-free",
-                    "diet@citrus-free",
-                    "occasion@buffet party",
-                    "diet@shellfish-free",
-                    "occasion@picnic",
-                    "special collections@lunchbox",
-                    "main ingredient@meat",
-                    "convenience@serve with salad for complete meal",
-                    "meal type@main",
-                    "cook method.hob, oven, grill@hob / oven",
-                    "diet@cow dairy-free"
-                ],
-                "preptime" : "30",
-                "servings" : "6",
-                "subtitle" : "Serve this pie with pickled vegetables and potato salad.",
-                "title" : "Stand pie",
-                "totaltime" : "437"
-            },
-            "id" : "Standpie",
-            "key" : "clear apple juice",
-            "value" : [
-              "Stand pie"
-            ]
-        }
-    ],
-    "total_rows" : 26484
+  "total_rows": 4,
+  "offset": 1,
+  "rows": [
+    {
+      "id": "small-appliances:1000043",
+      "key": "1000043",
+      "value": [
+        "Bar",
+        "Pro",
+        "A professional, high powered innovative tool with a sleek design and outstanding performance"
+      ],
+      "doc": {
+        "_id": "small-appliances:1000043",
+        "_rev": "2-b595c929aabc3ab13415cd0cc03e665d",
+        "type": "product",
+        "taxonomy": [
+          "Home",
+          "Kitchen",
+          "Small Appliances"
+        ],
+        "keywords": [
+          "Bar",
+          "Blender",
+          "Kitchen"
+        ],
+        "productId": "1000043",
+        "brand": "Bar",
+        "name": "Pro",
+        "description": "A professional, high powered innovative tool with a sleek design and outstanding performance",
+        "colours": [
+          "black"
+        ],
+        "price": 99.99,
+        "image": "assets/img/barpro.jpg"
+      }
+    },
+    {
+      "id": "small-appliances:1000044",
+      "key": "1000044",
+      "value": [
+        "Baz",
+        "Omelet Maker",
+        "Easily make delicious and fluffy omelets without flipping - Innovative design - Cooking and cleaning is easy"
+      ],
+      "doc": {
+        "_id": "small-appliances:1000044",
+        "_rev": "2-d54d022a9407ab9f06b1889cb2ab8a6e",
+        "type": "product",
+        "taxonomy": [
+          "Home",
+          "Kitchen",
+          "Small Appliances"
+        ],
+        "keywords": [
+          "Baz",
+          "Maker",
+          "Kitchen"
+        ],
+        "productId": "1000044",
+        "brand": "Baz",
+        "name": "Omelet Maker",
+        "description": "Easily make delicious and fluffy omelets without flipping - Innovative design - Cooking and cleaning is easy",
+        "colours": [
+          "black"
+        ],
+        "price": 29.99,
+        "image": "assets/img/bazomeletmaker.jpg"
+      }
+    }
+  ]
 }
 ```
 {: codeblock}
-
