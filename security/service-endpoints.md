@@ -44,12 +44,13 @@ Multi-tenant users cannot use CSE.
 
 Cloud service endpoints are ready to use when an instance is deployed. Therefore, there is no set up. 
 
-You can ensure you are connected to a private service endpoint by running a curl command from the command line. In production, from the account where CSE is enabled, run this command:
+You can verify connectivity to your private service endpoint by getting the Cloudant server information from the URL of the private endpoint.
 
 ```sh
 curl https://$ACCOUNT-bluemix.private.cloudantnosqldb.appdomain.cloud
 ```
 {: codeblock}
+{: curl}
 
 If it succeeds, you are ready to go. Otherwise, you might want to check a few things: 
 
