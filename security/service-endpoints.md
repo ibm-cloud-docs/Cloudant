@@ -19,7 +19,7 @@ subcollection: Cloudant
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Using service endpoints to privately connect to {{site.data.keyword.cloudant_short_notm}}
 {: #service-endpoints}
@@ -51,6 +51,58 @@ curl https://$ACCOUNT-bluemix.private.cloudantnosqldb.appdomain.cloud
 ```
 {: codeblock}
 {: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ServerInformation;
+
+Cloudant service = Cloudant.newInstance();
+
+ServerInformation response =
+    service.getServerInformation().execute().getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant'
+
+const service = CloudantV1.newInstance({});
+
+service.getServerInformation().then(response => {
+    console.log(response.result);
+});
+```
+{: codeblock}
+{: javascript}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_server_information().get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getServerInformationOptions := service.NewGetServerInformationOptions(),
+
+serverInformation, response, err := service.GetServerInformation(getServerInformationOptions),
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(serverInformation, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
 
 If it succeeds, you are ready to go. Otherwise, you might want to check a few things: 
 
