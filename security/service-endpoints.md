@@ -66,7 +66,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```javascript
+```node
 import { CloudantV1 } from '@ibm-cloud/cloudant'
 
 const service = CloudantV1.newInstance({});
@@ -76,7 +76,7 @@ service.getServerInformation().then(response => {
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1
