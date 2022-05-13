@@ -10,15 +10,6 @@ subcollection: Cloudant
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
 {{site.data.keyword.attribute-definition-list}}
 
 # Using service endpoints to privately connect to {{site.data.keyword.cloudant_short_notm}}
