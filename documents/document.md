@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-05-16"
 
 ---
 
@@ -157,9 +157,6 @@ Content-Type: application/json
 ### Examples of creating a document
 {: #creating-document-using-command-line}
 
-You can customize this section for the programming language that you want to use by selecting the language in the code examples.
-{: tip}
-
 Example of creating a {{site.data.keyword.cloudant_short_notm}}s document for this JSON in a non-partitioned database:
 
 ```json
@@ -174,6 +171,9 @@ Example of creating a {{site.data.keyword.cloudant_short_notm}}s document for th
 }
 ```
 {: codeblock}
+
+You can customize this section for the programming language that you want to use by selecting the language in the code examples.
+{: tip}
 
 See an example of using the command line to create a document:
 
