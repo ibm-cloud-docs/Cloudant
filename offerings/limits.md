@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-11-01"
+  years: 2019, 2022
+lastupdated: "2022-05-17"
 
 keywords: databases, indexes, request payload, request timeouts, query, query results
 
@@ -32,7 +32,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 
 |Description|Limit|
 |--|--|
-|Database size|Unlimited|
+|Database size|Consult the {{site.data.keyword.cloudant_short_notm}} team if your database is likely to exceed 5 TB in size.|
 |Partition size|10 GB|
 {: caption="Table 1. Limits for databases" caption-side="top"}
 
