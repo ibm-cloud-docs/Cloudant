@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-04-14"
+lastupdated: "2022-05-13"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction
 
@@ -30,6 +30,21 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## May 2022
+{: #cloudant-may22}
+
+### 13 May 2022
+{: #cloudant-may1322}
+{: release-note}
+
+The following changes were made in build 8299:
+
+Runtime environment
+:   Upgrade runtime environment to Erlang/OTP 23 with fix for memory leak.
+
+Replicator
+:   Fix `function_clause` error for replicated changes with a target VDU.
 
 ## April 2022
 {: #cloudant-apr22}
