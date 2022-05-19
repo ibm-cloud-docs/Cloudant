@@ -101,7 +101,7 @@ toc:
       - topicgroup: 
           label: How documents work
           topics: 
-          - documents/document.md
+          - documents/docs-overview.md
           - documents/creating-a-document.md
           - documents/reading-a-document.md
           - documents/updating-a-document.md
@@ -118,7 +118,7 @@ toc:
           - monitor/monitoring.md
           - monitor/capacity.md
           - monitor/active_tasks.md
-          - monitor/managing_tasks.md      
+          - monitor/managing_tasks.md
       - topicgroup: 
           label: Querying the database
           topics: 
@@ -158,7 +158,7 @@ toc:
           - security/secure-connection.md
           - security/manage-scc.md
           - security/secure-data.md
-          - security/audit-events.md                
+          - security/audit-events.md
 
 #  Links to your REST API docs should be included in the Reference navigation group. For details on publishing API docs, see https://test.cloud.ibm.com/docs/api-docs.
 #  Links to your command line reference docs should be included in the Reference navigation group.

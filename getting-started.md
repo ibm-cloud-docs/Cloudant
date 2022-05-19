@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-05-19"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -41,7 +41,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 {: #objectives-get-started}
 
 - Create a service instance. 
-- Create an {{site.data.keyword.cloudant_short_notm}} service credential. 
+- Create an {{site.data.keyword.cloudant_short_notm}} service credential.
 
 ## Creating a service instance
 {: #creating-an-ibm-cloudant-instance-on-ibm-cloud}
