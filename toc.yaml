@@ -178,6 +178,12 @@ toc:
           - ha-dr/bc-dr.md
           - ha-dr/ha.md
       - topicgroup:
+          label: Best practices
+          topics:
+          - best-practices/best-practices1.md
+          - best-practices/best-practices2.md
+          - best-practices/best-practices3.md
+      - topicgroup:
           label: Sample apps
           links: 
           - link:
