@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-05-16"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -10,16 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # How design documents work
 {: #design-documents}
@@ -35,7 +26,7 @@ which are controlled by the `options.partitioned` field. A *partitioned* index a
 {: #creating-or-updating-a-design-document}
 
 Method
-:  `PUT /$DATABASE/_design/design-doc`
+:  `PUT /$DATABASE/_design/$DDOC`
 
 Request
 :  JSON of the design document information
@@ -52,7 +43,7 @@ In these examples,
 `$VARIABLES` might refer to standard or design documents.
 To distinguish between them,
 standard documents have an `_id` indicated by `$DOCUMENT_ID`,
-while design documents have an `_id` indicated by `$DESIGN_ID`.
+while design documents have an `_id` indicated by `$DDOC`.
 
 A design document's ID never includes a partition key regardless of the
 database's partitioning type. The partition key isn't included because the indexes that are included within a design document apply to all partitions in a partitioned database.
@@ -152,34 +143,39 @@ The copy is requested by using the `COPY` request method.
 Copying a design document doesn't automatically reconstruct the view indexes. Like other views, these views are re-created the first time that you access the new view.
 {: note}
 
-The following example requests that {{site.data.keyword.cloudant_short_notm}} copy the design document `recipes` to the new design document `recipelist`,
+The following example requests that {{site.data.keyword.cloudant_short_notm}} copy the design document `allusers` to the new design document `copyOfAllusers`,
 and produces a response that includes the ID and revision of the new document.
 
 See the following example command to copy a design document by using HTTP:
 
 ```http
-COPY /recipes/_design/recipes HTTP/1.1
+COPY $SERVICE_URL/$DATABASE/_design/$DDOC HTTP/1.1
 Content-Type: application/json
-Destination: _design/recipelist
+Destination: _design/$COPY_OF_DDOC
 ```
 {: codeblock}
 
-See the following example command to copy a design document by using the command line:
+See the following example command to copy a design document:
+
+The Cloudant SDKs currently do not support the HTTP COPY method.
+{: note}
+
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
+curl "$SERVICE_URL/users/_design/allusers" \
 	-X COPY \
 	-H "Content-Type: application/json" \
-	-H "Destination: _design/recipelist"
+	-H "Destination: _design/copyOfAllusers"
 ```
-{: codeblock}
+
 
 See the following example response to the copy request:
 
 ```json
 {
-	"id": "_design/recipelist",
-	"rev": "1-9c65296036141e575d32ba9c034dd3ee"
+  "ok": true,
+  "id": "_design/copyOfAllusers",
+  "rev": "1-9c65296036141e575d32ba9c034dd3ee"
 }
 ```
 {: codeblock}
@@ -189,7 +185,7 @@ See the following example response to the copy request:
 {: #the-structure-of-the-copy-command}
 
 Method
-:  `COPY /$DATABASE/_design/design-doc`
+:  `COPY /$DATABASE/_design/$DDOC`
 
 Request
 :  None
@@ -237,19 +233,19 @@ The new design document is created by using the specified revision of the source
 See the following example command to copy a specific revision of the design document by using HTTP:
 
 ```http
-COPY /recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5 HTTP/1.1
+COPY $SERVICE_URL/$DATABASE/_design/$DDOC?rev=$REV HTTP/1.1
 Content-Type: application/json
-Destination: _design/recipelist
+Destination: _design/$COPY_OF_DDOC
 ```
 {: codeblock}
 
 See the following example command to copy a specific revision of the design document by using the command line:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5" \
+curl "$SERVICE_URL/users/_design/allusers?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5" \
 	-X COPY \
 	-H "Content-Type: application/json" \
-	-H "Destination: _design/recipelist"
+	-H "Destination: _design/copyOfAllusers"
 ```
 {: codeblock}
 
@@ -263,19 +259,19 @@ using the `rev` parameter to the `Destination` HTTP Header string.
 See the following example command to overwrite an existing copy of the design document by using HTTP:
 
 ```http
-COPY /recipes/_design/recipes
+COPY $SERVICE_URL/$DATABASE/_design/$DDOC
 Content-Type: application/json
-Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
+Destination: _design/$COPY_OF_DDOC?rev=$REV
 ```
 {: codeblock}
 
 See the following example command to overwrite an existing copy of the design document by using the command line:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
+curl "$SERVICE_URL/users/_design/allusers" \
 	-X COPY \
 	-H "Content-Type: application/json" \
-	-H "Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee"
+	-H "Destination: _design/copyOfAllusers?rev=1-9c65296036141e575d32ba9c034dd3ee"
 ```
 {: codeblock}
 
@@ -285,8 +281,8 @@ See the following example response to overwrite an existing copy of the design d
 
 ```json
 {
-	"id" : "_design/recipes",
-	"rev" : "2-55b6a1b251902a2c249b667dab1c6692"
+  "id" : "_design/copyOfAllusers",
+  "rev" : "2-55b6a1b251902a2c249b667dab1c6692"
 }
 ```
 {: codeblock}
@@ -304,25 +300,111 @@ you must specify the current revision of the design document by using the `rev` 
 See the following example command to delete a design document by using HTTP:
 
 ```http
-DELETE /recipes/_design/recipes?rev=2-ac58d589b37d01c00f45a4418c5a15a8 HTTP/1.1
+DELETE $SERVICE_URL/$DATABASE/_design/$DDOC?rev=$REV HTTP/1.1
 ```
 {: codeblock}
 
-See the following example command to delete a design document by using the command line:
+See the following examples to delete a design document:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=2-ac58d589b37d01c00f45a4418c5a15a8" \
-     -X DELETE
+curl "$SERVICE_URL/users/_design/allusers?rev=2-21314508552eceb0e3012429d04575da" -X DELETE
 ```
 {: codeblock}
+{: curl}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.delete_design_document(
+  db='users',
+  ddoc='allusers',
+  rev='2-21314508552eceb0e3012429d04575da'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DeleteDesignDocumentOptions;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+
+Cloudant service = Cloudant.newInstance();
+
+DeleteDesignDocumentOptions designDocumentOptions =
+    new DeleteDesignDocumentOptions.Builder()
+        .db("users")
+        .ddoc("allusers")
+        .rev("2-21314508552eceb0e3012429d04575da")
+        .build();
+
+DocumentResult response =
+    service.deleteDesignDocument(designDocumentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.deleteDesignDocument({
+  db: 'users',
+  ddoc: 'allusers',
+  rev: '2-21314508552eceb0e3012429d04575da'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```go
+deleteDesignDocumentOptions := service.NewDeleteDesignDocumentOptions(
+  "users",
+  "allusers",
+)
+deleteDesignDocumentOptions.SetRev("2-21314508552eceb0e3012429d04575da")
+
+documentResult, response, err := service.DeleteDesignDocument(deleteDesignDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+"encoding/json"
+"fmt"
+"github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example response that includes the deleted document ID and revision:
 
 ```json
 {
-	"id": "recipe/_design/recipes",
-	"ok": true,
-	"rev": "3-7a05370bff53186cb5d403f861aca154"
+  "id": "_design/allusers",
+  "ok": true,
+  "rev": "3-7a05370bff53186cb5d403f861aca154"
 }
 ```
 {: codeblock}
@@ -331,7 +413,7 @@ See the following example response that includes the deleted document ID and rev
 {: #the-structure-of-the-delete-command}
 
 Method
-:  `DELETE /db/_design/design-doc`
+:  `DELETE /db/_design/$DDOC`
 
 Request 
 :  None
@@ -351,7 +433,7 @@ Query Arguments
 	  :  Current revision of the document for validation.
       
 	  Optional
-	  :  yes
+	  :  yes if `If-Match` header exists
       
 	  Type 
 	  :  string
@@ -365,7 +447,7 @@ HTTP Headers
    :  Current revision of the document for validation.
          
    Optional
-   :  yes
+   :  yes if `rev` query argument exists
 
 ## Views
 {: #view-design-documents}
@@ -440,9 +522,9 @@ See the following example design document that includes a filter function:
 
 ```json
 {
-	"_id":"_design/FILTER_EXAMPLE",
+	"_id":"_design/example_design_doc",
 	"filters": {
-		"FILTER_EXAMPLE": "function (doc, req) { ... }"
+		"example_filter": "function (doc, req) { ... }"
 	}
 }
 ```
@@ -450,7 +532,7 @@ See the following example design document that includes a filter function:
 
 See the following example of a filter function:
 
-```javascript
+```node
 function(doc, req){
 	// we need only `mail` documents
 	if (doc.type != 'mail'){
@@ -472,36 +554,121 @@ providing the name of the filter to use.
 See the following example of a filter function applied to a `_changes` query by using HTTP:
 
 ```http
-GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION HTTP/1.1
+POST $SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of a filter function applied to a `_changes` query by using the command line:
+See the following examples of a filter function applied to a `_changes` query:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION"
+curl -X POST "$SERVICE_URL/orders/_changes?filter=example_design_doc/example_filter" -H "Content-Type: application/json" -d '{}'
+```
+{: curl}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_changes(
+  db='orders',
+  filter='example_design_doc/example_filter'
+).get_result()
+
+print(response)
 ```
 {: codeblock}
+{: python}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ChangesResult;
+import com.ibm.cloud.cloudant.v1.model.PostChangesOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostChangesOptions changesOptions = new PostChangesOptions.Builder()
+    .db("orders")
+    .filter("example_design_doc/example_filter")
+    .build();
+
+ChangesResult response =
+    service.postChanges(changesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postChanges({
+  db: 'orders',
+  filter: 'example_design_doc/example_filter'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```go
+postChangesOptions := service.NewPostChangesOptions(
+  "$DATABASE",
+)
+postChangesOptions.SetFilter("example_design_doc/example_filter")
+
+changesResult, response, err := service.PostChanges(postChangesOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(changesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+"encoding/json"
+"fmt"
+"github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 The `req` argument gives you access to aspects of the HTTP request by using the `query` property.
 
 See the following example of supplying a `req` argument by using HTTP:
 
 ```http
-GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new HTTP/1.1
+GET $SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of supplying a `req` argument by using the command line:
+See the following example of supplying a `req` argument:
+
+The Cloudant SDKs currently do not support `status` option for `_changes` request.
+{: note}
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new"
+curl "$SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new"
 ```
 {: codeblock}
+{: curl}
 
 See the following example filter by using a supplied `req` argument:
 
-```javascript
+```node
 function(doc, req){
 	// we need only `mail` documents
 	if (doc.type != 'mail'){
@@ -545,44 +712,126 @@ Changes are listed for *all* the design documents within the database.
 See the following example application of the `_design` filter by using HTTP:
 
 ```http
-GET /$DATABASE/_changes?filter=_design HTTP/1.1
+POST /$DATABASE/_changes?filter=_design HTTP/1.1
 ```
 {: codeblock}
 
-See the following example application of the `_design` filter by using the command line:
+See the following example applications of the `_design` filter:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_design"
+curl -X POST "$SERVICE_URL/orders/_changes?filter=_design" -H "Content-Type: application/json" -d '{}'
 ```
 {: codeblock}
+{: curl}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_changes(
+  db='orders',
+  filter='_design'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ChangesResult;
+import com.ibm.cloud.cloudant.v1.model.PostChangesOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostChangesOptions changesOptions = new PostChangesOptions.Builder()
+    .db("orders")
+    .filter("_design")
+    .build();
+
+ChangesResult response =
+    service.postChanges(changesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postChanges({
+  db: 'orders',
+  filter: '_design'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```go
+postChangesOptions := service.NewPostChangesOptions(
+  "$DATABASE",
+)
+postChangesOptions.SetFilter("_design")
+
+changesResult, response, err := service.PostChanges(postChangesOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(changesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+"encoding/json"
+"fmt"
+"github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example response (abbreviated) after you apply the `_design` filter:
 
 ```json
 {
+  ...
+  "results":[
+    {
+      "changes":[
+        {
+          "rev":"10-304...4b2"
+        }
+      ],
+      "id":"_design/ingredients",
+      "seq":"8-g1A...gEo"
+    },
+    {
+      "changes":[
+        {
+          "rev":"123-6f7...817"
+        }
+      ],
+      "deleted":true,
+      "id":"_design/cookbook",
+      "seq":"9-g1A...4BL"
+    },
     ...
-    "results": [
-        {
-            "changes": [
-                {
-                    "rev": "10-304...4b2"
-                }
-            ],
-            "id": "_design/ingredients",
-            "seq": "8-g1A...gEo"
-        },
-        {
-            "changes": [
-                {
-                  "rev": "123-6f7...817"
-                }
-            ],
-            "deleted": true,
-            "id": "_design/cookbook",
-            "seq": "9-g1A...4BL"
-        },
-        ...
-    ]
+  ]
 }
 ```
 {: codeblock}
@@ -597,24 +846,112 @@ or within a JSON document supplied as part of the original request.
 See the following example application of the `_doc_ids` filter by using HTTP:
 
 ```http
-POST /$DATABASE/_changes?filter=_doc_ids HTTP/1.1
+POST $SERVICE_URL/$DATABASE/_changes?filter=_doc_ids HTTP/1.1
 ```
 {: codeblock}
 
-See the following example application of the `_doc_ids` filter by using the command line:
+See the following example applications of the `_doc_ids` filter:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_doc_ids"
+curl -X POST "$SERVICE_URL/orders/_changes?filter=_doc_ids" -H "Content-Type: application/json" -d '{"doc_ids": ["ExampleID"]}'
 ```
 {: codeblock}
+{: curl}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_changes(
+  db='orders',
+  filter='_doc_ids',
+  doc_ids=['ExampleID']
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```java
+import java.util.Arrays;
+
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ChangesResult;
+import com.ibm.cloud.cloudant.v1.model.PostChangesOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostChangesOptions changesOptions = new PostChangesOptions.Builder()
+    .db("orders")
+    .filter("_doc_ids")
+    .docIds(Arrays.asList("ExampleID"))
+    .build();
+
+ChangesResult response =
+    service.postChanges(changesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postChanges({
+  db: 'orders',
+  filter: '_doc_ids',
+  docIds: ['ExampleID']
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```go
+postChangesOptions := service.NewPostChangesOptions(
+  "$DATABASE",
+)
+postChangesOptions.SetFilter("_doc_ids")
+postChangesOptions.SetDocIds([]string{"ExampleID"})
+
+changesResult, response, err := service.PostChanges(postChangesOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(changesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+"encoding/json"
+"fmt"
+"github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example JSON document that lists document IDs to match during filtering:
 
 ```json
 {
-    "doc_ids": [
-      "ExampleID"
-    ]
+  "doc_ids": [
+    "ExampleID"
+  ]
 }
 ```
 {: codeblock}
@@ -623,19 +960,19 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 
 ```json
 {
-    "last_seq": "5-g1A...o5i",
-    "pending": 0,
-    "results": [
+  "last_seq":"5-g1A...o5i",
+  "pending":0,
+  "results":[
+    {
+      "changes":[
         {
-            "changes": [
-                {
-                  "rev": "13-bcb...29e"
-                }
-            ],
-            "id": "ExampleID",
-            "seq":  "5-g1A...HaA"
+          "rev":"13-bcb...29e"
         }
-    ]
+      ],
+      "id":"ExampleID",
+      "seq":"5-g1A...HaA"
+    }
+  ]
 }
 ```
 {: codeblock}
@@ -652,26 +989,119 @@ see the information on [selector syntax](/docs/Cloudant?topic=Cloudant-query#sel
 See the following example application of the `_selector` filter by using HTTP:
 
 ```http
-POST /$DATABASE/_changes?filter=_selector HTTP/1.1
+POST $SERVICE_URL/$DATABASE/_changes?filter=_selector HTTP/1.1
 ```
 {: codeblock}
 
-See the following example application of the `_selector` filter by using the command line:
+See the following example applications of the `_selector` filter:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector"
+curl -X POST "$SERVICE_URL/orders/_changes?filter=_selector" -H "Content-Type: application/json" -d '{"selector": {"_id": { "$regex": "^_design/"}}}'
 ```
 {: codeblock}
+{: curl}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_changes(
+  db='orders',
+  filter='_selector',
+  selector={'_id': { '$regex': '^_design/'}}
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ChangesResult;
+import com.ibm.cloud.cloudant.v1.model.PostChangesOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+Map<String, Object> selector = new HashMap<String, Object>();
+selector.put("_id", new HashMap<>().put("$regex", "^_design/"));
+
+PostChangesOptions changesOptions = new PostChangesOptions.Builder()
+    .db("orders")
+    .filter("_selector")
+    .selector(selector)
+    .build();
+
+ChangesResult response =
+    service.postChanges(changesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postChanges({
+    db: 'animaldb',
+    filter: '_selector',
+    selector: {"_id": { "$regex": "^_design/"}},
+  }).then(response => {
+    console.log(response.result);
+  });
+```
+{: codeblock}
+{: node}
+
+```go
+postChangesOptions := service.NewPostChangesOptions(
+  "$DATABASE",
+)
+postChangesOptions.SetFilter("_selector")
+postChangesOptions.SetSelector(map[string]interface{}{
+  "_id": map[string]string{ "$regex": "^_design/"}})
+
+changesResult, response, err := service.PostChanges(postChangesOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(changesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+"encoding/json"
+"fmt"
+"github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example JSON document that includes the selector expression to use during filtering:
 
 ```json
 {
-    "selector": {
-        "_id": {
-          "$regex": "^_design/"
-        }
+  "selector":{
+    "_id":{
+      "$regex":"^_design/"
     }
+  }
 }
 ```
 {: codeblock}
@@ -680,39 +1110,39 @@ See the following example response (abbreviated) after you filter by using a sel
 
 ```json
 {
-    "last_seq": "11-g1A...OaA",
-    "pending": 0,
-    "results": [
+  "last_seq":"11-g1A...OaA",
+  "pending":0,
+  "results":[
+    {
+      "changes":[
         {
-            "changes": [
-                {
-                  "rev": "10-304...4b2"
-                }
-            ],
-            "id": "_design/ingredients",
-            "seq": "8-g1A...gEo"
-        },
-        {
-            "changes": [
-                {
-                  "rev": "123-6f7...817"
-                }
-            ],
-            "deleted": true,
-            "id": "_design/cookbook",
-            "seq": "9-g1A...4BL"
-        },
-        {
-            "changes": [
-                {
-                  "rev": "6-5b8...8f3"
-                }
-            ],
-            "deleted": true,
-            "id": "_design/meta",
-            "seq": "11-g1A...Hbg"
+          "rev":"10-304...4b2"
         }
-    ]
+      ],
+      "id":"_design/ingredients",
+      "seq":"8-g1A...gEo"
+    },
+    {
+      "changes":[
+        {
+          "rev":"123-6f7...817"
+        }
+      ],
+      "deleted":true,
+      "id":"_design/cookbook",
+      "seq":"9-g1A...4BL"
+    },
+    {
+      "changes":[
+        {
+          "rev":"6-5b8...8f3"
+        }
+      ],
+      "deleted":true,
+      "id":"_design/meta",
+      "seq":"11-g1A...Hbg"
+    }
+  ]
 }
 ```
 {: codeblock}
@@ -727,33 +1157,106 @@ The map function might emit output as the result of processing a specific docume
 See the following example application of the `_view` filter by using HTTP:
 
 ```http
-GET /$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME HTTP/1.1
+POST $SERVICE_URL/$DATABASE/_changes?filter=_view&view=$DDOC/$VIEW_NAME HTTP/1.1
 ```
 {: codeblock}
 
-See the following example application of the `_view` filter by using the command line:
+See the following example applications of the `_view` filter:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME"
+curl -X POST "$SERVICE_URL/animaldb/_changes?filter=_view&view=views101/latin_name" -H "Content-Type: application/json" -d '{}'
 ```
 {: codeblock}
+{: curl}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_changes(
+  db='animaldb',
+  filter='_view',
+  view='views101/latin_name'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ChangesResult;
+import com.ibm.cloud.cloudant.v1.model.PostChangesOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostChangesOptions changesOptions = new PostChangesOptions.Builder()
+    .db("animaldb")
+    .filter("_vew")
+    .view("views101/latin_name")
+    .build();
+
+ChangesResult response =
+    service.postChanges(changesOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postChanges({
+  db: 'animaldb',
+  filter: '_view',
+  view: 'views101/latin_name'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```go
+postChangesOptions := service.NewPostChangesOptions(
+  "animaldb",
+)
+postChangesOptions.SetFilter("_view")
+postChangesOptions.SetView("views101/latin_name")
+
+changesResult, _, err := service.PostChanges(postChangesOptions)
+if err != nil {
+fmt.Println(err)
+}
+
+b, _ := json.MarshalIndent(changesResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
 
 See the following example response (abbreviated) after you filter by using a map function:
 
 ```json
 {
-    "last_seq": "5-g1A...o5i",
-    "results": [
+  "last_seq": "5-g1A...o5i",
+  "results": [
+    {
+      "changes": [
         {
-            "changes": [
-                {
-                  "rev": "13-bcb...29e"
-                }
-            ],
-            "id": "ExampleID",
-            "seq":  "5-g1A...HaA"
+          "rev": "13-bcb...29e"
         }
-    ]
+      ],
+      "id": "ExampleID",
+      "seq":  "5-g1A...HaA"
+    }
+  ]
 }
 ```
 {: codeblock}
@@ -794,7 +1297,7 @@ See the following example design document with an update validator:
 
 See the following example of an update validator:
 
-```javascript
+```node
 function(newDoc, oldDoc, userCtx, secObj) {
 	if (newDoc.address === undefined) {
 		throw({forbidden: 'Document must have an address.'});
@@ -828,7 +1331,7 @@ view index size,
 and status of the design document and associated view index information.
 
 Method 
-:  `GET /db/_design/design-doc/_info`
+:  `GET /db/_design/$DDOC/_info`
 
 Request 
 :  None
@@ -846,12 +1349,81 @@ GET /recipes/_design/recipesdd/_info HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of retrieving information about the `recipesdd` design document from within the `recipes` database by using the command line:
-
+See the following examples of retrieving information about the `recipesdd` design document from within the `recipes` database:
 ```sh
-curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info"
+curl "$SERVICE_URL/recipes/_design/recipesdd/_info"
 ```
 {: codeblock}
+{: curl}
+
+```go
+getDesignDocumentInformationOptions := service.NewGetDesignDocumentInformationOptions(
+  "recipes",
+  "recipesdd",
+)
+
+designDocumentInformation, response, err := service.GetDesignDocumentInformation(getDesignDocumentInformationOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(designDocumentInformation, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_design_document_information(
+  db='recipes',
+  ddoc='recipesdd'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DesignDocumentInformation;
+import com.ibm.cloud.cloudant.v1.model.GetDesignDocumentInformationOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+GetDesignDocumentInformationOptions informationOptions =
+    new GetDesignDocumentInformationOptions.Builder()
+        .db("recipes")
+        .ddoc("recipesdd")
+        .build();
+
+DesignDocumentInformation response =
+    service.getDesignDocumentInformation(informationOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getDesignDocumentInformation({
+  db: 'recipes',
+  ddoc: 'recipesdd'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
 
 The JSON response includes the following individual fields:
 
@@ -914,7 +1486,7 @@ See the following example response in JSON format:
 The `_search_info` endpoint returns information about a specified search that is defined within a specific design document.
 
 Method
-:  `GET /db/_design/design-doc/_search_info/yourSearch`
+:  `GET /db/_design/$DDOC/_search_info/yourSearch`
 
 Request 
 :  None
@@ -932,12 +1504,86 @@ GET /foundbite/_design/app/_search_info/description HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using the command line:
+See the following examples of getting information about the `description` search index, which is defined within the `app` design document that is stored in the `foundbite` database:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description"
+curl "$SERVICE_URL/foundbite/_design/app/_search_info/description"
 ```
 {: codeblock}
+{: curl}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_search_info(
+  db='foundbite',
+  ddoc='app',
+  index='description'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.GetSearchInfoOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchInfoResult;
+
+Cloudant service = Cloudant.newInstance();
+
+GetSearchInfoOptions infoOptions =
+    new GetSearchInfoOptions.Builder()
+        .db("foundbite")
+        .ddoc("app")
+        .index("description")
+        .build();
+
+SearchInfoResult response =
+    service.getSearchInfo(infoOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```node
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getSearchInfo({
+  db: 'foundbite',
+  ddoc: 'app',
+  index: 'description'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```go
+getSearchInfoOptions := service.NewGetSearchInfoOptions(
+  "foundbite",
+  "app",
+  "description",
+)
+
+searchInfoResult, response, err := service.GetSearchInfo(getSearchInfoOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(searchInfoResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
 
 The JSON structure includes the following individual fields:
 
@@ -966,15 +1612,14 @@ See the following example response in JSON format:
 
 ```json
 {
-
-	"name": "_design/app/description",
-	"search_index": {
-		"pending_seq": 63,
-		"doc_del_count": 3,
-		"doc_count": 10,
-		"disk_size": 9244,
-		"committed_seq": 63
-	}
+  "name":"_design/app/description",
+  "search_index":{
+    "pending_seq":63,
+    "doc_del_count":3,
+    "doc_count":10,
+    "disk_size":9244,
+    "committed_seq":63
+  }
 }
 ```
 {: codeblock}
