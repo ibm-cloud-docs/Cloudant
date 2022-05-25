@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-13"
+lastupdated: "2022-05-25"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction
 
@@ -33,6 +33,13 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 ## May 2022
 {: #cloudant-may22}
+
+### 25 May 2022
+{: #cloudant-may2522}
+{: release-note}
+
+Virtual Private Endpoints (VPE)
+:   VPE can now be created for {{site.data.keyword.cloudant_short_notm}} instances on dedicated hardware.
 
 ### 13 May 2022
 {: #cloudant-may1322}
