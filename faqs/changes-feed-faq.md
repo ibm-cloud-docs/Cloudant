@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-31"
+lastupdated: "2022-06-01"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -82,17 +82,17 @@ The `since` parameter is used to define where in the changes feed you want to st
 - `since=now` - the end of the changes feed.
 - `since=<a last seq token>` - from a known place in the changes feed.
 
-On face value, it would seem like following the changes feed would be as simple as chaining `_changes` API calls together, passing the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
+At face value, it would seem like following the changes feed would be as simple as chaining `_changes` API calls together, passing the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
 
 ## Why does the changes feed deliver each change at least once?
 {: #changes-feed-at-least-once}
 {: faq}
 
-The {{site.data.keyword.cloudant_short_notm}} Standard changes feed promises to return each document _at least once_, which isn't the same as promising to return each document _only once_. Put another way, it is possible for a consumer of the changes feed to see the same change again, or indeed a set of changes repeated.
+The {{site.data.keyword.cloudant_short_notm}} Standard changes feed promises to return each document _at least once_, which isn't the same as promising to return each document _only once_. Put another way, it is possible for a consumer of the `changes feed` to see the same change again, or indeed a set of changes repeated.
 
 A consumer of the changes feed must treat the changes _idempotently_. In practice, you must remember whether a change was already dealt with before you trigger an action from a change. A naive changes feed consumer might send a message to a smartphone on every change received. But a user might receive duplicate text messages if a change is not treated idempotently when replayed changes occur.
 
-Usually these "rewinds" of the changes feed are short, replaying only a handful of changes. But in some cases, a request might see a response with thousands of changes replayed - potentially all of the changes from the beginning of time. The potential for rewinds make the use of the changes feed unsuitable for an application that expects queue-like behavior.
+Usually these "rewinds" of the changes feed are short, replaying only a handful of changes. But in some cases, a request might see a response with thousands of changes replayed - potentially all of the changes from the beginning of time. The potential for `rewinds` makes the `changes feed` unsuitable for an application that expects queue-like behavior.
 
 To reiterate, {{site.data.keyword.cloudant_short_notm}}'s changes feed promises to deliver a document _at least once_ in a changes feed, and gives no guarantees about repeated values across multiple requests.
 
@@ -175,6 +175,6 @@ The {{site.data.keyword.cloudant_short_notm}} changes feed is not good for the f
 
 - A message queue. For more information, see [IBM Messages for RabbitMQ](https://www.ibm.com/cloud/messages-for-rabbitmq){: external} for managing queues.
 - A message broker. For more information, see [IBM Event Streams](https://www.ibm.com/cloud/event-streams){: external} for handling scalable, time-ordered streams of events.
-- A real-time pubsub system. For more information, see [IBM Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis){: external} for handling pubsub topics.
+- A real-time publish and subscribe system. For more information, see [IBM Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis){: external} for handling publish and subscribe topics.
 - A transaction log. Some databases store each change in a transaction log, but {{site.data.keyword.cloudant_short_notm}}'s distributed and eventually consistent nature means that no definitive time-ordered transaction log exists.
 - A querying mechanism. For more information, see [MapReduce Views](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-creating-views-mapreduce) for creating views of your data that is ordered by a key of your choice.

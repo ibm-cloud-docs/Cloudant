@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-09"
+lastupdated: "2022-05-27"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation, IAM, migration
 
@@ -20,7 +20,6 @@ completion-time: 10m
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
-{:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
@@ -34,9 +33,8 @@ completion-time: 10m
 {: toc-completion-time="10m"}
 
 When you create a new service credential by using the {{site.data.keyword.cloud_notm}} Dashboard or the
-{{site.data.keyword.cloud_notm}} CLI, it always produces a new username and password combination for legacy credentials
-as well as a new IAM API Key. This tutorial guides you through
-migrating your instance from generating new legacy credentials and IAM API Keys to generating new IAM API keys only.
+{{site.data.keyword.cloud_notm}} CLI, it always produces a new username and password combination. This method applies to legacy credentials as well as a new IAM API key. This tutorial guides you through
+migrating your instance from generating new legacy credentials and IAM API keys to generating new IAM API keys only.
 
 This tutorial is only applicable to {{site.data.keyword.cloudant_short_notm}} instances within resource groups
 with legacy credentials that are enabled.
@@ -77,19 +75,19 @@ before you start this step.
 
 2. Find your {{site.data.keyword.cloudant_short_notm}} instance on the list of resources and open it.
 
-   ![Select your instance.](images/img0011.png){: caption="Figure 1. Select your instance" caption-side="bottom"}
+   ![Select your instance.](images/img0011.png){: caption="Figure 1. Resource list" caption-side="bottom"}
 
 3. Click the *Migrate to IAM Only* button under the *Authentication methods* section. If you do not see the button, your instance is already IAM Only.
 
-   ![Migrate to IAM Only.](images/authentication_methods_root_credential.png){: caption="Figure 2. Migrate to IAM only" caption-side="bottom"}
+   ![Migrate to IAM Only.](images/authentication_methods_root_credential.png){: caption="Figure 2. Authentication methods" caption-side="bottom"}
 
 4. Confirm your action on the dialog window to proceed. If the instance URL-style credential is still enabled, the confirmation box differs. See Figure 4 for an example.
 
-   ![Confirm operation.](images/migrate_iam_only_confirmation.png){: caption="Figure 3. Confirm operation to migrate to IAM only" caption-side="bottom"}
+   ![Confirm operation.](images/migrate_iam_only_confirmation.png){: caption="Figure 3. Confirmation" caption-side="bottom"}
 
-   ![Confirm operation.](images/migrate_iam_only_with_root_confirmation.png){: caption="Figure 4. Confirm operation to migrate to IAM only and revoke URL-style credential" caption-side="bottom"}
+   ![Confirm operation.](images/migrate_iam_only_with_root_confirmation.png){: caption="Figure 4. Confirmation with legacy credentials" caption-side="bottom"}
 
 5. When the operation completes successfully, the Authentication methods row shows only `IBM Cloud IAM`.
 
-   ![Migration complete.](images/migrate_iam_only_finish.png){: caption="Figure 5. Migration completed" caption-side="bottom"}
+   ![Migration complete.](images/migrate_iam_only_finish.png){: caption="Figure 5. Successful operation" caption-side="bottom"}
    
