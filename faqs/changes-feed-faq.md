@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-16"
+lastupdated: "2022-05-31"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -82,7 +82,7 @@ The `since` parameter is used to define where in the changes feed you want to st
 - `since=now` - the end of the changes feed.
 - `since=<a last seq token>` - from a known place in the changes feed.
 
-On face value, it would seem like following the changes feed would be as simple as chaining `_changes` API calls together, passing the `last_seq` from one changes feed response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
+On face value, it would seem like following the changes feed would be as simple as chaining `_changes` API calls together, passing the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
 
 ## Why does the changes feed deliver each change at least once?
 {: #changes-feed-at-least-once}
