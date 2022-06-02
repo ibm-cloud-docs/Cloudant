@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-02"
+lastupdated: "2022-06-01"
 
-keywords: lite plan, pricing plans, standard plan, enterprise plan, backup, support
+keywords: free plan, lite plan, pricing plans, standard plan, enterprise plan, backup, support
 
 subcollection: Cloudant
 
@@ -29,20 +29,20 @@ subcollection: Cloudant
 {: faq}
 {: support}
 
-Migrate your plan to an {{site.data.keyword.cloudantfull}} Lite or Standard plan instance. 
+Migrate your plan to an {{site.data.keyword.cloudantfull}} Free or Standard plan instance. 
 
 ## Which plans can I migrate? 
 {: #which-plans-can-i-migrate}
 {: faq}
 
-You can migrate to a Lite or Standard plan from one of the following plans: 
+You can migrate to a Free or Standard plan from one of the following plans: 
 
 - {{site.data.keyword.cloudant_short_notm}} Enterprise
 - Apache CouchDB
 
-For more information, see [Migrating an Enterprise plan to a Lite or Standard plan](/docs/Cloudant?topic=Cloudant-migrating-an-enterprise-plan-to-a-lite-or-standard-plan).
+For more information, see [Migrating an Enterprise plan to a Free or Standard plan](/docs/Cloudant?topic=Cloudant-migrating-an-enterprise-plan-to-a-lite-or-standard-plan).
 
-Or you can migrate from the free Lite plan to a Standard plan, which is just upgrading from the Lite plan to the Standard plan. For more information, see [Migrating from a Lite plan to a Standard plan](/docs/Cloudant?topic=Cloudant-migrating-from-a-lite-plan-to-a-standard-plan).  
+Or you can migrate from the Free plan to a Standard plan, which is just upgrading from the Free plan to the Standard plan. For more information, see [Migrating from a Free plan to a Standard plan](/docs/Cloudant?topic=Cloudant-migrating-from-a-lite-plan-to-a-standard-plan).  
 
 ## Can I back up my data before I migrate?
 {: #can-i-back-up-my-data-before-doing-anything-}
