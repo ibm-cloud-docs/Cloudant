@@ -178,7 +178,7 @@ toc:
           - ha-dr/bc-dr.md
           - ha-dr/ha.md
       - topicgroup:
-          label: Best practices
+          label: Best practices for IBM Cloudant
           topics:
           - best-practices/best-practices1.md
           - best-practices/best-practices2.md
