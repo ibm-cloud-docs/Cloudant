@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-08-22"
+  years: 2021, 2023
+lastupdated: "2023-01-27"
 
 keywords: IBM Cloudant, HA for IBM Cloudant, high availability for IBM Cloudant
 
@@ -30,12 +30,12 @@ For more information about responsibilities when you use {{site.data.keyword.clo
 ## What level of availability do I need?
 {: #ha-level}
 
-You can achieve high availability on different levels in your IT infrastructure and within different components of your cluster. The level of availability that is right for you depends on several factors, such as your business requirements, the service level agreements (SLAs) that you have with your customers, and the resources that you want to expend.
+You can achieve high availability on different levels in your IT infrastructure and within different components of your cluster. The level of availability that works for you depends on several factors, such as your business requirements, the service level agreements (SLAs) that you have with your customers, and the resources that you want to expend.
 
 ## What level of availability does {{site.data.keyword.cloud_notm}} offer?
 {: #ha-service}
 
-The level of availability that you set up for your cluster impacts your coverage under the {{site.data.keyword.cloud_notm}} high availability service level agreement terms. 
+The level of availability that you set up for your cluster impacts your coverage in the {{site.data.keyword.cloud_notm}} high availability service level agreement terms. 
 
 Service level objectives (SLOs) describe the design points that the {{site.data.keyword.cloud_notm}} services are engineered to meet. {{site.data.keyword.cloudant_short_notm}} is designed to achieve the following availability target.
 
