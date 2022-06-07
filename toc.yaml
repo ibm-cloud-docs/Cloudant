@@ -92,6 +92,14 @@ toc:
           label: Working with databases
           topics: 
           - databases/database.md
+          - databases/creating-a-db.md
+          - databases/getting-db-details.md
+          - databases/getting-a-list-of-all-dbs-in-account.md
+          - databases/getting-docs.md
+          - databases/sending-multiple-queries-to-db.md
+          - databases/undeleting-a-db.md
+          - databases/getting-changes-to-docs-in-db.md
+          - databases/deleting-a-db.md
           - databases/sharding.md
           - databases/mvcc.md
           - databases/database_partitioning.md
