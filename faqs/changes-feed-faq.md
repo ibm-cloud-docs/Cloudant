@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-06-08"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -122,6 +122,12 @@ Filtering the changes feed, and by extension, performing filtered replication ha
 This [blog post](https://blog.cloudant.com/2019/12/13/Filtered-Replication.html){: external} describes how supplying a `selector` during replication makes easy work of these use cases.
 
 The changes feed with an accompanying `selector` parameter is _not_ the way to extract slices of data from the database on a routine basis. It must not be used as a means of performing operational queries against a database. Filtered changes are slow (the filter is applied to every changed document in turn, without the help of an index). This process is much slower than creating a secondary index (such as a MapReduce view) and querying that view.
+
+## Will a `feed=continuous` changes feed continue to run indefinitely?
+{: #feed-continuous-changes-feed-indefinitely}
+{: faq}
+
+No, there is no guaranteed connection duration for a continuous changes feed. It might be regularly disconnected by the server for any number of reasons including maintenance, security, or network errors. Code that uses the changes feed must be designed to use a recently saved sequence ID as a `since` value to make a new request to resume the changes feed after an error or disconnection.
 
 ## Why doesn't the changes feed guarantee time-ordering?
 {: #time-ordered-changes-no-guarantee}
