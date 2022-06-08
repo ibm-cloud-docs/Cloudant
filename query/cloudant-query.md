@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-05"
+  years: 2015, 2022
+lastupdated: "2022-06-08"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -1708,7 +1708,7 @@ See the following example that uses HTTP to show how to identify the index that 
 
 ```http
 POST /movies/_explain HTTP/1.1
-Host: examples.cloudant.com
+Host: $SERVICE_URL
 Content-Type: application/json
 {
 	"selector": {
@@ -1722,7 +1722,7 @@ Content-Type: application/json
 See the following example that uses the command line to show how to identify the index that was used to answer a query:
 
 ```sh
-curl "https://examples.cloudant.com/movies/_explain" \
+curl "$SERVICE_URL/movies/_explain" \
 	-X POST \
 	-H "Content-Type: application/json" \
 	-d '{
@@ -1965,8 +1965,8 @@ POST /_replicator HTTP/1.1
 Host: user.cloudant.com
 Content-Type: application/json
 {
-	"source": "https://examples.cloudant.com/query-movies",
-	"target": "https://$ACCOUNT.cloudant.com/my-movies",
+	"source": "$SERVICE_URL/query-movies",
+	"target": "$SERVICE_URL/my-movies",
 	"create_target": true,
 	"use_checkpoints": false
 }
@@ -1980,8 +1980,8 @@ curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_replicator" \
 	-X POST \
 	-H "Content-Type: application/json" \
 	-d '{
-		"source": "https://examples.cloudant.com/query-movies",
-		"target": "https://$ACCOUNT.cloudant.com/my-movies",
+		"source": "$SERVICE_URL/query-movies",
+		"target": "$SERVICE_URL/my-movies",
 		"create_target": true,
 		"use_checkpoints": false
 	}'
@@ -2017,7 +2017,7 @@ Content-Type: application/json
 See the following example that uses the command line to create a `text` index for your sample database:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/my-movies/_index" \
+curl "$SERVICE_URL/my-movies/_index" \
 	-X POST \
 	-H "Content-Type: application/json" \
 	-d '{"index": {}, "type": "text"}'

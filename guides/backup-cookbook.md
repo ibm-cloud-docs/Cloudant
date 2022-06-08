@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-06-08"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library, compress backup, schedule backup
 
@@ -59,7 +59,7 @@ To back up the `animaldb` database to a text file called `backup.txt`,
 you might use a command similar to the following example:
 
 ```sh
-couchbackup --url "https://examples.cloudant.com" --db animaldb > backup.txt
+couchbackup --url "$SERVICE_URL" --db animaldb > backup.txt
 ```
 {: codeblock}
 
@@ -163,7 +163,7 @@ Streaming to `stdout` enables data to be transformed before it is written to dis
 This feature is used to compress data within the stream.
 
 ```sh
-couchbackup --url "https://examples.cloudant.com" \
+couchbackup --url "$SERVICE_URL" \
   --db "animaldb" | gzip > backup.gz
 ```
 {: codeblock}
@@ -175,14 +175,7 @@ and emits it through `stdout`.
 The resulting compressed data stream is then redirected and written to a file called `backup.gz`.
 
 If the database requires you to supply access credentials,
-use a URL of the form `https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com`,
-for example:
-
-```sh
-couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
-  --db "animaldb" | gzip > backup.gz
-```
-{: codeblock}
+use `$SERVICE_URL` with the form `https://$USERNAME:$PASSWORD@$ACCOUNT`, for example, `https://myusername:mypassword@myhost.cloudant.com`.
 
 It's straightforward to extend the pipeline if you want to transform the data in other ways.
 For example,

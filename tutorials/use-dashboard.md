@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-06-08"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -215,7 +215,7 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 3. Enter the following information for your replication job.     
     Use the following information in the Source section:
       - Type - Select **Remote database**.
-      - Name - Enter the database URL: `http://examples.cloudant.com/query-movies`.
+      - Name - Enter the database URL: `$SERVICE_URL/query-movies`.
       - Authentication - Leave as `None`.
 
     Use the following information in the Target section:
