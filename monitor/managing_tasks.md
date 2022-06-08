@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-06-07"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -10,16 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing tasks
 {: #managing-tasks}
@@ -34,6 +25,81 @@ However,
 if you start numerous tasks,
 some of them might be scheduled to run later and don't show up under `_active_tasks`
 until they start.
+
+SDK and curl code examples:
+```sh
+curl "$SERVICE_URL/_active_tasks" 
+```
+{: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ActiveTask;
+
+Cloudant service = Cloudant.newInstance();
+
+List<ActiveTask> response =
+    service.getActiveTasks().execute().getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getActiveTasks().then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_active_tasks().get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getActiveTasksOptions := service.NewGetActiveTasksOptions()
+
+activeTask, response, err := service.GetActiveTasks(getActiveTasksOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(activeTask, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+    "encoding/json"
+    "fmt"
+    "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 Now, you learn how to use the `_active_tasks` endpoint to monitor long-running tasks.
 The `curl` command is used to access the endpoint.
@@ -57,7 +123,7 @@ The API reference has more information about the options.
 See an example of obtaining and formatting a list of active tasks:
 
 ```sh
-curl "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.'
+curl "$SERVICE_URL/_active_tasks" | jq
 ```
 {: codeblock}
 
@@ -88,14 +154,14 @@ one for each of the active tasks found.
 See an example of finding all view indexing tasks by filtering for the `indexer` type:
 
 ```sh
-curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="indexer")'
+curl -s "$SERVICE_URL/_active_tasks" | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
 See an example of finding all search indexing tasks by filtering for the `search_indexer` type:
 
 ```sh
-curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="search_indexer")'
+curl -s "$SERVICE_URL/_active_tasks" | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
@@ -161,7 +227,7 @@ Make it easier to select the information about a replication process from the li
 See an example of finding all replication tasks, by filtering for the `replication` type:
 
 ```sh
-curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="replication")'
+curl -s "$SERVICE_URL/_active_tasks" | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
