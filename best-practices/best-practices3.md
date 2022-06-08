@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-06-03"
 
-keywords: design document management, rate limits, partitioned queries, timeboxed database, logging, http traffic, primary index
+keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
 subcollection: Cloudant
 
@@ -152,7 +152,7 @@ For more information, see the following websites:
 - {{site.data.keyword.cloudant_short_notm}} [request and doc size limits](#replication-is-not-magic)
 
 ## Don’t mess with Q, R, and N unless you really know what you are doing
-{: dont-mess-with-q-r-n}
+{: #dont-mess-with-q-r-n}
 
 Do not change Q, R, and N unless you really know what you're doing. {{site.data.keyword.cloudant_short_notm}}’s quorum and sharding parameters, once you discover them, seem like tempting options to change the behavior of the database.
 

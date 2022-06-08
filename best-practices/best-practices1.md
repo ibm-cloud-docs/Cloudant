@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-31"
+lastupdated: "2022-06-03"
 
-keywords: api, http, database, partitioned query, eventual consistency, timebox
+keywords: api, http, database, partitioned query, eventual consistency, time box
 
 subcollection: Cloudant
 
