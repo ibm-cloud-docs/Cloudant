@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-25"
+lastupdated: "2022-06-10"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk docs, indexes
 
 subcollection: Cloudant
 
@@ -30,6 +30,37 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## June 2022
+{: #cloudant-jun22}
+
+### 10 June 2022
+{: #cloudant-jun1022}
+{: release-note}
+
+The following changes were made in build 8310:
+
+All dbs
+:   Fix `skip` and `limit` parameters for `_all_dbs` and `_dbs_info` endpoints.
+
+Attachments
+:   Wait until attachments are uploaded before responding to client.
+
+Bulk docs
+:   Return 500 errors when timeouts occur while loading documents in bulk.
+
+Compaction
+:   Retain compactor state across node reboots.
+
+IAM auth
+:   Retry `authz` endpoint on failure.
+
+Indexes
+:   Prevent creation of indexes with empty `name` or `ddoc` fields.
+:   Improve index building during shard splitting.
+
+Replicator
+:   Improve replicator stability during timeouts.
 
 ## May 2022
 {: #cloudant-may22}
