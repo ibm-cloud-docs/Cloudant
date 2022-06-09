@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-03"
+lastupdated: "2022-06-17"
 
 keywords: api, http, database, partitioned query, eventual consistency, time box
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Data modeling
 {: #data-modeling}
 
-If you're new to {{site.data.keyword.cloudantfull}}, but you're not new to database systems, the following information discusses the suggested practices from someone who sees the product from all angles: 
+You might be new to {{site.data.keyword.cloudantfull}}, but you're not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
 - The customers who use it.
 - The engineers who run it.
 - The folks who support and sell it.
@@ -104,7 +104,7 @@ For more information, see the following documentation:
 
 {{site.data.keyword.cloudant_short_notm}} imposes a max doc size of 1 MB. This limit does not mean that a close-to-1-MB document size is a good idea. On the contrary, if you find you are creating documents that exceed single-digit KB, you probably need to revisit your model. Several things in {{site.data.keyword.cloudant_short_notm}} become less performant as documents grow. JSON decoding is costly, for example.
 
-Let's look at these sections: *Documents must group data that mostly changes together* and *Keep documents small*. It’s worth stressing that models that rely on updates have an upper volume limit of 1 MB, the cut-off for document size. This size isn’t what you want.
+Let's look at the following sections: *Documents must group data that mostly changes together* and *Keep documents small*. It’s worth stressing that models that rely on updates have a maximum volume limit of 1 MB, the cut-off for document size. This size isn’t what you want.
 
 ## Avoid using attachments
 {: #avoid-using-attachments}
@@ -118,7 +118,7 @@ You must consider a few things before you use attachments in {{site.data.keyword
 
 So, slow and expensive.
 
-{{site.data.keyword.cloudant_short_notm}} is acceptable for small assets and occasional use. As a rule, if you need to store binary data alongside {{site.data.keyword.cloudant_short_notm}} documents, it’s better to use a separate solution more suited for this purpose. You only need to store the attachment *metadata* in the {{site.data.keyword.cloudant_short_notm}} document. Yes, that means you need to write some extra code to upload the attachment to a suitable block store of your choice. Verify that it succeeded before you store the token or URL to the attachment in the {{site.data.keyword.cloudant_short_notm}} document.
+{{site.data.keyword.cloudant_short_notm}} is acceptable for small assets and occasional use. As a rule, if you need to store binary data alongside {{site.data.keyword.cloudant_short_notm}} documents, it’s better to use a separate solution more suited for this purpose. You need only store the attachment *metadata* in the {{site.data.keyword.cloudant_short_notm}} document. Yes, that means you need to write some extra code to upload the attachment to a suitable block store of your choice. Verify that it succeeded before you store the token or URL to the attachment in the {{site.data.keyword.cloudant_short_notm}} document.
 
 Your databases are smaller, cheaper, faster, and easier to replicate. For more information, see the following websites:
 
@@ -134,7 +134,7 @@ The replicator scheduler has a limited number of simultaneous replication jobs t
 
 The flip side of the same coin is the operational aspect: {{site.data.keyword.cloudant_short_notm}}’s operations team relies on replication, too, to move around accounts. By keeping down the number of databases, you help us help you if you need to shift your account from one location to another.
 
-So when must you use a single database and distinguish between different document types by using views, and when must you use multiple databases to model your data? {{site.data.keyword.cloudant_short_notm}} can’t federate views across multiple databases. If you have unrelated data to the extent that it can never be “joined” or queried together, then that data could be a candidate for splitting across multiple databases.
+So when must you use a single database and distinguish between different document types by using views, and when must you use multiple databases to model your data? {{site.data.keyword.cloudant_short_notm}} can’t federate views across multiple databases. If you have unrelated data that can never be “joined” or queried together, then that data could be a candidate for splitting across multiple databases.
 
 If you have an ever-growing data set (like a log, sensor readings, or other types of time-series), it’s also not a good idea to create a single, ever-growing, massive database. This kind of use case requires time-boxing, which we cover in more detail later.
 {: note}
@@ -142,7 +142,7 @@ If you have an ever-growing data set (like a log, sensor readings, or other type
 ## Avoid the "database per user" anti-pattern like the plague
 {: #avoid-db-per-user}
 
-If you’re building out a multi-user service on top of {{site.data.keyword.cloudant_short_notm}}, it is tempting to let each user store their data in a separate database under the application account. That works well, mostly, if the number of users is small.
+If you’re building a multi-user service on top of {{site.data.keyword.cloudant_short_notm}}, it is tempting to let each user store their data in a separate database under the application account. That works well, mostly, if the number of users is small.
 
 Now add the need to derive cross-user analytics. The way that you do that is to replicate all the user databases into a single analytics database. All good. This app has suddenly become successful, and the number of users grew in the range of 150 - 20,000. You have 20,000 replications just to keep the analytics database current. If you also want to run in an active-active disaster recovery setup, add another 20,000 replications, and the system stops functioning.
 
@@ -155,7 +155,7 @@ It’s worth stating that the “database-per-user” approach is tempting becau
 
 The MapReduce views in {{site.data.keyword.cloudant_short_notm}} are awesome. However, with great power comes great responsibility. The map part of a MapReduce view is built incrementally, so shoddy code in the map impacts only indexing time, not query time. The reduce-part, unfortunately, executes at query time. {{site.data.keyword.cloudant_short_notm}} provides a set of built-in reduce functions that are implemented internally in [Erlang](https://www.erlang.org/){: external}, which are performant at scale, and which your hand-crafted JavaScript reduces are not.
 
-If you find yourself writing reduce functions, stop and consider whether you could reorganize your data so that this isn’t necessary or so that you’re able to rely on the built-in reducers. 
+If you find yourself writing reduce functions, stop and consider whether you could reorganize your data so that writing reduce functions isn’t necessary. Or so that you’re able to rely on the built-in reducers. 
 
 Views on partitioned databases do not support custom reduces, which is one factor that contributes to the significant speed-up queries on such views can offer.
 {: note}
@@ -167,7 +167,7 @@ For more information, see {{site.data.keyword.cloudant_short_notm}} docs on [red
 
 It’s generally *not* a good idea to have an ever-growing database in {{site.data.keyword.cloudant_short_notm}}. Large databases can be difficult to back up, require “resharding” to maintain good performance as they grow, and suffer from long index build times.
 
-One way of mitigating this problem is to have several smaller databases instead, with a common pattern that is *time boxed databases*: a large data set is split into smaller databases, each representing a time window, for example, a month.
+One way of mitigating this problem is to have several smaller databases instead, with a common pattern that is *time-boxed databases*: a large data set is split into smaller databases, each representing a time window, for example, a month.
 
 - `orders_2019_01`
 - `orders_2019_02`
