@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-03"
+lastupdated: "2022-06-17"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # {{site.data.keyword.cloudant_short_notm}} in practice
 {: #cloudant-in-practice}
 
-If you're new to {{site.data.keyword.cloudantfull}}, but you're not new to database systems, the following information discusses the suggested practices from someone who sees the product from all angles: 
+You might be new to {{site.data.keyword.cloudantfull}}, but you're not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
 - The customers who use it.
 - The engineers who run it.
 - The folks who support and sell it.
@@ -28,7 +28,7 @@ The content in this document was originally written by Stefan Kruger as a [*Best
 ## Avoid conflicts
 {: #avoid-conflicts}
 
-{{site.data.keyword.cloudant_short_notm}} is designed to treat conflicts as a natural state of data in a distributed system. This feature is a powerful feature that helps an {{site.data.keyword.cloudant_short_notm}} cluster always maintain high availability. However, the assumption is that conflicts are still reasonably rare. Tracking conflicts in {{site.data.keyword.cloudant_short_notm}}’s core adds significant associated cost.
+{{site.data.keyword.cloudant_short_notm}} is designed to treat conflicts as a natural state of data in a distributed system. This feature is a powerful feature that helps an {{site.data.keyword.cloudant_short_notm}} cluster always maintain high availability. However, the assumption is that conflicts are still reasonably rare. Tracking conflicts in {{site.data.keyword.cloudant_short_notm}}’s core has significant cost that is associated with it.
 
 It is perfectly possible (but a bad idea!) to ignore conflicts. The database merrily carries on operating by choosing a random, but deterministic revision of conflicted documents. However, as the number of unresolved conflicts grows, the performance of the database goes down a black hole, especially when you replicate.
 
@@ -50,11 +50,11 @@ Models that rely on frequent deletions of documents are not suitable for {{site.
 ## Be careful with updates
 {: #take-care-with-updates}
 
-It is more expensive in the end to mutate existing documents than to create new ones. {{site.data.keyword.cloudant_short_notm}} always needs to keep the document tree *structure around*, even if internal nodes in the tree are stripped of their payloads. If you find that you create long revision trees, your replication performance suffers. Moreover, if your update frequency is higher than, say, once or twice every few seconds, you’re more likely to produce update conflicts.
+It is more expensive in the end to mutate existing documents than to create new ones. {{site.data.keyword.cloudant_short_notm}} always needs to keep the document tree *structure around*. This rule applies even if internal nodes in the tree are stripped of their payloads. If you find that you create long revision trees, your replication performance suffers. Moreover, if your update frequency is higher than, say, once or twice every few seconds, you’re more likely to produce update conflicts.
 
 Prefer models that are immutable.
 
-The obvious question after these sections, *Deleting documents doesn't delete them* and *Be careful with updates*, is, does the data set grow unbounded if my model is immutable? If you accept that deletes don’t completely purge the deleted data and that updates are not updating in place in terms of data volume growth, not much difference exists. Managing data volume over time requires different techniques.
+These sections, *Deleting documents doesn't delete them* and *Be careful with updates*, provoke an obvious question. That is, does the data set grow unbounded if my model is immutable? If you accept that deletes don’t completely purge the deleted data and that updates are not updating in place in terms of data volume growth, not much difference exists. Managing data volume over time requires different techniques.
 
 The only way to truly reclaim space is to delete databases, rather than documents. You can replicate only winning revisions to a new database and delete the old to get rid of lingering deletes and conflicts. Or perhaps you can build it into your model to regularly start new databases (say ‘annual data’) and archive off (or remove) outdated data, if your use case allows.
 
@@ -82,7 +82,7 @@ So why don’t you just put a short delay in your test between the write and the
 
 {{site.data.keyword.cloudant_short_notm}} has no transactional guarantees. While document writes are atomic (you’re guaranteed that a document can either be read in its entirety, or not at all), no way exists to close the inconsistency window. It’s there by design.
 
-A more serious concern that must be at the forefront of every developer’s mind is that you can’t safely assume that data you write will be available to anyone else at a specific point in time. This state takes some getting used to if you come from a different kind of database tradition.
+A serious concern that every developer must consider is that you can’t safely assume that data you write is available to anyone else at a specific point in time. This state takes some getting used to if you come from a different kind of database tradition.
 
 **Testing Tip**: What you *can* do to avoid the inconsistency window in testing is to test against a single-node instance of {{site.data.keyword.cloudant_short_notm}} or CouchDB running say in Docker ([docker information](https://hub.docker.com/_/couchdb/){: external}). A single node removes the eventual consistency issue, but beware that you are testing against an environment that behaves differently from what you target in production. *Caveat Emptor*.
 
@@ -132,7 +132,7 @@ curl -XPOST 'https://ACCT.cloudant.com/DB/_bulk_docs' \
 ```
 {: codeblock}
 
-You can also fetch many documents at once by issuing a POST to `_all_docs` (a newish endpoint that is called `_bulk_get` also exists, but this endpoint is probably not what you want. It’s there for a specific internal purpose).
+You can also fetch many documents at once by issuing a POST to `_all_docs` (a relatively new endpoint that is called `_bulk_get` also exists, but this endpoint is probably not what you want. It’s there for a specific internal purpose).
 
 To fetch a fixed set of docs by using `_all_docs`, `POST` with a `keys` body:
 
@@ -164,14 +164,14 @@ Don’t go there. The behavior can be much harder to understand especially durin
 
 Sometimes, tweaking the shard count for a database is essential to get the best possible performance. If you can’t say why, you’re likely to make your situation worse.
 
-## {{site.data.keyword.cloudant_short_notm}} is rate limited
+## {{site.data.keyword.cloudant_short_notm}} is rate limited-let this inform your code
 {: #cloudant-rate-limited}
 
-Cloudant-the-service (unlike basic CouchDB) is sold on a “reserved throughput capacity” model. That means that you pay for the *right to use* up to a certain throughput, rather than the throughput you end up consuming. This *right to use* method takes a while to sink in. One flaky comparison might be that of a cell phone contract where you pay for a set number of minutes regardless of whether you use them or not.
+Cloudant-the-service (unlike basic CouchDB) is sold on a “reserved throughput capacity” model. That means that you pay for the *right to use* up to a certain throughput, rather than the throughput you end up consuming. The *right to use* method takes a while to sink in. One flaky comparison might be that of a cell phone contract where you pay for a set number of minutes regardless of whether you use them or not.
 
 Although the cell phone contract comparison doesn’t capture the whole situation, no constraint exists on the sum of requests that you can make to {{site.data.keyword.cloudant_short_notm}} in a month. The constraint is on how *fast* you make requests. 
 
-It’s really a promise that you make to {{site.data.keyword.cloudant_short_notm}}, not one that {{site.data.keyword.cloudant_short_notm}} makes to you: you promise not to make more requests per second than you agreed to up front. A top speed limit, if you like. If you transgress, {{site.data.keyword.cloudant_short_notm}} fails your requests with a status of `429: Too Many Requests`. It’s your responsibility to look out for this case, and deal with it, which can be difficult when multiple app servers exist. How can they coordinate to ensure that they collectively stay below the requests-per-second limit?
+It’s really a promise that you make to {{site.data.keyword.cloudant_short_notm}}, not one that {{site.data.keyword.cloudant_short_notm}} makes to you. You promise not to make more requests per second than you agreed to up front. A maximum speed limit, if you like. If you transgress, {{site.data.keyword.cloudant_short_notm}} fails your requests with a status of `429: Too Many Requests`. It’s your responsibility to look out for this case, and deal with it, which can be difficult when multiple app servers exist. How can they coordinate to ensure that they collectively stay lower than the requests-per-second limit?
 
 {{site.data.keyword.cloudant_short_notm}}’s official client libraries have some built-in provision for this use case that can be enabled (Note: This provision is switched off by default to force you to think about it), following a “back-off and retry” strategy. However, if you rely on this facility alone, you might eventually be disappointed. The back-off and retry strategy helps only in cases of temporary transgression, not a persistent butting up against your provisioned throughput capacity limits.
 
@@ -181,9 +181,9 @@ Provisioned throughput capacity is split into three different buckets: *Lookups*
  
 You get different allocations of each and the ratios between them are fixed. This fact can be used to optimize for cost. You get 20 *Lookups* for every one *Query* (per second). You might find that you’re mainly hitting the *Query* limit, but you have plenty of headroom in *Lookups*. It might be possible to reduce the reliance on *Queries* through some remodeling of the data or perhaps doing more work client-side.
 
-The corollary here though is that you can’t assume that any third-party library or framework optimizes for cost ahead of convenience. Client-side frameworks that support multiple persistence layers by using plug-ins are unlikely to be aware of this situation, or even capable of making such tradeoffs.
+The corollary here though is that you can’t assume that any third-party library or framework optimizes for cost ahead of convenience. Client-side frameworks that support multiple persistence layers by using plug-ins are unlikely to be aware of this situation, or might be incapable of making such tradeoffs.
 
-Checking for third party library or framework compatibility before you commit to a particular tool is a good idea.
+Checking for third-party library or framework compatibility before you commit to a particular tool is a good idea.
 
 It is also worth understanding that the rates aren’t directly equivalent to HTTP API endpoint calls. You must expect that, for example, a bulk update counts according to its constituent document writes.
 

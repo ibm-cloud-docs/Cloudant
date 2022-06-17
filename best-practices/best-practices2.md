@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-06-17"
 
 keywords: cloudant search, cloudant query, conflicts, delete documents, updates, replication, bulk api, eventual consistency
 
@@ -16,7 +16,7 @@ subcollection: Cloudant
 # Indexing and querying
 {: #indexing-and-querying}
 
-If you're new to {{site.data.keyword.cloudantfull}} but you're not new to database systems, the following information discusses the suggested practices from someone who sees the product from all angles: 
+You might be new to {{site.data.keyword.cloudantfull}}, but you're not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
 - The customers who use it.
 - The engineers who run it.
 - The folks who support and sell it.
@@ -24,7 +24,7 @@ If you're new to {{site.data.keyword.cloudantfull}} but you're not new to databa
 
 For more information, see [Data modeling](https://test.cloud.ibm.com/docs/Cloudant?topic=Cloudant-data-modeling) or [{{site.data.keyword.cloudant_short_notm}} in practice](/docs/Cloudant?topic=Cloudant-cloudant-in-practice).
 
-The content in this document was originally written by Stefan Kruger as a [*Best and Worst Practice*](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog post on 21 November 2019.
+The content in this document was originally written by Stefan Kruger as a [*Best and worst practice*](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog post on 21 November 2019.
 
 ## Understand the tradeoffs in emitting data or not into a view
 {: #tradeoffs-emit-data-or-not-in-view}
@@ -62,7 +62,7 @@ If you change your mind on what fields you want to emit, the index needs rebuild
 ## Never rely on the default behavior of {{site.data.keyword.cloudant_short_notm}} Query’s no-indexing
 {: #never-rely-on-cloudant-queries-no-indexing}
 
-It’s tempting to rely on {{site.data.keyword.cloudant_short_notm}} Query's ability to query without creating explicit indexes. This practice is costly in terms of performance, as every lookup is a full scan of the database rather than an indexed lookup. If your data is small, this full-scan lookup doesn’t matter, but as the data set grows, performance becomes a problem for you, and for the cluster as a whole. It is likely that we will limit this facility in the near future. The {{site.data.keyword.cloudant_short_notm}} dashboard provides a method for creating indexes in an easy way.
+It’s tempting to rely on {{site.data.keyword.cloudant_short_notm}} Query's ability to query without creating explicit indexes. This practice is costly in terms of performance, as every lookup is a full scan of the database rather than an indexed lookup. If your data is small, this full-scan lookup doesn’t matter, but as the data set grows, performance becomes a problem for you, and for the cluster as a whole. It is likely that we will limit this facility soon. The {{site.data.keyword.cloudant_short_notm}} dashboard provides a method for creating indexes in an easy way.
 
 Creating indexes and crafting {{site.data.keyword.cloudant_short_notm}} Queries that take advantage of them requires some flair. To identify which index is being used by a particular query, send a POST to the `_explain` endpoint for the database, with the query as data.
 
@@ -86,7 +86,7 @@ Design documents themselves are read and written by using the same read/write en
 
 In most cases, this process is probably not what you want to have to deal with. As you start out, it is most likely more convenient to have a one-view-per-design document policy.
 
-Also, in case it isn’t obvious, views are code. Views must be subject to the same processes you use in terms of source code version management for the rest of your application code. How to achieve this standard might not be immediately obvious. You could increase the version number for the JavaScript snippets. Then you could cut and paste the code into the {{site.data.keyword.cloudant_short_notm}} dashboard to deploy whenever a change occurs. Yes, we all resort to this practice from time to time.
+Also, in case it isn’t obvious, views are code. Views must be subject to the same processes you use in terms of source code version management for the rest of your application code. How to achieve this standard might not be immediately obvious. You could increase the version number for the JavaScript snippets. Then, you could cut and paste the code into the {{site.data.keyword.cloudant_short_notm}} dashboard to deploy whenever a change occurs. Yes, we all resort to this practice from time to time.
 
 Better ways to do this exist, and we have one reason to use some of the tools that surround the [`couchapp`](https://docs.couchdb.org/en/stable/ddocs/){: external} concept. A `couchapp` is a self-contained CouchDB web application that nowadays doesn’t see much use. Several `couchapp` tools exist that are there to make the deployment of a `couchapp`, including its views, crucially, easier.
 
@@ -100,7 +100,7 @@ Using a `couchapp` tool means that you can automate deployment of views as neede
 
 Yes, partitioned queries are faster and cheaper. Opting to create a *partitioned database* (as opposed to an unpartitioned database) means that {{site.data.keyword.cloudant_short_notm}} uses a *partition key* to decide on which shard each of your documents resides. Documents with the same *partition key* are on the same database shard. Requests for `_all_docs`, MapReduce views, {{site.data.keyword.cloudant_short_notm}} Query `_find` queries, and {{site.data.keyword.cloudant_short_notm}} Search operations can be directed to a single partition instead of having to interrogate all shards in a “scatter and gather” pattern, which is the case for *global queries*.
 
-These *partitioned queries* exercise only one shard of the database. This practice makes them faster to execute than global queries. For billing purposes, they are classified as “read” requests instead of the more expensive “query” requests, which allows you to get more usable capacity from the same {{site.data.keyword.cloudant_short_notm}} plan.
+These *partitioned queries* exercise only one shard of the database. This practice makes them faster to execute than global queries. For billing purposes, they are classified as “read” requests instead of the more expensive “query” requests, which provides you with more usable capacity from the same {{site.data.keyword.cloudant_short_notm}} plan.
 
 Not all data designs lend themselves to a partitioned design, but if your data can be molded into a `<partition key>:<document key>` pattern, then your application can benefit in terms of performance and cost.
 
@@ -114,7 +114,7 @@ A default {{site.data.keyword.cloudant_short_notm}} document `_id` is a 32-chara
 
 See some examples here:
 
-- Use time-sortable document IDs so that your documents are sorted into rough date/time order. This sorting makes it easy to retrieve recent additions to the database. For more information, see [Time-sortable -ids](https://blog.cloudant.com/2018/08/24/Time-sortable-document-ids.html){: external}.
+- Use time-sortable document IDs so that your documents are sorted into rough date and time order. This sorting makes it easy to retrieve recent additions to the database. For more information, see [Time-sortable -IDs](https://blog.cloudant.com/2018/08/24/Time-sortable-document-ids.html){: external}.
 - Pack searchable data into your `_id` field, for example,  `<customerid>~<date>~<orderid>` can be used to retrieve data by `customer`, `customer/date`, or `customer/date/orderid`.
 - In a partitioned database, the judicious choice of *partition key* allows an entire database to be winnowed down to a handful of documents for a known partition key. Make sure that your partitioning schema solves your most common use case.
 - In a partitioned database, the two parts of the key have to contain your user-supplied data (no auto-generated `_ids` exist) so it’s best to use it optimally. For example, in an IoT application, `<sensorid>:<time-sortable-id>` allows data to be sorted by sensor and time without a secondary index. Implement this schema with *time-boxed databases* for best results.
