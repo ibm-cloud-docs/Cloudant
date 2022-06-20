@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-11"
+lastupdated: "2022-06-17"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -40,7 +40,7 @@ With the {{site.data.keyword.compliance_short}}, you can:
 
 As a security or compliance focal, you can use the {{site.data.keyword.cloudant_short_notm}} [goals](#x2117978){: term} to help ensure that your organization is adhering to the external and internal standards for your industry. By using the {{site.data.keyword.compliance_short}} to validate the resource configurations in your account against a [profile](#x2034950){: term}, you can identify potential issues as they arise.
 
-{{site.data.keyword.cloudant_short_notm}} goals are added to the {{site.data.keyword.cloud_notm}} best practices 1.0 profile but can also be mapped to other profiles.
+{{site.data.keyword.cloudant_short_notm}} goals are added to the {{site.data.keyword.cloud_notm}} Control Library but can also be mapped to other profiles.
 {: note}
 
 To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started).
