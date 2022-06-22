@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-06-23"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -16,17 +16,7 @@ completion-time: 20m
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:step: data-tutorial-type='step'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting started with {{site.data.keyword.cloudant_short_notm}}
 {: #getting-started-with-cloudant}

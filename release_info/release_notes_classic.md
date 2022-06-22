@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-10"
+lastupdated: "2022-06-23"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk docs, indexes
 
@@ -12,18 +12,7 @@ content-type: release-note
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
 {{site.data.keyword.attribute-definition-list}}
-{:release-note: data-hd-content-type='release-note'}
 
 # Release notes for {{site.data.keyword.cloudant_short_notm}} Classic
 {: #classic-release-notes}

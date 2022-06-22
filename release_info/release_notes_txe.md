@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-29"
+  years: 2015, 2022
+lastupdated: "2022-06-23"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, operator, classic, transaction engine, couchdb
 
@@ -12,18 +12,7 @@ content-type: release-note
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
 {{site.data.keyword.attribute-definition-list}}
-{:release-note: data-hd-content-type='release-note'}
 
 # Release notes for {{site.data.keyword.cloudant_short_notm}} for Transaction Engine
 {: #release-notes-txe}

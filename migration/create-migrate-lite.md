@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-11"
+  years: 2015, 2022
+lastupdated: "2022-06-23"
 
 keywords: lite plan, standard plan, pricing plans
 
@@ -10,17 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:video: .video}
+{{site.data.keyword.attribute-definition-list}}
 
 # Migrating from a Lite plan to a Standard plan
 {: #migrating-from-a-lite-plan-to-a-standard-plan}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-06-23"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -10,17 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:video: .video}
+{{site.data.keyword.attribute-definition-list}}
 
 # Migrating an Enterprise plan to a Lite or Standard plan
 {: #migrating-an-enterprise-plan-to-a-lite-or-standard-plan}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-01"
+  years: 2015, 2022
+lastupdated: "2022-06-23"
 
 keywords: database-as-a-service,json document store, lite plan, standard plan, enterprise plan, benefits of lite and standard plans
 
@@ -10,17 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:video: .video}
+{{site.data.keyword.attribute-definition-list}}
 
 # Migration overview
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}

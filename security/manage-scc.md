@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-17"
+lastupdated: "2022-06-23"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -10,18 +10,6 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:term: .term}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
 {{site.data.keyword.attribute-definition-list}}
 
 # Managing security and compliance with {{site.data.keyword.cloudant_short_notm}}

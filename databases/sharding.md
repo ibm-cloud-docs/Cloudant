@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-06-22"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -10,16 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # How is data stored in {{site.data.keyword.cloudant_short_notm}}?
 {: #how-is-data-stored-in-ibm-cloudant-}

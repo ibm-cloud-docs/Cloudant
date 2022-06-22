@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-25"
+lastupdated: "2022-06-23"
 
 keywords: db2 warehouse on cloud, db2 warehouse console, find your service credentials, log in to db2 warehouse console
 
@@ -15,17 +15,7 @@ completion-time: 20m
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:step: data-tutorial-type='step'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Locating your {{site.data.keyword.dashdbshort_notm}} credentials
 {: #locating-db2-warehouse-credentials}

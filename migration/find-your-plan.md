@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-01"
+  years: 2021, 2022
+lastupdated: "2022-06-23"
 
 keywords: ibm cloudant plan, standard plan, lite plan, legacy enterprise plan
 
@@ -10,17 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:video: .video}
+{{site.data.keyword.attribute-definition-list}}
 
 # Finding your {{site.data.keyword.cloudant_short_notm}} plan
 {: #find-your-ibm-cloudant-plan}
