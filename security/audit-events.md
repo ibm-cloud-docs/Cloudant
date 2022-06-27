@@ -76,52 +76,113 @@ The API to view and change the event types requires {{site.data.keyword.IBM_notm
 
 The `/_api/v2/user/activity_tracker/events` endpoint returns a `types` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance.
 
-See the following example request by using HTTP:
+See the following example request to retrieve information about configured event types by using HTTP:
 
 ```http
-GET /_api/v2/user/activity_tracker/events
+GET $SERVICE_URL/_api/v2/user/activity_tracker/events
 ```
 {: codeblock}
 
-See the following example request by using cURL. Complete the following steps:
 
-1. Get an IAM token. For example, you can run the following command from the command line:
+Before you run a `curl` request, run the following command from the command line to acquire a JWT token: `ibmcloud iam oauth-tokens | awk '{print $4}'`
+{: note}
 
-    ```sh
-    ibmcloud iam oauth-tokens | awk '{print $4}'
-    ```
-    {: pre}
 
-2. Get the external endpoint that is associated with the {{site.data.keyword.cloudant_short_notm}} instance.
+See the following example request to retrieve information about event types:
 
-    a. Go to the Resource list. </br>
-    b. Select the {{site.data.keyword.cloudant_short_notm}} instance.</br>
-    c. In the *Manage* section, select **Overview**.</br>
-       You can find the external endpoint in the *Deployment details* section.
+```sh
+curl -H "Authorization: Bearer $JWT" -X GET "$SERVICE_URL/_api/v2/user/activity_tracker/events"
+```
+{: codeblock}
+{: curl}
 
-3. Run a cURL command to get the information:
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ActivityTrackerEvents;
 
-    ```sh
-    curl -X GET -H "Authorization: Bearer $JWT" https://499678c3-ead7-4731-b96a-fcb2974cb042-bluemix.cloudant.com/_api/v2/user/activity_tracker/events
-    ```
-    {: pre}
+Cloudant service = Cloudant.newInstance();
+
+ActivityTrackerEvents response =
+    service.getActivityTrackerEvents().execute().getResult();
+
+System.out.println(response)
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getActivityTrackerEvents().then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_activity_tracker_events().get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getActivityTrackerEventsOptions := service.NewGetActivityTrackerEventsOptions()
+
+activityTrackerEvents, response, err := service.GetActivityTrackerEvents(getActivityTrackerEventsOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(activityTrackerEvents, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+
+The previous Go example requires the following import block:
+{: go}
+
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 
 When you check what events are enabled, you get one of the following responses.
 
 - Response when both management and data event types are sent:
 
-    ```json
-    {"types": ["management", "data"]}
-    ```
-    {: codeblock}
+```json
+{"types": ["management", "data"]}
+```
+{: codeblock}
 
 - Response when only management events are sent:
 
-    ```json
-    {"types": ["management"]}
-    ```
-    {: screen}
+```json
+{"types": ["management"]}
+```
+{: codeblock}
 
 
 
@@ -131,20 +192,111 @@ When you check what events are enabled, you get one of the following responses.
 
 You can configure data events by sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint and passing a JSON object with a `types` field.
 
-See the following example request by using a cURL command:
-
-```shßß
-curl https://4ca678c3-ead7-4731-b96a-fcb2974cb042-bluemix.cloudant.com/_api/v2/user/activity_tracker/events -X POST   -d '{"types": ["management", "data"]}' -H "content-type: application/json" -H "Authorization: Bearer $JWT"
-```
-{: pre}
-
-
-See the following example request by using HTTP:
+See the following example request to configure event types by using HTTP:
 
 ```http
-POST /_api/v2/user/activity_tracker/events
+POST $SERVICE_URL/_api/v2/user/activity_tracker/events
 ```
 {: codeblock}
+
+
+See the following example request to configure event types:
+
+```sh
+curl -H "Authorization: Bearer $JWT" -X POST "$SERVICE_URL/_api/v2/user/activity_tracker/events" --data '{"types": ["management", "data"]}'
+```
+{: codeblock}
+{: curl}
+
+
+```java
+import java.util.Arrays;
+
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Ok;
+import com.ibm.cloud.cloudant.v1.model.PostActivityTrackerEventsOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostActivityTrackerEventsOptions options =
+    new PostActivityTrackerEventsOptions.Builder()
+        .types(Arrays.asList("management", "data"))
+        .build();
+
+Ok response =
+    service.postActivityTrackerEvents(options).execute().getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postActivityTrackerEvents({
+  types: ['management', 'data'],
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_activity_tracker_events(
+  types=['management', 'data']
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+
+```go
+postActivityTrackerEventsOptions := service.NewPostActivityTrackerEventsOptions(
+  []string{"management", "data"},
+)
+
+activityTrackerEvents, response, err := service.PostActivityTrackerEvents(postActivityTrackerEventsOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(activityTrackerEvents, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+
+The previous Go example requires the following import block:
+{: go}
+
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
 
 The following example response shows that the update was accepted:
 
