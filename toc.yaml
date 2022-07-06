@@ -43,18 +43,6 @@ toc:
           - transaction-engine/pricing-te.md
           - transaction-engine/pagination.md
       - topicgroup: 
-          label: Apache CouchDB
-          topics:
-          - couchdb/overview-couchdb.md
-          - couchdb/comparison.md
-          - couchdb/install-couchdb.md
-          - couchdb/install_operator.md
-          - couchdb/configure_cluster.md
-          - couchdb/deploy_cluster.md
-          - couchdb/access_couchdb.md
-          - couchdb/troubleshoot-operator.md
-          - couchdb/support-couchdb.md
-      - topicgroup: 
           label: Release notes
           topics: 
           - release_info/release_notes_classic.md
@@ -210,7 +198,11 @@ toc:
               label: Gather, visualize, and analyze IoT data
               href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-gather-visualize-analyze-iot-data#gather-visualize-analyze-iot-data
       - libraries/client-libraries.md
-      - basics/compare.md
+      - topicgroup:
+          label: Apache CouchDB
+          topics: 
+          - couchdb/comparison.md
+          - couchdb/compare.md
       - topicgroup:
           label: Other offerings
           topics: 
