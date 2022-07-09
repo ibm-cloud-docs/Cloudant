@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-07-12"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -1724,12 +1724,110 @@ curl "$SERVICE_URL/movies/_explain" \
 	}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ExplainResult;
+import com.ibm.cloud.cloudant.v1.model.PostExplainOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+
+Cloudant service = Cloudant.newInstance();
+
+Map<String, Object> selector = new HashMap<>();
+selector.put("$text", "Pacino");
+selector.put("year", 2010);
+
+PostExplainOptions explainOptions =
+    new PostExplainOptions.Builder()
+        .db("movies")
+        .selector(selector)
+        .build();
+
+ExplainResult response =
+    service.postExplain(explainOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+let selector: CloudantV1.Selector = {
+    '$text': 'Pacino',
+    'year': 2010
+};
+
+service.postExplain({
+  db: 'movies',
+  selector: selector
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_find(
+  db='movies',
+  selector={'$text': 'Pacino', 'year': 2010}
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postExplainOptions := service.NewPostExplainOptions(
+    "movies",
+    map[string]interface{}{
+        "$text": "Pacino",
+        "year":  2010,
+    },
+)
+
+explainResult, _, err := service.PostExplain(postExplainOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(explainResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example response that shows which index was used to answer a query:
 
 ```json
 {
-	"dbname": "examples/movies",
+	"dbname": "$ACCOUNT/movies",
 	"index": {
 		"ddoc": "_design/32372935e14bed00cc6db4fc9efca0f1537d34a8",
 		"name": "32372935e14bed00cc6db4fc9efca0f1537d34a8",
@@ -1940,55 +2038,6 @@ The "#" comments aren't valid Lucene syntax, but help explain the query construc
 ## Example - Movies demo database
 {: #example-movies-demo-database}
 
-To describe full text indexes,
-it's helpful to have a large collection of data to work with.
-A suitable collection is available in the example {{site.data.keyword.cloudant_short_notm}} Query movie database: `query-movies`.
-The sample database contains approximately 3,000 documents and is just under 1 MB.
-
-You can obtain a copy of this database in your database,
-giving it the name `my-movies`,
-by running one of the commands mentioned in the following text.
-
-See the following example that uses HTTP to obtain a copy of the {{site.data.keyword.cloudant_short_notm}} Query movie database:
-
-```http
-POST /_replicator HTTP/1.1
-Host: user.cloudant.com
-Content-Type: application/json
-{
-	"source": "$SERVICE_URL/query-movies",
-	"target": "$SERVICE_URL/my-movies",
-	"create_target": true,
-	"use_checkpoints": false
-}
-```
-{: codeblock}
-
-See the following example that uses the command line to obtain a copy of the {{site.data.keyword.cloudant_short_notm}} Query movie database:
-
-```sh
-curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_replicator" \
-	-X POST \
-	-H "Content-Type: application/json" \
-	-d '{
-		"source": "$SERVICE_URL/query-movies",
-		"target": "$SERVICE_URL/my-movies",
-		"create_target": true,
-		"use_checkpoints": false
-	}'
-```
-{: codeblock}
-
-See the results after a successful replication of the {{site.data.keyword.cloudant_short_notm}} Query movie database:
-
-```json
-{
-	"ok": true,
-	"use_checkpoints": false
-}
-```
-{: codeblock}
-
 Before you can search the content,
 it must be indexed by creating a text index for the documents.
 
@@ -1996,7 +2045,7 @@ See the following example that uses HTTP to create a `text` index for your sampl
 
 ```http
 POST /my-movies/_index HTTP/1.1
-Host: user.cloudant.com
+Host: $SERVICE_URL
 Content-Type: application/json
 {
 	"index": {},
@@ -2014,11 +2063,107 @@ curl "$SERVICE_URL/my-movies/_index" \
 	-d '{"index": {}, "type": "text"}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.IndexDefinition;
+import com.ibm.cloud.cloudant.v1.model.IndexResult;
+import com.ibm.cloud.cloudant.v1.model.PostIndexOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+IndexDefinition indexDefinition = new IndexDefinition.Builder()
+   .build();
+
+PostIndexOptions indexOptions = new PostIndexOptions.Builder()
+    .db("my-movies")
+    .index(indexDefinition)
+    .type("text")
+    .build();
+
+IndexResult response =
+    service.postIndex(indexOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+let index: CloudantV1.IndexDefinition = {}
+
+service.postIndex({
+  db: 'my-movies',
+  index: index,
+  type: 'text'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1, IndexDefinition
+
+service = CloudantV1.new_instance()
+
+index = IndexDefinition()
+
+response = service.post_index(
+  db='my-movies',
+  index=index,
+  type='text'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postIndexOptions := service.NewPostIndexOptions(
+    "my-movies",
+    &cloudantv1.IndexDefinition{},
+)
+postIndexOptions.SetType("text")
+
+indexResult, _, err := service.PostIndex(postIndexOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(indexResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example response after a `text` index is created successfully:
 
 ```json
 {
+    "id": "_design/bf936ad6eb87f03c2b42ae153377462844575e40",
+    "name": "bf936ad6eb87f03c2b42ae153377462844575e40",
 	"result": "created"
 }
 ```
@@ -2039,7 +2184,7 @@ See the following example that uses HTTP to search for a specific document withi
 
 ```http
 POST /my-movies/_find HTTP/1.1
-Host: user.cloudant.com
+Host: $SERVICE_URL
 Content-Type: application/json
 {
   "selector": {
@@ -2053,10 +2198,104 @@ See the following example that uses the command line to search for a specific do
 
 ```sh
 curl -X POST -H "Content-Type: application/json" \
-	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
+	"$SERVICE_URL/my-movies/_find" \
 	-d '{"selector": {"Person_name":"Zoe Saldana"}}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.FindResult;
+import com.ibm.cloud.cloudant.v1.model.PostFindOptions;
+
+import java.util.Collections;
+import java.util.Map;
+
+Cloudant service = Cloudant.newInstance();
+
+Map<String, Object> selector = Collections.singletonMap(
+    "Person_name", "Zoe Saldana");
+
+PostFindOptions findOptions = new PostFindOptions.Builder()
+    .db("my-movies")
+    .selector(selector)
+    .build();
+
+FindResult response =
+    service.postFind(findOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+let selector: CloudantV1.JsonObject = {
+  Person_name: 'Zoe Saldana'
+};
+
+service.postFind({
+  db: 'my-movies',
+  selector: selector,
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_find(
+  db='my-movies',
+  selector={'Person_name': 'Zoe Saldana'}
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postFindOptions := service.NewPostFindOptions(
+    "my-movies",
+    map[string]interface{}{
+        "Person_name": "Zoe Saldana",
+    },
+)
+
+findResult, _, err := service.PostFind(postFindOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(findResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example result from the search:
 
@@ -2086,7 +2325,7 @@ See the following example that uses HTTP for a slightly more complex search:
 
 ```http
 POST /my-movies/_find HTTP/1.1
-Host: user.cloudant.com
+Host: $SERVICE_URL
 Content-Type: application/json
 {
 	"selector": {
@@ -2101,10 +2340,107 @@ See the following example that uses the command line for a slightly more complex
 
 ```sh
 curl -X POST -H "Content-Type: application/json" \
-	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
+	"$SERVICE_URL/my-movies/_find" \
 	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": 1978}}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.FindResult;
+import com.ibm.cloud.cloudant.v1.model.PostFindOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+
+Cloudant service = Cloudant.newInstance();
+
+Map<String, Object> selector = new HashMap<>();
+selector.put("Person_name", "Robert De Niro");
+selector.put("Movie_year", 1978);
+
+PostFindOptions findOptions = new PostFindOptions.Builder()
+    .db("my-movies")
+    .selector(selector)
+    .build();
+
+FindResult response =
+    service.postFind(findOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+let selector: CloudantV1.JsonObject = {
+  Person_name: 'Robert De Niro',
+  Movie_year: 1978
+};
+
+service.postFind({
+  db: 'my-movies',
+  selector: selector,
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_find(
+  db='my-movies',
+  selector={'Person_name': 'Robert De Niro', 'Movie_year': 1978}
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postFindOptions := service.NewPostFindOptions(
+    "my-movies",
+    map[string]interface{}{
+        "Person_name": "Robert De Niro",
+        "Movie_year": 1978,
+    },
+)
+
+findResult, _, err := service.PostFind(postFindOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(findResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example result from the search:
 
@@ -2133,7 +2469,7 @@ See the following example that uses HTTP to search within a range:
 
 ```http
 POST /my-movies/_find HTTP/1.1
-Host: user.cloudant.com
+Host: $SERVICE_URL
 Content-Type: application/json
 {
   "selector": {
@@ -2150,10 +2486,114 @@ See the following example that uses the command line to search within a range:
 
 ```sh
 curl -X POST -H "Content-Type: application/json" \
-	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
+	"$SERVICE_URL/my-movies/_find" \
 	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": { "$in": [1974, 2009]}}}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.ExplainResult;
+import com.ibm.cloud.cloudant.v1.model.PostExplainOptions;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+Cloudant service = Cloudant.newInstance();
+
+Map<String, Object> selector = new HashMap<>();
+selector.put("Person_name", "Robert De Niro");
+selector.put("Movie_year",
+    Collections.singletonMap("$in", Arrays.asList(1978, 2009)));
+
+PostExplainOptions explainOptions =
+    new PostExplainOptions.Builder()
+        .db("my-movies")
+        .selector(selector)
+        .build();
+
+ExplainResult response =
+    service.postExplain(explainOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+let selector: CloudantV1.JsonObject = {
+  Person_name: 'Robert De Niro',
+  Movie_year: {'$in': [1978, 2009]}
+};
+
+service.postFind({
+  db: 'my-movies',
+  selector: selector,
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_find(
+  db='my-movies',
+  selector={'Person_name': 'Robert De Niro',
+    'Movie_year': {'$in': (1978, 2009)}}
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postFindOptions := service.NewPostFindOptions(
+    "my-movies",
+    map[string]interface{}{
+        "Person_name": "Robert De Niro",
+        "Movie_year": map[string][]interface{}{
+            "$in": []interface{}{1978, 2009},
+        },
+    },
+)
+
+findResult, _, err := service.PostFind(postFindOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(findResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example result from the search:
 
