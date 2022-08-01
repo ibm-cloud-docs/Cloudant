@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk docs, indexes
 
@@ -19,6 +19,29 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## August 2022
+{: #cloudant-aug22}
+
+### 5 August 2022
+{: #cloudant-aug0522}
+{: release-note}
+
+The following changes were made in build 8335:
+
+Bulk docs
+:   Improve performance for `_bulk_docs` endpoint.
+
+Compaction
+:   Fix bugs in automatic compaction.
+:   Fix race between database deletion and compaction.
+
+Document updates
+:   Improve reliability of document updates during heavy load.
+:   Return a 400 response for `new_edits=false` document update without revisions.
+
+Replicator
+:   Introduce numerous performance improvements.
 
 ## June 2022
 {: #cloudant-jun22}
