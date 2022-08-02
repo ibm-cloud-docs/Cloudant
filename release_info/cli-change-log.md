@@ -17,7 +17,7 @@ subcollection: Cloudant
 In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.cloudantfull}} CLI. 
 
 ## Version 0.0.5
-{: #cli-010}
+{: #cli-005}
 
 Version `0.0.5` of the CLI was released on 21 July 2022. 
 
