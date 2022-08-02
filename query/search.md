@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-02"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -364,10 +364,94 @@ Content-Type: application/json
 See the following example that uses the command line to test the `keyword` analyzer:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/_search_analyze" -H "Content-Type: application/json"
+curl "https://$ACCOUNT.cloudant.com/_search_analyze" \
+	-H "Content-Type: application/json" \
 	-d '{"analyzer":"keyword", "text":"ablanks@renovations.com"}'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostSearchAnalyzeOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchAnalyzeResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostSearchAnalyzeOptions searchAnalyzerOptions =
+    new PostSearchAnalyzeOptions.Builder()
+        .analyzer("keyword")
+        .text("ablanks@renovations.com")
+        .build();
+
+SearchAnalyzeResult response =
+    service.postSearchAnalyze(searchAnalyzerOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.postSearchAnalyze({
+	analyzer: 'keyword',
+	text: 'ablanks@renovations.com',
+}).then(response => {
+	console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_search_analyze(
+	analyzer='keyword',
+	text='ablanks@renovations.com'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postSearchAnalyzeOptions := service.NewPostSearchAnalyzeOptions(
+	"keyword",
+	"ablanks@renovations.com",
+)
+
+searchAnalyzeResult, _, err := service.PostSearchAnalyze(postSearchAnalyzeOptions)
+if err != nil {
+	panic(err)
+}
+
+b, _ := json.MarshalIndent(searchAnalyzeResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following result that tests the `keyword` analyzer:
 
@@ -436,32 +520,233 @@ See the following example that uses HTTP to query a partitioned index:
 ```http
 GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
 Content-Type: application/json
-Host: account.cloudant.com
-```
-{: codeblock}
-
-See the following example that uses HTTP to query a global index:
-
-```http
-GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
-Content-Type: application/json
-Host: account.cloudant.com
+Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
 See the following example that uses the command line to query a partitioned index:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1"
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query=\"*:*\"&limit=1"
+```
+{: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostPartitionSearchOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostPartitionSearchOptions searchOptions =
+    new PostPartitionSearchOptions.Builder()
+		.db("<db-name>")
+		.partitionKey("<partition-key>")
+		.ddoc("<ddoc>")
+		.index("<index-name>")
+		.query("*:*")
+		.includeDocs(true)
+		.limit(1)
+		.build();
+
+SearchResult response =
+    service.postPartitionSearch(searchOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.postSearch({
+	db: '<db-name>',
+	partitionKey: '<partition-key>',
+	ddoc: '<ddoc>',
+	index: '<index-name>',
+	query: '*:*',
+	includeDocs: true,
+	limit: 1
+}).then(response => {
+	console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_search(
+	db='<db-name>',
+	partition_key='<partition-key>',
+	ddoc='<ddoc>',
+	index='<index-name>',
+	query='*:*',
+	include_docs=True,
+	limit=1
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postPartitionSearchOptions := service.NewPostPartitionSearchOptions(
+	"<db-name>",
+	"<partition-key>",
+	"<ddoc>",
+	"<index-name>",
+	"*:*",
+)
+postPartitionSearchOptions.SetIncludeDocs(true)
+postPartitionSearchOptions.SetLimit(1)
+
+searchResult, _, err := service.PostPartitionSearch(postPartitionSearchOptions)
+if err != nil {
+	panic(err)
+}
+
+b, _ := json.MarshalIndent(searchResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+See the following example that uses HTTP to query a global index:
+
+```http
+GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
+Content-Type: application/json
+Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
 See the following example that uses the command line to query a global index:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1"
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query=\"*:*\"&limit=1"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostSearchOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostSearchOptions searchOptions = new PostSearchOptions.Builder()
+    .db("<db-name>")
+    .ddoc("<ddoc>")
+    .index("<index-name>")
+    .query("*:*")
+	.includeDocs(true)
+	.limit(1)
+    .build();
+
+SearchResult response =
+    service.postSearch(searchOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.postSearch({
+	db: '<db-name>',
+	ddoc: '<ddoc>',
+	index: '<index-name>',
+	query: '*:*',
+	includeDocs: true,
+	limit: 1
+}).then(response => {
+	console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_search(
+	db='<db-name>',
+	ddoc='<ddoc>',
+	index='<index-name>',
+	query='*:*',
+	include_docs=True,
+	limit=1
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postSearchOptions := service.NewPostSearchOptions(
+	"<db-name>",
+	"<ddoc>",
+	"<index-name>",
+	"*:*",
+)
+postSearchOptions.SetIncludeDocs(true)
+postSearchOptions.SetLimit(1)
+
+searchResult, _, err := service.PostSearch(postSearchOptions)
+if err != nil {
+	panic(err)
+}
+
+b, _ := json.MarshalIndent(searchResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 ### Query Parameters
 {: #query-parameters-search}
@@ -542,16 +827,17 @@ See the following example that uses HTTP to `POST` a search request:
 ```http
 POST /db/_design/ddoc/_search/searchname HTTP/1.1
 Content-Type: application/json
-Host: account.cloudant.com
+Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
 See the following example that uses the command line to `POST` a search request:
 
 ```sh
-curl "https://account.cloudant.com/db/_design/ddoc/_search/searchname" -X POST -H "Content-Type: application/json" -d @search.json
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME" -X POST -H "Content-Type: application/json" -d @search.json
 ```
 {: codeblock}
+{: curl}
 
 See the following example JSON document that includes a search request:
 
@@ -898,9 +1184,105 @@ Host: $ACCOUNT.cloudant.com
 See the following example that uses the command line for a query that sorts cities in the northern hemisphere by their distance to New York:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>""
+curl "https://$ACCOUNT.cloudant.com/examples/_design/cities-designdoc/_search/cities?q=lat:\[0+TO+90\]&sort=\"<distance,lon,lat,-74.0059,40.7127,km>\""
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostSearchOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchResult;
+
+import java.util.Arrays;
+
+Cloudant service = Cloudant.newInstance();
+
+PostSearchOptions searchOptions = new PostSearchOptions.Builder()
+	.db("examples")
+	.ddoc("cities-designdoc")
+	.index("cities")
+	.query("lat:\\[0+TO+90\\]")
+	.sort(Arrays.asList("<distance,lon,lat,-74.0059,40.7127,km>"))
+	.build();
+
+SearchResult response =
+    service.postSearch(searchOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.postSearch({
+	db: 'examples',
+	ddoc: 'cities-designdoc',
+	index: 'cities',
+	query: 'lat:\\[0+TO+90\\]',
+	sort: ['<distance,lon,lat,-74.0059,40.7127,km>']
+}).then(response => {
+	console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_search(
+	db='examples',
+	ddoc='cities-designdoc',
+	index='cities',
+	query='lat:\\[0+TO+90\\]',
+	sort=['<distance,lon,lat,-74.0059,40.7127,km>']
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postSearchOptions := service.NewPostSearchOptions(
+	"examples",
+	"cities-designdoc",
+	"cities",
+	"lat:\\[0+TO+90\\]",
+)
+postSearchOptions.SetSort([]string{"<distance,lon,lat,-74.0059,40.7127,km>"})
+
+searchResult, _, err := service.PostSearch(postSearchOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(searchResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example (abbreviated) response that includes a list of northern hemisphere cities that are sorted by distance to New York:
 
@@ -985,18 +1367,131 @@ store the field in the index by using the `store: true` option.
 See the following example that uses HTTP to search with highlighting enabled:
 
 ```http
-GET /movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=["movie_name"]&highlight_pre_tag=""&highlight_post_tag=""&highlights_size=30&highlights_number=2 HTTP/1.1
+GET /movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=["movie_name"]&highlight_pre_tag=" "&highlight_post_tag=" "&highlights_size=30&highlights_number=2 HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
 {: codeblock}
 
-See the following example that uses the command line to search with highlighting enabled:
+See the following example that the command line to search with highlighting enabled:
 
 ```sh
-curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\" \"&highlight_post_tag=\" \"&highlights_size=30&highlights_number=2"
+curl "https://$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=\"movie_name:Azazel\"&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\" \"&highlight_post_tag=\" \"&highlights_size=30&highlights_number=2" \
+	-X GET
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostSearchOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchResult;
+
+import java.util.Arrays;
+
+Cloudant service = Cloudant.newInstance();
+
+PostSearchOptions searchOptions = new PostSearchOptions.Builder()
+    .db("movies")
+    .ddoc("searches")
+    .index("movies")
+    .query("movie_name:Azazel")
+    .highlightFields(Arrays.asList("[\"movie_name\"]"))
+    .highlightPreTag("\" \"")
+    .highlightPostTag("\" \"")
+    .highlightSize(30)
+    .highlightNumber(2)
+    .build();
+
+SearchResult response =
+    service.postSearch(searchOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.postSearch({
+	db: 'movies',
+	ddoc: 'searches',
+	index: 'movies',
+	query: 'movie_name:Azazel',
+	highlightFields: ['["movie_name"]'],
+	highlightPreTag: '" "',
+	highlightPostTag: '" "',
+	highlightSize: 30,
+	highlightNumber: 2
+}).then(response => {
+	console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_search(
+	db='movies',
+	ddoc='searches',
+	index='movies',
+	query='movie_name:Azazel',
+	highlight_fields=['["movie_name"]'],
+	highlight_pre_tag='" "',
+	highlight_post_tag='" "',
+	highlight_size=30,
+	highlight_number=2
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postSearchOptions := service.NewPostSearchOptions(
+	"movies",
+	"searches",
+	"movies",
+	"movie_name:Azazel",
+)
+postSearchOptions.SetHighlightFields([]string{"[\"movie_name\"]"})
+postSearchOptions.SetHighlightPreTag("\" \"")
+postSearchOptions.SetHighlightPostTag("\" \"")
+postSearchOptions.SetHighlightSize(30)
+postSearchOptions.SetHighlightNumber(2)
+
+searchResult, _, err := service.PostSearch(postSearchOptions)
+if err != nil {
+	panic(err)
+}
+
+b, _ := json.MarshalIndent(searchResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 See the following example of highlighted search results:
 
@@ -1035,6 +1530,93 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search_info/$INDEX_
      -X GET
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.GetSearchInfoOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchInfoResult;
+
+Cloudant service = Cloudant.newInstance();
+
+GetSearchInfoOptions infoOptions =
+    new GetSearchInfoOptions.Builder()
+        .db("<db-name>")
+        .ddoc("<ddoc>")
+        .index("<index-name>")
+        .build();
+
+SearchInfoResult response =
+    service.getSearchInfo(infoOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+import { CloudantV1 } from '@ibm-cloud/cloudant';
+
+const service = CloudantV1.newInstance({});
+
+service.getSearchInfo({
+	db: '<db-name>',
+	ddoc: '<ddoc>',
+	index: '<index-name>'
+}).then(response => {
+	console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_search_info(
+	db='<db-name>',
+	ddoc='<ddoc>',
+	index='<index-name>'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getSearchInfoOptions := service.NewGetSearchInfoOptions(
+	"<db-name>",
+	"<ddoc>",
+	"<index-name>",
+)
+
+searchInfoResult, _, err := service.GetSearchInfo(getSearchInfoOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(searchInfoResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
 
 The response includes information about your index,
 such as the number of documents in the index and the size of the index on disk.
