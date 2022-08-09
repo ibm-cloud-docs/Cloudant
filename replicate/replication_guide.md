@@ -256,28 +256,226 @@ See the following example that uses HTTP to start a continuous replication:
 ```http
 POST /_replicator HTTP/1.1
 Content-Type: application/json
-Host: $ACCOUNT.cloudant.com
+Host: $SERVICE_URL
 Authorization: ...
 ```
 {: codeblock}
 
-See the following example that uses the command line to start a continuous replication:
+See the following example to start a continuous replication:
 
 ```sh
 curl -X POST \
     -H "Content-type: application/json" \
-    "https://$ACCOUNT.cloudant.com/_replicator" \
-    -d @continuous-replication.json
+    "$SERVICE_URL/_replicator" \
+    -d '{ "_id": "repldoc-example",
+          "continuous": true,
+          "create_target": true,
+          "source": { "url": "'"$SOURCE_SERVICE_URL/source"'" },
+          "target": { 
+            "auth": { "iam": { "api_key": "'"$API_KEY"'" } },
+            "url": "'"$TARGET_SERVICE_URL/target"'"
+          }
+        }'
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PutReplicationDocumentOptions;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDatabase;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDatabaseAuth;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDatabaseAuthIam;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDocument;
+
+Cloudant service = Cloudant.newInstance();
+
+ReplicationDatabase sourceDb = new ReplicationDatabase.Builder()
+    .url("<your-source-service-url>/source")
+    .build();
+
+ReplicationDatabaseAuthIam targetAuthIam =
+    new ReplicationDatabaseAuthIam.Builder()
+        .apiKey("<your-iam-api-key>")
+        .build();
+
+ReplicationDatabaseAuth targetAuth = new ReplicationDatabaseAuth.Builder()
+    .iam(targetAuthIam)
+    .build();
+
+ReplicationDatabase targetDb = new ReplicationDatabase.Builder()
+    .auth(targetAuth)
+    .url(String.join("<your-target-service-url>/target"))
+    .build();
+
+ReplicationDocument replDocument = new ReplicationDocument();
+replDocument.setSource(sourceDb);
+replDocument.setTarget(targetDb);
+replDocument.setContinuous(true);
+
+PutReplicationDocumentOptions replicationDocumentOptions =
+    new PutReplicationDocumentOptions.Builder()
+        .docId("repldoc-example")
+        .replicationDocument(replDocument)
+        .build();
+
+DocumentResult response =
+    service.putReplicationDocument(replicationDocumentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const sourceDb: CloudantV1.ReplicationDatabase = {
+  url: '<your-source-service-url>/source'
+};
+
+const targetDb: CloudantV1.ReplicationDatabase = {
+  auth: {
+    iam: {
+      'api_key': '<your-iam-api-key>'
+    }
+  },
+  url: '<your-source-service-url>' + '/' + 'target'
+};
+
+const replDocument: CloudantV1.ReplicationDocument = {
+  id: 'repldoc-example',
+  continuous: true,
+  create_target: true,
+  source: sourceDb,
+  target: targetDb
+}
+
+service.putReplicationDocument({
+  docId: 'repldoc-example',
+  replicationDocument: replDocument
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1, ReplicationDocument, ReplicationDatabase, ReplicationDatabaseAuthIam, ReplicationDatabaseAuth
+
+service = CloudantV1.new_instance()
+
+source_db = ReplicationDatabase(
+  url='<your-source-service-url>/source'
+)
+
+target_auth_iam = ReplicationDatabaseAuthIam(
+  api_key='<your-iam-api-key>'
+)
+target_auth = ReplicationDatabaseAuth(
+  iam=target_auth_iam
+)
+target_db = ReplicationDatabase(
+  auth=target_auth,
+  url='<your-source-service-url>/target'
+)
+
+replication_document = ReplicationDocument(
+  id='repldoc-example',
+  continuous=True,
+  create_target=True,
+  source=source_db,
+  target=target_db
+)
+
+response = service.put_replication_document(
+  doc_id='repldoc-example',
+  replication_document=replication_document
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+source, err := service.NewReplicationDatabase(
+  "<your-source-service-url>/source",
+)
+if err != nil {
+  panic(err)
+}
+
+target, err := service.NewReplicationDatabase(
+  "<your-source-service-url>" + "/" + "target",
+)
+if err != nil {
+  panic(err)
+}
+
+auth, err := service.NewReplicationDatabaseAuthIam(
+  "<your-iam-api-key>",
+)
+if err != nil {
+  panic(err)
+}
+target.Auth = &cloudantv1.ReplicationDatabaseAuth{Iam: auth}
+
+replicationDoc, err := service.NewReplicationDocument(
+  source,
+  target,
+)
+if err != nil {
+  panic(err)
+}
+
+replicationDoc.Continuous = core.BoolPtr(true)
+replicationDoc.CreateTarget = core.BoolPtr(true)
+
+putReplicationDocumentOptions := service.NewPutReplicationDocumentOptions(
+  "repldoc-example",
+  replicationDoc,
+)
+
+documentResult, response, err := service.PutReplicationDocument(putReplicationDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 See the following example of a JSON document that defines a continuous replication:
 
 ```json
 {
     "_id": "weekly_continuous_backup",
-    "source": "https://$ACCOUNT:$PASSWORD@$ACCOUNT1.cloudant.com/source",
-    "target": "https://$ACCOUNT:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
+    "source": "https://$USERNAME:$PASSWORD@$SOURCE_SERVICE_DOMAIN/source",
+    "target": "https://$USERNAME:$PASSWORD@$TARGET_SERVICE_DOMAIN/target",
     "continuous": true
 }
 ```
@@ -319,33 +517,10 @@ See the following example JavaScript that uses PouchDB to enable replication:
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
-var URL = "https://u:p@username.cloudant.com/my_database");
+var URL = "https://$USERNAME:$PASSWORD@$SERVICE_DOMAIN/my_database");
 db.sync(URL, { live: true });
 ```
 {: codeblock}
-
-### {{site.data.keyword.cloudant_short_notm}} Sync
-{: #cloudantsync}
-
-[{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: external} is a set of libraries
-for iOS and Android that allows data to be stored locally in a mobile device
-and synchronized with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
-As with [PouchDB](#pouchdb),
-setting up replication requires a few lines of code.
-
-See the following example JavaScript that uses {{site.data.keyword.cloudant_short_notm}} Sync to enable replication:
-
-```javascript
-URI uri = new URI("https://u:p@username.cloudant.com/my_database");
-Datastore ds = manager.openDatastore("my_datastore");
-// Replicate from the local to remote database
-Replicator replicator = ReplicatorFactory.oneway(ds, uri);
-// Fire-and-forget (there are easy ways to monitor the state too)
-replicator.start();
-```
-{: codeblock}
-
-{{site.data.keyword.cloudant_short_notm}} Sync is used widely in mobile applications, such as iPhone and Android games. The application's state is persisted to {{site.data.keyword.cloudant_short_notm}} by replication, but the data is also available on the device for offline use.
 
 ## Filtered replications
 {: #filtered-replications-repl-guide}
@@ -388,7 +563,7 @@ See the following example that uses HTTP to start a filtered replication:
 ```http
 POST /_replicator HTTP/1.1
 Content-Type: application/json
-Host: $ACCOUNT.cloudant.com
+Host: $SERVICE_URL
 Authorization: ...
 ```
 {: codeblock}
@@ -398,18 +573,214 @@ See the following example that uses the command line to start a filtered replica
 ```sh
 curl -X POST \
     -H "Content-type: application/json" \
-    "https://$ACCOUNT.cloudant.com/_replicator" \
+    "$SERVICE_URL/_replicator" \
     -d @filtered-replication.json
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DocumentResult;
+import com.ibm.cloud.cloudant.v1.model.PutReplicationDocumentOptions;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDatabase;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDatabaseAuth;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDatabaseAuthIam;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDocument;
+
+Cloudant service = Cloudant.newInstance();
+
+ReplicationDatabase sourceDb = new ReplicationDatabase.Builder()
+    .url("<your-source-service-url>/source")
+    .build();
+
+ReplicationDatabaseAuthIam targetAuthIam =
+    new ReplicationDatabaseAuthIam.Builder()
+        .apiKey("<your-iam-api-key>")
+        .build();
+
+ReplicationDatabaseAuth targetAuth = new ReplicationDatabaseAuth.Builder()
+    .iam(targetAuthIam)
+    .build();
+
+ReplicationDatabase targetDb = new ReplicationDatabase.Builder()
+    .auth(targetAuth)
+    .url("<your-target-service-url>/target"))
+    .build();
+
+ReplicationDocument replDocument = new ReplicationDocument();
+replDocument.setSource(sourceDb);
+replDocument.setTarget(targetDb);
+replDocument.setFilter("mydesigndoc/myfilter");
+
+Map queryParams = new HashMap<>();
+queryParams.put("foo", "bar");
+queryParams.put("baz", 5);
+replDocument.setQueryParams(queryParams);
+
+PutReplicationDocumentOptions replicationDocumentOptions =
+    new PutReplicationDocumentOptions.Builder()
+        .docId("repldoc-example")
+        .replicationDocument(replDocument)
+        .build();
+
+DocumentResult response =
+    service.putReplicationDocument(replicationDocumentOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+const sourceDb: CloudantV1.ReplicationDatabase = {
+  url: '<your-source-service-url>/source'
+};
+
+const targetDb: CloudantV1.ReplicationDatabase = {
+  auth: {
+    iam: {
+      'api_key': '<your-iam-api-key>'
+    }
+  },
+  url: '<your-target-service-url>/target'
+};
+
+const replDocument: CloudantV1.ReplicationDocument = {
+  id: 'repldoc-example',
+  filter: 'mydesigndoc/myfilter',
+  query_params: {'foo': 'bar', 'baz': 5},
+  source: sourceDb,
+  target: targetDb
+}
+
+service.putReplicationDocument({
+  docId: 'repldoc-example',
+  replicationDocument: replDocument
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1, ReplicationDocument, ReplicationDatabase, ReplicationDatabaseAuthIam, ReplicationDatabaseAuth
+
+service = CloudantV1.new_instance()
+
+source_db = ReplicationDatabase(
+  url='<your-source-service-url>/source'
+)
+
+target_auth_iam = ReplicationDatabaseAuthIam(
+  api_key='<your-iam-api-key>'
+)
+target_auth = ReplicationDatabaseAuth(
+  iam=target_auth_iam
+)
+target_db = ReplicationDatabase(
+  auth=target_auth,
+  url='<your-target-service-url>/target'
+)
+
+replication_document = ReplicationDocument(
+  id='repldoc-example',
+  filter='mydesigndoc/myfilter',
+  query_params={'foo': 'bar', 'baz': 5},
+  source=source_db,
+  target=target_db
+)
+
+response = service.put_replication_document(
+  doc_id='repldoc-example',
+  replication_document=replication_document
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+source, err := service.NewReplicationDatabase(
+  "<your-source-service-url>/source",
+)
+if err != nil {
+  panic(err)
+}
+
+target, err := service.NewReplicationDatabase(
+  "<your-target-service-url>/target",
+)
+if err != nil {
+  panic(err)
+}
+
+auth, err := service.NewReplicationDatabaseAuthIam(
+  "<your-iam-api-key>",
+)
+if err != nil {
+  panic(err)
+}
+target.Auth = &cloudantv1.ReplicationDatabaseAuth{Iam: auth}
+
+replicationDoc, err := service.NewReplicationDocument(
+  source,
+  target,
+)
+if err != nil {
+  panic(err)
+}
+
+replicationDoc.Filter := "mydesigndoc/myfilter"
+replicationDoc.QueryParams := map[string]interface{}{"foo": "bar", "baz": 5}
+
+putReplicationDocumentOptions := service.NewPutReplicationDocumentOptions(
+  "repldoc-example",
+  replicationDoc,
+)
+
+documentResult, response, err := service.PutReplicationDocument(putReplicationDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(documentResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+   "github.com/IBM/go-sdk-core/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 See the following example of a JSON document that defines a filtered replication:
 
 ```json
 {
     "_id": "weekly_backup",
-    "source": "https://$ACCOUNT:$PASSWORD@$ACCOUNT1.cloudant.com/source",
-    "target": "https://$ACCOUNT:$PASSWORD@$ACCOUNT2.cloudant.com/destination",
+    "source": "https://$USERNAME:$PASSWORD@$SOURCE_SERVICE_DOMAIN/source",
+    "target": "https://$USERNAME:$PASSWORD@$TARGET_SERVICE_DOMAIN/target",
     "filter": "mydesigndoc/myfilter",
     "query_params": {
         "foo": "bar",
@@ -425,7 +796,7 @@ See the following example of a JSON document that defines a filtered replication
 {{site.data.keyword.cloudant_short_notm}} publishes the adds,
 edits,
 and deletes affecting a database through a single HTTP feed from
-the [`_changes` endpoint](/docs/Cloudant?topic=Cloudant-databases#get-changes).
+the [`_changes` endpoint](/apidocs/cloudant#postchanges-databases).
 This feed can be used by your application to trigger events.
 You can access the feed by using HTTP or `curl`,
 as shown in the examples.
@@ -438,7 +809,7 @@ See the following example that uses HTTP to query the changes feed:
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
-Host: $ACCOUNT.cloudant.com
+Host: $SERVICE_URL
 Authorization: ...
 ```
 {: codeblock}
@@ -446,9 +817,10 @@ Authorization: ...
 See the following example that uses the command line to query the changes feed:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
+curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous"
 ```
 {: codeblock}
+{: curl}
 
 The changes are described by using one line per change.
 Each change consists of:
@@ -484,7 +856,7 @@ See the following example (abbreviated) that uses HTTP to supply the `since` opt
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
-HOST: $ACCOUNT.cloudant.com
+HOST: $SERVICE_URL
 Authorization: ...
 ```
 {: codeblock}
@@ -492,9 +864,10 @@ Authorization: ...
 See the following example (abbreviated) that uses the command line to supply the `since` option to join a `_changes` feed at a known position:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
+curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
 ```
 {: codeblock}
+{: curl}
 
 To rejoin the changes feed from the current moment in time,
 set `since=now`.
@@ -503,7 +876,7 @@ See the following example that uses HTTP to supply `since=now` to join a `_chang
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
-Host: $ACCOUNT.cloudant.com
+Host: $SERVICE_URL
 Authorization: ...
 ```
 {: codeblock}
@@ -511,24 +884,14 @@ Authorization: ...
 See the following example that uses the command line to supply `since=now` to join a `_changes` feed at the current moment in time:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
+curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
-
-See the following example that uses JavaScript to supply `since=now` to join a `_changes` feed at the current moment in time:
-
-```javascript
-var feed = db.follow({since: "now", include_docs: true})
-feed.on('change', function (change) {
-    console.log("change: ", change);
-})
-feed.follow();
-```
-{: codeblock}
+{: curl}
 
 Accessing the `_changes` data programmatically is straightforward.
 For example,
-use the [{{site.data.keyword.cloudant_short_notm}} Node.js library](/docs/Cloudant?topic=Cloudant-client-libraries#node-js-supported)
+see the SDK examples in the [{{site.data.keyword.cloudant_short_notm}} API docs](/apidocs/cloudant#postchanges-databases)
 to follow changes with a few lines of code.
 
 The following list includes some example use cases:
@@ -544,7 +907,7 @@ See the following example that uses HTTP to filter the changes feed:
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
-Host: $ACCOUNT.cloudant.com
+Host: $SERVICE_URL
 Authorization: ...
 ```
 {: codeblock}
@@ -552,9 +915,10 @@ Authorization: ...
 See the following example that uses the command line to filter the changes feed:
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
+curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
 ```
 {: codeblock}
+{: curl}
 
 The ordering of documents within the `_changes` feed is not always the same. In other words, changes might not appear in strict time order. The reason is that data is returned from multiple {{site.data.keyword.cloudant_short_notm}} nodes, and eventual consistency rules apply.
 {: tip}
@@ -602,10 +966,90 @@ Such a large document uses much of the available space and causes extra server l
 
 You can check the size of your `_replicator` database by sending a `GET` request to the `/_replicator` endpoint:
 
-```http
-GET https://$ACCOUNT.cloudant.com/_replicator
+```sh
+curl "$SERVICE_URL/_replicator"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DatabaseInformation;
+import com.ibm.cloud.cloudant.v1.model.GetDatabaseInformationOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+GetDatabaseInformationOptions databaseInfoOptions =
+    new GetDatabaseInformationOptions.Builder()
+        .db("_replicator")
+        .build();
+
+DatabaseInformation response =
+    service.getDatabaseInformation(databaseInfoOptions).execute()
+        .getResult();
+
+System.out.println(response);
+
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getDatabaseInformation({db: '_replicator'}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_database_information(db='_replicator').get_result()
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getDatabaseInformationOptions := service.NewGetDatabaseInformationOptions(
+  "_replicator",
+)
+
+databaseInformation, response, err := service.GetDatabaseInformation(getDatabaseInformationOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(databaseInformation, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+#### Get conflicts from replication document
 
 In the returned JSON,
 look for the `disk_size` value.
@@ -615,35 +1059,290 @@ go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
 
-```http
-GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
+```sh
+curl "$SERVICE_URL/_replicator/$DOCID?conflicts=true"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.GetReplicationDocumentOptions;
+import com.ibm.cloud.cloudant.v1.model.ReplicationDocument;
+
+Cloudant service = Cloudant.newInstance();
+
+GetReplicationDocumentOptions replicationDocOptions =
+    new GetReplicationDocumentOptions.Builder()
+        .conflicts(true)
+        .docId("$DOCID")
+        .build();
+
+ReplicationDocument response =
+    service.getReplicationDocument(replicationDocOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.getReplicationDocument({
+  conflicts: true,
+  docId: '$DOCID'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.get_replication_document(
+  conflicts=True,
+  doc_id='$DOCID'
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+getReplicationDocumentOptions := service.NewGetReplicationDocumentOptions(
+  "$DOCID",
+)
+
+replicationDocument, response, err := service.GetReplicationDocument(getReplicationDocumentOptions)
+if err != nil {
+  panic(err)
+}
+
+replicationDocument.Conflicts = core.BoolPtr(true)
+
+b, _ := json.MarshalIndent(replicationDocument, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+   "github.com/IBM/go-sdk-core/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+### Cancel all replications
 
 If you want to cancel all replications and start with a new,
 clean `_replicator` database,
 delete then re-create the `replicator` database.
 
-See the following example that uses HTTP to remove and re-create the `_replicator` database:
+See the following HTTP to remove and re-create the `_replicator` database:
 
 ```http
 DELETE /_replicator HTTP/1.1
-HOST: $ACCOUNT.cloudant.com
+HOST: $SERVICE_URL
 Authorization: ...
 
 PUT /_replicator HTTP/1.1
-HOST: $ACCOUNT.cloudant.com
+HOST: $SERVICE_URL
 Authorization: ...
 ```
 {: codeblock}
 
-See the following example that uses the command line to remove and re-create the `_replicator` database:
+#### Delete the replicator database
+
+See the following example to remove the `_replicator` database:
 
 ```sh
-curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator"
-curl -X PUT "https://$ACCOUNT.cloudant.com/_replicator"
+curl -X DELETE "$SERVICE_URL/_replicator"
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.DeleteDatabaseOptions;
+import com.ibm.cloud.cloudant.v1.model.Ok;
+
+Cloudant service = Cloudant.newInstance();
+
+DeleteDatabaseOptions deleteDatabaseOptions = new DeleteDatabaseOptions.Builder()
+        .db("_replicator")
+        .build();
+
+Ok response = service.deleteDatabase(deleteDatabaseOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.deleteDatabase({db: '_replicator'}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.delete_database(db='_replicator').get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+deleteDatabaseOptions := service.NewDeleteDatabaseOptions(
+  "_replicator",
+)
+
+ok, response, err := service.DeleteDatabase(deleteDatabaseOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(ok, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+#### Re-create the replicator database
+
+See the following example to re-create the `_replicator` database:
+
+```sh
+curl -X PUT "$SERVICE_URL/_replicator"
+```
+{: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.Ok;
+import com.ibm.cloud.cloudant.v1.model.PutDatabaseOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PutDatabaseOptions databaseOptions = new PutDatabaseOptions.Builder()
+    .db("_replicator")
+    .build();
+
+Ok response =
+    service.putDatabase(databaseOptions).execute()
+        .getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.putDatabase({
+  db: '_replicator'
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.put_database(db='_replicator').get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+putDatabaseOptions := service.NewPutDatabaseOptions(
+  "_replicator",
+)
+
+ok, response, err := service.PutDatabase(putDatabaseOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(ok, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 ### Many simultaneous replications
 {: #many-simultaneous-replications}
