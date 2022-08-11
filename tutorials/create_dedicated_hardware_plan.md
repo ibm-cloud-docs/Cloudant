@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: use dedicated hardware plan, create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -191,22 +191,22 @@ After your instance is created, you must create a Standard plan on it by selecti
     ```
     {: codeblock}
 
-Field | Description
-------|------------
-`NAME`| An arbitrary name that you assign the instance.
-`SERVICE_NAME` | `cloudantnosqldb`
-`PLAN_NAME` | `dedicated-hardware`
-`REGION` |  The major region where you want to deploy, for example, us-south, us-east, or eu-gb.
+| Field | Description |
+|------|------------|
+| `NAME`| An arbitrary name that you assign the instance. |
+| `SERVICE_NAME` | `cloudantnosqldb` |
+| `PLAN_NAME` | `dedicated-hardware` |
+| `REGION` |  The major region where you want to deploy, for example, us-south, us-east, or eu-gb. |
 {: caption="Table 1. Basic command format" caption-side="top"}
 
 {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances take four more parameters.
 
-Parameter | Description
-----------|------------
-`location` | The actual physical location of the Dedicated Hardware plan instance, which might differ from the REGION. The location can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){: external}.
-`hipaa` | Either `true` or `false`.
-`kms_instance_crn` | An optional parameter that must be set to the CRN of the Key Protect instance housing the encryption key for BYOK. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to BYOK with Key Protect, supply the CRN of the Key Protect instance that holds the encryption key. Otherwise, don't supply this parameter in the CLI, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.
-`kms_key_crn` | This parameter is required if you use the `kms_instance_crn` parameter. Otherwise, it must not be supplied in the CLI command. The `kms_key_crn` parameter is set to the CRN of the encryption key that is stored in the Key Protect instance that is defined by the `kms_instance_crn` parameter.
+| Parameter | Description |
+|----------|------------|
+| `location` | The actual physical location of the Dedicated Hardware plan instance, which might differ from the REGION. The location can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){: external}. |
+| `hipaa` | Either `true` or `false`. |
+| `kms_instance_crn` | An optional parameter that must be set to the CRN of the Key Protect instance housing the encryption key for BYOK. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to BYOK with Key Protect, supply the CRN of the Key Protect instance that holds the encryption key. Otherwise, don't supply this parameter in the CLI, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. In order to BYOK with Key Protect, ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**. |
+| `kms_key_crn` | This parameter is required if you use the `kms_instance_crn` parameter. Otherwise, it must not be supplied in the CLI command. The `kms_key_crn` parameter is set to the CRN of the encryption key that is stored in the Key Protect instance that is defined by the `kms_instance_crn` parameter. |
 {: caption="Table 2. Parameters" caption-side="top"}
 
 The following example command includes the extra parameters.
@@ -229,20 +229,20 @@ ibmcloud resource service-instance-create cloudant-dedicated-with-byok cloudantn
     ```
     {: codeblock}
 
-Field | Description
-------|------------
-`NAME`| An arbitrary name that you assign the instance.
-`SERVICE_NAME` | `cloudantnosqldb`
-`PLAN_NAME` | `standard`
-`REGION` |  The region where you want to deploy, for example, us-south, us-east, or eu-gb.
+| Field | Description |
+|------|------------|
+| `NAME`| An arbitrary name that you assign the instance. |
+| `SERVICE_NAME` | `cloudantnosqldb` |
+| `PLAN_NAME` | `standard` |
+| `REGION` |  The region where you want to deploy, for example, us-south, us-east, or eu-gb. |
 {: caption="Table 3. Basic command format" caption-side="top"}
 
 {{site.data.keyword.cloudant_short_notm}} instances that are deployed on Dedicated Hardware environments take two more parameters.
 
-Parameter | Description
-----------|------------
-`environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command.
-`legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) for more details on choosing an authentication method.
+| Parameter | Description |
+|----------|------------|
+| `environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. |
+| `legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) for more details on choosing an authentication method. |
 {: caption="Table 4. Parameters" caption-side="top"}
 
 The following example command includes the extra parameters.
@@ -264,12 +264,12 @@ Service credentials are valuable. If anyone or any application gains access to t
 
 The fields for the basic command format that is used in this exercise are described in the following table.
 
-Field | Description
-------|------------
-`NAME` | Arbitrary name that you give the service credentials.
-`ROLE_NAME` | This field currently allows the Manager role only.
-`SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance.
-`service-endpoints` | An optional parameter to populate the URL field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this parameter to populate the URL with an external endpoint that is publicly accessible. Applies only to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. If the environment doesn't support internal endpoints, the result is a 400 error.
+| Field | Description |
+|------|------------|
+| `NAME` | Arbitrary name that you give the service credentials. |
+| `ROLE_NAME` | This field currently allows the Manager role only. |
+| `SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance. |
+| `service-endpoints` | An optional parameter to populate the URL field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this parameter to populate the URL with an external endpoint that is publicly accessible. Applies only to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. If the environment doesn't support internal endpoints, the result is a 400 error. |
 {: caption="Table 5. Basic command format" caption-side="top"}
 
 

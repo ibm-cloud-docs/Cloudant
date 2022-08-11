@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -35,12 +35,12 @@ Audit logging records the {{site.data.keyword.cloudant_short_notm}} principals w
 access to {{site.data.keyword.cloudant_short_notm}}, the audit log function 
 records the following information about each HTTP request:
 
-Information | Description
-------------|------------
-`Principal` | Account credentials, API keys, or {{site.data.keyword.cloud_notm}} IAM credentials, as identified by an HTTP request header. 
-`Action` | The action carried out, for example, document read.
-`Resource` | Details about the account, database, and document accessed or query made.
-`Timestamp` | A record of the time and data of the event. 
+| Information | Description |
+|------------|------------|
+| `Principal` | Account credentials, API keys, or {{site.data.keyword.cloud_notm}} IAM credentials, as identified by an HTTP request header. |
+| `Action` | The action carried out, for example, document read. |
+| `Resource` | Details about the account, database, and document accessed or query made. |
+| `Timestamp` | A record of the time and data of the event. |
 {: caption="Table 1. Recorded audit information" caption-side="top"}
 
 {{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:

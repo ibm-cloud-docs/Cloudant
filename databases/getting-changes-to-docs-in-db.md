@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-06"
+lastupdated: "2022-08-05"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -27,21 +27,21 @@ These responses are combined and returned to the original requesting client.
 
 The `_changes` endpoint accepts several optional query arguments:
 
-Argument       | Description | Supported values | Default 
-----------------|-------------|------------------|---------
-`conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False 
-`descending`   | Return the changes in sequential order. | Boolean | False 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](/apidocs/cloudant#getserverinformation){: external} documentation. | A JSON array of document IDs | 
-`feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
-`filter`       | Name of [filter function](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=Cloudant-design-documents#design-documents). | `string` | No filter.
-`heartbeat`    | If no changes occurred during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | Any positive number | No heartbeat 
-`include_docs` | Include the document as part of the result. | Boolean | False 
-`limit`        | Maximum number of rows to return. | Any non-negative number | None   
-`seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | Any positive number | 1 
-`since`        | Start the results from changes after the specified sequence identifier. For more information, see the [`since` information](#the-since-argument). | Sequence identifier or `now` | 0 
-`style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` 
-`timeout`      | Wait this number of milliseconds for data, then stop the response. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | Any positive number | 
-{: caption="Table 14. Query arguments for _changes endpoint" caption-side="top"}
+| Argument       | Description | Supported values | Default |
+|----------------|-------------|------------------|---------|
+| `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False |
+| `descending`   | Return the changes in sequential order. | Boolean | False |
+| `doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](/apidocs/cloudant#getserverinformation){: external} documentation. | A JSON array of document IDs | 
+| `feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"` |
+| `filter`       | Name of [filter function](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=Cloudant-design-documents#design-documents). | `string` | No filter. |
+| `heartbeat`    | If no changes occurred during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | Any positive number | No heartbeat |
+| `include_docs` | Include the document as part of the result. | Boolean | False |
+| `limit`        | Maximum number of rows to return. | Any non-negative number | None   |
+| `seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | Any positive number | 1 |
+| `since`        | Start the results from changes after the specified sequence identifier. For more information, see the [`since` information](#the-since-argument). | Sequence identifier or `now` | 0 |
+| `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` |
+| `timeout`      | Wait this number of milliseconds for data, then stop the response. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | Any positive number | |
+{: caption="Table 1. Query arguments for _changes endpoint" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
 {: important}
@@ -217,15 +217,15 @@ The response from a `_changes` request is a JSON object that contains
 a list of the changes that were made to documents within the database.
 The following table describes the meaning of the individual fields:
 
-Field      | Description | Type  
-------------|-------------|-------
-`changes`  | An array that lists the changes that were made to the specific document. | Array
-`deleted`  | Boolean indicating whether the corresponding document was deleted. If present, it always has the value `true`. | Boolean
-`id`       | Document identifier. | String
-`last_seq` | Identifier of the last of the sequence identifiers. Currently, this identifier is the same as the sequence identifier of the last item in the `results`. | String
-`results`  | Array of changes that were made to the database. | Array
-`seq`      | Update sequence identifier. | String
-{: caption="Table 15. JSON object response fields for _changes" caption-side="top"}
+| Field      | Description | Type |
+|------------|-------------|-------|
+| `changes`  | An array that lists the changes that were made to the specific document. | Array |
+| `deleted`  | Boolean indicating whether the corresponding document was deleted. If present, it always has the value `true`. | Boolean
+| `id`       | Document identifier. | String |
+| `last_seq` | Identifier of the last of the sequence identifiers. Currently, this identifier is the same as the sequence identifier of the last item in the `results`. | String |
+| `results`  | Array of changes that were made to the database. | Array
+| `seq`  | Update sequence identifier. | String |
+{: caption="Table 2. JSON object response fields for _changes" caption-side="top"}
 
 See the following example (abbreviated) response to a `_changes` request:
 

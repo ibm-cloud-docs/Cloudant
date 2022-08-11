@@ -20,10 +20,10 @@ The [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant){: e
 
 You can migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} from one of the following plans:
 
-Plan | Description
------|------------
-{{site.data.keyword.cloudant_short_notm}} Enterprise | Dedicated, single-tenant clusters
-Apache CouchDB | The self-hosted, open source database on which {{site.data.keyword.cloudant_short_notm}} is based.
+| Plan | Description |
+|-----|------------|
+| {{site.data.keyword.cloudant_short_notm}} Enterprise | Dedicated, single-tenant clusters |
+| Apache CouchDB | The self-hosted, open source database on which {{site.data.keyword.cloudant_short_notm}} is based. |
 {: caption="Table 1. {{site.data.keyword.cloudant_short_notm}} migration paths" caption-side="top"}
 
 ## Benefits of the {{site.data.keyword.cloudant_short_notm}} Lite and Standard plans
@@ -31,12 +31,12 @@ Apache CouchDB | The self-hosted, open source database on which {{site.data.keyw
 
 With the Standard plan, you can *reserve throughput capacity* for your database service, that is, to specify how much throughput your application's database is going to need to handle demand. The Standard plan also charges for the amount of storage you use. Capacity is measured with the following metrics:
 
-Metric | Description
--------|------------
-Reads per second | The rate at which simple document fetches are performed, for example, retrieving a document by its `_id`, or querying against a partitioned database that uses a partition key.
-Writes per second | The rate at which data is written to the database. API calls dealing with document creation, update, or deletion count as "writes".
-Global Queries per second | The rate at which the database is queried by using global indices, typically by accessing the `_find` endpoint or by using secondary MapReduce, search, or geospatial indices.
-Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices.
+| Metric | Description |
+|-------|------------|
+| Reads per second | The rate at which simple document fetches are performed, for example, retrieving a document by its `_id`, or querying against a partitioned database that uses a partition key. |
+| Writes per second | The rate at which data is written to the database. API calls dealing with document creation, update, or deletion count as "writes". |
+| Global Queries per second | The rate at which the database is queried by using global indices, typically by accessing the `_find` endpoint or by using secondary MapReduce, search, or geospatial indices. |
+| Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices. |
 {: caption="Table 2. Capacity metrics" caption-side="top"}
 
 As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you're evaluating the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage for ~USD$76.65 per month. You can buy extra storage, which is charged by the GB.

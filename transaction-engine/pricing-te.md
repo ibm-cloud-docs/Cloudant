@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-17"
+lastupdated: "2022-08-05"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -122,7 +122,7 @@ Using the default parameters to replicate a database with a large backlog of doc
 Users can reduce the approximate read and write throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads per second on source database |
-|------------------|------------------|-------------------------------------|
+|------------------|--------------|------------|
 | 2 | 1 | 35 | 
 | 6 | 2 | 170 |
 | 12 | 3 | 360 | 
@@ -199,9 +199,9 @@ How do you estimate the total cost for provisioned throughput capacity per month
 
 What about pricing for data overage? How does that work?
 
-Plan | Storage Included | Overage Limit
------|------------------|--------------
-Standard on Transaction Engine | 25 GB | Extra storage costs $0.000342 per GB per hour, which is approximately $0.25 per GB per month.
+| Plan | Storage Included | Overage Limit |
+|-----|------------------|--------------|
+| Standard on Transaction Engine | 25 GB | Extra storage costs $0.000342 per GB per hour, which is approximately $0.25 per GB per month. |
 {: caption="Table 3. Data overage pricing" caption-side="top"}
 
 ## {{site.data.keyword.cloud_notm}} Usage Dashboard

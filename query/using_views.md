@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-07-05"
+lastupdated: "2022-08-05"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -61,29 +61,29 @@ embed or remove the partition name works for any view query type.
 Global queries can use all query and JSON body arguments. Partition queries can use only the
 subset that is indicated in the table.
 
-Argument         | Description | Optional | Type | Default | Supported values | Partition query
------------------|-------------|----------|------|---------|------------------|-----------------
-`bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | | |
-`conflicts`      | Specify whether to include a list of conflicted revisions in the `_conflicts` property of the returned document. Ignored if `include_docs` isn't set to `true`. | Yes | Boolean | False || Yes
-`descending`     | Return the documents in `descending by key` order. | Yes | Boolean | False | | Yes
-`end_key`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes
-`end_key_docid`   | Stop returning records when the specified document ID is reached. | Yes | String | | | Yes
-`group`          | Specify whether to group reduced results by key. Valid only if a reduce function is defined in the view. If the view emits keys in JSON array format, then it is possible to reduce groups further based on the number of array elements with the `group_level` parameter. | Yes | Boolean | False | | Yes
-`group_level`    | Specify a group level to be used. Only applicable if the view uses keys that are JSON arrays. Implies group is `true`. Group level groups the reduced results by the specified number of array elements. If unset, results are grouped by the entire array key, returning a reduced value for each complete key. | Yes | Numeric | | | Yes
-`include_docs`   | Include the full content of the documents in the response. | Yes | Boolean | False | | Yes
-`inclusive_end`  | Include rows with the specified `end_key`. | Yes | Boolean | True | | Yes
-`key`            | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON array | | | Yes
-`keys`           | Specify to return only documents that match any of the specified keys. String representation of a JSON array of keys that match the key type emitted by the view function. | Yes | String or JSON array | || Yes
-`limit` | Limit the number of returned documents to the specified count. For Transaction Engine, the `limit` parameter restricts the total number of returned documents. | Yes | Numeric | | | Yes
-`page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.  | Yes | Numeric | | |
-`reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes
-`skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes
-`stable`         | Specify whether to use the same replica of the index on each request. The default value `false` contacts all replicas and returns the result from the first, fastest responder. Setting it to `true`, when used with `update=false`, might improve consistency at the expense of increased latency and decreased throughput if the selected replica is not the fastest of the available replicas.   \n  \n **Note**: In general, setting this parameter to `true` is discouraged and not recommended when using `update=true`. | Yes | Boolean | False | | No 
-`stale`          | **Note**: `stale` is deprecated. Use `stable` and `update` instead.   \n  \n Specify whether to use the results from a stale view without triggering a rebuild of all views within the encompassing design doc. \n - `ok` is equivalent to `stable=true&update=false` \n - `update_after` is equivalent to `stable=true&update=lazy` | Yes | String | False | | No
-`start_key`       | Return records, starting with the specified key. | Yes | String or JSON array | | | Yes
-`start_key_docid` | Return records, starting with the specified document ID. | Yes | String | || Yes
-`update`        | Specify whether or not the view in question must be updated prior to responding to the user.   \n - `true` - Return results after the view is updated.   \n - `false` - Return results without updating the view.   \n - `lazy` - Return the view results without waiting for an update, but update them immediately after the request. | Yes | String | True | | Yes
-{: caption="Table 2. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
+| Argument         | Description | Optional | Type | Default | Supported values | Partition query |
+|--------|------|------|----|-----|------|-------|
+| `bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | | | |
+| `conflicts`      | Specify whether to include a list of conflicted revisions in the `_conflicts` property of the returned document. Ignored if `include_docs` isn't set to `true`. | Yes | Boolean | False | | Yes |
+| `descending`     | Return the documents in `descending by key` order. | Yes | Boolean | False | | Yes |
+| `end_key`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes |
+| `end_key_docid`   | Stop returning records when the specified document ID is reached. | Yes | String | | | Yes |
+| `group`          | Specify whether to group reduced results by key. Valid only if a reduce function is defined in the view. If the view emits keys in JSON array format, then it is possible to reduce groups further based on the number of array elements with the `group_level` parameter. | Yes | Boolean | False | | Yes |
+| `group_level`    | Specify a group level to be used. Only applicable if the view uses keys that are JSON arrays. Implies group is `true`. Group level groups the reduced results by the specified number of array elements. If unset, results are grouped by the entire array key, returning a reduced value for each complete key. | Yes | Numeric | | | Yes |
+| `include_docs`   | Include the full content of the documents in the response. | Yes | Boolean | False | | Yes |
+| `inclusive_end`  | Include rows with the specified `end_key`. | Yes | Boolean | True | | Yes |
+| `key` | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON array | | | Yes |
+| `keys` | Specify to return only documents that match any of the specified keys. String representation of a JSON array of keys that match the key type emitted by the view function. | Yes | String or JSON array | | | Yes |
+| `limit` | Limit the number of returned documents to the specified count. For Transaction Engine, the `limit` parameter restricts the total number of returned documents. | Yes | Numeric | | | Yes |
+| `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.  | Yes | Numeric | | | |
+| `reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes |
+| `skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes |
+| `stable`         | Specify whether to use the same replica of the index on each request. The default value `false` contacts all replicas and returns the result from the first, fastest responder. Setting it to `true`, when used with `update=false`, might improve consistency at the expense of increased latency and decreased throughput if the selected replica is not the fastest of the available replicas.   \n  \n **Note**: In general, setting this parameter to `true` is discouraged and not recommended when using `update=true`. | Yes | Boolean | False | | No |
+| `stale`          | **Note**: `stale` is deprecated. Use `stable` and `update` instead.   \n  \n Specify whether to use the results from a stale view without triggering a rebuild of all views within the encompassing design doc. \n - `ok` is equivalent to `stable=true&update=false` \n - `update_after` is equivalent to `stable=true&update=lazy` | Yes | String | False | | No |
+| `start_key` | Return records, starting with the specified key. | Yes | String or JSON array |  |  | Yes |
+| `start_key_docid` | Return records, starting with the specified document ID. | Yes | String | | | Yes |
+| `update`        | Specify whether or not the view in question must be updated prior to responding to the user.   \n - `true` - Return results after the view is updated.   \n - `false` - Return results without updating the view.   \n - `lazy` - Return the view results without waiting for an update, but update them immediately after the request. | Yes | String | True | | Yes |
+{: caption="Table 1. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
@@ -443,11 +443,11 @@ so the results of your query include these updates. The `update` parameter can b
 performance with the defaults for these parameters. If the performance of your view and your application can tolerate inconsistent results when queried, use `stable=false&update=false`. These settings avoid directing all queries to a single copy of 
 your index, which would, in effect, reduce some aspects of performance to a third of what it must be.
 
-Option   | Purpose                                                                                                                               | Default value
----------|---------------------------------------------------------------------------------------------------------------------------------------|--------------
-`stable` | Determine whether view results are obtained from a consistent or 'stable' set of shards. Possible values include `true`, and `false`. | `false`
-`update` | Determine whether the view is updated before the results are returned. Possible values include `true`, `false`, and `lazy`.           | `true`
-{: caption="Table 4. Parameter default values" caption-side="top"}
+| Option   | Purpose  | Default value |
+|---------|----------------|--------------|
+|`stable` | Determine whether view results are obtained from a consistent or 'stable' set of shards. Possible values include `true`, and `false`. | `false` |
+| `update` | Determine whether the view is updated before the results are returned. Possible values include `true`, `false`, and `lazy`. | `true` |
+{: caption="Table 2. Parameter default values" caption-side="top"}
 
 The defaults are suitable for most applications. For better performance and
 availability, use `stable=false&update=false`. For better result stability
@@ -490,17 +490,17 @@ The sort is applied to the key defined in the view function.
 
 The basic order of the output is shown in the following table:
 
-Value                                                                                             | Order
---------------------------------------------------------------------------------------------------|------
-`null`                                                                                            | First
-`false`                                                                                           |
-`true`                                                                                            |
-Numbers                                                                                           |
-Text (lowercase)                                                                                  |
-Text (uppercase)                                                                                  |
-Arrays (according to the values of each element, by using the order given in this table)          |
-Objects (according to the values of keys, in key order by using the order given in this table)    | Last
-{: caption="Table 6. Order of returned rows" caption-side="top"}
+| Value | Order |
+|-------|------|
+|`null` | First|
+|`false` | |
+| `true`  | |
+| Numbers | |
+| Text (lowercase) | |
+| Text (uppercase) | |
+| Arrays (according to the values of each element, by using the order given in this table) | |
+| Objects (according to the values of keys, in key order by using the order given in this table) | Last |
+{: caption="Table 3. Order of returned rows" caption-side="top"}
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 

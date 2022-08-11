@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-16"
+lastupdated: "2022-08-04"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -116,18 +116,18 @@ This field sets whether the created index is a partitioned or global index.
 
 This field includes the following values:
 
-Value  | Description           | Notes
----------|---------------------|------------
-`true` | Create the index as partitioned.   | Can be used only in a partitioned database.
-`false`    | Create the index as global.  | Can be used in any database.
+| Value  | Description           | Notes |
+|---------|---------------------|------------|
+| `true` | Create the index as partitioned.   | Can be used only in a partitioned database. |
+| `false`    | Create the index as global.  | Can be used in any database. |
 {: caption="Table 1. Values for the options.partitioned field" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
-Database is partitioned? | Default `partitioned` value | Allowed values
----------|----------|---------
-Yes  | `true`  | `true`, `false`
-No   | `false` | `false`
+| Database is partitioned? | Default `partitioned` value | Allowed values |
+|---------|----------|---------|
+| Yes  | `true`  | `true`, `false` |
+| No   | `false` | `false` |
 {: caption="Table 2. Partition settings" caption-side="top"}
 
 ## Copying a design document
@@ -1274,13 +1274,13 @@ the update validator responds with a custom error.
 
 Update validators require four arguments:
 
-Argument  | Purpose
-----------|--------
-`newDoc`  | The version of the document passed in the request.
-`oldDoc`  | The version of the document currently in the database, or `null` if none exists.
-`secObj`  | The [security object](/apidocs/cloudant#getsecurity){: external} for the database.
-`userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`.
-{: caption="Table 10. Arguments for the update validator" caption-side="top"}
+| Argument  | Purpose |
+|----------|--------|
+| `newDoc`  | The version of the document passed in the request. |
+| `oldDoc`  | The version of the document currently in the database, or `null` if none exists. |
+| `secObj`  | The [security object](/apidocs/cloudant#getsecurity){: external} for the database. |
+| `userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`. |
+{: caption="Table 3. Arguments for the update validator" caption-side="top"}
 
 Update validators don't apply when a design document is updated by an admin user. This practice ensures that admins can never accidentally lock themselves out.
 {: tip}

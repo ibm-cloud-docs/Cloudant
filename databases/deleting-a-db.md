@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-03"
+lastupdated: "2022-08-04"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -117,12 +117,12 @@ All Go examples require the `service` object to be initialized. For more informa
 If deletion succeeds, you get a 200 or 202 response.
 An error response uses the HTTP status code to indicate what went wrong.
 
- Code | Description 
-------|-------------
- 200  | Database deleted successfully. 
- 202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
- 404  | Database does not exist on all of the nodes. 
-{: caption="Table 16. HTTP status codes" caption-side="top"}
+| Code | Description |
+|------|-------------|
+| 200  | Database deleted successfully. |
+| 202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum. |
+| 404  | Database does not exist on all of the nodes. |
+{: caption="Table 1. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is deleted successfully:
 

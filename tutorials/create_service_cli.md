@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -117,13 +117,13 @@ ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LO
 
 The fields in the command are described in the table that follows.
 
-Field  | Description
--------|------------
-`NAME` | Arbitrary name that you give to the instance.
-`SERVICE_NAME` | `cloudantnosqldb`
-`SERVICE_PLAN_NAME` |  Lite plan (`lite`), Standard plan (`standard`), or Standard Transaction Engine (`standard-transaction-engine`).
-`LOCATION` | The location where you want to deploy includes the following cities: Sydney `au-syd`, Chennai `in-che`, Osaka `jp-osa`, Tokyo `jp-tok`, Seoul `kr-seo`, Frankfurt `eu-de`, London `eu-gb`, Dallas `us-south`, Washington DC `us-east`.
-`legacyCredentials` | Defaults to `true`. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only.
+| Field | Description |
+|-------|------------|
+| `NAME` | Arbitrary name that you give to the instance. |
+| `SERVICE_NAME` | `cloudantnosqldb` |
+| `SERVICE_PLAN_NAME` |  Lite plan (`lite`), Standard plan (`standard`), or Standard Transaction Engine (`standard-transaction-engine`). |
+| `LOCATION` | The location where you want to deploy includes the following cities: Sydney `au-syd`, Chennai `in-che`, Osaka `jp-osa`, Tokyo `jp-tok`, Seoul `kr-seo`, Frankfurt `eu-de`, London `eu-gb`, Dallas `us-south`, Washington DC `us-east`. |
+| `legacyCredentials` | Defaults to `true`. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. |
 {: caption="Table 1. Basic command format fields" caption-side="top"}
 
 `SERVICE_PLAN_NAME` is the type of pricing plan you select when you create an instance. For more information, see [Plans](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#plans-and-provisioning) in the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
@@ -198,11 +198,11 @@ ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INST
 
 The fields in the command are described in the table that follows.
 
-Field  | Description
--------|-------------
-`NAME` | Arbitrary name that you give the service credentials.
-`ROLE_NAME` | This field currently allows the Manager role only.
-`SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance.
+| Field | Description |
+|-------|-------------|
+| `NAME` | Arbitrary name that you give the service credentials. |
+| `ROLE_NAME` | This field currently allows the Manager role only. |
+| `SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance. |
 {: caption="Table 2. Create credential fields" caption-side="top"}
 
 Now, you create credentials for the  `cs20170517a` instance you created in the previous step.

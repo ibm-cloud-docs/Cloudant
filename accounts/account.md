@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-08-04"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -95,11 +95,11 @@ You can use the cookie until it expires.
 
 Using the `DELETE` method logs out the user because the cookie is considered expired by the server.
 
-Method | Path | Description | Headers | Form Parameters
--------|------|-------------|---------|----------------------
-`POST` | `/_session` | Do cookie-based user login. | `Content-Type: application/x-www-form-urlencoded` | `name`, `password`
-`GET` | `/_session` | Returns cookie-based login user information. | AuthSession cookie returned by POST request. | 
-`DELETE` | `/_session` | Log out cookie-based user. | AuthSession cookie returned by POST request. | 
+| Method | Path | Description | Headers | Form Parameters |
+| -------|------|-------------|---------|----------------------|
+| `POST` | `/_session` | Do cookie-based user login. | `Content-Type: application/x-www-form-urlencoded` | `name`, `password` |
+| `GET` | `/_session` | Returns cookie-based login user information. | AuthSession cookie returned by POST request. |  |
+| `DELETE` | `/_session` | Log out cookie-based user. | AuthSession cookie returned by POST request. | 
 {: caption="Table 1. Cookie authentication and methods" caption-side="top"}
 
 For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: external} on basic authentication.
@@ -143,12 +143,12 @@ The roles can be assigned to user accounts or [API keys](/docs/Cloudant?topic=Cl
 
 The three core roles are defined in the following table:
 
-Role      | Description
-----------|------------
-`_admin`  | Change security settings, including adding roles.
-`_reader` | Read documents from the database.
-`_writer` | Create, update, and delete documents (except design documents) in the database.
-{: caption="Table 1. Core roles" caption-side="top"}
+| Role      | Description |
+| ----------|------------ |
+| `_admin`  | Change security settings, including adding roles. |
+| `_reader` | Read documents from the database. |
+| `_writer` | Create, update, and delete documents (except design documents) in the database. |
+{: caption="Table 2. Core roles" caption-side="top"}
 
 The `_reader` and `_writer` roles are exclusive. If a user has the `_writer` role, they can't read documents that they create unless they *also* have the `_reader` role.
 {: tip}
@@ -168,12 +168,12 @@ but apply *only* to the specific API endpoint.
 
 The focused roles are defined in the following table:
 
-Role | Description | API Endpoints
------|-------------|---------------
-`_design`     | Allows create, read, modify, or delete access to design documents. | [`_design`](/docs/Cloudant?topic=Cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes), [`_index`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes)
-`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/apidocs/cloudant?code=node#postreplicate){: external}, [`_replicate`](/apidocs/cloudant#postreplicate){: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database)
-`_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/apidocs/cloudant#getsecurity){: external}
-{: caption="Table 2. Focused roles" caption-side="top"}
+| Role | Description | API Endpoints |
+|-----|-------------|---------------|
+| `_design`     | Allows create, read, modify, or delete access to design documents. | [`_design`](/docs/Cloudant?topic=Cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes), [`_index`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes) |
+| `_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/apidocs/cloudant?code=node#postreplicate){: external}, [`_replicate`](/apidocs/cloudant#postreplicate){: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database) |
+| `_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/apidocs/cloudant#getsecurity){: external} |
+{: caption="Table 3. Focused roles" caption-side="top"}
 
 The nature of the access that is granted depends on the specific API endpoint.
 For example,
@@ -495,3 +495,4 @@ See the following example response from a modification request:
 ```
 {: codeblock}
 
+ 

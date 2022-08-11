@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, data usage pricing
 
@@ -76,10 +76,10 @@ How do you estimate the total cost for provisioned throughput capacity per month
 
 What about pricing for data overage? How does that work?
 
-Plan | Storage included | Overage limit
------|------------------|--------------
-Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1-GB limit, or upgrade to a higher plan.
-Standard | 20 GB | Extra storage costs $0.0014 per GB per hour, which is approximately $1 per GB per month.
+| Plan | Storage included | Overage limit |
+|-----|------------------|--------------|
+| Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1-GB limit, or upgrade to a higher plan. |
+| Standard | 20 GB | Extra storage costs $0.0014 per GB per hour, which is approximately $1 per GB per month. |
 {: caption="Table 1. Pricing for data overage" caption-side="top"}
 
 ## {{site.data.keyword.cloud_notm}} Usage Dashboard 

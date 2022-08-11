@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: log analysis, integration, provisioning log analysis, hipaa
 
@@ -20,17 +20,17 @@ subcollection: Cloudant
 
 Currently, {{site.data.keyword.loganalysisfull_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
 
-Deployment Region | {{site.data.keyword.loganalysisfull_notm}} Region
-----------|-----------
-`Chennai` | `Chennai`
-`Dallas` | `Dallas`
-`Frankfurt` | `Frankfurt`
-`London` | `London`
-`Osaka` | `Tokyo`
-`Seoul` | `Seoul`
-`Sydney` | `Sydney`
-`Tokyo` | `Tokyo`
-`Washington DC` | `Washington DC`
+| Deployment Region | {{site.data.keyword.loganalysisfull_notm}} Region |
+|----------|-----------|
+| `Chennai` | `Chennai` |
+| `Dallas` | `Dallas` |
+| `Frankfurt` | `Frankfurt` |
+| `London` | `London` |
+| `Osaka` | `Tokyo` |
+| `Seoul` | `Seoul` |
+| `Sydney` | `Sydney` |
+| `Tokyo` | `Tokyo` |
+| `Washington DC` | `Washington DC` |
 {: caption="Table 1. {{site.data.keyword.loganalysisfull_notm}} regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.loganalysisfull_notm}}
@@ -58,33 +58,33 @@ Once logs are being live-streamed, each log can be expanded to a detailed view b
 
 The expanded view has some handy, color-coded fields to help you parse your logs.
 
-Line Identifiers | Description
------------------|------------
-`Source` | The region the logs are being sent from.
-`App` | The CRN of your database deployment that is sending the logs.
+| Line Identifiers | Description |
+|-----------------|------------|
+| `Source` | The region the logs are being sent from. |
+| `App` | The CRN of your database deployment that is sending the logs. |
 {: caption="Table 2. Line identifiers" caption-side="top"}
 
-Log Lines | Description
-----------|------------
-`accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment.
-`httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a specific resource.
-`httpRequest` | The URL path for the HTTP request.
-`bytesRead`| The size of the response body.
-`clientIp` | The IP address of the originating request.
-`clientPort` | The port address for the originating request.
-`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](/apidocs/cloudant#list-of-http-codes){: external}.
-`terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: external}.
-`dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.
-`dbRequest` | The database request endpoint.
-`userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
-`sslVersion` | The version of Transport Layer Security that the request is using.
-`cipherSuite` | The cipher suite used for the request.
-`requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Request classes](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#request-classes){: external}.
-`parsedQueryString` | A parsed version that shows the breakdown of the parameters that are passed in the query string. If {{site.data.keyword.cloudant_short_notm}} cannot parse the `rawQueryString`, this value is null.
-`rawQueryString` | Full text of the query string as passed to the service.
-`logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.
-`meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}.
-`timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This time happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value. </br> `request` - The total time to get the client request. It's the time that is elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
+| Log Lines | Description |
+|----------|------------|
+| `accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment. |
+| `httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a specific resource. |
+| `httpRequest` | The URL path for the HTTP request. |
+| `bytesRead`| The size of the response body. |
+| `clientIp` | The IP address of the originating request. |
+| `clientPort` | The port address for the originating request. |
+| `statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information, see [HTTP status codes](/apidocs/cloudant#list-of-http-codes){: external}.|
+| `terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: external}.|
+| `dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request. |
+| `dbRequest` | The database request endpoint. |
+| `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library. |
+| `sslVersion` | The version of Transport Layer Security that the request is using. |
+| `cipherSuite` | The cipher suite used for the request. |
+| `requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Request classes](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#request-classes){: external}. |
+| `parsedQueryString` | A parsed version that shows the breakdown of the parameters that are passed in the query string. If {{site.data.keyword.cloudant_short_notm}} cannot parse the `rawQueryString`, this value is null. |
+| `rawQueryString` | Full text of the query string as passed to the service. |
+|`logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs. |
+| `meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}. |
+| `timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This time happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value. </br> `request` - The total time to get the client request. It's the time that is elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body. |
 {: caption="Table 3. Log lines" caption-side="top"}
 
 The `request` and `transfer` timings are included in `response`.

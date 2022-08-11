@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: cloud monitoring, monitoring, platform metrics, observability page, enable platform metrics, view metrics, launch monitoring
 
@@ -20,18 +20,18 @@ subcollection: Cloudant
 
 Currently, {{site.data.keyword.mon_full_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
 
-Deployment Region | {{site.data.keyword.mon_full_notm}} Region
-----------|-----------
-`Chennai` | `Tokyo`
-`Dallas` | `Dallas`
-`Frankfurt` | `Frankfurt`
-`London` | `London`
-`Osaka` | `Osaka`
-`São Paulo` | `São Paulo`
-`Seoul` | `Tokyo`
-`Sydney` | `Sydney`
-`Tokyo` | `Tokyo`
-`Washington DC` | `Washington DC`
+| Deployment Region | {{site.data.keyword.mon_full_notm}} Region |
+|----------|-----------|
+| `Chennai` | `Tokyo` |
+| `Dallas` | `Dallas` |
+| `Frankfurt` | `Frankfurt` |
+| `London` | `London` |
+| `Osaka` | `Osaka` |
+| `São Paulo` | `São Paulo` |
+| `Seoul` | `Tokyo` |
+| `Sydney` | `Sydney` |
+| `Tokyo` | `Tokyo` |
+| `Washington DC` | `Washington DC` |
 {: caption="Table 1. {{site.data.keyword.mon_full_notm}} regions" caption-side="top"}
 
 

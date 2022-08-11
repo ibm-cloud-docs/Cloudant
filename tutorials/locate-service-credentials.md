@@ -72,18 +72,18 @@ Service credentials are valuable. If anyone or any application has access to the
 
 The service credentials include the following fields, as well as designating the fields that are only shown if you select the `Use both legacy credentials and IAM` option:
 
-Field | Purpose | Legacy-auth enabled
-------|---------|--------------------
-`username` | The user name that is required for applications to access the service instance. |
-`password` | The legacy credentials password that is required for applications to access the service instance. | X
-`host` | The host name that is used by applications to locate the service instance. | X
-`port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. | X
-`url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. | X     (If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password.)
-`apikey` | The IAM API key. |
-`iam_apikey_description` | Description of the IAM API key. |
-`iam_apikey_name` | ID of the IAM API key. |
-`iam_role_crn` | The IAM role that the IAM API key has. |
-`iam_serviceid_crn`	| The CRN of the service ID. | X
+| Field | Purpose | Legacy-auth enabled |
+|------|---------|--------------------|
+| `username` | The user name that is required for applications to access the service instance. | |
+| `password` | The legacy credentials password that is required for applications to access the service instance. | X |
+| `host` | The host name that is used by applications to locate the service instance. | X |
+| `port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. | X |
+| `url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. | X     (If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy user name and password.) |
+| `apikey` | The IAM API key. | |
+| `iam_apikey_description` | Description of the IAM API key. | |
+| `iam_apikey_name` | ID of the IAM API key. | |
+| `iam_role_crn` | The IAM role that the IAM API key has. | |
+| `iam_serviceid_crn`	| The CRN of the service ID. | X |
 {: caption="Table 1. Service credential fields" caption-side="top"}
 
 To create an application that can access your service instance, you need these credentials.

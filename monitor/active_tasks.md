@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-04"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -159,11 +159,11 @@ See the example JSON response array that includes details of currently running t
 ### Specific response fields for compaction tasks
 {: #specific-response-fields-for-compaction-tasks}
 
-Name | Description
------|------------
-`changes_done` | Number of documents compacted.
-`phase` | Reports the stage of compaction.
-`total_changes` | Number of documents in the database.
+| Name | Description |
+|-----|------------|
+| `changes_done` | Number of documents compacted. |
+| `phase` | Reports the stage of compaction. |
+| `total_changes` | Number of documents in the database. |
 {: caption="Table 2. Response fields for compaction tasks" caption-side="top"}
 
 In the `phase` field, the value indicates the stage that was reached by compaction:
@@ -177,24 +177,24 @@ In the `phase` field, the value indicates the stage that was reached by compacti
 ### Specific response fields for replication tasks
 {: #specific-response-fields-for-replication-tasks}
 
-Name | Description
------|------------
-`changes_pending` | Number of documents that need to be changed in the target database, expressed as an integer.
-`continuous` | Boolean value that indicates whether the replication is continuous.
-`docs_read` | Number of documents that are read from the source database, expressed as an integer.
-`replication_id` | Unique identifier string of the replication that can be used to cancel the task.
-`revisions_checked` | Number of document revisions that were checked to verify whether they're already in the target database.
-`source` | An obfuscated URL string that indicates the database from which the task is replicating.
-`target` | An obfuscated URL string that indicates the database to which the task is replicating.
-`user` | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user.
+| Name | Description |
+|-----|------------|
+| `changes_pending` | Number of documents that need to be changed in the target database, expressed as an integer. |
+| `continuous` | Boolean value that indicates whether the replication is continuous. |
+| `docs_read` | Number of documents that are read from the source database, expressed as an integer. |
+| `replication_id` | Unique identifier string of the replication that can be used to cancel the task. |
+| `revisions_checked` | Number of document revisions that were checked to verify whether they're already in the target database. |
+| `source` | An obfuscated URL string that indicates the database from which the task is replicating. |
+| `target` | An obfuscated URL string that indicates the database to which the task is replicating. |
+| `user` | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user. |
 {: caption="Table 3. Response fields for replication tasks" caption-side="top"}
 
 ### Specific response fields for indexing tasks
 {: #specific-response-fields-for-indexing-tasks}
 
-Name | Description
------|------------
-`changes_done` | Number of document revisions that are processed by this task. A document can have one or more revisions.
-`design_document` | The design document that includes the view or index function or functions.
-`total_changes`| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer.
+| Name | Description |
+|-----|------------|
+|`changes_done` | Number of document revisions that are processed by this task. A document can have one or more revisions. |
+| `design_document` | The design document that includes the view or index function or functions. |
+| `total_changes`| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer. |
 {: caption="Table 4. Response fields for indexing tasks" caption-side="top"}

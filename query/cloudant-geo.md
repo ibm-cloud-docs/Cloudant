@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-08-05"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -314,11 +314,11 @@ All Go examples require the `service` object to be initialized. For more informa
 The data that is returned within the `geo_index` portion of the JSON response includes
 the following fields:
 
-Field | Description
-------|------------
-`doc_count` | Number of documents in the geospatial index.
-`disk_size` | The size of the geospatial index, as stored on disk, in bytes.
-`data_size` | The size of the geospatial index, in bytes.
+| Field | Description |
+|------|------------|
+| `doc_count` | Number of documents in the geospatial index. |
+| `disk_size` | The size of the geospatial index, as stored on disk, in bytes. |
+| `data_size` | The size of the geospatial index, in bytes. |
 {: caption="Table 1. Fields in JSON response" caption-side="top"}
 
 See an example response in JSON format:
@@ -363,12 +363,12 @@ See an example format for an {{site.data.keyword.cloudant_short_notm}} Geo API c
 A query geometry parameter must be provided for an {{site.data.keyword.cloudant_short_notm}} Geo search.
 The four types of query geometries are defined in the following table:
 
-Parameter | Description
-----------|------------
-`bbox`    | Specify a bounding box with two coordinates for the lower-left and upper-right corners.
-`ellipse` | Specify an ellipse query with a latitude `lat`, a longitude `lon`, and two radii: `rangex` and `rangey`, both measured in meters.
-`radius`  | Specify a circle query with a latitude `lat`, a longitude `lon`, and a radius `radius` measured in meters.
-`<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
+| Parameter | Description |
+|----------|------------|
+| `bbox`    | Specify a bounding box with two coordinates for the lower-left and upper-right corners. |
+| `ellipse` | Specify an ellipse query with a latitude `lat`, a longitude `lon`, and two radii: `rangex` and `rangey`, both measured in meters. |
+| `radius`  | Specify a circle query with a latitude `lat`, a longitude `lon`, and a radius `radius` measured in meters. |
+| `<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
 {: caption="Table 2. Types of query geometries" caption-side="top"}
 
 See an example of a `bbox` query:
@@ -429,18 +429,18 @@ if `Q` is a query geometry,
 then a GeoJSON document `R` is regarded as the result when a geometric relation between `Q` and `R` returns true.
 The geometric relations are defined in the following table:
 
-Relation                | Description
-------------------------|------------
-`Q contains R`          | True if no points of `R` lie in the exterior of `Q`. `contains` returns the exact opposite result of `within`.
-`Q contains_properly R` | True if `R` intersects the interior of `Q` but not the boundary (or exterior) of `Q`.
-`Q covered_by R`        | True if `Q` is entirely within `R`. `covered_by` returns the exact opposite result of `covers`.
-`Q covers R`            | True if `R` is entirely within `Q`. `covers` returns the exact opposite result of `covered_by`.
-`Q crosses R`           | **Case 1** - True if the interiors intersect, *and* at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`.    **Case 2** - True if the intersection of the interiors of `Q` and `R` is a point. Apply to the geometry pairs of `linestring/linestring`, `linestring/multilinestring`, and `multilinestring/multilinestring`.
-`Q disjoint R`          | True if the two geometries of `Q` and `R` don't intersect. `disjoint` returns the exact opposite result of `intersects`.
-`Q intersects R`        | True if the two geometries of `Q` and `R` intersect. `intersects` returns the exact opposite result of `disjoint`.
-`Q overlaps R`          | **Case 1** - True if the interior of both geometries intersects the interior and exterior of the other. Apply to the geometry pairs of `polygon/polygon`, `multipoint/multipoint`, and `multipolygon/multipolygon`.    **Case 2** - True if the intersection of the geometries is a `linestring`. Apply to the geometry pairs of `linestring` and `linestring`, and `multilinestring` and `multilinestring`.
-`Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a `linestring`, polygon, `multilinestring`, or `multipolygon`.
-`Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`.
+| Relation                | Description |
+|------------------------|------------|
+| `Q contains R`          | True if no points of `R` lie in the exterior of `Q`. `contains` returns the exact opposite result of `within`. |
+| `Q contains_properly R` | True if `R` intersects the interior of `Q` but not the boundary (or exterior) of `Q`. |
+| `Q covered_by R`        | True if `Q` is entirely within `R`. `covered_by` returns the exact opposite result of `covers`. |
+| `Q covers R`            | True if `R` is entirely within `Q`. `covers` returns the exact opposite result of `covered_by`. |
+|`Q crosses R`           | **Case 1** - True if the interiors intersect, *and* at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`.    **Case 2** - True if the intersection of the interiors of `Q` and `R` is a point. Apply to the geometry pairs of `linestring/linestring`, `linestring/multilinestring`, and `multilinestring/multilinestring`. |
+| `Q disjoint R`          | True if the two geometries of `Q` and `R` don't intersect. `disjoint` returns the exact opposite result of `intersects`. |
+| `Q intersects R`        | True if the two geometries of `Q` and `R` intersect. `intersects` returns the exact opposite result of `disjoint`. |
+| `Q overlaps R`          | **Case 1** - True if the interior of both geometries intersects the interior and exterior of the other. Apply to the geometry pairs of `polygon/polygon`, `multipoint/multipoint`, and `multipolygon/multipolygon`.    **Case 2** - True if the intersection of the geometries is a `linestring`. Apply to the geometry pairs of `linestring` and `linestring`, and `multilinestring` and `multilinestring`. |
+| `Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a `linestring`, polygon, `multilinestring`, or `multipolygon`. |
+| `Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`. |
 {: caption="Table 3. Geometric relations" caption-side="top"}
 
 ### Nearest neighbor search

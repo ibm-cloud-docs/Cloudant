@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: syntax of monitoring request, monitoring endpoints, monitoring metrics, monitoring requests
 
@@ -69,23 +69,23 @@ curl -u $ADMIN_USER "https://$ADMIN_USER.cloudant.com/_api/v2/monitoring/$END_PO
 
 The fields are described in the following table:
 
-Field        | Meaning
--------------|--------
-`ADMIN_USER` | The account name. The account must have administrative privileges.
-`CLUSTER`    | The cluster that you are interested in.
-`DURATION`   | Specifies the duration of the preferred time series query. Select from one of the following time intervals: `["5min", "30min", "1h", "12h", "24h", "1d", "3d", "7d", "1w", "1m", "3m", "6m", "12m", "1y"]`. `DURATION` must be paired with either the `START` or `END` request.
-`END`        | UTC timestamp in ISO-8601 or UTC epoch second, which specifies the end of a time series query. The timestamp can't have a query where `START` and `END` are the same, or where `END` is before `START`, or where `START` is after `END`.
-`END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor.
-`START`      | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the starting point of a time series query that is mutually exclusive with `END`.
+| Field        | Meaning |
+|-------------|--------|
+| `ADMIN_USER` | The account name. The account must have administrative privileges. |
+| `CLUSTER`    | The cluster that you are interested in. |
+| `DURATION`   | Specifies the duration of the preferred time series query. Select from one of the following time intervals: `["5min", "30min", "1h", "12h", "24h", "1d", "3d", "7d", "1w", "1m", "3m", "6m", "12m", "1y"]`. `DURATION` must be paired with either the `START` or `END` request. |
+| `END`        | UTC timestamp in ISO-8601 or UTC epoch second, which specifies the end of a time series query. The timestamp can't have a query where `START` and `END` are the same, or where `END` is before `START`, or where `START` is after `END`. |
+| `END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor. |
+| `START`      | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the starting point of a time series query that is mutually exclusive with `END`. |
 {: caption="Table 1. Monitoring API request fields" caption-side="top"}
 
 Several of the fields have default values:
 
-Field      | Default value
------------|--------------
-`DURATION` | 5 minutes.
-`END`      | No default value.
-`START`    | The current time.
+| Field      | Default value |
+|-----------|--------------|
+| `DURATION` | 5 minutes. |
+| `END`      | No default value. |
+| `START`    | The current time. |
 {: caption="Table 2. Default values for monitoring API request fields" caption-side="top"}
 
 ### Results format
@@ -190,17 +190,17 @@ make a request to the `monitoring` endpoint.
 
 The following table lists the supported monitoring endpoints that are provided by the API:
 
-Endpoint                                | Description
-----------------------------------------|------------
-[`connections`](#connections)            | The status of multiple load balancer connections.
-[`disk_use`](#disk_use)                 | The disk use, as measured by a `df` command.
-[`kv_emits`](#kv_emits)                 | The number of `key:value` emits per second.
-[`map_doc`](#map_doc)                   | The number of documents processed by a map function, per second.
-[`network`](#network)                   | The octets that are received and transmitted.   
-[`rate/status_code`](#rate-status_code) | The rate of requests, which are grouped by status code.
-[`rate/verb`](#rate-verb)               | The rate of requests, which are grouped by HTTP verb.
-[`rps`](#rps)                           | The number of reads per second.
-[`wps`](#wps)                           | The number of writes per second.
+| Endpoint                                | Description |
+|----------------------------------------|------------|
+| [`connections`](#connections)            | The status of multiple load balancer connections. |
+| [`disk_use`](#disk_use)                 | The disk use, as measured by a `df` command. |
+| [`kv_emits`](#kv_emits)                 | The number of `key:value` emits per second. |
+| [`map_doc`](#map_doc)                   | The number of documents processed by a map function, per second. |
+| [`network`](#network)                   | The octets that are received and transmitted. |
+| [`rate/status_code`](#rate-status_code) | The rate of requests, which are grouped by status code. |
+| [`rate/verb`](#rate-verb)               | The rate of requests, which are grouped by HTTP verb. |
+| [`rps`](#rps)                           | The number of reads per second. |
+| [`wps`](#wps)                           | The number of writes per second. |
 {: caption="Table 3. Monitoring API endpoints" caption-side="top"}
 
 See an example showing how to obtain a list of the currently supported monitoring endpoints:

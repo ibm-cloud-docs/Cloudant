@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-08-05"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -106,18 +106,18 @@ See the following example of returned JSON, confirming that the index was create
 
 This field sets whether the created index is a partitioned or global index.
 
-Value  | Description           | Notes
----------|---------------------|------------
-`true` | Create the index as partitioned.   | Can be used only in a partitioned database.
-`false`    | Create the index as global.  | Can be used in any database.
+| Value  | Description           | Notes |
+|---------|---------------------|------------|
+| `true` | Create the index as partitioned.   | Can be used only in a partitioned database. |
+| `false`    | Create the index as global.  | Can be used in any database. |
 {: caption="Table 2. Partitioned field values" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
-Is the database partitioned? | Default `partitioned` value | Allowed values
----------|----------|---------
-Yes  | `true`  | `true`, `false`
-No   | `false` | `false`
+| Is the database partitioned? | Default `partitioned` value | Allowed values |
+|---------|----------|---------|
+| Yes  | `true`  | `true`, `false` |
+| No   | `false` | `false` |
 {: caption="Table 3. Default partitioned value" caption-side="top"}
 
 It's important to reiterate that the default `partitioned` value is `true`
@@ -125,10 +125,10 @@ for indexes that are created in a partitioned database. This default  value mean
 be used to satisfy global queries.
 {: important}
 
-Code | Description
------|------------
-200  | Index was created successfully or existed in the database.
-400  | Bad request - the request body doesn't have the specified format.
+| Code | Description |
+|-----|------------|
+| 200  | Index was created successfully or existed in the database. |
+| 400  | Bad request - the request body doesn't have the specified format. |
 {: caption="Table 4. Return codes" caption-side="top"}
 
 ### Creating a `type=text` index
@@ -255,10 +255,9 @@ The `default_field` value specifies how the `$text` operator can be used with th
 
 The `default_field` includes two keys:
 
-Key        | Description
------------|------------
-`analyzer` | Specifies the Lucene analyzer to use. The default value is `standard`.
-`enabled`  | Enable or disable the `default_field index`. The default value is `true`.
+| Key        | Description |
+|-----------|------------|
+| `enabled`  | Enable or disable the `default_field index`. The default value is `true`. |
 {: caption="Table 5. Default_field field keys" caption-side="top"}
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
@@ -323,18 +322,18 @@ See the following example JSON document with suggested settings to optimize perf
 
 This field determines whether the created index is a partitioned or global index.
 
-Value  | Description           | Notes
----------|---------------------|------------
-`true` | Create the index as partitioned.   | Can be used only in a partitioned database.
-`false`    | Create the index as global.  | Can be used in any database.
+| Value  | Description           | Notes |
+|---------|---------------------|------------|
+| `true` | Create the index as partitioned.   | Can be used only in a partitioned database. |
+| `false`    | Create the index as global.  | Can be used in any database. |
 {: caption="Table 6. Partitioned field values" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
-Is the database partitioned? | Default `partitioned` value | Allowed values
----------|----------|---------
-Yes  | `true`  | `true`, `false`
-No   | `false` | `false`
+| Is the database partitioned? | Default `partitioned` value | Allowed values |
+|---------|----------|---------|
+| Yes  | `true`  | `true`, `false` |
+| No   | `false` | `false` |
 {: caption="Table 7. Partitioned settings for the database" caption-side="top"}
 
 ## {{site.data.keyword.cloudant_short_notm}} Query Parameters
@@ -384,13 +383,13 @@ update,
 and delete indexes in a database,
 and to query data by using these indexes.
 
-Methods  | Path                | Description
----------|---------------------|------------
-`DELETE` | `/$DATABASE/_index` | Delete an index.
-`GET`    | `/$DATABASE/_index` | List all {{site.data.keyword.cloudant_short_notm}} Query indexes.
-`POST`   | `/$DATABASE/_find`  | Find documents by using a global index.
-`POST`   | `/$DATABASE/_partition/$PARTITION_KEY/_find`  | Find documents by using a partitioned index.
-`POST`   | `/$DATABASE/_index` | Create an index.
+| Methods  | Path                | Description |
+|---------|---------------------|------------|
+| `DELETE` | `/$DATABASE/_index` | Delete an index. |
+| `GET`    | `/$DATABASE/_index` | List all {{site.data.keyword.cloudant_short_notm}} Query indexes. |
+| `POST`   | `/$DATABASE/_find`  | Find documents by using a global index. |
+| `POST`   | `/$DATABASE/_partition/$PARTITION_KEY/_find`  | Find documents by using a partitioned index. |
+| `POST`   | `/$DATABASE/_index` | Create an index. |
 {: caption="Table 8. Available methods and endpoints" caption-side="top"}
 
 ## Creating a partial index
@@ -781,15 +780,15 @@ Three combination operators (`$all`, `$allMatch`, and `$elemMatch`) help you wor
 A combination operator takes a single argument.
 The argument is either another selector, or an array of selectors.
 
-Operator                                | Argument | Purpose
-----------------------------------------|----------|--------
-[`$all`](#the-all-operator)             | Array    | Matches an array value if it contains all the elements of the argument array.
-[`$allMatch`](#the-allmatch-operator)   | Selector | Matches and returns all documents that contain an array field, where all the elements match all the specified query criteria.
-[`$and`](#the-and-operator)             | Array    | Matches if all the selectors in the array match.
-[`$elemMatch`](#the-elemmatch-operator) | Selector | Matches and returns all documents that contain an array field with at least one element that matches all the specified query criteria.
-[`$nor`](#the-nor-operator)             | Array    | Matches if none of the selectors in the array match.
-[`$not`](#the-not-operator)             | Selector | Matches if the selector doesn't match.
-[`$or`](#the-or-operator)               | Array    | Matches if any of the selectors in the array match. All selectors must use the same index.
+| Operator                                | Argument | Purpose |
+|----------------------------------------|----------|--------|
+| [`$all`](#the-all-operator)             | Array    | Matches an array value if it contains all the elements of the argument array. |
+| [`$allMatch`](#the-allmatch-operator)   | Selector | Matches and returns all documents that contain an array field, where all the elements match all the specified query criteria. |
+| [`$and`](#the-and-operator)             | Array    | Matches if all the selectors in the array match. |
+| [`$elemMatch`](#the-elemmatch-operator) | Selector | Matches and returns all documents that contain an array field with at least one element that matches all the specified query criteria. |
+| [`$nor`](#the-nor-operator)             | Array    | Matches if none of the selectors in the array match. |
+| [`$not`](#the-not-operator)             | Selector | Matches if the selector doesn't match. |
+| [`$or`](#the-or-operator)               | Array    | Matches if any of the selectors in the array match. All selectors must use the same index. |
 {: caption="Table 9. Combination operators" caption-side="top"}
 
 ### Examples of combination operators
@@ -1560,11 +1559,11 @@ an attempt is made to find the field type based on the selector.
 In ambiguous cases,
 the field type must be provided explicitly.
 
-Which index is used by query?               | Field type requirement 
-------------------------------------------|-----------------------
-JSON index                                | It's not necessary to specify the type of sort fields in the query.
-Text index of all fields in all documents | Specify the sort field in the query if the database contains documents where the sort field has one type. Also, specify the sort field in the query if it contains documents where the sort field has a different type.
-Any other text index                      | Specify the type of all sort fields in the query.
+| Which index is used by query?               | Field type requirement |
+|------------------------------------------|-----------------------|
+| JSON index                                | It's not necessary to specify the type of sort fields in the query. |
+| Text index of all fields in all documents | Specify the sort field in the query if the database contains documents where the sort field has one type. Also, specify the sort field in the query if it contains documents where the sort field has a different type. |
+| Any other text index                      | Specify the type of all sort fields in the query. |
 {: caption="Table 11. When to specify the field type" caption-side="top"}
 
 A text index of all fields

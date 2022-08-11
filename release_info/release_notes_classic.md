@@ -539,20 +539,20 @@ Search requests
 Replaced deprecated database information fields
 :   Calls to `GET /{db}` were replaced by the following fields:
 
-   | Old Field | New Field |
-   |-----------|-----------|
-   | `data_size` | `sizes.active` |
-   | `disk_size` | `sizes.file` |
-   | `other.data_size` | `sizes.external` |
-   {: caption="Table 1. Database information fields" caption-side="top"}
+    | Old Field | New Field |
+    |-----------|-----------|
+    | `data_size` | `sizes.active` |
+    | `disk_size` | `sizes.file` |
+    | `other.data_size` | `sizes.external` |
+    {: caption="Table 1. Database information fields" caption-side="top"}
 
-   Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
+    Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 
-   | Old Field | New Field|
-   |-----------|----------|
-   | `data_size` | `sizes.external` |
-   | `disk_size` | `sizes.file` |
-   {: caption="Table 2. Design doc information fields" caption-side="top"}
+    | Old Field | New Field|
+    |-----------|----------|
+    | `data_size` | `sizes.external` |
+    | `disk_size` | `sizes.file` |
+    {: caption="Table 2. Design doc information fields" caption-side="top"}
 
 ## June 2019
 {: #cloudant-jun19}
@@ -649,11 +649,11 @@ The `stale` option
 :   The `stale` option is deprecated and is replaced by `stable` and `update`, which
 allow controlling the two orthogonal behaviors that are caused by `stale` separately.
 
-   `stable` value   | Equivalent by using `stable` and `update`
-   ---------|-----------------------------------------------
-   `false`  | `stable=false`, `update=true`
-   `ok`  | `stable=true`, `update=false`
-   `update_after`  | `stable=true`, `update=lazy`
+   | `stable` value   | Equivalent by using `stable` and `update` |
+   |---------|-----------------------------------------------|
+   | `false`  | `stable=false`, `update=true` |
+   | `ok`  | `stable=true`, `update=false` |
+   | `update_after`  | `stable=true`, `update=lazy` |
    {: caption="Table 3. Stale option replacement" caption-side="top"}
 
 ### 1 February 2019

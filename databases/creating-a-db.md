@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-03"
+lastupdated: "2022-08-04"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -247,12 +247,12 @@ and contain only the following characters:
 
 If your database is successfully created, you get a 201 or 202 response. An error response uses the HTTP status code to indicate what went wrong.
 
-Code | Description
------|------------
-201  | Database created successfully.
-202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
-400  | Invalid database name.
-412  | Database exists.
+| Code | Description |
+|-----|------------|
+| 201  | Database created successfully. |
+| 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum. |
+| 400  | Invalid database name. |
+| 412  | Database exists. |
 {: caption="Table 2. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is created successfully:

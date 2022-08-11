@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-03"
+lastupdated: "2022-08-04"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -20,27 +20,27 @@ send a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs`.
 
 The `_all_docs` endpoint accepts the following query string and JSON body arguments:
 
-Argument | Description  | Optional | Type | Default 
----------|--------------|----------|------|---------
-`bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String |
-`conflicts`         | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes      | Boolean         | False
-`deleted_conflicts` | Returns information about deleted conflicted revisions.                                         | Yes      | Boolean         | False
-`descending`        | Return the documents in descending key order.                                                   | Yes      | Boolean         | False
-`endkey`            | Stop returning records when the specified key is reached.                                       | Yes      | String          |
-`endkey_docid` | Stop returning records when the specified document ID is reached. If `endkey` isn't set, this argument is ignored. | Yes | String |
-`include_docs`      | Include the full content of the documents in the return.                                        | Yes      | Boolean         | False
-`inclusive_end`     | Include rows whose key equals the "`endkey`" value.                                             | Yes      | Boolean         | True
-`key`               | Return only documents with IDs that match the specified key.                                    | Yes      | String          |
-`keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings |
-`limit` | Limit the number of returned documents to the specified number. For Transaction Engine, the `limit` parameter restricts the total number of returned documents.    | Yes      | Numeric         |
-`meta`              | Short-hand combination of the following three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False
-`page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.                                                   | Yes      | Numeric
-`r`                 | Specify the [read quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2
-`revs_info`         | Includes detailed information for all known document revisions.                                 | Yes      | Boolean         | False
-`skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0
-`startkey`          | Return records, starting with the specified key.                                                | Yes      | String          |
-`startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String |
-{: caption="Table 4. Query string and JSON body arguments" caption-side="top"}
+| Argument | Description  | Optional | Type | Default |
+|---------|--------------|----------|------|---------|
+|`bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | |
+| `conflicts`         | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes      | Boolean         | False |
+| `deleted_conflicts` | Returns information about deleted conflicted revisions.                                         | Yes      | Boolean         | False |
+| `descending`        | Return the documents in descending key order.                                                   | Yes      | Boolean         | False |
+| `endkey`            | Stop returning records when the specified key is reached.                                       | Yes      | String          |
+| `endkey_docid` | Stop returning records when the specified document ID is reached. If `endkey` isn't set, this argument is ignored. | Yes | String | |
+| `include_docs`      | Include the full content of the documents in the return.                                        | Yes      | Boolean         | False |
+| `inclusive_end`     | Include rows whose key equals the "`endkey`" value.                                             | Yes      | Boolean         | True |
+| `key`               | Return only documents with IDs that match the specified key.                                    | Yes      | String          | |
+| `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings | |
+| `limit` | Limit the number of returned documents to the specified number. For Transaction Engine, the `limit` parameter restricts the total number of returned documents.    | Yes      | Numeric         | |
+| `meta`              | Short-hand combination of the following three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False |
+| `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.   |     Yes      | Numeric | |
+| `r`                 | Specify the [read quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2 |
+| `revs_info`         | Includes detailed information for all known document revisions.                                 | Yes      | Boolean         | False |
+| `skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0 |
+| `startkey`          | Return records, starting with the specified key.                                                | Yes      | String          | |
+| `startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String | |
+{: caption="Table 1. Query string and JSON body arguments" caption-side="top"}
 
 ## Notes
 {: #get-documents-notes}
@@ -275,13 +275,13 @@ All Go examples require the `service` object to be initialized. For more informa
 The response is a JSON object that contains all documents in the database that match the parameters.
 The following table describes the meaning of the individual fields:
 
-Field        | Description         | Type 
--------------|---------------------|------
-`offset`     | Offset where the document list started.                                             | Numeric, Null (The type can be `null` when `keys` are specified.)
-`rows`       | Array of document objects.                                                          | Array
-`total_rows` | Number of documents in the database or view that match the parameters of the query. | Numeric
-`pdate_seq` | Current update sequence for the database.                                           | String
-{: caption="Table 5. JSON object fields" caption-side="top"}
+| Field        | Description         | Type |
+|-------------|---------------------|------|
+| `offset`     | Offset where the document list started.                                             | Numeric, Null (The type can be `null` when `keys` are specified.) |
+| `rows`       | Array of document objects.                                                          | Array |
+| `total_rows` | Number of documents in the database or view that match the parameters of the query. | Numeric |
+| `pdate_seq` | Current update sequence for the database.                                           | String |
+{: caption="Table 2. JSON object fields" caption-side="top"}
 
 See the following example response after a request for all documents in a database:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-05"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -323,12 +323,12 @@ The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as oppose
 ```
 {: codeblock}
 
-Function | Description
----------|------------
-`_count` | Produces the row count for a specific key. The values can be any valid JSON.
-`_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
-`_sum`   | Produces the sum of all values for a key. The values must be numeric.
-`_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: external} algorithm.
+| Function | Description |
+|---------|------------|
+| `_count` | Produces the row count for a specific key. The values can be any valid JSON. |
+| `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric. |
+| `_sum`   | Produces the sum of all values for a key. The values must be numeric. |
+| `_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: external} algorithm. |
 {: caption="Table 1. Built-in reduce functions" caption-side="top"}
 
 ## Custom reduce functions

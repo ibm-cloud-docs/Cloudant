@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-08-04"
 
 keywords: read document, query parameters, read many documents
 
@@ -179,20 +179,20 @@ for example `/mydatabase/doc?attachments=true&conflicts=true`.
 
 All parameters are optional.
 
-Name                | Type | Description | Default
---------------------|------|-------------|--------
-`attachments`       | Boolean | Includes attachments bodies in response. | False
-`att_encoding_info` | Boolean | Includes encoding information in attachment stubs if the particular attachment is compressed. | False
-`atts_since`        | Array of revision strings | Includes attachments only since specified revisions. Doesn't include attachments for specified revisions. | []
-`conflicts`         | Boolean | Includes information about conflicts in documents. | False
-`deleted_conflicts` | Boolean | Includes information about deleted conflicted revisions. | False
-`latest`            | Boolean | Forces retrieval of the most recent "leaf" revision, no matter what revision was requested. | False
-`local_seq`         | Boolean | Includes last update sequence number for the document. | False
-`meta`              | Boolean | Same as specifying the `conflicts`, `deleted_conflicts`, and `open_revs` query parameters. | False
-`open_revs`         | Array or `all` | Retrieves documents of specified leaf revisions. Additionally, it accepts the value `all` to return all leaf revisions. | []
-`rev`               | String | Retrieves document of specified revision. | -
-`revs`              | Boolean | Includes list of all known document revisions. | False
-`revs_info`         | Boolean | Includes detailed information for all known document revisions. | False
+| Name                | Type | Description | Default |
+|--------------------|------|-------------|--------|
+| `attachments`       | Boolean | Includes attachments bodies in response. | False |
+| `att_encoding_info` | Boolean | Includes encoding information in attachment stubs if the particular attachment is compressed. | False |
+| `atts_since`        | Array of revision strings | Includes attachments only since specified revisions. Doesn't include attachments for specified revisions. | [] |
+| `conflicts`         | Boolean | Includes information about conflicts in documents. | False |
+| `deleted_conflicts` | Boolean | Includes information about deleted conflicted revisions. | False |
+| `latest`            | Boolean | Forces retrieval of the most recent "leaf" revision, no matter what revision was requested. | False |
+| `local_seq`         | Boolean | Includes last update sequence number for the document. | False |
+| `meta`              | Boolean | Same as specifying the `conflicts`, `deleted_conflicts`, and `open_revs` query parameters. | False |
+| `open_revs`         | Array or `all` | Retrieves documents of specified leaf revisions. Additionally, it accepts the value `all` to return all leaf revisions. | [] |
+| `rev`               | String | Retrieves document of specified revision. | - |
+| `revs`              | Boolean | Includes list of all known document revisions. | False |
+| `revs_info`         | Boolean | Includes detailed information for all known document revisions. | False |
 {: caption="Table 1. Query parameters" caption-side="top"}
 
 ## Read many

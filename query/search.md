@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-02"
+lastupdated: "2022-08-05"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -110,7 +110,7 @@ The second parameter is the data to be indexed. Keep the following information i
 
 The third, optional, parameter is a JavaScript object with the following fields:
 
-| Option | Description | Values | Default | 
+| Option | Description | Values | Default |
 |--------|-------------|--------|---------|
 | `boost` | A number that specifies the relevance in search results. Content that is indexed with a boost value greater than 1 is more relevant than content that is indexed without a boost value. Content with a boost value less than one isn't so relevant. | A positive floating point number | 1 (No boosting) |
 | `facet` | Creates a faceted index. For more information, see [Faceting](/docs/Cloudant?topic=Cloudant-cloudant-search#faceting). | `true` | `false` | `false` |
@@ -209,14 +209,14 @@ Analyzers can be helpful if you need to [index multiple languages](#language-spe
 
 Here's the list of generic analyzers that are supported by {{site.data.keyword.cloudantfull}} search:
 
-Analyzer     | Description
--------------|------------
-`classic`    | The standard Lucene analyzer, circa version 3.1.
-`email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token.
-`keyword`    | Input isn't tokenized at all.
-`simple`     | Divides text at non-letters.
-`standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: external}.
-`whitespace` | Divides text at white space boundaries.
+| Analyzer     | Description |
+|-------------|------------|
+| `classic`    | The standard Lucene analyzer, circa version 3.1. |
+| `email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token. |
+| `keyword`    | Input isn't tokenized at all. |
+| `simple`     | Divides text at non-letters. |
+| `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: external}. |
+| `whitespace` | Divides text at white space boundaries. |
 {: caption="Table 2. Generic analyzers" caption-side="top"}
 
 See the following example analyzer document:
