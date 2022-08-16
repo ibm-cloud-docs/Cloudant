@@ -820,7 +820,6 @@ See the following example that uses the command line to query the changes feed:
 curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous"
 ```
 {: codeblock}
-{: curl}
 
 The changes are described by using one line per change.
 Each change consists of:
@@ -867,7 +866,6 @@ See the following example (abbreviated) that uses the command line to supply the
 curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
 ```
 {: codeblock}
-{: curl}
 
 To rejoin the changes feed from the current moment in time,
 set `since=now`.
@@ -887,7 +885,6 @@ See the following example that uses the command line to supply `since=now` to jo
 curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
-{: curl}
 
 Accessing the `_changes` data programmatically is straightforward.
 For example,
@@ -918,7 +915,6 @@ See the following example that uses the command line to filter the changes feed:
 curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
 ```
 {: codeblock}
-{: curl}
 
 The ordering of documents within the `_changes` feed is not always the same. In other words, changes might not appear in strict time order. The reason is that data is returned from multiple {{site.data.keyword.cloudant_short_notm}} nodes, and eventual consistency rules apply.
 {: tip}
