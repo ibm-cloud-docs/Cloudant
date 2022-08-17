@@ -34,7 +34,7 @@ The [Grouping related documents together in {{site.data.keyword.cloudant_short_n
 -   Partitioned
 -   Non-partitioned
 
-A partitioned database offers significant query performance and cost advantages but requires you to specify a logical partitioning of your data. The partitioning is specified as part of each document's ID. A partitioned database allows performing both global and partition queries. Partition queries target queries at a single, given document partition, meaning they need to process less data to return results. Therefore, partition queries offer significant performance advantages, and also often provide cost advantages over global queries. Global queries target the entire database, which leads to extra complexity, slower performance, and increased cost, but offer results that draw from all data.
+A partitioned database offers significant query performance and cost advantages but requires you to specify a logical partitioning of your data. The partitioning is specified as part of each document's ID. A partitioned database allows performing both global and partition queries. Partition queries target queries at a single, given document partition, meaning they need to process less data to return results. Therefore, partition queries offer significant performance advantages, and also often provide cost advantages over global queries. Global queries target the entire database, which leads to extra complexity, slower performance, and increased cost, but offers results that draw from all data.
 
 Alternatively, a non-partitioned database might be created. This type of database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
 
