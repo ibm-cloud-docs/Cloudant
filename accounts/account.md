@@ -125,7 +125,7 @@ The various tasks can be grouped into collections that are typical of some gener
 For example,
 the task of creating or deleting a database is characteristic of someone with an administrative role.
 Similarly,
-the task or creating or updating a document is characteristic of someone with a "writing" role.
+the task of creating or updating a document is characteristic of someone with a "writing" role.
 
 Rather than explicitly listing every task you can do,
 you're given one or more roles.
