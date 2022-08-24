@@ -49,22 +49,18 @@ import com.ibm.cloud.cloudant.v1.model.ServerInformation;
 
 Cloudant service = Cloudant.newInstance();
 
-ServerInformation response =
-    service.getServerInformation().execute().getResult();
-
-System.out.println(response);
+service.setServiceUrl("https://$ACCOUNT-bluemix.private.cloudantnosqldb.appdomain.cloud");
+...
 ```
 {: codeblock}
 {: java}
 
-```node
-import { CloudantV1 } from '@ibm-cloud/cloudant'
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
 
-service.getServerInformation().then(response => {
-    console.log(response.result);
-});
+service.setServiceUrl('https://$ACCOUNT-bluemix.private.cloudantnosqldb.appdomain.cloud');
 ```
 {: codeblock}
 {: node}
@@ -74,23 +70,24 @@ from ibmcloudant.cloudant_v1 import CloudantV1
 
 service = CloudantV1.new_instance()
 
-response = service.get_server_information().get_result()
-
-print(response)
+service.set_service_url('https://$ACCOUNT-bluemix.private.cloudantnosqldb.appdomain.cloud')
 ```
 {: codeblock}
 {: python}
 
 ```go
-getServerInformationOptions := service.NewGetServerInformationOptions(),
+import (
+  "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
 
-serverInformation, response, err := service.GetServerInformation(getServerInformationOptions),
+service, _ := cloudantv1.NewCloudantV1UsingExternalConfig(
+  &cloudantv1.CloudantV1Options{},
+)
+service.SetServiceURL("https://$ACCOUNT-bluemix.private.cloudantnosqldb.appdomain.cloud")
+
 if err != nil {
   panic(err)
 }
-
-b, _ := json.MarshalIndent(serverInformation, "", "  ")
-fmt.Println(string(b))
 ```
 {: codeblock}
 {: go}
