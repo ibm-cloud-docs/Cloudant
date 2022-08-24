@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-22"
 
 keywords: IBM Cloudant, HA for IBM Cloudant, high availability for IBM Cloudant
 
@@ -10,8 +10,6 @@ subcollection: Cloudant
 
 ---
 
-{:table: .aria-labeledby="caption"}
-{:download: .download}
 {{site.data.keyword.attribute-definition-list}}
 
 # Understanding high availability for {{site.data.keyword.cloudant_short_notm}}

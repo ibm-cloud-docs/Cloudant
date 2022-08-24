@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-08-22"
 
 keywords: read, write, global query, throughput, operation type, event, reject request, retry, provision, capacity, provision throughput capacity calculated, exceed the provisioned throughput capacity limit
 
@@ -10,18 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:support: data-reuse='support'}
-{:faq: data-hd-content-type='faq'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Provisioned throughput capacity model FAQ
 {: #faq-provisioned-throughput-capacity-model}

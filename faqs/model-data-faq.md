@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-02"
+  years: 2015, 2022
+lastupdated: "2022-08-22"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -10,18 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:support: data-reuse='support'}
-{:faq: data-hd-content-type='faq'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Modeling data to scale FAQ
 {: #five-tips-for-modeling-your-data-to-scale-faq}

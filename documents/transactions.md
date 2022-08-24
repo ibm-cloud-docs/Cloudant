@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-08-22"
 
 keywords: generate uuid, record payments, add more documents, advantages, uuid
 
@@ -10,16 +10,7 @@ subcollection: Cloudant
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}
 {: #grouping-related-documents-together-in-ibm-cloudant}

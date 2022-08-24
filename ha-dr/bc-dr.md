@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-22"
 
 keywords: HA for IBM Cloudant, DR for IBM Cloudant, high availability for IBM Cloudant, disaster recovery for IBM Cloudant, failover for IBM Cloudant, BC for IBM Cloudant, DR for IBM Cloudant, business continuity for IBM Cloudant, disaster recovery for IBM Cloudant
 
@@ -10,8 +10,6 @@ subcollection: Cloudant
 
 ---
 
-{:table: .aria-labeledby="caption"}
-{:download: .download}
 {{site.data.keyword.attribute-definition-list}}
 
 # Understanding business continuity and disaster recovery for {{site.data.keyword.cloudant_short_notm}}
