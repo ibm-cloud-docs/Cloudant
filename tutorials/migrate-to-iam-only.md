@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-18"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation, IAM, migration
 
@@ -72,11 +72,7 @@ before you start this step.
 
    ![Migrate to IAM Only.](images/authentication_methods_root_credential.png){: caption="Figure 2. Authentication methods" caption-side="bottom"}
 
-4. Confirm your action on the dialog window to proceed. If the instance URL-style credential is still enabled, the confirmation box differs. See Figure 4 for an example.
-
-   ![Confirm operation.](images/migrate_iam_only_confirmation.png){: caption="Figure 3. Confirmation" caption-side="bottom"}
-
-   ![Confirm operation.](images/migrate_iam_only_with_root_confirmation.png){: caption="Figure 4. Confirmation with legacy credentials" caption-side="bottom"}
+4. Click OK to confirm your action on the dialog window to proceed. If the instance URL-style credential is still enabled, the confirmation box differs. You still click OK to confirm your action on the dialog window to proceed.
 
 5. When the operation completes successfully, the Authentication methods row shows only `IBM Cloud IAM`.
 

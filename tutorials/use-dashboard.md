@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-18"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -229,13 +229,11 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
     ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 5. Status of your replication job" caption-side="bottom"} 
 
-5.  See the status when your job finishes. 
-
-    ![Completed job status](images/complete-status.png){: caption="Figure 6. Completed job status" caption-side="bottom"} 
+5.  See the status when your job finishes change to Completed. 
 
 6.  Check that the database was created on the databases page. 
 
-    ![Databases page](images/databases.png){: caption="Figure 7. Databases page" caption-side="bottom"} 
+    ![Databases page](images/databases.png){: caption="Figure 6. Databases page" caption-side="bottom"} 
 
 ## Monitoring active tasks
 {: #monitoring-active-tasks-dt}
@@ -250,7 +248,7 @@ If your instance does not have any active tasks, you can return to the previous 
 
     The Active Tasks page opens. 
 
-    ![Active tasks](images/active-tasks-page.png){: caption="Figure 8. Active tasks" caption-side="bottom"} 
+    ![Active tasks](images/active-tasks-page.png){: caption="Figure 7. Active tasks" caption-side="bottom"} 
 
 2. Click the associated tab to see task-specific information. 
 
@@ -267,18 +265,18 @@ Your service instance contains no data because it is for demonstration purposes 
     The Monitoring page opens to the Current Operations tab. 
     Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
-    ![Current Operations](images/current-operations-tab.png){: caption="Figure 9. Current Operations" caption-side="bottom"}
+    ![Current Operations](images/current-operations-tab.png){: caption="Figure 8. Current Operations" caption-side="bottom"}
 
 2.  Click **Denied Requests**. 
 
     Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
-    ![Denied Requests](images/denied-requests-tab.png){: caption="Figure 10. Denied Requests" caption-side="bottom"}
+    ![Denied Requests](images/denied-requests-tab.png){: caption="Figure 9. Denied Requests" caption-side="bottom"}
 
 3.  Click **Storage**.
 
     Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 
-    ![Storage](images/storage-tab.png){: caption="Figure 11. Storage" caption-side="bottom"}
+    ![Storage](images/storage-tab.png){: caption="Figure 10. Storage" caption-side="bottom"}
 
 For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).

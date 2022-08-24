@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-18"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation
 
@@ -79,14 +79,9 @@ This operation cannot be undone. Make sure all your applications are no longer u
 
    ![Revoke instance URL style credential.](images/revoke-creds-status.png){: caption="Figure 2. Revoke instance URL style credential" caption-side="bottom"}
 
-4. Confirm your action on the dialog window to proceed.
-
-   ![Confirm operation.](images/revoke-creds-confirmation.png){: caption="Figure 3. Confirm operation to revoke the credential" caption-side="bottom"}
+4. Click OK to confirm your action on the dialog window to proceed.
 
 5. When the operation completes successfully, the status changes to `Revoked`.
-
-   ![Credential revoked.](images/revoke-creds-completed.png){: caption="Figure 4. Credential revoked" caption-side="bottom"}
-    
 
 After the credential is revoked by using this process, the 
 *Cloudant credentials status* section no longer appears on the page.

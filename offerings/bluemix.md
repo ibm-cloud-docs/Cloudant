@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-08-17"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -36,8 +36,6 @@ within a US location, you can optionally select a [HIPAA](https://en.wikipedia.o
 
 You can select which plan to use when you
 [provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud). The available plans include Lite, Standard, and Standard on Transaction Engine. When you select a plan, Capacity displays, and the Cost estimator shows the monthly charge for the selected plan. By default, the [Lite plan](#lite-plan) is selected. 
-
-![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../tutorials/images/img0005c.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} service instance plan selection" caption-side="bottom"}
 
 ### Lite plan
 {: #lite-plan}
@@ -238,18 +236,14 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
 1.  Go to the Service Details page for the instance. 
 1.  Click **Manage** > **Capacity** to view the current and target capacity.  
 
-    ![Capacity](../images/capacity-1.png){: caption="Figure 2. Capacity" caption-side="bottom"}
+    ![Capacity](../images/capacity-1.png){: caption="Figure 1. Capacity" caption-side="bottom"}
 
 1.  To change the target capacity, slide the capacity slider to the setting you want. 
 1.  Click **Update to Standard Plan**. 
 1.  Select the pricing plan that you want, and click **Save**. 
 1.  Select the type of account you're looking for by clicking **Go.**   
 
-    ![Capacity change confirmation](../images/capacity-3.png){: caption="Figure 3. Capacity change confirmation" caption-side="bottom"}
-
     The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, *Success. Your capacity will be updated shortly.*  
-
-    ![Success message](../images/capacity-4.png){: caption="Figure 4. Success message" caption-side="bottom"}
 
 Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity. One hundred blocks of capacity equal 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the `Need additional capacity?` tab on the Capacity page.
 {: note}
@@ -263,12 +257,12 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud
 2.  Click **Account** > **Capacity**.
 3.  To move to a different throughput capacity, select the provisioned throughput capacity that you need, then click **Update**. 
 
-    ![Capacity dashboard](../images/cloudant_capacity.png){: caption="Figure 5. Capacity dashboard" caption-side="bottom"}
+    ![Capacity dashboard](../images/cloudant_capacity.png){: caption="Figure 2. Capacity dashboard" caption-side="bottom"}
 
 4. Confirm the change by clicking **Continue**. 
    Keep in mind  that the provisioning change can take up to 24 hours. 
 
-    ![Change confirmation](../images/cloudant_capacity_change.png){: caption="Figure 6. Change confirmation" caption-side="bottom"}  
+    ![Change confirmation](../images/cloudant_capacity_change.png){: caption="Figure 3. Change confirmation" caption-side="bottom"}  
 
 In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capacity increase is limited to 10 units (1000 reads per second, 500 writes per second, and 50 global queries per second) per change. Decreases aren't limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
 {: note}
@@ -293,7 +287,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 - The peak capacity that is allowed according to the provisioned throughput capacity set for the instance is shown by a dotted line in the following screen capture.   
 
-![Monitoring - Current Operations](../images/monitoring-current_operations.png){: caption="Figure 7. Monitoring - Current Operations" caption-side="bottom"}
+![Monitoring - Current Operations](../images/monitoring-current_operations.png){: caption="Figure 4. Monitoring - Current Operations" caption-side="bottom"}
 
 *Denied Requests* tab 
 - Shows the number of requests that were denied in a given second.
@@ -302,7 +296,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 - Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.
 
-![Monitoring - Denied Requests](../images/monitoring-denied_requests.png){: caption="Figure 8. Monitoring - Denied Requests" caption-side="bottom"}
+![Monitoring - Denied Requests](../images/monitoring-denied_requests.png){: caption="Figure 5. Monitoring - Denied Requests" caption-side="bottom"}
 
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
 For example, if you frequently approach the maximum number of database reads, then you can modify the capacity for the instance through the [Capacity](#viewing-and-changing-capacity) UI.
