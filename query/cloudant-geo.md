@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-08-19"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -13,12 +13,24 @@ subcollection: Cloudant
 {{site.data.keyword.attribute-definition-list}}
 
 # Using {{site.data.keyword.cloudant_short_notm}} Geospatial
+{: #cloudant-nosql-db-geospatial}
+
+Support for the {{site.data.keyword.cloudantfull}} Geospatial capability  will end on January 31, 2023. In many cases, existing applications will fail if changes are not made to address the removal of this functionality prior to the end of support.
+{: shortdesc}
+
+As of February 1, 2023, the following apply:
+- Users will be unable to query `/$DATABASE/_design/$DDOCS/_geo` endpoints. Requests to those endpoints will return a `404 Not Found` reponse.
+- Users will be able to define indexes using the `st_indexes` keyword in design documents, but they will be ignored by the service. This ensures that existing design documents can be updated, and replications that contain geospatial indexes will not fail. Existing Geo indexes will be deleted, and customers will no longer be billed for the space they consume.
+- {{site.data.keyword.cloud}} support will no longer answer questions or assist with issues related to the Geospatial feature of the {{site.data.keyword.cloudant_short_notm}} service.
+
+Many simple geospatial queries can be done without using the Geospatial capability that is being removed from the {{site.data.keyword.cloudant_short_notm}} service as described in the [{{site.data.keyword.cloudant_short_notm}} blog post](https://blog.cloudant.com/2022/06/28/Simple-Geospatial-Queries.html){: external}.
+
+## {{site.data.keyword.cloudant_short_notm}} Geospatial overview
 {: #using-cloudant-nosql-db-geospatial}
 
-{{site.data.keyword.cloudantfull}} Geospatial
+{{site.data.keyword.cloudant_short_notm}} Geospatial
 combines the advanced geospatial queries of a Geographic Information System 
 with {{site.data.keyword.cloudant_short_notm}}'s flexibility and adaptability.
-{: shortdesc}
 
 These capabilities include GeoJSON, {{site.data.keyword.cloudant_short_notm}} Geospatial index, or {{site.data.keyword.cloudant_short_notm}} Geo index, and more. You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:
 
