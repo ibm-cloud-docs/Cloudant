@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-24"
+lastupdated: "2022-08-22"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -108,10 +108,6 @@ To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to cre
 1. From the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the `books` database.
 2. Select the Design Documents tab.
 3. Select New Indexes from the Design Documents menu.
-   See an example in the following screen capture.
-
-   ![Search indexing.](../images/indexingdashboard3.png){: caption="Figure 3. Design Documents menu - New Search Index" caption-side="bottom"}
-
 4. Copy and paste the following index definition:
 
    ```javascript
@@ -121,7 +117,7 @@ To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to cre
             "publisher", "year"
          ]
       },
-      "name": "publisher-year-index",
+      "name": "publisher-year-index",indexingdashboard5
       "type": "json"
    }
    ```
@@ -199,10 +195,6 @@ Neither {{site.data.keyword.cloudant_short_notm}} Query nor {{site.data.keyword.
 1. From the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the `books` database.
 2. Select the Design Documents tab.
 3. Select New View from the menu.
-   See an example in the following screen capture: 
-
-   ![MapReduce view](../images/indexingdashboard5.png){: caption="Figure 6. Design Documents menu - New view" caption-side="bottom"}
-
 4. Keep New document in the drop-down field.
 5. Enter a name in the Index name field.
    This name is the new view name.
