@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-25"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, operator, classic, transaction engine, couchdb
 
@@ -17,8 +17,10 @@ content-type: release-note
 # Release notes for {{site.data.keyword.cloudant_short_notm}} for Transaction Engine
 {: #release-notes-txe}
 
+The {{site.data.keyword.cloudant_short_notm}} on Transaction Engine service ends on 1 February 2023. You can no longer create new instances of {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. On 1 February 2023, all instances of {{site.data.keyword.cloudant_short_notm}} on Transaction Engine will be permanently disabled and deprovisioned. Users of existing instances need to migrate from the service before the end of the service date. You can find guidance on migrating from {{site.data.keyword.cloudant_short_notm}} on Transaction Engine to {{site.data.keyword.cloudant_short_notm}} Standard here: [Migrating from TXE](https://blog.cloudant.com/2022/01/14/Migrating-from-Cloudant-TXE-to-Standard).
+{: important}
+
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudant_short_notm}} that are grouped by date and build number.
-{: shortdesc}
 
 ## October 2021
 {: #cloudant-txe-oct21}

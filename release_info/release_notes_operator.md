@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-18"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, couchdb 
 
