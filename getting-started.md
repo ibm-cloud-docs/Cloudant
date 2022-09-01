@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-08-30"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -39,7 +39,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click `Create resource`.  
 
-    ![{{site.data.keyword.cloud_notm}} dashboard](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
+    ![{{site.data.keyword.cloud_notm}} dashboard, which includes Build tile, Monitor your resources tile, Create and deploy an application tile, API connect tile, Integrate Watson with anything tile, and Watson starter kits tile. ](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.

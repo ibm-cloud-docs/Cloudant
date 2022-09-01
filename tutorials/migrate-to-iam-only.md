@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-08-26"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation, IAM, migration
 
@@ -76,5 +76,5 @@ before you start this step.
 
 5. When the operation completes successfully, the Authentication methods row shows only `IBM Cloud IAM`.
 
-   ![Migration complete.](images/migrate_iam_only_finish.png){: caption="Figure 5. Successful operation" caption-side="bottom"}
+   ![Migration complete.](images/migrate_iam_only_finish.png){: caption="Figure 3. Successful operation" caption-side="bottom"}
    

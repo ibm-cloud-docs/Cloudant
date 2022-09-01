@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-31"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -68,7 +68,7 @@ The `error` and `initializing` states do not exist on Transaction Engine. ![TXE 
 
 The transition between these states is illustrated in the following diagram:
 
-![Replication Scheduler states](../images/fb85704.png "Replication Scheduler states"){: caption="Figure 1. Replication Scheduler states" caption-side="bottom"}
+![The transition between states are Pending, Running, Crashing, and Completed.](../images/fb85704.png "Replication Scheduler states"){: caption="Figure 1. Replication Scheduler states" caption-side="bottom"}
 
 The scheduler introduces two new endpoints:
 

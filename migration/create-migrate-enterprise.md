@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-04"
+lastupdated: "2022-08-30"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -30,7 +30,7 @@ Migration from the Enterprise plans to {{site.data.keyword.cloudant_short_notm}}
 
 1. Click `Create resource`.
 2. Click `Databases` > `Cloudant`.  
-   ![{{site.data.keyword.cloudant_short_notm}} dashboard](../tutorials/images/img0003.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
+   ![Select **Databases** > **Cloudant dashboard** as your instance.](../tutorials/images/img0003.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
    For more information, see the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.  
 

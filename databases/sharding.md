@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-08-31"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -29,12 +29,12 @@ The servers are available within a single Region.
 If the Region supports Availability Zones, the replicas are stored on servers in different Zones.
 The collection of servers in a Region is called a cluster. 
  
-![Data storage](../images/sharding_database.png){: caption="Figure 1. Data storage" caption-side="bottom"}
+![A single database is split into Q shards, which are each stored in triplicate on three separate servers.](../images/sharding_database.png){: caption="Figure 1. Data storage" caption-side="bottom"}
 
 A document is assigned to a particular shard by using consistent hashing of its ID.
 This assignment means that a document is always stored on a known shard and a known set of servers. 
  
-![Document consistent hashing](../images/sharding_document.png){: caption="Figure 2. Document consistent hashing" caption-side="bottom"}
+![A single document is assigned to a single shard so ends up on three replicas on three separate servers. ](../images/sharding_document.png){: caption="Figure 2. Document consistent hashing" caption-side="bottom"}
 
 Occasionally,
 shards are rebalanced.

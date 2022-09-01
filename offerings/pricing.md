@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-17"
+lastupdated: "2022-08-30"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, data usage pricing
 
@@ -45,7 +45,7 @@ the 20 GB of storage that is included in the Standard plan, no storage costs are
 {{site.data.keyword.cloudant_short_notm}} Dashboard's > **Account** > **Capacity** tab, the 
 provisioned throughput capacity setting looks like this screen capture:
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab](../images/cloudant-dashboard.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab" caption-side="bottom"}
+![The Account window contains the Capacity, Announcements, CORS, and Settings tabs.](../images/cloudant-dashboard.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab" caption-side="bottom"}
 
 The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second in USD of $0.105 per hour. The slider shows a rough cost per month of $76.65. The monthly amount is an estimate based on an average of 730 hours per month. The cost in any month can be slightly different depending on the number of hours in the month.
 

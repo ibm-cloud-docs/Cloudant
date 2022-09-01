@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-08-31"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -41,9 +41,9 @@ Read and write capacity can't be scaled independently. Use the slider to select 
 
 You can't exceed the reserved capacity for either reads or writes. If you do, an HTTP 429 status code occurs that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 
-Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** to view and change the provisioned throughput capacity. See the hourly and approximate monthly costs for each setting as shown in the following example. 
+Go to the {{site.data.keyword.cloud_notm}} Dashboard and select the instance, then select **Manage** > **Capacity** to view and change the provisioned throughput capacity. See the hourly and approximate monthly costs for each setting as shown in the following example.
 
-![Capacity slider](../images/manage_capacity_slider_te.png){: caption="Figure 1. Capacity slider" caption-side="bottom"}
+![The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second in USD of $0.105 per hour. The slider shows a rough cost per month of $76.65. The monthly amount is an estimate based on an average of 730 hours per month. The cost in any month can be slightly different depending on the number of hours in the month.](../images/manage_capacity_slider_te.png){: caption="Figure 1. Capacity slider" caption-side="bottom"}
 
 ## Read requests
 {: #read-requests-te}
@@ -213,7 +213,7 @@ Current and historical usage bills can be seen in the {{site.data.keyword.cloud_
 
 In the following example, a quantity of 0-Gigabyte Hours reflects that the instance never exceeded 25 GB for the month. Additionally, you see the total accumulation of read capacity unit hours and write capacity unit hours that are submitted at that point in the month.  As an example, an instance with 100 reads per second and 100 writes per second for a month with 730 hours would have 730,000 read capacity unit hours and 730,000 write capacity unit hours. These hours are submitted by the end of the month. 
  
-![Usage example](../images/usage_te_example.png){: caption="Figure 2. Usage example" caption-side="bottom"}
+![In the following usage example, a quantity of 0-Gigabyte Hours reflects that the instance never exceeded 25 GB for the month. Additionally, you see the total accumulation of read capacity unit hours and write capacity unit hours that are submitted at that point in the month.  As an example, an instance with 100 reads per second and 100 writes per second for a month with 730 hours would have 730,000 read capacity unit hours and 730,000 write capacity unit hours. These hours are submitted by the end of the month.](../images/usage_te_example.png){: caption="Figure 2. Usage example" caption-side="bottom"}
 
 ## More explanation about how pricing works
 {: #how-does-pricing-work-on-cloudant-txe}
@@ -224,9 +224,9 @@ In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine pla
 
 Each {{site.data.keyword.cloudant_short_notm}} operation consumes a different number of read/write units based on how complex it is. It's in your interest to try to achieve your application's goals while it consumes the fewest units possible.
 
-This chart shows the cost of common {{site.data.keyword.cloudant_short_notm}} operations, with a color-coded guide to how the price is calculated:
+This chart shows the cost of common {{site.data.keyword.cloudant_short_notm}} operations, with a color-coded guide for how the price is calculated:
 
-![Cloudant Transaction Engine pricing](../images/txe_pricing.png){: caption="Figure 4. {{site.data.keyword.cloudant_short_notm}} Transaction Engine pricing" caption-side="bottom"}
+![{{site.data.keyword.cloudant_short_notm}} Transaction Engine pricing](../images/txe_pricing.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} Transaction Engine pricing" caption-side="bottom"}
 
 Let's unpack this diagram and draw out the incentives that {{site.data.keyword.cloudant_short_notm}} includes with the product and which *best practices* you are being driven toward.
 

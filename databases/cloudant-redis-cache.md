@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-18"
+lastupdated: "2022-08-30"
 
 keywords: combine ibm services, example, create a database, populate database, queries, retrieve data,  query data, create query, web application, add documents, caching, redis
 
@@ -136,7 +136,7 @@ When you run this script, it takes the data output from the Terraform script and
 1. Open a browser and visit `http://localhost:8080`. 
    See the button for each team in the following screen capture:
 
-   ![Team Directory buttons](../images/teamdir1.png){: caption="Team Directory team selectors" caption-side="bottom"}
+    ![{Click the button for each team. ](../images/teamdir1.png){: caption="Figure 1. Team Directory team selectors" caption-side="bottom"}
 
 1. Click any of the colored buttons and obtain a list of team members.
 
@@ -145,7 +145,7 @@ When you run this script, it takes the data output from the Terraform script and
 1. Click the same button that you clicked in step two.
    You can see the data that comes from the {{site.data.keyword.databases-for-redis}} cache and takes a lot less time to execute in the following screen capture:
 
-   ![Team Directory Team List and Cache information](../images/teamdir2.png){: caption="Team Directory team list and cache information" caption-side="bottom"}
+    ![Click the team button and see the members of the team. ](../images/teamdir2.pn){: caption="Figure 1. Team Directory team list and cache information" caption-side="bottom"}
 
    In a real cloud-based application, the application server and the {{site.data.keyword.databases-for-redis}} instance would be close to each other (in the same data center) so latency between the two would be only a few milliseconds. In this example, extra network hops exist between your locally hosted application server and the cloud-hosted {{site.data.keyword.databases-for-redis}} cache so latency gains aren't as good as in production.
    {: note}

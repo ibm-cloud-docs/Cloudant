@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-30"
 
 keywords: database-as-a-service,json document store, lite plan, standard plan, enterprise plan, benefits of lite and standard plans
 
@@ -43,7 +43,7 @@ As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
-![Slider](../images/slider.png){: caption="Figure 1. Slider" caption-side="bottom"}
+![You can increase or decrease your capacity for {{site.data.keyword.cloudant_short_notm}} service by using the slider.](../images/slider.png){: caption="Figure 1. Slider" caption-side="bottom"}
 
 The amount that you can change the throughput capacity is limited to a maximum of 10 units per change with a maximum of one change per hour. Notice the "change limit" point on the slider. Changes downward are unlimited in size, but still subject to the time limit.
 {: tip}

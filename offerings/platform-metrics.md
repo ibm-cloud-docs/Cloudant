@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-08-30"
 
 keywords: cloud monitoring, monitoring, platform metrics, observability page, enable platform metrics, view metrics, launch monitoring
 
@@ -65,7 +65,7 @@ Complete the following steps to configure platform metrics:
     If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics.
     {: note}
 
-    ![Monitoring menu](../images/monitoring_add.png){: caption="Figure 1. Monitoring menu" caption-side="bottom"}
+    ![If the Actions menu includes monitoring items, then your instance is already configured for platform metrics.](../images/monitoring_add.png){: caption="Figure 1. Monitoring menu" caption-side="bottom"}
 
 5. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
@@ -98,7 +98,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
 4. Click **Actions**, and select **Monitoring**.
 
-    ![Monitoring menu](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
+    ![If the Actions menu includes monitoring items, then your instance is already configured for platform metrics.](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
 
     A new tab opens in your browser and shows the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -114,7 +114,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
     To access your deployment's {{site.data.keyword.mon_full_notm}} dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
 
-    ![{{site.data.keyword.cloudant_short_notm}} dashboard](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
+    ![Choose {{site.data.keyword.cloudant_short_notm}} to open the dashboard.](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
 
     Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.cloudant_short_notm}} instance.
 

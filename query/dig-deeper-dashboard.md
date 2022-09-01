@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-22"
+lastupdated: "2022-08-31"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -95,7 +95,7 @@ To try the query, do the following steps:
 6. Click **Run Query**.
    See the results in the following screen capture:
 
-   ![Run the query.](../images/indexingdashboard1.png){: caption="Figure 2. Run a query" caption-side="bottom"}
+   ![Run the query, and the results show the _id, author, pages, publisher, and year. ](../images/indexingdashboard1.png){: caption="Figure 1. Run a query" caption-side="bottom"}
 
 {{site.data.keyword.cloudant_short_notm}} matches the documents that meet your criteria and it *seems* to do it quickly, but there's a catch. {{site.data.keyword.cloudant_short_notm}} isn't using an index to service this query, meaning that the database has to scan every document in the database to get your answer. This scan is fine for small data sets. But if you're running a production application where the data set is expanding all the time, you definitely *don't* want to rely on unindexed queries.
 {: note}
@@ -125,7 +125,7 @@ To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to cre
 
    See an example in the following screen capture:
 
-   ![Create index window.](../images/indexingdashboard2.png){: caption="Figure 4. Create Index window" caption-side="bottom"}
+   ![Click **Create index•• to create an index.](../images/indexingdashboard2.png){: caption="Figure 2. Create Index window" caption-side="bottom"}
 
 The `fields` array contains a list of fields that we want {{site.data.keyword.cloudant_short_notm}} to index.
 
@@ -174,7 +174,7 @@ Unlike {{site.data.keyword.cloudant_short_notm}} Query, you *must* specify the f
 
 7. Choose the "Standard Analyzer".
 
-   ![New search index](../images/indexingdashboard4.png){: caption="Figure 5. New Search Index window" caption-side="bottom"}
+   ![Select Standard Analyzer, and click **Create Document and Build Index** to create a search index.](../images/indexingdashboard4.png){: caption="Figure 3. New Search Index window" caption-side="bottom"}
 
 You can then build complex queries that involve one, some, or all of the indexed fields combined with AND and OR operators.
 
@@ -213,15 +213,15 @@ Neither {{site.data.keyword.cloudant_short_notm}} Query nor {{site.data.keyword.
 
    See an example of the window in the following screen capture:
 
-   ![New MapReduce view](../images/indexingdashboard6.png){: caption="Figure 7. New View window" caption-side="bottom"}
+   ![To create a new MapReduce view, add a design document name; add _design documents; add an Index name, and add a Map function.](../images/indexingdashboard6.png){: caption="Figure 4. New View window" caption-side="bottom"}
 
    The subsequent MapReduce view allows documents to be found by year (as that is the key of the index). But if we select the checkbox for the Reduce function from the **Options** pull-down menu, the index aggregates the results, grouping by key (year):
 
-   ![Run Query window.](../images/indexingdashboard7.png){: caption="Figure 8. Run Query window" caption-side="bottom"}
+   ![The subsequent MapReduce view allows documents to be found by year (as that is the key of the index). But if we select the checkbox for the Reduce function from the **Options** pull-down menu, the index aggregates the results, grouping by key (year).](../images/indexingdashboard7.png){: caption="Figure 5. Run Query window" caption-side="bottom"}
 
    See an example result from after the index aggregated the results.
 
-   ![Result set](../images/indexingdashboard8.png){: caption="Figure 9. Result set" caption-side="bottom"}
+   ![See index aggregated results. ](../images/indexingdashboard8.png){: caption="Figure 6. Result set" caption-side="bottom"}
 
    MapReduce views are perfect for generating ordered views of your data, containing `key/value` pairs that you define. They can be used for selecting individual keys, range queries, or aggregation grouping by the key.
 

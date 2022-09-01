@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-08-31"
 
 keywords: use dedicated hardware plan, create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -68,7 +68,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     b. Click **Create Host**. 
 
-    ![Host selection](images/img0005d.png){: caption="Figure 1. Host selection" caption-side="bottom"}
+    ![Create a host by clicking the Create host button.](images/img0005d.png){: caption="Figure 1. Host selection" caption-side="bottom"}
 
     c. Select from the {{site.data.keyword.cloud_notm}} regions.
 
@@ -94,14 +94,14 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
        Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance that is chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default). 
 
-    ![Host configuration](images/img0005f.png){: caption="Figure 2. Host configuration" caption-side="bottom"}
+    ![Configure the host by specifying the location for deployment, HIPAA  compliance, Key Management Service instance, and disk encryption key.](images/img0005f.png){: caption="Figure 2. Host configuration" caption-side="bottom"}
 
 7.  Click **Create** to start the provisioning process.
 
     Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click **Create**. 
     {: note}
 
-    ![Provision dedicated hardware.](images/create_button_provision.png){: caption="Figure 3. Provision dedicated hardware" caption-side="bottom"}
+    ![Do not click Create unless you want to provision and pay for an environment.](images/create_button_provision.png){: caption="Figure 3. Provision dedicated hardware" caption-side="bottom"}
 
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
@@ -135,11 +135,11 @@ After your instance is created, you must create a Standard plan on it by selecti
     c. Select the dedicated environment that you created from the drop-down menu.    
        The screen capture shows the example environment, `Dedicated Hardware Environment (staging)`. 
 
-    ![Dedicated environment](images/img0005h.png){: caption="Figure 4. Dedicated environment" caption-side="bottom"}
+    ![From the Select an environment window. Select the Dedicated Hardware Environment. ](images/img0005h.png){: caption="Figure 4. Dedicated environment" caption-side="bottom"}
 
     d. Select the appropriate {{site.data.keyword.cloud_notm}} region. 
 
-    ![Environment selection](images/img0005d2.png){: caption="Figure 5. {{site.data.keyword.cloud_notm}} region" caption-side="bottom"}
+    ![From the Select an environment window, create an {{site.data.keyword.cloud_notm}} region.](images/img0005d2.png){: caption="Figure 5. {{site.data.keyword.cloud_notm}} region" caption-side="bottom"}
 
 5.  Configure the {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -152,12 +152,12 @@ After your instance is created, you must create a Standard plan on it by selecti
     d. Select an authentication method.    
        The Standard plan is the only plan you can use with the Dedicated Hardware environment. 
 
-    ![{{site.data.keyword.cloudant_short_notm}} instance](images/img0005e.png){: caption="Figure 6. {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
+    ![Configure your {{site.data.keyword.cloudant_short_notm}} instance.](images/img0005e.png){: caption="Figure 6. {{site.data.keyword.cloudant_short_notm}} instance" caption-side="bottom"}
 
 6.  Click **Create**.    
     After a few seconds, the instance is provisioned on the environment you selected. 
 
-    ![Standard instance](images/create_button_provision_standard.png){: caption="Figure 7. Standard instance" caption-side="bottom"}
+    ![Provision a standard plan by using the create button.](images/create_button_provision_standard.png){: caption="Figure 7. Standard instance" caption-side="bottom"}
 
 7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance.
 

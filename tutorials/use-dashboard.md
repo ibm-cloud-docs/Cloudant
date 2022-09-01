@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-08-31"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -195,9 +195,7 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
 2.  Click **New Replication**. 
 
-    The Job configuration page opens. 
-
-    ![Job configuration page](images/replication-config-page-blank.png){: caption="Figure 3. Job configuration page" caption-side="bottom"} 
+    The Job configuration page opens.
    
     Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
     {: note} 
@@ -221,19 +219,19 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
       - Replication type - Leave as `One time`
       - Replication document - Leave as `Custom ID (optional` 
 
-      ![Replication configuration page](images/job-configuration.png){: caption="Figure 4. Replication configuration page" caption-side="bottom"}
+      ![Replication configuration page described previously.](images/job-configuration.png){: caption="Figure 3. Replication configuration page" caption-side="bottom"}
 
 4.  Click **Start Replication**. 
 
     The Replication page opens where you can see that your replication job is running. 
 
-    ![Status of your replication job](images/status-replication-jobs.png){: caption="Figure 5. Status of your replication job" caption-side="bottom"} 
+    ![The status page displays the information about your replication job.](images/status-replication-jobs.png){: caption="Figure 4. Status of your replication job" caption-side="bottom"} 
 
 5.  See the status when your job finishes change to Completed. 
 
 6.  Check that the database was created on the databases page. 
 
-    ![Databases page](images/databases.png){: caption="Figure 6. Databases page" caption-side="bottom"} 
+    ![The Databases page shows the details of each database in your service instance. ](images/databases.png){: caption="Figure 5. Databases page" caption-side="bottom"} 
 
 ## Monitoring active tasks
 {: #monitoring-active-tasks-dt}
@@ -248,7 +246,7 @@ If your instance does not have any active tasks, you can return to the previous 
 
     The Active Tasks page opens. 
 
-    ![Active tasks](images/active-tasks-page.png){: caption="Figure 7. Active tasks" caption-side="bottom"} 
+    ![On the Active Tasks page, you can see a list of active tasks, which includes compaction, replication, and indexing.](images/active-tasks-page.png){: caption="Figure 6. Active tasks" caption-side="bottom"} 
 
 2. Click the associated tab to see task-specific information. 
 
@@ -265,18 +263,18 @@ Your service instance contains no data because it is for demonstration purposes 
     The Monitoring page opens to the Current Operations tab. 
     Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
 
-    ![Current Operations](images/current-operations-tab.png){: caption="Figure 8. Current Operations" caption-side="bottom"}
+    ![The Current Operations tab is the default tab for the Monitoring page.](images/current-operations-tab.png){: caption="Figure 7. Current Operations" caption-side="bottom"}
 
 2.  Click **Denied Requests**. 
 
     Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
-    ![Denied Requests](images/denied-requests-tab.png){: caption="Figure 9. Denied Requests" caption-side="bottom"}
+    ![The Denied Requests tab shows the denied requests that are broken down by read, writes, and global queries.](images/denied-requests-tab.png){: caption="Figure 8. Denied Requests" caption-side="bottom"}
 
 3.  Click **Storage**.
 
     Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
 
-    ![Storage](images/storage-tab.png){: caption="Figure 10. Storage" caption-side="bottom"}
+    ![The Storage tab includes your JSON documents, indexes, and attachements.](images/storage-tab.png){: caption="Figure 9. Storage" caption-side="bottom"}
 
 For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).

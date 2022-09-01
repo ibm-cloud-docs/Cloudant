@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-08-31"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, white space analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option, pick best analyzer
 
@@ -219,7 +219,7 @@ From this snippet, I would manually extract the following "entities".
 
 Entity extraction is the process of locating known entities (given a database of such entities) and storing the entities in the search engine instead of, or as well as, the source text. The [Watson Natural Language and Understanding API](https://www.ibm.com/watson/services/natural-language-understanding/) can be fed raw text and returns entities it knows about (you can provide your own entity model for your domain-specific application):
 
-![Analyzers](../images/analyzers.png){: caption="Figure 1. Analyzers" caption-side="bottom"}
+![Analyzers extract information about people, companies, organizations, cities, geographic features, and other information from the content.](../images/analyzers.png){: caption="Figure 1. Analyzers" caption-side="bottom"}
 
 As well as entities, the API can also place the article in a hierarchy of categories. In this case, Watson suggests the following categories:
 

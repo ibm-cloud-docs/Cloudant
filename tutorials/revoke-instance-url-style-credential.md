@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-08-29"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation
 
@@ -73,7 +73,7 @@ This operation cannot be undone. Make sure all your applications are no longer u
 
 2. Find your {{site.data.keyword.cloudant_short_notm}} instance on the list of resources and open it.
 
-   ![Select your instance.](images/img0011.png){: caption="Figure 1. Select your instance" caption-side="bottom"}
+   ![Select your instance from the list of instances in your resource list.](images/img0011.png){: caption="Figure 1. Select your instance" caption-side="bottom"}
 
 3. Click the *Revoke* button under the *Cloudant credentials status* section. If you do not see the information in the next screen capture, the credential was already revoked or it never existed.
 

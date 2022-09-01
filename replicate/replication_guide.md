@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-08-31"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -40,7 +40,7 @@ Replication is the copying of data from a source database to a target database.
 The source and target databases do not need to be on the same {{site.data.keyword.cloudant_short_notm}} account,
 or even in the same data center. 
 
-![Replication](../images/replication_guide_1.png){: caption="Figure 1. Replication in pictures" caption-side="bottom"}
+![The graphic shows a picture of database a and b. Database b has one document. After replication, the documents from database a are show in database b.](../images/replication_guide_1.png){: caption="Figure 1. Replication in pictures" caption-side="bottom"}
 
 Replication is complete when the most recent version of each document in the source transfers to the destination database.
 Transfers include new documents,
@@ -60,7 +60,7 @@ The {{site.data.keyword.cloudant_short_notm}} Dashboard provides a convenient us
 Click `Replication` on the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click `Start Replication`.
 Complete the following Replication form:
 
-![Replication form](../images/replication_guide_2.png){: caption="Figure 2. Replication form" caption-side="bottom"}
+![This screen capture shows the replication form with all the proper fields filled out. There is a source section, which is the local database, and a target section, which is the new database and the authentication. In the Options section, you select one time replication or repeating, and add a replication document.](../images/replication_guide_2.png){: caption="Figure 2. Replication form" caption-side="bottom"}
 
 For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys) rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization) documentation.
 {: important}
@@ -68,12 +68,10 @@ For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recomm
 Using the form, define the source and target databases,
 then click `Start Replication`. 
 
-![Running state](../images/replication_guide_3.png){: caption="Figure 3. Running state" caption-side="bottom"}
-
 The status of each replication task can be seen by clicking `Replication`.
-Each job changes state from `Running` to `Completed` as it progresses. 
+Each job changes state from `Running` to `Completed` as it progresses. The following screen capture shows the `Completed` state. 
 
-![Completed state](../images/replication_guide_4.png){: caption="Figure 4. Completed state" caption-side="bottom"}
+![Under the State field in the table, you see Completed.](../images/replication_guide_4.png){: caption="Figure 3. Completed state" caption-side="bottom"}
 
 ## How to replicate across different {{site.data.keyword.cloudant_short_notm}} accounts
 {: #how-to-run-replication-across-different-ibm-cloudant-accounts}
@@ -216,7 +214,7 @@ In general,
 API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} Dashboard,
 on a per-database basis. 
 
-![{{site.data.keyword.cloudant_short_notm}} users and API keys with permissions](../images/replication_guide_5.png){: caption="Figure 5. {{site.data.keyword.cloudant_short_notm}} users and API keys with permissions" caption-side="bottom"}
+![API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} Dashboard, on a per-database basis.](../images/replication_guide_5.png){: caption="Figure 4. {{site.data.keyword.cloudant_short_notm}} users and API keys with permissions" caption-side="bottom"}
 
 They can also be created [programmatically](/apidocs/cloudant#introduction) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
@@ -233,7 +231,7 @@ the other taking data from B to A.
 Both replication processes work independently,
 with data moved seamlessly in both directions. 
 
-![Two-way replication](../images/replication_guide_6.png){: caption="Figure 6. Two-way replication" caption-side="bottom"}
+![The graphic shows database a and b. Database a has four documents, one is crossed off. Database b has one document. After replicating database a to database b, database b has five documents, one is crossed off. After replicating database b to database a, database a also has five documents, one is crossed off.](../images/replication_guide_6.png){: caption="Figure 5. Two-way replication" caption-side="bottom"}
 
 ## Discussion about continuous replication
 {: #discussion-about-continuous-replication}
