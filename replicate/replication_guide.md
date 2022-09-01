@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-09-01"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -1044,6 +1044,7 @@ All Go examples require the `service` object to be initialized. For more informa
 {: go}
 
 #### Get conflicts from replication document
+{: #get-conflicts-from-replication-doc}
 
 In the returned JSON,
 look for the `disk_size` value.
@@ -1147,6 +1148,7 @@ All Go examples require the `service` object to be initialized. For more informa
 {: go}
 
 ### Cancel all replications
+{: #cancel-all-replications}
 
 If you want to cancel all replications and start with a new,
 clean `_replicator` database,
@@ -1166,6 +1168,7 @@ Authorization: ...
 {: codeblock}
 
 #### Delete the replicator database
+{: #delete-the-replicator-database}
 
 See the following example to remove the `_replicator` database:
 
@@ -1251,6 +1254,7 @@ All Go examples require the `service` object to be initialized. For more informa
 {: go}
 
 #### Re-create the replicator database
+{: #re-create-the-replicator-database}
 
 See the following example to re-create the `_replicator` database:
 

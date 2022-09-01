@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-09-01"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -85,12 +85,12 @@ For more information, see [Deletion of data](https://cloud.ibm.com/docs/Cloudant
 
 To delete a document, follow these steps:
 
-  1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
-  2. On the Databases page, click the database that contains the documents you want to delete. 
-  3. Click the checkbox next to the documents you want to delete.
-  4. Click **Delete**. 
+   1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
+   2. On the Databases page, click the database that contains the documents you want to delete. 
+   3. Click the checkbox next to the documents you want to delete.
+   4. Click **Delete**. 
 
-    The document is selected for compaction. 
+   The document is selected for compaction. 
 
 For more information, see [Delete a document](/apidocs/cloudant#deletedocument) in the API Reference documentation. 
 
@@ -103,10 +103,10 @@ Once an instance is deleted, all data within the database, as well as the accoun
 
 To delete a database, follow these steps:
 
-  1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
-  2. On the Databases page, click **Delete** next to the database you want to delete.
-  3. Type in the name of the database you want to delete.
-  4. Click **Delete Database**. 
+   1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
+   2. On the Databases page, click **Delete** next to the database you want to delete.
+   3. Type in the name of the database you want to delete.
+   4. Click **Delete Database**. 
 
     The database is removed from the list of databases.
 
