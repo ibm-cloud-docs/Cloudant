@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-09-21"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk docs, indexes
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk docs, indexes, view collation
 
 subcollection: Cloudant
 
@@ -19,6 +19,21 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## September 2022
+{: #cloudant-sep22}
+
+### 21 September 2022
+{: #cloudant-sep2122}
+{: release-note}
+
+The following changes were made in build 8336:
+
+Runtime environment
+:   Upgrade runtime environment to Erlang/OTP 23 patch release.
+
+View collation
+:   Upgrade view collator to libicu 67.1.
 
 ## August 2022
 {: #cloudant-aug22}
