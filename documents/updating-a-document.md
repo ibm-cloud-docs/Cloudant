@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-10-06"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -16,14 +16,14 @@ subcollection: Cloudant
 {: #update-docs}
 
 To update a document,
-send a `PUT` request with the updated JSON content and the latest `_rev` value
+send a `PUT` or `POST` request with the updated JSON content and the latest `_rev` value
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 You can also use this `PUT` method to create a document,
 in which case you don't need to supply the most recent `_rev` value.
 
 Recall that for a partitioned database the `$DOCUMENT_ID` is formed from a partition key part and a document key part.
 
-If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: external}. This error prevents you from overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: external} is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/apidocs/cloudant#list-of-http-codes){: external}. This error prevents you from overwriting data that were changed by other processes. If the write [quorum](/docs/Cloudant?topic=Cloudant-documents&code=curl#quorum-writing-and-reading-data) can't be met, a [`202` response](/apidocs/cloudant#list-of-http-codes){: external} is returned.
 {: note}
 
 Any document update can lead to a conflict, especially when you replicate updated documents. For more information about avoiding and resolving conflicts, see the [Document versioning and MVCC guide](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
