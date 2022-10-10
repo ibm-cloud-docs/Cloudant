@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-10-07"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -192,7 +192,7 @@ It's possible to modify the configuration of a sharding topology for a database 
 {: #setting-the-replica-count}
 
 In CouchDB version 2 onwards,
-you are allowed to [specify the replica count](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: external}
+you are allowed to [specify the replica count](https://docs.couchdb.org/en/stable/cluster/databases.html#creating-a-database){: external}
 when you create a database.
 However,
 you are not allowed to change the replica count value from the default of 3.

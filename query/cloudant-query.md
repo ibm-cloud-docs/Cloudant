@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-10-10"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -395,8 +395,7 @@ and to query data by using these indexes.
 ## Creating a partial index
 {: #creating-a-partial-index}
 
-{{site.data.keyword.cloudant_short_notm}} Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){: external}
-and the original example. 
+{{site.data.keyword.cloudant_short_notm}} Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation](https://docs.couchdb.org/en/stable/api/database/find.html?highlight=partial#partial-indexes){: external} and the original example.
 
 The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still compatible with an earlier version for text indexes only.
 {: tip}
