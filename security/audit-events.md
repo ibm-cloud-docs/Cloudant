@@ -366,8 +366,7 @@ It can take up to 5 minutes for the change to be reflected in the events seen in
 | `cloudantnosqldb.sapi.usercors` | Set and get the CORS settings for an instance. |
 | `cloudantnosqldb.sapi.userplan` | Get or set plan and plan settings of an instance. |
 | `cloudantnosqldb.users.write` | Create, update, or delete a `_users` document. |
-| `cloudantnosqldb.volumes.update` | A change in state of the {{site.data. |
-| keyword.keymanagementservicefull}} key protecting dedicated hardware environment. |
+| `cloudantnosqldb.volumes.update` | A change in state of the {{site.data.keyword.keymanagementservicefull}} key protecting dedicated hardware environment. |
 {: caption="Table 1. Management actions" caption-side="top"}
 
 ### Data events
