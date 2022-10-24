@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-10-21"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -19,7 +19,7 @@ Use views to search for content within a database that matches specific criteria
 The criteria are specified within the view definition.
 {: shortdesc}
 
-Criteria can also be supplied as arguments when you use the view. 
+Criteria can also be supplied as arguments when you use the view.
 
 In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag, ![TXE tag](../images/txe_icon.svg).
 {: important}
@@ -95,7 +95,7 @@ GET $SERVICE_URL/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$VIEW_N
 ```
 {: codeblock}
 
-See the example of using HTTP to retrieve a list of the first 10 documents from a database, 
+See the example of using HTTP to retrieve a list of the first 10 documents from a database,
 applying a user-created view.
 
 ```http
@@ -404,7 +404,7 @@ causes incremental updates to the index when the documents are inserted.
 If speed of response is more important than having up-to-date data,
 an alternative is to allow users to access an old version of the view index. To allow access to an old version of the view index, use the `update` query string parameter when you make a view query.
 
-If you want to save old index versions without incurring indexing processor usage, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`. Or you can stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 
+If you want to save old index versions without incurring indexing processor usage, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`. Or you can stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples.
 {: tip}
 
 ```json
@@ -433,52 +433,53 @@ If you want to save old index versions without incurring indexing processor usag
 ## View freshness
 {: #view-freshness}
 
-By default, all index results reflect the current state of the database. {{site.data.keyword.cloudant_short_notm}} builds its indexes automatically and asynchronously in the background.
-This practice usually means that the index is fully up-to-date
-when you query it. If not, the default behavior for the remaining updates occur when you query the index
-so the results of your query include these updates. The `update` parameter can be used to change this default behavior.
-{{site.data.keyword.cloudant_short_notm}} builds three copies of every index in alignment with the three copies of your primary data.
+By default, all index results reflect the current state of the
+database. {{site.data.keyword.cloudant_short_notm}} builds its indexes
+automatically and asynchronously in the background. This practice
+usually means that the index is fully up-to-date when you query it. If
+not, by default, {{site.data.keyword.cloudant_short_notm}} applies the
+remaining updates at query time.
 
-{{site.data.keyword.cloudant_short_notm}} supplies better results and
-performance with the defaults for these parameters. If the performance of your view and your application can tolerate inconsistent results when queried, use `stable=false&update=false`. These settings avoid directing all queries to a single copy of 
-your index, which would, in effect, reduce some aspects of performance to a third of what it must be.
-
-| Option   | Purpose  | Default value |
-|---------|----------------|--------------|
-|`stable` | Determine whether view results are obtained from a consistent or 'stable' set of shards. Possible values include `true`, and `false`. | `false` |
-| `update` | Determine whether the view is updated before the results are returned. Possible values include `true`, `false`, and `lazy`. | `true` |
-{: caption="Table 2. Parameter default values" caption-side="top"}
-
-The defaults are suitable for most applications. For better performance and
-availability, use `stable=false&update=false`. For better result stability
-across queries, use `stable=true&update=true`. See the next section for more detail.
+{{site.data.keyword.cloudant_short_notm}} provides a few parameters,
+described next, to alter this behaviour. We recommend against using
+them as the side-effects typically outweigh their benefit.
 
 ### Parameters
 {: #parameters}
 
-The `stable` option indicates whether you would prefer to get results from a single,
-consistent set of shards. The `false` value means that all available shard replicas are queried. {{site.data.keyword.cloudant_short_notm}} uses the first response returned. 
-The benefit is that the response isn't delayed when an individual shard replica is slow to respond.
-By contrast, setting `stable=true` forces the database to use a single,
-consistent set of shards to respond to the query.
+The `update` option indicates whether you're prepared to accept view
+results without waiting for the view to be updated. The default value
+is `true`, meaning that the view is updated before results are
+returned. The `lazy` value means that the results are returned before
+the view is updated, but that the view must then be updated anyway.
 
-The `update` option indicates whether you're prepared to accept
-view results without waiting for the view to be updated. The default value is `true`,
-meaning that the view is updated before results are returned. The `lazy` value means that the results are returned before the view is updated,
-but that the view must then be updated anyway.
+While {{site.data.keyword.cloudant_short_notm}} strives to
+keep indexes updated in the background, there is no guarantee how
+out-of-date the view is when queried with `update=false` or
+`update=lazy`.
+{: important}
+
+The `stable` option indicates whether you would prefer to get results
+from a single, consistent set of shards. The `false` value means that
+all available shard replicas are queried and
+{{site.data.keyword.cloudant_short_notm}} uses the fastest
+response. By contrast, setting
+`stable=true` forces the database to use just one replica of the
+index.
+
+Using `stable=true` can cause high latency as it consults
+only one of the copies of the index, even if the other copies would
+respond faster.
+{: important}
+
 
 ### Combining parameters
 {: #combining-parameters}
 
-When you specify `stable=true` with `update=false` or `update=lazy`,
-responses are consistent from request to request because a single,
-consistent set of shards is used to respond to the query.
-However, when one of the shards is heavily loaded or slow to respond,
-the response time is adversely affected.
-
-When the default `stable=false` value applies,
-and you use any value for `update`, results are different based on which replica 
-responds first.
+If you specify `stable=false` and `update=false`, you see greater
+inconsistency between results, even for the same query and without
+making database changes. We recommend against this combination unless
+you are sure your system can tolerate this behaviour.
 
 ## Sorting returned rows
 {: #sorting-returned-rows}
@@ -486,7 +487,7 @@ responds first.
 The data that is returned by a view query is in the form of an array.
 Each element within the array is sorted by using standard
 [UTF-8](https://en.wikipedia.org/wiki/UTF-8){: external} sorting.
-The sort is applied to the key defined in the view function. 
+The sort is applied to the key defined in the view function.
 
 The basic order of the output is shown in the following table:
 
@@ -504,7 +505,7 @@ The basic order of the output is shown in the following table:
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 
-When you issue a view request that specifies the `keys` parameter, the results are returned in the same order as the supplied `keys` array. 
+When you issue a view request that specifies the `keys` parameter, the results are returned in the same order as the supplied `keys` array.
 {: tip}
 
 See the example of using HTTP to request the records in reversed sort order:
@@ -663,7 +664,7 @@ The sort direction is always applied first.
 Next, filtering is applied by using the `start_key` and `end_key` query arguments.
 It is possible that no rows will match your key range if sorting and filtering don't make sense when combined.
 
-See the example of using HTTP to make a global query that includes `start_key` and `end_key` 
+See the example of using HTTP to make a global query that includes `start_key` and `end_key`
 query arguments:
 
 ```http
@@ -787,7 +788,7 @@ For example, if you have a database that returns 1 result when you use a `start_
 and an `end_key` of `beta`, you would get a `400` (Bad request) error with a reversed order.
 The reason is that the entries in the view are reversed before the key filter is applied.
 
-See the example that uses HTTP to illustrate why reversing the order of `start_key` and `end_key` 
+See the example that uses HTTP to illustrate why reversing the order of `start_key` and `end_key`
 might error with query parse error:
 
 ```http
@@ -1138,7 +1139,7 @@ response = service.post_view(
   db='users',
   ddoc='allusers',
   view='getVerifiedEmails',
-  keys=['amelie.smith@aol.com', 'bob.smith@aol.com'] 
+  keys=['amelie.smith@aol.com', 'bob.smith@aol.com']
 ).get_result()
 
 print(response)
