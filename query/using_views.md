@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-21"
+lastupdated: "2022-10-27"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -501,7 +501,7 @@ The basic order of the output is shown in the following table:
 | Text (uppercase) | |
 | Arrays (according to the values of each element, by using the order given in this table) | |
 | Objects (according to the values of keys, in key order by using the order given in this table) | Last |
-{: caption="Table 3. Order of returned rows" caption-side="top"}
+{: caption="Table 2. Order of returned rows" caption-side="top"}
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 
