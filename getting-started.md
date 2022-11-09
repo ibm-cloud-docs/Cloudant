@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-30"
+lastupdated: "2022-11-08"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -43,7 +43,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
-    After you authenticate with your user name and password,
+    After you authenticate with your username and password,
     you're presented with the {{site.data.keyword.cloud_notm}} dashboard. 
     {: note}
     

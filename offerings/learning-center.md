@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-11-08"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -264,18 +264,18 @@ We said earlier that {{site.data.keyword.cloudant_short_notm}} is a web-based se
 
 {{site.data.keyword.cloudant_short_notm}} supports two types of authentication.
 
-Legacy authentication is where a user name or api-key and password are supplied with each request that uses HTTP Basic Authentication or exchanged for a cookie that uses a one-off session API call. A session cookie is cycled regularly, so your client code needs to capture the refreshed cookie and store it for subsequent requests.
+Legacy authentication is where a username or api-key and password are supplied with each request that uses HTTP Basic Authentication or exchanged for a cookie that uses a one-off session API call. A session cookie is cycled regularly, so your client code needs to capture the refreshed cookie and store it for subsequent requests.
 IAM authentication is the access management system that underpins all of the {{site.data.keyword.cloud_notm}} services. To authenticate with IAM, you need an IAM API key and the host name of the {{site.data.keyword.cloudant_short_notm}} service. The API key is exchanged for a bearer token by using the IAM API and the bearer token is passed to {{site.data.keyword.cloudant_short_notm}} with each request. The bearer token lasts only an hour, so must be renewed with the IAM service periodically.
 When an {{site.data.keyword.cloudant_short_notm}} service is provisioned, you can generate IAM only credentials or both IAM and Legacy credentials - you decide.
 
 How are credentials generated?
 
-In the {{site.data.keyword.cloud_notm}} dashboard under your {{site.data.keyword.cloudant_short_notm}} service, in the **Service Credentials** tab, click **New Credential**. A JSON document is created that contains the IAM key, the basic auth user name and password, and the {{site.data.keyword.cloudant_short_notm}} hostname.
+In the {{site.data.keyword.cloud_notm}} dashboard under your {{site.data.keyword.cloudant_short_notm}} service, in the **Service Credentials** tab, click **New Credential**. A JSON document is created that contains the IAM key, the basic auth username and password, and the {{site.data.keyword.cloudant_short_notm}} hostname.
 
 Here's an example set of credentials:
 
 For IAM, you need the apikey and host.
-For either Legacy or Basic-Auth or both, you need the URL (which contains the user name and password that is embedded in the URL).
+For either Legacy or Basic-Auth or both, you need the URL (which contains the username and password that is embedded in the URL).
 
 {{site.data.keyword.cloudant_short_notm}} has three official client libraries: Java&trade;, Node.js, and Python.
 

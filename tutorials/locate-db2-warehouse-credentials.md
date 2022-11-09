@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-11-08"
 
 keywords: db2 warehouse on cloud, db2 warehouse console, find your service credentials, log in to db2 warehouse console
 
@@ -87,7 +87,7 @@ The information that is returned in the previous example is described in the fol
 :  DB2 JDBC connection URL, only used if the value for `dashboard_url` is null.
 
 `dynamite_user`
-:  DB2 user name. 
+:  DB2 username. 
 
 ## Sign in to the {{site.data.keyword.dashdbshort_notm}} console
 {: #sign-in-db2-warehouse-console}
@@ -100,4 +100,4 @@ The information that is returned in the previous example is described in the fol
    To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the Postfix `login`, you can sign in with the following URL, `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
    {: note}
 
-1. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
+1. To sign in, use the value of the `dynamite_user` field as your username and the `dynamite_token` field as your password.

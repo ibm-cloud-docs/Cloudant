@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-11-08"
 
 keywords: use dedicated hardware plan, create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -50,7 +50,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found by using the following website:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
-    After you authenticate with your user name and password,
+    After you authenticate with your username and password,
     the {{site.data.keyword.cloud_notm}} dashboard opens. 
 
 2.  Click **Create resource**. 
@@ -113,7 +113,7 @@ After your instance is created, you must create a Standard plan on it by selecti
 
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
-    After you authenticate with your user name and password,
+    After you authenticate with your username and password,
     you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click **Create resource**.
 
 2.  Type `Cloudant` in the Search bar and click to search.
