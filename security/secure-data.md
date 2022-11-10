@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-01"
+lastupdated: "2022-11-03"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -110,10 +110,10 @@ To delete a database, follow these steps:
 
     The database is removed from the list of databases.
 
-For more information, see [Delete a database](/apidocs/cloudant#deletedatabase) in the API Reference documentation.
-
 A database deletion cannot be undone.
 {: important}
+
+For more information, see [Delete a database](/apidocs/cloudant#deletedatabase) in the API Reference documentation.
 
 The {{site.data.keyword.cloudant_short_notm}} data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.cloudant_short_notm}} service description, which you can find in the {{site.data.keyword.cloud_notm}} Terms and Notices.
 

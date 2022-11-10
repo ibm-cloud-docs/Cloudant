@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-11-07"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, couchdb 
 
@@ -125,10 +125,10 @@ The following changes were made in build 1.1.0:
 New! Introducing the Operator and its functions
 :   Adds more configuration for resource management, including the ability to set resource constraints on the CouchDB containers:
 
-- The following new, optional fields are added to the CouchDBCluster CRD:    
+The following new, optional fields are added to the CouchDBCluster CRD:    
 
-- `spec.securityContext`    
-- `spec.resources`    
+   - `spec.securityContext`    
+   - `spec.resources`    
 
 Erlang scheduler count
 :   Erlang scheduler count is based on the database container CPU requests, rounded up to the nearest integer.

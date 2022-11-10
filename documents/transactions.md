@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-22"
+lastupdated: "2022-11-02"
 
 keywords: generate uuid, record payments, add more documents, advantages, uuid
 
@@ -244,9 +244,9 @@ is good practice in {{site.data.keyword.cloudant_short_notm}}. This practice avo
 You might add other,
 separate documents to the database to record the following state changes as the order is provisioned and dispatched:
 
--   Dispatch notifications.
--   Delivery receipts.
--   Refund records.
+-   Dispatch notifications
+-   Delivery receipts
+-   Refund records
 
 As the data arrives,
 {{site.data.keyword.cloudant_short_notm}} writes to each document separately.

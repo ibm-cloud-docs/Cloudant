@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-11-02"
 
 keywords: syntax of monitoring request, monitoring endpoints, monitoring metrics, monitoring requests
 
@@ -83,9 +83,9 @@ Several of the fields have default values:
 
 | Field      | Default value |
 |-----------|--------------|
-| `DURATION` | 5 minutes. |
-| `END`      | No default value. |
-| `START`    | The current time. |
+| `DURATION` | 5 minutes |
+| `END`      | No default value |
+| `START`    | The current time |
 {: caption="Table 2. Default values for monitoring API request fields" caption-side="top"}
 
 ### Results format

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-10-31"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -124,7 +124,7 @@ See the second version of the document, which is created by adding a description
 ```
 {: codeblock}
 
-At the same time, someone else - working with a replicated database - reduces the price:
+At the same time, someone else - working with a replicated database - reduces the price.
 
 See a different revision, conflicting with the previous one because of different `price` value:
 

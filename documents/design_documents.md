@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-04"
+lastupdated: "2022-11-01"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -205,10 +205,10 @@ Query Arguments
        :  Revision to copy from.
 
        Optional 
-       : yes
+       :  yes
 
        Type 
-       : string
+       :  string
 
 HTTP Headers
 

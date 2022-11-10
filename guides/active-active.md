@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-31"
+lastupdated: "2022-11-03"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -184,7 +184,7 @@ Test the replication processes by creating,
 modifying,
 and deleting documents in either database.
 
-After each change in one database,
+After each change in the database,
 check that you can also see that change in the other database.
 
 ## Step 6. Configure your application

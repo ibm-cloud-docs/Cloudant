@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-26"
+lastupdated: "2022-11-10"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, data usage pricing
 
@@ -43,9 +43,7 @@ the Standard plan that is 100 reads per second, 50 writes per second, and 5 glob
 this capacity is $0.105 per hour. The 100 reads per second, 50 writes per second, and 5 global queries per second are 
 a block of provisioned throughput capacity. When you need to scale up (or down), you 
 can scale in increments of these blocks of capacity. Assuming the instance has less than 
-the 20 GB of storage that is included in the Standard plan, no storage costs are incurred. On the 
-{{site.data.keyword.cloudant_short_notm}} Dashboard's > **Account** > **Capacity** tab, the 
-provisioned throughput capacity setting looks like this screen capture:
+the 20 GB of storage that is included in the Standard plan, no storage costs are incurred. Go to the provisioned throughput capacity setting from the {{site.data.keyword.cloudant_short_notm}} Dashboard > **Account** > **Capacity** tab, which is shown in the following screen capture:
 
 ![The Account window contains the Capacity, Announcements, CORS, and Settings tabs.](../images/cloudant-dashboard.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab" caption-side="bottom"}
 

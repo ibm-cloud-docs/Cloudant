@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-10-31"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -763,8 +763,8 @@ Each `docs` array object has the following structure:
 | Field    | Description                        | Type |
 |---------|------------------------------------|-----|
 | `id`     | Document ID                        | String |
-| `error`  | Error type.                        | String |
-| `reason` | Error string with extended reason. | String |
+| `error`  | Error type                        | String |
+| `reason` | Error string with extended reason | String |
 {: caption="Table 5. Structure for the docs array object" caption-side="top"}
 
 When a document (or document revision) is not correctly committed to the database because of an error,

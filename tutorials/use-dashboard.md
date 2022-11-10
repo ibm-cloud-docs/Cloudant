@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-10-28"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -267,7 +267,7 @@ Your service instance contains no data because it is for demonstration purposes 
 
 2.  Click **Denied Requests**. 
 
-    Review the number of denied requests from a given second that are shown by the number of `429: too many requests.` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
+    Review the number of denied requests from a given second that are shown by the number of `429: too many requests` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
 
     ![The Denied Requests tab shows the denied requests that are broken down by read, writes, and global queries.](images/denied-requests-tab.png){: caption="Figure 8. Denied Requests" caption-side="bottom"}
 

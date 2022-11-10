@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-11-03"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -18,7 +18,7 @@ subcollection: Cloudant
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with the {{site.data.keyword.cloudantfull}} service in {{site.data.keyword.cloud}}.
 {: shortdesc}
 
-{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started)}{: external}.
+{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started){: external}.
 
 ## Types of events
 {: #at_event_types}
@@ -46,6 +46,7 @@ You must configure each {{site.data.keyword.cloudant_short_notm}} instance to co
 ## Configuring data events for an {{site.data.keyword.cloudant_short_notm}} instance
 {: #at_event_configure}
 
+The following instructions demonstrate how to configure data events for an {{site.data.keyword.cloudant_short_notm}} instance.
 
 ### Configuring data events through the {{site.data.keyword.cloud_notm}} UI
 {: #at_event_configure_ui}
