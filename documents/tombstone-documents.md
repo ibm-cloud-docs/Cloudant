@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-07"
+lastupdated: "2022-11-09"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -22,7 +22,7 @@ When the replication completes,
 the tombstones are no longer required.
 Automatic compaction helps ensure that only the minimal amount of data is kept and transferred during replication.
 Nevertheless,
-tombstone documents aren't automatically removed ("d").
+tombstone documents aren't automatically removed.
 
 Over time,
 as documents are created and deleted,
