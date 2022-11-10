@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-17"
+lastupdated: "2022-11-09"
 
 keywords: cloudant search, cloudant query, conflicts, delete documents, updates, replication, bulk api, eventual consistency
 
@@ -17,6 +17,7 @@ subcollection: Cloudant
 {: #indexing-and-querying}
 
 You might be new to {{site.data.keyword.cloudantfull}}, but you're not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
+
 - The customers who use it.
 - The engineers who run it.
 - The folks who support and sell it.
@@ -36,11 +37,11 @@ emit(doc.indexed_field, null);
 ```
 {: codeblock}
 
-This example has advantages and disadvantages.
+This example has the following advantages and disadvantages:
 
-1. The index is compact. This index size is good, since index size contributes to storage costs.
-2. The index is robust. Since the index does not store the document, you can access any field without thinking ahead of what to store in the index.
-3. The disadvantage is that getting the document back is more costly than the alternative of emitting data into the index itself. First, the database has to look up the requested key in the index and then read the associated document. Also, if you’re reading the whole document, but need only a single field, you’re making the database read and transmit data that you don’t need.
+    - The index is compact. This index size is good, since index size contributes to storage costs.
+    - The index is robust. Since the index does not store the document, you can access any field without thinking ahead of what to store in the index.
+    - The disadvantage is that getting the document back is more costly than the alternative of emitting data into the index itself. First, the database has to look up the requested key in the index and then read the associated document. Also, if you’re reading the whole document, but need only a single field, you’re making the database read and transmit data that you don’t need.
 
 This example also means that a potential race condition exists here. The document might change, or be deleted, between the index and document read (although unlikely in practice).
 
@@ -112,7 +113,7 @@ Not all data designs lend themselves to a partitioned design, but if your data c
 
 A default {{site.data.keyword.cloudant_short_notm}} document `_id` is a 32-character string, encoding 128 bits of random data. The `_id` attribute is used to construct the database’s primary index, which is used by {{site.data.keyword.cloudant_short_notm}} to retrieve documents by `_id` or ranges of keys when the user supplies a `startkey/endkey` pair. We can leverage this fact to pack our data into the `_id` field and use it as a “free” index that can query for ranges of values.
 
-See some examples here:
+See some examples in the following list:
 
 - Use time-sortable document IDs so that your documents are sorted into rough date and time order. This sorting makes it easy to retrieve recent additions to the database. For more information, see [Time-sortable -IDs](https://blog.cloudant.com/2018/08/24/Time-sortable-document-ids.html){: external}.
 - Pack searchable data into your `_id` field, for example,  `<customerid>~<date>~<orderid>` can be used to retrieve data by `customer`, `customer/date`, or `customer/date/orderid`.

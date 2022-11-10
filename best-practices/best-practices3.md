@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-17"
+lastupdated: "2022-11-09"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -16,6 +16,7 @@ subcollection: Cloudant
 {: #cloudant-in-practice}
 
 You might be new to {{site.data.keyword.cloudantfull}}, but you're not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
+
 - The customers who use it.
 - The engineers who run it.
 - The folks who support and sell it.
@@ -84,7 +85,7 @@ So why don’t you just put a short delay in your test between the write and the
 
 A serious concern that every developer must consider is that you can’t safely assume that data you write is available to anyone else at a specific point in time. This state takes some getting used to if you come from a different kind of database tradition.
 
-**Testing Tip**: What you *can* do to avoid the inconsistency window in testing is to test against a single-node instance of {{site.data.keyword.cloudant_short_notm}} or CouchDB running say in Docker ([docker information](https://hub.docker.com/_/couchdb/){: external}). A single node removes the eventual consistency issue, but beware that you are testing against an environment that behaves differently from what you target in production. *Caveat Emptor*.
+**Testing tip**: What you *can* do to avoid the inconsistency window in testing is to test against a single-node instance of {{site.data.keyword.cloudant_short_notm}} or CouchDB running say in Docker ([docker information](https://hub.docker.com/_/couchdb/){: external}). A single node removes the eventual consistency issue, but beware that you are testing against an environment that behaves differently from what you target in production. *Caveat Emptor*.
 
 ## Replication isn't magic
 {: #replication-is-not-magic}
@@ -134,7 +135,7 @@ curl -XPOST 'https://ACCT.cloudant.com/DB/_bulk_docs' \
 
 You can also fetch many documents at once by issuing a POST to `_all_docs` (a relatively new endpoint that is called `_bulk_get` also exists, but this endpoint is probably not what you want. It’s there for a specific internal purpose).
 
-To fetch a fixed set of docs by using `_all_docs`, `POST` with a `keys` body:
+To fetch a fixed set of docs by using `_all_docs`, `POST` with a `keys` body, run the following command:
 
 ```sh
 curl -XPOST 'https://ACCT.cloudant.com/DB/_all_docs' \

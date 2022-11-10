@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-  lastupdated: "2022-11-03"
+lastupdated: "2022-11-09"
 
 keywords: api, http, database, partitioned query, eventual consistency, time box
 
@@ -16,6 +16,8 @@ subcollection: Cloudant
 {: #data-modeling}
 
 You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
+
+
 - The customers who use it.
 - The engineers who run it.
 - The folks who support and sell it.

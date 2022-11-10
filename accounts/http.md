@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-11-09"
 
 keywords: http headers, response headers, request headers, http status codes
 
@@ -67,7 +67,7 @@ Accept: */*
 ```
 {: codeblock}
 
-See the following example of a returned header when the client is assumed to accept all formats:
+See the following example of a returned header when the client is assumed to accept all formats.
 
 The returned content type is `text/plain` even though the information that is returned by the request is in JSON format.
 {: note}

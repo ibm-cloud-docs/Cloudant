@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-11-09"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -367,7 +367,7 @@ this document would look something like this:
 ```
 {: codeblock}
 
-Assuming the previous document in `./view.json`, this document is uploaded to the database by using:
+Assuming the previous document in `./view.json`, this document is uploaded to the database by using the following command:
 
 ```sh
 curl -X PUT "$SERVICE_URL/readings/_design/infrastructure-mapping" -H 'Content-Type: application/json' --data @view.json

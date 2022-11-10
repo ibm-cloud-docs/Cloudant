@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-04"
+lastupdated: "2022-11-10"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -243,7 +243,7 @@ and contain only the following characters:
 
 -   Lowercase characters (a-z)
 -   Digits (0-9)
--   Any of the characters _, $, (, ), +, -, and /
+-   Any of the following characters: _, $, (, ), +, -, and /
 
 If your database is successfully created, you get a 201 or 202 response. An error response uses the HTTP status code to indicate what went wrong.
 

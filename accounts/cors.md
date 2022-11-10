@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-11-11"
 
 keywords: cross-domain, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard, same origin security policy
 
@@ -82,7 +82,7 @@ For more information, see the [API and SDK documentation](/apidocs/cloudant#getc
 
 CORS support is available in the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
-You can update your CORS settings by using the CORS tab within the dashboard:
+You can update your CORS settings by using the CORS tab within the dashboard. See the following screenshot:
 
 ![CORS dashboard lets you connect to remote servers directly from the brower. Using CORS, you can host browser-based apps on static pages, and load data directly from {{site.data.keyword.cloudant_short_notm}}.](../images/corsdashboard.png){: caption="Figure 1. CORS dashboard" caption-side="bottom"}
 

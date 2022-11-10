@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-11-09"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl, acurl
 
@@ -29,7 +29,7 @@ You can supply the username and password data for a request in three ways.
 
 	This option is used for the curl examples in the {{site.data.keyword.cloudant_short_notm}} API reference.
 
-2.	**[Caution: This option isn't secure]** Entering the combination parameter `-u $ACCOUNT:$PASSWORD` as part of your command means that you aren't asked to enter your password interactively.
+2.	**[Caution: this option isn't secure]** Entering the combination parameter `-u $ACCOUNT:$PASSWORD` as part of your command means that you aren't asked to enter your password interactively.
 
 	However,
 	a plain text copy of your password appears in the terminal log.
@@ -54,7 +54,7 @@ You can supply the username and password data for a request in three ways.
 	Remember to exclude the control file from backups,
 	since it includes the password in clear text.
 
-3.	**[Caution: This option isn't secure]** For an `https` curl request, you can supply the username and password as part of the URL:
+3.	**[Caution: this option isn't secure.]** For an `https` curl request, you can supply the username and password as part of the following URL:
 
     ```http
 	... https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com ...
@@ -112,7 +112,7 @@ python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".e
 The output is called `<OUTPUT-OF-BASE64>`.
 
 For example,
-if you use the command:
+if you use the following command:
 
 ```python
 python3 -c 'import base64; print(base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD".encode("utf-8")).decode("utf-8"))'
@@ -154,7 +154,7 @@ Now, start a new shell, or run `source ~/.bash_profile` (or `~/.bashrc` if you u
 {: #test-acurl-}
 
 Now, let's make sure everything is set up correctly.
-Go ahead and run:
+Go ahead and run the following command:
 
 ```sh
 acurl "https://$ACCOUNT.cloudant.com/_all_dbs"

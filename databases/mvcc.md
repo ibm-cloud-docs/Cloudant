@@ -4,7 +4,6 @@ copyright:
   years: 2015, 2022
 lastupdated: "2022-11-10"
 
-
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
 subcollection: Cloudant
@@ -40,7 +39,7 @@ A revision number is added to your documents by the server when you insert or mo
 The number is included in the server response when you make changes or read a document.
 The `_rev` value is constructed by using a combination of a simple counter and a hash of the document.
 
-The two main uses of the revision number are to help:
+The two main uses of the revision number are to help in the following cases:
 
 1.  Determine what documents must be replicated between servers.
 2.  Confirm that a client is trying to modify the latest version of a document.

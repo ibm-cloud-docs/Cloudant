@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-11-09"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -66,7 +66,7 @@ click the corresponding link.
 | `HEAD /{db}` \n [Cloudant](/apidocs/cloudant#headdatabase){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/common.html?highlight=head--db#head--db) | Retrieve the HTTP headers that contain a minimal amount of information about the specified database. |
 | `GET /{db}` \n [Cloudant](/apidocs/cloudant#getdatabaseinformation){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/common.html?highlight=head--db#get--db) | Retrieve information about the specified database. |
 | `POST /{db}` \n [Cloudant](/apidocs/cloudant#postdocument){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/common.html?highlight=head--db#post--db) | Create or modify a document in the specified database by using the supplied JSON document. |
-| `PUT /{db}` \n [Cloudant](/apidocs/cloudant#putdatabase){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/common.html?highlight=head--db#put--db) | Create a database. \n Database names must start with a lowercase letter and contain only the following characters: Lowercase characters (a-z), digits (0-9), any of the characters \_, $, (, ), +, -, and /. |
+| `PUT /{db}` \n [Cloudant](/apidocs/cloudant#putdatabase){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/common.html?highlight=head--db#put--db) | Create a database. \n Database names must start with a lowercase letter and contain only the following characters: lowercase characters (a-z), digits (0-9), any of the characters \_, $, (, ), +, -, and /. |
 | `DELETE /{db}` \n [Cloudant](/apidocs/cloudant#deletedatabase){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/common.html?highlight=head--db#delete--db) | Delete the specified database, and all the documents and attachments contained within it. |
 | `GET /{db}/_all_docs` \n [Cloudant](/apidocs/cloudant#getalldbs){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/bulk-api.html?highlight=_all_docs#get--db-_all_docs) | Query a list of all documents in a database. \n CouchDB documentation references more query parameters (`end_key`, `endkey_docid`, `end_key_doc_id`, `stale`, `start_key`, `startkey_docid`, `start_key_doc_id`, `update_seq`). For {{site.data.keyword.cloudant_short_notm}}, use `GET _all_docs`.|
 | `POST /{db}/_all_docs` \n [Cloudant](/apidocs/cloudant#postalldocs){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/database/bulk-api.html?highlight=_all_docs#post--db-_all_docs) | Query a list of all documents in a database by using the HTTP `POST` method where the query is submitted as a JSON object in the request body. \n CouchDB documentation references more query parameters (`end_key`, `endkey_docid`, `end_key_doc_id`, `stale`, `start_key`, `startkey_docid`, `start_key_doc_id`, `update_seq`). |

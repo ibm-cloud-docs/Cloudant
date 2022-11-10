@@ -8,7 +8,6 @@ keywords: ping, ping account, cors, connect to your cloudant account, api keys, 
 
 subcollection: Cloudant
 
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -21,7 +20,7 @@ You access your account by using the address prefix
 `https://$ACCOUNT.cloudant.com`.
 {: shortdesc}
 
-For your {{site.data.keyword.cloudant_short_notm}} Dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
+For your {{site.data.keyword.cloudant_short_notm}} dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
 
 If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: external}.
 
@@ -258,7 +257,7 @@ in an EU-managed environment, see
 An earlier method of generating API keys by issuing the `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
 {: deprecated}
 
-You can create an API key in two ways:
+You can create an API key in the following two ways:
 
 1.  Use the dashboard.
 2.  Use the {{site.data.keyword.cloudant_short_notm}} API to [modify the permissions](/apidocs/cloudant#postapikeys){: external}.
@@ -276,7 +275,7 @@ It's possible to use the API key with other databases,
 or even with other accounts.
 
 By default,
-an API key has no permissions to anything.
+an API key has no permissions.
 It must be given permissions explicitly.
 
 After you generate the API key,
@@ -285,8 +284,7 @@ grant the key access-specific permissions for a specific database by sending a `
 
 The database doesn't have to be in the same account as the account used for generating the API key initially.
 
-To give an existing API key permissions to access a database in another account,
-do the following steps:
+To give an existing API key permission to access a database in another account, follow these steps:
 
 1.  Retrieve the existing [security permissions](/apidocs/cloudant#getsecurity){: external} for the database.
 2.  [Add](/apidocs/cloudant#putsecurity){: external} the details of the API key to the database security permissions, along with the roles required.
@@ -301,10 +299,7 @@ see the blog article:
 It's not possible to delete an API key.
 An API key is always available for use if you know the key and its password.
 However,
-the API key is only useful when:
-
--   Assigned to a database.
--   Assigned permissions for working with the database.
+the API key is only useful when you assign it to a database, and assign permissions for working with the database. 
 
 To "delete" an API key,
 remove it from the database.

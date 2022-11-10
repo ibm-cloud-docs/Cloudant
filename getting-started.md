@@ -47,7 +47,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
     you're presented with the {{site.data.keyword.cloud_notm}} dashboard. 
     {: note}
     
-2.  Type `Cloudant` in the Search bar and click to open it:
+2.  Type `Cloudant` in the Search bar and click to open it.
 
 3.  Select an offering and an environment.  
 

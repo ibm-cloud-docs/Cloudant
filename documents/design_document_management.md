@@ -73,8 +73,7 @@ Since we're not interested in the value in the index,
 `null` is emitted.
 The effect is to provide a time-ordered index into the document set.
 
-We're going to call this view `by_ts` and put it into a design document that is called `fetch`,
-like the following example:
+We're going to call this view `by_ts` and put it into a design document that is called `fetch`.
 
 See an example design document that defines a view by using a map function:
 
