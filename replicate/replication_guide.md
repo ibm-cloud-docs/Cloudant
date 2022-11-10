@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-09-01"
+lastupdated: "2022-11-08"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -527,7 +527,7 @@ It is useful to be able to remove some data during the replication process,
 when you replicate one database to another, as you can see in the following examples:
 
 - Removing all traces of deleted documents, making the target database smaller than the source.
-- Segregating data into smaller chunks, such as storing UK data in one database and US data in another.
+- Separating data into smaller chunks, such as storing UK data in one database and US data in another.
 
 ### Replication filter functions
 {: #replication-filter-functions}
