@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-11-10"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, white space analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option, pick best analyzer
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Search analyzers
 {: #search-analyzers}
 
-{{site.data.keyword.cloudantfull}} Search is the free-text search technology that is built into the {{site.data.keyword.cloudant_short_notm}} database that is powered by [Apache Lucene](http://lucene.apache.org/){: external}. 
+{{site.data.keyword.cloudantfull}} Search is the free-text search technology that is built into the {{site.data.keyword.cloudant_short_notm}} database that is powered by [Apache Lucene](https://lucene.apache.org/){: external}. 
 {: shortdesc}
 
 When you create an {{site.data.keyword.cloudant_short_notm}} Search index, you must consider which fields from your documents need to be indexed, and how they are to be indexed.

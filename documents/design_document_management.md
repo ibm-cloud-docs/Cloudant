@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-11-10"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -253,7 +253,7 @@ To use the `couchmigrate` script,
 first define the URL of the CouchDB/{{site.data.keyword.cloudant_short_notm}} instance by setting an environment variable called `COUCH_URL`. Run the following command to define the URL for the {{site.data.keyword.cloudant_short_notm}} instance:
 
 ```sh
-export COUCH_URL=http://127.0.0.1:5984
+export COUCH_URL=https://127.0.0.1:5984
 ```
 {: codeblock}
 

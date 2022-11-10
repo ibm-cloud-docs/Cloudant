@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-30"
+lastupdated: "2022-11-10"
 
 keywords: combine ibm services, example, create a database, populate database, queries, retrieve data,  query data, create query, web application, add documents, caching, redis
 
@@ -133,7 +133,7 @@ When you run this script, it takes the data output from the Terraform script and
 {: #visit-combine}
 
 
-1. Open a browser and visit `http://localhost:8080`. 
+1. Open a browser and visit `https://localhost:8080`. 
    See the button for each team in the following screen capture:
 
     ![{Click the button for each team. ](../images/teamdir1.png){: caption="Figure 1. Team Directory team selectors" caption-side="bottom"}

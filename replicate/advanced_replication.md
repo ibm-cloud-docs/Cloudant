@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-11-10"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -23,7 +23,7 @@ You can learn about advanced replication concepts and tasks, such as the ones in
 {: shortdesc}
 
 You might also find it helpful to review details of the underlying
-[replication protocol](http://docs.couchdb.org/en/stable/replication/protocol.html){: external},
+[replication protocol](https://docs.couchdb.org/en/stable/replication/protocol.html){: external},
 and review the [API reference](/apidocs/cloudant#introduction){: external} documentation.
 
 In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
@@ -202,8 +202,8 @@ See the following example replication of specific documents:
 
 ```json
 {
-	"source": "http://$USERNAME:$PASSWORD@example.org/example-database",
-	"target": "http://$USERNAME:$PASSWORD@127.0.0.1:5984/example-database",
+	"source": "https://$USERNAME:$PASSWORD@example.org/example-database",
+	"target": "https://$USERNAME:$PASSWORD@127.0.0.1:5984/example-database",
 	"doc_ids": ["foo", "bar", "baz"]
 }
 ```
@@ -221,7 +221,7 @@ See the following example that shows replication through a proxy:
 {
 	"source": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
 	"target": "https://$USERNAME:$PASSWORD@example.org/example-database",
-	"proxy": "http://my-proxy.com:8888"
+	"proxy": "https://my-proxy.com:8888"
 }
 ```
 {: codeblock}
@@ -326,7 +326,7 @@ by including them in the replication document.
 `socket_options` 
 :   A list of options to pass to the connection sockets.
 	The available options can be found in the
-	[documentation for the Erlang function `setopts` of the `inet` module](http://www.erlang.org/doc/man/inet.html#setopts-2){: external}. 
+	[documentation for the Erlang function `setopts` of the `inet` module](https://www.erlang.org/doc/man/inet.html#setopts-2){: external}. 
 	Default value is `[{keepalive, true},{nodelay, false}]`.
 
 `worker_batch_size` 

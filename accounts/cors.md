@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-30"
+lastupdated: "2022-11-10"
 
 keywords: cross-domain, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard, same origin security policy
 
@@ -22,7 +22,7 @@ from JavaScript.
 
 In this case, the JavaScript is running on a website that is loaded from another domain.
 
-These "cross-domain" requests would normally be forbidden by web browsers. The requests use the [same origin security policy](http://en.wikipedia.org/wiki/Same-origin_policy){: external}.
+These "cross-domain" requests would normally be forbidden by web browsers. The requests use the [same origin security policy](https://en.wikipedia.org/wiki/Same-origin_policy){: external}.
 
 CORS defines a way in which the browser and the server interact to determine whether or not to allow the request.
 For {{site.data.keyword.cloudant_short_notm}},

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-11-10"
 
 keywords: create document, examples of create document, create document with http
 
@@ -191,7 +191,7 @@ and `"ok": true`.
 
 If you didn't provide an `_id` field,
 {{site.data.keyword.cloudant_short_notm}} generates one automatically as a
-[UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: external}.
+[UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){: external}.
 
 A failure to create the document results in a
 response that contains a description of the error.

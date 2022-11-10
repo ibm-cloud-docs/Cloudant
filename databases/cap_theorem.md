@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-11-10"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # CAP Theorem
 {: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}} uses an ["Eventually Consistent"](http://en.wikipedia.org/wiki/Eventual_consistency){: external} model. When you make an update to one part of {{site.data.keyword.cloudant_short_notm}}, the update is eventually seen by other parts of the system.  
+{{site.data.keyword.cloudantfull}} uses an ["Eventually Consistent"](https://en.wikipedia.org/wiki/Eventual_consistency){: external} model. When you make an update to one part of {{site.data.keyword.cloudant_short_notm}}, the update is eventually seen by other parts of the system.  
 {: shortdesc}
 
 To understand how this model works,
@@ -26,7 +26,7 @@ Consistency is one of the four ["ACID"](https://en.wikipedia.org/wiki/ACID){: ex
 that are necessary for transactions within a database to be processed and reported reliably.
 
 Additionally,
-consistency is one of the three attributes in the ["CAP"](http://en.wikipedia.org/wiki/CAP_Theorem){: external} theorem.
+consistency is one of the three attributes in the ["CAP"](https://en.wikipedia.org/wiki/CAP_Theorem){: external} theorem.
 The attributes are **C**onsistency,
 **A**vailability, and **P**artition tolerance. The theorem states that it's not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
 to guarantee three attributes *simultaneously*:
@@ -70,7 +70,7 @@ If the leader loses connection to the network,
 or can't communicate with many of the system's nodes,
 the remainder elects a new leader.
 This election process differs between systems,
-and might be a source of [significant problems](http://aphyr.com/posts/284-call-me-maybe-mongodb){: external}.
+and might be a source of [significant problems](https://aphyr.com/posts/284-call-me-maybe-mongodb){: external}.
 
 {{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a primary-primary setup,
 such that every node can accept both writes and reads to its portion of your data.
@@ -80,7 +80,7 @@ If a node becomes inaccessible,
 others can serve in its place while the network heals.
 This way,
 the system returns your data in a timely manner despite arbitrary node failure,
-and maintains [eventual consistency](http://en.wikipedia.org/wiki/Eventual_consistency){: external}.
+and maintains [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency){: external}.
 The tradeoff in deprioritizing absolute consistency is that it takes time for all nodes to see the same data.
 As a result,
 some responses might include old data while the new data propagates through the system.

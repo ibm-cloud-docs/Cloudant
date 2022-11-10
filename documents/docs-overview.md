@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-11-10"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -16,7 +16,7 @@ subcollection: Cloudant
 {: #documents}
 
 Documents are
-[JSON objects](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: external}.
+[JSON objects](https://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: external}.
 Documents are also containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
@@ -70,7 +70,7 @@ colon characters.
 {: #ids-in-non-partitioned-databases}
 
 For non-partitioned databases, the `_id` field is either created by you, or
-generated automatically as a [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: external}
+generated automatically as a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){: external}
 by {{site.data.keyword.cloudant_short_notm}}.
 
 If you choose to specify the document `_id` field, it must be limited to no more than 7168 characters (7k).

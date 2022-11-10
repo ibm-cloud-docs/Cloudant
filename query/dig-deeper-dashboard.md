@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-11-10"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -43,7 +43,7 @@ You need to create a service instance in {{site.data.keyword.cloudant_short_notm
       "year": 1840,
       "pages": 723,
       "publisher": "Penguin",
-      "url": "http://www.somurl.com/dc"
+      "url": "https://www.somurl.com/dc"
     }
     ```
     {: codeblock}

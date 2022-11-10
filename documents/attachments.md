@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-11-10"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -16,7 +16,7 @@ subcollection: Cloudant
 {: #how-to-use-attachments}
 
 Another way to store data is to use attachments.
-Attachments are Binary Large OBject ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: external})
+Attachments are Binary Large OBject ([BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: external})
 files that are included within documents.
 {: shortdesc}
 
@@ -32,7 +32,7 @@ Examples of BLOBs would be images and multimedia.
 If you include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-how-to-use-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
-The content type corresponds to a [MIME type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}.
+The content type corresponds to a [MIME type](https://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}.
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
@@ -51,7 +51,7 @@ To create a new attachment at the same time as creating a new document, include 
 To create a new attachment on an existing document,
 or to update an attachment on a document,
 make a PUT request with the document's most recent `_rev` to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
-The attachment's [content type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}
+The attachment's [content type](https://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}
 must be specified by using the `Content-Type` header.
 The `$ATTACHMENT` value is the name by which the attachment is associated with the document.
 
@@ -464,7 +464,7 @@ Inline attachments are attachments that are included as part of the JSON content
 The content must be provided by using [BASE64](https://en.wikipedia.org/wiki/Base64){: external} representation,
 as shown in the example.
 
-A full list of media types is available in the [media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external} article.
+A full list of media types is available in the [media types](https://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external} article.
 
 See the following example JSON document that includes an inline attachment of a jpeg image:
 

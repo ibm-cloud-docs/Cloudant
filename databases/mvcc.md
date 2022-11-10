@@ -2,7 +2,8 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-10"
+
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -25,7 +26,7 @@ it is necessary to prevent inconsistencies from arising between nodes
 as a result of synchronizing between outdated documents.
 
 Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to an {{site.data.keyword.cloudant_short_notm}} database.
-MVCC is a form of [optimistic concurrency](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: external}.
+MVCC is a form of [optimistic concurrency](https://en.wikipedia.org/wiki/Optimistic_concurrency_control){: external}.
 It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
 the database locks on either read or write operations isn't necessary.
 MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
@@ -52,7 +53,7 @@ or else your request fails and returns a [409 error](/apidocs/cloudant#list-of-h
 
 However, you can query a particular revision by using its `_rev`, but
 older revisions are regularly deleted by a process called
-[compaction](http://en.wikipedia.org/wiki/Data_compaction){: external}. You can query a particular document revision
+[compaction](https://en.wikipedia.org/wiki/Data_compaction){: external}. You can query a particular document revision
 by using its `_rev` in order to obtain a history of revisions to your document. However, a consequence of compaction is that
 you cannot rely on a successful response. If you need a version history of your documents,
 a solution is to [create a new document](/docs/Cloudant?topic=Cloudant-documents#create-document) for each revision.

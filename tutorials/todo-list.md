@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-11-10"
 
 keywords: todo list tutorial
 
@@ -92,7 +92,7 @@ When you run this command for the first time, your code detects that no database
 
 Now, you can check out your website.
 
-1. From your browser, navigate to `http://localhost:8080`.
+1. From your browser, navigate to `https://localhost:8080`.
 
    You can see your to do list with a couple of items on it:
 

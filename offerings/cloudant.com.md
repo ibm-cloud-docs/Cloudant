@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-11-10"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -32,7 +32,7 @@ reads and writes, and enable high availability and data durability.
 It provides an [HTTP API](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#http-api-basics) for working with your 
 [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview-basics) data, and 24-hour operational support and maintenance. 
 {{site.data.keyword.cloudant_short_notm}} is based on 
-[Apache CouchDB](http://couchdb.apache.org/){: external}, and is delivered as various multi-tenant, dedicated, and installed services.
+[Apache CouchDB](https://couchdb.apache.org/){: external}, and is delivered as various multi-tenant, dedicated, and installed services.
 
 All currency values in this document are in US dollars ($).
 {: tip}

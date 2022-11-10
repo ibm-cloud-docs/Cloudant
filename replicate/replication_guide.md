@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-10"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -24,7 +24,7 @@ In this documentation, when a feature, or an aspect of a feature, applies only t
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
 using [{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: external}
-or [PouchDB](http://pouchdb.com/){: external}.
+or [PouchDB](https://pouchdb.com/){: external}.
 Replication can run in one direction or in both directions,
 as a "single shot" or continuous operation,
 and can be finely tuned by using parameters.
@@ -177,7 +177,7 @@ This point is identified by using checkpoints.
 
 Therefore,
 an application that uses the `_changes` feed must
-be ['idempotent'](http://www.eaipatterns.com/IdempotentReceiver.html){: external}. Idempotency means that the application must be able safely to receive the same data multiple times,
+be ['idempotent'](https://www.eaipatterns.com/IdempotentReceiver.html){: external}. Idempotency means that the application must be able safely to receive the same data multiple times,
 and potentially in a different order for repeated requests.
 
 ## Checkpoints
@@ -487,7 +487,7 @@ See the following example of a JSON document that defines a continuous replicati
 ### Apache CouchDB
 {: #apache-couchdb}
 
-[Apache CouchDB](http://couchdb.apache.org/){: external} is an open source database
+[Apache CouchDB](https://couchdb.apache.org/){: external} is an open source database
 that can communicate with {{site.data.keyword.cloudant_short_notm}},
 and that requires minimal setup.
 The following applications are included:
@@ -504,7 +504,7 @@ The following applications are included:
 ### PouchDB
 {: #pouchdb}
 
-[PouchDB](http://pouchdb.com/){: external} is an open source,
+[PouchDB](https://pouchdb.com/){: external} is an open source,
 in-browser database that allows data to be replicated in both directions between the browser and {{site.data.keyword.cloudant_short_notm}}.
 Storing the data in a web browser on the client side allows web applications to function
 even without an internet connection.

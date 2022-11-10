@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-28"
+lastupdated: "2022-11-10"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication, proper tools, organize documents, organize databases, primary index, secondary index, query
 
@@ -115,8 +115,8 @@ see the [CAP Theorem](/docs/Cloudant?topic=Cloudant-cap-theorem) guide.
 {: #replication-basics}
 
 [Replication](/docs/Cloudant?topic=Cloudant-replication-api) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
-[CouchDB](http://couchdb.apache.org/){: external},
-[PouchDB](http://pouchdb.com/){: external},
+[CouchDB](https://couchdb.apache.org/){: external},
+[PouchDB](https://pouchdb.com/){: external},
 and other distributed databases.
 Replication synchronizes the state of two databases so that their contents are identical.
 

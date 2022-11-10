@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-10"
+lastupdated: "2022-11-11"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -1408,7 +1408,7 @@ They can be positive or negative integers.
 A query where the Divisor or Remainder is a non-integer returns a [404 status](/apidocs/cloudant#list-of-http-codes){: external}.
 
 When you use negative integer values for the Divisor or Remainder,
-the {{site.data.keyword.cloudant_short_notm}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: external}. Both the [Erlang `rem` modulo operator](http://erlang.org/doc/reference_manual/expressions.html){: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: external},
+the {{site.data.keyword.cloudant_short_notm}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: external}. Both the [Erlang `rem` modulo operator](https://erlang.org/doc/reference_manual/expressions.html){: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: external},
 behave in a similar way.
 {: tip}
 
@@ -1478,7 +1478,7 @@ not all of the PCRE library is implemented.
 Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
-see the [Erlang Regular Expression](http://erlang.org/doc/man/re.html){: external} information.
+see the [Erlang Regular Expression](https://erlang.org/doc/man/re.html){: external} information.
 
 ## Sort syntax
 {: #sort-syntax}

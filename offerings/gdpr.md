@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-11-10"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -183,7 +183,7 @@ the storage tier. Databases are always being compacted. It isn't guaranteed that
 data that you deleted or changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting the *Right to be forgotten* requests through
-the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3.ibm.com/ibm/privacy/index.html){: external}.
+the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](https://w3.ibm.com/ibm/privacy/index.html){: external}.
 When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request,
 explicitly triggers database compaction, and verifies that compaction occurred.
 At the end of this process, the only version of the document is its tombstone
@@ -209,7 +209,7 @@ to {{site.data.keyword.cloudant_short_notm}}.
 
 If a document needs removal through a *Right to be forgotten* request, follow these steps:
 
-1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](http://w3-03.ibm.com/ibm/privacy/index.html){: external} to request purging of specific document `_id` values along with the reason.
+1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](https://w3-03.ibm.com/ibm/privacy/index.html){: external} to request purging of specific document `_id` values along with the reason.
 1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} doesn't purge data that doesn't have PI in the `_id`.
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 

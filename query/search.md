@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-11-10"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Using {{site.data.keyword.cloudant_short_notm}} Search
 {: #cloudant-search}
 
-Search indexes allow you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}. A search index uses one or more fields from your documents. 
+Search indexes allow you to query a database by using [Lucene Query Parser Syntax](https://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}. A search index uses one or more fields from your documents. 
 {: shortdesc}
 
 You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
@@ -215,7 +215,7 @@ Here's the list of generic analyzers that are supported by {{site.data.keyword.c
 | `email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token. |
 | `keyword`    | Input isn't tokenized at all. |
 | `simple`     | Divides text at non-letters. |
-| `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: external}. |
+| `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](https://www.unicode.org/reports/tr29/){: external}. |
 | `whitespace` | Divides text at white space boundaries. |
 {: caption="Table 2. Generic analyzers" caption-side="top"}
 
@@ -238,7 +238,7 @@ See the following example analyzer document:
 {: #language-specific-analyzers}
 
 These analyzers omit common words in the specific language,
-and many also [remove prefixes and suffixes](http://en.wikipedia.org/wiki/Stemming){: external}.
+and many also [remove prefixes and suffixes](https://en.wikipedia.org/wiki/Stemming){: external}.
 The name of the language is also the name of the analyzer.
 
 - `arabic`
@@ -248,7 +248,7 @@ The name of the language is also the name of the analyzer.
 - `brazilian`
 - `catalan`
 - `cjk` (Chinese, Japanese, Korean)
-- `chinese` ([`smartcn`](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: external})
+- `chinese` ([`smartcn`](https://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: external})
 - `czech`
 - `danish`
 - `dutch`
@@ -263,11 +263,11 @@ The name of the language is also the name of the analyzer.
 - `indonesian`
 - `irish`
 - `italian`
-- `japanese` ([`kuromoji`](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: external})
+- `japanese` ([`kuromoji`](https://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: external})
 - `latvian`
 - `norwegian`
 - `persian`
-- `polish` ([`stempel`](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: external})
+- `polish` ([`stempel`](https://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: external})
 - `portuguese`
 - `romanian`
 - `russian`
@@ -854,7 +854,7 @@ See the following example JSON document that includes a search request:
 {: #query-syntax}
 
 The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
-[Lucene syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}.
+[Lucene syntax](https://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}.
 Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
 as demonstrated in the following examples:

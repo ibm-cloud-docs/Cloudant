@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-19"
+lastupdated: "2022-11-10"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -163,7 +163,7 @@ See the example GeoJSON document in the following example:
 
 For more information about GeoJSON,
 including the full specification,
-go to [GeoJSON](http://geojson.org/){: external}.
+go to [GeoJSON](https://geojson.org/){: external}.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #creating-a-cloudant-nosql-db-geo-index}
@@ -205,7 +205,7 @@ Some algorithms are simple to understand and implement,
 but don't produce fast results.
 
 The basic algorithm that is used by {{site.data.keyword.cloudant_short_notm}} Geo
-is [R\*\_tree](http://en.wikipedia.org/wiki/R*_tree){: external}.
+is [R\*\_tree](https://en.wikipedia.org/wiki/R*_tree){: external}.
 Although it has a slightly higher resource requirement for building the index,
 the resulting index offers much better performance in responding to geospatial queries.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-11-10"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -131,7 +131,7 @@ response.
 
 Recent versions of the [supported client libraries](/docs/Cloudant?topic=Cloudant-client-libraries) help you handle a `429` response. For example,
 the Java&trade; library generates a
-[`TooManyRequestsException`](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: external} response.
+[`TooManyRequestsException`](https://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: external} response.
 
 By default,
 the supported client libraries don't automatically retry

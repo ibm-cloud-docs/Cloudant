@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-04"
+lastupdated: "2022-11-10"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -338,7 +338,7 @@ The following section only applies to legacy credentials.
 {: tip}
 
 You can use the
-[`_users` database](http://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: external}
+[`_users` database](https://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: external}
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
 User documents that are stored in the `_users` database must be structured and populated to comply with
