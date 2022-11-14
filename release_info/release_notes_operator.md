@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-07"
+lastupdated: "2022-11-14"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, couchdb 
 
@@ -103,11 +103,12 @@ Configuration options
 :   Adds a number of configuration options to the search container, enabled by using v1.5.0 of the management container.
 
 New fields for CouchDBCluster 
-:   The following new, optional fields are added to the CouchDBCluster CRD:    
-- `spec.environment.clouseau.logLevel`    
-- `spec.environment.clouseau.maxIndexesOpen`    
-- `spec.environment.clouseau.closeIfIdle`    
-- `spec.environment.clouseau.idleCheckIntervalSecs`    
+:   The following new, optional fields are added to the CouchDBCluster CRD: 
+   
+    - `spec.environment.clouseau.logLevel`    
+    - `spec.environment.clouseau.maxIndexesOpen`    
+    - `spec.environment.clouseau.closeIfIdle`    
+    - `spec.environment.clouseau.idleCheckIntervalSecs`    
 
 Search container
 :   This bug fix release fixes a performance regression in the search container that is caused by debug-level logs being enabled by default.

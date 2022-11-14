@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-09"
+lastupdated: "2022-11-14"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication, proper tools, organize documents, organize databases, primary index, secondary index, query
 
@@ -43,24 +43,23 @@ For more information about how {{site.data.keyword.cloudant_short_notm}} uses HT
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
-    `GET`
-    :  Request the specified item. As with normal HTTP requests, the format of the URL defines what is returned. With {{site.data.keyword.cloudant_short_notm}}, this definition can include static items, database documents, and configuration and statistical information. In most cases, the information is returned in the form of a JSON document.
+      `GET`
+      :  Request the specified item. As with normal HTTP requests, the format of the URL defines what is returned. With {{site.data.keyword.cloudant_short_notm}}, this definition can include static items, database documents, and configuration and statistical information. In most cases, the information is returned in the form of a JSON document.
 
-    `HEAD`
-    :  The `HEAD` method retrieves the HTTP header of a `GET` request without the body of the response.
+      `HEAD`
+      :  The `HEAD` method retrieves the HTTP header of a `GET` request without the body of the response.
 
-    `POST`
-    :  Upload data. In {{site.data.keyword.cloudant_short_notm}}'s API, the `POST` method sets values, uploads documents, sets document values, and starts some administration commands.
+      `POST`
+      :  Upload data. In {{site.data.keyword.cloudant_short_notm}}'s API, the `POST` method sets values, uploads documents, sets document values, and starts some administration commands.
 
-    `PUT`
-    :  Used to "store" a specific resource. In {{site.data.keyword.cloudant_short_notm}}'s API, `PUT` creates new objects, including databases, documents, views, and design documents.
+      `PUT`
+      :  Used to "store" a specific resource. In {{site.data.keyword.cloudant_short_notm}}'s API, `PUT` creates new objects, including databases, documents, views, and design documents.
 
-    `DELETE`
-    :  Deletes the specified resource, including documents,
-    views, and design documents.
+      `DELETE`
+      :  Deletes the specified resource, including documents, views, and design documents.
 
-    `COPY`
-    :  A special method that copies documents and objects.
+      `COPY`
+      :  A special method that copies documents and objects.
 
 If the client (such as some web browsers) doesn't support the use of HTTP methods,
 `POST` can be used instead with the `X-HTTP-Method-Override` request header set to the actual HTTP method.
