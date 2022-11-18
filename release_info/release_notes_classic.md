@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-09-21"
+lastupdated: "2022-11-17"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk docs, indexes, view collation
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
 subcollection: Cloudant
 
@@ -19,6 +19,38 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## November 2022
+{: #cloudant-nov22}
+
+### 17 November 2022
+{: #cloudant-nov1722}
+{: release-note}
+
+The following changes were made in build 8341:
+
+`_bulk_get` endpoint
+:   Optimize `_bulk_get` endpoint.
+
+`_changes` endpoint
+:   Fix `eventsource` formatted feed.
+:   Remove support for the long-deprecated change sequence format.
+
+`dbcopy`
+:   Prevent further use of `dbcopy` feature for all but current users.
+
+Compaction
+:   Fix smoosh `get_priority/2` case clause.
+
+Replication
+:   Use the `_bulk_get` endpoint for replication if available.
+:   Return a string for the default start sequence from `_scheduler/{jobs,docs}` endpoints.
+
+`_session` endpoint
+:   Return error when POSTing to `/_session` with content type other than `application/x-www-form-urlencoded` or `application/json`.
+
+Runtime environment
+:   Upgrade runtime environment to Erlang/OTP 23 patch release.
 
 ## September 2022
 {: #cloudant-sep22}
