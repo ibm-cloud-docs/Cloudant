@@ -2,7 +2,7 @@
 
 copyright:
   years:  2022
-lastupdated: "2022-07-23"
+lastupdated: "2022-11-15"
 keywords: change log for IBM Cloudant, updates to IBM Cloudant
 
 subcollection: Cloudant
@@ -27,7 +27,7 @@ Version `0.0.5` of the CLI was released on 21 July 2022.
 ## Version `0.0.4`
 {: #cli-004}
 
-This version of the CLI plugin is deprecated; upgrade to the latest release.
+This version of the CLI plug-in is deprecated; upgrade to the latest release.
 {: deprecated}
 
 Version `0.0.4` of the CLI was released on 04 March 2022.
@@ -36,12 +36,12 @@ Version `0.0.4` of the CLI was released on 04 March 2022.
 - Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.0.43`.
 - Improves error messages for bad URL scenarios.
 - Enables auto-completion.
-- Introduces {{site.data.keyword.cloudant_short_notm}} CLI specific User-Agent header content.
+- Introduces {{site.data.keyword.cloudant_short_notm}} CLI-specific User-Agent header content.
 
 ## Version `0.0.3`
 {: #cli-003}
 
-This version of the CLI plugin is deprecated; upgrade to the latest release.
+This version of the CLI plug-in is deprecated; upgrade to the latest release.
 {: deprecated}
 
 Version `0.0.3` of the CLI was released on 12 May 2021.
