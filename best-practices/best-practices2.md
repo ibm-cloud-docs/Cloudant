@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-21"
 
 keywords: cloudant search, cloudant query, conflicts, delete documents, updates, replication, bulk api, eventual consistency
 
@@ -42,7 +42,7 @@ This example has the following advantages and disadvantages:
     - The index is compact. This index size is good, since index size contributes to storage costs.
     - The index is robust. Since the index does not store the document, you can access any field without thinking ahead of what to store in the index.
     - The disadvantage is that getting the document back is more costly than the alternative of emitting data into the index itself. First, the database has to look up the requested key in the index and then read the associated document. Also, if you’re reading the whole document, but need only a single field, you’re making the database read and transmit data that you don’t need.
-    
+
 This example also means that a potential race condition exists here. The document might change, or be deleted, between the index and document read (although unlikely in practice).
 
 Emitting data into the index (a so-called “projection” in relational algebra terms) means that you can fine-tune the exact subset of the document that you need. In other words, you don’t need to emit the whole document. Emit a value that represents only the data you need in the app that is a cut-down object with minimal details, for example:

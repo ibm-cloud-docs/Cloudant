@@ -249,10 +249,10 @@ If your database is successfully created, you get a 201 or 202 response. An erro
 
 | Code | Description |
 |-----|------------|
-| 201  | Database created successfully. |
-| 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum. |
-| 400  | Invalid database name. |
-| 412  | Database exists. |
+|  201  | Database created successfully. |
+|  202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum. |
+|  400  | Invalid database name. |
+|  412  | Database exists. |
 {: caption="Table 2. HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is created successfully:

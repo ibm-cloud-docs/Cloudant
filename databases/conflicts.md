@@ -40,9 +40,9 @@ For example, if you don't check for conflicts,
 or fail to address them,
 your {{site.data.keyword.cloudant_short_notm}} database can exhibit the following behaviors:
 
-- Increasing inconsistencies in document content because more conflicting documents occur.
-- Increasing database size because all conflicting documents must be kept until the conflict is resolved.
-- Decreasing performance because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each request as it tries to identify the "best possible" version of a conflicted document.
+-   Increasing inconsistencies in document content because more conflicting documents occur.
+-   Increasing database size because all conflicting documents must be kept until the conflict is resolved.
+-   Decreasing performance because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each request as it tries to identify the "best possible" version of a conflicted document.
 
 The following suggested practices might help you decide when to check for, and resolve, conflicts:
 

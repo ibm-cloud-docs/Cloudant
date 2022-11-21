@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-21"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -16,7 +16,7 @@ subcollection: Cloudant
 {: #cloudant-in-practice}
 
 You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
- 
+
 - The customers who use it.
 - The engineers who run it.
 - The folks who support and sell it.
