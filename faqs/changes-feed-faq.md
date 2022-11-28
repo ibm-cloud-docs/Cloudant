@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-22"
+lastupdated: "2022-11-22"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -51,8 +51,11 @@ GET /orders/_changes?limit=5
 
 The API call returns the following changes:
 
-- `results` - an array of changes.
-- `last_seq` - a token that can be supplied to the changes endpoint in a subsequent API call to get the next batch of changes.
+`results`
+:   An array of changes.
+
+`last_seq`
+:   A token that can be supplied to the changes endpoint in a subsequent API call to get the next batch of changes.
 
 See how to fetch the next batch of changes in the following example:
 
@@ -67,9 +70,14 @@ GET /orders/_changes?limit=5&since=5-g1AAAAB5eJzLYWBg
 
 The `since` parameter is used to define where in the changes feed you want to start from:
 
-- `since=0` - the beginning of the changes feed.
-- `since=now` - the end of the changes feed.
-- `since=<a last seq token>` - from a known place in the changes feed.
+`since=0`
+:   The beginning of the changes feed.
+
+`since=now`
+:   The end of the changes feed.
+
+`since=<a last seq token>`
+:   From a known place in the changes feed.
 
 At face value, it would seem like following the changes feed would be as simple as chaining `_changes` API calls together, passing the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
 
