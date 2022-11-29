@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-28"
 
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
@@ -61,7 +61,6 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
     {: important}
  
 5.  Select your plan. </br>
-    See the capacity in the table that follows.   
 
 6.  To create the service, click `Create`:
 
