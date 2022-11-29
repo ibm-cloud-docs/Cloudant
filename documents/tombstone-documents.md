@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-09"
+lastupdated: "2022-11-28"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -83,7 +83,7 @@ the document that was deleted from the source database is not deleted from the t
 causing an inconsistency.
 
 A solution is to do more advanced removal of tombstones by using
-a [`validate_doc_update` function](https://docs.couchdb.org/en/stable/ddocs/ddocs.html#validate-document-update-functions){: external}.
+a [`validate_doc_update` function](https://docs.couchdb.org/en/3.2.2-docs/ddocs/ddocs.html#validate-document-update-functions){: external}.
 
 A `validate_doc_update` function is stored in a design document.
 The function is run every time that a document is updated in the database.
