@@ -47,7 +47,6 @@ toc:
           topics: 
           - release_info/release_notes_classic.md
           - release_info/release_notes_txe.md
-          - release_info/release_notes_operator.md 
                     
   - navgroup: 
       id: tutorial
