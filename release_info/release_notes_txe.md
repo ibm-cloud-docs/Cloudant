@@ -8,8 +8,6 @@ keywords: Cloudant, release notes, partition query, dedicated hardware plan, ope
 
 subcollection: Cloudant
 
-content-type: release-note
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -68,7 +66,6 @@ Replicator authentication
 
 ### 15 July 2021
 {: #cloudant-txe-jul1521}
-{: release-note}
 
 The following changes were made in build 2.94:
 
@@ -77,7 +74,6 @@ Upgrade version
 
 ### 1 July 2021 
 {: #cloudant-txe-jul0121}
-{: release-note}
 
 The following changes were made in build 2.93:
 
@@ -95,7 +91,6 @@ Testing dependencies
 
 ### 15 May 2021 
 {: #cloudant-txe-may1521}
-{: release-note}
 
 The following changes were made in build 2.92;
 
@@ -117,7 +112,6 @@ Error messages
 
 ### 15 April 2021
 {: #cloudant-txe-apr1521}
-{: release-note}
 
 The following changes were made in build 2.91:
 
@@ -141,7 +135,6 @@ Replicator error
 
 ### 15 November 2020
 {: #cloudant-txe-nov1520}
-{: release-note}
 
 The following changes were made in build 2.88:
 
@@ -156,7 +149,6 @@ Built-in view
 
 ### 15 September 2020
 {: #cloudant-txe-sep1520}
-{: release-note}
 
 The following changes were made in build 2.80:
 
@@ -165,7 +157,6 @@ Improvements
 
 ### 1 September 2020
 {: #cloudant-txe-sep0120}
-{: release-note}
 
 The following changes were made in build 2.79:
 
@@ -186,7 +177,6 @@ Performance improvement
 
 ### 15 August 2020
 {: #cloudant-txe-aug1520}
-{: release-note}
 
 The following changes were made in build 2.77:
 
@@ -195,7 +185,6 @@ Dashboard access
 
 ### 1 August 2020
 {: #cloudant-txe-aug0120}
-{: release-note}
 
 The following changes were made in build 2.75:
 
@@ -219,7 +208,6 @@ Re-create database instance
 
 ### 15 June 2020
 {: #cloudant-txe-jun1520}
-{: release-note}
 
 The following changes were made in build 2.69:
 
@@ -234,7 +222,6 @@ Error messages
 
 ### 1 June 2020
 {: #cloudant-txe-jun0120}
-{: release-note}
 
 The following changes were made in build 2.67:
 
