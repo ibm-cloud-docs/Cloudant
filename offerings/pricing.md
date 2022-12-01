@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Pricing
 {: #pricing}
 
-*Price Change Announcement*: The effective date of the 10% increase in {{site.data.keyword.cloudantfull}} pricing changed from 13 October 2022 to 1 January 2023. Effective 1 January 2023, all {{site.data.keyword.cloudant_short_notm}} prices increase by 10%. This documentation does not reflect the increased pricing that goes into effect as of that date.
+*Price Change Announcment* Effective January 1, 2023, all {{site.data.keyword.cloudant_short_notm}} prices increase by 10%. This documentation reflects the pricing after that increase.
 
 {{site.data.keyword.cloudant_short_notm}} is priced based on the provisioned throughput capacity that you allocate for your instance, and the amount of data storage consumed. With {{site.data.keyword.cloudant_short_notm}}, you can scale your provisioned throughput capacity up and down, and pay pro-rated hourly. The provisioned throughput capacity is a reserved number of reads per second, writes per second, and global queries per second allocated to an instance. The throughput capacity setting is the maximum usage level for a given second. You can't exceed the reserved capacity for either reads, writes, or global queries. If you do, an HTTP 429 status code occurs that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 {: shortdesc}
@@ -39,29 +39,29 @@ capacity and increase it as needed by your application's usage over time. {{site
 pro-rated hourly and changing the provisioned throughput capacity doesn't incur downtime. 
 
 For the mobile app example, you start with the minimum provisioned throughput capacity for 
-the Standard plan. The minimum provisioned throughput capacity is 100 reads per second, 50 writes per second, and 5 global queries per second. The cost for 
-this capacity is $0.105 per hour. The 100 reads per second, 50 writes per second, and 5 global queries per second are 
+the Standard plan that is 100 reads per second, 50 writes per second, and 5 global queries per second. The cost for 
+this capacity is $0.113 per hour. The 100 reads per second, 50 writes per second, and 5 global queries per second are 
 a block of provisioned throughput capacity. When you need to scale up (or down), you 
 can scale in increments of these blocks of capacity. Assuming the instance has less than 
 the 20 GB of storage that is included in the Standard plan, no storage costs are incurred. Go to the provisioned throughput capacity setting from the {{site.data.keyword.cloudant_short_notm}} Dashboard > **Account** > **Capacity** tab, which is shown in the following screen capture:
 
 ![The Account window contains the Capacity, Announcements, CORS, and Settings tabs.](../images/cloudant-dashboard.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab" caption-side="bottom"}
 
-The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second in USD of $0.105 per hour. The slider shows a rough cost per month of $76.65. The monthly amount is an estimate based on an average of 730 hours per month. The cost in any month can be slightly different depending on the number of hours in the month.
+The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second in USD of $0.113 per hour. The slider shows a rough cost per month of $82.50. The monthly amount is an estimate based on an average of 730 hours per month. The cost in any month can be slightly different depending on the number of hours in the month.
 
 See the following example equation: 
 
-- $0.105 per hour \* 1 block (of 100 reads per second, 50 writes per second, and 5 global queries per second provisioned throughput capacity) \* 730 hours (approximate hours in a month)
-- Total = $76.65
+- $0.113 per hour \* 1 block (of 100 reads per second, 50 writes per second, and 5 global queries per second provisioned throughput capacity) \* 730 hours (approximate hours in a month)
+- Total = $82.49
 
 
 Reads, writes, and global queries can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads per second, writes per second, or global queries per second as required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads per second, 500 writes per second, and 50 global queries per second. Select this capacity even if you don't need the corresponding number of writes or global queries. 
 
 How do you estimate the total cost for provisioned throughput capacity per month of 1,000 reads, 500 writes, and 50 global queries? 
 
-- $0.105 per hour \* 10 blocks (of 100 reads per second, 50 writes per second, and 5 global queries per second provisioned throughput capacity) \* 730 hours (approximate hours in a month).
-- Alternatively, the slider shows you the provisioned throughput capacity of 1000 reads per second, 500 writes per second, and 50 global queries per second costs $1.050 per hour \* 730 hours.
-- Total = $766.50.
+- $0.113 per hour \* 10 blocks (of 100 reads per second, 50 writes per second, and 5 global queries per second provisioned throughput capacity) \* 730 hours (approximate hours in a month).
+- Alternatively, the slider shows you the provisioned throughput capacity of 1000 reads per second, 500 writes per second, and 50 global queries per second costs $1.13 per hour \* 730 hours.
+- Total = $824.90.
 
 ## Data usage pricing
 {: #data-usage-pricing}
@@ -71,7 +71,7 @@ What about pricing for data overage? How does that work?
 | Plan | Storage included | Overage limit |
 |-----|------------------|--------------|
 | Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1-GB limit, or upgrade to a higher plan. |
-| Standard | 20 GB | Extra storage costs $0.0014 per GB per hour, which is approximately $1 per GB per month. |
+| Standard | 20 GB | Extra storage costs $0.00151 per GB per hour, which is approximately $1.10 per GB per month. |
 {: caption="Table 1. Pricing for data overage" caption-side="top"}
 
 ## {{site.data.keyword.cloud_notm}} Usage Dashboard 
