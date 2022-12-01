@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-25"
+lastupdated: "2022-12-01"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, operator, classic, transaction engine, couchdb
 
@@ -24,7 +24,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #cloudant-txe-oct21}
 
 ### 15 October 2021
-{: #cloudant-txe-oct1521}
+{: #Cloudant-txe-oct1521}
 
 The following changes were made in build 2.96:
 
@@ -65,7 +65,7 @@ Replicator authentication
 {: #cloudant-txe-jul21}
 
 ### 15 July 2021
-{: #cloudant-txe-jul1521}
+{: #Cloudant-txe-jul1521}
 
 The following changes were made in build 2.94:
 
@@ -73,7 +73,7 @@ Upgrade version
 :   Upgrade your environment to Erlang/OTP 23.3.4.4.
 
 ### 1 July 2021 
-{: #cloudant-txe-jul0121}
+{: #Cloudant-txe-jul0121}
 
 The following changes were made in build 2.93:
 
@@ -90,7 +90,7 @@ Testing dependencies
 {: #cloudant-txe-may21}
 
 ### 15 May 2021 
-{: #cloudant-txe-may1521}
+{: #Cloudant-txe-may1521}
 
 The following changes were made in build 2.92;
 
@@ -111,7 +111,7 @@ Error messages
 {: #cloudant-txe-april21}
 
 ### 15 April 2021
-{: #cloudant-txe-apr1521}
+{: #Cloudant-txe-apr1521}
 
 The following changes were made in build 2.91:
 
@@ -134,7 +134,7 @@ Replicator error
 {: #cloudant-txe-nov20}
 
 ### 15 November 2020
-{: #cloudant-txe-nov1520}
+{: #Cloudant-txe-nov1520}
 
 The following changes were made in build 2.88:
 
@@ -148,7 +148,7 @@ Built-in view
 {: #cloudant-txe-sept20}
 
 ### 15 September 2020
-{: #cloudant-txe-sep1520}
+{: #Cloudant-txe-sep1520}
 
 The following changes were made in build 2.80:
 
@@ -156,7 +156,7 @@ Improvements
 :   Internal bug fixes.
 
 ### 1 September 2020
-{: #cloudant-txe-sep0120}
+{: #Cloudant-txe-sep0120}
 
 The following changes were made in build 2.79:
 
@@ -176,7 +176,7 @@ Performance improvement
 {: #cloudant-txe-aug20}
 
 ### 15 August 2020
-{: #cloudant-txe-aug1520}
+{: #Cloudant-txe-aug1520}
 
 The following changes were made in build 2.77:
 
@@ -184,7 +184,7 @@ Dashboard access
 :   Fixed dashboard access for {{site.data.keyword.cloudant_short_notm}} Transaction Engine instances.
 
 ### 1 August 2020
-{: #cloudant-txe-aug0120}
+{: #Cloudant-txe-aug0120}
 
 The following changes were made in build 2.75:
 
@@ -207,7 +207,7 @@ Re-create database instance
 {: #cloudant-txe-jun20}
 
 ### 15 June 2020
-{: #cloudant-txe-jun1520}
+{: #Cloudant-txe-jun1520}
 
 The following changes were made in build 2.69:
 
@@ -221,7 +221,7 @@ Error messages
 :   Reword view and query pagination limit error messages that are returned with the HTTP 400 responses.
 
 ### 1 June 2020
-{: #cloudant-txe-jun0120}
+{: #Cloudant-txe-jun0120}
 
 The following changes were made in build 2.67:
 
