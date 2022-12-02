@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-17"
+lastupdated: "2022-12-01"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -24,7 +24,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #cloudant-nov22}
 
 ### 17 November 2022
-{: #cloudant-nov1722}
+{: #Cloudant-nov1722}
 {: release-note}
 
 The following changes were made in build 8341:
@@ -56,7 +56,7 @@ Runtime environment
 {: #cloudant-sep22}
 
 ### 21 September 2022
-{: #cloudant-sep2122}
+{: #Cloudant-sep2122}
 {: release-note}
 
 The following changes were made in build 8336:
@@ -71,7 +71,7 @@ View collation
 {: #cloudant-aug22}
 
 ### 5 August 2022
-{: #cloudant-aug0522}
+{: #Cloudant-aug0522}
 {: release-note}
 
 The following changes were made in build 8335:
@@ -94,7 +94,7 @@ Replicator
 {: #cloudant-jun22}
 
 ### 10 June 2022
-{: #cloudant-jun1022}
+{: #Cloudant-jun1022}
 {: release-note}
 
 The following changes were made in build 8310:
@@ -125,14 +125,14 @@ Replicator
 {: #cloudant-may22}
 
 ### 25 May 2022
-{: #cloudant-may2522}
+{: #Cloudant-may2522}
 {: release-note}
 
 Virtual Private Endpoints (VPE)
 :   VPE can now be created for {{site.data.keyword.cloudant_short_notm}} instances on dedicated hardware.
 
 ### 13 May 2022
-{: #cloudant-may1322}
+{: #Cloudant-may1322}
 {: release-note}
 
 The following changes were made in build 8299:
@@ -147,7 +147,7 @@ Replicator
 {: #cloudant-apr22}
 
 ### 14 April 2022
-{: #cloudant-apr1422}
+{: #Cloudant-apr1422}
 {: release-note}
 
 The following changes were made in build 8287:
@@ -159,7 +159,7 @@ Runtime environment
 {: #cloudant-mar22}
 
 ### 24 March 2022
-{: #cloudant-mar2422}
+{: #Cloudant-mar2422}
 {: release-note}
 
 The following changes were made in build 8278:
@@ -171,7 +171,7 @@ Document updates and compaction
 :   Improve efficiency of updating and compacting conflicted documents.
 
 ### 11 March 2022
-{: #cloudant-mar1122}
+{: #Cloudant-mar1122}
 {: release-note}
 
 The following changes were made in build 8269:
@@ -180,7 +180,7 @@ Runtime environment
 :   Upgrade runtime environment to Erlang/OTP 23.
 
 ### 04 March 2022
-{: #cloudant-mar0422}
+{: #Cloudant-mar0422}
 {: release-note}
 
 The following changes were made in build 8266:
@@ -213,7 +213,7 @@ Views
 {: #cloudant-jan22}
 
 ### 28 January 2022
-{: #cloudant-jan2822}
+{: #Cloudant-jan2822}
 {: release-note}
 
 It is now possible to switch authentication methods from `Legacy Credentials and IAM` to `IAM only` by using the {{site.data.keyword.cloud_notm}} console.
@@ -222,7 +222,7 @@ It is now possible to switch authentication methods from `Legacy Credentials and
 {: #cloudant-dec21}
 
 ### 03 December 2021
-{: #cloudant-dec0321}
+{: #Cloudant-dec0321}
 {: release-note}
 
 {{site.data.keyword.cloud_notm}} monitoring integration
@@ -232,7 +232,7 @@ It is now possible to switch authentication methods from `Legacy Credentials and
 {: #cloudant-nov21}
 
 ### 01 November 2021
-{: #cloudant-nov0121}
+{: #Cloudant-nov0121}
 {: release-note}
 
 The following changes were made in build 8243:
@@ -250,7 +250,7 @@ View collation
 {: #cloudant-oct21}
 
 ### 01 October 2021
-{: #cloudant-oct0121}
+{: #Cloudant-oct0121}
 {: release-note}
 
 The following changes were made in build 8238:
@@ -277,7 +277,7 @@ Row aggregation
 {: #cloudant-sep21}
 
 ### 1 September 2021
-{: #cloudant-sep0121}
+{: #Cloudant-sep0121}
 {: release-note}
 
 The following changes were made in build 8220.
@@ -295,7 +295,7 @@ Indexes
 {: #cloudant-aug21}
 
 ### 1 August 2021
-{: #cloudant-aug0121}
+{: #Cloudant-aug0121}
 {: release-note}
 
 The following changes were made in build 8202:
@@ -304,7 +304,7 @@ IAM Trusted Profiles
 :   Support IAM Trusted Profiles.
 
 ### 15 August 2021
-{: #cloudant-aug1521}
+{: #Cloudant-aug1521}
 {: release-note}
 
 The following changes were made in build 8201:
@@ -316,7 +316,7 @@ Improvements
 {: #cloudant-jun21}
 
 ### 1 June 2021
-{: #cloudant-jun0121}
+{: #Cloudant-jun0121}
 {: release-note}
 
 The following changes were made in build 8194:
@@ -338,7 +338,7 @@ Basic auth credentials
 {: #cloudant-apr21}
 
 ### 1 April 2021
-{: #cloudant-apr0121}
+{: #Cloudant-apr0121}
 {: release-note}
 
 The following changes were made in build 8192:
@@ -353,7 +353,7 @@ Improvements
 {: #cloudant-mar21}
 
 ### 15 March 2021
-{: #cloudant-mar1521}
+{: #Cloudant-mar1521}
 {: release-note}
 
 The following changes were made in build 8182:
@@ -380,7 +380,7 @@ Compressed requests
 {: #cloudant-dec20}
 
 ### 1 December 2020
-{: #cloudant-dec0120}
+{: #Cloudant-dec0120}
 {: release-note}
 
 The following changes were made in build 8169:
@@ -398,7 +398,7 @@ Database reporting
 {: #cloudant-sep20}
 
 ### 1 September 2020
-{: #cloudant-sep0120}
+{: #Cloudant-sep0120}
 {: release-note}
 
 The following changes were made in build 8162:
@@ -419,7 +419,7 @@ Invalid parameters
 {: #cloudant-july20}
 
 ### 1 July 2020
-{: #cloudant-jul0120}
+{: #Cloudant-jul0120}
 {: release-note}
 
 The following changes were made in build 8158:
@@ -431,7 +431,7 @@ Improvements
 {: #cloudant-may20}
 
 ### 15 May 2020
-{: #cloudant-may1520}
+{: #Cloudant-may1520}
 {: release-note}
 
 The following changes were made in build 8153:
@@ -443,7 +443,7 @@ Improvements
 {: #cloudant-april20}
 
 ### 1 April 2020
-{: #cloudant-apr0120}
+{: #Cloudant-apr0120}
 {: release-note}
 
 The following changes were made in build 8152:
@@ -455,7 +455,7 @@ Improvements
 {: #cloudant-mar20}
 
 ### 15 March 2020
-{: #cloudant-mar1520}
+{: #Cloudant-mar1520}
 {: release-note}
 
 The following changes were made in build 8142:
@@ -497,7 +497,7 @@ Warning message
 {: #cloudant-jan20}
 
 ### 15 January 2020
-{: #cloudant-jan1520}
+{: #Cloudant-jan1520}
 {: release-note}
 
 The following changes were made in build 8126:
@@ -518,7 +518,7 @@ Replication jobs
 {: #cloudant-nov19}
 
 ### 1 November 2019
-{: #cloudant-nov0119}
+{: #Cloudant-nov0119}
 {: release-note}
 
 The following changes were made in build 8111:
@@ -539,7 +539,7 @@ Empty payload
 {: #cloudant-oct19}
 
 ### 21 October 2019
-{: #cloudant-oct2119}
+{: #Cloudant-oct2119}
 {: release-note}
 
 Multiple restrictions employed for performance gains
@@ -556,7 +556,7 @@ Multiple restrictions employed for performance gains
 - The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
 
 ### 15 October 2019
-{: #cloudant-oct1519}
+{: #Cloudant-oct1519}
 {: release-note}
 
 The following changes were made in build 8106:
@@ -565,7 +565,7 @@ Improvements
 :   Internal bug fixes.
 
 ### 1 October 2019
-{: #cloudant-oct0119}
+{: #Cloudant-oct0119}
 {: release-note}
 
 The following changes were made in build 8103:
@@ -580,7 +580,7 @@ Search requests
 {: #cloudant-sep19}
 
 ### 18 September 2019
-{: #cloudant-sep1819}
+{: #Cloudant-sep1819}
 {: release-note}
 
 Replaced deprecated database information fields
@@ -605,7 +605,7 @@ Replaced deprecated database information fields
 {: #cloudant-jun19}
 
 ### 1 June 2019
-{: #cloudant-jun0119}
+{: #Cloudant-jun0119}
 {: release-note}
 
 The following changes were made in build 8076:
@@ -620,7 +620,7 @@ Stability
 {: #cloudant-may19}
 
 ### 15 May 2019
-{: #cloudant-may1519}
+{: #Cloudant-may1519}
 {: release-note}
 
 The following changes were made in build 8070:
@@ -629,7 +629,7 @@ Improvements
 :   Internal bug fixes.
 
 ### 1 May 2019
-{: #cloudant-may0119}
+{: #Cloudant-may0119}
 {: release-note}
 
 The following changes were made in build 8062:
@@ -641,7 +641,7 @@ Improvements
 {: #cloudant-april19}
 
 ### 15 April 2019
-{: #cloudant-apr1519}
+{: #Cloudant-apr1519}
 {: release-note}
 
 The following changes were made in build 8058:
@@ -650,7 +650,7 @@ The following changes were made in build 8058:
 :   Fixed bug in `ibrowse` HTTP client that leaves dead process IDs in the connection pool, and in some cases, caused persistent IAM-based replication failures.
 
 ### 1 April 2019
-{: #cloudant-apr0119}
+{: #Cloudant-apr0119}
 {: release-note}
 
 The following changes were made in build 8052:
@@ -668,7 +668,7 @@ The following changes were made in build 8052:
 {: #cloudant-mar19}
 
 ### 15 March 2019
-{: #cloudant-mar1519}
+{: #Cloudant-mar1519}
 {: release-note}
 
 The following changes were made in build 8048:
@@ -677,7 +677,7 @@ Improvements
 :   Internal bug fixes.
 
 ### 1 March 2019
-{: #cloudant-mar0119}
+{: #Cloudant-mar0119}
 {: release-note}
 
 The following changes were made in build 8038:
@@ -689,7 +689,7 @@ Partition queries
 {: #cloudant-feb19}
 
 ### 15 February 2019
-{: #cloudant-feb1519}
+{: #Cloudant-feb1519}
 {: release-note}
 
 The `stale` option
@@ -704,7 +704,7 @@ allow controlling the two orthogonal behaviors that are caused by `stale` separa
    {: caption="Table 3. Stale option replacement" caption-side="top"}
 
 ### 1 February 2019
-{: #cloudant-feb0119}
+{: #Cloudant-feb0119}
 {: release-note}
 
 The following changes were made in build 7681:
@@ -716,7 +716,7 @@ Partition query
 {: #cloudant-jan19}
 
 ### 15 January 2019
-{: #cloudant-jan1519}
+{: #Cloudant-jan1519}
 {: release-note}
 
 The following changes were made in build 7668:
@@ -731,7 +731,7 @@ View requests
 :   Previously, view requests that use a `limit` parameter greater than 268435456 would have the limit that is silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 are rejected with a `400 Bad Request` error.
 
 ### 1 January 2019
-{: #cloudant-jan0119}
+{: #Cloudant-jan0119}
 {: release-note}
 
 The following changes were made in build 7631:
@@ -743,7 +743,7 @@ Improvements
 {: #cloudant-dec18}
 
 ### 1 December 2018
-{: #cloudant-dec0118}
+{: #Cloudant-dec0118}
 {: release-note}
 
 The following changes were made in build 7544:
@@ -779,7 +779,7 @@ Index jobs
 {: #cloudant-nov18}
 
 ### 4 November 18
-{: #cloudant-nov0418}
+{: #Cloudant-nov0418}
 {: release-note}
 
 The following changes were made in build 7410:
@@ -788,7 +788,7 @@ Improvements
 :   Internal changes and bug fixes.
 
 ### 1 November 2018
-{: #cloudant-nov0118}
+{: #Cloudant-nov0118}
 {: release-note}
 
 The following changes were made in build 7426:
@@ -818,7 +818,7 @@ JavaScript URL rewrites
 {: #cloudant-oct18}
 
 ### 11 October 2018
-{: #cloudant-oct1118}
+{: #Cloudant-oct1118}
 {: release-note}
 
 The following changes were made in build 7304:
@@ -830,7 +830,7 @@ Improvements
 {: #cloudant-sep18}
 
 ### 25 September 2018
-{: #cloudant-sep2518}
+{: #Cloudant-sep2518}
 {: release-note}
 
 The following changes were made in build 7302:
@@ -845,7 +845,7 @@ Search blocklist
 :   Improve search blocklist.
 
 ### 18 September 2018
-{: #cloudant-sep1818}
+{: #Cloudant-sep1818}
 {: release-note}
 
 The following changes were made in build 7276:
@@ -860,7 +860,7 @@ Configuration option
 :   Add a configuration option to disable off-heap messages.
 
 ### 13 September 2018
-{: #cloudant-sep1318}
+{: #Cloudant-sep1318}
 {: release-note}
 
 From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
@@ -870,7 +870,7 @@ From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connectio
 versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ is supported.)*** Find more information on the [Security page](/docs/Cloudant?topic=Cloudant-security#security).
 
 ### 7 September 2018
-{: #cloudant-sep0718}
+{: #Cloudant-sep0718}
 {: release-note}
 
 The following changes were made in build 7205:
@@ -888,7 +888,7 @@ Document update errors
 {: #cloudant-aug18}
 
 ### 1 August 2018
-{: #cloudant-aug0118}
+{: #Cloudant-aug0118}
 {: release-note}
 
 The following changes were made in build 7138:
@@ -897,7 +897,7 @@ Erlang
 :   Upgrade to Erlang OTP 20.
 
 ### 15 August 2018
-{: #cloudant-aug1518}
+{: #Cloudant-aug1518}
 {: release-note}
 
 The following changes were made in build 7137:
@@ -927,7 +927,7 @@ Semantics
 {: #cloudant-jul18}
 
 ### 12 July 2018
-{: #cloudant-jul1218}
+{: #Cloudant-jul1218}
 {: release-note}
 
 The following changes were made in build 7084:
@@ -957,7 +957,7 @@ Only the fields that are in front of the current sort fields in the list are add
 {: #cloudant-jun18}
 
 ### 29 June 2018
-{: #cloudant-jun2918}
+{: #Cloudant-jun2918}
 {: release-note}
 
 The following changes were made in build 7051:
@@ -975,7 +975,7 @@ Geo index
 :   Reduce the possibility that a race condition occurs between the time you delete a database that triggers a geo index to close and when a compaction destroys a geo index.
 
 ### 12 June 2018
-{: #cloudant-jun1218}
+{: #Cloudant-jun1218}
 {: release-note}
 
 The following changes were made in build 7014:
@@ -987,7 +987,7 @@ Query selector
 {: #cloudant-may18}
 
 ### 29 May 2018
-{: #cloudant-may2918}
+{: #Cloudant-may2918}
 {: release-note}
 
 The following changes were made in build 6979:
@@ -996,7 +996,7 @@ Audit facility
 :   Improve internal audit facility.
 
 ### 14 May 2018
-{: #cloudant-may1418}
+{: #Cloudant-may1418}
 {: release-note}
 
 The following changes were made in build 6919:
@@ -1011,7 +1011,7 @@ Improvements
 {: #cloudant-apr18}
 
 ### 26 April 2018
-{: #cloudant-apr2618}
+{: #Cloudant-apr2618}
 {: release-note}
 
 The following changes were made in build 6909:
@@ -1023,7 +1023,7 @@ Improvements
 :   Fix `badarg` error in the module that parses `http` multipart requests.
 
 ### 25 April 2018
-{: #cloudant-apr2518}
+{: #Cloudant-apr2518}
 {: release-note}
 
 The following changes were made in build 6900:
@@ -1041,7 +1041,7 @@ State field
 :   Disallow `_design/$DDOC/_rewrite` and `_design/$DDOC/_update` endpoints with IAM.
 
 ### 17 April 2018
-{: #cloudant-apr1718}
+{: #Cloudant-apr1718}
 {: release-note}
 
 The following changes were made in build 6895:
@@ -1050,7 +1050,7 @@ Pluggable storage engine
 :   Fix a regression that is introduced with pluggable storage engine.
 
 ### 6 April 2019
-{: #cloudant-apr0619}
+{: #Cloudant-apr0619}
 {: release-note}
 
 Replaced `queries` parameter
@@ -1063,7 +1063,7 @@ Sending several queries to a view
 :   Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: external}. For more information, see the previous deprecation note about replacing the `queries` parameter.
 
 ### 4 April 2018
-{: #cloudant-apr0418}
+{: #Cloudant-apr0418}
 {: release-note}
 
 The following changes were made in build 6875:
@@ -1078,7 +1078,7 @@ New! Audit facility
 {: #cloudant-mar18}
 
 ### 30 March 2018
-{: #cloudant-mar3018}
+{: #Cloudant-mar3018}
 {: release-note}
 
 The following changes were made in build 6870:
@@ -1093,7 +1093,7 @@ Compaction resumption
 :   Fix compaction resumption for terminated compactions.
 
 ### 13 March 2018
-{: #cloudant-mar1318}
+{: #Cloudant-mar1318}
 {: release-note}
 
 The following changes were made in build 6761:
@@ -1124,7 +1124,7 @@ Session support
 {: #cloudant-feb18}
 
 ### 15 February 2018
-{: #cloudant-feb1518}
+{: #Cloudant-feb1518}
 {: release-note}
 
 The following changes were made in build 6656:
@@ -1145,7 +1145,7 @@ Semantics
 :   Change semantics of status codes for create database.
 
 ### 7 February 2018
-{: #cloudant-feb0718}
+{: #Cloudant-feb0718}
 {: release-note}
 
 {{site.data.keyword.dashdbshort_notm}} feature is deprecated
@@ -1158,7 +1158,7 @@ extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the d
 {: #cloudant-jan18}
 
 ### 10 January 2018
-{: #cloudant-jan1018}
+{: #Cloudant-jan1018}
 {: release-note}
 
 The following changes were made in build 6620:
@@ -1170,7 +1170,7 @@ The following changes were made in build 6620:
 {: #cloudant-dec17}
 
 ### 28 December 2017
-{: #cloudant-dec2817}
+{: #Cloudant-dec2817}
 {: release-note}
 
 The following changes were made in build 6600:
@@ -1180,7 +1180,7 @@ The following changes were made in build 6600:
 indexes for a particular selector.
 
 ### 7 December 2017
-{: #cloudant-dec0717}
+{: #Cloudant-dec0717}
 {: release-note}
 
 The following changes were made in build 6588:
@@ -1207,7 +1207,7 @@ Disabled JavaScript constructors
 :   If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message similar to this one is returned, *Call to `eval()` was blocked by CSP.* You can fix the problem by replacing `eval()` calls with the calls from the [expr-eval library](https://github.com/silentmatt/expr-eval){: external}.
 
 ### 4 December 2017
-{: #cloudant-dec0417}
+{: #Cloudant-dec0417}
 {: release-note}
 
 Removed support for virtual hosts
@@ -1217,7 +1217,7 @@ Removed support for virtual hosts
 {: #cloudant-nov17}
 
 ### 7 November 2017
-{: #cloudant-nov0717}
+{: #Cloudant-nov0717}
 {: release-note}
 
 Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
@@ -1227,7 +1227,7 @@ Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_sho
 {: #cloudant-oct17}
 
 ### 17 October 2017
-{: #cloudant-oct1717}
+{: #Cloudant-oct1717}
 {: release-note}
 
 Query (`_find` endpoint) improved
@@ -1252,7 +1252,7 @@ Pagination
 :   `_find` now falls back to any valid index if the value specified in the `use_index` field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
 
 ### 9 October 2017
-{: #cloudant-oct0917}
+{: #Cloudant-oct0917}
 {: release-note}
 
 Error handling
@@ -1263,7 +1263,7 @@ Error handling
 {: #cloudant-aug17}
 
 ### 17 August 2017
-{: #cloudant-aug1717}
+{: #Cloudant-aug1717}
 {: release-note}
 
 The following changes were made in build 6365:
@@ -1285,14 +1285,14 @@ New! Replication scheduler
 {: #cloudant-jul17}
 
 ### 24 July 2017
-{: #cloudant-jul2417}
+{: #Cloudant-jul2417}
 {: release-note}
 
 Retire Shared plan
 :   {{site.data.keyword.cloudant_short_notm}} Shared Plan accounts can no longer be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: external}.
 
 ### 4 July 2017
-{: #cloudant-jul0417}
+{: #Cloudant-jul0417}
 {: release-note}
 
 The following changes were made in build 6276:
@@ -1309,7 +1309,7 @@ Error message
 {: #cloudant-jun17}
 
 ### 26 June 2017
-{: #cloudant-jun2617}
+{: #Cloudant-jun2617}
 {: release-note}
 
 The following changes were made in build 6233:
@@ -1318,7 +1318,7 @@ The following changes were made in build 6233:
 :   Fixes an {{site.data.keyword.cloudant_short_notm}} Query issue where indexes that excluded potentially matching documents were selected by the query planner.
 
 ### 14 June 2017
-{: #cloudant-jun1417}
+{: #Cloudant-jun1417}
 {: release-note}
 
 Revised error message
@@ -1333,7 +1333,7 @@ Revised error message
 {: #cloudant-may17}
 
 ### 11 May 2017
-{: #cloudant-may1117}
+{: #Cloudant-may1117}
 {: release-note}
 
 The following changes were made in build 6069:
@@ -1351,7 +1351,7 @@ Geospatial index
 {: #cloudant-feb17}
 
 ### 13 February 2017
-{: #cloudant-feb1317}
+{: #Cloudant-feb1317}
 {: release-note}
 
 The following changes were made in build 5834:
@@ -1363,7 +1363,7 @@ Document `id` length
 {: #cloudant-nov16}
 
 ### 25 November 2016
-{: #cloudant-nov2516}
+{: #Cloudant-nov2516}
 {: release-note}
 
 The following changes were made in build 5728:
@@ -1378,7 +1378,7 @@ Structure for user documents
 {: #cloudant-oct16}
 
 ### 11 October 2016
-{: #cloudant-oct1116}
+{: #Cloudant-oct1116}
 {: release-note}
 
 The following changes were made in build 5638:
@@ -1393,7 +1393,7 @@ Replicator retries
 {: #cloudant-jun16}
 
 ### 14 June 2016
-{: #cloudant-jun1416}
+{: #Cloudant-jun1416}
 {: release-note}
 
 The following changes were made in build 5421:
@@ -1426,7 +1426,7 @@ Eliminate error
 {: #cloudant-feb16}
 
 ### 4 February 2016
-{: #cloudant-feb0416}
+{: #Cloudant-feb0416}
 {: release-note}
 
 `dbcopy`
@@ -1436,7 +1436,7 @@ Eliminate error
 {: #cloudant-nov14}
 
 ### 6 November 2014
-{: #cloudant-nov0614}
+{: #Cloudant-nov0614}
 {: release-note}
 
 `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated
@@ -1446,7 +1446,7 @@ Eliminate error
 {: #cloudant-jul14}
 
 ### 1 July 2014
-{: #cloudant-jul0114}
+{: #Cloudant-jul0114}
 {: release-note}
 
 New! Introducing {{site.data.keyword.cloudant_short_notm}} Classic
