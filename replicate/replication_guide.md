@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-28"
+lastupdated: "2022-12-05"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -304,7 +304,7 @@ ReplicationDatabaseAuth targetAuth = new ReplicationDatabaseAuth.Builder()
 
 ReplicationDatabase targetDb = new ReplicationDatabase.Builder()
     .auth(targetAuth)
-    .url(String.join("<your-target-service-url>/target"))
+    .url("<your-target-service-url>/target")
     .build();
 
 ReplicationDocument replDocument = new ReplicationDocument();
@@ -342,7 +342,7 @@ const targetDb: CloudantV1.ReplicationDatabase = {
       'api_key': '<your-iam-api-key>'
     }
   },
-  url: '<your-source-service-url>' + '/' + 'target'
+   url: '<your-target-service-url>' + '/' + 'target'
 };
 
 const replDocument: CloudantV1.ReplicationDocument = {
@@ -380,7 +380,7 @@ target_auth = ReplicationDatabaseAuth(
 )
 target_db = ReplicationDatabase(
   auth=target_auth,
-  url='<your-source-service-url>/target'
+  url='<your-target-service-url>/target'
 )
 
 replication_document = ReplicationDocument(
@@ -410,7 +410,7 @@ if err != nil {
 }
 
 target, err := service.NewReplicationDatabase(
-  "<your-source-service-url>" + "/" + "target",
+  "<your-target-service-url>/target",
 )
 if err != nil {
   panic(err)
