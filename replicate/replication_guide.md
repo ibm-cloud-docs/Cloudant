@@ -342,7 +342,7 @@ const targetDb: CloudantV1.ReplicationDatabase = {
       'api_key': '<your-iam-api-key>'
     }
   },
-   url: '<your-target-service-url>' + '/' + 'target'
+  url: '<your-target-service-url>/target'
 };
 
 const replDocument: CloudantV1.ReplicationDocument = {
