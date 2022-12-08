@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-12-09"
 
-keywords: _all_docs endpoint, skip, limit, endkey, query, search, paging, mapreduce views
+keywords: _all_docs endpoint, skip, limit, startkey, endkey, query, search, paging, mapreduce views
 
 subcollection: Cloudant
 
@@ -20,9 +20,6 @@ Bookmarks help release the next page of results from a result set. While with pa
 
 You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=Cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
 
-The pagination approach changed for {{site.data.keyword.cloudantfull}} on Transaction Engine. For more information, see how {{site.data.keyword.cloudant_short_notm}} on Transaction Engine uses [pagination and bookmarks](/docs/Cloudant?topic=Cloudant-pagination-te).
-{: important}
-
 [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#postfind){: external} and [{{site.data.keyword.cloudant_short_notm}} Search](/apidocs/cloudant#getsearchinfo){: external} both use bookmarks as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the bookmark that was received in the first response to the second request.
 
 Now, you can see a better way to page through a large document set. 
@@ -30,30 +27,117 @@ Now, you can see a better way to page through a large document set.
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views}
 
-If you use the `GET /$DATABASE/_all_docs` endpoint to fetch documents in bulk, then you might see the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using the `skip`/`limit` pattern to iterate through results works, but it gets progressively slower the larger the value of `skip`. 
+If you use the `GET` or `POST` `$SERVICE_URL/$DATABASE/_all_docs` endpoint to fetch documents in bulk, then you might see the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using the `skip`/`limit` pattern to iterate through results works, but it gets progressively slower the larger the value of `skip`. 
 
 ## What is the `_all_docs` endpoint?
 {: #what-is-the_all_docs_endpoint}
 
-The `GET /$DATABASE/_all_docs` is used to fetch data from an {{site.data.keyword.cloudant_short_notm}} database's _primary index_, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data that is requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
+The `GET` and `POST` `$SERVICE_URL/$DATABASE/_all_docs` are used to fetch data from an {{site.data.keyword.cloudant_short_notm}} database's _primary index_, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data that is requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
+
+```sh
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/orders/_all_docs"
+```
+{: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.AllDocsResult;
+import com.ibm.cloud.cloudant.v1.model.PostAllDocsOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+PostAllDocsOptions docsOptions =
+    new PostAllDocsOptions.Builder()
+        .db("orders")
+        .build();
+
+AllDocsResult response =
+    service.postAllDocs(docsOptions).execute().getResult();
+
+System.out.println(response);
+```
+{: codeblock}
+{: java}
 
 ```javascript
-curl "$URL/mydb/_all_docs"
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+service.postAllDocs({
+  db: 'orders',
+}).then(response => {
+  console.log(response.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+response = service.post_all_docs(
+  db='orders',
+).get_result()
+
+print(response)
+```
+{: codeblock}
+{: python}
+
+```go
+postAllDocsOptions := service.NewPostAllDocsOptions(
+  "orders",
+)
+
+allDocsResult, response, err := service.PostAllDocs(postAllDocsOptions)
+if err != nil {
+  panic(err)
+}
+
+b, _ := json.MarshalIndent(allDocsResult, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+   "encoding/json"
+   "fmt"
+   "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+
+```sh
 {
-  "total_rows": 23515,
+  "total_rows": 11,
+  "offset": 0,
   "rows": [
     {
-      "id": "aardvark",
-      "key": "aardvark",
+      "id": "4eee973603bf77f30b1f880ed83df76a",
+      "key": "4eee973603bf77f30b1f880ed83df76a",
       "value": {
-        "rev": "3-be42a3233372a6a2dff84a65fdd9cbab"
+        "rev": "1-3b5e6b73e57745787ad5627fe8f268c1"
       }
     },
     {
-      "id": "alligator",
-      "key": "alligator",
+      "id": "4eee973603bf77f30b1f880ed83f469a",
+      "key": "4eee973603bf77f30b1f880ed83f469a",
       "value": {
-        "rev": "1-3256046064953e2f0fdb376211fe78ab"
+        "rev": "1-967a00dff5e02add41819138abb3284d"
       }
     }
 ...
@@ -69,141 +153,835 @@ If you supply `include_docs=true`, then another `doc` attribute is added to each
 To access data from `_all_docs` in reasonably sized pages, you must supply the `limit` parameter to tell {{site.data.keyword.cloudant_short_notm}} how many documents to return:
 
 ```http
-# get me 10 documents
-GET /mydb/_all_docs?limit=10
+# get me 5 documents
+GET $SERVICE_URL/$DATABASE/_all_docs?limit=5 HTTP/1.1
 ```
 {: codeblock}
 
-You can also limit the range of document `_id`s that you want by supplying one or more values to `startkey` or `endkey`.
+You can also limit the range of document `_id`s that you want by supplying one or 
+more values to `startkey` or `endkey`.
 
 ```sh
-# get me 100 documents from _id bear onwards
-GET /mydb/_all_docs?limit=100&startkey="bear"
-
-# get me 5 documents between _id bear --> frog
-GET /mydb/_all_docs?limit=100&startkey="bear"&endkey="frog"
-
-# get me 5 documents up to _id moose
-GET /mydb/_all_docs?limit=100&endkey="moose"
+# get me 5 documents from _id order00057 onwards
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs?limit=5&startkey=\"order00057\"" \
+    
+# get me 5 documents between _id order00057 --> order00077
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs?limit=5&startkey=\"order00057\"&endkey=\"order00077\"" \
+    
+# get me 5 documents up to _id order00077
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs?limit=5&endkey=\"order00077\""
 ```
 {: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.AllDocsResult;
+import com.ibm.cloud.cloudant.v1.model.PostAllDocsOptions;
+
+Cloudant service = Cloudant.newInstance();
+
+// get me 5 documents from _id order00057 onwards
+PostAllDocsOptions docsOptions =
+    new PostAllDocsOptions.Builder()
+        .db("orders")
+        .startKey("order00057")
+        .limit(5)
+        .build();
+AllDocsResult response1 =
+    service.postAllDocs(docsOptions).execute().getResult();
+System.out.println(response1);
+
+// get me 5 documents between _id order00057 --> order00077
+PostAllDocsOptions docsOptions2 =
+    new PostAllDocsOptions.Builder()
+        .db("orders")
+        .startKey("order00057")
+        .endKey("order00077")
+        .limit(5)
+        .build();
+AllDocsResult response2 =
+    service.postAllDocs(docsOptions2).execute().getResult();
+System.out.println(response2);
+
+// get me 5 documents up to _id order00077
+PostAllDocsOptions docsOptions3 =
+    new PostAllDocsOptions.Builder()
+        .db("orders")
+        .endKey("order00077")
+        .limit(5)
+        .build();
+AllDocsResult response3 =
+        service.postAllDocs(docsOptions3).execute().getResult();
+System.out.println(response3);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+// get me 5 documents from _id order00057 onwards
+service.postAllDocs({
+  db: 'orders',
+  startKey: 'order00057',
+  limit: 5
+}).then(response1 => {
+  console.log(response1.result);
+});
+
+// get me 5 documents from _id order00057 onwards
+service.postAllDocs({
+  db: 'orders',
+  startKey: 'order00057',
+  endKey: 'order00077',
+  limit: 5
+}).then(response2 => {
+  console.log(response2.result);
+});
+
+// get me 5 documents up to _id order00077
+service.postAllDocs({
+  db: 'orders',
+  endKey: 'order00077',
+  limit: 5
+}).then(response3 => {
+  console.log(response3.result);
+});
+```
+{: codeblock}
+{: node}
+
+```python
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+
+# get me 5 documents from _id order00057 onwards
+response1 = service.post_all_docs(
+  db='orders',
+  start_key='order00057',
+  limit=5
+).get_result()
+print(response1)
+
+# get me 5 documents between _id order00057 --> order00077
+response2 = service.post_all_docs(
+  db='orders',
+  start_key='order00057',
+  end_key='order00077',
+  limit=5
+).get_result()
+print(response2)
+
+# get me 5 documents up to _id order00077
+response3 = service.post_all_docs(
+  db='orders',
+  end_key='order00077',
+  limit=5
+).get_result()
+print(response3)
+```
+{: codeblock}
+{: python}
+
+```go
+//  get me 5 documents from _id order00057 onwards
+postAllDocsOptions1 := cloudantv1.PostAllDocsOptions{
+	Db: core.StringPtr("orders"),
+	StartKey: core.StringPtr("order00057"),
+	Limit: core.Int64Ptr(5),
+}
+allDocsResult1, response1, err := service.PostAllDocs(postAllDocsOptions1)
+if err != nil {
+    panic(err)
+}
+b, _ := json.MarshalIndent(allDocsResult1, "", "  ")
+fmt.Println(string(b))
+
+//  get me 5 documents between _id order00057 --> order00077
+postAllDocsOptions2 := cloudantv1.PostAllDocsOptions{
+    Db: core.StringPtr("orders"),
+    StartKey: core.StringPtr("order00057"),
+    EndKey: core.StringPtr("order00077"),
+    Limit: core.Int64Ptr(5),
+}
+allDocsResult2, response2, err := service.PostAllDocs(postAllDocsOptions2)
+if err != nil {
+    panic(err)
+}
+b, _ := json.MarshalIndent(allDocsResult2, "", "  ")
+fmt.Println(string(b))
+
+// get me 5 documents up to _id order00077
+postAllDocsOptions3 := cloudantv1.PostAllDocsOptions{
+    Db: core.StringPtr("orders"),
+    EndKey: core.StringPtr("order00077"),
+    Limit: core.Int64Ptr(5),
+}
+allDocsResult3, response3, err := service.PostAllDocs(postAllDocsOptions3)
+if err != nil {
+    panic(err)
+}
+b, _ := json.MarshalIndent(allDocsResult3, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+ "encoding/json"
+ "fmt"
+ "github.com/IBM/cloudant-go-sdk/cloudantv1"
+ "github.com/IBM/go-sdk-core/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 This practice means you define the size of the data set and the range of the `_id` field to return, but that isn't quite the same as pagination.
 
-The `startkey`/`endkey` values are in double quotation marks because they're expected to be JSON-encoded and `JSON.stringify('moose') === "moose"`.
+The `startkey`/`endkey` values are in double quotation marks because they're expected to be JSON-encoded and `JSON.stringify('order00077') === "order00077"`.
 {: note}
+{: curl}
 
 ## Pagination options
 {: #pagination-options}
 
-You must devise an algorithm to page through the range of documents in an orderly and performant manner. For example, you must page through `_all_docs` in blocks of 10. 
+You must devise an algorithm to page through the range of documents in an orderly and performant manner. For example, you must page through `_all_docs` in blocks of 5. 
 
 You can use the options that are described in the following sections.
 
 ### Option 1 - Fetch one document too many
 {: #option-1-fetch-one-doc-too-many}
 
-Instead of fetching 10 documents (`limit=10`), fetch 11 (`limit=11`), but hide the 11th document from your users. The `_id` of the 11th document becomes the `startkey` of your request for the next page of results.
+Instead of fetching 5 documents (`limit=5`), fetch 6 (`limit=6`), but hide the 6th document from your users. The `_id` of the 6th document becomes the `startkey` of your request for the next page of results.
 
-```http
-# first request
-GET /mydb/_all_docs?limit=11
+First request:
+{: curl}
+
+```sh
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs?limit=6"
+```
+{: codeblock}
+{: curl}
+
+```java
+int pageSize = 5;
+PostAllDocsOptions.Builder docsOptionsBuilder =
+        new PostAllDocsOptions.Builder()
+                .db("orders")
+                .limit(pageSize + 1); // Fetch pageSize + 1 documents
+
+AllDocsResult response =
+        service.postAllDocs(docsOptionsBuilder.build())
+        .execute()
+        .getResult();
+
+while (response.getRows().size() > 1) {
+    List<DocsResultRow> responseDocuments = response.getRows();
+    // on the last page, show all documents:
+    if (responseDocuments.size() <= pageSize) {
+        System.out.println(responseDocuments);
+    } else { // otherwise, hide the last document:
+        System.out.println(responseDocuments.subList(0, pageSize));
+    }
+    // The startKey of the next request becomes the hidden document id:
+    docsOptionsBuilder
+        .startKey(responseDocuments
+                    .get(responseDocuments.size() - 1)
+                    .getId()
+        );
+    response =
+        service.postAllDocs(docsOptionsBuilder.build())
+        .execute()
+        .getResult();
+}
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+async function paginate(pageSize) {
+  let allDocsResult = (await service.postAllDocs({
+    db: 'orders',
+    limit: pageSize + 1
+  })).result;
+  while(allDocsResult.rows.length > 1) {
+    let documents = allDocsResult.rows;
+    // on the last page, show all documents:
+    if(documents.length <= pageSize) {
+      console.log(documents);
+    } else { // otherwise, hide the last document:
+      console.log(documents.slice(0, documents.length - 1))
+    }
+    allDocsResult = (await service.postAllDocs({
+      db: 'orders',
+      limit: pageSize + 1,
+      startKey: documents[documents.length - 1].id
+    })).result;
+  }
+}
+
+paginate(6)
+ ```
+{: codeblock}
+{: node}
+
+```python
+import json
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+page_size = 6
+
+response = service.post_all_docs(
+  db='orders',
+  limit=page_size+1,  # Fetch page_size + 1 documents
+).get_result()
+
+while len(response["rows"]) > 1:
+  documents = response['rows']
+  # on the last page, show all documents:
+  if len(documents) <= page_size:
+    print(json.dumps(documents, indent=2))
+  else:  # otherwise, hide the last document:
+    print(json.dumps(documents[0:-1], indent=2))
+  response = service.post_all_docs(
+    db='orders',
+    limit=page_size+1,  # Fetch page_size + 1 documents
+    start_key=documents[-1]['id']
+  ).get_result()
+```
+{: codeblock}
+{: python}
+
+```go
+pageSize := core.Int64Ptr(5)
+postAllDocsOptions := service.NewPostAllDocsOptions(
+    "orders",
+)
+postAllDocsOptions.SetLimit(*pageSize + 1)
+
+allDocsResult, _, err := service.PostAllDocs(postAllDocsOptions)
+if err != nil {
+    panic(err)
+}
+
+for len(viewResult.Rows) > 1 {
+    documents := allDocsResult.Rows
+    // on the last page, show all documents:
+    if int64(len(documents)) <= *pageSize {
+        b, err := json.MarshalIndent(documents, "", "  ")
+        if err != nil {
+            panic(err)
+        }
+        fmt.Printf(string(b))
+        } else { // otherwise, hide the last document:
+            b, err := json.MarshalIndent(documents[0:*pageSize], "", "  ")
+            if err != nil {
+                panic(err)
+            }
+            fmt.Printf(string(b))
+        }
+        // The startKey of the next request becomes the hidden document id:
+        postAllDocsOptions.SetStartKey(*documents[len(documents)-1].ID)
+        allDocsResult, _, err = service.PostAllDocs(postAllDocsOptions)
+        if err != nil {
+            panic(err)
+        }
+}
+```
+{: codeblock}
+{: go}
+
+First response:
+{: curl}
+
+```sh
 {
-  "total_rows": 10000,
+  "total_rows": 11,
+  "offset": 0,
   "rows": [
-    { "id": "aardvark" ....},
-    { "id": "alligator" ....},
-    { "id": "antelope" ....},
-    { "id": "badger" ....},
-    { "id": "bear" ....},
-    { "id": "cat" ....},
-    { "id": "doormouse" ....},
-    { "id": "donkey" ....},
-    { "id": "elephant" ....},
-    { "id": "frog" ....},
-    { "id": "gazelle" ...}   // <-- This is the 11th result we use as the startkey of the next request
+    { "id": "4eee973603bf77f30b1f880ed83df76a" ....},
+    { "id": "4eee973603bf77f30b1f880ed83f469a" ....},
+    { "id": "65fa623a384648740ec1f39b495d591c" ....},
+    { "id": "d7404903579d6d5880514c22ad983529" ....},
+    { "id": "example" ....},
+    { "id": "mydoc" ....} // <-- This is the 6th result we use as the startkey of the next request
    ]
 }    
 ```
 {: codeblock}
+{: curl}
 
-```http
-# second request
-GET /mydb/_all_docs?limit=11&startkey="gazelle"
+Second request:
+{: curl}
+
+```sh
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs?limit=6&startkey=\"mydoc\""
+```
+{: codeblock}
+{: curl}
+
+Second response:
+{: curl}
+
+```sh
 {
-  "total_rows": 10000,
+  "total_rows": 11,
+  "offset": 5,
   "rows": [
-    { "id": "gazelle" ....},
-    { "id": "ibis" ....},
+    { "id": "mydoc" ....},
+    { "id": "order00057" ....},
     ...
    ]
 } 
 ```
 {: codeblock}
+{: curl}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+ "encoding/json"
+ "fmt"
+ "github.com/IBM/cloudant-go-sdk/cloudantv1"
+ "github.com/IBM/go-sdk-core/core"
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 This option works, but you end up fetching n+1 documents when only n are required.
 
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
 
-If you're determined to fetch only `n` documents each time, then you need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in the first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise you get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
+If you're determined to fetch only `n` documents each time, then you need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in the first page of results is "example", what must the `startkey` of the next call to `_all_docs` be? It can't be "example", otherwise you get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
 
-```http
-# first request
-GET /mydb/_all_docs?limit=10
-{
-  "total_rows": 10000,
-  "rows": [
-    { "id": "aardvark" ....},
-    { "id": "alligator" ....},
-    { "id": "antelope" ....},
-    { "id": "badger" ....},
-    { "id": "bear" ....},
-    { "id": "cat" ....},
-    { "id": "doormouse" ....},
-    { "id": "donkey" ....},
-    { "id": "elephant" ....},
-    { "id": "frog" ....} // <-- append \u0000 to this to get the startkey of the next request
-  ]
-}  
+First request:
+{: curl}
+
+```sh
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs?limit=5"
 ```
 {: codeblock}
+{: curl}
 
-```http
-# second request
-GET /mydb/_all_docs?limit=10&startkey="frog%00"
+```java
+Long pageSize = 6L;
+PostAllDocsOptions.Builder docsOptionsBuilder =
+        new PostAllDocsOptions.Builder()
+                .db("orders")
+                .limit(pageSize); // Fetch pageSize documents
+AllDocsResult response =
+        service.postAllDocs(docsOptionsBuilder.build())
+        .execute()
+        .getResult();
+
+while (response.getRows().size() > 0) {
+    List<DocsResultRow> responseDocuments = response.getRows();
+    System.out.println(responseDocuments);
+    // The startKey of the next request becomes the last document id appended with `\u0000`
+    docsOptionsBuilder.startKey(
+            responseDocuments
+                    .get(responseDocuments.size() - 1)
+                    .getId() + '\u0000'
+    );
+    response =
+            service.postAllDocs(docsOptionsBuilder.build())
+                    .execute()
+                    .getResult();
+}
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+async function paginate(n) {
+  let allDocsResult = (await service.postAllDocs({
+    db: 'orders',
+    limit: n
+  })).result;
+  while (allDocsResult.rows.length > 0) {
+    let documents = allDocsResult.rows;
+    console.log(documents);
+    allDocsResult = (await service.postAllDocs({
+      db: 'orders',
+      limit: n,
+      startKey: documents[documents.length - 1].id + '\u0000'
+    })).result;
+  }
+}
+
+paginate(6)
+ ```
+{: codeblock}
+{: node}
+
+```python
+import json
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+page_size = 6
+
+response = service.post_all_docs(
+    db='orders',
+    limit=page_size,
+).get_result()
+
+while len(response["rows"]) > 0:
+    documents = response["rows"]
+    print(json.dumps(documents, indent=2))
+    response = service.post_all_docs(
+        db='orders',
+        limit=page_size+1,  # Fetch page_size + 1 documents
+        start_key=documents[-1]["id"] + '\u0000'
+    ).get_result()
+```
+{: codeblock}
+{: python}
+
+```go
+pageSize := core.Int64Ptr(6)
+postAllDocsOptions := service.NewPostAllDocsOptions(
+    "orders",
+)
+postAllDocsOptions.SetLimit(*pageSize)
+
+allDocsResult, _, err := service.PostAllDocs(postAllDocsOptions)
+if err != nil {
+    panic(err)
+}
+
+for len(allDocsResult.Rows) > 0 {
+    documents := allDocsResult.Rows
+    b, err := json.MarshalIndent(documents, "", "  ")
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(string(b))
+    // The startKeyDocId of the next request becomes the last document id appended with `\u0000`
+    postAllDocsOptions.SetStartKey(*documents[len(documents)-1].ID + "\u0000")
+    allDocsResult, _, err = service.PostAllDocs(postAllDocsOptions)
+    if err != nil {
+        panic(err)
+    }
+}
+```
+{: codeblock}
+{: go}
+
+First response:
+{: curl}
+
+```sh
 {
-  "total_rows": 10000,
+  "total_rows": 11,
+  "offset": 0,
   "rows": [
-    { "id": "gazelle" ....},
-    { "id": "ibis" ....},
+    { "id": "4eee973603bf77f30b1f880ed83df76a" ....},
+    { "id": "4eee973603bf77f30b1f880ed83f469a" ....},
+    { "id": "65fa623a384648740ec1f39b495d591c" ....},
+    { "id": "d7404903579d6d5880514c22ad983529" ....},
+    { "id": "example" ....} // <-- append \u0000 to this to get the startkey of the next request
+   ]
+}    
+```
+{: codeblock}
+{: curl}
+
+Second request:
+{: curl}
+
+```sh
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs?limit=5&startkey=\"example\u0000\""
+```
+{: codeblock}
+{: curl}
+
+Second response:
+{: curl}
+
+```sh
+{
+  "total_rows": 11,
+  "offset": 5,
+  "rows": [
+    { "id": "mydoc" ....},
+    { "id": "order00057" ....},
     ...
+    { "id": "order00067" ....} <-- append \u0000 to this to get the startkey of the next request
    ]
 } 
 ```
 {: codeblock}
+{: curl}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+ "encoding/json"
+ "fmt"
+ "github.com/IBM/cloudant-go-sdk/cloudantv1"
+ "github.com/IBM/go-sdk-core/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
 
 ## Pagination of views
 {: #pagination-of-views}
 
-MapReduce views, secondary indexes, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /$DATABASE/_design/$DDOC/_view/$VIEW` endpoint instead. MapReduce views are defined by `key-value` pairs that are produced from user-supplied JavaScript functions. You can define your query in the following ways:
+MapReduce views, secondary indexes, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET` or `POST` `$SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW` endpoint instead. MapReduce views are defined by `key-value` pairs that are produced from user-supplied JavaScript functions. You can define your query in the following ways:
 
 - Spool all the data from a view with no parameters.
 - Include document bodies by supplying `include_docs=true`.
 - Choose the range of keys that are required by using `startkey`/`endkey`, but in this case, the data type of the keys might not be a string.
 
-Another complication is that unlike the primary index, where every `_id` is unique, the secondary index might have entries with the same key. For example, lots of entries that include the key `"mammal"`. This situation makes pagination by using only `startkey`/`endkey` tricky, so you can use other parameters to help: `startkey_docid`/`endkey_docid`. 
+Another complication is that unlike the primary index, where every `_id` is unique, the secondary index might have entries with the same key. For example, lots of entries that include the key `"herbivore"`. This situation makes pagination by using only `startkey`/`endkey` tricky, so you can use other parameters to help: `startkey_docid`/`endkey_docid`.
 
-```http
-# get first page of cities by country
-GET /cities/_design/mydesigndoc/_view/bytype?limit=10&reduce=false&startkey="mammal"&endkey="mammal"&include_docs=true
+First request:
+{: curl}
 
-# get next page of cities by country
-GET /cities/_design/mydesigndoc/_view/bytype?limit=10&reduce=false&startkey="mammal"&endkey="mammal"&include_docs=true&startkey_docid=horse%00
+```sh
+# get first page of animals by diet
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/animaldb/_design/views101/_view/diet?limit=3&startkey=\"herbivore\"&endkey=\"herbivore\""
 ```
 {: codeblock}
+{: curl}
 
-In other words, the second request has a value of `startkey_docid` that is the last document ID from the previous page of results (horse) plus the magic `\u0000` character (which becomes `horse%00` in the URL).
+```java
+int pageSize = 3;
+String diet = "herbivore";
+PostViewOptions.Builder viewOptionsBuilder =
+        new PostViewOptions.Builder()
+                .db("animaldb")
+                .ddoc("views101")
+                .view("diet")
+                .limit(pageSize) // Fetch pageSize documents
+                .startKey(diet)
+                .endKey(diet);
+ViewResult response =
+        service.postView(viewOptionsBuilder.build())
+                .execute()
+                .getResult();
+
+while (response.getRows().size() > 0) {
+    List<ViewResultRow> responseDocuments = response.getRows();
+    System.out.println(responseDocuments);
+    // The startKeyDocId of the next request becomes the last document id appended with `\u0000`
+    viewOptionsBuilder.startKeyDocId(
+            responseDocuments
+                    .get(responseDocuments.size() - 1)
+                    .getId() + '\u0000'
+    );
+    response =
+            service.postView(viewOptionsBuilder.build())
+                    .execute()
+                    .getResult();
+}
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+async function paginate(pageSize) {
+  let diet = 'herbivore';
+  let requestParams = {
+    db: 'animaldb',
+    ddoc: 'views101',
+    view: 'diet',
+    limit: pageSize,
+    startKey: diet,
+    endKey: diet,
+  };
+  let viewResult = (await service.postView(requestParams)).result;
+  while (viewResult.rows.length > 0) {
+    let documents = viewResult.rows;
+    console.log(documents);
+    // The startKeyDocId of the next request becomes the last document id appended with `\u0000`
+    requestParams.startKeyDocId = documents[documents.length - 1].id + '\u0000';
+    viewResult = (await service.postView(requestParams)).result;
+  }
+}
+
+paginate(3)
+ ```
+{: codeblock}
+{: node}
+
+```python
+import json
+from ibmcloudant.cloudant_v1 import CloudantV1
+
+service = CloudantV1.new_instance()
+page_size = 3
+
+diet = 'herbivore'
+request_params = d = dict(
+  db='animaldb',
+  ddoc='views101',
+  view='diet',
+  limit=page_size,
+  start_key=diet,
+  end_key=diet,
+)
+response = service.post_view(**request_params).get_result()
+
+while len(response["rows"]) > 0:
+  documents = response["rows"]
+  print(json.dumps(documents, indent=2))
+  # The startKeyDocId of the next request becomes the last document id appended with `\u0000`
+  request_params['start_key_doc_id'] = documents[-1]["id"] + '\u0000'
+  response = service.post_view(**request_params).get_result()
+```
+{: codeblock}
+{: python}
+
+```go
+pageSize := core.Int64Ptr(6)
+diet := "herbivore"
+viewOptions := service.NewPostViewOptions(
+    "animaldb",
+    "views101",
+    "diet",
+)
+viewOptions.SetLimit(*pageSize)
+viewOptions.SetStartKey(diet)
+viewOptions.SetEndKey(diet)
+
+viewResult, _, err := service.PostView(viewOptions)
+if err != nil {
+    panic(err)
+}
+
+for len(viewResult.Rows) > 0 {
+    documents := viewResult.Rows
+    b, err := json.MarshalIndent(documents, "", "  ")
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(string(b))
+    // The startKeyDocId of the next request becomes the last document id appended with `\u0000`
+    viewOptions.SetStartKey(*documents[len(documents)-1].ID + "\u0000")
+    viewResult, _, err = service.PostView(viewOptions)
+    if err != nil {
+        panic(err)
+    }
+}
+```
+{: codeblock}
+{: go}
+
+First response:
+{: curl}
+
+```sh
+{
+  "total_rows": 10,
+  "offset": 2,
+  "rows": [
+    {
+      "id": "elephant",
+      "key": "herbivore",
+      "value": 1
+    },
+    {
+      "id": "giraffe",
+      "key": "herbivore",
+      "value": 1
+    },
+    {
+      "id": "llama", // <-- append \u0000 to the startkey_docid to of the next request
+      "key": "herbivore",
+      "value": 1
+    }
+  ]
+}
+```
+{: codeblock}
+{: curl}
+
+Second request:
+{: curl}
+
+```sh
+# get next page of animals by diet
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/animaldb/_design/views101/_view/diet?limit=3&startkey=\"herbivore\"&endkey=\"herbivore\"&startkey_docid=llama%00"
+```
+{: codeblock}
+{: curl}
+
+Second response:
+{: curl}
+
+```sh
+{
+  "total_rows": 10,
+  "offset": 5,
+  "rows": [
+    {
+      "id": "zebra",
+      "key": "herbivore",
+      "value": 1
+    }
+  ]
+}
+```
+{: codeblock}
+{: curl}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+ "encoding/json"
+ "fmt"
+ "github.com/IBM/cloudant-go-sdk/cloudantv1"
+ "github.com/IBM/go-sdk-core/core"
+)
+```
+{: codeblock}
+{: go}
+
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+{: go}
+
+In other words, the second request has a value of `startkey_docid` that is the last document ID from the previous page of results (llama) plus the magic `\u0000` character (which becomes `llama%00` in the URL).
 
 The `startkey_docid` parameter works only if a `startkey` is supplied and where all index entries share the same key. If they don't share the same key, then pagination can be achieved with manipulation of `startkey`/`endkey` parameters only. Also, the `startkey_docid` parameter is not JSON encoded.
 {: note}
