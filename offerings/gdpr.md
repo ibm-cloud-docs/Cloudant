@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-11-23"
+lastupdated: "2022-11-30"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -75,7 +75,7 @@ Enterprise Cluster, {{site.data.keyword.cloudant_short_notm}} stores the followi
 The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated through the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 If you have an account that is provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance),
-{{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data that was previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data that was discussed earlier. This data is held by {{site.data.keyword.cloud_notm}}.
 
 Do not use sensitive data for {{site.data.keyword.cloudant_short_notm}} instance names when you provision by using {{site.data.keyword.cloud_notm}}, such as: Personal Information (PI), Personal Identifying Information (PII), and Customer-specific Data.
 {: important}
@@ -148,7 +148,7 @@ customer upon request.
 ### Service access to data
 {: #service-access-to-data}
 
-{{site.data.keyword.cloudant_short_notm}} operations and support staff has access to customer data
+{{site.data.keyword.cloudant_short_notm}} operations and support staff have access to customer data
 and can access it during
 routine operations. This access is only done as required in order to operate and support the service.
 Access is also limited to a *need to know* basis and is logged, monitored, and audited.

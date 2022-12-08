@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-12-06"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Learning Center
 {: #learning-center}
 
-The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}} and walk through document structure, the API, indexing and querying, and include an *Under the Hood* topic that highlights the architecture that powers the service.
+The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}}. Then the videos walk you through document structure, the API, indexing and querying, and include an *Under the Hood* topic that highlights the architecture that powers the service.
 {: shortdesc}
 
 You can use the [playlist](https://youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing from the following list:
@@ -44,13 +44,13 @@ Database
 :   The unit of storage in {{site.data.keyword.cloudant_short_notm}}. Documents are added, updated, and deleted in their entirety.
 
 HTTP API
-:   Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so!).
+:   Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so).
 
 {{site.data.keyword.cloudant_short_notm}} wasn't written entirely by IBM. It is based on Apache CouchDB, an open source project run by the Apache Foundation. {{site.data.keyword.cloudant_short_notm}} employs a number of CouchDB contributors but by the rules of Apache, they cannot monopolize its development.
 
 Much of what you see that is in this course is as applicable to Apache CouchDB as it is to {{site.data.keyword.cloudant_short_notm}}. Their APIs are 99% the same - I point out where they diverge.
 
-{{site.data.keyword.cloudant_short_notm}} can be thought of as CouchDB run "as-a-service". An {{site.data.keyword.cloudant_short_notm}} service is easily deployed and is managed by IBM engineers 24-7. There's no software to install, no servers to manage, no configuration to understand. The user doesn't need to be a CouchDB expert to use and manage it.
+{{site.data.keyword.cloudant_short_notm}} can be thought of as CouchDB run "as-a-service". An {{site.data.keyword.cloudant_short_notm}} service is easily deployed and is managed by IBM engineers 24-7. The service has no software to install, no servers to manage, no configuration to understand. The user doesn't need to be a CouchDB expert to use and manage it.
 
 You can be sure that your data layer is not locked in to a particular platform, cloud, or vendor because {{site.data.keyword.cloudant_short_notm}} is being built on truly open source foundations. {{site.data.keyword.cloudant_short_notm}} can be used in concert with CouchDB to create hybrid applications that share data through replication, as we see.
 
@@ -73,7 +73,7 @@ Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents wo
 
 Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
-This video is part 2 - *The {{site.data.keyword.cloudant_short_notm}} Document*
+This video is part 2 - *The {{site.data.keyword.cloudant_short_notm}} Document*.
 
 In the previous section, we saw that {{site.data.keyword.cloudant_short_notm}} is a JSON document store. Let's find out what that means in practice and how that compares to other types of database.
 
@@ -83,7 +83,7 @@ Most databases store their data in collections that are called tables, where eac
 
 An {{site.data.keyword.cloudant_short_notm}} service includes collections that are called databases (instead of tables) each of which contain any number of documents.
 
-The example on this slide shows the same data that is expressed in a traditional tabular database and how the same data would be stored in {{site.data.keyword.cloudant_short_notm}} as JSON documents.
+The example of this slide shows the same data that is expressed in a traditional tabular database and how the same data would be stored in {{site.data.keyword.cloudant_short_notm}} as JSON documents.
 
 So if you come from a relational database background: tables are "databases" in {{site.data.keyword.cloudant_short_notm}}, and rows are "documents".
 
@@ -111,7 +111,7 @@ The Lite plan operates in a similar way. It has only a small provisioned capacit
 
 {{site.data.keyword.cloudant_short_notm}} is often referred to as a "schemaless" database - but we have to be careful how we define that term.
 
-It's true to say that there's no need to define your schema (field names, types, constraints, and relationships) ahead of time in an {{site.data.keyword.cloudant_short_notm}} database. You can simply write a JSON document of your own design to a database.
+It's true to say that you don't need to define your schema (field names, types, constraints, and relationships) ahead of time in an {{site.data.keyword.cloudant_short_notm}} database. You can simply write a JSON document of your own design to a database.
 
 Developers like this flexibility because they can design their data in their code, turn it into JSON, and write it to the database.
 
@@ -162,7 +162,7 @@ This video is part 3 - *The Document `_id`*.
 
 In the previous section, we saw how data is stored in {{site.data.keyword.cloudant_short_notm}} documents with flexibility on how your application stores JSON objects in {{site.data.keyword.cloudant_short_notm}} databases. However, a few hard and fast rules exist.
 
-One rule is that every document must contain a unique identifier that is called `_id`, which is a string. No two documents in the same database can have the same `_id` field. In other databases, you specify which column is the unique identifier, but in {{site.data.keyword.cloudant_short_notm}}, it's always `_id` and can't be changed.
+One rule is that every document must contain a unique identifier that is called `_id`, which is a string. Two documents in the same database can have the same `_id` field. In other databases, you specify which column is the unique identifier, but in {{site.data.keyword.cloudant_short_notm}}, it's always `_id` and can't be changed.
 
 Also, unlike relational databases, {{site.data.keyword.cloudant_short_notm}} does not have "auto-incrementing IDs" that is, an ID field that starts at 1 and increments for each document added.
 
@@ -177,9 +177,9 @@ Using it to store something that you know is unique that is, the email address o
 Some users choose to encode the document type in the `_id`, for example, `user:56`, `book:55`.
 The last example shows with a 32-digit string (generated in your app) that is designed to sort in approximate date and time order. This method makes it easy to retrieve the latest documents from the database, without a secondary index.
 
-{{site.data.keyword.cloudant_short_notm}} takes your document `_id`s and stores them in an index (like the contents page of book). This primary index is in `_id` order and is used to allow {{site.data.keyword.cloudant_short_notm}} to retrieve documents by their `_id` - thus behaving like a key-value store.
+{{site.data.keyword.cloudant_short_notm}} takes your document `_ids` and stores them in an index (like the contents page of book). This primary index is in `_id` order and is used to allow {{site.data.keyword.cloudant_short_notm}} to retrieve documents by their `_id` - thus behaving like a key-value store.
 
-By careful design of your `_id` field, you can make it use the primary index to keep data together that makes sense in the primary index. This method makes it quicker to retrieve that data later. We saw that using time-sortable `_id`s means that data can be retrieved in approximate date and time order.
+By careful design of your `_id` field, you can make it use the primary index to keep data together that makes sense in the primary index. This method makes it quicker to retrieve that data later. We saw that using time-sortable `_ids` means that data can be retrieved in approximate date and time order.
 
 We see an example later when it comes to retrieving ranges of document IDs.
 
@@ -214,11 +214,12 @@ A number 1, 2, 3, and so on, and
 a cryptographic hash of the document's body.
 (For the uninitiated, a hash is a digital "fingerprint" of some data. If the data changes, the fingerprint changes. No 2 fingerprints are the same, that is, no 2 documents with different content can have the same hash.)
 
-You can see from the example on the right that our document has a revision token (the key starting `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start 04aa8... are the cryptographic hash of the document.
+You can see from the example on the right that our document has a revision token (the key that starts `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start 04aa8... are the cryptographic hash of the document.
 
 If we follow the lifecycle of a document, it starts with a `revision 1`. When it is modified later, it gets a `revision 2` and so on. With each incrementing revision number, the hash changes because the content of the document is being modified too.
 
-Note that it is possible for a document to have more than one revision with the same number. In this case, two `revision 3s` exists. This scenario is called a *conflict* and is "normal" in some circumstances. We see why later in the course, but for now, we can assume that the revision number increments with each update to a document.
+It is possible for a document to have more than one revision with the same number. In this case, two `revision 3s` exists. This scenario is called a *conflict* and is "normal" in some circumstances. We see why later in the course, but for now, we can assume that the revision number increments with each update to a document.
+{: note}
 
 Let's follow the lifecycle of an example {{site.data.keyword.cloudant_short_notm}} document:
 
@@ -234,7 +235,7 @@ Unlike almost any other database, {{site.data.keyword.cloudant_short_notm}} keep
 
 In fact, the document's recent revision history (the tree of revisions - remember we could have more than one of each revision number) - is kept.
 
-You can't use {{site.data.keyword.cloudant_short_notm}}'s revision tree as a version control system to retrieve or *roll back* to an older revision. Once a revision is superseded, the document body of the older revision is deleted and its disk space is recovered in a process called *compaction*. Compaction occurs automatically in {{site.data.keyword.cloudant_short_notm}}, so it's not safe to assume that old revisions are available to be retrieved.
+You can't use {{site.data.keyword.cloudant_short_notm}}'s revision tree as a version control system to retrieve or *roll back* to an older revision. Once a revision is superseded, the document body of the older revision is deleted, and its disk space is recovered in a process called *compaction*. Compaction occurs automatically in {{site.data.keyword.cloudant_short_notm}}, so it's not safe to assume that old revisions are available to be retrieved.
 {: note}
 
 To summarize, revision tokens are generated by the database on add,  edit, and delete. (You never need to create your own revision tokens.)
@@ -266,13 +267,13 @@ We said earlier that {{site.data.keyword.cloudant_short_notm}} is a web-based se
 
 Legacy authentication is where a username or api-key and password are supplied with each request that uses HTTP Basic Authentication or exchanged for a cookie that uses a one-off session API call. A session cookie is cycled regularly, so your client code needs to capture the refreshed cookie and store it for subsequent requests.
 IAM authentication is the access management system that underpins all of the {{site.data.keyword.cloud_notm}} services. To authenticate with IAM, you need an IAM API key and the host name of the {{site.data.keyword.cloudant_short_notm}} service. The API key is exchanged for a bearer token by using the IAM API and the bearer token is passed to {{site.data.keyword.cloudant_short_notm}} with each request. The bearer token lasts only an hour, so must be renewed with the IAM service periodically.
-When an {{site.data.keyword.cloudant_short_notm}} service is provisioned, you can generate IAM only credentials or both IAM and Legacy credentials - you decide.
+When an {{site.data.keyword.cloudant_short_notm}} service is provisioned, you can generate IAM only credentials, or both IAM and Legacy credentials - you decide.
 
 How are credentials generated?
 
 In the {{site.data.keyword.cloud_notm}} dashboard under your {{site.data.keyword.cloudant_short_notm}} service, in the **Service Credentials** tab, click **New Credential**. A JSON document is created that contains the IAM key, the basic auth username and password, and the {{site.data.keyword.cloudant_short_notm}} hostname.
 
-Here's an example set of credentials:
+See the example set of credentials:
 
 For IAM, you need the apikey and host.
 For either Legacy or Basic-Auth or both, you need the URL (which contains the username and password that is embedded in the URL).
@@ -285,7 +286,7 @@ When we discuss the API in the documentation, we use Basic Auth as a convenience
 
 Time for our next practical exercise.
 
-Log in to {{site.data.keyword.cloud_notm}} and locate the {{site.data.keyword.cloudant_short_notm}} Lite service we created last time. In the **Service Credentials** tab, click the **New Credential** button to generate a set of `IAM+Legacy` credentials. Make a note of the JSON it returns - we'll need that for the next exercise.
+Log in to {{site.data.keyword.cloud_notm}} and locate the {{site.data.keyword.cloudant_short_notm}} Lite service that we created last time. In the **Service Credentials** tab, click the **New Credential** button to generate a set of `IAM+Legacy` credentials. Make a note of the JSON that it returns - we'll need that for the next exercise.
 
 Then, visit the URL specified in the credentials JSON - what do you see?
 
@@ -310,23 +311,23 @@ This video is part 6 - *The Dashboard*.
 
 The easiest way to get started, create databases, and add documents is to use the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
-The {{site.data.keyword.cloudant_short_notm}} Dashboard is a web-app that is built into the service. It allows basic data manipulation to be performed through a graphical user interface: Databases can be created and deleted. Documents added, updated, deleted, and replication jobs managed. It is also a handy place to perform one-time queries and to set up secondary indexes (as we see later).
+The {{site.data.keyword.cloudant_short_notm}} Dashboard is a web-app that is built into the service. It allows basic data manipulation to be performed through a graphical user interface: Databases can be created and deleted. Documents added, updated, deleted, and replication jobs managed. It is also a handy place to perform one-time queries and to set-up secondary indexes (as we see later).
 
 It also contains some simple monitoring tools that visualize request rates.
 
 It's important to note that any task that is achievable in the {{site.data.keyword.cloudant_short_notm}} Dashboard is also possible with the {{site.data.keyword.cloudant_short_notm}} HTTP API. Indeed, the {{site.data.keyword.cloudant_short_notm}} Dashboard is simply making standard API calls itself.
 
-To open an {{site.data.keyword.cloudant_short_notm}} service's Dashboard, log in to {{site.data.keyword.cloud_notm}}, find your {{site.data.keyword.cloudant_short_notm}} service, and click **Launch {{site.data.keyword.cloudant_short_notm}} Dashboard** button. A new window opens, logging you into your {{site.data.keyword.cloudant_short_notm}} dashboard.
+To open an {{site.data.keyword.cloudant_short_notm}} service's Dashboard, log in to {{site.data.keyword.cloud_notm}}, find your {{site.data.keyword.cloudant_short_notm}} service, and click **Launch {{site.data.keyword.cloudant_short_notm}} Dashboard** button. A new window opens, logging you into your {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 If you leave the dashboard window unattended for a length of time, you find yourself logged out (for security purposes) and must click **Launch** again.
 
-The dashboard has a number of tabs. Its default tab, **Databases**, lists the databases that you created in groups of 20. Each database is shown with the number of documents it is storing and how much disk space is being used. Click a database name to examine its contents.
+The dashboard has a number of tabs. Its default tab, **Databases**, lists the databases that you created in groups of 20. Each database is shown with the number of documents that it is storing and how much disk space is being used. Click a database name to examine its contents.
 
 To create a database, click **Create Database** and supply the name of the database to create.
 
 We now have a new empty database. The database's documents would be listed here in ID order. However, since this database is new, no documents exist. To add a document, click **Create Document**.
 
-The {{site.data.keyword.cloudant_short_notm}} dashboard created a template document for you with a pre-generated `_id`. Complete the rest of the attributes yourself to complete the JSON document, and click **Create Document** to save.
+The {{site.data.keyword.cloudant_short_notm}} Dashboard created a template document for you with a pre-generated `_id`. Complete the rest of the attributes yourself to complete the JSON document, and click **Create Document** to save.
 
 Now it's time for another practical exercise. Create a database called `books`, and in that database, create three or more documents with fields: title, author, date, publisher, and ISBN - each representing a book of your choice.
 
@@ -356,7 +357,7 @@ Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course,
 
 This video is part 7 - *HTTP API Basics*.
 
-In the previous part, we saw the {{site.data.keyword.cloudant_short_notm}} dashboard, which is a web app that is making HTTP calls to {{site.data.keyword.cloudant_short_notm}}'s API. In this step, we use the command line to make HTTP requests and to try to add, edit, and delete some documents from there.
+In the previous part, we saw the {{site.data.keyword.cloudant_short_notm}} Dashboard, which is a web app that is making HTTP calls to {{site.data.keyword.cloudant_short_notm}}'s API. In this step, we use the command line to make HTTP requests and to try to add, edit, and delete some documents from there.
 
 It's worth understanding the HTTP API from first principles even if you intend to use the higher-level client libraries.
 
@@ -364,7 +365,7 @@ The advantage of a database that has an HTTP API is that any device on the inter
 
 - Web browser
 - Any programming language
-- Command line scripting tools like curl
+- Tools that you can use to write scripts from the command line like curl
 - Mobile devices
 
 We're going to learn the API by using curl, a free, open source command-line tool that can dispatch HTTP requests. Curl comes preinstalled on most Macs and Unix-like operating systems. If it's not present on your computer, Google `curl` and follow the installation instructions.
@@ -374,7 +375,7 @@ Let's first use curl to fetch a web page - Google's home page.
 1. In a command-line terminal, type `curl https://www.google.com`.    
 
    You get a pageful of HTML in reply.    
-   If this method works, then curl is installed, and you can proceed with the next tasks.    Now, we don't want to type the URL of our {{site.data.keyword.cloudant_short_notm}} service every time, so let's save the {{site.data.keyword.cloudant_short_notm}} URL in an environment variable called URL.
+   If this method works, then curl is installed, and you can proceed with the next tasks.    Now, we don't want to type the URL of our {{site.data.keyword.cloudant_short_notm}} service every time, so let's save the {{site.data.keyword.cloudant_short_notm}} URL in an environment variable-called URL.
 
 2. Run the `export URL` command to create a variable that is called `URL`, which we can access later.
 
@@ -403,7 +404,7 @@ So `acurl $URL/_all_dbs | jq` means *pipe the output of acurl into jq* and what 
 
 The {{site.data.keyword.cloudant_short_notm}} API paths are hierarchical with the first level that gives you information about the service, and then each database sits at a level beneath it.
 
-So `acurl $URL/books` gives us information about the books database we created earlier.
+So `acurl $URL/books` gives us information about the books database that we created earlier.
 
 You see information about how many documents it has, how many deleted documents, and how much disk space it's occupying.
 
@@ -443,7 +444,7 @@ If we forget and omit the rev parameter, we get an error response.
 HTTP response codes show whether a request succeeds or not. Responses in the 200 range are successful. Responses in the 400 range are user errors (for example, invalid parameters), and responses in the 500 range are server-side errors. Additionally, you can see the full HTTP request and response by supplying the `-v` command-line option to `curl/acurl`.
 {: note}
 
-Also, updates to documents happen in their entirety or not at all. There's no API construct to modify part of a document. A whole document must be supplied to overwrite a previous revision.
+Also, updates to documents happen in their entirety or not at all. No API construct to modify part of a document exists. A whole document must be supplied to overwrite a previous revision.
 
 Finally, to delete a document, we use the DELETE method, so `-X DELETE`. We direct the request to the URL that includes the database name and document to be deleted, and critically, we also supply the rev - the revision of the document to delete.
 
@@ -491,7 +492,7 @@ It's important to note that this scenario isn't like a transaction in a relation
 
 In summary, with two API calls `_bulk_docs` and  `_all_docs`, we can perform all create, read, update, and delete operations on {{site.data.keyword.cloudant_short_notm}} documents and be able to do so in bulk too. `_all_docs` retrieves documents by `_id` or ranges of IDs. `_bulk_docs` creates, updates, and deletes documents in bulk. Generally, we recommend that bulk writes are executed in batches of 500; more for tiny documents and fewer for large documents.
 
-Here's a screen capture of using {{site.data.keyword.cloudant_short_notm}} from a command-line terminal:
+See a screen capture of using {{site.data.keyword.cloudant_short_notm}} from a command-line terminal:
 
 That's the end of this part. The next part is called *Accessing {{site.data.keyword.cloudant_short_notm}} programmatically*.
 
@@ -514,18 +515,18 @@ So far, our API interactions were triggered by the dashboard or by using curl fr
 
 The examples use Node.js, so if you want to try the code yourself, you need to install node and npm from nodejs.org.
 
-We can then install the official {{site.data.keyword.cloudant_short_notm}} Node.js library with `npm install @cloudant/cloudant`. (npm is the package manager that comes with Node.js - allowing you to access thousands of open source projects and build them into your application for free).
+We can then install the official {{site.data.keyword.cloudant_short_notm}} Node.js library with `npm install @cloudant/cloudant`. (Npm is the package manager that comes with Node.js - allowing you to access thousands of open source projects and build them into your application for free).
 
 Once the {{site.data.keyword.cloudant_short_notm}} library is installed, we can build some source code. Let's go through this code snippet line-by line:
 
-The URL of the {{site.data.keyword.cloudant_short_notm}} service is gleaned from the environment variable we created earlier.
+The {{site.data.keyword.cloudant_short_notm}} service URL is gleaned from the environment variable that we created earlier.
 
 The `@cloudant/cloudant` library is loaded into your Node.js app with the built-in required functions.
 We then create an instance of the library that is configured with the credentials we stored in the first line.
-We use the {{site.data.keyword.cloudant_short_notm}} object to get a reference to the `books` database and store it in a variable database. We haven't made any API calls - only created data structures that store credentials and which database we are working on.
+We use the {{site.data.keyword.cloudant_short_notm}} object to get a reference to the `books` database and store it in a variable database. We haven't made any API calls - only created data structures that store credentials and which database that we are working on.
 The main function calls `db.list`, which maps 1-1 with the `_all_docs` endpoint we saw earlier. The parameters passed to `db.list` must be familiar as the options that `_all_docs` expects to limit the result set and to return document bodies for each ID.
 
-Here's another code snippet that writes a document.
+See another code snippet that writes a document.
 
 You can see from the first line that standard JavaScript objects can be used in your code and sent to {{site.data.keyword.cloudant_short_notm}} with no conversion, as they turn into JSON natively in JavaScript.
 
@@ -561,7 +562,7 @@ Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course,
 
 This video is part 10 - *Querying*.
 
-So far we performed create, retrieve, update, and delete (CRUD) operations from the command line, the dashboard, and from code. These operations center on the document's `_id`:
+So far we performed CRUD (create, retrieve, update, and delete) operations from the command line, the dashboard, and from code. These operations use the document's `_id`:
 
 - Fetch document by `_id`.    
 - Update document whose `_id` = 'x'.    
@@ -580,7 +581,7 @@ The simplest form of query is finding documents where an attribute has a fixed v
 
 The second example shows two clauses in the query. Both clauses must be satisfied for a document to make it into the search results, for example, where `isbn === 6725252` AND `date = 2018-01-01`.
 
-The third example shows how logical operators can be added. The `$gt` operation means `greater than` (there's also `gte` for greater than or equal to, and `lt/lte` for the equivalent less than comparators). The `$or` operator is an `OR` operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
+The third example shows how logical operators can be added. The `$gt` operation means `greater than` (you can also use `gte` for greater than or equal to, and `lt/lte` for the equivalent less than comparators). The `$or` operator is an `OR` operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
 
 If you need to access objects within documents, you can use standard dot notation for example, `address.zipcode` to access a postal code string inside an address object.
 {: note}
@@ -617,7 +618,7 @@ Now, time for a practical exercise. Devise your own {{site.data.keyword.cloudant
 
 Pause the presentation here if you don't want to know the answer...
 
-Here's one solution:
+See one solution:
 
 I use the `$and` operator to combine two clauses on the date attribute. One clause to locate documents whose date `>= 1900`, the other to find documents whose date is `< the year 2000`. Both clauses have to be true to select a document. As we need only the title of the matching books, we can supply a fields attribute instead of being returned the entire document.
 
@@ -654,7 +655,7 @@ With {{site.data.keyword.cloudant_short_notm}}, you can specify any number of *I
 
 An index is a secondary data structure that is built from the document list. It contains data that is sorted by the fields you specify, for example, books that are sorted by date and title. If you perform a query that asks for data that matches a document's date and title, the indexed data structure can be used to speed up the query process. Instead of scanning through every document in turn, {{site.data.keyword.cloudant_short_notm}} can jump to the relevant part of the index (say, the section on 20th century books) and retrieve the data much more quickly.
 
-{{site.data.keyword.cloudant_short_notm}} Query indexes include two types of indexes: `type=json` and `type=text`. These indexes are backed by two underlying indexing technologies we meet in subsequent parts of this course.
+{{site.data.keyword.cloudant_short_notm}} Query indexes include two types of indexes: `type=json` and `type=text`. These indexes are backed by two underlying indexing technologies that we meet in subsequent parts of this course.
 
 An index is defined when you `POST` some JSON to a database's `_index` endpoint.
 
@@ -677,9 +678,9 @@ Indexes are built asynchronously by {{site.data.keyword.cloudant_short_notm}} in
 
 We can repeat our query for books in the 20th century. This time we specify the index name with the `use_index` field. The answer returns - this time powered by our index. You might not notice a speed improvement for a small database, but the benefit is definitely felt as your data size and query volume grows. Indexing helps your queries remain performant as your application scales.
 
-When you tell {{site.data.keyword.cloudant_short_notm}} to create a secondary index, it starts a background task that looks at all the documents in turn and creates a new data structure on disk: the index. The index is a balanced tree which pairs the keys (the attribute or attributes you need indexed) with the document `_id` they came from.
+When you tell {{site.data.keyword.cloudant_short_notm}} to create a secondary index, it starts a background task that looks at all the documents in turn and creates a new data structure on disk: the index. The index is a balanced tree which pairs the keys (the attribute or attributes that you need indexed) with the document `_id` they came from.
 
-The index can be used to efficiently look up known keys and ranges of keys without having to rescan the entire database.
+The index can be used to efficiently lookup known keys and ranges of keys without having to rescan the entire database.
 
 Another trick that you can employ at index time is the partial filter. You can optionally supply a partial filter in your index definition. This {{site.data.keyword.cloudant_short_notm}} Query selector is executed at index time to decide which documents' data makes it to the index and which are ignored.
 
@@ -722,9 +723,9 @@ The first example emits a key of `doc.name`, so in this case, it is an index for
 
 The second example pre-processes the data before emitting. This pre-processing is a useful way of tidying up strings, trimming whitespace, lower and uppercasing text, applying default values to missing data, or constraining values to certain ranges, and so on.
 
-The third example adds logic: only documents that are `published` make it to the index. This logic is equivalent to the partial filter selector we saw with {{site.data.keyword.cloudant_short_notm}} Query.
+The third example adds logic: only documents that are `published` make it to the index. This logic is equivalent to the partial filter selector that we saw with {{site.data.keyword.cloudant_short_notm}} Query.
 
-Indexes build asynchronously and cannot be used until they build completely. Once built, they can be used for selection by key, lists of keys, ranges of keys, and aggregation of data for example, *Find orders between two dates, and calculate the total value of the orders, grouped by month.*
+Indexes build asynchronously and cannot be used until they build completely. Once built, they can be used for selection by key, lists of keys, ranges of keys, and aggregation of data. For example, *Find orders between two dates, and calculate the total value of the orders, which are grouped by month.*
 
 {{site.data.keyword.cloudant_short_notm}} includes the four built-in reducers (or five if you count `none`).
 
@@ -748,17 +749,17 @@ The `VALUE` is the thing that you need to report on (for example, total sales).
 
 The Reducer is `_sum` so that the `VALUE` is totaled for matching keys (for example, orders on the same date).
 
-Here's what defining a MapReduce looks like in the {{site.data.keyword.cloudant_short_notm}} dashboard.
+See what defining a MapReduce looks like in the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 When the MapReduce view is built, it can be queried to see each `KEY-VALUE` pair stored in the index.
 
-Or, if the reducer is switched on, the result set can be grouped by the value of each key. Here we are totalizing each day's sales.
+Or, if the reducer is switched on, the result set can be grouped by the value of each key. In this case, we are totalizing each day's sales.
 
 The view can be queried for individual keys (for example, sales on a specific date), all keys, or a range of keys (for example, between two dates).
 
 MapReduce views are built asynchronously and can take some time to be ready for large data sets.
 
-Here's some tips:
+See some tips:
 
 Use logic in your JavaScript to include only data that makes sense, for example, totalize only completed orders.
 Indexed keys don't have to be strings. A common pattern is to use array keys, for example, an array of year, month, day. These index keys allow query-time grouping by elements in the array. For example, you can group orders by year, orders by year and month, orders by year and month and day. Great for summary reports that allow the user to drill down into the detail.
@@ -789,7 +790,7 @@ Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course,
 
 This video is part 13 - *Dates*.
 
-We saw earlier in this course that JSON only natively models strings, numbers, booleans, objects, and arrays. A common use-case is to store a date or date and time value in a database. Here's some ideas on how that can be achieved with {{site.data.keyword.cloudant_short_notm}}.
+We saw earlier in this course that JSON only natively models strings, numbers, booleans, objects, and arrays. A common use-case is to store a date or date and time value in a database. See some ideas on how that can be achieved with {{site.data.keyword.cloudant_short_notm}}.
 
 The ISO-8601 string format for representing a time consists of a `y-m-dTh:m:s.msTIMEZONE` year, month, day, a 'T' character, hour, minute, second, millisecond, and time zone.
 
@@ -802,7 +803,7 @@ Another option is to store the number of milliseconds since 01-January-1970. Thi
 It too can be parsed in MapReduce functions and is handy for comparing two dates: simply take one timestamp from another.
 
 
-To summarize, there's no native date format in JSON, so you can store dates and times how you like. ISO-8601 is compact, readable, and sorts nicely, as do a timestamp (milliseconds since 1970).
+To summarize, no native date format in JSON exists, so you can store dates and times how you like. ISO-8601 is compact, readable, and sorts nicely, as do a timestamp (milliseconds since 1970).
 
 If you need to use {{site.data.keyword.cloudant_short_notm}} Query on one of the component parts, then that would need to be broken out explicitly in the document.
 
@@ -825,7 +826,7 @@ This video is part 14 - *Replication*.
 
 Replication is a core feature of {{site.data.keyword.cloudant_short_notm}}. It is the transfer of data from one database (the source) to another (the target).
 
-The source and target databases can reside on the same {{site.data.keyword.cloudant_short_notm}} service, or be geographically separated, for example a US {{site.data.keyword.cloudant_short_notm}} database that replicates to one in Europe.
+The source and target databases can reside on the same {{site.data.keyword.cloudant_short_notm}} service, or be geographically separated, for example, a US {{site.data.keyword.cloudant_short_notm}} database that replicates to one in Europe.
 
 The {{site.data.keyword.cloudant_short_notm}} replication protocol is shared with Apache CouchDB, so replication is often used by enterprises that copy data from a cloud-based database to one running CouchDB in their own location.
 
@@ -833,20 +834,20 @@ PouchDB, a JavaScript-based CouchDB clone that runs in Node.js stacks or the web
 
 The {{site.data.keyword.cloudant_short_notm}} Sync libraries are native iOS or Android apps that sync data to and from an {{site.data.keyword.cloudant_short_notm}} service.
 
-Replication is a one-way operation from source to target, which moves all data (deletions, conflicts, attachments, as well as documents) and can be triggered in 1 of 2 ways:
+Replication is a one-way operation from source to target, which moves all data (deletions, conflicts, attachments, as well as documents) and can be triggered in one of two ways:
 
 1. Run until all the data from the source reaches the target and then stop. 
 2. The same as one, but the replication runs continuously forever, transferring new data from the source to the target as it arrives.
 
 Replication can also be resumed from where it last stopped. {{site.data.keyword.cloudant_short_notm}} keeps a note of `checkpoints` between replicating parties to allow the resumption of a pre-existing replication from its last known position.
 
-The {{site.data.keyword.cloudant_short_notm}} dashboard includes a replication tab. A replication is started by specifying the source and target databases that include authentication credentials, and whether this replication is a one time or continuous operation.
+The {{site.data.keyword.cloudant_short_notm}} Dashboard includes a replication tab. A replication is started by specifying the source and target databases that include authentication credentials, and whether this replication is a one time or continuous operation.
 
 A replication can also be given a name, which is handy for tracking which replication job is which.
 
 Now it's time for a practical exercise.
 
-1. Go to the {{site.data.keyword.cloudant_short_notm}} dashboard. 
+1. Go to the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 2. Create a database called `books2`.
 3. Start a continuous replication from `books` to `books2`.
 4. Visit the `books2` database to check that documents from `books` are now in `books2`.
@@ -894,7 +895,7 @@ In a normal {{site.data.keyword.cloudant_short_notm}} database, a document is al
 
 In a partitioned database, you define which shard the documents are stored in by supplying a partition key.
 
-Partitioned databases are not created with the same `PUT /<database name>` API call but with an additional query string parameter: `partitioned=true`.
+Partitioned databases are not created with the same `PUT /<database name>` API call but with an extra query string parameter: `partitioned=true`.
 
 In the first example, the products database is created as a partitioned database, in the second example, as a standard, unpartitioned database.
 
@@ -1048,17 +1049,17 @@ Or more failed nodes. If a copy of each node exists, the API continues to functi
 
 When a node returns, it catches up any missed data from its peers and then returns into service, handling API calls and answering queries for data.
 
-The nature of this configuration is that {{site.data.keyword.cloudant_short_notm}} exhibits eventual consistency. Any node can handle a request. Data is distributed around nodes without the sort of locking you might see in a relational database.
+The nature of this configuration is that {{site.data.keyword.cloudant_short_notm}} exhibits eventual consistency. Any node can handle a request. Data is distributed around nodes without the sort of locking that you might see in a relational database.
 
 {{site.data.keyword.cloudant_short_notm}} favors availability over consistency: It would rather be up and answering API calls than be down because it can't provide consistency guarantees. (A relational database is often configured in the opposite way: It operates in a consistent manner or not at all.)
-The upshot of eventual consistency for a developer is that your app must not `read its writes` in a short time. There might be a small time window in which it is possible to see an older version of a document than the one you updated. Eventually, the data flows around the cluster, and in most cases, the quorum mechanism provides the illusion of consistency, but it is best not to rely on it.
+The upshot of eventual consistency for a developer is that your app must not `read its writes` in a short time. A small-time window might exist in which it is possible to see an older version of a document than the one you updated. Eventually, the data flows around the cluster, and in most cases, the quorum mechanism provides the illusion of consistency, but it is best not to rely on it.
 
 In CouchDB 4, and in {{site.data.keyword.cloudant_short_notm}} services based on that code version, a different consistency model is employed.
 {: note}
 
 If your data model requires you to update a document over and over in a short time window, it's possible that multiple writes for the same revision number are accepted. These writes lead to a branch in the revision tree - known as a conflict. In this example revision `2` was modified in two different ways, causing two revision 3s. It's possible to tidy up conflicts programmatically, but they must be avoided as they can cause performance issues in extreme circumstances.
 
-Conflicts can also happen when you use replication and a document is modified in different ways, and then the conflicting revisions are merged in by using replication. {{site.data.keyword.cloudant_short_notm}} does not throw away data in this scenario. A `winning` revision is chosen, but the non-winning revisions can be accessed and your application can resolve the conflict by electing a new winner, deleting unwanted revisions, or any action you need. A conflict is not an error condition. It's a side effect of having disconnected copies of data that can be modified without locking. {{site.data.keyword.cloudant_short_notm}} chooses to handle conflicts by not discarding clashing changes, but storing them as a conflict.
+Conflicts can also happen when you use replication and a document is modified in different ways, and then the conflicting revisions are merged in by using replication. {{site.data.keyword.cloudant_short_notm}} does not throw away data in this scenario. A `winning` revision is chosen, but the nonwinning revisions can be accessed and your application can resolve the conflict by electing a new winner, deleting unwanted revisions, or any action you need. A conflict is not an error condition. It's a side effect of having disconnected copies of data that can be modified without locking. {{site.data.keyword.cloudant_short_notm}} chooses to handle conflicts by not discarding clashing changes, but storing them as a conflict.
 
 To check a document for conflicts, simply add `?conflicts=true` to a fetch of a single document. Any conflicting revisions are listed in the `_conflicts` array.
 
@@ -1066,7 +1067,7 @@ Unwanted revisions can be removed by using the normal `DELETE` operation, specif
 
 To summarize, {{site.data.keyword.cloudant_short_notm}} is a distributed service that stores databases, which are broken into multiple shards, with three copies of each shard spread around a ring of storage nodes. {{site.data.keyword.cloudant_short_notm}} is eventually consistent, favoring high availability over strong consistency.
 
-Avoid writing to the same document over and over so as not to create conflicts. Although conflicts are sometime inevitable in replication situations.
+Avoid writing to the same document over and over so as not to create conflicts. Although conflicts are sometimes inevitable in replication situations.
 
 Embrace eventual consistency - don't try to make {{site.data.keyword.cloudant_short_notm}} consistent.
 

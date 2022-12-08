@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-07"
 
-keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
+keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query
 
 subcollection: Cloudant
 
@@ -15,13 +15,14 @@ subcollection: Cloudant
 # Using {{site.data.keyword.cloudant_short_notm}} Geospatial
 {: #cloudant-nosql-db-geospatial}
 
-Support for the {{site.data.keyword.cloudantfull}} Geospatial capability  will end on January 31, 2023. In many cases, existing applications will fail if changes are not made to address the removal of this functionality prior to the end of support.
+Support for the {{site.data.keyword.cloudantfull}} Geospatial capability ends on 31 January 2023. In many cases, existing applications will fail if changes are not made to address the removal of this functionality before the end of support.
 {: shortdesc}
 
-As of February 1, 2023, the following apply:
-- Users will be unable to query `/$DATABASE/_design/$DDOCS/_geo` endpoints. Requests to those endpoints will return a `404 Not Found` reponse.
-- Users will be able to define indexes using the `st_indexes` keyword in design documents, but they will be ignored by the service. This ensures that existing design documents can be updated, and replications that contain geospatial indexes will not fail. Existing Geo indexes will be deleted, and customers will no longer be billed for the space they consume.
-- {{site.data.keyword.cloud}} support will no longer answer questions or assist with issues related to the Geospatial feature of the {{site.data.keyword.cloudant_short_notm}} service.
+As of 1 February 2023, the following conditions apply:
+
+- Users cannot query `/$DATABASE/_design/$DDOCS/_geo` endpoints. Requests to those endpoints return a `404 Not Found` response.
+- Users can define indexes by using the `st_indexes` keyword in design documents, but those indexes are ignored by the service. This ensures that existing design documents can be updated, and replications that contain geospatial indexes do not fail. Existing Geo indexes will be deleted, and customers will no longer be billed for the space they consume.
+- {{site.data.keyword.cloud}} support will no longer answer questions or assist with issues that are related to the Geospatial feature of the {{site.data.keyword.cloudant_short_notm}} service.
 
 Many simple geospatial queries can be done without using the Geospatial capability that is being removed from the {{site.data.keyword.cloudant_short_notm}} service as described in the [{{site.data.keyword.cloudant_short_notm}} blog post](https://blog.cloudant.com/2022/06/28/Simple-Geospatial-Queries.html){: external}.
 
@@ -380,7 +381,7 @@ The four types of query geometries are defined in the following table:
 | `bbox`    | Specify a bounding box with two coordinates for the lower-left and upper-right corners. |
 | `ellipse` | Specify an ellipse query with a latitude `lat`, a longitude `lon`, and two radii: `rangex` and `rangey`, both measured in meters. |
 | `radius`  | Specify a circle query with a latitude `lat`, a longitude `lon`, and a radius `radius` measured in meters. |
-| `<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
+| `<wkt>`   | Specify a Well-Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`. |
 {: caption="Table 2. Types of query geometries" caption-side="top"}
 
 See an example of a `bbox` query:
@@ -501,7 +502,7 @@ To specify the circle, you provide the following values:
 - Circle radius that is specified in meters.
 
 This query compares the geometry of each document in the index with the geometry of the specified circle.
-The comparison is run according to the relation you request in the query.
+The comparison is run according to the relation that you request in the query.
 So,
 to find all documents that fall within the circle,
 you use the `contains` relation.

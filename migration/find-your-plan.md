@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-08-30"
+lastupdated: "2022-11-30"
 
 keywords: ibm cloudant plan, standard plan, lite plan, legacy enterprise plan
 
@@ -28,7 +28,7 @@ The following steps show where you can see the type of plan that you selected.
    A checkmark indicates the plan that you use as shown in the following screen capture.  
    For more information, see the [Migration FAQ](/docs/Cloudant?topic=Cloudant-faq-migration).  
 
-   ![Standard dashboard includes a serverless scaling of throughput & storage. Includes 20 GB of free data storage, additional storage metered. Users can adjust provisioned throughput capacity in blocks of 100 reads/sec, 50 writes/sec, 5 global queries/sec. Max JSON document size of 1 MB. $1.00 USD/GB of data storage. $0.25 USD/Read capacity. $0.50 USD/Write capacity. $5.00 USD/Global Query capacity. ](../images/ibmcloud_instance_standard_plan.png){: caption="Figure 1. Standard dashboard" caption-side="bottom"}
+   ![Standard dashboard includes a serverless scaling of throughput and storage. Includes 20 GB of free data storage, extra storage metered. Users can adjust provisioned throughput capacity in blocks of 100 reads/sec, 50 writes/sec, 5 global queries/sec. Max JSON document size of 1 MB. $1.00 USD/GB of data storage. $0.25 USD/Read capacity. $0.50 USD/Write capacity. $5.00 USD/Global Query capacity. ](../images/ibmcloud_instance_standard_plan.png){: caption="Figure 1. Standard dashboard" caption-side="bottom"}
 
    If the Plan tab indicates that you're on the Standard plan, you don't need to read any further. You're already on a paid SLA-backed {{site.data.keyword.cloudant_short_notm}} service. No further action is required.
    {: note}

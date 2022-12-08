@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-11-30"
 
 keywords: create document, examples of create document, create document with http
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Creating a document
 {: #create-document}
 
-The steps shown here demonstrate how to create a document.
+The steps that are shown here demonstrate how to create a document.
 
 1. Send a `POST` request with the document's JSON content to create a document.
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 ## Examples of how to create a document
 {: #creating-document-using-command-line}
 
-Example of creating an {{site.data.keyword.cloudant_short_notm}} document for this JSON in a non-partitioned database:
+See an example of creating an {{site.data.keyword.cloudant_short_notm}} document for this JSON in a nonpartitioned database:
 
 ```json
 {
@@ -54,7 +54,7 @@ Example of creating an {{site.data.keyword.cloudant_short_notm}} document for th
 ```
 {: codeblock}
 
-You can customize this section for the programming language that you want to use by selecting the language in the code examples.
+You can customize creating a document for the programming language that you want to use by selecting the language in the code examples.
 {: tip}
 
 See an example of creating a document:

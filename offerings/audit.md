@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-12-08"
 
 keywords: principal, action, resource, timestamp, access audit logs
 

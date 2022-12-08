@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-01"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -35,7 +35,7 @@ within a US location, you can optionally select a [HIPAA](https://en.wikipedia.o
 {: #plans-and-provisioning}
 
 You can select which plan to use when you
-[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud). The available plans include Lite, Standard, and Standard on Transaction Engine. When you select a plan, Capacity displays, and the Cost estimator shows the monthly charge for the selected plan. By default, the [Lite plan](#lite-plan) is selected. 
+[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud). The available plans include Lite and Standard. When you select a plan, Capacity displays, and the Cost estimator shows the monthly charge for the selected plan. By default, the [Lite plan](#lite-plan) is selected. 
 
 ### Lite plan
 {: #lite-plan}
@@ -241,7 +241,7 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
 1.  To change the target capacity, slide the capacity slider to the setting you want. 
 1.  Click **Update to Standard Plan**. 
 1.  Select the pricing plan that you want, and click **Save**. 
-1.  Select the type of account you're looking for by clicking **Go.**   
+1.  Select the type of account that you're looking for by clicking **Go**.
 
     The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, *Success. Your capacity will be updated shortly.*  
 
@@ -270,7 +270,7 @@ In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capa
 #### API
 {: #api-ibm-cloud}
 
-To use the API to view the current provisioned throughput capacity that is allocated or change the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance, see the [Capacity API](/docs/Cloudant?topic=Cloudant-capacity) documentation.
+To use the API to view the current provisioned throughput capacity that is allocated or change the target-provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance, see the [Capacity API](/docs/Cloudant?topic=Cloudant-capacity) documentation.
 
 The API syntax for changing the capacity is also shown in the **Increase capacity through API** tab on the Capacity page for instances that are deployed in a Resource Group.
 
@@ -287,7 +287,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 - The peak capacity that is allowed according to the provisioned throughput capacity set for the instance is shown by a dotted line in the following screen capture.   
 
-![Current Operations tab shows consumption of provisioned throughput capacity, number of requests that are broken down by reads, writes, and global queries. Peak capacity that is allowed according to the provisioned throughput capacity set for the instance.](../images/monitoring-current_operations.png){: caption="Figure 4. Monitoring - Current Operations" caption-side="bottom"}
+![Current Operations shows consumption of provisioned throughput capacity, number of requests that are broken down by reads, writes, and global queries. Peak capacity that is allowed according to the provisioned throughput capacity set for the instance.](../images/monitoring-current_operations.png){: caption="Figure 4. Monitoring - Current Operations" caption-side="bottom"}
 
 *Denied Requests* tab 
 - Shows the number of requests that were denied in a given second.
@@ -296,7 +296,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 - Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.
 
-![Monitoring - Denied Requests tab shows the number of requests that were denied in a given second. Shows 429: too many requests. Requests are denied because they exceed the provisioned througput capacity that is allocated to the instance.](../images/monitoring-denied_requests.png){: caption="Figure 5. Monitoring - Denied Requests" caption-side="bottom"}
+![Monitoring - Denied Requests shows the number of requests that were denied in a given second. Shows 429: too many requests. Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance.](../images/monitoring-denied_requests.png){: caption="Figure 5. Monitoring - Denied Requests" caption-side="bottom"}
 
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
 For example, if you frequently approach the maximum number of database reads, then you can modify the capacity for the instance through the [Capacity](#viewing-and-changing-capacity) UI.
@@ -322,7 +322,7 @@ plan allocates, you can expect the conditions that are described in the followin
 
 - Disk usage is capped on the Lite plan at 1 GB.
 - After you reach the cap, you receive a warning on the {{site.data.keyword.cloudant_short_notm}} Dashboard and can't write new data. If you try to write new data, a `402: payment required` response occurs.
-- To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.
+- To write new data, you must either upgrade to the Standard plan or delete data, and wait until the next check runs for your account to be reactivated.
 
 #### Standard plan
 {: #standard-plan-bluemix}
@@ -347,18 +347,18 @@ Finally,
 your instance finishes the hour and indeed the rest of the month by dropping down to 28 GB.
 
 This pattern means the maximum number of GB more than the plan allocation was 88 GB during hour 2 of day 3.
-For hour 03:00 of day 3,
+From hour 03:00 of day 3,
 and for the rest of the month,
 your instance was 8 GB more than the plan allocation.
 
 Therefore,
-for hour 02:00 of day 3,
+from hour 02:00 of day 3,
 your bill includes an overage based on 88 GB x 1 hour = 88 GB hours.
 
-For hour 03:00 of day 3 to the end of day 3,
+From hour 03:00 of day 3 to the end of day 3,
 your bill includes an overage based on 8 GB x 21 hours = 168 GB hours.
 
-For hour 00:00 of day 4 to the end of the month (of 30 days),
+From hour 00:00 of day 4 until the end of the month (of 30 days),
 your bill includes an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours.
 
 The total overage bill for the month is based on a total of 88 + 168 + 5184 = 5440 GB hours.
@@ -445,7 +445,7 @@ Support is provided when you purchase *{{site.data.keyword.cloud_notm}} Standard
 
 For more information, see the [{{site.data.keyword.cloud_notm}} Standard Support plans](https://www.ibm.com/cloud/support#944376){: external} and the [{{site.data.keyword.IBM_notm}} support guide](https://www.ibm.com/support/pages/node/733923){: external}.
 
-The support systems that are used for {{site.data.keyword.cloudant_short_notm}} don't offer features for the protection of content that contains Healthcare Information, health data, Protected Health Information, or data that is subject to more regulatory requirements. As such, the Client must not enter or provide such data.
+The support systems that are used for {{site.data.keyword.cloudant_short_notm}} don't offer features for the protection of personal data or sensitive personal data. This content includes Healthcare Information, health data, Protected Health Information, or data that is subject to more regulatory requirements. As such, the Client must not enter or provide such data.
 {: note}
 
 ## Provisioning an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}

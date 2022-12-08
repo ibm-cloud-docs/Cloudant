@@ -4,7 +4,7 @@ copyright:
   years: 2015, 2022
 lastupdated: "2022-12-01"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all dbs, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
 subcollection: Cloudant
 
@@ -99,7 +99,7 @@ Replicator
 
 The following changes were made in build 8310:
 
-All dbs
+All databases
 :   Fix `skip` and `limit` parameters for `_all_dbs` and `_dbs_info` endpoints.
 
 Attachments
@@ -225,7 +225,7 @@ It is now possible to switch authentication methods from `Legacy Credentials and
 {: #Cloudant-dec0321}
 {: release-note}
 
-{{site.data.keyword.cloud_notm}} monitoring integration
+{{site.data.keyword.cloud_notm}} Monitoring integration
 :   Metrics are now available in the Frankfurt region.
 
 ## November 2021
@@ -470,7 +470,7 @@ Multiple queries
 :   The `disk_size` and `data_size` fields were retired from the database information object that is returned by `GET /{db}`.
 
 `/{db}/_changes` feed
-:   The `/{db}/_changes` feed immediately returns headers now, even when no changes are available. This process prevents client blocking.
+:   The `/{db}/_changes` feed immediately returns headers now, even when no changes are available. This process prevents client's from becoming blocked.
 
 Negative and noninteger heartbeat values
 :   Negative and noninteger heartbeat values now return a `400 Bad Request` response status code.
@@ -505,7 +505,7 @@ The following changes were made in build 8126:
 Improvements
 :   Internal bug fixes.
 
-Replication error reporting
+Replication error reports
 :   Improvements to replication error reporting - instead of a function_clause, human-readable markers are returned, for example, `bulk_docs_failed`. Stack traces are no longer included.
 
 Replication job statistics
@@ -543,7 +543,7 @@ Empty payload
 {: release-note}
 
 Multiple restrictions employed for performance gains
-:   {{site.data.keyword.IBM_notm}} released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} has documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email. The following functions are affected by this deprecation:
+:   {{site.data.keyword.IBM_notm}} released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email. The following functions are affected by this deprecation:
 
 - Remove the `offset` field from the response body of an `all_docs` request. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use paging with `start_key` / `end_key` and `limit`.
 - The `_sorted` field has no functional effect because all responses are sorted automatically.
@@ -824,7 +824,7 @@ JavaScript URL rewrites
 The following changes were made in build 7304:
 
 Improvements
-:   This build is identical to build 7302 except that it's built on Erlang 17.5 instead of Erlang 20.
+:   This build is identical to build 7302 except that the build is on Erlang 17.5 instead of Erlang 20.
 
 ## September 2018
 {: #cloudant-sep18}
@@ -1201,7 +1201,7 @@ replicas to create.
 JavaScript.
 
 `Prefer: return=minimal` header
-:   Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to non-browser clients.
+:   Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to nonbrowser clients.
 
 Disabled JavaScript constructors
 :   If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message similar to this one is returned, *Call to `eval()` was blocked by CSP.* You can fix the problem by replacing `eval()` calls with the calls from the [expr-eval library](https://github.com/silentmatt/expr-eval){: external}.

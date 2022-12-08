@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-23"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -38,7 +38,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-See the following example that uses HTTP to create a non-partitioned database:
+See the following example that uses HTTP to create a nonpartitioned database:
 
 ```http
 PUT /$DATABASE?partitioned=false HTTP/1.1
@@ -138,10 +138,10 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
-## Example - Creating a non-partitioned database
+## Example - Creating a nonpartitioned database
 {: #example-creating-a-non-partitioned-db}
 
-To create a non-partitioned database, see the following example:
+To create a nonpartitioned database, see the following example:
 
 ```sh
 curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products"
@@ -243,7 +243,7 @@ and contain only the following characters:
 
 -   Lowercase characters (a-z)
 -   Digits (0-9)
--   Any of the following characters: _, $, (, ), +, -, and /
+-   Any of the following special characters: _, $, (, ), +, -, and /
 
 If your database is successfully created, you get a 201 or 202 response. An error response uses the HTTP status code to indicate what went wrong.
 

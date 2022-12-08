@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-19"
+lastupdated: "2022-12-01"
 
 keywords: feature comparison, function comparison
 
@@ -46,6 +46,6 @@ The following table shows the feature and function differences that you must be 
 
 The CouchDB `_show`, `_list`, `_update`, and `_rewrite` functions were deprecated in Apache CouchDB 3.0. For more information, see [deprecated feature warnings](https://docs.couchdb.org/en/stable/whatsnew/3.0.html#deprecated-feature-warnings).
 
-As a result, these functions are no longer supported for {{site.data.keyword.cloudant_short_notm}}. They do not appear in {{site.data.keyword.cloudant_short_notm}} documentation, and while the APIs remain in service at this time, their use is not recommended. They will not be supported by {{site.data.keyword.cloudant_short_notm}} Support team. 
+As a result, these functions are no longer supported for {{site.data.keyword.cloudant_short_notm}}. They do not appear in {{site.data.keyword.cloudant_short_notm}} documentation, and while the APIs currently remain in service, their use is not recommended. The {{site.data.keyword.cloudant_short_notm}} Support team no longer supports them. 
 
-Information on alternatives to these function can be found in the {{site.data.keyword.cloudant_short_notm}} blog at [deprecated functions](https://blog.cloudant.com/2022/08/16/Show-list-rewrite-udpate-functions-deprecated.html).
+Information on alternatives to these functions can be found in the {{site.data.keyword.cloudant_short_notm}} blog at [deprecated functions](https://blog.cloudant.com/2022/08/16/Show-list-rewrite-udpate-functions-deprecated.html).

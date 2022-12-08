@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-28"
+lastupdated: "2022-11-29"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-01"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -50,7 +50,7 @@ You need to create a service instance in {{site.data.keyword.cloudant_short_notm
 
 1. Continue to add some documents that match the pattern in the previous step by using the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
-   The documents store simple `key/value` pairs that hold metadata about each book: its author and its publisher. In this example, we deal with the following three use-cases:
+   The documents store simple `key/value` pairs that hold metadata about each book: its author and its publisher. In this example, we address the following three use-cases:
 
    1. A query facility that allows a user to find a book by a known publisher and year.
    2. A general-purpose search engine that allows a user to find books by a combination of one or more of the following descriptors: author, title, year, and publisher.
@@ -95,7 +95,7 @@ To try the query, do the following steps:
 6. Click **Run Query**.
    See the results in the following screen capture:
 
-   ![Run the query, and the results show the _id, author, pages, publisher, and year. ](../images/indexingdashboard1.png){: caption="Figure 1. Run a query" caption-side="bottom"}
+   ![Run the query, and the results show the _id, author, pages, publisher, and year. ](../images/indexingdashboard1.png){: caption="Figure 1. Window for running queries" caption-side="bottom"}
 
 {{site.data.keyword.cloudant_short_notm}} matches the documents that meet your criteria and it *seems* to do it quickly, but there's a catch. {{site.data.keyword.cloudant_short_notm}} isn't using an index to service this query, meaning that the database has to scan every document in the database to get your answer. This scan is fine for small data sets. But if you're running a production application where the data set is expanding all the time, you definitely *don't* want to rely on unindexed queries.
 {: note}
@@ -103,7 +103,7 @@ To try the query, do the following steps:
 ### Creating an index
 {: #creating-an-index-cq}
 
-To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to create an index on the `publisher` and `year` fields we are using in our query.
+To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to create an index on the `publisher` and `year` fields that we are using in our query.
 
 1. From the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the `books` database.
 2. Select the Design Documents tab.
@@ -125,7 +125,7 @@ To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to cre
 
    See an example in the following screen capture:
 
-   ![Click **Create index•• to create an index.](../images/indexingdashboard2.png){: caption="Figure 2. Create Index window" caption-side="bottom"}
+   ![Click Create index to create an index.](../images/indexingdashboard2.png){: caption="Figure 2. Window for creating indexes" caption-side="bottom"}
 
 The `fields` array contains a list of fields that we want {{site.data.keyword.cloudant_short_notm}} to index.
 
@@ -189,7 +189,7 @@ For more information, see the following resources:
 ## Step 4. Aggregating data - MapReduce
 {: #aggregate-data-mapreduce}
 
-Neither {{site.data.keyword.cloudant_short_notm}} Query nor {{site.data.keyword.cloudant_short_notm}} Search can *aggregate* search results. In other words, you can't ask "How many books were published in 1973?" {{site.data.keyword.cloudant_short_notm}}'s MapReduce feature allows secondary indexes to be created that can be used for selection or aggregation. MapReduce indexes are, like {{site.data.keyword.cloudant_short_notm}} Search, which is created by supplying a JavaScript function - any call to an `emit` function adds a row to the index.
+{{site.data.keyword.cloudant_short_notm}} Query and {{site.data.keyword.cloudant_short_notm}} Search cannot *aggregate* search results. In other words, you can't ask, "How many books were published in 1973?" {{site.data.keyword.cloudant_short_notm}}'s MapReduce feature allows secondary indexes to be created that can be used for selection or aggregation. MapReduce indexes are, like {{site.data.keyword.cloudant_short_notm}} Search, which is created by supplying a JavaScript function - any call to an `emit` function adds a row to the index.
 
 
 1. From the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the `books` database.
@@ -217,7 +217,7 @@ Neither {{site.data.keyword.cloudant_short_notm}} Query nor {{site.data.keyword.
 
    The subsequent MapReduce view allows documents to be found by year (as that is the key of the index). But if we select the checkbox for the Reduce function from the **Options** pull-down menu, the index aggregates the results, grouping by key (year):
 
-   ![The subsequent MapReduce view allows documents to be found by year (as that is the key of the index). But if we select the checkbox for the Reduce function from the **Options** pull-down menu, the index aggregates the results, grouping by key (year).](../images/indexingdashboard7.png){: caption="Figure 5. Run Query window" caption-side="bottom"}
+   ![The subsequent MapReduce view allows documents to be found by year (as that is the key of the index). But if we select the checkbox for the Reduce function from the **Options** pull-down menu, the index aggregates the results, grouping by key (year).](../images/indexingdashboard7.png){: caption="Figure 5. Windows for running queries" caption-side="bottom"}
 
    See an example result from after the index aggregated the results.
 

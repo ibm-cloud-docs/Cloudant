@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-11-30"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -36,6 +36,6 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ### Available goals for {{site.data.keyword.cloudant_short_notm}}
 {: #cloudant-available-goals}
 
-- Check whether Cloudant is accessible only through HTTPS
-- Check whether Cloudant is enabled with encryption
-- Check whether Cloudant is enabled with customer-managed encryption and Bring Your Own Key (BYOK)
+- Check whether Cloudant is accessible only through HTTPS.
+- Check whether Cloudant is enabled with encryption.
+- Check whether Cloudant is enabled with customer-managed encryption and Bring Your Own Key (BYOK).

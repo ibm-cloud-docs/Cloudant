@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-06"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, data usage pricing
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Pricing
 {: #pricing}
 
-*Price Change Announcment* The effective date of the 10% increase in {{site.data.keyword.cloudantfull}} pricing has changed from October 13, 2022 to January 1, 2023. Effective January 1, 2023, all {{site.data.keyword.cloudant_short_notm}} prices increase by 10%. This documentation does not reflect the increased pricing that goes into effect as of that date.
+*Price Change Announcement*: The effective date of the 10% increase in {{site.data.keyword.cloudantfull}} pricing changed from 13 October 2022 to 1 January 2023. Effective 1 January 2023, all {{site.data.keyword.cloudant_short_notm}} prices increase by 10%. This documentation does not reflect the increased pricing that goes into effect as of that date.
 
 {{site.data.keyword.cloudant_short_notm}} is priced based on the provisioned throughput capacity that you allocate for your instance, and the amount of data storage consumed. With {{site.data.keyword.cloudant_short_notm}}, you can scale your provisioned throughput capacity up and down, and pay pro-rated hourly. The provisioned throughput capacity is a reserved number of reads per second, writes per second, and global queries per second allocated to an instance. The throughput capacity setting is the maximum usage level for a given second. You can't exceed the reserved capacity for either reads, writes, or global queries. If you do, an HTTP 429 status code occurs that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 {: shortdesc}
@@ -39,7 +39,7 @@ capacity and increase it as needed by your application's usage over time. {{site
 pro-rated hourly and changing the provisioned throughput capacity doesn't incur downtime. 
 
 For the mobile app example, you start with the minimum provisioned throughput capacity for 
-the Standard plan that is 100 reads per second, 50 writes per second, and 5 global queries per second. The cost for 
+the Standard plan. The minimum provisioned throughput capacity is 100 reads per second, 50 writes per second, and 5 global queries per second. The cost for 
 this capacity is $0.105 per hour. The 100 reads per second, 50 writes per second, and 5 global queries per second are 
 a block of provisioned throughput capacity. When you need to scale up (or down), you 
 can scale in increments of these blocks of capacity. Assuming the instance has less than 
@@ -55,7 +55,7 @@ See the following example equation:
 - Total = $76.65
 
 
-Reads, writes, and global queries can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads per second, writes per second, or global queries per second required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads per second, 500 writes per second, and 50 global queries per second. Select this capacity even if you don't need the corresponding number of writes or global queries. 
+Reads, writes, and global queries can't be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either reads per second, writes per second, or global queries per second as required for your application. For example, if your application requires 1,000 reads per second, use the slider to select the capacity that offers 1,000 reads per second, 500 writes per second, and 50 global queries per second. Select this capacity even if you don't need the corresponding number of writes or global queries. 
 
 How do you estimate the total cost for provisioned throughput capacity per month of 1,000 reads, 500 writes, and 50 global queries? 
 
