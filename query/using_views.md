@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-27"
+lastupdated: "2022-12-02"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -78,17 +78,17 @@ subset that is indicated in the table.
 | `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.  | Yes | Numeric | | | |
 | `reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes |
 | `skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes |
-| `stable`         | Specify whether to use the same replica of the index on each request. The default value `false` contacts all replicas and returns the result from the first, fastest responder. Setting it to `true`, when used with `update=false`, might improve consistency at the expense of increased latency and decreased throughput if the selected replica is not the fastest of the available replicas.   \n  \n **Note**: In general, setting this parameter to `true` is discouraged and not recommended when using `update=true`. | Yes | Boolean | False | | No |
-| `stale`          | **Note**: `stale` is deprecated. Use `stable` and `update` instead.   \n  \n Specify whether to use the results from a stale view without triggering a rebuild of all views within the encompassing design doc. \n - `ok` is equivalent to `stable=true&update=false` \n - `update_after` is equivalent to `stable=true&update=lazy` | Yes | String | False | | No |
+| `stable`         | Specify whether to use the same replica of the index on each request. The default value `false` contacts all replicas and returns the result from the first, fastest responder. Setting it to `true`, when used with `update=false`, might improve consistency at the expense of increased latency and decreased throughput if the selected replica is not the fastest of the available replicas.   \n  \n **Note**: In general, setting this parameter to `true` is discouraged and not recommended when you use `update=true`. | Yes | Boolean | False | | No |
+| `stale`          | **Note**: `stale` is deprecated. Use `stable` and `update` instead.   \n  \n Specify whether to use the results from a stale view without triggering a rebuild of all views within the encompassing design doc. \n - `ok` is equivalent to `stable=true&update=false`. \n - `update_after` is equivalent to `stable=true&update=lazy`. | Yes | String | False | | No |
 | `start_key` | Return records, starting with the specified key. | Yes | String or JSON array |  |  | Yes |
 | `start_key_docid` | Return records, starting with the specified document ID. | Yes | String | | | Yes |
-| `update`        | Specify whether or not the view in question must be updated prior to responding to the user.   \n - `true` - Return results after the view is updated.   \n - `false` - Return results without updating the view.   \n - `lazy` - Return the view results without waiting for an update, but update them immediately after the request. | Yes | String | True | | Yes |
+| `update`        | Specify whether or not the view in question must be updated before responding to the user.   \n - `true` - Return results after the view is updated.   \n - `false` - Return results without updating the view.   \n - `lazy` - Return the view results without waiting for an update, but update them immediately after the request. | Yes | String | True | | Yes |
 {: caption="Table 1. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
 
-See the example of using HTTP to retrieve a list of the first 10 documents including the full content of them from a partition of a database, applying a user-created view.
+See the example of using HTTP to retrieve a list of the first 10 documents that include the full content of the documents from a partition of a database, applying a user-created view.
 
 ```http
 GET $SERVICE_URL/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$VIEW_NAME?include_docs=true&limit=10 HTTP/1.1
@@ -105,7 +105,7 @@ GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?limit=10 HTTP/1.1
 
 See the example to retrieve a list of the first 10 documents including the full content of them from the `small-appliances` partition of a database, applying the user-created `byApplianceProdId` view.
 
-Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+Client libraries use `POST` method instead of `GET` because they have the same behavior.
 {: tip}
 {: java}
 {: node}
@@ -221,7 +221,7 @@ All Go examples require the `service` object to be initialized. For more informa
 
 See the example to retrieve a list of the first 10 documents from a database, applying the user-created `getVerifiedEmails` view.
 
-Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+Client libraries use `POST` method instead of `GET` because they have the same behavior.
 {: tip}
 {: java}
 {: node}
@@ -372,7 +372,7 @@ The index is populated as soon as the design document is created.
 On large databases,
 this process might take a while.
 
-The index content is updated incrementally and automatically when one of the following events occurs:
+If one of the following events occurs, the index content is updated incrementally and automatically:
 
 -   A new document is added to the database.
 -   An existing document is deleted from the database.
@@ -436,12 +436,12 @@ If you want to save old index versions without incurring indexing processor usag
 By default, all index results reflect the current state of the
 database. {{site.data.keyword.cloudant_short_notm}} builds its indexes
 automatically and asynchronously in the background. This practice
-usually means that the index is fully up-to-date when you query it. If
+usually means that the index is fully up to date when you query it. If
 not, by default, {{site.data.keyword.cloudant_short_notm}} applies the
 remaining updates at query time.
 
 {{site.data.keyword.cloudant_short_notm}} provides a few parameters,
-described next, to alter this behaviour. We recommend against using
+described next to alter this behavior. We recommend against using
 them as the side-effects typically outweigh their benefit.
 
 ### Parameters
@@ -454,7 +454,7 @@ returned. The `lazy` value means that the results are returned before
 the view is updated, but that the view must then be updated anyway.
 
 While {{site.data.keyword.cloudant_short_notm}} strives to
-keep indexes updated in the background, there is no guarantee how
+keep indexes updated in the background, no guarantee exists about how
 out-of-date the view is when queried with `update=false` or
 `update=lazy`.
 {: important}
@@ -479,7 +479,7 @@ respond faster.
 If you specify `stable=false` and `update=false`, you see greater
 inconsistency between results, even for the same query and without
 making database changes. We recommend against this combination unless
-you are sure your system can tolerate this behaviour.
+you are sure that your system can tolerate this behavior.
 
 ## Sorting returned rows
 {: #sorting-returned-rows}
@@ -662,7 +662,7 @@ that are returned when querying the view.
 
 The sort direction is always applied first.
 Next, filtering is applied by using the `start_key` and `end_key` query arguments.
-It is possible that no rows will match your key range if sorting and filtering don't make sense when combined.
+It is possible that no rows will match your keyrange if sort and filter plans don't make sense when combined.
 
 See the example of using HTTP to make a global query that includes `start_key` and `end_key`
 query arguments:
@@ -674,7 +674,7 @@ GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?start_key="alpha"&end_
 
 See the example of a global query that includes `start_key` and `end_key` query arguments.
 
-Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+Client libraries use `POST` method instead of `GET` because they have the same behavior.
 {: tip}
 {: java}
 {: node}
@@ -784,12 +784,12 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-For example, if you have a database that returns 1 result when you use a `start_key` of `alpha`
+For example, if you have a database that returns one result when you use a `start_key` of `alpha`
 and an `end_key` of `beta`, you would get a `400` (Bad request) error with a reversed order.
 The reason is that the entries in the view are reversed before the key filter is applied.
 
 See the example that uses HTTP to illustrate why reversing the order of `start_key` and `end_key`
-might error with query parse error:
+might return a query parse error:
 
 ```http
 GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?descending=true&start_key="alpha"&end_key="beta" HTTP/1.1
@@ -798,7 +798,7 @@ GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?descending=true&start_
 
 See the example illustrating why reversing the order of `start_key` and `end_key` might cause a `400` error.
 
-Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+Client libraries use `POST` method instead of `GET` because they have the same behavior.
 {: tip}
 {: java}
 {: node}
@@ -931,7 +931,7 @@ GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?descending=true&start_
 
 See the example to apply correct filtering and sorting to a global query.
 
-Client libraries use `POST` method instead of `GET` because they have the same behaviour.
+Client libraries use `POST` method instead of `GET` because they have the same behavior.
 {: tip}
 {: java}
 {: node}
@@ -1074,7 +1074,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-See the example of a global query that returns all users (where the key for the view matches are
+See the example of a global query that returns all users (where the key for the view matches is
 either `amelie.smith@aol.com` or `bob.smith@aol.com`):
 
 ```sh
@@ -1220,7 +1220,7 @@ See the example response after you run a query by using a list of keys:
 ## Multi-document fetching
 {: #multi-document-fetching}
 
-This section covers a `POST` request to many documents from a database.
+The following section covers a `POST` request to many documents from a database.
 
 For a client application, this technique is more efficient than using multiple [`GET`](#querying-a-view) API requests.
 

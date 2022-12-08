@@ -29,10 +29,10 @@ Method
 :  `PUT /$DATABASE/_design/$DDOC`
 
 Request
-:  JSON of the design document information
+:  JSON of the design document information.
 
 Response
-:  JSON status
+:  JSON status.
 
 Roles permitted
 :  `_admin`
@@ -62,29 +62,29 @@ A design document's structure includes the following parts:
 Options
 :  Contains options for this design document.
 
-Partitioned (optional, boolean)
-:  Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
+      Partitioned (optional, boolean)
+      :  Determines whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
 
 Views (optional)
 :  An object that describes MapReduce views.
 
-   `Viewname`
-   :  (one for each view) - View Definition.
+        `Viewname`
+       :  (One for each view) - View Definition.
 
-    Map
-    :  Map Function for the view.
+            Map
+              :  Map Function for the view.
 
     Reduce (optional)
     :  Reduce Function for the view.
 
-Indexes (optional)
-: An object that describes search indexes.
+      Indexes (optional)
+      : An object that describes search indexes.
 
-Index name
-:  (one for each index) - Index definition.
+          Index name
+          :  (One for each index) - Index definition.
 
-Analyzer
-:  Object that describes the analyzer to be used or an object with the following fields:
+          Analyzer
+          :  Object that describes the analyzer to be used or an object with the following fields:
 
    Name
    :  Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
@@ -138,7 +138,7 @@ You can copy the latest version of a design document to a new document
 by specifying the base document and target document.
 The copy is requested by using the `COPY` request method.
 
-`COPY` is a non-standard HTTP command.
+`COPY` is a nonstandard HTTP command.
 {: tip}
 
 Copying a design document doesn't automatically reconstruct the view indexes. Like other views, these views are re-created the first time that you access the new view.
@@ -189,7 +189,7 @@ Method
 :  `COPY /$DATABASE/_design/$DDOC`
 
 Request
-:  None
+:  None.
 
 Response
 :  JSON describing the new document and revision.
@@ -199,28 +199,28 @@ Roles permitted
 
 Query Arguments
 
-Argument 
-:  `rev`
+    Argument 
+    :  `rev`
 
     Description
     :  Revision to copy from.
 
     Optional 
-    :  yes
+    :  Yes.
 
     Type 
-    :  string
+    :  String.
 
 HTTP Headers
 
 Header
 :  `Destination`
 
-   Description 
-   :  Destination document (and optional revision)
+        Description 
+        :  Destination document (and optional revision)
 
-   Optional
-   :  no
+        Optional
+        :  No.
 
 The source design document is specified on the request line, while the `Destination` HTTP Header of the request specifies the target document.
 
@@ -418,7 +418,7 @@ Method
 :  `DELETE /db/_design/$DDOC`
 
 Request 
-:  None
+:  None.
 
 Response
 :  JSON of deleted design document.
@@ -426,30 +426,31 @@ Response
 Roles permitted
 :  `_design`
 
+
 Query Arguments
 
    Argument
    :  `rev`
 
-      Description
-      :  Current revision of the document for validation.
+	  Description
+	  :  Current revision of the document for validation.
 
-      Optional
-      :  yes if `If-Match` header exists
+	  Optional
+	  :  Yes, if `If-Match` header exists.
 
-      Type 
-      :  string
+	  Type 
+	  :  String.
 
 HTTP Headers
 
    Header 
    :  `If-Match`
 
-      Description
-      :  Current revision of the document for validation.
+   Description
+   :  Current revision of the document for validation.
 
-      Optional
-      :  yes if `rev` query argument exists
+   Optional
+   :  Yes, if `rev` query argument exists.
 
 ## Views
 {: #view-design-documents}
@@ -553,7 +554,7 @@ To apply a filter function to the changes feed,
 include the `filter` parameter in the `_changes` query,
 providing the name of the filter to use.
 
-See the following example of a filter function applied to a `_changes` query by using HTTP:
+See the following example of a filter function that is applied to a `_changes` query by using HTTP:
 
 ```http
 POST $SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION HTTP/1.1
@@ -982,7 +983,7 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 #### The `_selector` filter
 {: #the-selector-filter}
 
-The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) used
+The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) that is used
 for [`_find`](/apidocs/cloudant#postfind){: external}.
 
 For more examples that show use of this filter,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-29"
+lastupdated: "2022-12-02"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation
 
@@ -23,8 +23,8 @@ completion-time: 10m
 {: toc-services="Cloudant"}
 {: toc-completion-time="10m"}
 
-When you create a new service credential by using the {{site.data.keyword.cloud_notm}} Dashboard or the
-{{site.data.keyword.cloud_notm}} CLI, it always produces a new username and password combination as your
+In {{site.data.keyword.cloud}}, you create a new service credential by using the {{site.data.keyword.cloud_notm}} Dashboard or the
+{{site.data.keyword.cloud_notm}} CLI. This step always produces a new username and password combination as your
 {{site.data.keyword.cloudantfull}} legacy credentials. As expected, deleting the service credential effectively revokes access for any
 applications that use those credentials.
 {: shortdesc}
@@ -73,11 +73,11 @@ This operation cannot be undone. Make sure all your applications are no longer u
 
 2. Find your {{site.data.keyword.cloudant_short_notm}} instance on the list of resources and open it.
 
-   ![Select your instance from the list of instances in your resource list.](images/img0011.png){: caption="Figure 1. Select your instance" caption-side="bottom"}
+   ![Select your instance from the list of instances in your resource list.](images/img0011.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} instances in resource list" caption-side="bottom"}
 
-3. Click the *Revoke* button under the *Cloudant credentials status* section. If you do not see the information in the next screen capture, the credential was already revoked or it never existed.
+3. Click the *Revoke* button under the *Cloudant credentials status* section. If you do not see the information that is shown in the next screen capture, the credential was already revoked, or it never existed.
 
-   ![Revoke instance URL style credential.](images/revoke-creds-status.png){: caption="Figure 2. Revoke instance URL style credential" caption-side="bottom"}
+   ![Revoke instance URL style credential.](images/revoke-creds-status.png){: caption="Figure 2. Instance URL style credential" caption-side="bottom"}
 
 4. Click OK to confirm your action on the dialog window to proceed.
 

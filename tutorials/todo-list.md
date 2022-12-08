@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-02"
 
 keywords: todo list tutorial
 
@@ -23,7 +23,7 @@ completion-time: 1hr
 {: toc-services="Cloudant"}
 {: toc-completion-time="1hr"}
 
-Create a simple web-based to do list to get familiar with the basic {{site.data.keyword.cloud_notm}} features.
+Create a simple web-based to-do list to get familiar with the basic {{site.data.keyword.cloud_notm}} features.
 {: shortdesc}
 
 ## Objectives
@@ -31,10 +31,10 @@ Create a simple web-based to do list to get familiar with the basic {{site.data.
 
 1. From this tutorial, you learn how to create a basic website that interfaces with your {{site.data.keyword.cloud_notm}} database to read and write data.
 
-   The project is a simple to do list, where you can see a list of notes. You can add and delete notes. Each of your notes has a tag, and you can filter your notes by tag.
+   The project is a simple to-do list, where you can see a list of notes. You can add and delete notes. Each of your notes has a tag, and you can filter your notes by tag.
    {: tip}
 
-1. In order to create this to do list, your application needs to be able to read and write to the database. To read to dos in "newest first" order and to filter by tag, your database needs to have some secondary indexes. So let's create all of that.
+1. In order to create this to-do list, your application needs to be able to read and write to the database. To read to-dos in "newest first" order and to filter by tag, your database needs to have some secondary indexes. So let's create all of that.
 
 You can complete the tutorial in less than an hour. It doesn't cost you anything over your current {{site.data.keyword.cloudant_short_notm}} bill (so it's free if you are on the {{site.data.keyword.cloudant_short_notm}} Lite plan).
 
@@ -45,7 +45,7 @@ Once you complete it, you have a basic understanding of how applications can int
 ## Prerequisites
 {: #prereq-web-based-todo-list}
 
-You need the following implements to do this tutorial:
+You need the following implements to-do this tutorial:
 
 - An {{site.data.keyword.cloudant_short_notm}} service instance and some service credentials. You can create the instance and credentials in the {{site.data.keyword.cloudant_short_notm}} dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. Be sure to make a note of the APIKey and URL when you create your service credentials.
 - Access to a Mac or Linux&trade; terminal
@@ -94,9 +94,9 @@ Now, you can check out your website.
 
 1. From your browser, navigate to `https://localhost:8080`.
 
-   You can see your to do list with a couple of items on it:
+   You can see your to-do list with a couple of items on it:
 
-   ![Your to do list](images/todolist.png){: caption="Your web-based to do list" caption-side="bottom"}
+   ![Your to-do list](images/todolist.png){: caption="Your web-based to-do list" caption-side="bottom"}
 
 1. Add or delete notes, or you can filter by tag by clicking one of the tags.
 
@@ -115,7 +115,7 @@ After you create the `todo` database, it creates two indexes by using the `postI
 
 The front end is using the popular [express](https://expressjs.com/) framework to display a webpage and call service endpoints in your backend when you click different actions, like create, delete, and filter.
 
-For example, when your webpage is first loaded, it calls the `GET /todolist` endpoint, which uses the `postFind` method to query the database for all documents (by using the index previously mentioned), order them by timestamp, and return them to the front end for display.
+For example, when your webpage is first loaded, it calls the `GET /todolist` endpoint, which uses the `postFind` method to query the database for all documents (by using the index that's created after the `todo` database), order them by timestamp, and return them to the front end for display.
 
 Filtering by tag uses the same `postFind` method, but by using the second index, you create and delete notes by usings the `postDocument` and `deleteDocument` methods.
 

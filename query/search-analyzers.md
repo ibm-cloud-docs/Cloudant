@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-02"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, white space analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option, pick best analyzer
 
@@ -223,7 +223,7 @@ Entity extraction is the process of locating known entities (given a database of
 
 As well as entities, the API can also place the article in a hierarchy of categories. In this case, Watson suggests the following categories:
 
-- Travel, tourist destinations france
+- Travel, tourist destinations France
 - Sports, soccer
 - Sports, football
 

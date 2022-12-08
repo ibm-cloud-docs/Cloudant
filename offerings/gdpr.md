@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-11-30"
+lastupdated: "2022-12-02"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -17,7 +17,7 @@ subcollection: Cloudant
 
 The GDPR seeks to create a harmonized data protection law framework across the EU. It aims 
 to give citizens back the control of their personal data, while it imposes strict rules on 
-those who host and "process" this data, anywhere in the world. The Regulation also introduces 
+the ones who host and "process" this data, anywhere in the world. The Regulation also introduces 
 rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
 
@@ -182,9 +182,9 @@ Compaction is done as a background process across
 the storage tier. Databases are always being compacted. It isn't guaranteed that the data compacted is the
 data that you deleted or changed.
 
-{{site.data.keyword.cloudant_short_notm}} is accepting the *Right to be forgotten* requests through
+{{site.data.keyword.cloudant_short_notm}} is accepting the *right to be forgotten* requests through
 the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](https://w3.ibm.com/ibm/privacy/){: external}.
-When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request,
+When a *right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request,
 explicitly triggers database compaction, and verifies that compaction occurred.
 At the end of this process, the only version of the document is its tombstone
 (`_id`, `_rev`, `_deleted`, and any fields your application includes there).
@@ -207,13 +207,13 @@ idea for an `_id` to store PI for lots of reasons, but a handful of semi-valid u
 cases exist (for example, a unique email). If possible, encrypt or pseudonymize data so it's opaque
 to {{site.data.keyword.cloudant_short_notm}}.
 
-If a document needs removal through a *Right to be forgotten* request, follow these steps:
+If a document needs removal through a *right to be forgotten* request, follow these steps:
 
 1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](https://w3-03.ibm.com/ibm/privacy/index.html){: external} to request purging of specific document `_id` values along with the reason.
 1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} doesn't purge data that doesn't have PI in the `_id`.
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
-This process is only to be used for emergency deletion requests (for example, *Right to be forgotten*) and must not be relied upon long term. If your application is intentionally
+This process is only to be used for emergency deletion requests (for example, *right to be forgotten*) and must not be relied upon long term. If your application is intentionally
 using PI in document IDs,
 then it must be changed to either pseudonymize that PI, or not use PI in document IDs. You cannot
 rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this situation.
