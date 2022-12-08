@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-12-01"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -159,14 +159,19 @@ The `filter` argument designates a pre-defined
 Additionally,
 several built-in filters are available:
 
--   `_design` - The `_design` filter accepts only changes to design documents.
--   `_doc_ids` - This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
+`_design`
+:    The `_design` filter accepts only changes to design documents.
 
--   `_selector` - Returns changes for documents that match the `selector` request body parameter. The [selector syntax](/apidocs/cloudant#postfind){: external} is the same as the syntax that is used for [`_find`](/apidocs/cloudant#postexplain){: external}. If you want to use a selector filter, you must use the `POST` changes feed (as you can't supply a document body with a GET request). Use the `_selector` method of filtering instead of the `_view` filtering method because it's faster and easier to use.
+`_doc_ids`
+:   This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
+
+`_selector`
+:   Returns changes for documents that match the `selector` request body parameter. The [selector syntax](/apidocs/cloudant#postfind){: external} is the same as the syntax that is used for [`_find`](/apidocs/cloudant#postexplain){: external}. If you want to use a selector filter, you must use the `POST` changes feed (as you can't supply a document body with a GET request). Use the `_selector` method of filtering instead of the `_view` filtering method because it's faster and easier to use.
 
 	For more information, see the [API documentation](https://cloud.ibm.com/apidocs/cloudant#getchanges-changes-request).
 
--   `_view` - Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
+`_view`
+:   Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
 
 ## The `since` argument
 {: #the-since-argument}

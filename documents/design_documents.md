@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-01"
+lastupdated: "2022-12-06"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -62,52 +62,53 @@ A design document's structure includes the following parts:
 Options
 :  Contains options for this design document.
 
-          Partitioned (optional, boolean)
-		  :  Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
+Partitioned (optional, boolean)
+:  Whether this design document describes partitioned or global indexes. For more information, see [The `options.partitioned` field](#the-options-partitioned-field).
 
-      Views (optional)
-      :  An object that describes MapReduce views.
+Views (optional)
+:  An object that describes MapReduce views.
 
-	      `Viewname`
-		   :  (one for each view) - View Definition.
+   `Viewname`
+   :  (one for each view) - View Definition.
 
-	          Map
-              :  Map Function for the view.
+    Map
+    :  Map Function for the view.
 
-              Reduce (optional)
-              :  Reduce Function for the view.
+    Reduce (optional)
+    :  Reduce Function for the view.
 
-    Indexes (optional)
-	: An object that describes search indexes.
+Indexes (optional)
+: An object that describes search indexes.
 
-          Index name
-		  :  (one for each index) - Index definition.
+Index name
+:  (one for each index) - Index definition.
 
-          Analyzer
-		  :  Object that describes the analyzer to be used or an object with the following fields:
+Analyzer
+:  Object that describes the analyzer to be used or an object with the following fields:
 
-              Name
-              :  Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
+   Name
+   :  Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
 
-              Stopwords (optional)
-              :  An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
+   Stopwords (optional)
+   :  An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
 
-              Default (for the per field analyzer)
-              :   Default language to use if no language is specified for the field.
-  
-                  Fields (for the per field analyzer)
-                  :  An object that specifies which language to use to analyze each field of the index. Field names in the object correspond to field names in the index, that is, the first parameter of the index function. The values of the fields are the languages to be used, for example `english`.
+   Default (for the per field analyzer)
+   :  Default language to use if no language is specified for the field.
 
-                  Index 
-                  :  Function that handles the indexing.
+      Fields (for the per field analyzer)
+      :  An object that specifies which language to use to analyze each field of the index. Field names in the object correspond to field names in the index, that is, the first parameter of the index function. The values of the fields are the languages to be used, for example `english`.
 
-    Filters (optional, disallowed when `partitioned` is `true`) :  Filter functions.
+      Index 
+      :  Function that handles the indexing.
 
-	          Function name (one for each function)
-              :  Function definition.
+Filters (optional, disallowed when `partitioned` is `true`) 
+:  Filter functions.
 
-    Validate_doc_update (optional, disallowed when `partitioned` is `true`)
-     :  Update validation function.
+   Function name (one for each function)
+   :  Function definition.
+
+Validate_doc_update (optional, disallowed when `partitioned` is `true`)
+:  Update validation function.
 
 ### The `options.partitioned` field
 {: #the-options.partitioned-field}
@@ -196,29 +197,30 @@ Response
 Roles permitted 
 :  `_design`
 
-Query Arguments 
+Query Arguments
 
-    Argument 
-       :  `rev`
+Argument 
+:  `rev`
 
-       Description
-       :  Revision to copy from.
+    Description
+    :  Revision to copy from.
 
-       Optional 
-       :  yes
+    Optional 
+    :  yes
 
-       Type 
-       :  string
+    Type 
+    :  string
 
 HTTP Headers
 
-    Header - `Destination`
+Header
+:  `Destination`
 
-        Description 
-          :  Destination document (and optional revision)
+   Description 
+   :  Destination document (and optional revision)
 
-        Optional
-          :  no
+   Optional
+   :  no
 
 The source design document is specified on the request line, while the `Destination` HTTP Header of the request specifies the target document.
 
@@ -425,29 +427,29 @@ Roles permitted
 :  `_design`
 
 Query Arguments
-   
+
    Argument
    :  `rev`
-      
-	  Description
-	  :  Current revision of the document for validation.
-      
-	  Optional
-	  :  yes if `If-Match` header exists
-      
-	  Type 
-	  :  string
+
+      Description
+      :  Current revision of the document for validation.
+
+      Optional
+      :  yes if `If-Match` header exists
+
+      Type 
+      :  string
 
 HTTP Headers
-      
+
    Header 
    :  `If-Match`
-        
-   Description
-   :  Current revision of the document for validation.
-         
-   Optional
-   :  yes if `rev` query argument exists
+
+      Description
+      :  Current revision of the document for validation.
+
+      Optional
+      :  yes if `rev` query argument exists
 
 ## Views
 {: #view-design-documents}
@@ -1433,32 +1435,32 @@ The JSON response includes the following individual fields:
 `view_index` 
 :  View Index
 
-	`compact_running` 
-	:  Indicates whether a compaction routine runs on the view.
+    `compact_running` 
+    :  Indicates whether a compaction routine runs on the view.
 
-	`disk_size` 
-	Size in bytes of the view as stored on disk.
+    `disk_size`
+    : Size in bytes of the view as stored on disk.
 
-	`language` 
-	:  Language that is used for defining views.
+    `language`
+    :  Language that is used for defining views.
 
-	`purge_seq` 
-	:  The purge sequence that was processed.
+    `purge_seq`
+    :  The purge sequence that was processed.
 
-	`signature`
-	:  MD5 signature of the views for the design document.
+    `signature`
+    :  MD5 signature of the views for the design document.
 
-	`update_seq` 
-	:  The update sequence of the corresponding database that was indexed.
+    `update_seq`
+    :  The update sequence of the corresponding database that was indexed.
 
-	`updater_running` 
-	:  Indicates whether the view is being updated.
+    `updater_running`
+    :  Indicates whether the view is being updated.
 
-	`waiting_clients` 
-	:  Number of clients that are waiting on views from this design document.
+    `waiting_clients`
+    :  Number of clients that are waiting on views from this design document.
 
-	`waiting_commit` 
-	:  Indicates whether the underlying database has outstanding commits that need to process. 
+    `waiting_commit`
+    :  Indicates whether the underlying database has outstanding commits that need to process. 
 
 See the following example response in JSON format:
 
@@ -1593,20 +1595,20 @@ The JSON structure includes the following individual fields:
 `search_index`
 :   The Search Index
 
-	`pending_seq`
-	:   The sequence number of changes in the database that reached the Lucene index, both in memory and on disk.
+   `pending_seq`
+   :   The sequence number of changes in the database that reached the Lucene index, both in memory and on disk.
 
-	   `doc_del_count`
-	   :   Number of deleted documents in the index.
+     `doc_del_count`
+     :   Number of deleted documents in the index.
 
-	      `doc_count`
-	      :   Number of documents in the index.
+        `doc_count`
+        :   Number of documents in the index.
 
-	      `disk_size`
-	      :   The size of the index on disk, in bytes.
+        `disk_size`
+        :   The size of the index on disk, in bytes.
 
-	      `committed_seq`
-	      :   The sequence number of changes in the database that were committed to the Lucene index on disk.
+        `committed_seq`
+        :   The sequence number of changes in the database that were committed to the Lucene index on disk.
 
 See the following example response in JSON format:
 
