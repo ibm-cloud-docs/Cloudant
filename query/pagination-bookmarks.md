@@ -376,6 +376,13 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs
 {: curl}
 
 ```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.AllDocsResult;
+import com.ibm.cloud.cloudant.v1.model.DocsResultRow;
+import com.ibm.cloud.cloudant.v1.model.PostAllDocsOptions;
+
+Cloudant service = Cloudant.newInstance();
+
 int pageSize = 5;
 PostAllDocsOptions.Builder docsOptionsBuilder =
         new PostAllDocsOptions.Builder()
@@ -587,6 +594,11 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs
 {: curl}
 
 ```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.AllDocsResult;
+import com.ibm.cloud.cloudant.v1.model.DocsResultRow;
+import com.ibm.cloud.cloudant.v1.model.PostAllDocsOptions;
+
 Long pageSize = 6L;
 PostAllDocsOptions.Builder docsOptionsBuilder =
         new PostAllDocsOptions.Builder()
@@ -780,6 +792,11 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/animaldb/_design
 {: curl}
 
 ```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostViewOptions;
+import com.ibm.cloud.cloudant.v1.model.ViewResult;
+import com.ibm.cloud.cloudant.v1.model.ViewResultRow;
+
 int pageSize = 3;
 String diet = "herbivore";
 PostViewOptions.Builder viewOptionsBuilder =
