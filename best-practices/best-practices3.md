@@ -22,7 +22,7 @@ You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not 
 - The folks who support and sell it.
 {: shortdesc}
 
-For more information, see [Data modeling](https://test.cloud.ibm.com/docs/Cloudant?topic=Cloudant-data-modeling) or [Indexing and querying](/docs/Cloudant?topic=Cloudant-indexing-and-querying).
+For more information, see [Data modeling](/docs/Cloudant?topic=Cloudant-data-modeling) or [Indexing and querying](/docs/Cloudant?topic=Cloudant-indexing-and-querying).
 
 The content in this document was originally written by Stefan Kruger as a [*Best and worst practice*](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog post on 21 November 2019.
 

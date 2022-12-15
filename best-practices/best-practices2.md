@@ -23,7 +23,7 @@ You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not 
 - The folks who support and sell it.
 {: shortdesc}
 
-For more information, see [Data modeling](https://test.cloud.ibm.com/docs/Cloudant?topic=Cloudant-data-modeling) or [{{site.data.keyword.cloudant_short_notm}} in practice](/docs/Cloudant?topic=Cloudant-cloudant-in-practice).
+For more information, see [Data modeling](/docs/Cloudant?topic=Cloudant-data-modeling) or [{{site.data.keyword.cloudant_short_notm}} in practice](/docs/Cloudant?topic=Cloudant-cloudant-in-practice).
 
 The content in this document was originally written by Stefan Kruger as a [*Best and worst practice*](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog post on 21 November 2019.
 

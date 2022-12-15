@@ -118,6 +118,13 @@ toc:
           label: Querying the database
           topics: 
           - query/cloudant-query.md
+          - query/query-parameters.md
+          - query/work-with-indexes.md
+          - query/create-selector-expressions.md
+          - query/selector-syntax.md
+          - query/cloudant-operators.md
+          - query/more-about-text-indexes.md
+          - query/movies-demo-database.md
           - query/creating_views.md
           - query/using_views.md
           - query/search.md
