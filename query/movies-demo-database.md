@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-20"
+lastupdated: "2022-12-16"
 
 keywords: examples, demo database
 
@@ -12,7 +12,7 @@ subcollection: Cloudant
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Movies' demo database example
+# Movies demo database example
 {: #example-movies-demo-database}
 
 The following example uses HTTP to create a `text` index for your sample database.
