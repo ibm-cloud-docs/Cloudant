@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-12-13"
 
 keywords: log analysis, integration, provisioning log analysis, hipaa
 
@@ -41,7 +41,7 @@ Log information from your databases is automatically forwarded to {{site.data.ke
 This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account with {{site.data.keyword.loganalysisfull_notm}} integration sending logs to your {{site.data.keyword.loganalysisfull_notm}} service. For more information, see the list of [integrated services](/docs/log-analysis?topic=log-analysis-cloud_services#cloud_services){: external}.
 {: .tip}
 
-{{site.data.keyword.loganalysisfull_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/log-analysis?topic=log-analysis-service_plans){: external}.
+{{site.data.keyword.loganalysisfull_notm}} has a Lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/log-analysis?topic=log-analysis-service_plans){: external}.
 
 ### HIPAA
 {: #hipaa_log-analysis}
