@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-12-15"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -27,7 +27,7 @@ In this documentation, when a feature, or an aspect of a feature, applies only t
 {: #view-concepts}
 
 Views are mechanisms for working with document content in databases.
-A view can selectively filter documents and speedup searching for content.
+A view can selectively filter documents and speed up the search for content.
 It can be used to pre-process the results before they're returned to the client.
 
 Views are simply JavaScript functions, which are defined within the `views` field of a design document.
@@ -54,7 +54,7 @@ you might want to find out which user completed the online registration and has 
 You might find this information by inspecting each document, and
 looking for a field in the document called "email_verified" and getting the value of "email".
 If the field is present and has the value `true`,
-the user has completed the registration and you can contact them by email.
+it means the user completed the registration, and you can contact them by email.
 If the field isn't present or has a value of something else than `true`,
 the user didn't complete the registration.
 
@@ -289,7 +289,7 @@ The numeric reducers also calculate multiple reductions when the value of an ind
 ```
 {: codeblock}
 
-The previous definition calculates statistics on the numerical values it finds in the array that is emitted as the index's value. The values are returned as an array in the same order as supplied in the map function:
+The previous definition calculates statistics on the numerical values that it finds in the array that is emitted as the index's value. The values are returned as an array in the same order as supplied in the map function:
 
 ```json
 {"rows":[
@@ -522,7 +522,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-Following sample will add a new `getVerifiedEmails` named view function to the `allusers` design document with view definition:
+The following sample adds a new `getVerifiedEmails` named view function to the `allusers` design document with view definition:
 
 ```json
 {
