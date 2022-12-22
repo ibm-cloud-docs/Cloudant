@@ -92,8 +92,9 @@ Throughput provision is identified and measured as one of the following types of
         -	MapReduce View ([`_view`](/docs/Cloudant?topic=Cloudant-using-views#using-views))
         -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-cloudant-search#queries))
         -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: external})
-    
-        The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
+
+The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
+{: tip}
 
 2.	*Writes*,
     which are creation,

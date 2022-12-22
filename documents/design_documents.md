@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-12-06"
+lastupdated: "2022-12-22"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -158,7 +158,7 @@ Destination: _design/$COPY_OF_DDOC
 
 See the following example command to copy a design document:
 
-The Cloudant SDKs currently do not support the HTTP COPY method.
+The {{site.data.keyword.cloudant_short_notm}} SDKs currently do not support the HTTP COPY method.
 {: note}
 
 
@@ -667,8 +667,8 @@ GET $SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new HTT
 
 See the following example of supplying a `req` argument:
 
-The Cloudant SDKs currently do not support `status` option for `_changes` request.
-{: note}
+The {{site.data.keyword.cloudant_short_notm}} SDKs currently do not support `status` option for `_changes` request.
+{: important}
 
 ```sh
 curl "$SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new"

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-12-19"
+lastupdated: "2022-12-23"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -60,7 +60,7 @@ Your indexing functions operate in a memory-constrained environment where the do
 {: note}
 
 Within a search index, don't index the same field name with more than one data type. If the same field name is indexed with different data types in the same search index function, you might get an error. This error occurs when you query the search index that says the field `was indexed without position data`. For example, don't include both of these lines in the same search index function. These lines index the `myfield` field as two different data types, a string `"this is a string"` and a number `123`.
-{: note}
+
 
 ```json
 index("myfield", "this is a string");
@@ -779,7 +779,6 @@ You must enable [faceting](#faceting) before you can use the following parameter
 {: caption="Table 3. Query parameters" caption-side="top"}
 
 Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when you try to contact replicas that are slow or not available.
-{: note}
 
 Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
 {: important}
@@ -944,7 +943,6 @@ the response skips the rows that were seen already,
 making it quick and easy to get the next set of results.
 
 The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters-search) is included in the search query.
-{: tip}
 
 The `group_field`, `group_limit`, and `group_sort` options are only available when you make global queries.
 {: tip}
@@ -1031,7 +1029,6 @@ You can check the type by using the `typeof` operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
-{: note}
 
 See the following example query that uses the `counts` facet syntax: 
 
@@ -1095,7 +1092,6 @@ You can check the type by using the `typeof` operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
-{: note}
 
 See the following example of a request that uses faceted search for matching `ranges`:
 

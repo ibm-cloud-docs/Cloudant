@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-22"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -320,7 +320,6 @@ Adding `stale=ok` or `stale=update_after` can be a good way of getting answers m
 but at the expense of freshness. 
 
 The default behavior distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster. If you use the alternative `stale=ok` or `stale=update_after` options, these options might favor a subset of cluster nodes in order to return consistent results from across the eventually consistent set. The `stale` parameter isn't a perfect solution for all use cases. However, it can provide timely responses on fast-changing data sets if your application is happy to accept stale results. If your data's change rate is small, adding `stale=ok` or `stale=update_after` doesn't bring a performance benefit, and might unevenly distribute the load on larger clusters.
-{: note}
 
 Avoid `stale=ok` or `stale=update_after` whenever possible because the default behavior provides the freshest data,
 and distributes data within the cluster.

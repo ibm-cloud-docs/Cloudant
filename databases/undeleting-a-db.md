@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-03"
+lastupdated: "2022-12-23"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -15,10 +15,10 @@ subcollection: Cloudant
 # Undeleting a database
 {: #undelete}
 
+The undelete API capability does not automatically or immediately remove the data and any indexes in the database after a delete operation. Instead, the undelete API restores the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion after which time they are permanently deleted and cannot be recovered by using this API endpoint.
+
 The database endpoint to view deleted databases and recover them with the undelete operation is only available with {{site.data.keyword.cloudantfull}} on Transaction Engine. This endpoint requires the IAM service role of Manager.
 {: important} 
-
-The undelete API capability does not automatically or immediately remove the data and any indexes in the database after a delete operation. Instead, the undelete API restores the deleted data back to the original state after an accidental delete or undesired delete operation. Databases can be restored for up to 48 hours after deletion after which time they are permanently deleted and cannot be recovered by using this API endpoint.
 
 ## `GET /_deleted_dbs`
 {: #get-deleted_dbs}

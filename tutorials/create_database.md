@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-12-23"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -281,7 +281,6 @@ document that is stored in a database
 is always the first document that is returned in a list of results. 
 This notion doesn't
 necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}.
-{: tip}
 
 ### Full retrieval of a document
 {: #full-retrieval-of-a-document}
