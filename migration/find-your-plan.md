@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-30"
+  years: 2021, 2023
+lastupdated: "2023-01-03"
 
 keywords: ibm cloudant plan, standard plan, lite plan, legacy enterprise plan
 
@@ -20,9 +20,9 @@ You can subscribe to different {{site.data.keyword.cloudant_short_notm}} plans, 
 
 The following steps show where you can see the type of plan that you selected.   
 
-1.  Go to the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/).
+1.  Go to the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/).
 2. Authenticate with your username and password.  
-   The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
+   The {{site.data.keyword.cloud_notm}} Dashboard opens to the Resource list.
 3. Click an instance to find more information.
 4. Click **Plan**.  
    A checkmark indicates the plan that you use as shown in the following screen capture.  
@@ -36,9 +36,9 @@ The following steps show where you can see the type of plan that you selected.
 ## Finding your legacy Enterprise plan
 {: #finding-your-legacy-enterprise-plan}
 
-You can find your Enterprise plan in the {{site.data.keyword.cloudant_short_notm}} dashboard by following these steps. 
+You can find your Enterprise plan in the {{site.data.keyword.cloudant_short_notm}} Dashboard by following these steps. 
 
-1. Open the {{site.data.keyword.cloudant_short_notm}} dashboard.  
+1. Open the {{site.data.keyword.cloudant_short_notm}} Dashboard.  
    For more information, see the [Getting started](/docs/Cloudant?topic=Cloudant-navigate-the-dashboard) tutorial.
 2. If you're using a legacy Enterprise `cloudant.com` account, click **Account**.
 3. Review your `cloudant.com` Enterprise account on a dedicated cluster.  

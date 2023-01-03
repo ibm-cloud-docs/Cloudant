@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-08-31"
+  years: 2020, 2023
+lastupdated: "2023-01-03"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -218,7 +218,7 @@ In the following example, a quantity of 0-Gigabyte Hours reflects that the insta
 ## More explanation about how pricing works
 {: #how-does-pricing-work-on-cloudant-txe}
 
-In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or by using an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
+In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} Dashboard or by using an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
 ![IBM Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}
 

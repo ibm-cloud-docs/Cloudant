@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-08"
+  years: 2020, 2023
+lastupdated: "2023-01-03"
 
 keywords: use dedicated hardware plan, create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -22,13 +22,13 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. 
+This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} Dashboard. 
 {: shortdesc}
 
 After that exercise, you learn how to provision one or more Standard plan instances to run on the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance by using either the {{site.data.keyword.cloud_notm}} catalog or the {{site.data.keyword.cloud_notm}} CLI. 
 
 When you create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware is created for your sole use. A service 
-instance for the Dedicated Hardware plan environment is also created in the {{site.data.keyword.cloud_notm}} dashboard. You can't access the Dedicated Hardware plan instance directly, or have 
+instance for the Dedicated Hardware plan environment is also created in the {{site.data.keyword.cloud_notm}} Dashboard. You can't access the Dedicated Hardware plan instance directly, or have 
 any Service Credentials for it. Instead, you use your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware 
 plan instance by creating one or more Standard plan instances on it, and managing the Standard plan instances directly.
 
@@ -48,10 +48,10 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.
 
-    The {{site.data.keyword.cloud_notm}} dashboard can be found by using the following website:
+    The {{site.data.keyword.cloud_notm}} Dashboard can be found by using the following website:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
     After you authenticate with your username and password,
-    the {{site.data.keyword.cloud_notm}} dashboard opens. 
+    the {{site.data.keyword.cloud_notm}} Dashboard opens. 
 
 2.  Click **Create resource**. 
 
@@ -61,7 +61,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
 5.  Select an environment.
 
-    For Dedicated Hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
+    For Dedicated Hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} Dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
     {: note}
 
     a. Click **Dedicated**.
@@ -111,10 +111,10 @@ After your instance is created, you must create a Standard plan on it by selecti
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.
 
-    The {{site.data.keyword.cloud_notm}} dashboard can be found at:
+    The {{site.data.keyword.cloud_notm}} Dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
     After you authenticate with your username and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click **Create resource**.
+    you're presented with the {{site.data.keyword.cloud_notm}} Dashboard. Click **Create resource**.
 
 2.  Type `Cloudant` in the Search bar and click to search.
 
@@ -125,7 +125,7 @@ After your instance is created, you must create a Standard plan on it by selecti
 
 4.  Select an environment.
 
-    For Dedicated Hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
+    For Dedicated Hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} Dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.
     {: note}
 
     a. Click **Dedicated**.
@@ -159,7 +159,7 @@ After your instance is created, you must create a Standard plan on it by selecti
 
     ![Provision a standard plan by using the create button.](images/create_button_provision_standard.png){: caption="Figure 7. Standard instance" caption-side="bottom"}
 
-7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance.
+7.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance.
 
     For more information, see [how to locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials){: external}.
 
@@ -227,7 +227,7 @@ ibmcloud resource service-instance-create cloudant-dedicated-with-byok cloudantn
 
 | Parameter | Description |
 |----------|------------|
-| `environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. |
+| `environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} Dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. |
 | `legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) for more details on choosing an authentication method. |
 {: caption="Table 4. Parameters" caption-side="top"}
 
