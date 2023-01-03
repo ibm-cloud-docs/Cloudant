@@ -550,6 +550,9 @@ function(doc, req){
 ```
 {: codeblock}
 
+### Changes feed filter functions
+{: #changes-feed-filter-functions}
+
 To apply a filter function to the changes feed,
 include the `filter` parameter in the `_changes` query,
 providing the name of the filter to use.
@@ -566,6 +569,7 @@ See the following examples of a filter function applied to a `_changes` query:
 ```sh
 curl -X POST "$SERVICE_URL/orders/_changes?filter=example_design_doc/example_filter" -H "Content-Type: application/json" -d '{}'
 ```
+{: codeblock}
 {: curl}
 
 ```python
@@ -648,6 +652,9 @@ import (
 ```
 {: codeblock}
 {: go}
+
+#### Filter function `req` argument
+{: #changes-feed-req-filter-functions}
 
 The `req` argument gives you access to aspects of the HTTP request by using the `query` property.
 
