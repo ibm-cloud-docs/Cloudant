@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-01"
+  years: 2015, 2023
+lastupdated: "2023-01-03"
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
 
@@ -23,7 +23,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates how to use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance. You also see essential information to enable your application to work with the database. 
+The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates how to use the {{site.data.keyword.cloud}} Dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance. You also see essential information to enable your application to work with the database. 
 {: shortdesc} 
 
 ## Objectives
@@ -38,12 +38,12 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click `Create resource`.  
 
-    ![{{site.data.keyword.cloud_notm}} dashboard, which includes Build tile, Monitor your resources tile, Create and deploy an application tile, API Connect tile, Integrate Watson with anything tile, and Watson starter kits tile. ](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} dashboard" caption-side="bottom"}
+    ![{{site.data.keyword.cloud_notm}} Dashboard, which includes Build tile, Monitor your resources tile, Create and deploy an application tile, API Connect tile, Integrate Watson with anything tile, and Watson starter kits tile. ](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} Dashboard" caption-side="bottom"}
 
-    The {{site.data.keyword.cloud_notm}} dashboard can be found at:
+    The {{site.data.keyword.cloud_notm}} Dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
     After you authenticate with your username and password,
-    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. 
+    you're presented with the {{site.data.keyword.cloud_notm}} Dashboard. 
     {: note}
     
 2.  Type `Cloudant` in the Search bar and click to open it.

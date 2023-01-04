@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-06"
+  years: 2015, 2023
+lastupdated: "2023-01-03"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -271,7 +271,7 @@ When an {{site.data.keyword.cloudant_short_notm}} service is provisioned, you ca
 
 How are credentials generated?
 
-In the {{site.data.keyword.cloud_notm}} dashboard under your {{site.data.keyword.cloudant_short_notm}} service, in the **Service Credentials** tab, click **New Credential**. A JSON document is created that contains the IAM key, the basic auth username and password, and the {{site.data.keyword.cloudant_short_notm}} hostname.
+In the {{site.data.keyword.cloud_notm}} Dashboard under your {{site.data.keyword.cloudant_short_notm}} service, in the **Service Credentials** tab, click **New Credential**. A JSON document is created that contains the IAM key, the basic auth username and password, and the {{site.data.keyword.cloudant_short_notm}} hostname.
 
 See the example set of credentials:
 
@@ -290,7 +290,7 @@ Log in to {{site.data.keyword.cloud_notm}} and locate the {{site.data.keyword.cl
 
 Then, visit the URL specified in the credentials JSON - what do you see?
 
-To summarize, credentials are generated from the {{site.data.keyword.cloud_notm}} dashboard. You can have IAM or both IAM + legacy credentials. Both authentication methods involve exchanging your credentials for a time-limited token (authentication) - the token is then updated periodically as you use the service. The official libraries handle all of these tasks for you.
+To summarize, credentials are generated from the {{site.data.keyword.cloud_notm}} Dashboard. You can have IAM or both IAM + legacy credentials. Both authentication methods involve exchanging your credentials for a time-limited token (authentication) - the token is then updated periodically as you use the service. The official libraries handle all of these tasks for you.
 
 That's the end of this part. The next part is called *The Dashboard*.
 

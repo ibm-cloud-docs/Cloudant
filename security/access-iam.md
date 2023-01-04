@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-08-04"
+  years: 2020, 2023
+lastupdated: "2023-01-03"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -823,4 +823,4 @@ If you can't use IAM to authenticate when you make requests to your {{site.data.
 ### Ensure that your account is IAM enabled
 {: #ensure-your-account-is-iam-enabled-ai}
 
-On the Overview portion of the {{site.data.keyword.cloudant_short_notm}} dashboard, "authentication method" is listed under deployment details. Your available authentication methods are listed there.
+On the Overview portion of the {{site.data.keyword.cloudant_short_notm}} Dashboard, "authentication method" is listed under deployment details. Your available authentication methods are listed there.
