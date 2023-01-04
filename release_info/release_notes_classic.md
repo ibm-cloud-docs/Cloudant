@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-12-01"
+lastupdated: "2022-12-22"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -216,7 +216,8 @@ Views
 {: #Cloudant-jan2822}
 {: release-note}
 
-It is now possible to switch authentication methods from `Legacy Credentials and IAM` to `IAM only` by using the {{site.data.keyword.cloud_notm}} console.
+Switch `Legacy Credentials and IAM` to `IAM only`
+:   It is now possible to switch authentication methods from `Legacy Credentials and IAM` to `IAM only` by using the {{site.data.keyword.cloud_notm}} console.
 
 ## December 2021
 {: #cloudant-dec21}
@@ -863,9 +864,9 @@ Configuration option
 {: #Cloudant-sep1318}
 {: release-note}
 
-From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
-
-{{site.data.keyword.cloudant_short_notm}} recommends that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
+TLS 1.3 connection support
+:   From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}. 
+:   {{site.data.keyword.cloudant_short_notm}} recommends that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}. 
 ***(In June 2019, {{site.data.keyword.cloudant_short_notm}} retired the use of older
 versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ is supported.)*** Find more information on the [Security page](/docs/Cloudant?topic=Cloudant-security#security).
 
