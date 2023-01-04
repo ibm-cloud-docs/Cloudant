@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-10-20"
+lastupdated: "2022-12-23"
 
 keywords: create index, query, json index type, text index type, query parameters, selector expressions, sort, filter, pagination, selector syntax
 
@@ -26,7 +26,6 @@ result in a full database scan when you use indexes of type JSON,
 resulting in poor performance. Only equality operators, such as `$eq`,
 `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups. To ensure that indexes are used effectively, analyze the
 [explain plan](#explain-plans) for each query.  
-{: tip}
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently *based* on
@@ -91,7 +90,6 @@ To use sorting, ensure that the following are true:
 -	Each object in the sort array has a single key.
 
 If an object in the sort array doesn't have a single key, the resulting sort order is implementation-specific and might change.
-{: tip}
 
 Currently, {{site.data.keyword.cloudant_short_notm}} Query doesn't support multiple fields with different sort orders,
 so the direction must either be all ascending or all descending.
@@ -129,7 +127,6 @@ in all documents is created when you use the syntax:
 {: tip}
 
 The sorting order is undefined when fields contain different data types. This characteristic is an important difference between text and view indexes. Sorting behavior for fields with different data types might change in future versions.
-{: tip}
 
 See the following example of a simple query that uses sorting:
 

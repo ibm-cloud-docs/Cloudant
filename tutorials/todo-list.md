@@ -84,7 +84,7 @@ In this step, you install all the code dependencies and environment variables yo
    {: codeblock}
 
 When you run this command for the first time, your code detects that no database exists. The code creates a database for you with some indexes (by date and by tag) as well as some sample data.
-{: tip}
+{: note}
 
 ## Visit your website!
 {: #visit-website}

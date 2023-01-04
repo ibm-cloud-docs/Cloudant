@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-23"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -20,6 +20,9 @@ Attachments are Binary Large OBject ([BLOB](https://en.wikipedia.org/wiki/Binary
 files that are included within documents.
 {: shortdesc}
 
+It's a good idea to keep attachments small in size and number because attachments can impact performance.
+{: important}
+
 The BLOB is stored in the `_attachments` component of the document.
 The BLOB holds data that includes the following information:
 
@@ -36,9 +39,6 @@ The content type corresponds to a [MIME type](https://en.wikipedia.org/wiki/Inte
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
-
-It's a good idea to keep attachments small in size and number because attachments can impact performance.
-{: important}
 
 Attachments aren't permitted on documents in [`_replicator`](/apidocs/cloudant#postreplicate){: external} or [`_users`](/apidocs/cloudant#putsecurity){: external} databases.
 {: important}

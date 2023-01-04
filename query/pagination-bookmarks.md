@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-12-15"
+lastupdated: "2022-12-23"
 
 keywords: _all_docs endpoint, skip, limit, endkey, query, search, paging, mapreduce views
 
@@ -90,7 +90,7 @@ GET /mydb/_all_docs?limit=100&endkey="moose"
 
 This practice means you define the size of the data set and the range of the `_id` field to return, but that isn't quite the same as pagination.
 
-The `startkey`/`endkey` values are in double quotation marks because they're expected to be JSON-encoded and `JSON.stringify('moose') === "moose"`.
+The `"startkey"`/`"endkey"` values are in double quotation marks because they're expected to be JSON-encoded and `JSON.stringify('moose') === "moose"`.
 {: note}
 
 ## Pagination options

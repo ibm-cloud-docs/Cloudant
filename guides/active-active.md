@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-11-03"
+lastupdated: "2022-12-22"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -310,7 +310,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 
 For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: external} and monitor replication status.
 
-If a database is being changed continuously, the replication status is unlikely to zero. You must decide what status threshold is acceptable, or what represents an error state.
+If a database is being changed continuously, the replication status is unlikely to be zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}
 
 ### Indexes

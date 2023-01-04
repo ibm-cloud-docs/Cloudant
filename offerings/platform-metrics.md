@@ -69,8 +69,8 @@ Complete the following steps to configure platform metrics:
 
 5. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
-   After you provision the Monitoring instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
-   {: note}
+    After you provision the Monitoring instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
+
 
 
 ## Viewing metrics

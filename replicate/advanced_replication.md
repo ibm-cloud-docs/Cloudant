@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-12-23"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -126,7 +126,6 @@ If the result is true,
 the document is replicated.
 
 To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/apidocs/cloudant#postfind){: external} documentation. 
-{: note}
 
 See the following example of a filter function:
 
@@ -186,7 +185,6 @@ See example JSON for starting a filtered replication with supplied parameters:
 {: codeblock}
 
 The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/apidocs/cloudant#postfind){: external} documentation.
-{: note}
 
 ## Named document replication
 {: #named-document-replication}

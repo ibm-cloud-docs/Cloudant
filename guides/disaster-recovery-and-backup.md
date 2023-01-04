@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-12-23"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -179,7 +179,6 @@ Specifically,
 -	Restore complete databases from a previous state that is contained in your backup file.
 
 The tools that are supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
-{: tip}
 
 -	`_security` settings aren't backed up by the tools.
 -	Attachments aren't backed up by the tools.
