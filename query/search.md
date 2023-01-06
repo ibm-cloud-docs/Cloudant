@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-23"
+  years: 2015, 2023
+lastupdated: "2023-01-09"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -204,7 +204,8 @@ if (typeof doc.min_length) !== 'undefined') {
 ## Analyzers
 {: #analyzers}
 
-Analyzers are settings that define how to recognize terms within text.
+Analyzers are settings that define how to recognize terms within text. For more information, see [Search analyzers](/docs/Cloudant?topic=Cloudant-search-analyzers).
+
 Analyzers can be helpful if you need to [index multiple languages](#language-specific-analyzers).
 
 The following table shows a list of generic analyzers that are supported by {{site.data.keyword.cloudant_short_notm}} search:

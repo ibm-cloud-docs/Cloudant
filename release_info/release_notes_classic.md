@@ -220,9 +220,9 @@ Security
 Views
 :   Track ICU collator version used to build the view and expose this information in existing endpoints.
 
-- Exposes list of collator versions in `_design/*/_info` endpoint response.
+:   Exposes list of collator versions in `_design/*/_info` endpoint response.
 
-- The opaque collator version in `_node/*/_versions` endpoint response.
+:   The opaque collator version in `_node/*/_versions` endpoint response.
 
 ## January 2022
 {: #cloudant-jan22}
@@ -346,9 +346,9 @@ Replication support
 Basic auth credentials
 :   No longer display basic auth credentials (for example, `username:*****`) in the output of these endpoints:
 
-- `_scheduler/jobs`
-- `_scheduler/docs`
-- `_active_tasks`
+    - `_scheduler/jobs`
+    - `_scheduler/docs`
+    - `_active_tasks`
 
 ## April 2021
 {: #cloudant-apr21}
@@ -561,15 +561,16 @@ Empty payload
 Multiple restrictions employed for performance gains
 :   {{site.data.keyword.IBM_notm}} released exciting new capabilities for {{site.data.keyword.cloudant_short_notm}} that are available now. {{site.data.keyword.cloudant_short_notm}} documented the deprecation of some functionality, and also, new restrictions for other processes. A communication was  released that details the exact timeline when these restrictions go into effect. If you use any of the following functions or are concerned about how to make the necessary application changes, reach out to support by email. The following functions are affected by this deprecation:
 
-- Remove the `offset` field from the response body of an `all_docs` request. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use paging with `start_key` / `end_key` and `limit`.
-- The `_sorted` field has no functional effect because all responses are sorted automatically.
-- Duration of operations has a 5-second limit. Transactions lasting more than 5 seconds fail.
-- Limitations on keys (10 KB) and values (100 KB) that are emitted from a map function are shown in the following list:
-   - The sum of all keys that are emitted for a document cannot exceed 100 KB.
-   - Emitted keys cannot exceed 10 KB.
-   - Values cannot exceed 100 KB.
-   - In rare cases, the number of key-value pairs that are emitted for a map function can affect database performance or violate {{site.data.keyword.cloudant_short_notm}} rules. For example, the number of key-value pairs might lead to a transaction either exceeding 10 MB, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
-- The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
+   - Remove the `offset` field from the response body of an `all_docs` request. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use paging with `start_key` / `end_key` and `limit`.
+
+   - The `_sorted` field has no functional effect because all responses are sorted automatically.
+   - Duration of operations has a 5-second limit. Transactions lasting more than 5 seconds fail.
+   - Limitations on keys (10 KB) and values (100 KB) that are emitted from a map function are shown in the following list:
+      - The sum of all keys that are emitted for a document cannot exceed 100 KB.
+      - Emitted keys cannot exceed 10 KB.
+      - Values cannot exceed 100 KB.
+      - In rare cases, the number of key-value pairs that are emitted for a map function can affect database performance or violate {{site.data.keyword.cloudant_short_notm}} rules. For example, the number of key-value pairs might lead to a transaction either exceeding 10 MB, which isn’t allowed, or exceeding 5 MB, which impacts the performance of the database. In this situation, {{site.data.keyword.cloudant_short_notm}} returns an error.
+   - The `stable = true` option is no longer supported, and the `stale = "ok"` option is converted to `update = false`.
 
 ### 15 October 2019
 {: #Cloudant-oct1519}
@@ -676,9 +677,9 @@ The following changes were made in build 8052:
     now includes information about the contained partitioned indexes. The new field, `partitioned_indexes`, contains the following
     information:
 
-- The current number of partitioned indexes in the database (`count`).
-- A breakdown of those indexes by type (`indexes`).
-- The maximum partitioned indexes allowed for this database (`limit`).
+   - The current number of partitioned indexes in the database (`count`).
+   - A breakdown of those indexes by type (`indexes`).
+   - The maximum partitioned indexes allowed for this database (`limit`).
 
 ## March 2019
 {: #cloudant-mar19}
@@ -1072,8 +1073,8 @@ Pluggable storage engine
 Replaced `queries` parameter
 :   The `queries` parameter for performing multiple view queries in a single request is no longer accepted as a URL parameter for `GET /{db}/_design/{ddoc}/_view/{view}` or a request body parameter for `POST /{db}/_design/{ddoc}/_view/{view}`. The parameter was replaced with the endpoint `POST /{db}/_design/{ddoc}/_view/{view}/queries` and is supplied as a `queries` request body parameter. You can also make multiple queries with the following new endpoints:
 
-- `POST /{db}/_all_docs/queries`
-- `POST /{db}/_design_docs/queries`
+   - `POST /{db}/_all_docs/queries`
+   - `POST /{db}/_design_docs/queries`
 
 Sending several queries to a view
 :   Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: external}. For more information, see the previous deprecation note about replacing the `queries` parameter.
@@ -1340,10 +1341,10 @@ The following changes were made in build 6233:
 Revised error message
 :   The error message that occurs when you try to put a document attachment with a nonexistent revision. This error is changed to a 409 error with the following information:
 
-```sh
-{"error":"not_found","reason":"missing_rev"}
-```
-{: codeblock}
+    ```sh
+    {"error":"not_found","reason":"missing_rev"}
+    ```
+    {: codeblock}
 
 ## May 2017
 {: #cloudant-may17}
