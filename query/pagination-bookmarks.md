@@ -357,14 +357,14 @@ The `startkey`/`endkey` values are in double quotation marks because they're exp
 ## Pagination options
 {: #pagination-options}
 
-You must devise an algorithm to page through the range of documents in an orderly and performant manner. For example, you must page through `_all_docs` in blocks of 5. 
+For performance reasons, if you are displaying large amounts of data, you should consider using pagination. In these examples, documents are fetched in blocks of 5, but in a real application the page size may be different and will depend on document size, latency demands, memory consumption and other trade-offs.
 
 You can use the options that are described in the following sections.
 
 ### Option 1 - Fetch one document too many
 {: #option-1-fetch-one-doc-too-many}
 
-Instead of fetching 5 documents (`limit=5`), fetch 6 (`limit=6`), but hide the 6th document from your users. The `_id` of the 6th document becomes the `startkey` of your request for the next page of results.
+Instead of fetching 5 documents (`limit=5`), fetch 5+1 (`limit=6`), but hide the 6th document from your users. The `_id` of the 6th document becomes the `startkey` of your request for the next page of results.
 
 First request:
 {: curl}
@@ -453,7 +453,7 @@ import json
 from ibmcloudant.cloudant_v1 import CloudantV1
 
 service = CloudantV1.new_instance()
-page_size = 6
+page_size = 5
 
 response = service.post_all_docs(
   db='orders',
@@ -577,7 +577,7 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-This option works, but you end up fetching n+1 documents when only n are required.
+This option works, but you end up fetching `n+1` documents when only `n` are required.
 
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
@@ -599,7 +599,7 @@ import com.ibm.cloud.cloudant.v1.model.AllDocsResult;
 import com.ibm.cloud.cloudant.v1.model.DocsResultRow;
 import com.ibm.cloud.cloudant.v1.model.PostAllDocsOptions;
 
-Long pageSize = 6L;
+Long pageSize = 5L;
 PostAllDocsOptions.Builder docsOptionsBuilder =
         new PostAllDocsOptions.Builder()
                 .db("orders")
@@ -658,7 +658,7 @@ import json
 from ibmcloudant.cloudant_v1 import CloudantV1
 
 service = CloudantV1.new_instance()
-page_size = 6
+page_size = 5
 
 response = service.post_all_docs(
     db='orders',
@@ -678,7 +678,7 @@ while len(response["rows"]) > 0:
 {: python}
 
 ```go
-pageSize := core.Int64Ptr(6)
+pageSize := core.Int64Ptr(5)
 postAllDocsOptions := service.NewPostAllDocsOptions(
     "orders",
 )
@@ -889,7 +889,7 @@ while len(response["rows"]) > 0:
 {: python}
 
 ```go
-pageSize := core.Int64Ptr(6)
+pageSize := core.Int64Ptr(5)
 diet := "herbivore"
 viewOptions := service.NewPostViewOptions(
     "animaldb",
