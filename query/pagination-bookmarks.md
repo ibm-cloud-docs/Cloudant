@@ -443,7 +443,7 @@ async function paginate(pageSize) {
   }
 }
 
-paginate(6)
+paginate(5)
  ```
 {: codeblock}
 {: node}
@@ -648,7 +648,7 @@ async function paginate(n) {
   }
 }
 
-paginate(6)
+paginate(5)
  ```
 {: codeblock}
 {: node}
