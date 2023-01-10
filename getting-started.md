@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-03"
+lastupdated: "2023-01-10"
 
 keywords: example, connect to service instance, create service instance, service credentials, instance
 
@@ -50,7 +50,8 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
 3.  Select an offering and an environment.  
 
-4.  Type an instance name. </br>
+4.  Type an instance name.
+
 
     ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials.](tutorials/images/img0005b.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} service name and credentials" caption-side="bottom"}
 
@@ -59,7 +60,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
     The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
  
-5.  Select your plan. </br>
+5.  Select your plan.
 
 6.  To create the service, click `Create`:
 

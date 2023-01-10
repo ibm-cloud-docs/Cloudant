@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-09"
+lastupdated: "2023-01-13"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -78,11 +78,10 @@ The Dedicated Hardware plan isn't available to {{site.data.keyword.cloud_notm}} 
 
 Throughput provision is identified and measured as one of the following types of request classes:
 
-1.	*Reads*
+1.  *Reads*
     (formerly called lookups) which are described in this list.
 
-    1. A read of a specific document,
-    based on the `_id` of the document.
+    1. A read of a specific document, based on the `_id` of the document.
 
     2. A *partitioned* query,
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}}
@@ -93,15 +92,15 @@ Throughput provision is identified and measured as one of the following types of
         -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-cloudant-search#queries))
         -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: external})
 
-The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
-{: tip}
+        The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
+        {: tip}
 
-2.	*Writes*,
+2.  *Writes*,
     which are creation,
     modification,
     or deletion of individual documents.
 
-3.	*Global Queries* to global indexes (formerly called queries),
+3.  *Global Queries* to global indexes (formerly called queries),
         which are requests that are made to an {{site.data.keyword.cloudant_short_notm}}
         query endpoint **not** within the `_partition` namespace,
     including the following types:
