@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-22"
+  years: 2015, 2023
+lastupdated: "2023-01-11"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -19,6 +19,21 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## January 2023
+{: #cloudant-jan23}
+
+### 11 January 2023
+{: #Cloudant-jan1123}
+{: release-note}
+
+The following changes were made in build 8349:
+
+IAM trusted profiles
+:   Fix bug in IAM trusted profiles.
+
+Runtime environment
+:   Upgrade runtime environment to Erlang/OTP 24.
 
 ## November 2022
 {: #cloudant-nov22}
@@ -301,8 +316,8 @@ Indexes
 
 The following changes were made in build 8202:
 
-IAM Trusted Profiles
-:   Support IAM Trusted Profiles.
+IAM trusted profiles
+:   Support IAM trusted profiles.
 
 ### 15 August 2021
 {: #Cloudant-aug1521}
