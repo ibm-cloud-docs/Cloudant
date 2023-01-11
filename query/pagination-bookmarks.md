@@ -582,7 +582,8 @@ This option works, but you end up fetching `n+1` documents when only `n` are req
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
 
-If you're determined to fetch only `n` documents each time, then you need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in the first page of results is "example", what must the `startkey` of the next call to `_all_docs` be? It can't be "example", otherwise you get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
+If you're determined to fetch only `n` documents each time, then you need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in the first page of results is "example", what must the `startkey` of the next call to `_all_docs` be? It can't be "example", otherwise you get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which can be placed in a URL as-is or with the percent code `%00`).
+). 
 
 First request:
 {: curl}
