@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-03"
+lastupdated: "2023-01-11"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -18,14 +18,14 @@ subcollection: Cloudant
 The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}}. Then the videos walk you through document structure, the API, indexing and querying, and include an *Under the Hood* topic that highlights the architecture that powers the service.
 {: shortdesc}
 
-You can use the [playlist](https://youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing.
+You can use the [playlist](https://www.youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing.
 
 ## Introduction to {{site.data.keyword.cloudant_short_notm}} video
 {: #cloudant-course-intro-video}
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} 18-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service. 
 
-![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="Introduction to IBM Cloudant video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://www.youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="Introduction to IBM Cloudant video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Introduction to {{site.data.keyword.cloudant_short_notm}} video script
 {: #cloudant-course-intro-video-script}
@@ -65,7 +65,7 @@ That's the end of this part. The next part is called *The Document*.
 
 Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents work. 
 
-![The Document](https://youtube.com/embed/zlfPQ5cl2Zo){: video output="iframe" data-script="#the-document-video-script" id="The Document video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Document](https://www.youtube.com/embed/zlfPQ5cl2Zo){: video output="iframe" data-script="#the-document-video-script" id="The Document video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Document video script
 {: #the-document-video-script}
@@ -150,7 +150,7 @@ That's the end of this part. The next part is called *The Document ID*.
 
 Learn how `_id`s work in {{site.data.keyword.cloudant_short_notm}}, how they are different from relational databases, and how you can define your own `_id`. 
 
-![The _id](https://youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The _id](https://www.youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The _id video script
 {: #the-id-video-script}
@@ -194,7 +194,7 @@ That's the end of this part. The next part is called *The rev token*.
 
 Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token when you add, edit, or delete a document. 
 
-![The rev token](https://youtube.com/embed/T14voAppUl0){: video output="iframe" data-script="#the-rev-token-video-script" id="The rev token video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The rev token](https://www.youtube.com/embed/T14voAppUl0){: video output="iframe" data-script="#the-rev-token-video-script" id="The rev token video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The rev token video script
 {: #the-rev-token-video-script}
@@ -249,7 +249,7 @@ That's the end of this part. The next part is called *Authentication*.
 
 Learn how Legacy authentication and IAM authentication work. You can also learn how {{site.data.keyword.cloudant_short_notm}} generates credentials, and how the three official {{site.data.keyword.cloudant_short_notm}} libraries handle authentication. 
 
-![Authentication](https://youtube.com/embed/7TF2NnjZc78){: video output="iframe" data-script="#authentication-video-script" id="Authentication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Authentication](https://www.youtube.com/embed/7TF2NnjZc78){: video output="iframe" data-script="#authentication-video-script" id="Authentication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Authentication video script
 {: #authentication-video-script}
@@ -298,7 +298,7 @@ That's the end of this part. The next part is called *The Dashboard*.
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} Dashboard and what it has to offer, as well as an introduction into how to use it. 
 
-![The Dashboard](https://youtube.com/embed/Lbs7I6fI2O8){: video output="iframe" data-script="#the-dashboard-video-script" id="The Dashboard video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Dashboard](https://www.youtube.com/embed/Lbs7I6fI2O8){: video output="iframe" data-script="#the-dashboard-video-script" id="The Dashboard video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Dashboard video script
 {: #the-dashboard-video-script}
@@ -346,7 +346,7 @@ That's the end of this part. The next part is called *HTTP API Basics*.
 
 Learn how to use the command line to make HTTP requests and to add, edit, and delete documents. 
 
-![HTTP API Basics](https://youtube.com/embed/0G3J5eJF_jk){: video output="iframe" data-script="#http-api-basics-video-script" id="HTTP API Basics video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![HTTP API Basics](https://www.youtube.com/embed/0G3J5eJF_jk){: video output="iframe" data-script="#http-api-basics-video-script" id="HTTP API Basics video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### HTTP API Basics video script
 {: #http-api-basics-video-script}
@@ -463,7 +463,7 @@ That's the end of this part. The next part is called *The Bulk API*.
 
 Learn how to use two API calls to perform all the basic {{site.data.keyword.cloudant_short_notm}} operations while also acting on more than one document per API call.
 
-![The Bulk API](https://youtube.com/embed/9e_Mx3rX88s){: video output="iframe" data-script="#the-bulk-api-video-script" id="The Bulk API video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Bulk API](https://www.youtube.com/embed/9e_Mx3rX88s){: video output="iframe" data-script="#the-bulk-api-video-script" id="The Bulk API video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Bulk API video script
 {: #the-bulk-api-video-script}
@@ -499,7 +499,7 @@ That's the end of this part. The next part is called *Accessing {{site.data.keyw
 
 Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically. 
 
-![Accessing {site.data.keyword.cloudant_short_notm}} Programmatically](https://youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="Accessing Cloudant Programmatically video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Accessing {site.data.keyword.cloudant_short_notm}} Programmatically](https://www.youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="Accessing Cloudant Programmatically video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Accessing {{site.data.keyword.cloudant_short_notm}} Programmatically video script
 {: #accessing-cloudant-programmatically-video-script}
@@ -550,7 +550,7 @@ That's the end of this part. The next part is called *Querying*.
 
 Learn the different ways to query data in {{site.data.keyword.cloudant_short_notm}}.
 
-![Querying](https://youtube.com/embed/R7xVzn2QxRg){: video output="iframe" data-script="#querying-video-script" id="Querying video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Querying](https://www.youtube.com/embed/R7xVzn2QxRg){: video output="iframe" data-script="#querying-video-script" id="Querying video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Querying video script
 {: #querying-video-script}
@@ -633,7 +633,7 @@ That's the end of this part. The next part is called *Indexing*.
 
 Learn how indexing can speed up your query process. 
 
-![Indexing](https://youtube.com/embed/we2P8mtsnPs){: video output="iframe" data-script="#indexing-video-script" id="Indexing video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Indexing](https://www.youtube.com/embed/we2P8mtsnPs){: video output="iframe" data-script="#indexing-video-script" id="Indexing video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Indexing video script
 {: #indexing-video-script}
@@ -691,7 +691,7 @@ That's the end of this part. The next part is called *MapReduce*.
 
 Learn about MapReduce, which is another way to configure secondary indexes.
 
-![MapReduce](https://youtube.com/embed/T1KFHLe6NsA){: video output="iframe" data-script="#mapreduce-video-script" id="MapReduce video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![MapReduce](https://www.youtube.com/embed/T1KFHLe6NsA){: video output="iframe" data-script="#mapreduce-video-script" id="MapReduce video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### MapReduce video script
 {: #mapreduce-video-script}
@@ -776,7 +776,7 @@ That's the end of this part. The next part is called *Dates*.
 
 Learn about different options for storing a date, or date and time value.
 
-![Dates](https://youtube.com/embed/7b2zFNIK7hU){: video output="iframe" data-script="#dates-video-script" id="Dates video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Dates](https://www.youtube.com/embed/7b2zFNIK7hU){: video output="iframe" data-script="#dates-video-script" id="Dates video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Dates video script
 {: #dates-video-script}
@@ -810,7 +810,7 @@ That's the end of this part. The next part is called *Replication*.
 
 Learn what replication means in {{site.data.keyword.cloudant_short_notm}}, as well as different types of replication and how they work. 
 
-![Replication](https://youtube.com/embed/TxDcumJ-DdA){: video output="iframe" data-script="#replication-video-script" id="Replication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Replication](https://www.youtube.com/embed/TxDcumJ-DdA){: video output="iframe" data-script="#replication-video-script" id="Replication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Replication video script
 {: #replication-video-script}
@@ -875,7 +875,7 @@ That's the end of this part. The next part is called *Partitioned databases*.
 
 Learn how partitioned databases work in {{site.data.keyword.cloudant_short_notm}}, how to assign documents to specific shards, and why partitioned databases improve performance, cost, and scalability. 
 
-![Partitioned databases](https://youtube.com/embed/44PhiYnrGJA){: video output="iframe" data-script="#partitioned-databases-video-script" id="Partitioned databases video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Partitioned databases](https://www.youtube.com/embed/44PhiYnrGJA){: video output="iframe" data-script="#partitioned-databases-video-script" id="Partitioned databases video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Partitioned databases video script
 {: #partitioned-databases-video-script}
@@ -934,7 +934,7 @@ That's the end of this part. The next part is called *{{site.data.keyword.clouda
 
 Learn how to use {{site.data.keyword.cloudant_short_notm}} Search, as well as Lucene query language and faceting. 
 
-![{{site.data.keyword.cloudant_short_notm}} Search](https://youtube.com/embed/4cs5qH3lt5U){: video output="iframe" data-script="#cloudant-search-video-script" id="Cloudant Search video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![{{site.data.keyword.cloudant_short_notm}} Search](https://www.youtube.com/embed/4cs5qH3lt5U){: video output="iframe" data-script="#cloudant-search-video-script" id="Cloudant Search video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### {{site.data.keyword.cloudant_short_notm}} Search video script
 {: #cloudant-search-video-script}
@@ -986,7 +986,7 @@ That's the end of this part. The next part is called *Geospatial*.
 
 Learn how to use geospatial indexes to query data, which is unique to {{site.data.keyword.cloudant_short_notm}}. 
 
-![Geospatial](https://youtube.com/embed/nfDQN_Em4H8){: video output="iframe" data-script="#geospatial-video-script" id="Geospatial video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Geospatial](https://www.youtube.com/embed/nfDQN_Em4H8){: video output="iframe" data-script="#geospatial-video-script" id="Geospatial video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Geospatial video script
 {: #geospatial-video-script}
@@ -1013,7 +1013,7 @@ That's the end of this part. The next part is called *Under the hood*.
 
 Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized. 
 
-![Under the hood](https://youtube.com/embed/kCOTeCnHWJg){: video output="iframe" data-script="#under-the-hood-video-script" id="Under the hood video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Under the hood](https://www.youtube.com/embed/kCOTeCnHWJg){: video output="iframe" data-script="#under-the-hood-video-script" id="Under the hood video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Under the hood video script
 {: #under-the-hood-video-script}
