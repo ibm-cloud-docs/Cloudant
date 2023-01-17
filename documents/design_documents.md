@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-22"
+  years: 2015, 2023
+lastupdated: "2023-01-09"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -199,28 +199,28 @@ Roles permitted
 
 Query Arguments
 
-    Argument 
-    :  `rev`
+   Argument 
+   :  `rev`
 
     Description
-    :  Revision to copy from.
+   :  Revision to copy from.
 
     Optional 
-    :  Yes.
+   :  Yes.
 
-    Type 
-    :  String.
+   Type 
+   :  String.
 
 HTTP Headers
 
 Header
 :  `Destination`
 
-        Description 
-        :  Destination document (and optional revision)
+   Description 
+   :  Destination document (and optional revision)
 
-        Optional
-        :  No.
+   Optional
+   :  No.
 
 The source design document is specified on the request line, while the `Destination` HTTP Header of the request specifies the target document.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-01"
+  years: 2022, 2023
+lastupdated: "2023-01-09"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -29,7 +29,6 @@ You need to create a service instance in {{site.data.keyword.cloudant_short_notm
 
 ## Step 1. The data set
 {: #the-data-set}
-
 
 1. Create a database called `books`.
 

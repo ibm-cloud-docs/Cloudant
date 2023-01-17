@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-07"
+  years: 2015, 2023
+lastupdated: "2023-01-09"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query
 
@@ -19,10 +19,10 @@ Support for the {{site.data.keyword.cloudantfull}} Geospatial capability ends on
 {: shortdesc}
 
 As of 1 February 2023, the following conditions apply:
-
 - Users cannot query `/$DATABASE/_design/$DDOCS/_geo` endpoints. Requests to those endpoints return a `404 Not Found` response.
 - Users can define indexes by using the `st_indexes` keyword in design documents, but those indexes are ignored by the service. This ensures that existing design documents can be updated, and replications that contain geospatial indexes do not fail. Existing Geo indexes will be deleted, and customers will no longer be billed for the space they consume.
 - {{site.data.keyword.cloud}} support will no longer answer questions or assist with issues that are related to the Geospatial feature of the {{site.data.keyword.cloudant_short_notm}} service.
+{: important}
 
 Many simple geospatial queries can be done without using the Geospatial capability that is being removed from the {{site.data.keyword.cloudant_short_notm}} service as described in the [{{site.data.keyword.cloudant_short_notm}} blog post](https://blog.cloudant.com/2022/06/28/Simple-Geospatial-Queries.html){: external}.
 
@@ -38,9 +38,6 @@ These capabilities include GeoJSON, {{site.data.keyword.cloudant_short_notm}} Ge
 - Enable web and mobile developers to enhance their applications by using geospatial operations that go beyond simple bounding boxes.
 - Integrate with existing GIS applications, so that they can scale to accommodate different data sizes, concurrent users, and multiple locations.
 - Provide a NoSQL capability for GIS applications, so that large streams of data can be acquired from devices, sensors, and satellites. This data can then be stored, processed, and syndicated across other web applications.
-
-## {{site.data.keyword.cloudant_short_notm}} Geo overview
-{: #cloudant-nosql-db-geo-overview}
 
 You can use {{site.data.keyword.cloudant_short_notm}} Geo to structure your data by using GeoJSON format.
 Design documents are used to index the data.

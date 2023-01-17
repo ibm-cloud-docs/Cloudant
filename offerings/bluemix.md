@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-03"
+lastupdated: "2023-01-09"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -81,10 +81,10 @@ Throughput provision is identified and measured as one of the following types of
 1.	*Reads*
     (formerly called lookups) which are described in this list.
 
-    a. A read of a specific document,
+    1. A read of a specific document,
     based on the `_id` of the document.
 
-    b. A *partitioned* query,
+    2. A *partitioned* query,
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}}
         query endpoint within the `_partition` namespace in the request path,
         including the following types:

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-06-23"
+  years: 2015, 2023
+lastupdated: "2023-01-09"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -26,7 +26,8 @@ if you start numerous tasks,
 some of them might be scheduled to run later and don't show up under `_active_tasks`
 until they start.
 
-SDK and curl code examples:
+See the following examples of SDK and curl code:
+
 ```sh
 curl "$SERVICE_URL/_active_tasks" 
 ```

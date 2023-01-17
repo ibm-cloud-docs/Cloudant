@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-06-23"
+  years: 2020, 2023
+lastupdated: "2023-01-13"
 
 keywords: legacy, iam access controls, use only iam mode, generate service credentials, iam mode
 
@@ -127,7 +127,7 @@ In most cases, rotating credentials is a straight-forward process:
 However, when you rotate the credentials for a replication, if you are using legacy credentials in the replication document,
 the replication starts from the beginning. To ensure that changes arrive in a timely manner, we advise you to create a
 new replication once it catches up with deleting the previous replication and the associated service credential.
-The process is described in the following list:
+The process is described in the following steps:
 
 1. Generate a replacement service credential. For more information, see [How can I generate service credentials?](#find-service-credentials-iam)
 

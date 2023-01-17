@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-21"
+  years: 2022, 2023
+lastupdated: "2023-01-09"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -90,7 +90,7 @@ A serious concern that every developer must consider is that you can’t safely 
 ## Replication isn't magic
 {: #replication-is-not-magic}
 
-    “So let’s set up three clusters across the world, Dallas, London, Sydney, with bi-directional synchronisation between them to provide real-time collaboration between our 100,000 clients.”
+    “So let’s set up three clusters across the world, Dallas, London, Sydney, with bi-directional synchronization between them to provide real-time collaboration between our 100,000 clients.”
 
 No. Just… No.
 {{site.data.keyword.cloudant_short_notm}} is good at replication. It’s so effortless that it can seem like magic, but note that it makes no latency guarantees. In fact, the whole system is designed with eventual consistency in mind. Treating {{site.data.keyword.cloudant_short_notm}}’s replication as a real-time messaging system does not end up in a happy place. For this use case, put a system in between that was designed for this purpose, such as [Apache Kafka](https://kafka.apache.org/).
