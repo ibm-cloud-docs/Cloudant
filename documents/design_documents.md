@@ -2,8 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-09"
-
+lastupdated: "2023-01-13"
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
 subcollection: Cloudant
@@ -141,11 +140,11 @@ The copy is requested by using the `COPY` request method.
 `COPY` is a nonstandard HTTP command.
 {: tip}
 
-Copying a design document doesn't automatically reconstruct the view indexes. Like other views, these views are re-created the first time that you access the new view.
-{: note}
-
 The following example requests that {{site.data.keyword.cloudant_short_notm}} copy the design document `allusers` to the new design document `copyOfAllusers`,
 and produces a response that includes the ID and revision of the new document.
+
+Copying a design document doesn't automatically reconstruct the view indexes. Like other views, these views are re-created the first time that you access the new view.
+{: note}
 
 See the following example command to copy a design document by using HTTP:
 
@@ -202,10 +201,10 @@ Query Arguments
    Argument 
    :  `rev`
 
-    Description
+   Description
    :  Revision to copy from.
 
-    Optional 
+   Optional 
    :  Yes.
 
    Type 
@@ -429,22 +428,22 @@ Roles permitted
 
 Query Arguments
 
-   Argument
-   :  `rev`
+Argument
+:  `rev`
 
-	  Description
-	  :  Current revision of the document for validation.
+   Description
+   :  Current revision of the document for validation.
 
-	  Optional
-	  :  Yes, if `If-Match` header exists.
+   Optional
+   :  Yes, if `If-Match` header exists.
 
-	  Type 
-	  :  String.
+   Type 
+   :  String.
 
 HTTP Headers
 
-   Header 
-   :  `If-Match`
+Header 
+:  `If-Match`
 
    Description
    :  Current revision of the document for validation.

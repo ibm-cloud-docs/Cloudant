@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-11-03"
+  years: 2019, 2023
+lastupdated: "2023-01-10"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -313,7 +313,7 @@ If the `types` field includes invalid event types, then a response similar to th
 ```json
 {
   "code":400,
-  "error":"Unknown event types: <unrecognised events>"
+  "error":"Unknown event types: <unrecognized events>"
 }
 ```
 {: codeblock}

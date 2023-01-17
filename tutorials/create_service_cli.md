@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-08-05"
+  years: 2017, 2023
+lastupdated: "2023-01-13"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -134,7 +134,7 @@ For more information about choosing an authentication method, see the [IAM guide
 
 Now, we create a service instance that is called, `cs20170517a`.
 
-1. Set your target resource group and region by using the following format. </br>To run this command, you need to know the region and resource groups, which you find in the following steps. </br>
+1. Set your target resource group and region by using the following format.   \n To run this command, you need to know the region and resource groups, which you find in the following steps.   \n 
     For more information, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_target){: external} under `ibmcloud target`.
 
     ```sh
