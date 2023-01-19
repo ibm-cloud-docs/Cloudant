@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-08"
+  years: 2015, 2023
+lastupdated: "2023-01-03"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -21,16 +21,16 @@ Migration from the Enterprise plans to {{site.data.keyword.cloudant_short_notm}}
 ## Step 1. Sign up for {{site.data.keyword.cloud_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
-1.  Go to the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/).
+1.  Go to the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/).
 2. Authenticate with your username and password.  
-   The {{site.data.keyword.cloud_notm}} dashboard opens to the Resource list.
+   The {{site.data.keyword.cloud_notm}} Dashboard opens to the Resource list.
 
 ## Step 2. Create an {{site.data.keyword.cloudant_short_notm}} instance
 {: #step-2-create-an-ibm-cloudant-instance}
 
 1. Click `Create resource`.
 2. Click `Databases` > `Cloudant`.  
-   ![Select **Databases** > **Cloudant dashboard** as your instance.](../tutorials/images/img0003.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
+   ![Select **Databases** > **Cloudant dashboard** as your instance.](../tutorials/images/img0003.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} Dashboard" caption-side="bottom"}
 
    For more information, see the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.  
 

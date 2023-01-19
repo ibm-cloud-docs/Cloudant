@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-10"
+  years: 2015, 2023
+lastupdated: "2023-01-03"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -20,7 +20,7 @@ You access your account by using the address prefix
 `https://$ACCOUNT.cloudant.com`.
 {: shortdesc}
 
-For your {{site.data.keyword.cloudant_short_notm}} dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
+For your {{site.data.keyword.cloudant_short_notm}} Dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
 
 If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: external}.
 
@@ -135,7 +135,6 @@ then you can do all the tasks that are associated with that role.
 {: #roles}
 
 The following section only applies to legacy credentials. For more information about using roles with IAM credentials, see [{{site.data.keyword.cloudant_short_notm}} roles](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-roles-ai){: external}.
-{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} has a number of roles available.
 The roles can be assigned to user accounts or [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#creating-api-keys).
@@ -223,7 +222,6 @@ then assign a focused role, such as `_design` or `_security`.
 {: #api-keys}
 
 The following section only applies to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](/docs/account?topic=account-manapikey){: external}.
-{: tip}
 
 Use API keys to enable database access for a person or application,
 but without creating a new {{site.data.keyword.cloudant_short_notm}} account for that person or application.
@@ -330,7 +328,6 @@ The updated list must not include the API key.
 {: #using-the-users-database-with-cloudant-nosql-db}
 
 The following section only applies to legacy credentials. 
-{: tip}
 
 You can use the
 [`_users` database](https://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: external}

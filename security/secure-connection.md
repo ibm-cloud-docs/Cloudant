@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-12-23"
 
 keywords: endpoints, service credentials, authentication,cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -62,7 +62,6 @@ de810d0e-763f-46a6-ae88-50823dc85581-bluemix.private.cloudantnosqldb.appdomain.c
 For more information on Private endpoints, see the [Service Endpoints](/docs/Cloudant?topic=Cloudant-service-endpoints) documentation.
 
 For more information about how to block public network connectivity by using IP allowlisting, see [Secure access control](/docs/Cloudant?topic=Cloudant-security#secure-access-control).
-{: note}
 
 ## Service credentials
 {: #service-credentials-sc}

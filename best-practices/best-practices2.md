@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-22"
+  years: 2022, 2023
+lastupdated: "2023-01-03"
 
 keywords: cloudant search, cloudant query, conflicts, delete documents, updates, replication, bulk api, eventual consistency
 
@@ -23,7 +23,7 @@ You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not 
 - The folks who support and sell it.
 {: shortdesc}
 
-For more information, see [Data modeling](https://test.cloud.ibm.com/docs/Cloudant?topic=Cloudant-data-modeling) or [{{site.data.keyword.cloudant_short_notm}} in practice](/docs/Cloudant?topic=Cloudant-cloudant-in-practice).
+For more information, see [Data modeling](/docs/Cloudant?topic=Cloudant-data-modeling) or [{{site.data.keyword.cloudant_short_notm}} in practice](/docs/Cloudant?topic=Cloudant-cloudant-in-practice).
 
 The content in this document was originally written by Stefan Kruger as a [*Best and worst practice*](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog post on 21 November 2019.
 
@@ -63,7 +63,7 @@ If you change your mind on what fields you want to emit, the index needs rebuild
 ## Never rely on the default behavior of {{site.data.keyword.cloudant_short_notm}} Query’s no-indexing
 {: #never-rely-on-cloudant-queries-no-indexing}
 
-It’s tempting to rely on {{site.data.keyword.cloudant_short_notm}} Query's ability to query without creating explicit indexes. This practice is costly in terms of performance, as every lookup is a full scan of the database rather than an indexed lookup. If your data is small, this full-scan lookup doesn’t matter, but as the data set grows, performance becomes a problem for you, and for the cluster as a whole. It is likely that we will limit this facility soon. The {{site.data.keyword.cloudant_short_notm}} dashboard provides a method for creating indexes in an easy way.
+It’s tempting to rely on {{site.data.keyword.cloudant_short_notm}} Query's ability to query without creating explicit indexes. This practice is costly in terms of performance, as every lookup is a full scan of the database rather than an indexed lookup. If your data is small, this full-scan lookup doesn’t matter, but as the data set grows, performance becomes a problem for you, and for the cluster as a whole. It is likely that we will limit this facility soon. The {{site.data.keyword.cloudant_short_notm}} Dashboard provides a method for creating indexes in an easy way.
 
 Creating indexes and crafting {{site.data.keyword.cloudant_short_notm}} Queries that take advantage of them requires some flair. To identify which index is being used by a particular query, send a POST to the `_explain` endpoint for the database, with the query as data.
 
@@ -87,7 +87,7 @@ Design documents themselves are read and written by using the same read/write en
 
 In most cases, this process is probably not what you want to have to deal with. As you start out, it is most likely more convenient to have a one-view-per-design document policy.
 
-Also, in case it isn’t obvious, views are code. Views must be subject to the same processes you use in terms of source code version management for the rest of your application code. How to achieve this standard might not be immediately obvious. You could increase the version number for the JavaScript snippets. Then, you could cut and paste the code into the {{site.data.keyword.cloudant_short_notm}} dashboard to deploy whenever a change occurs. Yes, we all resort to this practice from time to time.
+Also, in case it isn’t obvious, views are code. Views must be subject to the same processes you use in terms of source code version management for the rest of your application code. How to achieve this standard might not be immediately obvious. You could increase the version number for the JavaScript snippets. Then, you could cut and paste the code into the {{site.data.keyword.cloudant_short_notm}} Dashboard to deploy whenever a change occurs. Yes, we all resort to this practice from time to time.
 
 Better ways to do this exist, and we have one reason to use some of the tools that surround the [`couchapp`](https://docs.couchdb.org/en/stable/ddocs/){: external} concept. A `couchapp` is a self-contained CouchDB web application that nowadays doesn’t see much use. Several `couchapp` tools exist that are there to make the deployment of a `couchapp`, including its views, crucially, easier.
 

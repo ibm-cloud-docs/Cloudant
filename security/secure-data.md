@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-12-02"
+  years: 2017, 2023
+lastupdated: "2023-01-03"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -79,13 +79,13 @@ to help you maintain data quality and availability:
 ## Deleting your data in {{site.data.keyword.cloudant_short_notm}}
 {: #data-delete}
 
-You can delete individual documents in the {{site.data.keyword.cloudant_short_notm}} dashboard or by using an API. Documents are not technically deleted but instead are compacted.  
+You can delete individual documents in the {{site.data.keyword.cloudant_short_notm}} Dashboard or by using an API. Documents are not technically deleted but instead are compacted.  
 
 For more information, see [Deletion of data](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-general-data-protection-regulation-gdpr-#deletion-of-data).
 
 To delete a document, follow these steps:
 
-   1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
+   1. Go to {{site.data.keyword.cloudant_short_notm}} Dashboard. 
    2. On the Databases page, click the database that contains the documents that you want to delete. 
    3. Click the checkbox next to the documents that you want to delete.
    4. Click **Delete**. 
@@ -97,13 +97,13 @@ For more information, see [Delete a document](/apidocs/cloudant#deletedocument) 
 ### Deleting {{site.data.keyword.cloudant_short_notm}} instances
 {: #service-delete}
 
-You can delete a database instance in the {{site.data.keyword.cloudant_short_notm}} dashboard or by using an API.
+You can delete a database instance in the {{site.data.keyword.cloudant_short_notm}} Dashboard or by using an API.
 
 Once an instance is deleted, all data within the database, as well as the account-level information, such as authentication data, is deleted automatically after the 7-day grace period ends. {{site.data.keyword.cloudant_short_notm}} doesn’t hold any contact details for the instances that are created by using the platform. If you have support tickets with {{site.data.keyword.cloudant_short_notm}} where you shared information, such as email addresses, that information isn’t removed by this process.
 
 To delete a database, follow these steps:
 
-   1. Go to {{site.data.keyword.cloudant_short_notm}} dashboard. 
+   1. Go to {{site.data.keyword.cloudant_short_notm}} Dashboard. 
    2. On the Databases page, click **Delete** next to the database you want to delete.
    3. Type in the name of the database you want to delete.
    4. Click **Delete Database**.

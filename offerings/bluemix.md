@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-01"
+  years: 2015, 2023
+lastupdated: "2023-01-13"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -78,13 +78,12 @@ The Dedicated Hardware plan isn't available to {{site.data.keyword.cloud_notm}} 
 
 Throughput provision is identified and measured as one of the following types of request classes:
 
-1.	*Reads*
+1.  *Reads*
     (formerly called lookups) which are described in this list.
 
-    a. A read of a specific document,
-    based on the `_id` of the document.
+    1. A read of a specific document, based on the `_id` of the document.
 
-    b. A *partitioned* query,
+    2. A *partitioned* query,
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}}
         query endpoint within the `_partition` namespace in the request path,
         including the following types:
@@ -92,15 +91,16 @@ Throughput provision is identified and measured as one of the following types of
         -	MapReduce View ([`_view`](/docs/Cloudant?topic=Cloudant-using-views#using-views))
         -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-cloudant-search#queries))
         -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: external})
-    
-        The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
 
-2.	*Writes*,
+        The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
+        {: tip}
+
+2.  *Writes*,
     which are creation,
     modification,
     or deletion of individual documents.
 
-3.	*Global Queries* to global indexes (formerly called queries),
+3.  *Global Queries* to global indexes (formerly called queries),
         which are requests that are made to an {{site.data.keyword.cloudant_short_notm}}
         query endpoint **not** within the `_partition` namespace,
     including the following types:
@@ -422,7 +422,7 @@ outside an EU-managed environment can't be granted access to an EU-managed
 
 {{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include `Use both legacy credentials and IAM` or `Use only IAM`. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or the legacy [Authentication API document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication).
 
-After you provision an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when you generate new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} dashboard. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials). If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy username and password is also included.
+After you provision an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when you generate new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} Dashboard. For more information, see [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials). If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy username and password is also included.
 
 The {{site.data.keyword.cloudant_short_notm}} team recommends you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use [API keys](/apidocs/cloudant#introduction){: external} rather than account-level credentials for programmatic access and replication jobs. 
 {: important}

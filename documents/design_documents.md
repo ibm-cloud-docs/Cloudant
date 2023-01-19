@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-06"
-
+  years: 2015, 2023
+lastupdated: "2023-01-13"
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
 subcollection: Cloudant
@@ -141,11 +140,11 @@ The copy is requested by using the `COPY` request method.
 `COPY` is a nonstandard HTTP command.
 {: tip}
 
-Copying a design document doesn't automatically reconstruct the view indexes. Like other views, these views are re-created the first time that you access the new view.
-{: note}
-
 The following example requests that {{site.data.keyword.cloudant_short_notm}} copy the design document `allusers` to the new design document `copyOfAllusers`,
 and produces a response that includes the ID and revision of the new document.
+
+Copying a design document doesn't automatically reconstruct the view indexes. Like other views, these views are re-created the first time that you access the new view.
+{: note}
 
 See the following example command to copy a design document by using HTTP:
 
@@ -158,7 +157,7 @@ Destination: _design/$COPY_OF_DDOC
 
 See the following example command to copy a design document:
 
-The Cloudant SDKs currently do not support the HTTP COPY method.
+The {{site.data.keyword.cloudant_short_notm}} SDKs currently do not support the HTTP COPY method.
 {: note}
 
 
@@ -199,28 +198,28 @@ Roles permitted
 
 Query Arguments
 
-    Argument 
-    :  `rev`
+   Argument 
+   :  `rev`
 
-    Description
-    :  Revision to copy from.
+   Description
+   :  Revision to copy from.
 
-    Optional 
-    :  Yes.
+   Optional 
+   :  Yes.
 
-    Type 
-    :  String.
+   Type 
+   :  String.
 
 HTTP Headers
 
 Header
 :  `Destination`
 
-        Description 
-        :  Destination document (and optional revision)
+   Description 
+   :  Destination document (and optional revision)
 
-        Optional
-        :  No.
+   Optional
+   :  No.
 
 The source design document is specified on the request line, while the `Destination` HTTP Header of the request specifies the target document.
 
@@ -429,22 +428,22 @@ Roles permitted
 
 Query Arguments
 
-   Argument
-   :  `rev`
+Argument
+:  `rev`
 
-	  Description
-	  :  Current revision of the document for validation.
+   Description
+   :  Current revision of the document for validation.
 
-	  Optional
-	  :  Yes, if `If-Match` header exists.
+   Optional
+   :  Yes, if `If-Match` header exists.
 
-	  Type 
-	  :  String.
+   Type 
+   :  String.
 
 HTTP Headers
 
-   Header 
-   :  `If-Match`
+Header 
+:  `If-Match`
 
    Description
    :  Current revision of the document for validation.
@@ -550,6 +549,9 @@ function(doc, req){
 ```
 {: codeblock}
 
+### Changes feed filter functions
+{: #changes-feed-filter-functions}
+
 To apply a filter function to the changes feed,
 include the `filter` parameter in the `_changes` query,
 providing the name of the filter to use.
@@ -566,6 +568,7 @@ See the following examples of a filter function applied to a `_changes` query:
 ```sh
 curl -X POST "$SERVICE_URL/orders/_changes?filter=example_design_doc/example_filter" -H "Content-Type: application/json" -d '{}'
 ```
+{: codeblock}
 {: curl}
 
 ```python
@@ -649,6 +652,9 @@ import (
 {: codeblock}
 {: go}
 
+#### Filter function `req` argument
+{: #changes-feed-req-filter-functions}
+
 The `req` argument gives you access to aspects of the HTTP request by using the `query` property.
 
 See the following example of supplying a `req` argument by using HTTP:
@@ -660,8 +666,8 @@ GET $SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new HTT
 
 See the following example of supplying a `req` argument:
 
-The Cloudant SDKs currently do not support `status` option for `_changes` request.
-{: note}
+The {{site.data.keyword.cloudant_short_notm}} SDKs currently do not support `status` option for `_changes` request.
+{: important}
 
 ```sh
 curl "$SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new"

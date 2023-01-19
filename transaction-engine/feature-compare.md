@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-17"
+  years: 2020, 2023
+lastupdated: "2023-01-03"
 
 keywords: feature compare, pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
 
@@ -73,7 +73,7 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Logging with {{site.data.keyword.loganalysisfull_notm}}` | Yes | Yes |
 | `Activity Tracker with {{site.data.keyword.loganalysisfull_notm}}` | Yes | Yes |
 | `Monitoring with {{site.data.keyword.mon_full_notm}}` | Yes | Yes |
-| `Binding Cloud Foundry applications` | Yes | No  \n**Note**: If you attempt to bind a Cloud Foundry application from the {{site.data.keyword.cloud_notm}} dashboard to {{site.data.keyword.cloudant_short_notm}} on Transaction Engine, a `BXNUI0033E` error occurs. |
+| `Binding Cloud Foundry applications` | Yes | No  \n**Note**: If you attempt to bind a Cloud Foundry application from the {{site.data.keyword.cloud_notm}} Dashboard to {{site.data.keyword.cloudant_short_notm}} on Transaction Engine, a `BXNUI0033E` error occurs. |
 {: caption="Table 2. Features and functions" caption-side="top"}
 
 

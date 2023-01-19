@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-08-04"
+  years: 2020, 2023
+lastupdated: "2023-01-09"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -298,23 +298,23 @@ Ensure that you select the specified instance, either the Source or Target.
 1. Log in to `cloud.ibm.com`.
 2. From the Resource list, select **Services** and your Source instance.
 
-    a. Click **Service credentials** and click **New credential**.
+    1. Click **Service credentials** and click **New credential**.
 
-    b. Name the new credential `replicator-source`, and select the Manager role.
+    2. Name the new credential `replicator-source`, and select the Manager role.
 
-	  c. Click **Add**, and make note of its `apikey`, which is under View Credentials in the Actions column.
+    3. Click **Add**, and make note of its `apikey`, which is under View Credentials in the Actions column.
 
 3. Repeat steps 2 through 2.c. for the Target instance.
 
-    a. Create a credential called `replicator-target` with the Manager role.
+    1. Create a credential called `replicator-target` with the Manager role.
 
-    b. Make note of its IAM API key, which is under View Credentials in the Actions column.
+    2. Make note of its IAM API key, which is under View Credentials in the Actions column.
 
 4. Select the Source instance, and click **Service credentials** and **New credential**.
 
-    a. Name the new credential `apiaccess`, and select the Manager role.
+    1. Name the new credential `apiaccess`, and select the Manager role.
 
-    b. Make note of the actual IAM API key under View Credentials in the Actions column.
+    2. Make note of the actual IAM API key under View Credentials in the Actions column.
 
 5. Make note of Source and Target instance URLs.
 
@@ -823,4 +823,4 @@ If you can't use IAM to authenticate when you make requests to your {{site.data.
 ### Ensure that your account is IAM enabled
 {: #ensure-your-account-is-iam-enabled-ai}
 
-On the Overview portion of the {{site.data.keyword.cloudant_short_notm}} dashboard, "authentication method" is listed under deployment details. Your available authentication methods are listed there.
+On the Overview portion of the {{site.data.keyword.cloudant_short_notm}} Dashboard, "authentication method" is listed under deployment details. Your available authentication methods are listed there.

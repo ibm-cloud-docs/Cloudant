@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-08-22"
+  years: 2015, 2023
+lastupdated: "2023-01-10"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -33,7 +33,7 @@ If you're changing the same piece of state at a rate of once per second or more,
 making your documents immutable. This practice significantly reduces the chance that you create 
 conflicted documents.
 
-Conversely, if you're updating a specific document less than once every ten seconds, an 
+Conversely, if you're updating a specific document less than once every 10 seconds, an 
 update-in-place data model - that is, updating existing documents - simplifies your 
 application code considerably.
 
@@ -63,7 +63,7 @@ application to retry and delay processing.
 
 This conflicted-document scenario is significantly more likely to happen 
 for updates that occur more often than once a second. Use immutable documents for updates that occur 
-more than once every ten seconds to be on the safe side.
+more than once every 10 seconds to be on the safe side.
 {: note}
 
 ## How can I use views to pre-calculate results rather than as search indexes?

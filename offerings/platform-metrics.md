@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-08-30"
+  years: 2020, 2023
+lastupdated: "2023-01-03"
 
 keywords: cloud monitoring, monitoring, platform metrics, observability page, enable platform metrics, view metrics, launch monitoring
 
@@ -45,14 +45,14 @@ You can configure only one instance of the {{site.data.keyword.mon_full}} servic
 To monitor platform metrics, check that the Monitoring instance is provisioned in the same region where the {{site.data.keyword.cloud_notm}} instance is provisioned.
 {: important}
 
-## Enabling platform metrics from the {{site.data.keyword.cloud_notm}} dashboard
+## Enabling platform metrics from the {{site.data.keyword.cloud_notm}} Dashboard
 {: #enable_platform_metrics-pm}
 
 Complete the following steps to configure platform metrics:
 
 1. Log in to {{site.data.keyword.cloud_notm}}.
 
-    The {{site.data.keyword.cloud_notm}} dashboard opens.
+    The {{site.data.keyword.cloud_notm}} Dashboard opens.
 
 2. Click **View all** in the Resource summary section of the dashboard.
 
@@ -69,8 +69,8 @@ Complete the following steps to configure platform metrics:
 
 5. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
-   After you provision the Monitoring instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
-   {: note}
+    After you provision the Monitoring instance, the *Observability* page opens. To continue working with {{site.data.keyword.cloud_notm}}, go back to the {{site.data.keyword.cloud_notm}} UI.
+
 
 
 ## Viewing metrics
@@ -81,14 +81,14 @@ To monitor {{site.data.keyword.cloudant_short_notm}} metrics, you must launch th
 
 You can use different options to launch the {{site.data.keyword.mon_full_notm}} web UI and monitor metrics that are described in the following section.
 
-### Launching {{site.data.keyword.mon_full_notm}} web UI from the {{site.data.keyword.cloudant_short_notm}} dashboard
+### Launching {{site.data.keyword.mon_full_notm}} web UI from the {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #view_metrics_opt1}
 
-Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} web UI from the {{site.data.keyword.cloud_notm}} dashboard:
+Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} web UI from the {{site.data.keyword.cloud_notm}} Dashboard:
 
 1. Log in to {{site.data.keyword.cloud_notm}}.
 
-    The {{site.data.keyword.cloud_notm}} dashboard opens.
+    The {{site.data.keyword.cloud_notm}} Dashboard opens.
 
 2. Click **View all** in the Resource summary section of the dashboard.
 
@@ -110,11 +110,11 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 1. [Launch the {{site.data.keyword.mon_full_notm}} web UI](/docs/monitoring?topic=monitoring-launch).
 2. Click **DASHBOARDS**.
 3. In the **Default Dashboards** section, expand **{{site.data.keyword.IBM_notm}}**.
-4. Choose the {{site.data.keyword.cloudant_short_notm}} dashboard from the list.
+4. Choose the {{site.data.keyword.cloudant_short_notm}} Dashboard from the list.
 
-    To access your deployment's {{site.data.keyword.mon_full_notm}} dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
+    To access your deployment's {{site.data.keyword.mon_full_notm}} Dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
 
-    ![Choose {{site.data.keyword.cloudant_short_notm}} to open the dashboard.](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} dashboard" caption-side="bottom"}
+    ![Choose {{site.data.keyword.cloudant_short_notm}} to open the dashboard.](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} Dashboard" caption-side="bottom"}
 
     Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -178,7 +178,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Resource group` | `ibm_resource_group_id` | The unique ID of the resource group where the service instance was created. |
 {: caption="Table 5. More attributes" caption-side="top"}
 
-## {{site.data.keyword.cloudant_short_notm}} dashboard's dictionary
+## {{site.data.keyword.cloudant_short_notm}} Dashboard's dictionary
 {: #dashboards_dictionary-pm}
 
 The following table outlines the pre-defined dashboards that you can use to monitor {{site.data.keyword.cloudant_short_notm}} metrics:

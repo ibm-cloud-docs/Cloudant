@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-08"
+  years: 2020, 2023
+lastupdated: "2023-01-13"
 
 keywords: service credentials, locate service credentials
 
@@ -35,7 +35,7 @@ You can find the credentials for any service that is associated with your accoun
 ## Prerequisites
 {: #prereq-locate-credentials}
 
-- Create a service instance in the {{site.data.keyword.cloud_notm}} dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
+- Create a service instance in the {{site.data.keyword.cloud_notm}} Dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
 
 ## How to find your service credentials
 {: #finding-your-service-credentials}
@@ -43,7 +43,7 @@ You can find the credentials for any service that is associated with your accoun
 
 1. Go to [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/) and log in.
 
-2. Find the service instance called `Cloudant-o7` and open it. </br>
+2. Find the service instance called `Cloudant-o7` and open it.   \n 
    This instance is the one you created as a [prerequisite](#prereqs-locate-credentials). 
 
     ![This Resource list is a list of all the instances in your service. Cloudant-07 is the instance we use in this tutorial.](images/img0011.png){: caption="Figure 1. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}

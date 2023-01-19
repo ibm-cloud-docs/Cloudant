@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
 
-Bookmarks help release the next page of results from a result set. While with pagination, you iterate through a range of documents in an efficient manner.
+Bookmarks help release the next page of results from a result set. While with pagination, you iterate through a range of documents efficiently.
 {: shortdesc} 
 
 You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=Cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
@@ -1001,7 +1001,7 @@ All Go examples require the `service` object to be initialized. For more informa
 
 In other words, the second request has a value of `startkey_docid` that is the last document ID from the previous page of results (llama) plus the magic `\u0000` character (which becomes `llama%00` in the URL).
 
-The `startkey_docid` parameter works only if a `startkey` is supplied and where all index entries share the same key. If they don't share the same key, then pagination can be achieved with manipulation of `startkey`/`endkey` parameters only. Also, the `startkey_docid` parameter is not JSON encoded.
+The `startkey_docid` parameter works only if a `startkey` is supplied and where all index entries share a key. If they don't share a key, then pagination can be achieved with manipulation of `startkey`/`endkey` parameters only. Also, the `startkey_docid` parameter is not JSON encoded.
 {: note}
 
 ## Bookmarks

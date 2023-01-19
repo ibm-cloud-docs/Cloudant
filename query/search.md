@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-10"
+  years: 2015, 2023
+lastupdated: "2023-01-09"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Using {{site.data.keyword.cloudant_short_notm}} Search
 {: #cloudant-search}
 
-Search indexes allow you to query a database by using [Lucene Query Parser Syntax](https://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}. A search index uses one or more fields from your documents. 
+Search indexes provide a way to query a database by using [Lucene Query Parser Syntax](https://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}. A search index uses one or more fields from your documents. 
 {: shortdesc}
 
 You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
@@ -59,8 +59,8 @@ If you attempt to index by using a data field that doesn't exist, it fails. To a
 Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
 {: note}
 
-Within a search index, don't index the same field name with more than one data type. If the same field name is indexed with different data types in the same search index function, you might get an error. This occurs when you query the search index that says the field `was indexed without position data`. For example, don't include both of these lines in the same search index function. These lines index the `myfield` field as two different data types, a string `"this is a string"` and a number `123`.
-{: note}
+Within a search index, don't index the same field name with more than one data type. If the same field name is indexed with different data types in the same search index function, you might get an error. This error occurs when you query the search index that says the field `was indexed without position data`. For example, don't include both of these lines in the same search index function. These lines index the `myfield` field as two different data types, a string `"this is a string"` and a number `123`.
+
 
 ```json
 index("myfield", "this is a string");
@@ -75,7 +75,7 @@ and then calls the function that is defined in the `index` field to index that d
 
 The `index` function takes three parameters, where the third parameter is optional.
 
-The first parameter is the name of the field you intend to use when querying the index,
+The first parameter is the name of the field that you intend to use when querying the index,
 which is specified in the Lucene syntax portion of later queries.
 An example appears in the following query:
 
@@ -150,7 +150,7 @@ The `index` function requires the name of the data field to index as the second 
 However,
 if that data field doesn't exist for the document,
 an error occurs.
-The solution is to use an appropriate "guard clause" that checks if the field exists.
+The solution is to use an appropriate "guard clause" that checks whether the field exists.
 This clause contains the expected type of data 
 before any attempt to create the corresponding index.
 
@@ -204,19 +204,20 @@ if (typeof doc.min_length) !== 'undefined') {
 ## Analyzers
 {: #analyzers}
 
-Analyzers are settings that define how to recognize terms within text.
+Analyzers are settings that define how to recognize terms within text. For more information, see [Search analyzers](/docs/Cloudant?topic=Cloudant-search-analyzers).
+
 Analyzers can be helpful if you need to [index multiple languages](#language-specific-analyzers).
 
-Here's the list of generic analyzers that are supported by {{site.data.keyword.cloudantfull}} search:
+The following table shows a list of generic analyzers that are supported by {{site.data.keyword.cloudant_short_notm}} search:
 
 | Analyzer     | Description |
 |-------------|------------|
 | `classic`    | The standard Lucene analyzer, circa version 3.1. |
 | `email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token. |
 | `keyword`    | Input isn't tokenized at all. |
-| `simple`     | Divides text at non-letters. |
-| `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](https://www.unicode.org/reports/tr29/){: external}. |
-| `whitespace` | Divides text at white space boundaries. |
+| `simple`     | Divides text at nonletters. |
+| `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode&trade; text segmentation algorithm)](https://www.unicode.org/reports/tr29/){: external}. |
+| `whitespace` | Divides text at white-space boundaries. |
 {: caption="Table 2. Generic analyzers" caption-side="top"}
 
 See the following example analyzer document:
@@ -324,7 +325,7 @@ The default stop words for the `standard` analyzer are included in the following
  "to", "was", "will", "with" 
  ```
 
-See the following example that defines non-indexed ('stop') words:
+See the following example that defines nonindexed ('stop') words:
 
 ```json
 {
@@ -779,7 +780,6 @@ You must enable [faceting](#faceting) before you can use the following parameter
 {: caption="Table 3. Query parameters" caption-side="top"}
 
 Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when you try to contact replicas that are slow or not available.
-{: note}
 
 Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=Cloudant-using-views#multi-document-fetching).
 {: important}
@@ -944,7 +944,6 @@ the response skips the rows that were seen already,
 making it quick and easy to get the next set of results.
 
 The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters-search) is included in the search query.
-{: tip}
 
 The `group_field`, `group_limit`, and `group_sort` options are only available when you make global queries.
 {: tip}
@@ -1031,7 +1030,6 @@ You can check the type by using the `typeof` operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
-{: note}
 
 See the following example query that uses the `counts` facet syntax: 
 
@@ -1095,7 +1093,6 @@ You can check the type by using the `typeof` operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
-{: note}
 
 See the following example of a request that uses faceted search for matching `ranges`:
 
@@ -1142,7 +1139,7 @@ which takes five parameters:
 
 You can combine sorting by distance with any other search query,
 such as range searches on the latitude and longitude,
-or queries that involve non-geographical information.
+or queries that involve nongeographical information.
 
 That way,
 you can search in a bounding box,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-07"
+lastupdated: "2022-12-21"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -77,13 +77,9 @@ The number of shards for a database can affect the performance in two ways:
 	if the database has many shards,
 	there are likely to be many other nodes that do not need to respond to the request.
 	These nodes can continue to work on other tasks without interruption from the coordinator request.
-2.	To respond to a query request,
+2.  To respond to a query request, a database must process the results from all the shards. 
 
-	a database must process the results from all the shards.
-	Therefore,
-	having more shards introduces a greater processing demand.
-	The reason is that the coordinator must make one request per shard,
-	then combine the results before it returns the response to the client.
+    Therefore, having more shards introduces a greater processing demand. The reason is that the coordinator must make one request per shard, then combine the results before it returns the response to the client.
 
 To help determine a suitable shard count for your database,
 begin by identifying the most common types of requests that are made by the applications.

@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-06-23"
-
+  years: 2017, 2023
+lastupdated: "2023-01-10"
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
 subcollection: Cloudant
@@ -129,7 +128,7 @@ You can follow steps 1 - 5 to learn about the individual commands, or go to the 
     ```
     {: codeblock}
 
-2. Find `username`, `password`, and `URL` in your Classic service credentials and replace `serviceUsername`, `servicePassword`, and `serviceURL` in the following example. </br>
+2. Find `username`, `password`, and `URL` in your Classic service credentials and replace `serviceUsername`, `servicePassword`, and `serviceURL` in the following example.
 
     ```python
     serviceUsername = "apikey-v2-58B528DF5397465BB6673E1B79482A8C"
@@ -281,7 +280,6 @@ document that is stored in a database
 is always the first document that is returned in a list of results. 
 This notion doesn't
 necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}.
-{: tip}
 
 ### Full retrieval of a document
 {: #full-retrieval-of-a-document}

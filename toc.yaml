@@ -55,6 +55,7 @@ toc:
       - tutorials/migrate-to-iam-only.md
       - tutorials/revoke-instance-url-style-credential.md
       - tutorials/use-dashboard.md
+      - tutorials/dig-deeper-dashboard.md
       - tutorials/todo-list.md
       - tutorials/create_service_cli.md
       - tutorials/create_dedicated_hardware_plan.md
@@ -118,13 +119,19 @@ toc:
           label: Querying the database
           topics: 
           - query/cloudant-query.md
+          - query/query-parameters.md
+          - query/work-with-indexes.md
+          - query/create-selector-expressions.md
+          - query/selector-syntax.md
+          - query/cloudant-operators.md
+          - query/more-about-text-indexes.md
+          - query/movies-demo-database.md
           - query/creating_views.md
           - query/using_views.md
           - query/search.md
           - query/search-analyzers.md
           - query/pagination-bookmarks.md
           - query/cloudant-geo.md 
-          - query/dig-deeper-dashboard.md
       - topicgroup: 
           label: Replicating databases
           topics: 

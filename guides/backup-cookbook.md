@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-06-23"
+  years: 2017, 2023
+lastupdated: "2023-01-09"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library, compress backup, schedule backup
 
@@ -67,8 +67,8 @@ including the ones in this list:
 - Sending the backup text file to a named output file,
    rather than redirecting the `stdout` output.
 
-The CouchBackup tools have [limitations](#limitations).
-{: important}
+    The CouchBackup tools have [limitations](#limitations).
+    {: important}
 
 ## Restoring your {{site.data.keyword.cloudant_short_notm}} data
 {: #restoring-your-ibm-cloudant-data}
@@ -90,14 +90,10 @@ couchrestore --url "https://myaccount.cloudant.com" --db newanimaldb < backup.tx
 
 The [NPM readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: external} provides details of other restore options.
 
-The CouchBackup tools have [limitations](#limitations).
-{: important}
-
 ## Limitations
 {: #limitations}
 
-The CouchBackup tools have the following limitations: 
-{: important}
+The CouchBackup tools have the following limitations:
 
 - `_security` settings aren't backed up by the tools.
 - Attachments aren't backed up by the tools.

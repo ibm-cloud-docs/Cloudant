@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-12-22"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -26,7 +26,6 @@ If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_shor
 
 {{site.data.keyword.cloudant_short_notm}} doesn't completely delete the specified document. Instead, it leaves a [tombstone](#tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
 creating new documents and deleting them increases the disk space usage of a database. They might also increase the query time for the primary index, which is used to look up documents by their ID.
-{: note}
 
 The following steps show you how to delete a request by using HTTP.
 

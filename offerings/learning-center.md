@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-06"
+  years: 2015, 2023
+lastupdated: "2023-01-11"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -18,14 +18,14 @@ subcollection: Cloudant
 The {{site.data.keyword.cloudantfull}} Learning Center offers a video series to help you learn to use {{site.data.keyword.cloudant_short_notm}}. The videos start with the basics of using {{site.data.keyword.cloudant_short_notm}}. Then the videos walk you through document structure, the API, indexing and querying, and include an *Under the Hood* topic that highlights the architecture that powers the service.
 {: shortdesc}
 
-You can use the [playlist](https://youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing from the following list:
+You can use the [playlist](https://www.youtube.com/embed/playlist?list=PLzpeuWUENMK3F93hGaS4ezGmlX4Bipt4S) to go through the courses, or navigate directly to the topic of your choosing.
 
 ## Introduction to {{site.data.keyword.cloudant_short_notm}} video
 {: #cloudant-course-intro-video}
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} 18-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service. 
 
-![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="Introduction to IBM Cloudant video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://www.youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="Introduction to IBM Cloudant video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Introduction to {{site.data.keyword.cloudant_short_notm}} video script
 {: #cloudant-course-intro-video-script}
@@ -65,7 +65,7 @@ That's the end of this part. The next part is called *The Document*.
 
 Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents work. 
 
-![The Document](https://youtube.com/embed/zlfPQ5cl2Zo){: video output="iframe" data-script="#the-document-video-script" id="The Document video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Document](https://www.youtube.com/embed/zlfPQ5cl2Zo){: video output="iframe" data-script="#the-document-video-script" id="The Document video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Document video script
 {: #the-document-video-script}
@@ -150,7 +150,7 @@ That's the end of this part. The next part is called *The Document ID*.
 
 Learn how `_id`s work in {{site.data.keyword.cloudant_short_notm}}, how they are different from relational databases, and how you can define your own `_id`. 
 
-![The _id](https://youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The _id](https://www.youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The _id video script
 {: #the-id-video-script}
@@ -194,7 +194,7 @@ That's the end of this part. The next part is called *The rev token*.
 
 Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token when you add, edit, or delete a document. 
 
-![The rev token](https://youtube.com/embed/T14voAppUl0){: video output="iframe" data-script="#the-rev-token-video-script" id="The rev token video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The rev token](https://www.youtube.com/embed/T14voAppUl0){: video output="iframe" data-script="#the-rev-token-video-script" id="The rev token video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The rev token video script
 {: #the-rev-token-video-script}
@@ -236,7 +236,6 @@ Unlike almost any other database, {{site.data.keyword.cloudant_short_notm}} keep
 In fact, the document's recent revision history (the tree of revisions - remember we could have more than one of each revision number) - is kept.
 
 You can't use {{site.data.keyword.cloudant_short_notm}}'s revision tree as a version control system to retrieve or *roll back* to an older revision. Once a revision is superseded, the document body of the older revision is deleted, and its disk space is recovered in a process called *compaction*. Compaction occurs automatically in {{site.data.keyword.cloudant_short_notm}}, so it's not safe to assume that old revisions are available to be retrieved.
-{: note}
 
 To summarize, revision tokens are generated by the database on add,  edit, and delete. (You never need to create your own revision tokens.)
 Generally, the revision number increases by one each time, but more complex scenarios are possible (we cover these scenarios later).
@@ -250,7 +249,7 @@ That's the end of this part. The next part is called *Authentication*.
 
 Learn how Legacy authentication and IAM authentication work. You can also learn how {{site.data.keyword.cloudant_short_notm}} generates credentials, and how the three official {{site.data.keyword.cloudant_short_notm}} libraries handle authentication. 
 
-![Authentication](https://youtube.com/embed/7TF2NnjZc78){: video output="iframe" data-script="#authentication-video-script" id="Authentication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Authentication](https://www.youtube.com/embed/7TF2NnjZc78){: video output="iframe" data-script="#authentication-video-script" id="Authentication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Authentication video script
 {: #authentication-video-script}
@@ -271,7 +270,7 @@ When an {{site.data.keyword.cloudant_short_notm}} service is provisioned, you ca
 
 How are credentials generated?
 
-In the {{site.data.keyword.cloud_notm}} dashboard under your {{site.data.keyword.cloudant_short_notm}} service, in the **Service Credentials** tab, click **New Credential**. A JSON document is created that contains the IAM key, the basic auth username and password, and the {{site.data.keyword.cloudant_short_notm}} hostname.
+In the {{site.data.keyword.cloud_notm}} Dashboard under your {{site.data.keyword.cloudant_short_notm}} service, in the **Service Credentials** tab, click **New Credential**. A JSON document is created that contains the IAM key, the basic auth username and password, and the {{site.data.keyword.cloudant_short_notm}} hostname.
 
 See the example set of credentials:
 
@@ -290,7 +289,7 @@ Log in to {{site.data.keyword.cloud_notm}} and locate the {{site.data.keyword.cl
 
 Then, visit the URL specified in the credentials JSON - what do you see?
 
-To summarize, credentials are generated from the {{site.data.keyword.cloud_notm}} dashboard. You can have IAM or both IAM + legacy credentials. Both authentication methods involve exchanging your credentials for a time-limited token (authentication) - the token is then updated periodically as you use the service. The official libraries handle all of these tasks for you.
+To summarize, credentials are generated from the {{site.data.keyword.cloud_notm}} Dashboard. You can have IAM or both IAM + legacy credentials. Both authentication methods involve exchanging your credentials for a time-limited token (authentication) - the token is then updated periodically as you use the service. The official libraries handle all of these tasks for you.
 
 That's the end of this part. The next part is called *The Dashboard*.
 
@@ -299,7 +298,7 @@ That's the end of this part. The next part is called *The Dashboard*.
 
 Learn about the {{site.data.keyword.cloudant_short_notm}} Dashboard and what it has to offer, as well as an introduction into how to use it. 
 
-![The Dashboard](https://youtube.com/embed/Lbs7I6fI2O8){: video output="iframe" data-script="#the-dashboard-video-script" id="The Dashboard video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Dashboard](https://www.youtube.com/embed/Lbs7I6fI2O8){: video output="iframe" data-script="#the-dashboard-video-script" id="The Dashboard video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Dashboard video script
 {: #the-dashboard-video-script}
@@ -347,7 +346,7 @@ That's the end of this part. The next part is called *HTTP API Basics*.
 
 Learn how to use the command line to make HTTP requests and to add, edit, and delete documents. 
 
-![HTTP API Basics](https://youtube.com/embed/0G3J5eJF_jk){: video output="iframe" data-script="#http-api-basics-video-script" id="HTTP API Basics video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![HTTP API Basics](https://www.youtube.com/embed/0G3J5eJF_jk){: video output="iframe" data-script="#http-api-basics-video-script" id="HTTP API Basics video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### HTTP API Basics video script
 {: #http-api-basics-video-script}
@@ -409,7 +408,6 @@ So `acurl $URL/books` gives us information about the books database that we crea
 You see information about how many documents it has, how many deleted documents, and how much disk space it's occupying.
 
 Don't forget to pipe the output to jq or Python to get a prettier output.
-{: note}
 
 If we want to see the documents contained in the database, we can use the `_all_docs` endpoint.
 
@@ -465,7 +463,7 @@ That's the end of this part. The next part is called *The Bulk API*.
 
 Learn how to use two API calls to perform all the basic {{site.data.keyword.cloudant_short_notm}} operations while also acting on more than one document per API call.
 
-![The Bulk API](https://youtube.com/embed/9e_Mx3rX88s){: video output="iframe" data-script="#the-bulk-api-video-script" id="The Bulk API video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![The Bulk API](https://www.youtube.com/embed/9e_Mx3rX88s){: video output="iframe" data-script="#the-bulk-api-video-script" id="The Bulk API video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### The Bulk API video script
 {: #the-bulk-api-video-script}
@@ -501,7 +499,7 @@ That's the end of this part. The next part is called *Accessing {{site.data.keyw
 
 Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically. 
 
-![Accessing {site.data.keyword.cloudant_short_notm}} Programmatically](https://youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="Accessing Cloudant Programmatically video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Accessing {site.data.keyword.cloudant_short_notm}} Programmatically](https://www.youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="Accessing Cloudant Programmatically video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Accessing {{site.data.keyword.cloudant_short_notm}} Programmatically video script
 {: #accessing-cloudant-programmatically-video-script}
@@ -552,7 +550,7 @@ That's the end of this part. The next part is called *Querying*.
 
 Learn the different ways to query data in {{site.data.keyword.cloudant_short_notm}}.
 
-![Querying](https://youtube.com/embed/R7xVzn2QxRg){: video output="iframe" data-script="#querying-video-script" id="Querying video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Querying](https://www.youtube.com/embed/R7xVzn2QxRg){: video output="iframe" data-script="#querying-video-script" id="Querying video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Querying video script
 {: #querying-video-script}
@@ -584,7 +582,6 @@ The second example shows two clauses in the query. Both clauses must be satisfie
 The third example shows how logical operators can be added. The `$gt` operation means `greater than` (you can also use `gte` for greater than or equal to, and `lt/lte` for the equivalent less than comparators). The `$or` operator is an `OR` operation, so a matching document must have a date greater than the one in the query either an author of J Smith OR title of Murder.
 
 If you need to access objects within documents, you can use standard dot notation for example, `address.zipcode` to access a postal code string inside an address object.
-{: note}
 
 We can also add the following parameters:
 
@@ -608,7 +605,6 @@ The JSON syntax might take a bit of getting used to, but MongoDB users might fin
 Enter your {{site.data.keyword.cloudant_short_notm}} Query JSON in the box that is provided, and click **Run Query** when you're ready. The result set appears on the right panel.
 
 The Explain button is used to provide an explanation on how the database interprets the supplied query. This explanation becomes more important when we get to Indexing in the next part.
-{: note}
 
 Queries can be triggered from curl too. The Query JSON, in this case, is stored in a file and we `POST` to the `_find` endpoint by using the `-d@ command-line` syntax.
 
@@ -637,7 +633,7 @@ That's the end of this part. The next part is called *Indexing*.
 
 Learn how indexing can speed up your query process. 
 
-![Indexing](https://youtube.com/embed/we2P8mtsnPs){: video output="iframe" data-script="#indexing-video-script" id="Indexing video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Indexing](https://www.youtube.com/embed/we2P8mtsnPs){: video output="iframe" data-script="#indexing-video-script" id="Indexing video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Indexing video script
 {: #indexing-video-script}
@@ -674,7 +670,7 @@ Click **Create Index** when you're done.
 Clicking the button sends a `POST` request to the `_index` endpoint (other API calls are available to update and delete existing indexes).
 
 Indexes are built asynchronously by {{site.data.keyword.cloudant_short_notm}} in the background. For large databases, it can take {{site.data.keyword.cloudant_short_notm}} some time to construct the index for the first time. The index cannot use the database until that initial build is ready.
-{: note}
+{: important}
 
 We can repeat our query for books in the 20th century. This time we specify the index name with the `use_index` field. The answer returns - this time powered by our index. You might not notice a speed improvement for a small database, but the benefit is definitely felt as your data size and query volume grows. Indexing helps your queries remain performant as your application scales.
 
@@ -695,7 +691,7 @@ That's the end of this part. The next part is called *MapReduce*.
 
 Learn about MapReduce, which is another way to configure secondary indexes.
 
-![MapReduce](https://youtube.com/embed/T1KFHLe6NsA){: video output="iframe" data-script="#mapreduce-video-script" id="MapReduce video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![MapReduce](https://www.youtube.com/embed/T1KFHLe6NsA){: video output="iframe" data-script="#mapreduce-video-script" id="MapReduce video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### MapReduce video script
 {: #mapreduce-video-script}
@@ -739,7 +735,7 @@ Indexes build asynchronously and cannot be used until they build completely. Onc
 :   For providing counts and totals suitable for calculating means, variances, and standard deviations.
 
 `_approx_count_distinct` 
-:   sFor approximate counting of unique values of the key.
+:   For approximate counting of unique values of the key.
 
 The design document's `MAP` function is passed a `doc` - the function is called once per document in the database. Any key-value pairs that `emit` from the `MAP` function create the index.
 
@@ -780,7 +776,7 @@ That's the end of this part. The next part is called *Dates*.
 
 Learn about different options for storing a date, or date and time value.
 
-![Dates](https://youtube.com/embed/7b2zFNIK7hU){: video output="iframe" data-script="#dates-video-script" id="Dates video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Dates](https://www.youtube.com/embed/7b2zFNIK7hU){: video output="iframe" data-script="#dates-video-script" id="Dates video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Dates video script
 {: #dates-video-script}
@@ -814,7 +810,7 @@ That's the end of this part. The next part is called *Replication*.
 
 Learn what replication means in {{site.data.keyword.cloudant_short_notm}}, as well as different types of replication and how they work. 
 
-![Replication](https://youtube.com/embed/TxDcumJ-DdA){: video output="iframe" data-script="#replication-video-script" id="Replication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Replication](https://www.youtube.com/embed/TxDcumJ-DdA){: video output="iframe" data-script="#replication-video-script" id="Replication video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Replication video script
 {: #replication-video-script}
@@ -879,7 +875,7 @@ That's the end of this part. The next part is called *Partitioned databases*.
 
 Learn how partitioned databases work in {{site.data.keyword.cloudant_short_notm}}, how to assign documents to specific shards, and why partitioned databases improve performance, cost, and scalability. 
 
-![Partitioned databases](https://youtube.com/embed/44PhiYnrGJA){: video output="iframe" data-script="#partitioned-databases-video-script" id="Partitioned databases video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Partitioned databases](https://www.youtube.com/embed/44PhiYnrGJA){: video output="iframe" data-script="#partitioned-databases-video-script" id="Partitioned databases video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Partitioned databases video script
 {: #partitioned-databases-video-script}
@@ -938,7 +934,7 @@ That's the end of this part. The next part is called *{{site.data.keyword.clouda
 
 Learn how to use {{site.data.keyword.cloudant_short_notm}} Search, as well as Lucene query language and faceting. 
 
-![{{site.data.keyword.cloudant_short_notm}} Search](https://youtube.com/embed/4cs5qH3lt5U){: video output="iframe" data-script="#cloudant-search-video-script" id="Cloudant Search video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![{{site.data.keyword.cloudant_short_notm}} Search](https://www.youtube.com/embed/4cs5qH3lt5U){: video output="iframe" data-script="#cloudant-search-video-script" id="Cloudant Search video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### {{site.data.keyword.cloudant_short_notm}} Search video script
 {: #cloudant-search-video-script}
@@ -990,7 +986,7 @@ That's the end of this part. The next part is called *Geospatial*.
 
 Learn how to use geospatial indexes to query data, which is unique to {{site.data.keyword.cloudant_short_notm}}. 
 
-![Geospatial](https://youtube.com/embed/nfDQN_Em4H8){: video output="iframe" data-script="#geospatial-video-script" id="Geospatial video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Geospatial](https://www.youtube.com/embed/nfDQN_Em4H8){: video output="iframe" data-script="#geospatial-video-script" id="Geospatial video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Geospatial video script
 {: #geospatial-video-script}
@@ -1017,7 +1013,7 @@ That's the end of this part. The next part is called *Under the hood*.
 
 Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized. 
 
-![Under the hood](https://youtube.com/embed/kCOTeCnHWJg){: video output="iframe" data-script="#under-the-hood-video-script" id="Under the hood video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Under the hood](https://www.youtube.com/embed/kCOTeCnHWJg){: video output="iframe" data-script="#under-the-hood-video-script" id="Under the hood video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Under the hood video script
 {: #under-the-hood-video-script}

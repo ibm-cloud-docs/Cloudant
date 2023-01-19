@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-06-23"
+  years: 2017, 2023
+lastupdated: "2023-01-10"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -25,7 +25,7 @@ completion-time: 10m
 In this tutorial, we demonstrate how to create an index and use the index to query the database. You also learn to create different types of queries to more easily find data.
 {: shortdesc}
 
-Here you run the commands from the command line, but you can also complete these tasks with the {{site.data.keyword.cloudant_short_notm}} dashboard, which gives you a visual example of each task. For more information about the dashboard, see [Using the {{site.data.keyword.cloudant_short_notm}} dashboard](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial. 
+Here you run the commands from the command line, but you can also complete these tasks with the {{site.data.keyword.cloudant_short_notm}} Dashboard, which gives you a visual example of each task. For more information about the dashboard, see [Using the {{site.data.keyword.cloudant_short_notm}} Dashboard](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial. 
 
 ## Before you begin
 {: #before-you-begin-qt}
@@ -35,12 +35,12 @@ Before you begin, follow these tutorials to create an instance, and then create 
 1. [Create an {{site.data.keyword.cloudant_short_notm}} instance](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#creating-an-ibm-cloudant-instance-on-ibm-cloud).
 2. [Create a database](/docs/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
 3. [Populate the database](/docs/services/Cloudant?topic=Cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#storing-a-small-collection-of-data-as-documents-within-the-database).
-4. (Optional) [Create an `acurl` alias](/docs/Cloudant?topic=Cloudant-working-with-curl#encode-user-name-and-password). </br>
+4. (Optional) [Create an `acurl` alias](/docs/Cloudant?topic=Cloudant-working-with-curl#encode-user-name-and-password).
 
 If you decide not to set up `acurl`, use the following URL with `curl` instead of the one provided in the exercises, `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`.
+{: attention}
 
 The `acurl` alias is more secure. It prevents someone from reading your password over your shoulder as you type. It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
-{: important}
 
 Now, we're ready to learn how to run queries against the database you created in step two.
 
@@ -52,7 +52,7 @@ Now, we're ready to learn how to run queries against the database you created in
 
 When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. In memory, you filter out the documents by the selector, which is why, even without an index, you can still query with various fields.  
 
-If no available defined index matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). Full table scans are expensive to process, and it is recommended that you create an index. 
+If no available defined index matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). Full table scans are expensive to process. It is recommended that you create an index. 
 {: tip}
 
 To create an index, follow these steps:
@@ -90,9 +90,6 @@ To create an index, follow these steps:
         -d \@query-demo-index.json
     ```
     {: codeblock}
-
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
 	
 3.  Review the results:
 
@@ -107,7 +104,6 @@ To create an index, follow these steps:
 
 
 You aren't required to create an index to run a query. However, if you don't, the following warning is included with your results as an indicator that creating an index reduces processing and makes your queries more effective. `"Warning": "No matching index found, create an index to optimize query time."`
-{: tip}
 
 ## Running a simple query
 {: #running-a-simple-query-qt}
@@ -135,9 +131,6 @@ To run the query, follow these steps:
         -d \@query1.json
     ```
     {: codeblock}
-
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
 
 3.  Review the query results:
     ```json
@@ -220,9 +213,6 @@ To run the query, follow these steps:
     ```
     {: codeblock}
 
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
-
 3.  Review the query results:
     ```json
     {
@@ -303,9 +293,6 @@ To run the query, follow these steps:
         -d \@query3.json
     ```
     {: codeblock}
-
-    If you decide not to set up `acurl`, use the following URL with `curl` instead: `curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/databasedemo"`. 
-    {: tip}
 
 3.  Review the query results:
     ```json

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-02"
+  years: 2020, 2023
+lastupdated: "2023-01-06"
 
 keywords: todo list tutorial
 
@@ -47,7 +47,7 @@ Once you complete it, you have a basic understanding of how applications can int
 
 You need the following implements to-do this tutorial:
 
-- An {{site.data.keyword.cloudant_short_notm}} service instance and some service credentials. You can create the instance and credentials in the {{site.data.keyword.cloudant_short_notm}} dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. Be sure to make a note of the APIKey and URL when you create your service credentials.
+- An {{site.data.keyword.cloudant_short_notm}} service instance and some service credentials. You can create the instance and credentials in the {{site.data.keyword.cloudant_short_notm}} Dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. Be sure to make a note of the APIKey and URL when you create your service credentials.
 - Access to a Mac or Linux&trade; terminal
 - [Git](https://git-scm.com/downloads)
 - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
@@ -84,7 +84,7 @@ In this step, you install all the code dependencies and environment variables yo
    {: codeblock}
 
 When you run this command for the first time, your code detects that no database exists. The code creates a database for you with some indexes (by date and by tag) as well as some sample data.
-{: tip}
+{: note}
 
 ## Visit your website!
 {: #visit-website}
@@ -96,7 +96,7 @@ Now, you can check out your website.
 
    You can see your to-do list with a couple of items on it:
 
-   ![Your to-do list](images/todolist.png){: caption="Your web-based to-do list" caption-side="bottom"}
+   ![Your to-do list](images/todolist.png){: caption="Figure 1. Your web-based to-do list" caption-side="bottom"}
 
 1. Add or delete notes, or you can filter by tag by clicking one of the tags.
 

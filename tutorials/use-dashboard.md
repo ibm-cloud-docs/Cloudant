@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-10-28"
+  years: 2015, 2023
+lastupdated: "2023-01-03"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -17,19 +17,19 @@ completion-time: 20m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Using the {{site.data.keyword.cloudant_short_notm}} dashboard
+# Using the {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #navigate-the-dashboard}
 {: toc-content-type="tutorial"}
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-By using the {{site.data.keyword.cloudantfull}} dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/apidocs/cloudant#introduction){: external}.
+By using the {{site.data.keyword.cloudantfull}} Dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/apidocs/cloudant#introduction){: external}.
 {: shortdesc}
 
 ## Objectives
 {: #objectives-navigate}
 
-- Open the {{site.data.keyword.cloudant_short_notm}} dashboard. 
+- Open the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 - Create a database. 
 - Add JSON documents to the database and run a query. 
 - Replicate a database. 
@@ -41,18 +41,18 @@ By using the {{site.data.keyword.cloudantfull}} dashboard, you create an {{site.
 
 You need to create a service instance in {{site.data.keyword.cloud_notm}} before you start this tutorial. You can follow the instructions in the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial to create one. 
 
-## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} dashboard
+## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #using-the-ibm-cloudant-dashboard}
 {: step}
 
 Open your {{site.data.keyword.cloudant_short_notm}} service instance by following these steps.
 
-1.  Go to the {{site.data.keyword.cloud_notm}} dashboard.
+1.  Go to the {{site.data.keyword.cloud_notm}} Dashboard.
     
 2.  Click **Services** in the Resource list.
 
 3.  From the Services section, click the `Cloudant-o7` instance that you created in the *Getting started* tutorial, and click **Launch Dashboard**.
-    The {{site.data.keyword.cloudant_short_notm}} dashboard opens.
+    The {{site.data.keyword.cloudant_short_notm}} Dashboard opens.
 
 Now, you can create a database, and run queries against it.  
 
@@ -63,7 +63,7 @@ Now, you can create a database, and run queries against it.
 In this exercise, you create the `dashboard-demo` [database](/apidocs/cloudant#putdatabase){: external}, which 
 is the database that you use in this tutorial.
 
-1.  From the {{site.data.keyword.cloudant_short_notm}} dashboard, click **Create database**.
+1.  From the {{site.data.keyword.cloudant_short_notm}} Dashboard, click **Create database**.
 
     The Create database window opens. 
 

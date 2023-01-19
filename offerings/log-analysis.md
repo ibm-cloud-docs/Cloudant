@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-08-05"
+  years: 2015, 2023
+lastupdated: "2023-01-10"
 
 keywords: log analysis, integration, provisioning log analysis, hipaa
 
@@ -41,7 +41,7 @@ Log information from your databases is automatically forwarded to {{site.data.ke
 This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account with {{site.data.keyword.loganalysisfull_notm}} integration sending logs to your {{site.data.keyword.loganalysisfull_notm}} service. For more information, see the list of [integrated services](/docs/log-analysis?topic=log-analysis-cloud_services#cloud_services){: external}.
 {: .tip}
 
-{{site.data.keyword.loganalysisfull_notm}} has a lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/log-analysis?topic=log-analysis-service_plans){: external}.
+{{site.data.keyword.loganalysisfull_notm}} has a Lite plan that is free to use, but it offers only streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/log-analysis?topic=log-analysis-service_plans){: external}.
 
 ### HIPAA
 {: #hipaa_log-analysis}
@@ -84,7 +84,7 @@ The expanded view has some handy, color-coded fields to help you parse your logs
 | `rawQueryString` | Full text of the query string as passed to the service. |
 |`logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs. |
 | `meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}. |
-| `timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This time happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value. </br> `request` - The total time to get the client request. It's the time that is elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body. |
+| `timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This time happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value.  \n `request` - The total time to get the client request. It's the time that is elapsed between the first bytes received and the moment the service receives the last byte of the request body.  \n `transfer`- The data transmission time to transfer the full response from the service to the client.  \n  `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body. |
 {: caption="Table 3. Log lines" caption-side="top"}
 
 The `request` and `transfer` timings are included in `response`.

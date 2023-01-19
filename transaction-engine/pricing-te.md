@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-08-31"
+  years: 2020, 2023
+lastupdated: "2023-01-10"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard, operation cost, bulk, api call, purge data, indexes, mapreduce, databases
 
@@ -139,13 +139,13 @@ consume.
 
 | Request | Unit Total |
 |---------|------------|
-| Read a single document by using `GET /{DATABASE}/{ID}`. | One unit to open the transaction. </br>One unit to read the {ID} document. </br>Two read units total. |
-| Read five documents by using `_bulk_get`. | One unit to open the transaction. </br>Five units to read five documents. </br>Six read units total. |
-| Query a view that returns seven results. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>1.07 read units total, which is rounded up to two read units for the request. |
-| Query a view that returns seven results and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents. </br>8.07 read units total, which is rounded up to nine read units for the request. |
-| Mango query that returns seven results and can be satisfied with an index, which is the optimal way to use Mango indexes. | One unit to open the transaction. </br>7/100 = 0.07 of a unit to read seven rows. </br>Seven units to read seven documents (Mango always reads the documents to return them to you). </br>8.07 read units total, which is rounded up to nine read units for the request. |
-| Mango query that returns seven results and is partially satisfied with an index but requires further processing on the documents themselves (for example, when a regex is used). The part of the query's selector that can be satisfied by using the index reads 26 rows, then 26 documents need to be read. After you apply the regex in the selector, 19 documents are discarded from the initial result set. | One unit to open the transaction. </br>26/100 = 0.26 read units to read 26 rows. </br>Twenty-six units to read 26 documents (Mango always reads the documents to return them to you). </br>27.26 read units total, which is rounded up to 28 read units for the request. |
-| Query `_all_docs` by using a `limit` of 200 and retrieves the documents by using `include_docs=true`. | One unit to open the transaction. </br>200/100 = 2 units to read 200 rows. </br>Two hundred units to read 200 documents. </br>Two hundred and three read units total. | 
+| Read a single document by using `GET /{DATABASE}/{ID}`. | One unit to open the transaction.   \n One unit to read the {ID} document.   \n Two read units total. |
+| Read five documents by using `_bulk_get`. | One unit to open the transaction.   \n Five units to read five documents.   \n Six read units total. |
+| Query a view that returns seven results. | One unit to open the transaction.   \n 7/100 = 0.07 of a unit to read seven rows.   \n 1.07 read units total, which is rounded up to two read units for the request. |
+| Query a view that returns seven results and retrieves the documents by using `include_docs=true`. | One unit to open the transaction.   \n 7/100 = 0.07 of a unit to read seven rows.   \n Seven units to read seven documents.   \n 8.07 read units total, which is rounded up to nine read units for the request. |
+| Mango query that returns seven results and can be satisfied with an index, which is the optimal way to use Mango indexes. | One unit to open the transaction.   \n 7/100 = 0.07 of a unit to read seven rows.   \n Seven units to read seven documents (Mango always reads the documents to return them to you).   \n 8.07 read units total, which is rounded up to nine read units for the request. |
+| Mango query that returns seven results and is partially satisfied with an index but requires further processing on the documents themselves (for example, when a regex is used). The part of the query's selector that can be satisfied by using the index reads 26 rows, then 26 documents need to be read. After you apply the regex in the selector, 19 documents are discarded from the initial result set. | One unit to open the transaction.   \n 26/100 = 0.26 read units to read 26 rows.   \n Twenty-six units to read 26 documents (Mango always reads the documents to return them to you).   \n 27.26 read units total, which is rounded up to 28 read units for the request. |
+| Query `_all_docs` by using a `limit` of 200 and retrieves the documents by using `include_docs=true`. | One unit to open the transaction.   \n 200/100 = 2 units to read 200 rows.   \n Two hundred units to read 200 documents.   \n Two hundred and three read units total. | 
 {: class="simple-tab-table"}
 {: caption="Table 2. Read units" caption-side="top"}
 {: #units-example1}
@@ -154,10 +154,10 @@ consume.
 
 | Request | Unit Total |
 |---------|------------|
-| Write a single document that uses `POST /{DB}/{ID}` (whether creating or updating the document) to a database with no Mango indexes. | One unit to open the transaction. </br>One unit to write the document. </br>Two units total. |
-| Write five documents that use `_bulk_docs` to a database with no Mango indexes. | One unit to open the transaction. </br>Five units to write the document. </br>Six units total. |
-| Write a single document by using `POST /{DB}/{ID}` (whether creating or updating the document) to a database with two Mango indexes that each emit a single row per document. | </br>One unit to open the transaction. </br>One unit to write the document. </br>Two units to write two Mango index rows (one per index). </br>Four units total. |
-| Write five documents by using `_bulk_docs` to a database with two Mango indexes that each emit a single row per document. | One unit to open the transaction. </br>Five units to write the document. </br>Ten units to write two Mango index rows (one per index).</br>Sixteen units total. |
+| Write a single document that uses `POST /{DB}/{ID}` (whether creating or updating the document) to a database with no Mango indexes. | One unit to open the transaction.   \n One unit to write the document.   \n Two units total. |
+| Write five documents that use `_bulk_docs` to a database with no Mango indexes. | One unit to open the transaction.   \n Five units to write the document.   \n Six units total. |
+| Write a single document by using `POST /{DB}/{ID}` (whether creating or updating the document) to a database with two Mango indexes that each emit a single row per document. |   \n One unit to open the transaction.   \n One unit to write the document.   \n Two units to write two Mango index rows (one per index).   \n Four units total. |
+| Write five documents by using `_bulk_docs` to a database with two Mango indexes that each emit a single row per document. | One unit to open the transaction.   \n Five units to write the document.   \n Ten units to write two Mango index rows (one per index).  \n Sixteen units total. |
 {: caption="Table 2. Write units" caption-side="top"}
 {: #units-example2}
 {: tab-title="Write units"}
@@ -218,7 +218,7 @@ In the following example, a quantity of 0-Gigabyte Hours reflects that the insta
 ## More explanation about how pricing works
 {: #how-does-pricing-work-on-cloudant-txe}
 
-In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} dashboard or by using an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
+In addition, an {{site.data.keyword.cloudant_short_notm}} Transaction Engine plan comes with a number of read units and write units that are provisioned for your use every second. The number of read/write units you provision is determined by how much you pay and how much you can change up and down over time. You can either alter the position of the slider in the {{site.data.keyword.cloud_notm}} Dashboard or by using an [API call](/docs/Cloudant?topic=Cloudant-capacity). You can see an example in the following image:
 
 ![IBM Cloudant capacity](../images/txe_capacity.mp4){: video controls loop}
 

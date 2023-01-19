@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-23"
+lastupdated: "2022-12-22"
 
 keywords: cloudant query, how to use, create an index, sort search results, sort reverse order, efficient query, partitioned databases
 
@@ -68,8 +68,7 @@ Yes! The `_find` JSON syntax allows for a `sort` parameter to be provided listin
 }
 ```
 
-A suitable index must be present that contains the `selector` fields and the `sort` fields. Otherwise, {{site.data.keyword.cloudant_short_notm}} refuses to execute the query. A suitable index definition for the previous query is shown next.
-{: note}
+A suitable index must be present that contains the `selector` fields and the `sort` fields. Otherwise, {{site.data.keyword.cloudant_short_notm}} refuses to execute the query. A suitable index definition for the previous query is shown next:
 
 ```js
 {
@@ -109,8 +108,7 @@ This query returns documents that match `firstname` and `surname` and sorts by `
 ```
 
 
-A suitable index must be present that contains the `selector` fields and the `sort` fields. Otherwise, {{site.data.keyword.cloudant_short_notm}} refuses to execute the query. A suitable index definition for the previous query is shown next.
-{: note}
+A suitable index must be present that contains the `selector` fields and the `sort` fields. Otherwise, {{site.data.keyword.cloudant_short_notm}} refuses to execute the query. A suitable index definition for the previous query is shown next:
 
 ```js
 {

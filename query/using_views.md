@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-12-02"
+lastupdated: "2022-12-23"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -73,7 +73,7 @@ subset that is indicated in the table.
 | `include_docs`   | Include the full content of the documents in the response. | Yes | Boolean | False | | Yes |
 | `inclusive_end`  | Include rows with the specified `end_key`. | Yes | Boolean | True | | Yes |
 | `key` | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON array | | | Yes |
-| `keys` | Specify to return only documents that match any of the specified keys. String representation of a JSON array of keys that match the key type emitted by the view function. | Yes | String or JSON array | | | Yes |
+| `keys` | Specify to return only documents that match any of the specified keys. String representation of a JSON array of keys that match the key type that is emitted by the view function. | Yes | String or JSON array | | | Yes |
 | `limit` | Limit the number of returned documents to the specified count. For Transaction Engine, the `limit` parameter restricts the total number of returned documents. | Yes | Numeric | | | Yes |
 | `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.  | Yes | Numeric | | | |
 | `reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes |
@@ -82,7 +82,7 @@ subset that is indicated in the table.
 | `stale`          | **Note**: `stale` is deprecated. Use `stable` and `update` instead.   \n  \n Specify whether to use the results from a stale view without triggering a rebuild of all views within the encompassing design doc. \n - `ok` is equivalent to `stable=true&update=false`. \n - `update_after` is equivalent to `stable=true&update=lazy`. | Yes | String | False | | No |
 | `start_key` | Return records, starting with the specified key. | Yes | String or JSON array |  |  | Yes |
 | `start_key_docid` | Return records, starting with the specified document ID. | Yes | String | | | Yes |
-| `update`        | Specify whether or not the view in question must be updated before responding to the user.   \n - `true` - Return results after the view is updated.   \n - `false` - Return results without updating the view.   \n - `lazy` - Return the view results without waiting for an update, but update them immediately after the request. | Yes | String | True | | Yes |
+| `update`        | Specify whether or not the view in question must be updated before you respond to the user.   \n - `true` - Return results after the view is updated.   \n - `false` - Return results without updating the view.   \n - `lazy` - Return the view results without waiting for an update, but update them immediately after the request. | Yes | String | True | | Yes |
 {: caption="Table 1. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
@@ -103,7 +103,7 @@ GET $SERVICE_URL/$DATABASE/_design/$DDOC/_view/$VIEW_NAME?limit=10 HTTP/1.1
 ```
 {: codeblock}
 
-See the example to retrieve a list of the first 10 documents including the full content of them from the `small-appliances` partition of a database, applying the user-created `byApplianceProdId` view.
+See the example to retrieve a list of the first 10 documents that include the full content of them from the `small-appliances` partition of a database, applying the user-created `byApplianceProdId` view.
 
 Client libraries use `POST` method instead of `GET` because they have the same behavior.
 {: tip}
@@ -404,8 +404,10 @@ causes incremental updates to the index when the documents are inserted.
 If speed of response is more important than having up-to-date data,
 an alternative is to allow users to access an old version of the view index. To allow access to an old version of the view index, use the `update` query string parameter when you make a view query.
 
-If you want to save old index versions without incurring indexing processor usage, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`. Or you can stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples.
-{: tip}
+If you want to save old index versions without incurring indexing processor usage, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`. Or you can stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. 
+{: important}
+
+See the following examples:
 
 ```json
 {
@@ -662,7 +664,7 @@ that are returned when querying the view.
 
 The sort direction is always applied first.
 Next, filtering is applied by using the `start_key` and `end_key` query arguments.
-It is possible that no rows will match your keyrange if sort and filter plans don't make sense when combined.
+It is possible that no rows match your keyrange if sort and filter plans don't make sense when combined.
 
 See the example of using HTTP to make a global query that includes `start_key` and `end_key`
 query arguments:
