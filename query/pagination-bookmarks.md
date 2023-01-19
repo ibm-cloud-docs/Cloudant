@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-09"
+  years: 2019, 2023
+lastupdated: "2023-01-16"
 
 keywords: _all_docs endpoint, skip, limit, startkey, endkey, query, search, paging, mapreduce views
 
@@ -1015,7 +1015,7 @@ The `startkey_docid` parameter works only if a `startkey` is supplied and where 
 It's this sort of access pattern that {{site.data.keyword.cloudant_short_notm}} *bookmarks* are built for. Here's how it works:
 
 - Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, `find me the first 10 cities where the country is 'US'`.
-- {{site.data.keyword.cloudant_short_notm}} provides an array of ten {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
+- {{site.data.keyword.cloudant_short_notm}} provides an array of 10 {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
 - When the next set of results is required, the search is repeated. However, the query is sent, as well as the bookmark from the first response, to {{site.data.keyword.cloudant_short_notm}} in the request.
 - {{site.data.keyword.cloudant_short_notm}} replies with the second set of documents and another bookmark, which can be used to get a third page of results.
 - Repeat! 
@@ -1030,7 +1030,9 @@ First, you search for all the cities in the US. You're using [{{site.data.keywor
 ```js
 {
   "selector": {
-    "country": "US"
+    "$eq": {
+      "country": "US"
+    }
   },
   "limit": 5
 }
@@ -1040,9 +1042,135 @@ By using the [`/db/_find`](/apidocs/cloudant#postfind){: external} API endpoint,
 
 ```sh
 curl -X POST \
+      -H "Authorization: Bearer $API_BEARER_TOKEN" \
       -H 'Content-type: application/json' \
-      -d '{"selector":{"country":"US"},"limit":5}' \
-      "$URL/cities/_find"
+      -d '{"selector":{"country":{"$eq": "US"}},"limit":5}' \
+      "$SERVICE_URL/cities/_find"
+```
+{: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.FindResult;
+import com.ibm.cloud.cloudant.v1.model.PostFindOptions;
+
+import java.util.Collections;
+import java.util.Map;
+
+Cloudant service = Cloudant.newInstance();
+
+Map<String, Object> selector = Collections.singletonMap(
+    "country",
+    Collections.singletonMap("$eq", "US"));
+
+PostFindOptions.Builder findOptions = new PostFindOptions.Builder()
+    .db("cities")
+    .selector(selector)
+    .limit(5);
+
+FindResult response = service.postFind(findOptions.build()).execute().getResult();
+while (response.getDocs().size() > 0) {
+    System.out.println(response.getDocs());
+    // The bookmark of the next request becomes the bookmark of this response
+    findOptions.bookmark(response.getBookmark());
+    response = service.postFind(findOptions.build()).execute().getResult();
+}
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+
+const service = CloudantV1.newInstance({});
+
+async function paginate(pageSize) {
+  let requestParams = {
+      db: 'cities',
+      selector: {country: {'$eq': 'US'}},
+      limit: pageSize,
+  }
+  let findResult = (await service.postFind(requestParams)).result;
+  while (findResult.docs.length > 0) {
+    let documents = findResult.docs;
+    console.log(documents);
+    // The bookmark of the next request becomes the bookmark of this response
+    requestParams.bookmark = findResult.bookmark;
+    findResult = (await service.postFind(requestParams)).result;
+  }
+}
+
+paginate(5)
+```
+{: codeblock}
+{: node}
+
+```python
+request_params = dict(
+    db='cities',
+    selector={'country': {'$eq': 'US'}},
+    limit=5,
+)
+response = service.post_find(**request_params).get_result()
+
+while len(response['docs']) > 0:
+    documents = response['docs']
+    print(json.dumps(documents, indent=2))
+    # The bookmark of the next request becomes the bookmark of this response
+    request_params['bookmark'] = response['bookmark']
+    response = service.post_find(**request_params).get_result()
+```
+{: codeblock}
+{: python}
+
+```go
+findOptions := service.NewPostFindOptions(
+    "cities",
+    map[string]interface{}{
+        "country": map[string]bool{
+            "$eq": "US",
+        },
+    },
+)
+findOptions.SetLimit(5)
+
+findResult, _, err := service.PostFind(findOptions)
+if err != nil {
+    panic(err)
+}
+for len(findResult.Docs) > 0 {
+    documents := findResult.Docs
+    b, err := json.MarshalIndent(documents, "", "  ")
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(string(b))
+    // The bookmark of the next request becomes the bookmark of this response
+    findOptions.Bookmark = findResult.Bookmark
+    findResult, _, err = service.PostFind(findOptions)
+    if err != nil {
+        panic(err)
+    }
+}
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+ "encoding/json"
+ "fmt"
+ "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+```sh
 {
   "docs":[
     {"_id":"10104153","_rev":"1-32aab6258c65c5fc5af044a153f4b994","name":"Silver Lake","latitude":34.08668,"longitude":-118.27023,"country":"US","population":32890,"timezone":"America/Los_Angeles"},
@@ -1054,15 +1182,21 @@ curl -X POST \
   "bookmark": "g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzmxiYWJiZGYGkOWDSyBJZAPCBD58"
 }
 ```
+{: curl}
 
 The response includes an array of `docs`, and a `bookmark`, which you use to paginate through the results in the next request. When you need page two of the results, you repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response.
+{: curl}
 
 ```sh
 curl -X POST \
+      -H "Authorization: Bearer $API_BEARER_TOKEN" \
       -H 'Content-type: application/json' \
-      -d '{"selector":{"country":"US"},"limit":5,"bookmark":"g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzmxiYWJiZGYGkOWDSyBJZAPCBD58"}' \
-      "$URL/cities/_find"
-      
+      -d '{"selector":{"country":{"$eq": "US"}},"limit":5,"bookmark":"g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzmxiYWJiZGYGkOWDSyBJZAPCBD58"}' \
+      "$SERVICE_URL/cities/_find"
+```
+{: curl}
+
+```sh
 {
   "docs":[
     {"_id":"4049979","_rev":"1-1fa2591477c774a07c230571568aeb66","name":"Birmingham","latitude":33.52066,"longitude":-86.80249,"country":"US","population":212237,"timezone":"America/Chicago"},
@@ -1075,51 +1209,184 @@ curl -X POST \
   "warning": "no matching index found, create an index to optimize query time"
 }
 ```
+{: curl}
 
 This time, you get the next five cities and a new bookmark ready for the next request.
-
-It's the same story when you use one of the {{site.data.keyword.cloudant_short_notm}} libraries to do this task. First, make the initial request:
-
-```js
-  const q = {
-    selector: {
-      country: 'US'
-    },
-    limit: 5
-  }
-  const data = await db.find(q)
-  // { docs: [ ... ], bookmark: '...' }
-```
-
-You feed the bookmark from the first response into the second request for the next page of results:
-
-```js
-  const q = {
-    selector: {
-      country: 'US'
-    },
-    limit: 5,
-    bookmark: 'g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzmxiYWJiZGYGkOWDSyBJZAPCBD58'
-  }
-  const data = await db.find(q)
-  // { docs: [ ... ], bookmark: '...' }
-```
+{: curl}
 
 ### How does {{site.data.keyword.cloudant_short_notm}} Search work?
 {: #how-cloudant-search-works}
 
-Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=Cloudant-cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
+Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=Cloudant-cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POST requests. See the following example: 
 
 ```sh
-curl "$URL/cities/_search/search/_search/freetext?q=country:US&bookmark=g1AAAAA-eJzLYW"
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/cities/_search/search/_search/freetext?q=country:US&limit=5"
 ```
+{: codeblock}
+{: curl}
+
+```java
+import com.ibm.cloud.cloudant.v1.Cloudant;
+import com.ibm.cloud.cloudant.v1.model.PostSearchOptions;
+import com.ibm.cloud.cloudant.v1.model.SearchResult;
+
+Cloudant service = Cloudant.newInstance();
+
+PostSearchOptions.Builder searchOptions = new PostSearchOptions.Builder()
+    .db("cities")
+    .ddoc("search")
+    .index("freetext")
+    .query("country:US");
+    .limit(5);
+
+SearchResult response = service.postSearch(searchOptions.build()).execute().getResult();
+while (response.getRows().size() > 0) {
+    System.out.println(response.getRows());
+    // The bookmark of the next request becomes the bookmark of this response
+    searchOptions.bookmark(response.getBookmark());
+    response = service.postSearch(searchOptions.build()).execute().getResult();
+}
+```
+{: codeblock}
+{: java}
+
+```javascript
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
+async function paginate(pageSize) {
+  let requestParams = {
+    db: 'cities',
+    ddoc: 'search',
+    index: 'freetext',
+    query: 'country:US',
+    limit: 5
+  };
+
+  let searchResult = (await service.postSearch(requestParams)).result;
+  while (searchResult.rows.length > 0) {
+    let documents = searchResult.rows;
+    console.log(documents);
+    // The bookmark of the next request becomes the bookmark of this response
+    requestParams.bookmark = searchResult.bookmark;
+    searchResult = (await service.postSearch(requestParams)).result;
+  }
+}
+paginate(5);
+```
+{: codeblock}
+{: node}
+
+```python
+selector = {'country': {'$eq': 'US'}}
+request_params = dict(
+  db='cities',
+  ddoc='search',
+  index='freetext',
+  query='country:US',
+  limit=5,
+)
+response = service.post_search(**request_params).get_result()
+
+while len(response['rows']) > 0:
+  documents = response['rows']
+  print(json.dumps(documents, indent=2))
+  # The bookmark of the next request becomes the bookmark of this response
+  request_params['bookmark'] = response['bookmark']
+  response = service.post_search(**request_params).get_result()
+```
+{: codeblock}
+{: python}
+
+```go
+searchOptions := service.NewPostSearchOptions(
+    "cities",
+    "search",
+	"freetext",
+	"country:US"
+)
+searchOptions.SetLimit(5)
+
+searchResult, _, err := service.PostSearch(searchOptions)
+if err != nil {
+    panic(err)
+}
+for len(searchResult.Rows) > 0 {
+    documents := searchResult.Rows
+    b, err := json.MarshalIndent(documents, "", "  ")
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(string(b))
+    // The bookmark of the next request becomes the bookmark of this response
+    searchOptions.Bookmark = searchResult.Bookmark
+    searchResult, _, err = service.PostSearch(searchOptions)
+    if err != nil {
+        panic(err)
+    }
+}
+```
+{: codeblock}
+{: go}
+
+The previous Go example requires the following import block:
+{: go}
+
+```go
+import (
+ "encoding/json"
+ "fmt"
+ "github.com/IBM/cloudant-go-sdk/cloudantv1"
+)
+```
+{: codeblock}
+{: go}
+
+```sh
+{
+  "total_rows": 65,
+  "rows":[
+    {"_id":"10104153","_rev":"1-32aab6258c65c5fc5af044a153f4b994","name":"Silver Lake","latitude":34.08668,"longitude":-118.27023,"country":"US","population":32890,"timezone":"America/Los_Angeles"},
+    {"_id":"10104154","_rev":"1-125f589bf4e39d8e119b4b7b5b18caf6","name":"Echo Park","latitude":34.07808,"longitude":-118.26066,"country":"US","population":43832,"timezone":"America/Los_Angeles"},
+    {"_id":"4046704","_rev":"1-2e4b7820872f108c077dab73614067da","name":"Fort Hunt","latitude":38.73289,"longitude":-77.05803,"country":"US","population":16045,"timezone":"America/New_York"},
+    {"_id":"4048023","_rev":"1-744baaba02218fd84b350e8982c0b783","name":"Bessemer","latitude":33.40178,"longitude":-86.95444,"country":"US","population":27456,"timezone":"America/Chicago"},
+    {"_id":"4048662","_rev":"1-e95c97013ece566b37583e451c1864ee","name":"Paducah","latitude":37.08339,"longitude":-88.60005,"country":"US","population":25024,"timezone":"America/Chicago"}
+  ],
+  "bookmark": "g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzmxiYWJiZGYGkOWDSyBJZAPCBD58"
+}
+```
+{: curl}
+
+You get the first five cities and a bookmark ready for the next request with the `bookmark` request parameter.
+{: curl}
+
+```sh
+curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/cities/_search/search/_search/freetext?q=country:US&limit=5&bookmark=g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzmxiYWJiZGYGkOWDSyBJZAPCBD58"
+```
+{: curl}
+
+```sh
+{
+  "total_rows": 65,
+  "rows":[
+    {"_id":"4049979","_rev":"1-1fa2591477c774a07c230571568aeb66","name":"Birmingham","latitude":33.52066,"longitude":-86.80249,"country":"US","population":212237,"timezone":"America/Chicago"},
+    {"_id":"4054378","_rev":"1-a750085697685e7bc0e49d103d2de59d","name":"Center Point","latitude":33.64566,"longitude":-86.6836,"country":"US","population":16921,"timezone":"America/Chicago"},
+    {"_id":"4058219","_rev":"1-9b4eb183c9cdf57c19be660ec600330c","name":"Daphne","latitude":30.60353,"longitude":-87.9036,"country":"US","population":21570,"timezone":"America/Chicago"},
+    {"_id":"4058553","_rev":"1-56100f7e7742028facfcc50ab6b07a04","name":"Decatur","latitude":34.60593,"longitude":-86.98334,"country":"US","population":55683,"timezone":"America/Chicago"},
+    {"_id":"4059102","_rev":"1-612ae37d982dc71eeecf332c1e1c16aa","name":"Dothan","latitude":31.22323,"longitude":-85.39049,"country":"US","population":65496,"timezone":"America/Chicago"}
+  ],
+  "bookmark": "g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzmxiYWhoaGIGkOWDSyBJZAO9qD40",
+}
+```
+{: curl}
 
 See the documentation about [query parameters](/docs/Cloudant?topic=Cloudant-cloudant-search#query-parameters-search) for further details.
 
 ### Do MapReduce views accept bookmarks?
 {: #mapreduce-views-accept-bookmarks}
 
-No. MapReduce views don't accept a `bookmark`. Use the [skip and limit](/docs/Cloudant?topic=Cloudant-using-views) to page through results.
+No. MapReduce views don't accept a `bookmark`. Instead, use one of the following tricks to page through results:
+- [The \u0000 trick](#option-2-the-u0000-trick)
+- [Fetch one document too many](#option-1-fetch-one-doc-too-many)
+- [Skip and limit](/docs/Cloudant?topic=Cloudant-using-views)
 
 ### Can I jump straight to page X of the results?
 {: #jump-page-x-results}
