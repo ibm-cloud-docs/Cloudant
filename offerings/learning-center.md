@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-10"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, under the hood video
 
@@ -214,7 +214,7 @@ A number 1, 2, 3, and so on, and
 a cryptographic hash of the document's body.
 (For the uninitiated, a hash is a digital "fingerprint" of some data. If the data changes, the fingerprint changes. No 2 fingerprints are the same, that is, no 2 documents with different content can have the same hash.)
 
-You can see from the example on the screen that our document has a revision token (the key starts with `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start 04aa8... are the cryptographic hash of the document.
+You can see from the example on the screen that our document has a revision token (the key starts with `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start `04aa8...` are the cryptographic hash of the document.
 
 If we follow the lifecycle of a document, it starts with a `revision 1`. When it is modified later, it gets a `revision 2` and so on. With each incrementing revision number, the hash changes because the content of the document is being modified too.
 
@@ -569,7 +569,7 @@ So far we performed CRUD (create, retrieve, update, and delete) operations from 
 
 These operations are the building blocks of a database, but they get you only so far. What if you need to return a subset of documents that match on fields within the document? A person's birth date? A book's title? An order's value?
 
-Querying comes in here....
+Querying comes in here.
 
 {{site.data.keyword.cloudant_short_notm}} has several methods for querying data. The first we look at is called *{{site.data.keyword.cloudant_short_notm}} Query*.
 

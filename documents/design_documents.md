@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-25"
+lastupdated: "2023-01-26"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -90,7 +90,7 @@ Views (optional)
    :  Name of the analyzer. Valid values are `standard`, `email`, `keyword`, `simple`, `whitespace`, `classic`, and `perfield`.
 
    Stopwords (optional)
-   :  An array of stop words.Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
+   :  An array of stop words. Stop words are words that must not be indexed. If this array is specified, it overrides the default list of stop words. The default list of stop words depends on the analyzer. The standard analyzer includes the following list of stop words: `a`, `an`, `and`, `are`, `as`, `at`, `be`, `but`, `by`, `for`, `if`, `in`, `into`, `is`, `it`, `no`, `not`, `of`, `on`, `or`, `such`, `that`, `the`, `their`, `then`, `there`, `these`, `they`, `this`, `to`, `was`, `will`, and `with`.
 
    Default (for the per field analyzer)
    :  Default language to use if no language is specified for the field.
