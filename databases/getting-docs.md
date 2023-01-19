@@ -77,7 +77,7 @@ PostAllDocsOptions docsOptions =
     new PostAllDocsOptions.Builder()
         .db("orders")
         .includeDocs(true)
-        .startkey("abc")
+        .startKey("abc")
         .limit(10)
         .build();
 
@@ -97,7 +97,7 @@ const service = CloudantV1.newInstance({});
 service.postAllDocs({
   db: 'orders',
   includeDocs: true,
-  startkey: 'abc',
+  startKey: 'abc',
   limit: 10
 }).then(response => {
   console.log(response.result);
@@ -114,7 +114,7 @@ service = CloudantV1.new_instance()
 response = service.post_all_docs(
   db='orders',
   include_docs=True,
-  startkey='abc',
+  start_key='abc',
   limit=10
 ).get_result()
 
@@ -128,7 +128,7 @@ postAllDocsOptions := service.NewPostAllDocsOptions(
   "orders",
 )
 postAllDocsOptions.SetIncludeDocs(true)
-postAllDocsOptions.SetStartkey("abc")
+postAllDocsOptions.SetStartKey("abc")
 postAllDocsOptions.SetLimit(10)
 
 allDocsResult, response, err := service.PostAllDocs(postAllDocsOptions)
