@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-01-20"
 
 keywords: _all_docs endpoint, skip, limit, startkey, endkey, query, search, paging, mapreduce views
 
@@ -366,7 +366,7 @@ You can use the options that are described in the following sections.
 
 Instead of fetching 5 documents (`limit=5`), fetch 5+1 (`limit=6`), but hide the 6th document from your users. The `_id` of the 6th document becomes the `startkey` of your request for the next page of results.
 
-First request:
+See the following example of a first request:
 {: curl}
 
 ```sh
@@ -515,7 +515,7 @@ for len(viewResult.Rows) > 1 {
 {: codeblock}
 {: go}
 
-First response:
+See the following example of a first response:
 {: curl}
 
 ```sh
@@ -535,7 +535,7 @@ First response:
 {: codeblock}
 {: curl}
 
-Second request:
+See the following example of a second request:
 {: curl}
 
 ```sh
@@ -544,7 +544,7 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs
 {: codeblock}
 {: curl}
 
-Second response:
+See the following example of a second response:
 {: curl}
 
 ```sh
@@ -585,7 +585,7 @@ This option works, but you end up fetching `n+1` documents when only `n` are req
 If you're determined to fetch only `n` documents each time, then you need to calculate a value of `startkey`, which means `the next ID after the last _id in the result set`. For example, if the last document in the first page of results is "example", what must the `startkey` of the next call to `_all_docs` be? It can't be "example", otherwise you get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which can be placed in a URL as-is or with the percent code `%00`).
 ). 
 
-First request:
+See the following example of a first request:
 {: curl}
 
 ```sh
@@ -708,7 +708,7 @@ for len(allDocsResult.Rows) > 0 {
 {: codeblock}
 {: go}
 
-First response:
+See the following example of a first response:
 {: curl}
 
 ```sh
@@ -727,7 +727,7 @@ First response:
 {: codeblock}
 {: curl}
 
-Second request:
+See the following example of a second request:
 {: curl}
 
 ```sh
@@ -736,7 +736,7 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/orders/_all_docs
 {: codeblock}
 {: curl}
 
-Second response:
+See the following example of a second response:
 {: curl}
 
 ```sh
@@ -782,7 +782,7 @@ MapReduce views, secondary indexes, can be queried in a similar way to the `_all
 
 Another complication is that unlike the primary index, where every `_id` is unique, the secondary index might have entries with the same key. For example, lots of entries that include the key `"herbivore"`. This situation makes pagination by using only `startkey`/`endkey` tricky, so you can use other parameters to help: `startkey_docid`/`endkey_docid`.
 
-First request:
+See the following example of a first request:
 {: curl}
 
 ```sh
@@ -924,7 +924,7 @@ for len(viewResult.Rows) > 0 {
 {: codeblock}
 {: go}
 
-First response:
+See the following example of a first response:
 {: curl}
 
 ```sh
@@ -953,7 +953,7 @@ First response:
 {: codeblock}
 {: curl}
 
-Second request:
+See the following example of a second request:
 {: curl}
 
 ```sh
@@ -963,7 +963,7 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" "$SERVICE_URL/animaldb/_design
 {: codeblock}
 {: curl}
 
-Second response:
+See the following example of a second response:
 {: curl}
 
 ```sh
