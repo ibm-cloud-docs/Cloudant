@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-01-24"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -107,7 +107,6 @@ Throughput provision is identified and measured as one of the following types of
 	-	Primary Index ([`_all_docs`](/apidocs/cloudant#postalldocs){: external})
 	-	MapReduce View ([`_view`](/docs/Cloudant?topic=Cloudant-using-views#using-views))
 	-	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-cloudant-search#queries))
-	-	Geospatial Index ([`_geo`](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
 	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: external})
 
 ## Provisioned throughput capacity

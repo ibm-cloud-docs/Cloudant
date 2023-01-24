@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-10"
+  years: 2015, 2023
+lastupdated: "2023-01-24"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -17,9 +17,7 @@ subcollection: Cloudant
 
 {{site.data.keyword.cloudantfull}} is a hosted and fully managed database-as-a-service (DBaaS). 
 It was built to scale globally, run non-stop, and handle a wide variety of data types 
-like [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview-basics),
-[full-text](/docs/Cloudant?topic=Cloudant-query#creating-an-index),
-and [geospatial](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial).
+like [JSON](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics#json-overview-basics) and [full-text](/docs/Cloudant?topic=Cloudant-query#creating-an-index).
 {: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on 31 March 2018. 

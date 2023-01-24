@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-01"
+  years: 2019, 2023
+lastupdated: "2023-01-24"
 
 keywords: feature comparison, function comparison
 
@@ -33,7 +33,6 @@ The following table shows the feature and function differences that you must be 
 | MapReduce view    | Yes     | Yes | Yes | Yes | Yes |
 | Mango and {{site.data.keyword.cloudant_short_notm}} Query    | No     | Yes | Yes | Yes | Yes |
 | Full-text search    | No     | No | Yes, requires separate installer or container. | Yes | No |
-| Geospatial    | No     | No | No | Yes | No |
 | Partition queries    | No     | No | Yes | Yes | No |
 | Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops. | Yes |
 | Selector on `changes feed`    | No     | Yes | Yes | Yes | Yes |

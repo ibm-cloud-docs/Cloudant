@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-09"
+  years: 2015, 2023
+lastupdated: "2023-01-24"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -81,8 +81,6 @@ click the corresponding link.
 | `PUT /{db}/_design/{ddoc}` \n [Cloudant](/apidocs/cloudant#putdesigndocument){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html?highlight=_design#put--db-_design-ddoc) | Create a new named design document or create a new revision of the existing design document. \n {{site.data.keyword.cloudant_short_notm}} documentation references an extra request body field (indexes). CouchDB documentation references more request body fields (language, options). |
 | `DELETE /{db}/_design/{ddoc}` \n [Cloudant](/apidocs/cloudant#deletedesigndocument){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html?highlight=_design#delete--db-_design-ddoc) | Delete the specified document from the database. |
 | `COPY /{db}/_design/{ddoc}` \n [Cloudant](/docs/Cloudant?topic=Cloudant-design-documents#copying-a-design-document), [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html?highlight=_design#copy--db-_design-ddoc) | Copy an existing design document to a new or existing one. |
-| `GET /{db}/_design/{ddoc}/_geo_info/{index}` \n [Cloudant](/apidocs/cloudant#getgeoindexinformation){: external} | Obtain information about a geospatial index. |
-| `GET /{db}/_design/{ddoc}/_geo/{index}` \n [Cloudant](/apidocs/cloudant#getgeo){: external} | Query a geospatial index from the specified design document. |
 | `GET /{db}/_design/{ddoc}/_info` \n [Cloudant](/apidocs/cloudant#getdesigndocumentinformation){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/common.html?highlight=_info#get--db-_design-ddoc-_info) | Obtain information about the specified design document, including the index, index size, and status of the design document. |
 | `GET /{db}/_design/{ddoc}/_search_info/{index}` \n [Cloudant](/apidocs/cloudant#getsearchinfo){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/search.html#get--db-_design-ddoc-_search_info-index) | Retrieve search index metadata information, such as the size of the index on disk. |
 | `GET /{db}/_design/{ddoc}/_search/{index}` \n [Cloudant](/apidocs/cloudant#postsearch){: external}, [CouchDB](https://docs.couchdb.org/en/latest/api/ddoc/search.html#get--db-_design-ddoc-_search-index)| Query an index by using the HTTP `GET` method. |

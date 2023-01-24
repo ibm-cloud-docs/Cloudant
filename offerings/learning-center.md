@@ -4,7 +4,7 @@ copyright:
   years: 2015, 2023
 lastupdated: "2023-01-27"
 
-keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
+keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, under the hood video
 
 subcollection: Cloudant
 
@@ -23,7 +23,7 @@ You can use the [playlist](https://www.youtube.com/embed/playlist?list=PLzpeuWUE
 ## Introduction to {{site.data.keyword.cloudant_short_notm}} video
 {: #cloudant-course-intro-video}
 
-Learn about the {{site.data.keyword.cloudant_short_notm}} 18-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service. 
+Learn about the {{site.data.keyword.cloudant_short_notm}} 17-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service. 
 
 ![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://www.youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="Introduction to IBM Cloudant video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -31,7 +31,7 @@ Learn about the {{site.data.keyword.cloudant_short_notm}} 18-part video series t
 {: #cloudant-course-intro-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 1 - *What is {{site.data.keyword.cloudant_short_notm}}?*
 
@@ -71,7 +71,7 @@ Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents wo
 {: #the-document-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 2 - *The {{site.data.keyword.cloudant_short_notm}} Document*.
 
@@ -156,7 +156,7 @@ Learn how `_id`s work in {{site.data.keyword.cloudant_short_notm}}, how they are
 {: #the-id-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 3 - *The Document `_id`*.
 
@@ -200,7 +200,7 @@ Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token whe
 {: #the-rev-token-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 4 - *The rev token*.
 
@@ -256,7 +256,7 @@ Learn how Legacy authentication and IAM authentication work. You can also learn 
 {: #video-transcript-ui}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 5 - *Authentication*.
 
@@ -304,7 +304,7 @@ Learn about the {{site.data.keyword.cloudant_short_notm}} Dashboard and what it 
 {: #the-dashboard-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 6 - *The Dashboard*.
 
@@ -352,7 +352,7 @@ Learn how to use the command line to make HTTP requests and to add, edit, and de
 {: #http-api-basics-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 7 - *HTTP API Basics*.
 
@@ -469,7 +469,7 @@ Learn how to use two API calls to perform all the basic {{site.data.keyword.clou
 {: #the-bulk-api-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 8 - *The Bulk API*.
 
@@ -505,7 +505,7 @@ Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically.
 {: #accessing-cloudant-programmatically-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 9 - *Accessing {{site.data.keyword.cloudant_short_notm}} programmatically*.
 
@@ -556,7 +556,7 @@ Learn the different ways to query data in {{site.data.keyword.cloudant_short_not
 {: #querying-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 10 - *Querying*.
 
@@ -639,7 +639,7 @@ Learn how indexing can speed up your query process.
 {: #indexing-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 11 - *Indexing*.
 
@@ -697,7 +697,7 @@ Learn about MapReduce, which is another way to configure secondary indexes.
 {: #mapreduce-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 12 - *MapReduce*.
 
@@ -782,7 +782,7 @@ Learn about different options for storing a date, or date and time value.
 {: #dates-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 13 - *Dates*.
 
@@ -816,7 +816,7 @@ Learn what replication means in {{site.data.keyword.cloudant_short_notm}}, as we
 {: #replication-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 14 - *Replication*.
 
@@ -881,7 +881,7 @@ Learn how partitioned databases work in {{site.data.keyword.cloudant_short_notm}
 {: #partitioned-databases-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 15 - *Partitioned database*.
 
@@ -940,7 +940,7 @@ Learn how to use {{site.data.keyword.cloudant_short_notm}} Search, as well as Lu
 {: #cloudant-search-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 This video is part 16 - *{{site.data.keyword.cloudant_short_notm}} Search*.
 
@@ -979,33 +979,6 @@ To summarize, {{site.data.keyword.cloudant_short_notm}} Search indexes are defin
 {{site.data.keyword.cloudant_short_notm}} Search also powers `type=text` {{site.data.keyword.cloudant_short_notm}} Query indexes, so a subset of its capabilities is surfaced by using the `_find` API.
 {: note}
 
-That's the end of this part. The next part is called *Geospatial*.
-
-## Geospatial video
-{: #geospatial-video}
-
-Learn how to use geospatial indexes to query data, which is unique to {{site.data.keyword.cloudant_short_notm}}. 
-
-![Geospatial](https://www.youtube.com/embed/nfDQN_Em4H8){: video output="iframe" data-script="#geospatial-video-script" id="Geospatial video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
-
-### Geospatial video script
-{: #geospatial-video-script}
-{: notoc}
-
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
-
-This video is part 17 - *Geospatial*.
-
-The final means of querying data in {{site.data.keyword.cloudant_short_notm}} is using geospatial indexes.
-
-Geospatial indexes are unique to {{site.data.keyword.cloudant_short_notm}}. CouchDB codebase does not include geospatial indexes.
-
-Data is stored as GeoJSON in the {{site.data.keyword.cloudant_short_notm}} database to describe point, line, polygon, multi-point, multi-line, and multi-polygon objects. Each object, as well as the geographic information, can have optional properties: Metadata about the object, which is returned in the search results.
-
-Again, an index is defined as a JavaScript function, and then, queries can be used to ask questions of your collection of geographic features. For example, find me the nearest object to this point; find objects within this polygon; find objects along this path; or find objects that intersect with this object.
-
-To summarize, {{site.data.keyword.cloudant_short_notm}} Geo is something unique to the {{site.data.keyword.cloudant_short_notm}} service and is used to perform advanced geospatial queries against your databases of GeoJSON objects. It cannot be combined with other index types. It is only of use to Geographic Information Systems or use-cases that have a purely geographic purpose.
-
 That's the end of this part. The next part is called *Under the hood*.
 
 ## Under the hood video
@@ -1019,9 +992,9 @@ Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized.
 {: #under-the-hood-video-script}
 {: notoc}
 
-Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 18-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
+Welcome to the Introduction to {{site.data.keyword.cloudant_short_notm}} course, an 17-part video series that gives you an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
-This video is part 18 - *Under the hood*.
+This video is part 17 - *Under the hood*.
 
 Let's look at how an {{site.data.keyword.cloudant_short_notm}} service is organized: This overview applies to the {{site.data.keyword.cloudant_short_notm}} services that map to CouchDB 2 and 3. CouchDB 4 is built on different technology.
 
