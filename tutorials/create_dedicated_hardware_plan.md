@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-09"
+lastupdated: "2023-01-25"
 
 keywords: use dedicated hardware plan, create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -68,9 +68,9 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     2. Click **Create Host**. 
 
-    ![Create a host by clicking the Create host button.](images/img0005d.png){: caption="Figure 1. Host selection" caption-side="bottom"}
+       ![Create a host by clicking the Create host button.](images/img0005d.png){: caption="Figure 1. Host selection" caption-side="bottom"}
 
-    c. Select from the {{site.data.keyword.cloud_notm}} regions.
+    3. Select from the {{site.data.keyword.cloud_notm}} regions.
 
 6.  Configure the Host.
 
