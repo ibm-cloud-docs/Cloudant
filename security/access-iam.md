@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-09"
+lastupdated: "2023-01-30"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -19,10 +19,7 @@ subcollection: Cloudant
 approach to managing user identities, services, and access control.
 {: shortdesc}
 
-## Introduction
-{: #introduction-iam-ai}
-
-This document describes the integration of {{site.data.keyword.cloudantfull}} with {{site.data.keyword.cloud_notm}} Identity and
+The following text describes the integration of {{site.data.keyword.cloudantfull}} with {{site.data.keyword.cloud_notm}} Identity and
 Access Management. The following topics are discussed:
 
 - Differences between {{site.data.keyword.cloudant_short_notm}} legacy access controls and {{site.data.keyword.cloud_notm}} IAM access controls.
@@ -70,9 +67,11 @@ credentials or username and password combinations also includes {{site.data.keyw
 
 All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July 2018 or later are provisioned in Resource Groups and are enabled with {{site.data.keyword.cloud_notm}} IAM. Optionally, you can choose to also enable the {{site.data.keyword.cloudant_short_notm}} legacy authentication mechanism.  When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, select one of the following authentication methods.
 
-1. **Use both legacy credentials and IAM**: This mode means that both IAM and legacy credentials can be used to access the account. In particular, both IAM and legacy sets of credentials are provided to all applications bound to the account and service credentials generated.
-2. **Use only IAM**: This mode means that only IAM credentials are provided by using Service binding and
-    credential generation.
+Use both legacy credentials and IAM
+:   This mode means that both IAM and legacy credentials can be used to access the account. In particular, both IAM and legacy sets of credentials are provided to all applications bound to the account and service credentials generated.
+
+Use only IAM
+:   This mode means that only IAM credentials are provided by using Service binding and credential generation.
 
 When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
 {: important}
@@ -462,7 +461,7 @@ The following link provides the latest supported version of the {{site.data.keyw
 
 - [`cloudant-java-sdk`](https://github.com/IBM/cloudant-java-sdk/releases){: external}
 
-For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Java, see the [API & SDK documentation](/apidocs/cloudant?code=java#authentication){: external}.
+For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Java, see the [API and SDK documentation](/apidocs/cloudant?code=java#authentication){: external}.
 
 
 #### Node.js
@@ -472,7 +471,7 @@ The following link provides the latest supported version of the {{site.data.keyw
 
 - [`cloudant-node-sdk`](https://github.com/IBM/cloudant-node-sdk/releases){: external}
 
-For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node, see the [API & SDK documentation](/apidocs/cloudant?code=node#authentication){: external}.
+For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Node, see the [API and SDK documentation](/apidocs/cloudant?code=node#authentication){: external}.
 
 #### Python
 {: #python-ai}
@@ -481,7 +480,7 @@ The following link provides the latest supported version of the {{site.data.keyw
 
 - [`cloudant-python-sdk`](https://github.com/IBM/cloudant-python-sdk/releases){: external}
 
-For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Python, see the [API & SDK documentation](/apidocs/cloudant?code=python#authentication){: external}.
+For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Python, see the [API and SDK documentation](/apidocs/cloudant?code=python#authentication){: external}.
 
 #### Go
 {: #go-ai}
@@ -490,7 +489,7 @@ The following link provides the latest supported version of the {{site.data.keyw
 
 - [`go-sdk`](https://github.com/IBM/cloudant-go-sdk/releases){: external}
 
-For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Go, see the [API & SDK documentation](/apidocs/cloudant?code=go#authentication){: external}.
+For an example that uses {{site.data.keyword.cloudant_short_notm}} SDK for Go, see the [API and SDK documentation](/apidocs/cloudant?code=go#authentication){: external}.
 
 ### Access by using HTTP client
 {: #access-by-using-http-client-ai}
@@ -687,7 +686,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 {: class="simple-tab-table"}
-{: caption="Table 2. Manager role actions and mapping" caption-side="top"}
+{: caption="Table 2. Actions and mapping for the Manager role" caption-side="top"}
 {: #manager-role}
 {: tab-title="Manager"}
 {: tab-group="Roles-simple"}
@@ -731,7 +730,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 | `POST` | `/$DATABASE/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` |
-{: caption="Table 2. Writer role actions and mapping" caption-side="top"}
+{: caption="Table 2. Actions and mapping for the Writer role" caption-side="top"}
 {: #writer-role}
 {: tab-title="Writer"}
 {: tab-group="Roles-simple"}
@@ -767,7 +766,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 2. Reader role actions and mapping" caption-side="top"}
+{: caption="Table 2. Actions and mapping for the Reader role" caption-side="top"}
 {: #reader-role}
 {: tab-title="Reader"}
 {: tab-group="Roles-simple"}
@@ -787,7 +786,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
-{: caption="Table 2. Monitor role actions and mapping" caption-side="top"}
+{: caption="Table 2. Actions and mapping for the Monitor role" caption-side="top"}
 {: #monitor-role}
 {: tab-title="Monitor"}
 {: tab-group="Roles-simple"}
@@ -796,7 +795,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-{: caption="Table 2. Check pointer role actions and mapping" caption-side="top"}
+{: caption="Table 2. Actions and mapping for the Checkpointer role" caption-side="top"}
 {: #checkpointer-role}
 {: tab-title="Checkpointer"}
 {: tab-group="Roles-simple"}
