@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-03"
+lastupdated: "2023-01-30"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -27,7 +27,7 @@ If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: ext
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspell your account name,
-you might get the following error, [*503: Service unavailable.*](/apidocs/cloudant#list-of-http-codes){: external}.
+you might get the following error, [*503: Service unavailable*](/apidocs/cloudant#list-of-http-codes){: external}. You can see the types of authentication in the following list: 
 
 -    [{{site.data.keyword.cloud}} Identity and Access Management (IAM)](#authentication-iam)
 -    [Basic authentication](#basic-authentication)
@@ -39,7 +39,7 @@ you might get the following error, [*503: Service unavailable.*](/apidocs/clouda
 You can perform the following tasks with IAM: 
 
 - Centrally manage access management across {{site.data.keyword.cloud_notm}}.
-- Allow a user or service to access many different resources by using the same set of credentials (for  example, same username and password or IAM API key).
+- Allow a user or service to access many different resources by using the same set of credentials (for example, same username and password or IAM API key).
 - IAM API keys can be granted access to account management functions, like creating new databases.
 
 For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or an overview of [IAM](/docs/account?topic=account-iamoverview){: external}.
@@ -134,7 +134,7 @@ then you can do all the tasks that are associated with that role.
 ## Roles
 {: #roles}
 
-The following section only applies to legacy credentials. For more information about using roles with IAM credentials, see [{{site.data.keyword.cloudant_short_notm}} roles](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-roles-ai){: external}.
+The following section applies only to legacy credentials. For more information about using roles with IAM credentials, see [{{site.data.keyword.cloudant_short_notm}} roles](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant#ibm-cloudant-roles-ai){: external}.
 
 {{site.data.keyword.cloudant_short_notm}} has a number of roles available.
 The roles can be assigned to user accounts or [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#creating-api-keys).
@@ -221,7 +221,7 @@ then assign a focused role, such as `_design` or `_security`.
 ## API keys
 {: #api-keys}
 
-The following section only applies to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](/docs/account?topic=account-manapikey){: external}.
+The following section applies only to legacy credentials. For more information about using API keys with IAM credentials, see [IAM API keys](/docs/account?topic=account-manapikey){: external}.
 
 Use API keys to enable database access for a person or application,
 but without creating a new {{site.data.keyword.cloudant_short_notm}} account for that person or application.
@@ -307,7 +307,7 @@ All the permissions that were previously assigned to the API key for it to work 
 {: #to-remove-an-api-key-by-using-the-dashboard}
 
 1.	Click `Databases` > `Permissions`.
-2.	Hover over the API key you would like to delete.
+2.	Hover over the API key that you would like to delete.
 3.	Click the "`X`" that appears when you hover over the API key.
 
 #### To remove an API key by using the {{site.data.keyword.cloudant_short_notm}} API
@@ -327,7 +327,7 @@ The updated list must not include the API key.
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
 {: #using-the-users-database-with-cloudant-nosql-db}
 
-The following section only applies to legacy credentials. 
+The following section applies only to legacy credentials. 
 
 You can use the
 [`_users` database](https://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: external}
