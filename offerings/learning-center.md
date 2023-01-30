@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-01-27"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, geospatial video, under the hood video
 
@@ -214,7 +214,7 @@ A number 1, 2, 3, and so on, and
 a cryptographic hash of the document's body.
 (For the uninitiated, a hash is a digital "fingerprint" of some data. If the data changes, the fingerprint changes. No 2 fingerprints are the same, that is, no 2 documents with different content can have the same hash.)
 
-You can see from the example on the right that our document has a revision token (the key that starts `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start 04aa8... are the cryptographic hash of the document.
+You can see from the example on the screen that our document has a revision token (the key starting `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start 04aa8... are the cryptographic hash of the document.
 
 If we follow the lifecycle of a document, it starts with a `revision 1`. When it is modified later, it gets a `revision 2` and so on. With each incrementing revision number, the hash changes because the content of the document is being modified too.
 
@@ -602,7 +602,7 @@ The JSON syntax might take a bit of getting used to, but MongoDB users might fin
 
 {{site.data.keyword.cloudant_short_notm}} queries can be executed in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Select the database that you are working with, for example, `books` then choose the Query tab.
 
-Enter your {{site.data.keyword.cloudant_short_notm}} Query JSON in the box that is provided, and click **Run Query** when you're ready. The result set appears on the right panel.
+Enter your {{site.data.keyword.cloudant_short_notm}} Query JSON in the box that is provided, and click **Run Query** when you're ready. The result set appears on the screen.
 
 The Explain button is used to provide an explanation on how the database interprets the supplied query. This explanation becomes more important when we get to Indexing in the next part.
 

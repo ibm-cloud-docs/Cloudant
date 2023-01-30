@@ -188,7 +188,7 @@ For more information, see the following resources:
 ## Step 4. Aggregating data - MapReduce
 {: #aggregate-data-mapreduce}
 
-{{site.data.keyword.cloudant_short_notm}} Query and {{site.data.keyword.cloudant_short_notm}} Search cannot *aggregate* search results. In other words, you can't ask, "How many books were published in 1973?" {{site.data.keyword.cloudant_short_notm}}'s MapReduce feature allows secondary indexes to be created that can be used for selection or aggregation. MapReduce indexes are, like {{site.data.keyword.cloudant_short_notm}} Search, which is created by supplying a JavaScript function - any call to an `emit` function adds a row to the index.
+{{site.data.keyword.cloudant_short_notm}} Query and {{site.data.keyword.cloudant_short_notm}} Search cannot *aggregate* search results. In other words, you can't ask, *How many books were published in 1973?* {{site.data.keyword.cloudant_short_notm}}'s MapReduce feature allows secondary indexes to be created that can be used for selection or aggregation. MapReduce indexes are, like {{site.data.keyword.cloudant_short_notm}} Search, which is created by supplying a JavaScript function - any call to an `emit` function adds a row to the index.
 
 
 1. From the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the `books` database.

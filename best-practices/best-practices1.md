@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-09"
+  years: 2022, 2023
+lastupdated: "2023-01-27"
 
 keywords: api, http, database, partitioned query, eventual consistency, time box
 
@@ -141,7 +141,7 @@ So when must you use a single database and distinguish between different documen
 If you have an ever-growing data set (like a log, sensor readings, or other types of time-series), it’s also not a good idea to create a single, ever-growing, massive database. This kind of use case requires time-boxing, which we cover in more detail later.
 {: note}
 
-## Avoid the "database per user" anti-pattern like the plague
+## Avoid the *database per user* anti-pattern like the plague
 {: #avoid-db-per-user}
 
 If you’re building a multi-user service on top of {{site.data.keyword.cloudant_short_notm}}, it is tempting to let each user store their data in a separate database under the application account. That works well, mostly, if the number of users is small.
@@ -159,7 +159,7 @@ The MapReduce views in {{site.data.keyword.cloudant_short_notm}} are awesome. Ho
 
 If you find yourself writing reduce functions, stop and consider whether you could reorganize your data so that writing reduce functions isn’t necessary. Or so that you’re able to rely on the built-in reducers. 
 
-Views on partitioned databases do not support custom reduces, which is one factor that contributes to the significant speed-up queries on such views can offer.
+Views on partitioned databases do not support custom reduces, which is one factor that contributes to the significant speed-up queries only such views can offer.
 {: note}
 
 For more information, see {{site.data.keyword.cloudant_short_notm}} docs on [reduces](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#reduce-functions){: external}.

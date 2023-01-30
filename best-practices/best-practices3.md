@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-09"
+lastupdated: "2023-01-27"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -64,14 +64,14 @@ The only way to truly reclaim space is to delete databases, rather than document
 
 Eventual consistency is a great idea on paper, and a key contributor to {{site.data.keyword.cloudant_short_notm}}’s ability to scale out in practice. However, it’s fair to say that the mindset required to develop against an eventually consistent data store does not feel natural to most people.
 
-You often get stung when you write tests like the following tests:
+You often get stung when you write tests similar to the following ones:
 
 1. Create a database.
 2. Populate the database with some test data.
 3. Query the database for some subset of this test data.
 4. Verify that the data that you got back is the data that you expected to get back.
 
-Nothing wrong with that test? That works on every other database that you ever used, right?
+Nothing wrong with that test? That works on every other database that you ever used, correct?
 
 Not on {{site.data.keyword.cloudant_short_notm}}.
 
@@ -172,9 +172,14 @@ Cloudant-the-service (unlike basic CouchDB) is sold on a “reserved throughput 
 
 Although the cell phone contract comparison doesn’t capture the whole situation, no constraint exists on the sum of requests that you can make to {{site.data.keyword.cloudant_short_notm}} in a month. The constraint is on how *fast* you make requests. 
 
-It’s really a promise that you make to {{site.data.keyword.cloudant_short_notm}}, not one that {{site.data.keyword.cloudant_short_notm}} makes to you. You promise not to make more requests per second than you agreed to up front. A maximum speed limit, if you like. If you transgress, {{site.data.keyword.cloudant_short_notm}} fails your requests with a status of `429: Too Many Requests`. It’s your responsibility to look out for this case, and deal with it, which can be difficult when multiple app servers exist. How can they coordinate to ensure that they collectively stay lower than the requests-per-second limit?
+It’s really a promise that you make to {{site.data.keyword.cloudant_short_notm}}, not one that {{site.data.keyword.cloudant_short_notm}} makes to you. You promise not to make more requests per second than you agreed to up front. A maximum speed limit, if you like. If you transgress, {{site.data.keyword.cloudant_short_notm}} fails your requests with a status of `429: Too Many Requests`. It’s your responsibility to look out for this case, and deal with it, which can be difficult when multiple app servers exist. How can they coordinate to ensure that they collectively stay under the requests-per-second limit?
 
-{{site.data.keyword.cloudant_short_notm}}’s official client libraries have some built-in provision for this use case that can be enabled (Note: This provision is switched off by default to force you to think about it), following a “back-off and retry” strategy. However, if you rely on this facility alone, you might eventually be disappointed. The back-off and retry strategy helps only in cases of temporary transgression, not a persistent butting up against your provisioned throughput capacity limits.
+{{site.data.keyword.cloudant_short_notm}}’s official client libraries have some built-in provision for this use case that can be enabled, following a “back-off and retry” strategy. 
+
+This built-in provision is switched off by default to force you to think about it.
+[:note]
+
+However, if you rely on this facility alone, you might eventually be disappointed. The back-off and retry strategy helps only in cases of temporary transgression, not a persistent butting up against your provisioned throughput capacity limits.
 
 Your business logic *must* be able to handle this condition. Another way to look at it is that you get the allocation you pay for. If that allocation isn’t sufficient, the only solution is to pay for a higher allocation.
 
@@ -223,6 +228,6 @@ Response:
 
 Compressed content occupies a fraction of the size of the decompressed equivalent, meaning that it takes a shorter time to transport the data from {{site.data.keyword.cloudant_short_notm}}’s servers to your application.
 
-You might also choose to compress HTTP request bodies by using the Content-encoding header. This practice helps lower data transfer times when you write documents to {{site.data.keyword.cloudant_short_notm}}.
+You might also choose to compress HTTP request bodies by using the Content-encoding header. This practice helps reduce data transfer times when you write documents to {{site.data.keyword.cloudant_short_notm}}.
 {: note}
 

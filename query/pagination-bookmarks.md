@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-20"
+lastupdated: "2023-01-27"
 
 keywords: _all_docs endpoint, skip, limit, startkey, endkey, query, search, paging, mapreduce views
 
@@ -1027,7 +1027,7 @@ Now you can see how to do that with code.
 
 First, you search for all the cities in the US. You're using [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-query), so the operation is specified as a block of JSON:
 
-```js
+```javascript
 {
   "selector": {
     "$eq": {
