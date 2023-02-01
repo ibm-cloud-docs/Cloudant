@@ -118,10 +118,10 @@ All databases
 :   Fix `skip` and `limit` parameters for `_all_dbs` and `_dbs_info` endpoints.
 
 Attachments
-:   Wait until attachments are uploaded before responding to client.
+:   Wait until attachments are uploaded before response to client.
 
 Bulk docs
-:   Return 500 errors when timeouts occur while loading documents in bulk.
+:   Return 500 errors if timeouts occur when documents are bulk loaded.
 
 Compaction
 :   Retain compactor state across node reboots.
@@ -218,7 +218,7 @@ Security
 :   Always send all the cookie attributes whenever we send a cookie. Only the value of AuthSession varies.
 
 Views
-:   Track ICU collator version used to build the view and expose this information in existing endpoints.
+:   Track ICU collator version that is used to build the view and expose this information in existing endpoints.
 
 :   Exposes list of collator versions in `_design/*/_info` endpoint response.
 
@@ -1450,8 +1450,8 @@ Eliminate error
 {: #Cloudant-nov0614}
 {: release-note}
 
-`POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated
-:   An earlier method of generating API keys by issuing the `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
+An earlier method of generating API keys by issuing the `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
+{: deprecated}
 
 ## July 2014
 {: #cloudant-jul14}

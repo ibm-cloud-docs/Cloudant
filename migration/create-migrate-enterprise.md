@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-01-31"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -59,7 +59,7 @@ The following table provides more information about these HTTP responses:
    The `couchreplicate` tool sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
    {: tip}
 
-   ![Couchreplicate tool](../images/couchreplicate.mp4){: caption="Video 1. Couch replicate tool" caption-side="top"}{: video controls loop}
+   ![Couchreplicate tool](../images/couchreplicate.mp4){: caption="Video 1. `couchreplicate` tool" caption-side="top"}{: video controls loop}
 
 3. Verify that all your data replicates to the new service and that indexes are built.
 

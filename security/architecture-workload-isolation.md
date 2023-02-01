@@ -45,6 +45,6 @@ A Dedicated Hardware instance offers improved storage and compute isolation for 
 
 Disk encryption is used to provide encryption at rest. In the Dedicated Hardware plan, customers can use their own keys by using {{site.data.keyword.cloud}} Key Protect's BYOK functionality to further secure their data. 
 
-Dedicated Hardware instances provide IP allow listing and private network utilization to secure network access. 
+Dedicated Hardware instances provide IP allowlisting and private network utilization to secure network access. 
 
 Data and resource isolation between the Standard plan instances on a Dedicated Hardware instance is provided by using the same robust mechanisms that are used within the multi-tenant deployment option. 

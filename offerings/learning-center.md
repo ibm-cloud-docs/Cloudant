@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-01-31"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, under the hood video
 
@@ -214,7 +214,7 @@ A number 1, 2, 3, and so on, and
 a cryptographic hash of the document's body.
 (For the uninitiated, a hash is a digital "fingerprint" of some data. If the data changes, the fingerprint changes. No 2 fingerprints are the same, that is, no 2 documents with different content can have the same hash.)
 
-You can see from the example on the screen that our document has a revision token (the key starting `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start 04aa8... are the cryptographic hash of the document.
+You can see from the example on the screen that our document has a revision token (the key starts with `_rev`) that starts with a `1` followed by a dash. That indicates that this revision is the first revision of the document. The digits that start 04aa8... are the cryptographic hash of the document.
 
 If we follow the lifecycle of a document, it starts with a `revision 1`. When it is modified later, it gets a `revision 2` and so on. With each incrementing revision number, the hash changes because the content of the document is being modified too.
 
@@ -396,7 +396,7 @@ Let's first use curl to fetch a web page - Google's home page.
 
 A quick note here on formatting JSON on the command line. We can send the output of our `acurl` command to another tool, which formats the data nicely on the terminal. The following tools are available for your use:
 
-- Jq available from the URL on screen, which is more than just a JSON formatter - it allows JSON to be parsed, queried, and manipulated too.
+- Jq available from the URL on the page, which is more than just a JSON formatter - it allows JSON to be parsed, queried, and manipulated too.
 - `python -m json.tool` is a simple JSON formatter, if Python is installed on your computer.
 
 So `acurl $URL/_all_dbs | jq` means *pipe the output of acurl into jq* and what you see is a nicely formatted, colored output.
@@ -602,7 +602,7 @@ The JSON syntax might take a bit of getting used to, but MongoDB users might fin
 
 {{site.data.keyword.cloudant_short_notm}} queries can be executed in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Select the database that you are working with, for example, `books` then choose the Query tab.
 
-Enter your {{site.data.keyword.cloudant_short_notm}} Query JSON in the box that is provided, and click **Run Query** when you're ready. The result set appears on the screen.
+Enter your {{site.data.keyword.cloudant_short_notm}} Query JSON in the box that is provided, and click **Run Query** when you're ready. The result set appears on the page.
 
 The Explain button is used to provide an explanation on how the database interprets the supplied query. This explanation becomes more important when we get to Indexing in the next part.
 

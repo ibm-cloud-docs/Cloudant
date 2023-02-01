@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-01-31"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -177,7 +177,7 @@ It’s really a promise that you make to {{site.data.keyword.cloudant_short_notm
 {{site.data.keyword.cloudant_short_notm}}’s official client libraries have some built-in provision for this use case that can be enabled, following a “back-off and retry” strategy. 
 
 This built-in provision is switched off by default to force you to think about it.
-[:note]
+{: note}
 
 However, if you rely on this facility alone, you might eventually be disappointed. The back-off and retry strategy helps only in cases of temporary transgression, not a persistent butting up against your provisioned throughput capacity limits.
 
