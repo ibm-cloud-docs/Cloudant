@@ -36,6 +36,10 @@ toc:
           - offerings/audit.md
           - offerings/gdpr.md
       - topicgroup: 
+          label: What is Transaction Engine?
+          topics:
+          - transaction-engine/overview-te.md
+      - topicgroup: 
           label: Release notes
           topics: 
           - release_info/release_notes_classic.md
