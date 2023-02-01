@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-08-31"
+  years: 2020, 2023
+lastupdated: "2023-02-01"
 
 keywords: public isolation, compute isolation, cloudant architecture, workload isolation, byok
 
@@ -23,24 +23,9 @@ Review the following sample architecture for {{site.data.keyword.cloudantfull}},
 
 Workload isolation is an important consideration for many customers. To select the best {{site.data.keyword.cloudant_short_notm}} plan choice for your workload isolation requirements, see the following architectural information: 
 
-1.  Standard on Transaction Engine plan, which offers the most cost-effective and robust isolation.
+1.  Standard and Lite plans on Multi-Tenant Hardware, which offer excellent isolation.
 
-2.  Standard and Lite plans on Multi-Tenant Hardware, which offer excellent isolation.
-
-3.  Standard plan provisioned on a Dedicated Hardware plan instance, which offers improved isolation over Standard on Multi-Tenant Hardware. 
-
-### Standard on Transaction Engine
-{: #standard-txe}
-
-The Standard on Transaction Engine plan uses improved compute and storage layer technologies to provide strong security guarantees and resource isolation that uses a shared underlying infrastructure. The plan applies provisioned throughput rate-limiting, along with other resource and access isolation mechanisms within the database layer itself.  
-  
-![Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard on Transaction Engine plan](../images/Isolation-Standard-TXE.svg){: caption="Figure 1. Data isolation on {{site.data.keyword.cloudant_short_notm}} Standard on Transaction Engine plan" caption-side="bottom"} 
-
-Standard on Transaction Engine uses a two-tier architecture, which separates the compute and data storage layers. Only the compute layer is able to view decrypted customer document content. Document content is encrypted within the compute layer by using an {{site.data.keyword.IBM}} owned and managed encryption key specific to each database. Database names and document IDs remain decrypted in the compute layer. 
-
-The data storage layer is a shared key-value store. Document content is encrypted before it arrives at the storage layer. Each Standard on Transaction Engine instance is also given its own dedicated region of this key-value space to further isolate data. Disk encryption is then used to further secure database names and document IDs, by using an {{site.data.keyword.IBM_notm}} owned and managed encryption key. 
-
-Data in motion is encrypted throughout its lifetime. 
+2.  Standard plan provisioned on a Dedicated Hardware plan instance, which offers improved isolation over Standard on Multi-Tenant Hardware. 
 
 ### Standard and Lite
 {: #standard-and-lite}

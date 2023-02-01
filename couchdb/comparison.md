@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-24"
+lastupdated: "2023-02-01"
 
 keywords: feature comparison, function comparison
 
@@ -26,21 +26,21 @@ For more information, see the [API comparison guide](/docs/Cloudant?topic=Clouda
 
 The following table shows the feature and function differences that you must be cognizant of when you use the Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} data layer ecosystem. 
 
-| Feature | CouchDB 1.6 | CouchDB 2.3.1 | CouchDB 3.x | {{site.data.keyword.cloudant_short_notm}} | {{site.data.keyword.cloudant_short_notm}} on Transaction Engine |
-|--------------|----------------|-------------|---------------------| --- | --- |
-| Clustering    | No     | Yes | Yes | Yes | Yes |
-| Fauxton Dashboard UI    | No     | Yes | Yes | Yes | Yes |
-| MapReduce view    | Yes     | Yes | Yes | Yes | Yes |
-| Mango and {{site.data.keyword.cloudant_short_notm}} Query    | No     | Yes | Yes | Yes | Yes |
-| Full-text search    | No     | No | Yes, requires separate installer or container. | Yes | No |
-| Partition queries    | No     | No | Yes | Yes | No |
-| Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops. | Yes |
-| Selector on `changes feed`    | No     | Yes | Yes | Yes | Yes |
-| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings | User-defined settings |
-| Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB | 64 MB |
-| Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB | Not applicable |
-| Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} |  [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) |
-| LDAP    | No     | No | No | No | No |
+| Feature | CouchDB 1.6 | CouchDB 2.3.1 | CouchDB 3.x | {{site.data.keyword.cloudant_short_notm}} |
+|--------------|----------------|-------------|---------------------| --- |
+| Clustering    | No     | Yes | Yes | Yes |
+| Fauxton Dashboard UI    | No     | Yes | Yes | Yes |
+| MapReduce view    | Yes     | Yes | Yes | Yes |
+| Mango and {{site.data.keyword.cloudant_short_notm}} Query    | No     | Yes | Yes | Yes |
+| Full-text search    | No     | No | Yes, requires separate installer or container. | Yes |
+| Partition queries    | No     | No | Yes | Yes |
+| Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops. |
+| Selector on `changes feed`    | No     | Yes | Yes | Yes |
+| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings | 
+| Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB |
+| Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB |
+| Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} |
+| LDAP    | No     | No | No | No |
 {: caption="Table 1. Feature and function differences between {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB" caption-side="top"}
 
 The CouchDB `_show`, `_list`, `_update`, and `_rewrite` functions were deprecated in Apache CouchDB 3.0. For more information, see [deprecated feature warnings](https://docs.couchdb.org/en/stable/whatsnew/3.0.html#deprecated-feature-warnings).

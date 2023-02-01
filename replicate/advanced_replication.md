@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-23"
+  years: 2015, 2023
+lastupdated: "2023-02-01"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -25,9 +25,6 @@ You can learn about advanced replication concepts and tasks, such as the ones in
 You might also find it helpful to review details of the underlying
 [replication protocol](https://docs.couchdb.org/en/stable/replication/protocol.html){: external},
 and review the [API reference](/apidocs/cloudant#introduction){: external} documentation.
-
-In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
-{: important}
 
 ## Replication database maintenance
 {: #replication-database-maintenance}
@@ -63,8 +60,6 @@ and consists of seven distinct states:
 5.  `crashing` - A temporary error occurred that affects the replication job. The job is automatically retried later.
 6.  `completed` - The replication job completed. This state doesn't apply to [continuous replications](/docs/Cloudant?topic=Cloudant-replication-api#continuous-replication).
 7.  `failed`- The replication job failed. The failure is permanent. This state means that no further attempt is made to replicate by using this replication task. The failure might be caused in several different ways, for example, if the source or target URLs aren't valid.
-
-The `error` and `initializing` states do not exist on Transaction Engine. ![TXE tag](../images/txe_icon.svg) 
 
 The transition between these states is illustrated in the following diagram:
 
@@ -371,11 +366,3 @@ Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_
 
 If a problem occurs during replication, such as a stall, timeout, or application crash,
 a replication that is defined within the `_replicator` database is automatically restarted by the system. However, if you define a replication by sending a request to the `/_replicate` endpoint, it can't be restarted by the system if a problem occurs because the replication request doesn't persist. Replications that are defined in the `_replicator` database are easier to monitor.
-
-### TXE API differences
-{: #txe-api-differences}
-
-![TXE tag](../images/txe_icon.svg) On TXE, just like in Apache CouchDB version 3.x and higher, replication documents are not updated with transient states "triggered" and "error". To monitor replication job status, use these API endpoints:
-
-- [`/_scheduler/docs`](/apidocs/cloudant#getschedulerdocs){: external}
-- [`/_scheduler/jobs`](/apidocs/cloudant#getschedulerjobs){: external}

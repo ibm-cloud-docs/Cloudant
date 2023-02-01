@@ -64,7 +64,6 @@ The following {{site.data.keyword.cloudant_short_notm}} plans are compliant with
 
 - Multi-tenant Lite. 
 - Standard.
-- Standard on Transaction Engine plan instances.
 - Standard plan instances that are deployed on Dedicated Hardware plan environments.
 
 {{site.data.keyword.cloud_notm}} completes annual PCI DSS assessments by using an approved Qualified Security Assessor (QSA), and the resulting Attestations of Compliance (AOCs) and Service Responsibility Matrix guides are available upon customer request. Auditors reviewed {{site.data.keyword.cloudant_short_notm}} for compliance under PCI DSS version 3.2.1 at Service Provider Level 1. 

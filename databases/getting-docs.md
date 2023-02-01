@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-08-04"
+  years: 2015, 2023
+lastupdated: "2023-02-01"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -22,7 +22,6 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 
 | Argument | Description  | Optional | Type | Default |
 |---------|--------------|----------|------|---------|
-|`bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | |
 | `conflicts`         | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes      | Boolean         | False |
 | `deleted_conflicts` | Returns information about deleted conflicted revisions.                                         | Yes      | Boolean         | False |
 | `descending`        | Return the documents in descending key order.                                                   | Yes      | Boolean         | False |
@@ -32,9 +31,8 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 | `inclusive_end`     | Include rows whose key equals the "`endkey`" value.                                             | Yes      | Boolean         | True |
 | `key`               | Return only documents with IDs that match the specified key.                                    | Yes      | String          | |
 | `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings | |
-| `limit` | Limit the number of returned documents to the specified number. For Transaction Engine, the `limit` parameter restricts the total number of returned documents.    | Yes      | Numeric         | |
+| `limit` | Limit the number of returned documents to the specified number.  | Yes      | Numeric         | |
 | `meta`              | Short-hand combination of the following three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False |
-| `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.   |     Yes      | Numeric | |
 | `r`                 | Specify the [read quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2 |
 | `revs_info`         | Includes detailed information for all known document revisions.                                 | Yes      | Boolean         | False |
 | `skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0 |

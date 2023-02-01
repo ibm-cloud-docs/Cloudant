@@ -19,9 +19,6 @@ subcollection: Cloudant
 These JSON objects are called [documents](/docs/Cloudant?topic=Cloudant-documents#documents).
 {: shortdesc}
 
-In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
-{: important}
-
 All documents must be contained in a database. For more information, see [partitioned databases](#partitioned-databases-database).
 
 The [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant) guide provides an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.

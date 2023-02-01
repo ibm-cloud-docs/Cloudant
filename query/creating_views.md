@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-15"
+  years: 2015, 2023
+lastupdated: "2023-02-01"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -18,10 +18,7 @@ subcollection: Cloudant
 Views are used to obtain data stored within a database. Within views, you use reduce functions, map and reduce functions, and storing a view definition.
 {: shortdesc}
 
-Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. Views are written by using JavaScript.  
-
-In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag ![TXE tag](../images/txe_icon.svg).
-{: important}
+Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. Views are written by using JavaScript.
 
 ## View concepts
 {: #view-concepts}
@@ -336,8 +333,6 @@ The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as oppose
 
 Most customers find that built-in reducers are sufficient to perform aggregations on the view `key-value` pairs emitted from their Map functions. However, for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
 
-Custom JavaScript reduce functions are not supported on Transaction Engine. ![TXE tag](../images/txe_icon.svg)
-
 Reduce functions are passed three arguments in the following order:
 
 -	`keys`
@@ -428,8 +423,6 @@ See an example reply:
 {: #map-and-reduce-function-restrictions}
 
 Map and reduce function restrictions are described here.
-
-Custom JavaScript reduce functions are not supported on Transaction Engine. ![TXE tag](../images/txe_icon.svg)
 
 ### Referential transparency
 {: #referential-transparency}
