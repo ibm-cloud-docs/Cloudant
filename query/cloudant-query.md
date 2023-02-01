@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-15"
+  years: 2015, 2023
+lastupdated: "2023-01-24"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -96,7 +96,7 @@ See the following example of returned JSON, confirming that the index was create
 |-------|-------------|
 | `index` | fields - A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=Cloudant-query#sort-syntax). Nested fields are also allowed, for example, `person.name`. |
 | `ddoc` (optional) | Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document. |
-| `type` (optional) | Can be `json` or `text`. Defaults to `json`. Geospatial indexes will be supported in the future. | 
+| `type` (optional) | Can be `json` or `text`. Defaults to `json`. | 
 | `name` (optional) | Name of the index. If no name is provided, a name is generated automatically. |
 | `partitioned` (optional, boolean) | Determines whether this index is partitioned. For more information, see [the `partitioned` field](#section1-the-partitioned-field).|
 {: caption="Table 1. Request body format" caption-side="top"}

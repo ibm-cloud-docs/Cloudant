@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-10-10"
+  years: 2015, 2023
+lastupdated: "2023-01-24"
 
 keywords: database-as-a-service,json document store, lite plan, standard plan, enterprise plan, benefits of lite and standard plans
 
@@ -35,7 +35,7 @@ With the Standard plan, you can *reserve throughput capacity* for your database 
 |-------|------------|
 | Reads per second | The rate at which simple document fetches are performed, for example, retrieving a document by its `_id`, or querying against a partitioned database that uses a partition key. |
 | Writes per second | The rate at which data is written to the database. API calls dealing with document creation, update, or deletion count as "writes". |
-| Global Queries per second | The rate at which the database is queried by using global indices, typically by accessing the `_find` endpoint or by using secondary MapReduce, search, or geospatial indices. |
+| Global Queries per second | The rate at which the database is queried by using global indices, typically by accessing the `_find` endpoint or by using secondary MapReduce or search indices. |
 | Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices. |
 {: caption="Table 2. Capacity metrics" caption-side="top"}
 

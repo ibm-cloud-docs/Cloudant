@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-03"
+lastupdated: "2023-01-24"
 
 keywords: feature compare, pricing, features, functions, HA, DR, backup, compliance, security, limits, architecture
 
@@ -69,7 +69,6 @@ All prices are shown in USD. A capacity is the ability to perform one operation 
 | `Cloudant Query`    (Text type) | Yes | No |
 | `MapReduce` | Yes | Map-side JS functions and built-in reduce functions.    No custom JS reduces.    No common JS modules.  |
 | `Search` | Yes | No |
-| `Geospatial` | Yes | No |
 | `Logging with {{site.data.keyword.loganalysisfull_notm}}` | Yes | Yes |
 | `Activity Tracker with {{site.data.keyword.loganalysisfull_notm}}` | Yes | Yes |
 | `Monitoring with {{site.data.keyword.mon_full_notm}}` | Yes | Yes |

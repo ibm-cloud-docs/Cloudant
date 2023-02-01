@@ -112,11 +112,6 @@
         "thumbnail": "/images/cloudant-search.png"
       },
       {
-        "title": "Geospatial",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#geospatial-video",
-        "thumbnail": "/images/geospatial.png"
-      },
-      {
         "title": "Under the hood",
         "href": "/docs/Cloudant?topic=Cloudant-learning-center#under-the-hood-video",
         "thumbnail": "/images/under-the-hood.png"
