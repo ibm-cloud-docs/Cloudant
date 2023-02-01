@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-24"
+lastupdated: "2023-02-01"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -988,9 +988,6 @@ Compatibility clause
 Audit facility
 :   Improvements to internal audit facility.
 
-Geo index
-:   Reduce the possibility that a race condition occurs between the time you delete a database that triggers a geo index to close and when a compaction destroys a geo index.
-
 ### 12 June 2018
 {: #Cloudant-jun1218}
 {: release-note}
@@ -1360,9 +1357,6 @@ New! `$allmatch` operator support
 
 Replication
 :   Previously, a replication job that failed for some reason, which resulted in an update to the replication document, was followed by a fresh attempt to start a new replication. Under some circumstances, this behavior might continue indefinitely: many duplicates of the same error message. A fix was introduced so that the replication document is not updated unless the reason for the error changes.
-
-Geospatial index
-:   If the design document that is intended to specify a geospatial index is invalid, an attempt to retrieve information about the index by using the [`_geo_info` endpoint](/docs/Cloudant?topic=Cloudant-using-cloudant-nosql-db-geospatial) results in an [HTTP `404`](/apidocs/cloudant#list-of-http-codes){: external} response.
 
 ## February 2017
 {: #cloudant-feb17}

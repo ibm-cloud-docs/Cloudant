@@ -36,18 +36,10 @@ toc:
           - offerings/audit.md
           - offerings/gdpr.md
       - topicgroup: 
-          label: What is Transaction Engine?
-          topics:
-          - transaction-engine/overview-te.md
-          - transaction-engine/feature-compare.md
-          - transaction-engine/pricing-te.md
-          - transaction-engine/pagination.md
-      - topicgroup: 
           label: Release notes
           topics: 
           - release_info/release_notes_classic.md
-          - release_info/release_notes_txe.md
-                    
+
   - navgroup: 
       id: tutorial
       topics: 
@@ -85,7 +77,6 @@ toc:
           - databases/getting-a-list-of-all-dbs-in-account.md
           - databases/getting-docs.md
           - databases/sending-multiple-queries-to-db.md
-          - databases/undeleting-a-db.md
           - databases/getting-changes-to-docs-in-db.md
           - databases/deleting-a-db.md
           - databases/sharding.md

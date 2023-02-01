@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-23"
+  years: 2015, 2023
+lastupdated: "2023-02-01"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -20,9 +20,6 @@ The criteria are specified within the view definition.
 {: shortdesc}
 
 Criteria can also be supplied as arguments when you use the view.
-
-In this documentation, when a feature, or an aspect of a feature, applies only to Transaction Engine, you see this tag, ![TXE tag](../images/txe_icon.svg).
-{: important}
 
 ## Querying a view
 {: #querying-a-view}
@@ -63,7 +60,6 @@ subset that is indicated in the table.
 
 | Argument         | Description | Optional | Type | Default | Supported values | Partition query |
 |--------|------|------|----|-----|------|-------|
-| `bookmark` ![TXE tag](../images/txe_icon.svg) | A bookmark to navigate to a specific page. | Yes | String | | | |
 | `conflicts`      | Specify whether to include a list of conflicted revisions in the `_conflicts` property of the returned document. Ignored if `include_docs` isn't set to `true`. | Yes | Boolean | False | | Yes |
 | `descending`     | Return the documents in `descending by key` order. | Yes | Boolean | False | | Yes |
 | `end_key`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes |
@@ -74,8 +70,7 @@ subset that is indicated in the table.
 | `inclusive_end`  | Include rows with the specified `end_key`. | Yes | Boolean | True | | Yes |
 | `key` | Return only documents that match the specified key. Keys are JSON values, and must be URL encoded. | Yes | JSON array | | | Yes |
 | `keys` | Specify to return only documents that match any of the specified keys. String representation of a JSON array of keys that match the key type that is emitted by the view function. | Yes | String or JSON array | | | Yes |
-| `limit` | Limit the number of returned documents to the specified count. For Transaction Engine, the `limit` parameter restricts the total number of returned documents. | Yes | Numeric | | | Yes |
-| `page_size` ![TXE tag](../images/txe_icon.svg) | Specify the number of returned documents in the result.  | Yes | Numeric | | | |
+| `limit` | Limit the number of returned documents to the specified count.| Yes | Numeric | | | Yes |
 | `reduce`         | Use the `reduce` function. | Yes | Boolean | True | | Yes |
 | `skip`           | Skip this number of rows from the start. | Yes | Numeric | 0 | | Yes |
 | `stable`         | Specify whether to use the same replica of the index on each request. The default value `false` contacts all replicas and returns the result from the first, fastest responder. Setting it to `true`, when used with `update=false`, might improve consistency at the expense of increased latency and decreased throughput if the selected replica is not the fastest of the available replicas.   \n  \n **Note**: In general, setting this parameter to `true` is discouraged and not recommended when you use `update=true`. | Yes | Boolean | False | | No |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-02-01"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -121,7 +121,7 @@ The fields in the command are described in the table that follows.
 |-------|------------|
 | `NAME` | Arbitrary name that you give to the instance. |
 | `SERVICE_NAME` | `cloudantnosqldb` |
-| `SERVICE_PLAN_NAME` |  Lite plan (`lite`), Standard plan (`standard`), or Standard Transaction Engine (`standard-transaction-engine`). |
+| `SERVICE_PLAN_NAME` |  Lite plan (`lite`) or Standard plan (`standard`)|
 | `LOCATION` | The location where you want to deploy includes the following cities: Sydney `au-syd`, Chennai `in-che`, Osaka `jp-osa`, Tokyo `jp-tok`, Seoul `kr-seo`, Frankfurt `eu-de`, London `eu-gb`, Dallas `us-south`, Washington DC `us-east`. |
 | `legacyCredentials` | Defaults to `true`. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. |
 {: caption="Table 1. Basic command format fields" caption-side="top"}
