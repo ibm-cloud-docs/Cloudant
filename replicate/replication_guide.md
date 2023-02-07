@@ -1373,3 +1373,22 @@ with replication treated as a background process.
 
 For further assistance about the best configuration for your use case,
 go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
+
+Replication performance can be improved by enabling the `"use_bulk_get": true"` replication option. In that case, the replicator fetches documents from the source in batches rather than individually.
+
+```http
+{
+  "_id": "rep_doc_id",
+  "source": "https://account1.cloudant.com/db1",
+  "target": "https://account2.cloudant.com/db2",
+  "use_bulk_get": true
+}
+```
+{: codeblock}
+
+The increased replication rate might consume the available read or write rate capacity on the source and target endpoint accounts.
+
+## Removing conflicting document revisions with replication
+{: #remove-conflict-document-revision}
+
+One way to remove conflicted document revisions via replication is by enabling the `"winning_revs_only": true` option. This option only replicates the *winning* document revisions. That is the revision returned by default by a `GET $SERVICE_URL/$DATABASE/$DOCID` request. This option is an advanced option, as it discards conflicted document revisions. *Use this option with care.*
