@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-10"
+lastupdated: "2023-02-07"
 
 keywords: log analysis, integration, provisioning log analysis, hipaa
 
@@ -27,9 +27,10 @@ Currently, {{site.data.keyword.loganalysisfull_notm}} integration is available f
 | `Frankfurt` | `Frankfurt` |
 | `London` | `London` |
 | `Osaka` | `Tokyo` |
-| `Seoul` | `Seoul` |
+| `São Paulo` | `São Paulo` |
 | `Sydney` | `Sydney` |
 | `Tokyo` | `Tokyo` |
+| `Toronto` | `Toronto` |
 | `Washington DC` | `Washington DC` |
 {: caption="Table 1. {{site.data.keyword.loganalysisfull_notm}} regions" caption-side="top"}
 
