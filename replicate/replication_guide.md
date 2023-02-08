@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-01"
+lastupdated: "2023-02-08"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -923,7 +923,7 @@ To replicate successfully, the sum of the document size and all attachment sizes
 |--------------|----------------------|------------|------------|
 | 1 MB | Five 2-MB attachments | 11 MB | Yes |
 | 1 MB | One 10-MB attachment | 11 MB | Yes |
-| s0 MB | One hundred 1-MB attachments | 100 MB | No |
+| 1 MB | One hundred 1-MB attachments | 101 MB | No |
 {: caption="Table 1. Various scenarios based on maximum HTTP request size 11 MB" caption-side="top"}
 
 Several considerations apply when you use replication.
