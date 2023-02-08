@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-7"
+lastupdated: "2023-02-8"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -1063,7 +1063,7 @@ The following changes were made in build 6895:
 Pluggable storage engine
 :   Fix a regression that is introduced with pluggable storage engine.
 
-### 6 April 2019
+### 6 April 2018
 {: #Cloudant-apr0619}
 {: release-note}
 
