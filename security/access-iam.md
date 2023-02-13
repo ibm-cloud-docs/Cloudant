@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-30"
+lastupdated: "2023-02-13"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -65,7 +65,7 @@ credentials or username and password combinations also includes {{site.data.keyw
 ## Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
 {: #enabling-iam-with-ibm-cloudant-ai}
 
-All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July 2018 or later are provisioned in Resource Groups and are enabled with {{site.data.keyword.cloud_notm}} IAM. Optionally, you can choose to also enable the {{site.data.keyword.cloudant_short_notm}} legacy authentication mechanism.  When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, select one of the following authentication methods.
+All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July 2018 or later are provisioned in Resource Groups and are enabled with {{site.data.keyword.cloud_notm}} IAM. Optionally, you can choose to also enable the {{site.data.keyword.cloudant_short_notm}} legacy authentication mechanism. When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, select one of the following authentication methods.
 
 Use both legacy credentials and IAM
 :   This mode means that both IAM and legacy credentials can be used to access the account. In particular, both IAM and legacy sets of credentials are provided to all applications bound to the account and service credentials generated.
