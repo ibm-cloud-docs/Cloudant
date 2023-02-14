@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-10"
+lastupdated: "2023-02-14"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -49,6 +49,7 @@ The following changes were made in build 8341:
 
 `_changes` endpoint
 :   Fix `eventsource` formatted feed.
+
 :   Remove support for the long-deprecated change sequence format.
 
 `dbcopy`
@@ -59,6 +60,7 @@ Compaction
 
 Replication
 :   Use the `_bulk_get` endpoint for replication if available.
+
 :   Return a string for the default start sequence from `_scheduler/{jobs,docs}` endpoints.
 
 `_session` endpoint
@@ -96,10 +98,12 @@ Bulk docs
 
 Compaction
 :   Fix bugs in automatic compaction.
+
 :   Fix race between database deletion and compaction.
 
 Document updates
 :   Improve reliability of document updates during heavy load.
+
 :   Return a 400 response for `new_edits=false` document update without revisions.
 
 Replicator
@@ -131,6 +135,7 @@ IAM auth
 
 Indexes
 :   Prevent creation of indexes with empty `name` or `ddoc` fields.
+
 :   Improve index building during shard splitting.
 
 Replicator
@@ -881,7 +886,8 @@ Configuration option
 {: release-note}
 
 TLS 1.3 connection support
-:   From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}. 
+:   From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
+
 :   {{site.data.keyword.cloudant_short_notm}} recommends that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}. 
 ***(In June 2019, {{site.data.keyword.cloudant_short_notm}} retired the use of older
 versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ is supported.)*** Find more information on the [Security page](/docs/Cloudant?topic=Cloudant-security#security).

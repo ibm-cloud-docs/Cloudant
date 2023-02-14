@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-02-13"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -327,48 +327,24 @@ by including them in the replication document.
 429 HTTP errors.
 
 `connection_timeout` 
-:   The maximum period of inactivity for a connection in milliseconds.
-	If a connection is idle for this period,
-	its current request is retried.
-	Default value is 30000 milliseconds (30 seconds).
+:   The maximum period of inactivity for a connection in milliseconds. If a connection is idle for this period, its current request is retried. Default value is 30000 milliseconds (30 seconds).
 
 `http_connections` 
-:   The maximum number of HTTP connections per replication.
-	For push replications,
-	the effective number of HTTP connections that are used is `min(worker_processes + 1, http_connections)`.
-	For pull replications,
-	the effective number of connections that are used corresponds to this parameter's value.
-	Default value is 20.
+:   The maximum number of HTTP connections per replication. For push replications, the effective number of HTTP connections that are used is `min(worker_processes + 1, http_connections)`. For pull replications, the effective number of connections that are used corresponds to this parameter's value. Default value is 20.
 
 `retries_per_request` 
 :   The maximum number of retries per request.
-	Before a retry,
-	the replicator waits for a short period before it repeats the request.
-	This period doubles between each consecutive retry,
-	and never goes beyond 5 minutes.
-	The minimum value before the first retry is 0.25 seconds.
-	The default value is 10 retries.
+Before a retry, the replicator waits for a short period before it repeats the request. This period doubles between each consecutive retry, and never goes beyond 5 minutes. The minimum value before the first retry is 0.25 seconds. The default value is 10 retries.
 
 `socket_options` 
-:   A list of options to pass to the connection sockets.
-	The available options can be found in the
-	[documentation for the Erlang function `setopts` of the `inet` module](https://www.erlang.org/doc/man/inet.html#setopts-2){: external}. 
-	Default value is `[{keepalive, true},{nodelay, false}]`.
+:   A list of options to pass to the connection sockets. The available options can be found in the
+[documentation for the Erlang function `setopts` of the `inet` module](https://www.erlang.org/doc/man/inet.html#setopts-2){: external}. Default value is `[{keepalive, true},{nodelay, false}]`.
 
 `worker_batch_size` 
-:   Worker processes run batches of replication tasks,
-	where the batch size is defined by this parameter.
-	The size corresponds to the number of `_changes` feed rows.
-	Larger values for the batch size might result in better performance.
-	Smaller values mean that checkpointing is done more frequently.
-	Default value is 500.
+:   Worker processes run batches of replication tasks, where the batch size is defined by this parameter. The size corresponds to the number of `_changes` feed rows. Larger values for the batch size might result in better performance. Smaller values mean that checkpointing is done more frequently. Default value is 500.
 
 `worker_processes` 
-:   The number of processes the replicator uses in each replication task to transfer
-	documents from the source to the target database.
-	Higher values might produce better throughput because of greater parallelism in network and disk IO activities,
-	but this improvement comes at the cost of requiring more memory and potentially CPU time.
-	Default value is 4.
+:   The number of processes the replicator uses in each replication task to transfer documents from the source to the target database. Higher values might produce better throughput because of greater parallelism in network and disk IO activities, but this improvement comes at the cost of requiring more memory and potentially CPU time. Default value is 4.
 
 See the following example that includes performance options in a replication document:
 
