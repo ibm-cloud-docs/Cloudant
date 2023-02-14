@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-09"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -52,14 +52,16 @@ The following table provides more information about these HTTP responses:
 ## Step 4. Migrate data from the old service to the new service 
 {: #step-4-migrate-data-from-the-old-service-to-the-new-service}
 
-1. Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account.  
+1. Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account.
+
    For more information, see the [Replication guide](/docs/Cloudant?topic=Cloudant-replication-api) and [Using {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics) about how to set up and monitor replication tasks.
+
 2. Alternatively, use the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate){: external} tool to coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. 
 
    The `couchreplicate` tool sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
    {: tip}
 
-   ![Couchreplicate tool](../images/couchreplicate.mp4){: caption="Video 1. `couchreplicate` tool" caption-side="top"}{: video controls loop}
+   ![Couchreplicate tool](../images/couchreplicate.mp4){: video controls loop}
 
 3. Verify that all your data replicates to the new service and that indexes are built.
 
@@ -73,7 +75,7 @@ The following table provides more information about these HTTP responses:
 {: #step-6-move-to-the-new-instance}
 
 1. Update your application to use the new account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance. 
-2. (Optional) Go to the [Getting started tutorial](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) to obtain the service credentials for your {{site.data.keyword.cloudant_short_notm}} instance.
+2. (Optional) Go to the [Getting started tutorial](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#creating-service-credentials) to obtain the service credentials for your {{site.data.keyword.cloudant_short_notm}} instance.
 
 ## Step 7. Turn off the old service
 {: #step-7-turn-off-the-old-service}

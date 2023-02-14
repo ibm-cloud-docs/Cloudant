@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-06-03"
+  years: 2015, 2023
+lastupdated: "2023-02-10"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -192,7 +192,7 @@ The results are returned by using the following response JSON object:
 | Response JSON object    | Description | Type |
 |-------------------------|-------------|------|
 | `results` | An array of result objects - one for each query. Each result object contains the same fields as the response to a regular `_all_docs` request. | Array |
-{: caption="Table 6. Response JSON object" caption-side="top"}
+{: caption="Table 1. Response JSON object" caption-side="top"}
 
 See the following example request with multiple queries:
 

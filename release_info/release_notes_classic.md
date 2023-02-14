@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-8"
+lastupdated: "2023-02-10"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -1450,7 +1450,7 @@ Eliminate error
 {: #Cloudant-nov0614}
 {: release-note}
 
-Generating API keys
+`generate_api_key` endpoint is deprecated
 :   An earlier method of generating API keys by issuing the `POST` command to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
 
 ## July 2014
