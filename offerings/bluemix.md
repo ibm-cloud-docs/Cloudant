@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-17"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -224,8 +224,6 @@ You can use the default parameters and replicate a database with a large backlog
 
 Managing the provisioned throughput capacity allocated to an instance can be done by using either the UI or API. Changes to the provisioned throughput capacity are only allowed by using the paid {{site.data.keyword.cloudant_short_notm}} Standard plan. Users of the free Lite plan have a fixed amount of provisioned throughput capacity but can use the Capacity UI to estimate costs for a capacity setting on the Standard plan.
 
-The method for managing the provisioned throughput capacity by using the UI depends on whether the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Resource Group or a Cloud Foundry org and space. Since July 2018, all instances are deployed in Resource Groups. The {{site.data.keyword.cloudant_short_notm}} team recommends that you migrate any instances that are deployed in a Cloud Foundry org and space to a Resource Group to take advantage of the latest user experience. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups).
-
 #### UI - Resource Group
 {: #ui-resource-group}
 
@@ -245,25 +243,6 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
     The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, *Success. Your capacity will be updated shortly.*  
 
 Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity. One hundred blocks of capacity equal 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the `Need additional capacity?` tab on the Capacity page.
-{: note}
-
-#### UI - Cloud Foundry org and space
-{: #ui-cloud-foundry-org-space}
-
-If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud Foundry org and space, you can change the capacity by following these instructions. 
-
-1.  Launch the {{site.data.keyword.cloudant_short_notm}} Dashboard.
-2.  Click **Account** > **Capacity**.
-3.  To move to a different throughput capacity, select the provisioned throughput capacity that you need, then click **Update**. 
-
-    ![Capacity dashboard](../images/cloudant_capacity.png){: caption="Figure 2. Capacity dashboard" caption-side="bottom"}
-
-4. Confirm the change by clicking **Continue**. 
-   Keep in mind  that the provisioning change can take up to 24 hours. 
-
-    ![Change confirmation window shows the new capacity and current capacity.](../images/cloudant_capacity_change.png){: caption="Figure 3. Change confirmation" caption-side="bottom"}  
-
-In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capacity increase is limited to 10 units (1000 reads per second, 500 writes per second, and 50 global queries per second) per change. Decreases aren't limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
 {: note}
 
 #### API
@@ -453,7 +432,6 @@ The support systems that are used for {{site.data.keyword.cloudant_short_notm}} 
 You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} in two ways by:
 
 - Using the dashboard. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant){: external} tutorial that describes the process.
-- Using the Cloud Foundry command tool. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} CLI](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: external} tutorial that describes the process.
 - Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. For more information, see the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: external} tutorial that describes the process.
 
 

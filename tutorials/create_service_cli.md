@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-02"
+lastupdated: "2023-02-17"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -106,7 +106,7 @@ The following example describes how to log in. If you use a federated user ID, i
 {: #creating-service-create-cli}
 {: step}
 
-{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups){: external}.
+{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances. For more information, see the [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups){: external}.
 
 In this example, you create a service instance within {{site.data.keyword.cloud_notm}} by running the following command.
 
