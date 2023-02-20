@@ -1,7 +1,3 @@
-#  Name your file `toc.yaml`
-#  Make sure you include all nav file coding requirements, as defined in https://console.test.cloud.ibm.com/docs/developing/writing?topic=writing-create-nav-2
-#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
-
 toc:
   properties:
     subcollection: Cloudant
@@ -15,7 +11,6 @@ toc:
     path: Cloudant
     label: Cloudant
 
-#  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group. See https://test.cloud.ibm.com/docs/writing?topic=writing-navigation for more details on the toc design.
   entries: 
   - navgroup: 
       id: learn
@@ -27,7 +22,7 @@ toc:
       - offerings/limits.md
       - offerings/connecting.md
       - offerings/learning-center.md
-      - topicgroup: 
+      - topicgroup:
           label: Security & compliance
           topics:
           - offerings/security.md
@@ -35,18 +30,23 @@ toc:
           - offerings/dataprivacygovernance.md
           - offerings/audit.md
           - offerings/gdpr.md
-      - topicgroup: 
+      - topicgroup:
           label: What is Transaction Engine?
           topics:
           - transaction-engine/overview-te.md
-      - topicgroup: 
+      - topicgroup:
+          label: Service change notices
+          topics:
+          - service-change-notices/dbcopy-deprecated.md
+          - service-change-notices/no-http-replications.md
+      - topicgroup:
           label: Release notes
           topics: 
           - release_info/release_notes_classic.md
 
   - navgroup: 
       id: tutorial
-      topics: 
+      topics:
       - tutorials/locate-service-credentials.md
       - tutorials/migrate-to-iam-only.md
       - tutorials/revoke-instance-url-style-credential.md
@@ -60,21 +60,21 @@ toc:
       - tutorials/create_backup.md
       - tutorials/locate-db2-warehouse-credentials.md
 
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
       - basics/basics.md
-      - topicgroup: 
+      - topicgroup:
           label: Managing your accounts
-          topics:   
+          topics:
           - accounts/account.md
           - accounts/curl.md
           - accounts/cors.md
           - accounts/http.md
           - accounts/json.md
-      - topicgroup: 
+      - topicgroup:
           label: Working with databases
-          topics: 
+          topics:
           - databases/database.md
           - databases/creating-a-db.md
           - databases/getting-db-details.md
@@ -88,8 +88,9 @@ toc:
           - databases/database_partitioning.md
           - databases/conflicts.md
           - databases/cap_theorem.md
+          - databases/couchapps.md
           - databases/cloudant-redis-cache.md
-      - topicgroup: 
+      - topicgroup:
           label: How documents work
           topics: 
           - documents/docs-overview.md
@@ -103,16 +104,16 @@ toc:
           - documents/design_document_management.md
           - documents/transactions.md
           - documents/attachments.md
-      - topicgroup: 
+      - topicgroup:
           label: Monitoring your instance
-          topics: 
+          topics:
           - monitor/monitoring.md
           - monitor/capacity.md
           - monitor/active_tasks.md
           - monitor/managing_tasks.md
       - topicgroup: 
           label: Querying the database
-          topics: 
+          topics:
           - query/cloudant-query.md
           - query/query-parameters.md
           - query/work-with-indexes.md
@@ -129,26 +130,26 @@ toc:
           - query/cloudant-geo.md
       - topicgroup: 
           label: Replicating databases
-          topics: 
+          topics:
           - replicate/replication_guide.md
           - replicate/replication.md
           - replicate/advanced_replication.md
-      - topicgroup: 
+      - topicgroup:
           label: Migrating your plan
-          topics: 
+          topics:
           - migration/migration-overview.md
           - migration/create-migrate-lite.md
           - migration/create-migrate-enterprise.md
           - migration/find-your-plan.md
-      - topicgroup: 
+      - topicgroup:
           label: Recovery and backup
-          topics: 
+          topics:
           - guides/disaster-recovery-and-backup.md
           - guides/active-active.md
           - guides/backup-cookbook.md
-      - topicgroup: 
+      - topicgroup:
           label: Enhancing security for IBM Cloudant
-          topics: 
+          topics:
           - security/access-iam.md
           - security/architecture-workload-isolation.md
           - security/service-endpoints.md
@@ -157,15 +158,13 @@ toc:
           - security/secure-data.md
           - security/audit-events.md
 
-#  Links to your REST API docs should be included in the Reference navigation group. For details on publishing API docs, see https://test.cloud.ibm.com/docs/api-docs.
-#  Links to your command line reference docs should be included in the Reference navigation group.
   - navgroup:
       id: reference
-      topics: 
+      topics:
       - offerings/responsibilities.md
       - topicgroup:
           label: Observability
-          topics: 
+          topics:
           - offerings/log-analysis.md
           - offerings/at-integration.md
           - offerings/platform-metrics.md
@@ -206,7 +205,7 @@ toc:
           - couchdb/compare.md
       - topicgroup:
           label: Other offerings
-          topics: 
+          topics:
           - offerings/bluemix_dedicated.md
           - offerings/cloudant.com.md
       - link:
@@ -217,9 +216,10 @@ toc:
           topics:
           - /Cloudant-cli-plugin/Cloudant-cli-plugin-cloudant-cli
           - release_info/cli-change-log.md
-      - link:    
+      - link:
           label: Terraform reference docs
           href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant
+   
   - navgroup:
       id: help
       topics:
