@@ -37,6 +37,8 @@ toc:
       - topicgroup:
           label: Service change notices
           topics:
+          - query/cloudant-geo.md
+          - transaction-engine/overview-te.md
           - service-change-notices/dbcopy-deprecated.md
           - service-change-notices/no-http-replications.md
       - topicgroup:
