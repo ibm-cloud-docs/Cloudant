@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-16"
+lastupdated: "2023-02-27"
 
 keywords: public isolation, compute isolation, cloudant architecture, workload isolation, byok
 
@@ -41,7 +41,7 @@ Disk encryption is used to provide encryption at rest by using an {{site.data.ke
 
 A Dedicated Hardware instance offers improved storage and compute isolation for your most valuable data, including use of BYOK. After a Dedicated Hardware instance is provisioned, you can provision many Standard plan instances onto this Dedicated Hardware instance to store your data. While these Standard plan instances share the Dedicated Hardware's compute and storage, the instances do not share Dedicated Hardware's compute and storage with other customers.  
   
-![Diagram about how to isolate data with the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan for one customer.](../images/Isolation-Dedicated-Hardware.svg){: caption="Figure 3. Data isolation on {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan" caption-side="bottom"} 
+![Diagram about how to isolate data with the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan for one customer.](../images/Isolation-Dedicated-Hardware.svg){: caption="Figure 2. Data isolation on {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan" caption-side="bottom"} 
 
 Disk encryption is used to provide encryption at rest. In the Dedicated Hardware plan, customers can use their own keys by using {{site.data.keyword.cloud}} Key Protect's BYOK functionality to further secure their data. 
 
