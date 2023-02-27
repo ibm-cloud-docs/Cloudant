@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-02-21"
+lastupdated: "2023-02-24"
 
 keywords: dbcopy, deprecation notice
 
@@ -16,7 +16,7 @@ subcollection: Cloudant
 # {{site.data.keyword.cloudant_short_notm}} dbcopy feature removal
 {: #dbcopy-feature-removal}
 
-As of 1 July 2023, {{site.data.keyword.cloudantfull}}'s dbcopy feature (also known as "Chained MapReduce" or "view chaining") will cease to function. The dbcopy feature was [removed from our documentation in 2016](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-feb16) and [new users have been unable to configure dbcopy since November 2022](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-nov22. *Starting 1 July 2023, it will be removed from the {{site.data.keyword.cloudant_short_notm}} service entirely.*
+As of 1 July 2023, {{site.data.keyword.cloudantfull}}'s dbcopy feature (also known as "Chained MapReduce" or "view chaining") will cease to function. The dbcopy feature was [removed from our documentation in 2016](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-feb16) and [new users have been unable to configure dbcopy since November 2022](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-nov22). *Starting 1 July 2023, it will be removed from the {{site.data.keyword.cloudant_short_notm}} service entirely.*
 {: shortdesc}
 
 ## What is dbcopy?
