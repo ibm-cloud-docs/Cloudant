@@ -226,3 +226,4 @@ toc:
           - faqs/resource-groups-faq.md
           - faqs/changes-feed-faq.md
           - faqs/cloudant-query-faq.md
+      - get-help.md
