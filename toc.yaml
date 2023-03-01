@@ -30,21 +30,9 @@ toc:
           - offerings/dataprivacygovernance.md
           - offerings/audit.md
           - offerings/gdpr.md
-      - topicgroup:
-          label: What is Transaction Engine?
-          topics:
-          - transaction-engine/overview-te.md
-      - topicgroup:
-          label: Service change notices
-          topics:
-          - query/cloudant-geo.md
-          - transaction-engine/overview-te.md
-          - service-change-notices/dbcopy-deprecated.md
-          - service-change-notices/no-http-replications.md
-      - topicgroup:
-          label: Release notes
-          topics: 
-          - release_info/release_notes_classic.md
+      - transaction-engine/overview-te.md
+      - service-change-notices/deprecations.md
+      - release_info/release_notes_classic.md
 
   - navgroup: 
       id: tutorial
