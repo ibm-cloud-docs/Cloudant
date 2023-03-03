@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-30"
+lastupdated: "2023-03-03"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -334,7 +334,7 @@ You can use the
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
 User documents that are stored in the `_users` database must be structured and populated to comply with
-[Apache Software Foundation CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: external}.
+[Apache CouchDB requirements](https://docs.couchdb.org/en/stable/intro/security.html?highlight=security#users-documents){: external}.
 
 You can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
 To disable {{site.data.keyword.cloudant_short_notm}} security,
