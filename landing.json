@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloudant docs",
-    "lastupdated": "2021-10-27",
+    "lastupdated": "2023-03-03",
     "introduction": "The IBM Cloudant portfolio includes two complementary, document-oriented NoSQL database-as-a-service offerings on the IBM Cloud. In addition to the comprehensive information in the IBM Cloudant docs, links to additional sources of information are provided below.",
     "section_devtools": {
       "api": "/apidocs/cloudant#introduction",
@@ -118,7 +118,7 @@
       }
     ],
     "section_updates": {
-      "view_more": "/docs/Cloudant?topic=Cloudant-release-notes",
+      "view_more": "/docs/Cloudant?topic=Cloudant-classic-release-notes",
       "tiles": [
         {
           "date": "April 2021",
