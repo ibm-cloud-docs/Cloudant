@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-03"
+lastupdated: "2023-03-07"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -19,6 +19,42 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## March 2023
+{: #cloudant-mar23}
+
+### 7 March 2023
+{: #Cloudant-mar0723}
+{: release-note}
+
+The following changes were made in build 8369:
+
+`_changes` endpoint
+:   Enforce document ids `_changes` filter optimization limit.
+
+Compaction
+:   Active database size now decreases when users delete documents.
+
+Indexing
+:   Enforce partition index count limits for (non-internally) replicated documents.
+
+:   Optimize process pool management.
+
+Query
+:   Optimize by pushing down field selectors to shards.
+
+Replication
+:   Replace auto-inserted VDU with BDU.
+
+:   Constrain protocol types and socket options.
+
+:   Upload design docs individually when replicating with `bulk_get`.
+
+Runtime environment
+:   Upgrade the runtime environment to Erlang/OTP 24-point release.
+
+Views
+:   Disable `stable` and `stale` parameters in POST requests to partitioned views.
 
 ## January 2023
 {: #cloudant-jan23}
