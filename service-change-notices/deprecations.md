@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-13"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -12,10 +12,10 @@ subcollection: Cloudant
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deprecations for {{site.data.keyword.cloudant_short_notm}}
+# Service Changes and Deprecations for {{site.data.keyword.cloudant_short_notm}}
 {: #deprecations-for-ibm-cloudant}
 
-You can see the deprecations for {{site.data.keyword.cloudant_short_notm}} here. 
+You can see the deprecations for {{site.data.keyword.cloudant_short_notm}} here.
 
 ## {{site.data.keyword.cloudant_short_notm}} Geospatial notice
 {: #cloudant-nosql-db-geospatial-dep}
@@ -167,3 +167,11 @@ If a self-hosted CouchDB service supports HTTPS, then change the replication def
 If a self-hosted CouchDB service does _not_ support HTTPS, CouchDB can mediate replication jobs instead of {{site.data.keyword.cloudant_short_notm}}. For example, stop the replication job running on the {{site.data.keyword.cloudant_short_notm}} side and set up a replication job on a self-hosted Apache CouchDB service to "pull" the data from {{site.data.keyword.cloudant_short_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} only supports `https://` traffic, so if {{site.data.keyword.cloudant_short_notm}} is to be the `source` or `target` in a self-hosted replication definition, it must be configured with an `https://` prefix.
+
+## {{site.data.keyword.cloudant_short_notm}} Correction to Provisioned Throughput accounting for partioned `_find` API notice
+{: #find-api-change}
+
+An accounting error exists in {{site.data.keyword.cloudant_short_notm}} that results in undercounting of the operations associated with this API against the [provisioned throughput](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) capacity of an {{site.data.keyword.cloudant_short_notm}} instance. You can find the correct accounting in the {{site.data.keyword.cloudant_short_notm}} API documentation under [Query a list of all documents in a database partition](/apidocs/cloudant#getpartitionalldocs-partitioned-databases). Until now, this accounting operation was not implemented correctly.
+
+Effective 1 July 2023, this accounting error is corrected. Customers performing `_find` queries that filter through large numbers of documents might need to increase the provisioned throughput capacity for their {{site.data.keyword.cloudant_short_notm}} instances. Otherwise, immediately after this correction deploys on 1 July 2023, {{site.data.keyword.cloudant_short_notm}} returns 429 errors for read operations.
+{: important}
