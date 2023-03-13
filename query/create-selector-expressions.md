@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-23"
+  years: 2015, 2023
+lastupdated: "2023-03-13"
 
 keywords: create index, query, json index type, text index type, query parameters, selector expressions, sort, filter, pagination, selector syntax
 
@@ -35,7 +35,7 @@ not all of the PCRE library is implemented.
 Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
-see the [Erlang Regular Expression](http://erlang.org/doc/man/re.html){: external} information.
+see the [Erlang Regular Expression](https://www.erlang.org/doc/man/re.html){: external} information.
 
 ## Sort syntax
 {: #sort-syntax}

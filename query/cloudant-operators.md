@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-10-20"
+  years: 2015, 2023
+lastupdated: "2023-03-13"
 
 keywords: implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter, pagination
 
@@ -848,7 +848,7 @@ They can be positive or negative integers.
 A query where the Divisor or Remainder is a non-integer returns a [404 status](/apidocs/cloudant#list-of-http-codes){: external}.
 
 When you use negative integer values for the Divisor or Remainder,
-the {{site.data.keyword.cloudantfull}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: external}. Both the [Erlang `rem` modulo operator](http://erlang.org/doc/reference_manual/expressions.html){: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: external},
+the {{site.data.keyword.cloudantfull}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: external}. Both the [Erlang `rem` modulo operator](https://www.erlang.org/doc/reference_manual/expressions.html){: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: external},
 behave in a similar way.
 {: tip}
 
