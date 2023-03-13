@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-04"
+lastupdated: "2023-04-06"
 
 keywords: service credentials, locate service credentials
 
@@ -45,7 +45,7 @@ Create a service instance in the {{site.data.keyword.cloud_notm}} Dashboard by f
 
 2. Find the service instance called `Cloudant-o7` and open it.
 
-   This instance is the one you created as a [prerequisite](#prereqs-locate-credentials). 
+   This instance is the one you created as in the [Before you begin](#prereqs-locate-credentials) section.
 
     ![This Resource list is a list of all the instances in your service. Cloudant-07 is the instance we use in this tutorial.](images/img0011.png){: caption="Figure 1. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
 

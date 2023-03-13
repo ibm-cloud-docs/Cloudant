@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-04-06"
 
 keywords: lite plan, standard plan, pricing plans
 
@@ -26,7 +26,7 @@ completion-time: 15m
 Migrating from the free Lite plan to the Standard plan by completing the following tasks.
 {: shortdesc}
 
-## Authenticate with {{site.data.keyword.cloud}} Dashboard
+## Authenticate with {{site.data.keyword.cloud_notm}} Dashboard
 {: #authenticate-with-ibm-cloud-dashboard}
 {: step}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-04-06"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -20,7 +20,7 @@ The {{site.data.keyword.cloudantfull}} Dashboard gives new and experienced {{sit
 ## Objectives
 {: #objectives-use-dashboard}
 
-Set up some basic indexes using the Dashboard and seeing how each of {{site.data.keyword.cloudant_short_notm}}'s querying mechanisms works.
+Set up some basic indexes using the Dashboard to see how each of {{site.data.keyword.cloudant_short_notm}}'s querying mechanisms works.
 
 ## Before you begin
 {: #prerequisites-use-dashboard}
