@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-07"
+lastupdated: "2023-03-14"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -23,11 +23,11 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 ## March 2023
 {: #cloudant-mar23}
 
-### 7 March 2023
-{: #Cloudant-mar0723}
+### 14 March 2023
+{: #Cloudant-mar1423}
 {: release-note}
 
-The following changes were made in build 8369:
+The following changes were made in build 8373:
 
 `_changes` endpoint
 :   Enforce document ids `_changes` filter optimization limit.
@@ -51,7 +51,7 @@ Replication
 :   Upload design docs individually when replicating with `bulk_get`.
 
 Runtime environment
-:   Upgrade the runtime environment to Erlang/OTP 24-point release.
+:   Upgrade the runtime environment to Erlang/OTP 24 point release patched with `alias-cleanup-fix`.
 
 Views
 :   Disable `stable` and `stale` parameters in POST requests to partitioned views.
