@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-17"
+lastupdated: "2023-03-20"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, under the hood video
 
@@ -661,7 +661,7 @@ Although the `name` of an index is optional, it's good practice and we follow th
 
 Let's create an index on our `books` database from the dashboard. Select the database, then choose the **Design Documents** tab and **Query Indexes** from the menu.
 
-Any existing indexes are listed on the right side: A `special` index must exist that represents the primary index, based on the document's `_id`.
+Any existing indexes are listed on the side: A `special` index must exist that represents the primary index, based on the document's `_id`.
 
 Complete the index definition with the JSON:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-13"
+lastupdated: "2023-03-15"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -93,7 +93,7 @@ MapReduce index definitions are stored in a database's [design documents](https:
 ```
 {: codeblock}
 
-If a view definition contains an attribute called `dbcopy`, as is the case with the above design document, then the dbcopy feature **is in use and is affected by the feature's removal**.
+If a view definition contains an attribute called `dbcopy`, as is the case with the previous example design document, then the dbcopy feature **is in use and is affected by the feature's removal**.
 
 ### Alternatives to dbcopy
 {: #alternatives-to-dbcopy-dep}
