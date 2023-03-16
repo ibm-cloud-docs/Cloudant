@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-03-17"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -100,7 +100,7 @@ or account B is pulling data from account A.
 In some cases,
 it might not be possible to run replication in either configuration,
 for example when one account is behind a firewall.
-Replication happens over HTTP or HTTPS and so no non-standard ports need be opened.
+Replication happens over HTTPS and so no non-standard ports need be opened.
 The decision as to which device starts replication is yours.
 
 ## How does replication affect the list of changes?

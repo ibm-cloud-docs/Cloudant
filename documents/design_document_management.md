@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-22"
+  years: 2015, 2023
+lastupdated: "2023-03-17"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -256,8 +256,7 @@ export COUCH_URL=https://127.0.0.1:5984
 ```
 {: codeblock}
 
-The URL can be HTTP or HTTPS,
-and can include authentication credentials. Run the following command to define the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:
+The URL must start with `https://` and can include authentication credentials. Run the following command to define the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:
 
 ```sh
 export COUCH_URL="https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com"
