@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-10"
+lastupdated: "2023-03-17"
 
 keywords: videos, document video, _id video, rev token video, authentication video, dashboard video, http api basics video, bulk api video, accessing cloudant programmatically video, querying video, indexing video, mapreduce video, dates video, replication video, partitioned database video, cloudant search video, under the hood video
 
@@ -44,7 +44,7 @@ Database
 :   The unit of storage in {{site.data.keyword.cloudant_short_notm}}. Documents are added, updated, and deleted in their entirety.
 
 HTTP API
-:   Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTP. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so).
+:   Any {{site.data.keyword.cloudant_short_notm}} operation can be achieved by using HTTPS. HTTP is the protocol that powers the World Wide Web and {{site.data.keyword.cloudant_short_notm}} is a database that is built for the web. Most databases are hidden in a private network, inaccessible but to a handful of machines. The {{site.data.keyword.cloudant_short_notm}} service sits (mainly) on the public internet where it can be accessed by anyone with an internet connection (and permission to do so).
 
 {{site.data.keyword.cloudant_short_notm}} wasn't written entirely by IBM. It is based on Apache CouchDB, an open source project run by the Apache Foundation. {{site.data.keyword.cloudant_short_notm}} employs a number of CouchDB contributors but by the rules of Apache, they cannot monopolize its development.
 
