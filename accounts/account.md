@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-03"
+lastupdated: "2023-03-17"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -27,7 +27,7 @@ If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: ext
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspell your account name,
-you might get the following error, [*503: Service unavailable*](/apidocs/cloudant#list-of-http-codes){: external}. You can see the types of authentication in the following list: 
+you might get the following error, [*503: Service unavailable*](/apidocs/cloudant#list-of-http-codes){: external}. You can see the types of authentication that are available in the following list: 
 
 -    [{{site.data.keyword.cloud}} Identity and Access Management (IAM)](#authentication-iam)
 -    [Basic authentication](#basic-authentication)

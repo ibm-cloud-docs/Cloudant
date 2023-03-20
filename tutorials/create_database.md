@@ -2,7 +2,8 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-10"
+lastupdated: "2023-03-17"
+
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
 subcollection: Cloudant
@@ -49,10 +50,10 @@ suitable for the following tasks:
 {: step}
 
 Ensure that you have the following resources or information ready
-before you start working through the tutorial.
+before you start working through this tutorial.
 
 This tutorial walks you through the steps of creating and populating 
-a database. You can follow each step, or go to the end of the tutorial, [execute the Python script](#execute-the-complete-python-script), and return to [Step 5. Retrieving data](#retrieving-data). 
+a database. You can follow each step, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script), and return to [Step 5. Retrieving data](#retrieving-data). 
 
 Normally, you don't run commands individually in Python. You usually
 create a script, which is a list of the commands you want to run,
@@ -431,9 +432,9 @@ This script is the complete Python script for steps 2, 3, and 4. When you run
 the script, it connects to your service instance, creates the database,
 stores a small set of data in the database, and creates JSON documents.
 
-1. Replace the values for `serviceUsername`, `servicePassword`, and `serviceURL` with the values from your service credentials in the code example in the next step.    
+1. In the code example in the next step, replace the values for `serviceUsername`, `servicePassword`, and `serviceURL` with the values from your service credentials. 
 
-For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
+   For more information about where to find your credentials, see [Locating your credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
 
 1. Copy the following script into a text editor and name it `demo.py`.
 
@@ -507,4 +508,4 @@ For more information, see [Locating your credentials](/docs/Cloudant?topic=Cloud
     ```
     {: codeblock}
 
-Once you run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial. 
+   Once you run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial. 

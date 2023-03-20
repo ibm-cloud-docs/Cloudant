@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-13"
+lastupdated: "2023-03-17"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -12,7 +12,7 @@ subcollection: Cloudant
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing access
+# Managing access for {{site.data.keyword.cloudant_short_notm}}
 {: #managing-access-for-cloudant}
 
 {{site.data.keyword.cloud}} Identity and Access Management provides a unified
@@ -558,7 +558,7 @@ if __name__ == "__main__":
 ```
 {: codeblock}
 
-## Reference
+## Roles and actions
 {: #reference-ai}
 
 The following tables include a complete list of {{site.data.keyword.cloudant_short_notm}}'s IAM roles and actions, and a mapping of what actions are allowed for each IAM system role.

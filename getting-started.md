@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-10"
+lastupdated: "2023-03-17"
 
-keywords: example, connect to service instance, create service instance, service credentials, instance
+keywords: example, connect to service instance, create service instance, service credentials, instance, IBM Cloudant, cloudant
 
 subcollection: Cloudant
 
@@ -23,7 +23,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates how to use the {{site.data.keyword.cloud}} Dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance. You also see essential information to enable your application to work with the database. 
+The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates how to use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance and obtain service credentials to connect to it. Finally, it guides you through the creation of a simple, locally-hosted web application that makes use of your {{site.data.keyword.cloudant_short_notm}} database.
 {: shortdesc} 
 
 ## Objectives
@@ -66,13 +66,16 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
     After you click `Create`, the system displays a message to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see that the status for your instance is, `Provision in progress`. 
 
-7.  When the status changes to `Active`, click the instance, and proceed to the next section, [Creating service credentials](#creating-service-credentials).   
+7.  After you create an instance, the status changes to `Active`. 
+
+8. Click the instance, and proceed to the next section, [Creating service credentials](#creating-service-credentials).   
 
 ## Creating service credentials
 {: #creating-service-credentials}
 {: step}
 
-1.  To locate your service credentials, go to [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
-2.  See more information on [understanding your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#the-service-credentials).
+1.  For more information about where to find your credentials, see [Locating your credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
 
+2.  See more information on [Understanding your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#the-service-credentials).
 
+3. Now, you're ready to use your {{site.data.keyword.cloudant_short_notm}} database and get familiar with the basic features of {{site.data.keyword.cloud_notm}} by following this tutorial: [Creating a web-based To-Do list](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-web-based-todo-list).
