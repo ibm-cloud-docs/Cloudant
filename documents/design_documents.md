@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-03"
+lastupdated: "2023-03-22"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators 
 
@@ -508,7 +508,7 @@ In other words, filter functions "remove" or "ignore" changes that you don't wan
 Filter functions can also be used to modify a [replication task](/docs/Cloudant?topic=Cloudant-advanced-replication#filtered-replication-adv-repl).
 {: tip}
 
-Filter functions require two arguments: `doc` and [`req`](#req).
+Filter functions require two arguments: `doc` and [`req`](https://docs.couchdb.org/en/stable/json-structure.html#request-object){: external}.
 
 The `doc` argument represents the document that is tested for filtering.
 
