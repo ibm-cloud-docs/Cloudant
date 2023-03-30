@@ -63,7 +63,7 @@ and consists of seven distinct states:
 
 The transition between these states is illustrated in the following diagram:
 
-![The transition between states are Pending, Running, Crashing, and Completed.](../images/fb85704.png "Replication Scheduler states"){: caption="Figure 1. Replication Scheduler states" caption-side="bottom"}
+![The transition between states are Pending, Running, Crashing, and Completed.](../images/fb85704.svg "Replication Scheduler states"){: caption="Figure 1. Replication Scheduler states" caption-side="bottom"}
 
 The scheduler introduces two new endpoints:
 

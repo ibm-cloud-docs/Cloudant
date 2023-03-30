@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-22"
+lastupdated: "2023-03-29"
 
-keywords: create design document, update design document, copy design document, filter functions, update validators 
+keywords: create design document, update design document, copy design document, filter functions, update validators, partitioned index, global index
 
 subcollection: Cloudant
 
@@ -199,8 +199,8 @@ Roles permitted
 
 Query Arguments
 
-   Argument 
-   :  `rev`
+Argument 
+:  `rev`
 
    Description
    :  Revision to copy from.

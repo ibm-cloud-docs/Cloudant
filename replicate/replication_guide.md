@@ -37,7 +37,7 @@ Replication is the copying of data from a source database to a target database.
 The source and target databases do not need to be on the same {{site.data.keyword.cloudant_short_notm}} account,
 or even in the same data center. 
 
-![The graphic shows a picture of database a and b. Database b has one document. After replication, the documents from database a are show in database b.](../images/replication_guide_1.png){: caption="Figure 1. Replication in pictures" caption-side="bottom"}
+![The graphic shows a picture of database a and b. Database b has one document. After replication, the documents from database a are show in database b.](../images/replication_guide_1.svg){: caption="Figure 1. Replication in pictures" caption-side="bottom"}
 
 Replication is complete when the most recent version of each document in the source transfers to the destination database.
 Transfers include new documents,
@@ -228,7 +228,7 @@ the other taking data from B to A.
 Both replication processes work independently,
 with data moved seamlessly in both directions. 
 
-![The graphic shows database a and b. Database a has four documents, one is crossed off. Database b has one document. After replicating database a to database b, database b has five documents, one is crossed off. After replicating database b to database a, database a also has five documents, one is crossed off.](../images/replication_guide_6.png){: caption="Figure 5. Two-way replication" caption-side="bottom"}
+![The graphic shows database a and b. Database a has four documents, one is crossed off. Database b has one document. After replicating database a to database b, database b has five documents, one is crossed off. After replicating database b to database a, database a also has five documents, one is crossed off.](../images/replication_guide_6.svg){: caption="Figure 5. Two-way replication" caption-side="bottom"}
 
 ## Discussion about continuous replication
 {: #discussion-about-continuous-replication}
