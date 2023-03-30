@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-03-30"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -15,11 +15,18 @@ subcollection: Cloudant
 # {{site.data.keyword.cloudant_short_notm}} in practice
 {: #cloudant-in-practice}
 
-You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
+The {{site.data.keyword.cloudant_short_notm}} in practice document is the third best practice document in the series. It shows you the following best practices:
 
-- The customers who use it.
-- The engineers who run it.
-- The folks who support and sell it.
+- How to avoid conflicts. 
+- How deleting documents works. 
+- What to watch out for with updates.
+- How to work in an eventually consistent environment.
+- How to set up replication.
+- How to use the bulk API.
+- Why you must not change Q, R, and N.
+- How rate limits work.
+- What logging tracks.
+- How to compress your HTTP traffic.
 {: shortdesc}
 
 For more information, see [Data modeling](/docs/Cloudant?topic=Cloudant-data-modeling) or [Indexing and querying](/docs/Cloudant?topic=Cloudant-indexing-and-querying).

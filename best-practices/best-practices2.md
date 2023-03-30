@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-20"
+lastupdated: "2023-03-30"
 
 keywords: cloudant search, cloudant query, conflicts, delete documents, updates, replication, bulk api, eventual consistency
 
@@ -16,11 +16,14 @@ subcollection: Cloudant
 # Indexing and querying
 {: #indexing-and-querying}
 
-You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
+The Index and querying document is the second best practice document in the series. It shows you the following best practices:
 
-- The customers who use it.
-- The engineers who run it.
-- The folks who support and sell it.
+- How to understand the different results between emitting data into a view or not.
+- Why you must never rely on {{site.data.keyword.cloudant_short_notm}} Query's ability to query without creating explicit indexes.
+- Why you must limit the number of fields with {{site.data.keyword.cloudant_short_notm}} Search (or {{site.data.keyword.cloudant_short_notm}} Query indexes of type text).
+- How to manage design documents.
+- Why partitioned queries are faster and cheaper.
+- How to use the primary index as a free search index.
 {: shortdesc}
 
 For more information, see [Data modeling](/docs/Cloudant?topic=Cloudant-data-modeling) or [{{site.data.keyword.cloudant_short_notm}} in practice](/docs/Cloudant?topic=Cloudant-cloudant-in-practice).

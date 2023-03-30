@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-03-31"
 
 keywords: api, http, database, partitioned query, eventual consistency, time box
 
@@ -15,12 +15,13 @@ subcollection: Cloudant
 # Data modeling
 {: #data-modeling}
 
-You might be new to {{site.data.keyword.cloudantfull}}, but you're probably not new to database systems. In that case, the following information discusses the suggested practices from someone who sees the product from all angles:
+The Data modeling document is the first best practice document in the series. It shows you the following best practices: 
 
-
-- The customers who use it.
-- The engineers who run it.
-- The folks who support and sell it.
+- What you need to know about your APIs.
+- How to model your data.
+- What size documents you must use.
+- What to avoid.
+- How to configure your databases.
 {: shortdesc}
 
 For more information, see [Indexing and querying](/docs/Cloudant?topic=Cloudant-indexing-and-querying) or [{{site.data.keyword.cloudant_short_notm}} in practice](/docs/Cloudant?topic=Cloudant-cloudant-in-practice).
