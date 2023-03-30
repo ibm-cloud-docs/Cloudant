@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-14"
+lastupdated: "2023-03-31"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -19,6 +19,16 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## April 2023
+{: #cloudant-apr23}
+
+### 03 April 2023
+{: #Cloudant-apr0323}
+{: release-note}
+
+{{site.data.keyword.cloudant_short_notm}} Dashboard
+:   Update Dashboard to use Carbon 11's color theme.
 
 ## March 2023
 {: #cloudant-mar23}
