@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-09"
+lastupdated: "2023-03-30"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -20,9 +20,9 @@ The {{site.data.keyword.cloudantfull}} Dashboard gives new and experienced {{sit
 ## Objectives
 {: #objectives-use-dashboard}
 
-Now, we set up some simple indexes by using the Dashboard and see how each of {{site.data.keyword.cloudant_short_notm}}'s querying mechanisms works.
+Set up some basic indexes using the Dashboard and seeing how each of {{site.data.keyword.cloudant_short_notm}}'s querying mechanisms works.
 
-## Prerequisites
+## Before you begin
 {: #prerequisites-use-dashboard}
 
 You need to create a service instance in {{site.data.keyword.cloudant_short_notm}} before you start this tutorial. You can follow the instructions in the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial to create one.

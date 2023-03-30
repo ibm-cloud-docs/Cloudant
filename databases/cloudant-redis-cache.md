@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-21"
+  years: 2022, 2023
+lastupdated: "2023-03-30"
 
 keywords: combine ibm services, example, create a database, populate database, queries, retrieve data,  query data, create query, web application, add documents, caching, redis
 
@@ -39,20 +39,20 @@ This tutorial takes less than an hour to complete. It is not entirely cost-free 
 ## Objectives
 {: #objectives-combine}
 
-- Learn how to provision multiple services on the {{site.data.keyword.cloud}} by using Terraform.
-- Learn how to use the {{site.data.keyword.cloudant_short_notm}} NodeJS SDK to access your {{site.data.keyword.cloud}} services.
+1. Learn how to provision multiple services on the {{site.data.keyword.cloud}} by using Terraform.
+2. Learn how to use the {{site.data.keyword.cloudant_short_notm}} NodeJS SDK to access your {{site.data.keyword.cloud}} services.
 
 ## Prerequisites
 {: #prerequisites-combine}
 
 You need the following items:
 
-- An [{{site.data.keyword.cloud}}](https://cloud.ibm.com/login) pay-as-you-go account
-- Access to a Mac or Linux&trade; terminal
-- [Git](https://git-scm.com/downloads)
-- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- [Terraform](https://www.terraform.io/downloads.html)
-- [Jq](https://stedolan.github.io/jq/), a command-line tool to process JSON data
+1. An [{{site.data.keyword.cloud}}](https://cloud.ibm.com/login) pay-as-you-go account
+2. Access to a Mac or Linux&trade; terminal
+3. [Git](https://git-scm.com/downloads)
+4. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+5. [Terraform](https://www.terraform.io/downloads.html)
+6. [Jq](https://stedolan.github.io/jq/), a command-line tool to process JSON data
 
 ## Step 1. Obtain an API key to deploy infrastructure to your account
 {: #obtain-credentials-combine}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-02"
+lastupdated: "2023-03-30"
 
 keywords: service credentials, locate service credentials
 
@@ -29,13 +29,13 @@ You can find the credentials for any service that is associated with your accoun
 ## Objectives
 {: #objectives-locate-credentials}
 
-- Locate your service credentials in {{site.data.keyword.cloud_notm}}.
-- Understand your service credentials.
+1. Locate your service credentials in {{site.data.keyword.cloud_notm}}.
+2. Understand your service credentials.
 
-## Prerequisites
+## Before you begin
 {: #prereq-locate-credentials}
 
-- Create a service instance in the {{site.data.keyword.cloud_notm}} Dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
+Create a service instance in the {{site.data.keyword.cloud_notm}} Dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
 
 ## How to find your service credentials
 {: #finding-your-service-credentials}

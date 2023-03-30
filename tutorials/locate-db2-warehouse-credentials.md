@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-08"
+  years: 2021, 2023
+lastupdated: "2023-03-30"
 
 keywords: db2 warehouse on cloud, db2 warehouse console, find your service credentials, log in to db2 warehouse console
 
@@ -37,8 +37,8 @@ Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, yo
 ## Objectives
 {: #objectives-locate-db2-credentials}
 
-- Locate your {{site.data.keyword.dashdbshort_notm}} credentials.
-- Sign in to {{site.data.keyword.dashdbshort_notm}} console. 
+1. Locate your {{site.data.keyword.dashdbshort_notm}} credentials.
+2. Sign in to {{site.data.keyword.dashdbshort_notm}} console. 
 
 ## How to find your service credentials
 {: #find-your-service-credentials-db2}
@@ -87,7 +87,7 @@ The information that is returned in the previous example is described in the fol
 :  DB2 JDBC connection URL, only used if the value for `dashboard_url` is null.
 
 `dynamite_user`
-:  DB2 username. 
+:  DB2 username.
 
 ## Sign in to the {{site.data.keyword.dashdbshort_notm}} console
 {: #sign-in-db2-warehouse-console}
@@ -95,7 +95,7 @@ The information that is returned in the previous example is described in the fol
 
 1. To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.
 
-1. From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
+1. From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.
 
    To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the Postfix `login`, you can sign in with the following URL, `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
    {: note}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-25"
+lastupdated: "2023-03-30"
 
 keywords: use dedicated hardware plan, create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -35,12 +35,12 @@ plan instance by creating one or more Standard plan instances on it, and managin
 ## Objectives
 {: #objectives-dhp}
 
-- Create a Dedicated Hardware plan instance.
-- Provision a Standard plan instance on a Dedicated Hardware environment.
-- Provision a Dedicated Hardware plan instance with the {{site.data.keyword.cloud_notm}} CLI.
-- Provision a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI.
-- Create the credentials for your {{site.data.keyword.cloudant_short_notm}} service.
-- List the service credentials for your {{site.data.keyword.cloudant_short_notm}} service.
+1. Create a Dedicated Hardware plan instance.
+2. Provision a Standard plan instance on a Dedicated Hardware environment.
+3. Provision a Dedicated Hardware plan instance with the {{site.data.keyword.cloud_notm}} CLI.
+4. Provision a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI.
+5. Create the credentials for your {{site.data.keyword.cloudant_short_notm}} service.
+6. List the service credentials for your {{site.data.keyword.cloudant_short_notm}} service.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
