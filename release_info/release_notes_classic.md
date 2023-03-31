@@ -30,6 +30,18 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {{site.data.keyword.cloudant_short_notm}} Dashboard
 :   Update Dashboard to use Carbon 11's color theme.
 
+### 03 April 2023
+{: #Cloudant-apr0323}
+{: release-note}
+
+The following changes were made in build 8382:
+
+Indexing
+:   Prevent `couch_index_server` from crashing under load.
+
+Runtime environment
+:   Upgrade the runtime environment to latest Erlang/OTP 24 point release.
+
 ## March 2023
 {: #cloudant-mar23}
 
