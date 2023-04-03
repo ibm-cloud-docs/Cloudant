@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-17"
+lastupdated: "2023-04-04"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -64,7 +64,7 @@ Refer to the {{site.data.keyword.cloud_notm}} Pricing Calculator in the dashboar
 An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is a bare metal {{site.data.keyword.cloudant_short_notm}} environment that is provisioned for the sole use of your {{site.data.keyword.cloudant_short_notm}} Standard plan instances. The {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan offers the following options:
 - An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment that can be provisioned in any [{{site.data.keyword.IBM}} global data center](https://www.ibm.com/cloud/data-centers/){: external}.
 - This plan is necessary for HIPAA compliance and must be selected at provisioning time.
-- Users can choose to bring-your-own-key (BYOK) with customer-managed encryption keys with {{site.data.keyword.IBM_notm}} Key Protect for all environments provisioned 1 January 2020 or later. {{site.data.keyword.cloudant_short_notm}} runs on encrypted disks, but in order to BYOK, the Dedicated Hardware plan is required. BYOK encryption details have to be chosen at provisioning time, and the feature isn't available for already-provisioned Dedicated Hardware plan environments.
+- Users can choose to bring-your-own-key (BYOK) with customer-managed encryption keys with {{site.data.keyword.IBM_notm}} Key Protect for all environments provisioned 1 January 2020 or later. {{site.data.keyword.cloudant_short_notm}} runs on encrypted disks, but to BYOK, the Dedicated Hardware plan is required. BYOK encryption details must be chosen at provisioning time, and the feature isn't available for already-provisioned Dedicated Hardware plan environments.
 - All Standard plan instances that are deployed on Dedicated Hardware plan environments include both private (internal) endpoints and public endpoints in locations that support Cloud Service Endpoints (CSE). Using private endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Cloud Service Endpoint documentation](/docs/account?topic=account-service-endpoints-overview){: external} for details about enabling Cloud Service Endpoints for your {{site.data.keyword.cloud}} account.
 - Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP allowlisting by contacting support. IP allowlisting configuration applies to all instances that are running on the environment. The public and private network allowlists can be managed independently, and the public allowlist can be set to block all traffic so that all traffic goes over the private endpoints.
 
@@ -190,7 +190,7 @@ Therefore, these results mean that the rows read value, and consumed read units,
 higher than the number of eventual results you receive.
 
 In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row that is returned by the
-underlying index. This way, it can execute further filtering required by the
+underlying index. This way, it can execute further filtering that is required by the
 selector and passed to the query.
 
 | Number of results | Number of rows returned by index | Total Read consumption | Consumption for rows read | Consumption for documents read |

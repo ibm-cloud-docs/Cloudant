@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-23"
+  years: 2020, 2023
+lastupdated: "2023-04-04"
 
 keywords: endpoints, service credentials, authentication,cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -95,7 +95,7 @@ The service credentials include the following fields:
 |------|--------|
 | `username` | The username that is required for applications to access the service instance. |
 | `password` | The legacy credentials password that is required for applications to access the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen. |
-| `host` | The host name that is used by applications to locate the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen. |
+| `host` | The hostname that is used by applications to locate the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen. |
 | `port` | The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. This field displays only if the `Use both legacy credentials and IAM` option is chosen. |
 | `url`	| The HTTPS URL to access the {{site.data.keyword.cloudant_short_notm}} instance. If the `Use both legacy credentials and IAM` option is chosen, it also includes the embedded legacy username and password. |
 | `apikey` | The IAM API key. |

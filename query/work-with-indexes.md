@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-10-20"
+  years: 2015, 2023
+lastupdated: "2023-04-04"
 
 keywords: create index, json index type, text index type, partial index
 
@@ -60,7 +60,7 @@ and the `$ne` operator can't guarantee that.
 
 To improve response time, you can create an index that excludes documents 
 with `status: { $ne: archived }` at index time by using the 
-`partial_filter_selector` field shown in the following example:
+`partial_filter_selector` field that is shown in the following example:
 
 ```json
 POST /db/_index HTTP/1.1

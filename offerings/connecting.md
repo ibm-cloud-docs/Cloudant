@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-06-23"
+  years: 2019, 2023
+lastupdated: "2023-04-04"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP allowlisting
 
@@ -86,7 +86,7 @@ The service credentials include the following fields:
 :  The legacy credentials password that is required for applications to access the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen.
 
 `host`
-:  The host name that is used by applications to locate the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen.
+:  The hostname that is used by applications to locate the service instance. This field displays only if the `Use both legacy credentials and IAM` option is chosen.
 
 `port`
 :  The HTTPS port number for accessing the service instance on the host. It's 443 as only HTTPS access is allowed by {{site.data.keyword.cloudant_short_notm}}. This field displays only if the `Use both legacy credentials and IAM` option is chosen.

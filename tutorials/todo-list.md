@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-04-04"
 
 keywords: todo list tutorial
 
@@ -34,18 +34,18 @@ Create a simple web-based to-do list to get familiar with the basic {{site.data.
    The project is a simple to-do list, where you can see a list of notes. You can add and delete notes. Each of your notes has a tag, and you can filter your notes by tag.
    {: tip}
 
-1. In order to create this to-do list, your application needs to be able to read and write to the database. To read to-dos in "newest first" order and to filter by tag, your database needs to have some secondary indexes. So let's create all of that.
+1. To create this to-do list, your application needs to be able to read and write to the database. To read to-dos in "newest first" order and to filter by tag, your database needs to have some secondary indexes. Now, we can create all of that.
 
 You can complete the tutorial in less than an hour. It doesn't cost you anything over your current {{site.data.keyword.cloudant_short_notm}} bill (so it's free if you are on the {{site.data.keyword.cloudant_short_notm}} Lite plan).
 
 The website that you create is served from your local machine, so no other services are required apart from {{site.data.keyword.cloud_notm}}.
 
-Once you complete it, you have a basic understanding of how applications can interface with {{site.data.keyword.cloudant_short_notm}} through an {{site.data.keyword.cloudant_short_notm}} SDK (in this case, NodeJS).
+After you complete it, you have a basic understanding of how applications can interface with {{site.data.keyword.cloudant_short_notm}} through an {{site.data.keyword.cloudant_short_notm}} SDK (in this case, NodeJS).
 
 ## Before you begin
 {: #prereq-web-based-todo-list}
 
-You need the following implements to-do this tutorial:
+You need the following implements to complete this tutorial:
 
 1. An {{site.data.keyword.cloudant_short_notm}} service instance and some service credentials. You can create the instance and credentials in the {{site.data.keyword.cloudant_short_notm}} Dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. Be sure to make a note of the APIKey and URL when you create your service credentials.
 2. Ensure you have access to a Mac or Linux&trade; terminal.
@@ -83,16 +83,16 @@ In this step, you install all the code dependencies and environment variables yo
    ```
    {: codeblock}
 
-When you run this command for the first time, your code detects that no database exists. The code creates a database for you with some indexes (by date and by tag) as well as some sample data.
+When you run this command for the first time, your code detects that no database exists. The code creates a database for you with some indexes (by date and by tag) and some sample data.
 {: note}
 
-## Visit your website!
+## Check out your website!
 {: #visit-website}
 {: step}
 
 Now, you can check out your website.
 
-1. From your browser, navigate to `https://localhost:8080`.
+1. From your browser, go to `https://localhost:8080`.
 
    You can see your to-do list with a couple of items on it:
 
@@ -115,15 +115,15 @@ After you create the `todo` database, it creates two indexes by using the `postI
 
 The front end is using the popular [express](https://expressjs.com/) framework to display a webpage and call service endpoints in your backend when you click different actions, like create, delete, and filter.
 
-For example, when your webpage is first loaded, it calls the `GET /todolist` endpoint, which uses the `postFind` method to query the database for all documents (by using the index that's created after the `todo` database), order them by timestamp, and return them to the front end for display.
+For example, when your webpage is first loaded, it calls the `GET /todolist` endpoint. The `GET /todolist` endpoint uses the `postFind` method to query the database for all documents (by using the index created after the `todo` database), order them by timestamp, and return them to the front end for display.
 
-Filtering by tag uses the same `postFind` method, but by using the second index, you create and delete notes by usings the `postDocument` and `deleteDocument` methods.
+Filtering by tag uses the same `postFind` method, but by using the second index, you create and delete notes by using the `postDocument` and `deleteDocument` methods.
 
 ## Summary
 {: #summary-todo}
 
 {{site.data.keyword.cloudant_short_notm}} allows rapid development of web applications, as its HTTP API is modeled by the [Node.js SDK](https://www.npmjs.com/package/@ibm-cloud/cloudant) and is easy to integrate with your own code. You create an {{site.data.keyword.cloudant_short_notm}} database and add JSON documents that model your own data. Remember to create secondary indexes to help service your query access patterns so that query performance remains quick as your data volume grows.
 
-If you don't fancy writing JavaScript, we have SDKs for [Java&trade;, Python, and Go](/apidocs/cloudant) too, as well as our [HTTP API](/apidocs/cloudant). Don't forget. The [{{site.data.keyword.cloudant_short_notm}} Dashboard](/docs/Cloudant?topic=Cloudant-connecting#ibm-cloudant-dashboard) is a great way to explore your databases, create and modify documents, and refine your index and querying skills.
+If you don't fancy writing JavaScript, we have SDKs for [Java&trade;, Python, and Go](/apidocs/cloudant), plus our [HTTP API](/apidocs/cloudant). Don't forget. The [{{site.data.keyword.cloudant_short_notm}} Dashboard](/docs/Cloudant?topic=Cloudant-connecting#ibm-cloudant-dashboard) is a great way to explore your databases, create and modify documents, and refine your index and querying skills.
 
-Further best practice guidance can be found in our [blog](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) and [documentation](/docs/services/Cloudant/getting-started.html). For a video guide to {{site.data.keyword.cloudant_short_notm}} and its capabilities, see the course in our [learning center](/docs/Cloudant?topic=Cloudant-learning-center).
+You can find more best practice guidance in our [blog](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) and [documentation](/docs/services/Cloudant/getting-started.html). For a video guide to {{site.data.keyword.cloudant_short_notm}} and its capabilities, see the course in our [learning center](/docs/Cloudant?topic=Cloudant-learning-center).
