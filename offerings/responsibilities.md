@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-06-23"
+  years: 2019, 2023
+lastupdated: "2023-04-03"
 
 keywords: incident management, operations management, change management, security compliance, regulation compliance, disaster recovery, responsibilities
 
@@ -54,6 +54,7 @@ Security and regulation compliance includes tasks such as security controls impl
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |At-rest encryption| By default, {{site.data.keyword.IBM_notm}} encrypts all disks by using {{site.data.keyword.cloudant_short_notm}}-managed encryption keys.   | If the customer wants bring-your-own-key (BYOK) encryption, then the customer is required to use Key Protect to store the customer-managed encryption key. The customer must select an appropriate key management service instance, and select a disk encryption key option during provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. |
+| Make data unreadable to {{site.data.keyword.cloudant_short_notm}} Operators | None, {{site.data.keyword.IBM_notm}} does not render data unreadable to {{site.data.keyword.cloudant_short_notm}} Operators. | If you intend to store sensitive information in an {{site.data.keyword.cloudant_short_notm}} database, you must use client-side encryption to render data unreadable to {{site.data.keyword.cloudant_short_notm}} operators. For example, for PCI DSS compliance, you must encrypt the Primary Account Number (PAN) before sending a document that contains it to the database.|
 {: summary="The first column describes the task that the customer or {{site.data.keyword.IBM_notm}} might be responsible for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 {: caption="Table 3. Responsibilities for security and regulation compliance" caption-side="top"}
 
