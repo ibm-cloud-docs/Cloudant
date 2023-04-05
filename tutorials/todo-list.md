@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-04"
+lastupdated: "2023-04-06"
 
 keywords: todo list tutorial
 
@@ -115,7 +115,7 @@ After you create the `todo` database, it creates two indexes by using the `postI
 
 The front end is using the popular [express](https://expressjs.com/) framework to display a webpage and call service endpoints in your backend when you click different actions, like create, delete, and filter.
 
-For example, when your webpage is first loaded, it calls the `GET /todolist` endpoint. The `GET /todolist` endpoint uses the `postFind` method to query the database for all documents (by using the index created after the `todo` database), order them by timestamp, and return them to the front end for display.
+For example, when your webpage is first loaded, it calls the `GET /todolist` endpoint. The `GET /todolist` endpoint uses the `postFind` method to query the database for all documents (by using the index created after the `todo` database), and then orders the notes by timestamp, and returns them to the front end for display.
 
 Filtering by tag uses the same `postFind` method, but by using the second index, you create and delete notes by using the `postDocument` and `deleteDocument` methods.
 
