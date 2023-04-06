@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-04-03"
+lastupdated: "2023-04-04"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -17,7 +17,7 @@ content-type: release-note
 # Release notes for {{site.data.keyword.cloudant_short_notm}} Classic
 {: #classic-release-notes}
 
-Use these release notes to learn about the latest updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
+Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
 ## April 2023
@@ -54,7 +54,7 @@ Compaction
 :   Active database size now decreases when users delete documents.
 
 Indexing
-:   Enforce partition index count limits for (non-internally) replicated documents.
+:   Enforce partition index count limits for (noninternally) replicated documents.
 
 :   Optimize process pool management.
 
@@ -66,7 +66,7 @@ Replication
 
 :   Constrain protocol types and socket options.
 
-:   Upload design docs individually when replicating with `bulk_get`.
+:   Upload design docs individually when you replicate with `bulk_get`.
 
 Runtime environment
 :   Upgrade the runtime environment to Erlang/OTP 24 point release patched with `alias-cleanup-fix`.
@@ -461,7 +461,7 @@ Compressed requests
 The following changes were made in build 8169:
 
 New! Mango query operator
-:   Introduce the Mango query operator, `$keyMapMatch`, that offers the ability to make queries on the keys of a map.
+:   Introduce the Mango query operator, `$keyMapMatch` that offers the ability to make queries on the keys of a map.
 
 Improvements
 :   Internal bug fixes.
@@ -553,8 +553,8 @@ Negative and noninteger heartbeat values
 Separate proxies
 :   Allow specifying separate proxies for both the source and target in a replication by using `source_proxy` and `target_proxy` keys.
 
-`POST` view functionality
-:   The `POST` view functionality now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
+`POST` view functions
+:   The `POST` view functions now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
 
 Replication errors
 :   Replication `"info"` errors are now JSON objects. Previously, they were strings.
@@ -1285,7 +1285,7 @@ Disabled JavaScript constructors
 {: release-note}
 
 Removed support for virtual hosts
-:   {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality on 4 December 2017. Support for insecure HTTP connections was replaced by HTTPS only. After you turn off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
+:   {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality on 4 December 2017. Support for insecure HTTP connections was replaced by HTTPS only. After you turn off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen hostname to your clients from your application and use HTTPS connections only.
 
 ## November 2017
 {: #cloudant-nov17}

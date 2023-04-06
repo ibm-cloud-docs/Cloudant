@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-17"
+lastupdated: "2023-04-03"
 
 keywords: example, connect to service instance, create service instance, service credentials, instance, IBM Cloudant, cloudant
 
@@ -23,7 +23,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates how to use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance and obtain service credentials to connect to it. Finally, it guides you through the creation of a simple, locally-hosted web application that makes use of your {{site.data.keyword.cloudant_short_notm}} database.
+The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates how to use the {{site.data.keyword.cloud}} dashboard to create an {{site.data.keyword.cloudant_short_notm}} service instance and obtain service credentials to connect to it. Finally, it guides you through the creation of a simple, locally hosted web application that uses your {{site.data.keyword.cloudant_short_notm}} database.
 {: shortdesc} 
 
 ## Objectives
@@ -57,7 +57,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
     (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `IAM` or `IAM and legacy credentials`. For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant).
 
-    The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+    The {{site.data.keyword.cloudant_short_notm}} team encourages you to use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
     {: important}
  
 5.  Select your plan.

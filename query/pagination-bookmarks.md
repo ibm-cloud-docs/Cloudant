@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-04-06
 
 keywords: _all_docs endpoint, skip, limit, startkey, endkey, query, search, paging, mapreduce views
 
@@ -20,7 +20,7 @@ Bookmarks help release the next page of results from a result set. While with pa
 
 You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=Cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
 
-[{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#postfind){: external} and [{{site.data.keyword.cloudant_short_notm}} Search](/apidocs/cloudant#getsearchinfo){: external} both use bookmarks as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the bookmark that was received in the first response to the second request.
+[{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#postfind){: external} and [{{site.data.keyword.cloudant_short_notm}} Search](/apidocs/cloudant#getsearchinfo){: external} both use bookmarks as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's less complicated to manage since no key manipulation is required to formulate the request for the next result set. You pass the bookmark that was received in the first response to the second request.
 
 Now, you can see a better way to page through a large document set. 
 
@@ -357,14 +357,14 @@ The `startkey`/`endkey` values are in double quotation marks because they're exp
 ## Pagination options
 {: #pagination-options}
 
-For performance reasons, if you are displaying large amounts of data, you should consider using pagination. In these examples, documents are fetched in blocks of 5, but in a real application the page size may be different and will depend on document size, latency demands, memory consumption and other trade-offs.
+For performance reasons, if you are displaying large amounts of data, you must consider using pagination. In these examples, documents are fetched in blocks of five. However, in a real application, the page size might be different and depends on document size, latency demands, memory consumption, and other tradeoffs.
 
 You can use the options that are described in the following sections.
 
 ### Option 1 - Fetch one document too many
 {: #option-1-fetch-one-doc-too-many}
 
-Instead of fetching 5 documents (`limit=5`), fetch 5+1 (`limit=6`), but hide the 6th document from your users. The `_id` of the 6th document becomes the `startkey` of your request for the next page of results.
+Instead of fetching five documents (`limit=5`), fetch 5+1 (`limit=6`), but hide the sixth document from your users. The `_id` of the sixth document becomes the `startkey` of your request for the next page of results.
 
 See the following example of a first request:
 {: curl}
@@ -1014,9 +1014,9 @@ The `startkey_docid` parameter works only if a `startkey` is supplied and where 
 
 It's this sort of access pattern that {{site.data.keyword.cloudant_short_notm}} *bookmarks* are built for. Here's how it works:
 
-- Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, `find me the first 10 cities where the country is 'US'`.
+- Your application runs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, `find me the first 10 cities where the country is "US"`.
 - {{site.data.keyword.cloudant_short_notm}} provides an array of 10 {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
-- When the next set of results is required, the search is repeated. However, the query is sent, as well as the bookmark from the first response, to {{site.data.keyword.cloudant_short_notm}} in the request.
+- When the next set of results is required, the search is repeated. However, the query is sent, with the bookmark from the first response, to {{site.data.keyword.cloudant_short_notm}} in the request.
 - {{site.data.keyword.cloudant_short_notm}} replies with the second set of documents and another bookmark, which can be used to get a third page of results.
 - Repeat! 
 
@@ -1384,9 +1384,9 @@ See the documentation about [query parameters](/docs/Cloudant?topic=Cloudant-clo
 {: #mapreduce-views-accept-bookmarks}
 
 No. MapReduce views don't accept a `bookmark`. Instead, use one of the following tricks to page through results:
-- [The \u0000 trick](#option-2-the-u0000-trick)
-- [Fetch one document too many](#option-1-fetch-one-doc-too-many)
-- [Skip and limit](/docs/Cloudant?topic=Cloudant-using-views)
+- [The \u0000 trick](#option-2-the-u0000-trick).
+- [Fetch one document too many](#option-1-fetch-one-doc-too-many).
+- [Skip and limit](/docs/Cloudant?topic=Cloudant-using-views).
 
 ### Can I jump straight to page X of the results?
 {: #jump-page-x-results}

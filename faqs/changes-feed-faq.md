@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-22"
+  years: 2022, 2023
+lastupdated: "2023-04-04"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -79,7 +79,7 @@ The `since` parameter is used to define where in the changes feed you want to st
 `since=<a last seq token>`
 :   From a known place in the changes feed.
 
-At face value, it would seem like following the changes feed would be as simple as chaining `_changes` API calls together, passing the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
+At face value, it appears that following the changes feed is as simple as chaining `_changes` API calls together. Then {{site.data.keyword.cloudant_short_notm}} passes the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
 
 ## Why does the changes feed deliver each change at least once?
 {: #changes-feed-at-least-once}
@@ -111,20 +111,20 @@ The {{site.data.keyword.cloudant_short_notm}} changes feed isn't a _transaction 
 {: #use-filtered-replication}
 {: faq}
 
-Filtering the changes feed, and by extension, performing filtered replication has its uses:
+Filtering the changes feed, and by extension, running filtered replication has its uses:
 
 - Copying data from source to target but ignoring deleted documents.
 - Copying data but without index definitions (design documents).
 
 This [blog post](https://blog.cloudant.com/2019/12/13/Filtered-Replication.html){: external} describes how supplying a `selector` during replication makes easy work of these use cases.
 
-The changes feed with an accompanying `selector` parameter is _not_ the way to extract slices of data from the database on a routine basis. It must not be used as a means of performing operational queries against a database. Filtered changes are slow (the filter is applied to every changed document in turn, without the help of an index). This process is much slower than creating a secondary index (such as a MapReduce view) and querying that view.
+The changes feed with an accompanying `selector` parameter is _not_ the way to extract slices of data from the database on a routine basis. It must not be used as a means of running operational queries against a database. Filtered changes are slow (the filter is applied to every changed document in turn, without the help of an index). This process is much slower than creating a secondary index (such as a MapReduce view) and querying that view.
 
-## Will a `feed=continuous` changes feed continue to run indefinitely?
+## Does a `feed=continuous` changes feed continue to run indefinitely?
 {: #feed-continuous-changes-feed-indefinitely}
 {: faq}
 
-No, there is no guaranteed connection duration for a continuous changes feed. It might be regularly disconnected by the server for any number of reasons including maintenance, security, or network errors. Code that uses the changes feed must be designed to use a recently saved sequence ID as a `since` value to make a new request to resume the changes feed after an error or disconnection.
+No, {{site.data.keyword.cloudant_short_notm}} does not guaranteed connection duration for a continuous changes feed. It might be regularly disconnected by the server for any number of reasons, which include maintenance, security, or network errors. Code that uses the changes feed must be designed to use a recently saved sequence ID as a `since` value to make a new request to resume the changes feed after an error or disconnection.
 
 ## Why doesn't the changes feed guarantee time-ordering?
 {: #time-ordered-changes-no-guarantee}
@@ -179,5 +179,5 @@ The {{site.data.keyword.cloudant_short_notm}} changes feed is not good for the f
 - A message queue. For more information, see [IBM Messages for RabbitMQ](https://www.ibm.com/cloud/messages-for-rabbitmq){: external} for managing queues.
 - A message broker. For more information, see [IBM Event Streams](https://www.ibm.com/cloud/event-streams){: external} for handling scalable, time-ordered streams of events.
 - A real-time publish and subscribe system. For more information, see [IBM Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis){: external} for handling publish and subscribe topics.
-- A transaction log. Some databases store each change in a transaction log, but {{site.data.keyword.cloudant_short_notm}}'s distributed and eventually consistent nature means that no definitive time-ordered transaction log exists.
+- A transaction log. Some databases store each change in a transaction log, but the distributed and eventually consistent nature of {{site.data.keyword.cloudant_short_notm}} means that no definitive time-ordered transaction log exists.
 - A querying mechanism. For more information, see [MapReduce Views](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-creating-views-mapreduce) for creating views of your data that is ordered by a key of your choice.
