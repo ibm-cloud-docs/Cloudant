@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-04"
+lastupdated: "2023-04-06"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -146,7 +146,7 @@ Replication job definitions are stored in documents in an {{site.data.keyword.cl
 ```
 {: codeblock}
 
-If either the `source` or `target` URLs contain an `http://` prefix, then **the replication job is affected** and action must be taken to ensure the replications run.
+If either the `source` or `target` URLs contain an `http://` prefix, then **the replication job is affected** and action must be taken to ensure the replication runs.
 
 ### How do I avoid being affected?
 {: #how-can-i-avoid-being-affected}

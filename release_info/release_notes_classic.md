@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-04-04"
+lastupdated: "2023-04-06"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
 
@@ -553,8 +553,8 @@ Negative and noninteger heartbeat values
 Separate proxies
 :   Allow specifying separate proxies for both the source and target in a replication by using `source_proxy` and `target_proxy` keys.
 
-`POST` view functions
-:   The `POST` view functions now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
+`POST` view function
+:   The `POST` view function now supports identical parameters and behavior as specified in the `/{db}/_design/{ddoc}/_view/{view}`, `/{db}/_all_docs`, and `/{db}/_design_docs` endpoints. You can supply query string parameters as keys in a JSON object in the body of the `POST` request.
 
 Replication errors
 :   Replication `"info"` errors are now JSON objects. Previously, they were strings.

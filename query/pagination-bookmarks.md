@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-04-06
+lastupdated: "2023-04-06"
 
 keywords: _all_docs endpoint, skip, limit, startkey, endkey, query, search, paging, mapreduce views
 

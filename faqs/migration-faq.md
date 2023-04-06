@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-04-04"
+lastupdated: "2023-04-06"
 
 keywords: free plan, lite plan, pricing plans, standard plan, enterprise plan, backup, support
 
@@ -36,7 +36,7 @@ Or you can migrate from the Lite plan to a Standard plan, which is just upgradin
 {: #can-i-back-up-my-data-before-doing-anything-}
 {: faq}
 
-{{site.data.keyword.cloudant_short_notm}} team advises that you use the [`couchbackup`](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) utility to export data to disk. Or use [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage){: external}, which is an inexpensive, scalable solution for storing the exported files. 
+The {{site.data.keyword.cloudant_short_notm}} team advises that you use the [`couchbackup`](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) utility to export data to disk. Or use [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage){: external}, which is an inexpensive, scalable solution for storing the exported files. 
 
 ## Can I keep my `username.cloudant.com` domain and redirect it to the new service on {{site.data.keyword.cloudant_short_notm}}?
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}
