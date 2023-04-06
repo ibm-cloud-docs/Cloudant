@@ -1043,4 +1043,4 @@ Embrace eventual consistency - don't try to make {{site.data.keyword.cloudant_sh
 {{site.data.keyword.cloudant_short_notm}} products based on CouchDB 4 might have a different consistency model.
 {: note}
 
-That's the end of this course. For more information, see our documentation and our blog.
+That's the end of this course. For more information, see the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) and [blog](https://blog.cloudant.com/).

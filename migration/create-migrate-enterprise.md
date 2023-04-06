@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-02-09"
+lastupdated: "2023-04-06"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -84,14 +84,14 @@ The following table provides more information about these HTTP responses:
 1. Conduct load and functional testing on your application.
 2. Ensure that no issues exist before you migrate to production.
 
-## Step 6. Move to the new instance
+## Move to the new instance
 {: #step-6-move-to-the-new-instance}
 {: step}
 
 1. Update your application to use the new account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance.
 2. (Optional) Go to the [Getting started tutorial](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant#creating-service-credentials) to obtain the service credentials for your {{site.data.keyword.cloudant_short_notm}} instance.
 
-## Step 7. Turn off the old service
+## Turn off the old service
 {: #step-7-turn-off-the-old-service}
 {: step}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-17"
+lastupdated: "2023-03-23"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -324,7 +324,7 @@ You can also complete these steps on the command line by using the [{{site.data.
 ### Generating a bearer token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API
 {: #generate-bearer-token-authenticate-cloudant-api-ai}
 
-Use the `apiaccess` key from step 4.b.:
+In step 4.b., you wrote down the `apiaccess` key. Use that key now:
 
 ```sh
 curl -k -X POST \
