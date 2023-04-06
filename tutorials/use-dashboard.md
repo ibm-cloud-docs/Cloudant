@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-01-03"
+lastupdated: "2023-03-30"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -10,7 +10,7 @@ subcollection: Cloudant
 
 content-type: tutorial
 services: Cloudant
-account-plan: lite 
+account-plan: lite
 completion-time: 20m
 
 ---
@@ -29,17 +29,17 @@ By using the {{site.data.keyword.cloudantfull}} Dashboard, you create an {{site.
 ## Objectives
 {: #objectives-navigate}
 
-- Open the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
-- Create a database. 
-- Add JSON documents to the database and run a query. 
-- Replicate a database. 
-- Monitor active tasks. 
-- Monitor with {{site.data.keyword.cloudant_short_notm}}. 
+1. Open the {{site.data.keyword.cloudant_short_notm}} Dashboard.
+2. Create a database.
+3. Add JSON documents to the database and run a query.
+4. Replicate a database.
+5. Monitor active tasks.
+6. Monitor with {{site.data.keyword.cloudant_short_notm}}.
 
-## Prerequisites
+## Before you begin
 {: #prerequisites-nav}
 
-You need to create a service instance in {{site.data.keyword.cloud_notm}} before you start this tutorial. You can follow the instructions in the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial to create one. 
+Create a service instance in {{site.data.keyword.cloud_notm}} before you start this tutorial. You can follow the instructions in the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial to create one.
 
 ## Opening your service instance on {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #using-the-ibm-cloudant-dashboard}
@@ -48,7 +48,7 @@ You need to create a service instance in {{site.data.keyword.cloud_notm}} before
 Open your {{site.data.keyword.cloudant_short_notm}} service instance by following these steps.
 
 1.  Go to the {{site.data.keyword.cloud_notm}} Dashboard.
-    
+
 2.  Click **Services** in the Resource list.
 
 3.  From the Services section, click the `Cloudant-o7` instance that you created in the *Getting started* tutorial, and click **Launch Dashboard**.
@@ -73,7 +73,7 @@ is the database that you use in this tutorial.
 
     The `dashboard-demo` database opens automatically.
 
-Now, you can create some documents. 
+Now, you can create some documents.
 
 ## Adding documents to the database
 {: #creating-documents-in-the-database-dt}
@@ -86,7 +86,7 @@ that you create in this exercise include the data that you use to query the `das
 
     The New Document window opens.
 
-2.  Copy the following sample text and replace the existing text in the new document.    
+2.  Copy the following sample text and replace the existing text in the new document.
     Use the following sample text for document 1:
 
     ```json
@@ -100,7 +100,7 @@ that you create in this exercise include the data that you use to query the `das
     ```
     {: codeblock}
 
-3.  Repeat steps 1 and 2 to add the remaining four documents to the database.    
+3.  Repeat steps 1 and 2 to add the remaining four documents to the database.
    Use the following sample text for document 2:
 
     ```json
@@ -161,7 +161,7 @@ that you create in this exercise include the data that you use to query the `das
 {: #running-a-simple-query-dt}
 {: step}
 
-This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query finds documents based on the `lastname` and the `firstname`.   
+This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query finds documents based on the `lastname` and the `firstname`.
 
 1.  Click **Query**.
 2.  Copy the following sample JSON and replace the existing text in the new query window:
@@ -193,14 +193,14 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
 1.  Click **Replication**.
 
-2.  Click **New Replication**. 
+2.  Click **New Replication**.
 
     The Job configuration page opens.
    
     Additionally, you can create a replication from the databases page by clicking **Replicate** in the Actions column.
     {: note} 
 
-3. Enter the following information for your replication job.     
+3. Enter the following information for your replication job.
     Use the following information in the Source section:
       - Type - Select **Remote database**.
       - Name - Enter the database URL: `$SERVICE_URL/query-movies`.
@@ -208,7 +208,7 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
 
     Use the following information in the Target section:
       - Type - Select **New local database**.
-      - New database - Enter the name for the new database, **`query-movies`**. 
+      - New database - Enter the name for the new database, **`query-movies`**.
       - New database options - Do not select the Partitioned option.
       - Authentication - Select **IAM Authentication**. 
       - IAM API Key - Enter the `apikey` from the Service credentials for your instance.
@@ -254,26 +254,26 @@ If your instance does not have any active tasks, you can return to the previous 
 {: #monitoring-with-cloudant-dt}
 {: step}
 
-Monitor your usage with a graph that shows your throughput by reads, writes, and global queries. You can see your current operations, denied requests, and storage usage. 
+Monitor your usage with a graph that shows your throughput by reads, writes, and global queries. You can see your current operations, denied requests, and storage usage.
 
-Your service instance contains no data because it is for demonstration purposes only. However, you can see what monitoring information is available to you by following these steps. 
+Your service instance contains no data because it is for demonstration purposes only. However, you can see what monitoring information is available to you by following these steps.
 
 1.  Click **Monitoring**. 
 
     The Monitoring page opens to the Current Operations tab. 
-    Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity. 
+    Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.
 
     ![The Current Operations tab is the default tab for the Monitoring page.](images/current-operations-tab.png){: caption="Figure 7. Current Operations" caption-side="bottom"}
 
-2.  Click **Denied Requests**. 
+2.  Click **Denied Requests**.
 
-    Review the number of denied requests from a given second that are shown by the number of `429: too many requests` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries. 
+    Review the number of denied requests from a given second that are shown by the number of `429: too many requests` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.
 
     ![The Denied Requests tab shows the denied requests that are broken down by read, writes, and global queries.](images/denied-requests-tab.png){: caption="Figure 8. Denied Requests" caption-side="bottom"}
 
 3.  Click **Storage**.
 
-    Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed. 
+    Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed.
 
     ![The Storage tab includes your JSON documents, indexes, and attachements.](images/storage-tab.png){: caption="Figure 9. Storage" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-26"
+lastupdated: "2023-03-30"
 
 keywords: todo list tutorial
 
@@ -42,15 +42,15 @@ The website that you create is served from your local machine, so no other servi
 
 Once you complete it, you have a basic understanding of how applications can interface with {{site.data.keyword.cloudant_short_notm}} through an {{site.data.keyword.cloudant_short_notm}} SDK (in this case, NodeJS).
 
-## Prerequisites
+## Before you begin
 {: #prereq-web-based-todo-list}
 
 You need the following implements to-do this tutorial:
 
-- An {{site.data.keyword.cloudant_short_notm}} service instance and some service credentials. You can create the instance and credentials in the {{site.data.keyword.cloudant_short_notm}} Dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. Be sure to make a note of the APIKey and URL when you create your service credentials.
-- Access to a Mac or Linux&trade; terminal
-- [Git](https://git-scm.com/downloads)
-- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+1. An {{site.data.keyword.cloudant_short_notm}} service instance and some service credentials. You can create the instance and credentials in the {{site.data.keyword.cloudant_short_notm}} Dashboard by following the [Getting started with {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial. Be sure to make a note of the APIKey and URL when you create your service credentials.
+2. Ensure you have access to a Mac or Linux&trade; terminal.
+3. Download [Git](https://git-scm.com/downloads).
+4. Download [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 
 ## Get the code

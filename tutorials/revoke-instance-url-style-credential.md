@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-03-30"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation
 
@@ -50,8 +50,8 @@ use `apikey-v2-<RANDOM_ID>`.
 ## Objectives
 {: #objectives-revoke}
 
-- Update your applications to use the new style credentials in place of the instance URL style credentials.
-- Revoke access to the old style {{site.data.keyword.cloudant_short_notm}} legacy credential. 
+1. Update your applications to use the new style credentials in place of the instance URL style credentials.
+2. Revoke access to the old style {{site.data.keyword.cloudant_short_notm}} legacy credential. 
 
 ## Generating new {{site.data.keyword.cloudant_short_notm}} legacy credentials
 {: #generate-new-service-credentials-url}

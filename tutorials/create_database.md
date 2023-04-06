@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-03-17"
+lastupdated: "2023-03-30"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -47,68 +47,62 @@ suitable for the following tasks:
 
 ## Before you begin
 {: #before-you-begin}
-{: step}
 
-Ensure that you have the following resources or information ready
-before you start working through this tutorial.
+This tutorial provides you with the following options:
 
-This tutorial walks you through the steps of creating and populating 
-a database. You can follow each step, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script), and return to [Step 5. Retrieving data](#retrieving-data). 
+- Follow each step as outlined in this tutorial.
+- Or [execute the Python script](#execute-the-complete-python-script), and come back to [Step 5. Retrieving data](#retrieving-data).
 
 Normally, you don't run commands individually in Python. You usually
 create a script, which is a list of the commands you want to run,
 stored in a Python file, with a `py` extension.
 {: tip}
 
-### Service credential requirement
-{: #service-credential-requirement}
+1. Set up service credential requirements.
 
-You must create a service instance and its credentials before you follow this tutorial.
+   a. Create a service instance and credentials by following the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
 
-1. Create a service instance and credentials by following the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
+   b. [Locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials) by following this tutorial.
 
-2. [Locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials) by following this tutorial.
+2. Install the required version of Python.
 
-### Python version requirement
-{: #python-create-database}
+   You must have a current version of the [Python programming language](https://www.python.org/){: external} that is installed on your system.
+   [: note]
 
-You must have a current version of the [Python programming language](https://www.python.org/){: external} that is installed on your system.
+   a. Check that Python is installed by running the following command at a prompt:
 
-1. Check that Python is installed by running the following command at a prompt:
+        ```sh
+        python3 --version
+        ```
+        {: pre}
 
-    ```sh
-    python3 --version
-    ```
-    {: pre}
+   b. Verify that you get a result similar to the following example:
 
-2. Verify that you get a result similar to the following example:
+        ```sh
+        Python 3.8.1
+        ```
+        {: codeblock}
 
-    ```sh
-    Python 3.8.1
-    ```
-    {: codeblock}
+3. Verify that your Python Client Library meets the requirement. 
 
-### Python Client Library requirement
-{: #python-client-library-for-ibm-cloudant}
+   The following examples use the deprecated `python-cloudant` client library.
+   {: deprecated}
 
-The following examples use the deprecated `python-cloudant` client library.
-{: deprecated}
+   a. Check that the client library installed successfully by running the following command at a prompt:
 
-1. Check that the client library installed successfully by running the following command at a prompt:
+        ```sh
+        pip freeze
+        ```
+        {: pre}
 
-    ```sh
-    pip freeze
-    ```
-    {: pre}
+   You get a list of all the Python modules installed on your system.
 
-    You get a list of all the Python modules installed on your system.
+   b. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following example:
 
-2. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following example:
-
-    ```sh
-    cloudant==2.14.0
-    ```
-    {: codeblock}
+        ```sh
+        cloudant==2.14.0
+        ```
+        {: codeblock}
 
 ## Connecting to a service instance
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-17"
+lastupdated: "2023-03-30"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -30,13 +30,13 @@ by using the {{site.data.keyword.cloud_notm}} CLI.
 ## Objectives
 {: #objectives-service-create-cli}
 
-- Use your {{site.data.keyword.cloud_notm}} account to create your {{site.data.keyword.cloudant_short_notm}} service instance and credentials.
-- Retrieve and use your {{site.data.keyword.cloudant_short_notm}} service instance.
+1. Use your {{site.data.keyword.cloud_notm}} account to create your {{site.data.keyword.cloudant_short_notm}} service instance and credentials.
+2. Retrieve and use your {{site.data.keyword.cloudant_short_notm}} service instance.
 
 ## Before you begin
 {: #before-you-begin-service-create-cli}
 
-To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. Install the tools by following the [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external} tutorial.
+Install the {{site.data.keyword.cloud_notm}} CLI developer tools by following the [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external} tutorial.
 
 ## Logging in to your {{site.data.keyword.cloud_notm}} account
 {: #logging-in-to-your-ibm-cloud-account}

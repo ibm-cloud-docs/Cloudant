@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-08-26"
+  years: 2022, 2023
+lastupdated: "2023-03-30"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation, IAM, migration
 
@@ -39,8 +39,8 @@ See the effects of this tutorial on existing legacy credentials:
 ## Objectives
 {: #objectives}
 
-- Update your applications to use IAM credentials instead of legacy credentials.
-- Disable creation of new legacy credentials.
+1. Update your applications to use IAM credentials instead of legacy credentials.
+2. Disable creation of new legacy credentials.
 
 ## Generating new {{site.data.keyword.cloudant_short_notm}} IAM Credentials
 {: #generate-new-service-credentials}
