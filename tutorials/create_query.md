@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-20"
+lastupdated: "2023-04-11"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -42,7 +42,7 @@ If you decide not to set up `acurl`, use the following URL with `curl` instead o
 
 The `acurl` alias is more secure. It prevents someone from reading your password over your shoulder as you type. It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
 
-Now, we're ready to learn how to run queries against the database you created in step two.
+Now, we're ready to learn how to run queries against the database you created in step two of [Before you begin](#before-you-begin-qt).
 
 ## Creating an index
 {: #creating-an-index-to-query-the-database-qt}
@@ -57,7 +57,7 @@ If no available defined index matches the specified query, then {{site.data.keyw
 
 To create an index, follow these steps:
 
-1.  Copy the following sample JSON data into a file named `query-demo-index.json`.
+1.  Copy the following sample JSON data into a file named `query-demo-index.json`:
 
     ```json
       {
@@ -113,7 +113,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
 To run the query, follow these steps:
 
-1.  Copy the following sample JSON into a data file named `query1.json`. 
+1.  Copy the following sample JSON into a data file named `query1.json`:
     ```json
      {
       "selector": {

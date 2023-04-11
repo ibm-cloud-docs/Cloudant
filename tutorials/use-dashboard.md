@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-04-11"
 
 keywords: dashboard, example, create a database, populate database, queries, retrieve data, api endpoint, close connection, create database, retrieve data, query data, create query, monitor active tasks, replicate database, add documents
 
@@ -45,7 +45,7 @@ Create a service instance in {{site.data.keyword.cloud_notm}} before you start t
 {: #using-the-ibm-cloudant-dashboard}
 {: step}
 
-Open your {{site.data.keyword.cloudant_short_notm}} service instance by following these steps.
+Open your {{site.data.keyword.cloudant_short_notm}} service instance by following these steps:
 
 1.  Go to the {{site.data.keyword.cloud_notm}} Dashboard.
 
@@ -54,7 +54,7 @@ Open your {{site.data.keyword.cloudant_short_notm}} service instance by followin
 3.  From the Services section, click the `Cloudant-o7` instance that you created in the *Getting started* tutorial, and click **Launch Dashboard**.
     The {{site.data.keyword.cloudant_short_notm}} Dashboard opens.
 
-Now, you can create a database, and run queries against it.  
+Now, you can create a database and run queries against it.  
 
 ## Creating a database
 {: #creating-a-database-dt}
@@ -216,8 +216,8 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
       For more information, see the section on [Locating your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials).
 
     Use the following information in the Options section:
-      - Replication type - Leave as `One time`
-      - Replication document - Leave as `Custom ID (optional` 
+      - Replication type - Leave as `One time`.
+      - Replication document - Leave as `Custom ID (optional`.
 
       ![Replication configuration page described previously.](images/job-configuration.png){: caption="Figure 3. Replication configuration page" caption-side="bottom"}
 
@@ -256,7 +256,7 @@ If your instance does not have any active tasks, you can return to the previous 
 
 Monitor your usage with a graph that shows your throughput by reads, writes, and global queries. You can see your current operations, denied requests, and storage usage.
 
-Your service instance contains no data because it is for demonstration purposes only. However, you can see what monitoring information is available to you by following these steps.
+Your service instance contains no data because it is for demonstration purposes only. However, you can see what monitoring information is available to you by following these steps:
 
 1.  Click **Monitoring**. 
 

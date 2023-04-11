@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-04-11"
 
 keywords: legacy, iam access controls, use only iam mode, generate service credentials, iam mode
 
@@ -24,13 +24,15 @@ subcollection: Cloudant
 {: #diff-legacy-iam}
 {: faq}
 
-{{site.data.keyword.cloud_notm}} IAM
+### {{site.data.keyword.cloud_notm}} IAM
+{: #ibm-cloud-iam}
 
 - Centrally managed access management across {{site.data.keyword.cloud_notm}}.
 - Allows a user or service to access many different resources by using the same set of credentials (for example, same username and password or IAM API key).
 - IAM API keys can be granted access to account management functions, like creating new databases.
 
-{{site.data.keyword.cloudant_short_notm}} legacy
+### {{site.data.keyword.cloudant_short_notm}} legacy
+{: #ibm-cloudant-legacy}
 
 - Unique to {{site.data.keyword.cloudant_short_notm}}.
 - Access to each service instance requires its own set of credentials.
@@ -133,7 +135,7 @@ The process is described in the following steps:
 
 1. Create a replication with the same settings but new credentials.
 
-1. Monitor the new replication by using [Active Tasks](/docs/Cloudant?topic=Cloudant-active-tasks) or you can use [`_scheduler/jobs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerjobs).
+1. Monitor the new replication by using [Active Tasks](/docs/Cloudant?topic=Cloudant-active-tasks), or you can use [`_scheduler/jobs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerjobs).
 
 1. Once the `changes_pending` field for the new replication is a suitably low value for your requirements, the replication that uses the previous credentials can be deleted.
 
