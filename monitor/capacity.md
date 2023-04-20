@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-06-23"
+  years: 2015, 2023
+lastupdated: "2023-04-21"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
@@ -15,18 +15,18 @@ subcollection: Cloudant
 # Capacity
 {: #capacity}
 
-{{site.data.keyword.cloudant_short_notm}} lets you: view the current and target provisioned throughput capacity setting, set the target provisioned throughput capacity setting, and view the current consumption of provisioned throughput capacity used.
+{{site.data.keyword.cloudant_short_notm}} provides the following tasks: view the current and target-provisioned throughput capacity setting, set the target-provisioned throughput capacity setting, and view the current consumption of provisioned throughput capacity used.
 {: shortdesc}
 
-For more information, see [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) about how {{site.data.keyword.cloudant_short_notm}} allocates and consumes capacity, as well as how to view and change the capacity in the UI.
+For more information, see [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) about how {{site.data.keyword.cloudant_short_notm}} allocates and uses capacity, and  how to view and change the capacity in the UI.
 
 The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legacy auth admin role or IAM Manager role to access the API endpoints. The following curl examples omit the authentication aspect for simplicity. See the [authentication overview](/docs/Cloudant?topic=Cloudant-connecting#authentication-overview) section for more details on using both types of authentication.  
 {: note}
 
-## View the current and target provisioned throughput capacity setting
+## View the current and target-provisioned throughput capacity setting
 {: #view-current-and-target-capacity-setting}
 
-Use a GET to the `/_api/v2/user/capacity/throughput` endpoint to see what amount of provisioned throughput capacity is allocated to the {{site.data.keyword.cloudant_short_notm}} instance and what is the target provisioned throughput capacity. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The size of the capacity change and the amount of data that is stored in the {{site.data.keyword.cloudant_short_notm}} instance determines the time that it takes before the current and target capacities match. The capacity change is complete when the current and target capacity is the same. 
+Use a GET to the `/_api/v2/user/capacity/throughput` endpoint to see what amount of provisioned throughput capacity is allocated to the {{site.data.keyword.cloudant_short_notm}} instance and what is the target-provisioned throughput capacity. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The size of the capacity change and the amount of data that is stored in the {{site.data.keyword.cloudant_short_notm}} instance determines the time that it takes before the current and target capacities match. The capacity change is complete when the current and target capacity is the same. 
 
 Method
 :   `GET`
@@ -328,7 +328,7 @@ Path
 :  `/_api/v2/user/current/throughput`
 
 Response
-:  The current consumption of provisioned throughput capacity consumed, broken down by the number of reads, writes, and global queries.
+:  The current consumption of provisioned throughput capacity used, broken down by the number of reads, writes, and global queries.
 
 See the following example request to retrieve the current consumption of capacity by using HTTP:
 
@@ -412,7 +412,7 @@ import (
 
 The returned structure includes the following fields:
 
-- `throughput` - Breakdown of the current number of reads, writes, and global queries consumed.
+- `throughput` - Breakdown of the current number of reads, writes, and global queries used.
 
 See the following example JSON response of the current consumption of capacity:
 

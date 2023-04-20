@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-04-04"
+lastupdated: "2023-04-21"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -17,7 +17,7 @@ subcollection: Cloudant
 {: faq}
 {: support}
 
-An {{site.data.keyword.cloudant_short_notm}} database's changes feed's primary use-case is to power the replication of data from a source to a target database. The {{site.data.keyword.cloudant_short_notm}} replicator is built to handle the changes feed and performs the necessary checks to ensure data is copied accurately to its destination. 
+An {{site.data.keyword.cloudant_short_notm}} database's changes feed's primary use-case is to power the replication of data from a source to a target database. The {{site.data.keyword.cloudant_short_notm}} replicator is built to handle the changes feed and runs the necessary checks to ensure data is copied accurately to its destination.
 
 {{site.data.keyword.cloudant_short_notm}} has a raw [changes feed API](https://cloud.ibm.com/apidocs/cloudant#getchanges-changes){: external} that can be used to consume a single database's changes but it must be used with care. 
 
@@ -79,19 +79,19 @@ The `since` parameter is used to define where in the changes feed you want to st
 `since=<a last seq token>`
 :   From a known place in the changes feed.
 
-At face value, it appears that following the changes feed is as simple as chaining `_changes` API calls together. Then {{site.data.keyword.cloudant_short_notm}} passes the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
+At face value, the following the changes feed is as simple as chaining `_changes` API calls together. Then, {{site.data.keyword.cloudant_short_notm}} passes the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
 
-## Why does the changes feed deliver each change at least once?
-{: #changes-feed-at-least-once}
+## Why does the changes feed deliver each change at least one time?
+{: #changes-feed-at-least-one-time}
 {: faq}
 
-The {{site.data.keyword.cloudant_short_notm}} Standard changes feed promises to return each document _at least once_, which isn't the same as promising to return each document _only once_. Put another way, it is possible for a consumer of the `changes feed` to see the same change again, or indeed a set of changes repeated.
+The {{site.data.keyword.cloudant_short_notm}} Standard changes feed promises to return each document _at least one time_, which isn't the same as promising to return each document _only one time_. Put another way, it is possible for a consumer of the `changes feed` to see the same change again, or indeed a set of changes repeated.
 
 A consumer of the changes feed must treat the changes _idempotently_. In practice, you must remember whether a change was already dealt with before you trigger an action from a change. A naive changes feed consumer might send a message to a smartphone on every change received. But a user might receive duplicate text messages if a change is not treated idempotently when replayed changes occur.
 
 Usually these "rewinds" of the changes feed are short, replaying only a handful of changes. But in some cases, a request might see a response with thousands of changes replayed - potentially all of the changes from the beginning of time. The potential for `rewinds` makes the `changes feed` unsuitable for an application that expects queue-like behavior.
 
-To reiterate, {{site.data.keyword.cloudant_short_notm}}'s changes feed promises to deliver a document _at least once_ in a changes feed, and gives no guarantees about repeated values across multiple requests.
+To reiterate, {{site.data.keyword.cloudant_short_notm}}'s changes feed promises to deliver a document _at least one time_ in a changes feed, and gives no guarantees about repeated values across multiple requests.
 
 ## Does the changes feed operate in "real time"?
 {: #changes-feed-real-time}
@@ -103,7 +103,7 @@ The changes feed doesn't guarantee how quickly an incoming change appears to a c
 {: #document-changes-appear-changes-feed}
 {: faq}
 
-If a document is updated several times in between changes feed calls, then the changes feed might reflect only the latest of these changes. The client does not receive every change to every document.
+If a document is updated several times in between changes feed calls, then the changes feed might reflect only the most recent of these changes. The client does not receive every change to every document.
 
 The {{site.data.keyword.cloudant_short_notm}} changes feed isn't a _transaction log_ that contains every event that happened in time order.
 
@@ -116,7 +116,7 @@ Filtering the changes feed, and by extension, running filtered replication has i
 - Copying data from source to target but ignoring deleted documents.
 - Copying data but without index definitions (design documents).
 
-This [blog post](https://blog.cloudant.com/2019/12/13/Filtered-Replication.html){: external} describes how supplying a `selector` during replication makes easy work of these use cases.
+This [blog post](https://blog.cloudant.com/2019/12/13/Filtered-Replication.html){: external} describes how supplying a `selector` during replication makes work of these use cases run smoothly.
 
 The changes feed with an accompanying `selector` parameter is _not_ the way to extract slices of data from the database on a routine basis. It must not be used as a means of running operational queries against a database. Filtered changes are slow (the filter is applied to every changed document in turn, without the help of an index). This process is much slower than creating a secondary index (such as a MapReduce view) and querying that view.
 
@@ -124,7 +124,7 @@ The changes feed with an accompanying `selector` parameter is _not_ the way to e
 {: #feed-continuous-changes-feed-indefinitely}
 {: faq}
 
-No, {{site.data.keyword.cloudant_short_notm}} does not guaranteed connection duration for a continuous changes feed. It might be regularly disconnected by the server for any number of reasons, which include maintenance, security, or network errors. Code that uses the changes feed must be designed to use a recently saved sequence ID as a `since` value to make a new request to resume the changes feed after an error or disconnection.
+No, {{site.data.keyword.cloudant_short_notm}} does not guarantee connection duration for a continuous changes feed. It might be regularly disconnected by the server for any number of reasons, which include maintenance, security, or network errors. Code that uses the changes feed must be designed to use a recently saved sequence ID as a `since` value to make a new request to resume the changes feed after an error or disconnection.
 
 ## Why doesn't the changes feed guarantee time-ordering?
 {: #time-ordered-changes-no-guarantee}
@@ -163,7 +163,7 @@ This view can be queried to return any documents that are modified on or after a
 
 `/orders/_design/query/_view/by_last_edit?startkey="2022-01-13T00:00:00"`
 
-This technique produces a time-ordered set of results with no repeated values in a performant and repeatable fashion. The consumer of this data need _not_ manage the data idempotently, making for a simpler development process.
+This technique produces a time-ordered set of results with no repeated values in a performant and repeatable fashion. The consumer of this data does _not_ need to manage the data idempotently, making for a simpler development process.
 
 ## What is the {{site.data.keyword.cloudant_short_notm}} changes feed good for now?
 {: #changes-feed-good-for}
@@ -172,7 +172,7 @@ This technique produces a time-ordered set of results with no repeated values in
 The {{site.data.keyword.cloudant_short_notm}} changes feed is good for the following tasks:
 
 - Powering {{site.data.keyword.cloudant_short_notm}} replication, optionally with a selector to filter some changes.
-- Clients consuming the changes feed in batches but dealing with each change idempotently while not being concerned with sort order and expecting to see some changes more than once.
+- Clients consuming the changes feed in batches but dealing with each change idempotently while not being concerned with sort order and expecting to see some changes more than one time.
 
 The {{site.data.keyword.cloudant_short_notm}} changes feed is not good for the following components:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-04-21"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -62,7 +62,7 @@ It is more expensive in the end to mutate existing documents than to create new 
 
 Prefer models that are immutable.
 
-These sections, *Deleting documents doesn't delete them* and *Be careful with updates*, provoke an obvious question. That is, does the data set grow unbounded if my model is immutable? If you accept that deletes don’t completely purge the deleted data and that updates are not updating in place in terms of data volume growth, not much difference exists. Managing data volume over time requires different techniques.
+When you read the following sections, *Deleting documents doesn't delete them* and *Be careful with updates*, they provoke an obvious question. That is, does the data set grow unbounded if my model is immutable? If you accept that deletes don’t completely purge the deleted data and that updates are not updating in place in terms of data volume growth, not much difference exists. Managing data volume over time requires different techniques.
 
 The only way to truly reclaim space is to delete databases, rather than documents. You can replicate only winning revisions to a new database and delete the old to get rid of lingering deletes and conflicts. Or perhaps you can build it into your model to regularly start new databases (say ‘annual data’) and archive off (or remove) outdated data, if your use case allows.
 
@@ -84,7 +84,7 @@ Not on {{site.data.keyword.cloudant_short_notm}}.
 
 Or rather, it works 99 times out of 100.
 
-The reason for this difference is a (mostly) small inconsistency window between writing data to the database, and this data being available on all nodes of the cluster. As all nodes in a cluster are equal in stature, no guarantee exists that a write and a subsequent read are serviced by the same node. So, in some circumstances, the read might be hitting a node before the written data makes it to the node.
+The reason for this difference is a (mostly) small inconsistency window between writing data to the database and this data becoming available on all nodes of the cluster. As all nodes in a cluster are equal in stature, no guarantee exists that a write, and a subsequent read are serviced by the same node. So, in some circumstances, the read might be hitting a node before the written data makes it to the node.
 
 So why don’t you just put a short delay in your test between the write and the read? That delay makes the test less likely to fail, but the problem is still there.
 
@@ -100,7 +100,7 @@ A serious concern that every developer must consider is that you can’t safely 
     “So let’s set up three clusters across the world, Dallas, London, Sydney, with bi-directional synchronization between them to provide real-time collaboration between our 100,000 clients.”
 
 No. Just… No.
-{{site.data.keyword.cloudant_short_notm}} is good at replication. It’s so effortless that it can seem like magic, but note that it makes no latency guarantees. In fact, the whole system is designed with eventual consistency in mind. Treating {{site.data.keyword.cloudant_short_notm}}’s replication as a real-time messaging system does not end up in a happy place. For this use case, put a system in between that was designed for this purpose, such as [Apache Kafka](https://kafka.apache.org/).
+{{site.data.keyword.cloudant_short_notm}} is good at replication. It might seem like magic, but note that it makes no latency guarantees. In fact, the whole system is designed with eventual consistency in mind. Treating {{site.data.keyword.cloudant_short_notm}}’s replication as a real-time messaging system does not end up in a happy place. For this use case, put a system in between that was designed for this purpose, such as [Apache Kafka](https://kafka.apache.org/).
 
 It’s difficult to put a number on replication throughput. The answer is always, “It depends.” Things that impact replication performance include, but are not limited to:
 
@@ -118,7 +118,7 @@ For more information, see the following websites:
 ## Use the bulk API
 {: #use-bulk-api}
 
-{{site.data.keyword.cloudant_short_notm}} has nice API endpoints for bulk loading (and reading) many documents at once. Reading many documents at once can be much more efficient than reading and writing many documents one at a time. The write endpoint is shown in the following example:
+{{site.data.keyword.cloudant_short_notm}} has nice API endpoints for bulk loading (and reading) many documents at one time. Reading many documents at the same time can be much more efficient than reading and writing many documents one at a time. The write endpoint is shown in the following example:
 
 ```sh
 ${database}/_bulk_docs
@@ -140,7 +140,7 @@ curl -XPOST 'https://ACCT.cloudant.com/DB/_bulk_docs' \
 ```
 {: codeblock}
 
-You can also fetch many documents at once by issuing a POST to `_all_docs` (a relatively new endpoint that is called `_bulk_get` also exists, but this endpoint is probably not what you want. It’s there for a specific internal purpose).
+You can also fetch many documents at othe same time by issuing a POST to `_all_docs` (a relatively new endpoint that is called `_bulk_get` also exists, but this endpoint is probably not what you want. It’s there for a specific internal purpose).
 
 To fetch a fixed set of docs by using `_all_docs`, `POST` with a `keys` body, run the following command:
 
@@ -162,7 +162,7 @@ For more information, see the following websites:
 ## Don’t mess with Q, R, and N unless you really know what you are doing
 {: #dont-mess-with-q-r-n}
 
-Do not change Q, R, and N unless you really know what you're doing. {{site.data.keyword.cloudant_short_notm}}’s quorum and sharding parameters, once you discover them, seem like tempting options to change the behavior of the database.
+Do not change Q, R, and N unless you really know what you're doing. {{site.data.keyword.cloudant_short_notm}}’s quorum and sharding parameters, after you discover them, seem like tempting options to change the behavior of the database.
 
 *Stronger consistency, surely I can set the write quorum to the replica count?*
 
@@ -172,10 +172,10 @@ Don’t go there. The behavior can be much harder to understand especially durin
 
 Sometimes, tweaking the shard count for a database is essential to get the best possible performance. If you can’t say why, you’re likely to make your situation worse.
 
-## {{site.data.keyword.cloudant_short_notm}} is rate limited-let this inform your code
+## {{site.data.keyword.cloudant_short_notm}} is rate limited-let this rate limit inform your code
 {: #cloudant-rate-limited}
 
-Cloudant-the-service (unlike basic CouchDB) is sold on a “reserved throughput capacity” model. That means that you pay for the *right to use* up to a certain throughput, rather than the throughput you end up consuming. The *right to use* method takes a while to sink in. One flaky comparison might be that of a cell phone contract where you pay for a set number of minutes regardless of whether you use them or not.
+Cloudant-the-service (unlike basic CouchDB) is sold on a “reserved throughput capacity” model. That means that you pay for the *right to use* up to a certain throughput, rather than the throughput you end up using. The *right to use* method takes a while to sink in. One flaky comparison might be that of a cell phone contract where you pay for a set number of minutes regardless of whether you use them or not.
 
 Although the cell phone contract comparison doesn’t capture the whole situation, no constraint exists on the sum of requests that you can make to {{site.data.keyword.cloudant_short_notm}} in a month. The constraint is on how *fast* you make requests. 
 
@@ -183,7 +183,7 @@ It’s really a promise that you make to {{site.data.keyword.cloudant_short_notm
 
 {{site.data.keyword.cloudant_short_notm}}’s official client libraries have some built-in provision for this use case that can be enabled, following a “back-off and retry” strategy. 
 
-This built-in provision is switched off by default to force you to think about it.
+This built-in provision is turned off by default to force you to think about it.
 {: note}
 
 However, if you rely on this facility alone, you might eventually be disappointed. The back-off and retry strategy helps only in cases of temporary transgression, not a persistent butting up against your provisioned throughput capacity limits.
@@ -206,9 +206,9 @@ It is also worth understanding that the rates aren’t directly equivalent to HT
 ## Logging helps you see what’s going on
 {: #see-whats-going-on-with-logs}
 
-{{site.data.keyword.cloudant_short_notm}}’s logs indicating each API call made, what was requested and how long it took to respond can be automatically spooled to LogDNA for analysis and reporting for IBM Cloud-based services. This data is useful for keeping an eye on request volumes, performance, and whether your application is exceeding your {{site.data.keyword.cloudant_short_notm}} service’s provisioned capacity.
+{{site.data.keyword.cloudant_short_notm}}’s logs indicating each API call made, what was requested and how long it took to respond can be automatically spooled to LogDNA for analysis and reporting for IBM Cloud-based services. This data is useful for keeping an eye on request volumes, performance, and whether your application is exceeding the provisioning capacity for your {{site.data.keyword.cloudant_short_notm}} service.
 
-The logging service is easy to set up and free to get started. Paid-for plans allow data to be parsed, retained, and archived to Object Storage. Slices and aggregations of your data can be built up into visual dashboards to give you an at-a-glance view of your {{site.data.keyword.cloudant_short_notm}} traffic. For more information, see the following website:
+You can set up the logging service at no cost to get started. Paid-for plans allow data to be parsed, retained, and archived to Object Storage. Slices and aggregations of your data can be built up into visual dashboards to give you an at-a-glance view of your {{site.data.keyword.cloudant_short_notm}} traffic. For more information, see the following website:
 
 - [{{site.data.keyword.cloudant_short_notm}} Logging with LogDNA blog](https://blog.cloudant.com/2019/09/16/Cloudant-Logging-with-LogDNA.html){: external}
 

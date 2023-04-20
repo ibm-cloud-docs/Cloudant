@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-04-20"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -53,6 +53,9 @@ This tutorial provides you with the following options:
 - Follow each step as outlined in this tutorial.
 - Or [execute the Python script](#execute-the-complete-python-script), and come back to [Step 5. Retrieving data](#retrieving-data).
 
+## Installing Python
+{: #installing-python}
+
 Normally, you don't run commands individually in Python. You usually
 create a script, which is a list of the commands you want to run,
 stored in a Python file, with a `py` extension.
@@ -71,17 +74,17 @@ stored in a Python file, with a `py` extension.
 
    a. Check that Python is installed by running the following command at a prompt:
 
-        ```sh
-        python3 --version
-        ```
-        {: pre}
+   ```sh
+   python3 --version
+   ```
+   {: pre}
 
    b. Verify that you get a result similar to the following example:
 
-        ```sh
-        Python 3.8.1
-        ```
-        {: codeblock}
+   ```sh
+   Python 3.8.1
+   ```
+   {: codeblock}
 
 3. Verify that your Python Client Library meets the requirement. 
 
@@ -90,19 +93,19 @@ stored in a Python file, with a `py` extension.
 
    a. Check that the client library installed successfully by running the following command at a prompt:
 
-        ```sh
-        pip freeze
-        ```
-        {: pre}
+   ```sh
+   pip freeze
+   ```
+   {: pre}
 
    You get a list of all the Python modules installed on your system.
 
    b. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following example:
 
-        ```sh
-        cloudant==2.14.0
-        ```
-        {: codeblock}
+   ```sh
+   cloudant==2.14.0
+   ```
+   {: codeblock}
 
 ## Connecting to a service instance
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
@@ -116,12 +119,12 @@ You can follow steps 1 - 5 to learn about the individual commands, or go to the 
 
 1. Run these `import` statements to connect to the service instance.
 
-    ```python
-    from cloudant.client import Cloudant
-    from cloudant.error import CloudantException
-    from cloudant.result import Result, ResultByKey
-    ```
-    {: codeblock}
+   ```python
+   from cloudant.client import Cloudant
+   from cloudant.error import CloudantException
+   from cloudant.result import Result, ResultByKey
+   ```
+   {: codeblock}
 
 2. Find `username`, `password`, and `URL` in your Classic service credentials and replace `serviceUsername`, `servicePassword`, and `serviceURL` in the following example.
 

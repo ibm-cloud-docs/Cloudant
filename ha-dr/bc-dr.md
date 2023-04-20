@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-08-22"
+  years: 2021, 2023
+lastupdated: "2023-04-21"
 
 keywords: HA for IBM Cloudant, DR for IBM Cloudant, high availability for IBM Cloudant, disaster recovery for IBM Cloudant, failover for IBM Cloudant, BC for IBM Cloudant, DR for IBM Cloudant, business continuity for IBM Cloudant, disaster recovery for IBM Cloudant
 
@@ -21,7 +21,7 @@ Disaster recovery involves a set of policies, tools, and procedures for returnin
 ## Responsibilities
 {: #bc-dr-responsibilities}
 
-For more information about your responsibilities when using {{site.data.keyword.cloudant_short_notm}}, see [Shared responsibilities for {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-cloudant-responsibilities).
+For more information about your responsibilities when you use {{site.data.keyword.cloudant_short_notm}}, see [Shared responsibilities for {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-cloudant-responsibilities).
 
 ### Disaster recovery strategy
 {: #bc-dr-strategy}

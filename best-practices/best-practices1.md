@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-04-21"
 
 keywords: api, http, database, partitioned query, eventual consistency, time box
 
@@ -33,11 +33,11 @@ The content in this document was originally written by Stefan Kruger as a [*Best
 
 You can use [Java&trade;](https://github.com/IBM/cloudant-java-sdk){: external}, [Python](https://github.com/IBM/cloudant-python-sdk){: external}, [Go](https://github.com/IBM/cloudant-go-sdk){: external}, or [Node.js](https://github.com/IBM/cloudant-node-sdk){: external} or some other use-case-specific language or platform. One of these languages most likely comes with convenient client-side libraries that integrate {{site.data.keyword.cloudant_short_notm}} access nicely, following the conventions that you expect for your tools. These languages are great for programmer efficiency, but they also hide the API from view.
 
-This abstraction is what you want, the whole reason for using a client library is to save yourself repeated, tedious boiler-plating. However, you must understand the underlying API is vital when you troubleshoot and when you report problems. When you report a suspected problem to {{site.data.keyword.cloudant_short_notm}}, it helps us help you if you can provide a way for us to reproduce the problem.
+This abstraction is what you want, the whole reason for using a client library is to save yourself repeated, tedious boiler-plating. However, you must understand the underlying API is vital when you troubleshoot and report problems. When you report a suspected problem to {{site.data.keyword.cloudant_short_notm}}, it helps us help you if you can provide a way for us to reproduce the problem.
 
 This request does not mean cutting and pasting a hefty chunk of your application’s Java&trade; source verbatim into a support ticket, as we’re probably not able to build it. Also, your client-side code introduces uncertainties as to where the problem might be, your side or our side?
 
-Instead, {{site.data.keyword.cloudant_short_notm}}’s support teams usually ask you to provide the set of API calls, ideally as a set of [curl](https://curl.se/){: external} commands that they can run, that demonstrates the issue. Adopting this approach to troubleshooting as a rule also makes it easier for you to pinpoint where issues are failing. If your code is behaving unexpectedly, try to reproduce the problem by using only direct access to the API.
+Instead, {{site.data.keyword.cloudant_short_notm}}’s support teams usually requests the set of API calls, ideally as a set of [curl](https://curl.se/){: external} commands that they can run, that demonstrates the issue. Adopting this approach to troubleshooting as a rule also makes it easier for you to pinpoint where issues are failing. If your code is behaving unexpectedly, try to reproduce the problem by using only direct access to the API.
 
 If you can’t, the problem isn’t with the {{site.data.keyword.cloudant_short_notm}} service itself.
 
@@ -89,11 +89,11 @@ Consider a situation where you have users, each with a set of orders associated 
 
 To add an order, I need to fetch the complete document, unmarshal the JSON, add the item, marshal the new JSON, and send it back as an update. If I’m the only one doing so, it might work for a while. If the document is being updated concurrently, or being replicated, we might likely see update conflicts.
 
-Instead, keep orders separate as their own document type, referencing the customer ID. Now the model is immutable. To add an order, I simply create a new order document in the database, which cannot generate conflicts.
+Instead, keep orders separate as their own document type, referencing the customer ID. Now the model is immutable. To add an order, I create a new order document in the database, which cannot generate conflicts.
 
 To be able to retrieve all orders for a specific customer, we can employ a view, which we cover later.
 
-Avoid constructs that rely on updates to parts of existing documents, where possible. Bad data models are often hard to change once you’re in production.
+Avoid constructs that rely on updates to parts of existing documents, where possible. Bad data models are often hard to change after you’re in production.
 
 The previous pattern can be solved efficiently by using partitioned databases, which are covered in greater detailed later.
 
@@ -112,7 +112,7 @@ Let's look at the following sections: *Documents must group data that mostly cha
 ## Avoid using attachments
 {: #avoid-using-attachments}
 
-{{site.data.keyword.cloudant_short_notm}} has support for storing attachments alongside documents, a long-standing feature it inherits from CouchDB. If you’re using {{site.data.keyword.cloudant_short_notm}} as a backend for a web application, it can be handy to store small icons and other static assets such as CSS and JavaScript files with the data.
+{{site.data.keyword.cloudant_short_notm}} has support for storing attachments alongside documents, a long-standing feature it inherits from CouchDB. If you use {{site.data.keyword.cloudant_short_notm}} as a backend for a web application, you can also store small icons and other static assets such as CSS and JavaScript files with the data.
 
 You must consider a few things before you use attachments in {{site.data.keyword.cloudant_short_notm}} today, especially if you’re looking at larger assets such as images and videos:
 
@@ -121,7 +121,7 @@ You must consider a few things before you use attachments in {{site.data.keyword
 
 So, slow and expensive.
 
-{{site.data.keyword.cloudant_short_notm}} is acceptable for small assets and occasional use. As a rule, if you need to store binary data alongside {{site.data.keyword.cloudant_short_notm}} documents, it’s better to use a separate solution more suited for this purpose. You need only store the attachment *metadata* in the {{site.data.keyword.cloudant_short_notm}} document. Yes, that means you need to write some extra code to upload the attachment to a suitable block store of your choice. Verify that it succeeded before you store the token or URL to the attachment in the {{site.data.keyword.cloudant_short_notm}} document.
+{{site.data.keyword.cloudant_short_notm}} is acceptable for small assets and occasional use. As a rule, if you need to store binary data alongside {{site.data.keyword.cloudant_short_notm}} documents, it’s better to use a separate solution more suited for this purpose. You need store only the attachment *metadata* in the {{site.data.keyword.cloudant_short_notm}} document. Yes, that means you need to write some extra code to upload the attachment to a suitable block store of your choice. Verify that it succeeded before you store the token or URL to the attachment in the {{site.data.keyword.cloudant_short_notm}} document.
 
 Your databases are smaller, cheaper, faster, and easier to replicate. For more information, see the following websites:
 
@@ -137,7 +137,7 @@ The replicator scheduler has a limited number of simultaneous replication jobs t
 
 The flip side of the same coin is the operational aspect: {{site.data.keyword.cloudant_short_notm}}’s operations team relies on replication, too, to move around accounts. By keeping down the number of databases, you help us help you if you need to shift your account from one location to another.
 
-So when must you use a single database and distinguish between different document types by using views, and when must you use multiple databases to model your data? {{site.data.keyword.cloudant_short_notm}} can’t federate views across multiple databases. If you have unrelated data that can never be “joined” or queried together, then that data could be a candidate for splitting across multiple databases.
+So when must you use a single database and distinguish between different document types by using views, and when must you use multiple databases to model your data? {{site.data.keyword.cloudant_short_notm}} can’t federate views across multiple databases. If you have unrelated data that can never be “joined” or queried together, then that data can be a candidate for splitting across multiple databases.
 
 If you have an ever-growing data set (like a log, sensor readings, or other types of time-series), it’s also not a good idea to create a single, ever-growing, massive database. This kind of use case requires time-boxing, which we cover in more detail later.
 {: note}
@@ -145,7 +145,7 @@ If you have an ever-growing data set (like a log, sensor readings, or other type
 ## Avoid the *database per user* anti-pattern like the plague
 {: #avoid-db-per-user}
 
-If you’re building a multi-user service on top of {{site.data.keyword.cloudant_short_notm}}, it is tempting to let each user store their data in a separate database under the application account. That works well, mostly, if the number of users is small.
+If you’re building a multi-user service on atop {{site.data.keyword.cloudant_short_notm}}, it is tempting to allow each user store their data in a separate database under the application account. That works well, mostly, if the number of users is small.
 
 Now add the need to derive cross-user analytics. The way that you do that is to replicate all the user databases into a single analytics database. All good. This app has suddenly become successful, and the number of users grew in the range of 150 - 20,000. You have 20,000 replications just to keep the analytics database current. If you also want to run in an active-active disaster recovery setup, add another 20,000 replications, and the system stops functioning.
 
@@ -156,9 +156,9 @@ It’s worth stating that the “database-per-user” approach is tempting becau
 ## Avoid writing custom JavaScript reduce functions
 {: #avoid-custom-javascript-reduce-functions}
 
-The MapReduce views in {{site.data.keyword.cloudant_short_notm}} are awesome. However, with great power comes great responsibility. The map part of a MapReduce view is built incrementally, so shoddy code in the map impacts only indexing time, not query time. The reduce-part, unfortunately, executes at query time. {{site.data.keyword.cloudant_short_notm}} provides a set of built-in reduce functions that are implemented internally in [Erlang](https://www.erlang.org/){: external}, which are performant at scale, and which your hand-crafted JavaScript reduces are not.
+The MapReduce views in {{site.data.keyword.cloudant_short_notm}} are awesome. However, with great power comes great responsibility. The map part of a MapReduce view is built incrementally, so shoddy code in the map impacts only indexing time, not query time. The reduce-part, unfortunately, runs at query time. {{site.data.keyword.cloudant_short_notm}} provides a set of built-in reduce functions that are implemented internally in [Erlang](https://www.erlang.org/){: external}. These functions are performant at scale while your hand-crafted JavaScript reduces are not.
 
-If you find yourself writing reduce functions, stop and consider whether you could reorganize your data so that writing reduce functions isn’t necessary. Or so that you’re able to rely on the built-in reducers. 
+If you find yourself writing reduce functions, stop and consider whether you can reorganize your data so that writing reduce functions isn’t necessary. Or so that you’re able to rely on the built-in reducers. 
 
 Views on partitioned databases do not support custom reduces, which is one factor that contributes to the significant speed-up queries only such views can offer.
 {: note}
