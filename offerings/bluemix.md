@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-04-04"
+lastupdated: "2023-04-21"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -40,7 +40,7 @@ You can select which plan to use when you
 ### Lite plan
 {: #lite-plan}
 
-The Lite plan is free, and is designed for development and evaluation purposes. {{site.data.keyword.cloudant_short_notm}}'s full functionality is included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 reads per second, 10 writes per second, and 5 global queries per second, and data storage is capped at 1 GB.
+The Lite plan is free, and is designed for development and evaluation purposes. All of {{site.data.keyword.cloudant_short_notm}}'s functions are included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 reads per second, 10 writes per second, and 5 global queries per second, and data storage is capped at 1 GB.
 
 Storage usage is checked daily. If you exceed your 1-GB storage limit, requests to the {{site.data.keyword.cloudant_short_notm}} instance receive a
 402 status code with the following error message, *Account exceeded its data usage quota. An upgrade to a paid plan is required.* A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan), which removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again.
@@ -54,7 +54,7 @@ You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instan
 
 The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all paid {{site.data.keyword.cloud}} accounts, either as pay-as-you-go or subscription, and scales to meet the needs of your application. The Standard plan is priced based on two factors: the provisioned throughput capacity that is allocated, and the amount of data that is stored in the instance.
 
-Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second. This rate is equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down by using the user interface or API. Toggle in increments of 100 reads per second, 50 writes per second, and 5 global queries per second. Costs are calculated for the provisioned throughput capacity that is allocated and not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you're charged a defined cost per GB per hour.
+Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads per second, 50 writes per second, and 5 global queries per second. This rate is equal to a starting cost of USD $0.105 per hour. You can toggle the provisioned throughput capacity up or down by using the user interface or API. Toggle in increments of 100 reads per second, 50 writes per second, and 5 global queries per second. Costs are calculated for the provisioned throughput capacity that is allocated and not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you're charged a defined cost per GB per hour.
 
 Refer to the {{site.data.keyword.cloud_notm}} Pricing Calculator in the dashboard for pricing at different capacities and currencies, and the [pricing](/docs/Cloudant?topic=Cloudant-pricing#pricing){: external} information for examples to estimate costs.
 
@@ -92,7 +92,7 @@ Throughput provision is identified and measured as one of the following types of
         -	Search Index ([`_search`](/docs/Cloudant?topic=Cloudant-cloudant-search#queries))
         -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/apidocs/cloudant#postfind){: external})
 
-        The number of read operations that are consumed by a partitioned query request varies depending on the results returned.
+        The number of read operations that are used by a partitioned query request varies depending on the results returned.
         {: tip}
 
 2.  *Writes*,
@@ -119,9 +119,9 @@ The measurement of throughput is a simple count of the number of units of each r
 per second,
 where the second is a *sliding* window.
 
-If your account exceeds the number of throughput units that are allotted for a request class, {{site.data.keyword.cloudant_short_notm}} rejects requests until the number of units of the request class within the sliding window no longer exceeds the number that is provisioned. It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
+If your account exceeds the number of throughput units that are allotted for a request class, {{site.data.keyword.cloudant_short_notm}} rejects requests. The requests are rejected until the number of units of the request class within the sliding window no longer exceeds the number that is provisioned. It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 reads during a consecutive period of 1,000 milliseconds (1 second). Subsequent reads that are made during the sliding 1,000-millisecond period
+For example, the Standard plan is provisioned for 200 reads per second. Your account might use a maximum of 200 reads during a consecutive period of 1,000 milliseconds (1 second). Subsequent reads that are made during the sliding 1,000-millisecond period
 are rejected until the number of reads in that period drops to less than 200 again.
 
 When a request is rejected because the number of a request class is exceeded,
@@ -150,7 +150,7 @@ you must ensure that your application can handle a [`429`](/apidocs/cloudant#lis
 ### Consumption of read operations by partitioned queries
 {: #consumption-of-lookup-operations-by-partitioned-queries}
 
-Partitioned query requests consume a variable number of read operations
+Partitioned query requests use a variable number of read operations
 that depend on the results returned. Consumption is based on two axes:
 
 1. The number of rows that are read from the index that is involved in the query.
@@ -159,9 +159,9 @@ that depend on the results returned. Consumption is based on two axes:
 #### View queries, search queries, and `_all_docs`
 {: #view-queries-search-queries-all-docs}
 
-Each block of 100 rows that are read from the index consumes one read operation. In
+Each block of 100 rows that are read from the index uses one read operation. In
 addition, each document that is read from the database during execution of a query
-consumes one read unit.
+uses one read unit.
 
 The number of rows that are read from the index is the same as the number of results
 returned. Documents are only read from the database when `include_docs=true` is
@@ -183,14 +183,14 @@ partitioned `_all_docs`, view, and search queries.
 #### {{site.data.keyword.cloudant_short_notm}} Query
 {: #cloudant-query-ibm-cloudant}
 
-For {{site.data.keyword.cloudant_short_notm}} Query requests, the number of consumed read operations for index
+For {{site.data.keyword.cloudant_short_notm}} Query requests, the number of read operations used for index
 rows read relates to the rows read from the underlying index. The rows are read before filtering
 occurs based on parts of the selector that can't be satisfied by the index.
 Therefore, these results mean that the rows read value, and consumed read units, can be
 higher than the number of eventual results you receive.
 
 In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row that is returned by the
-underlying index. This way, it can execute further filtering that is required by the
+underlying index. This way, it can run further filtering that is required by the
 selector and passed to the query.
 
 | Number of results | Number of rows returned by index | Total Read consumption | Consumption for rows read | Consumption for documents read |
@@ -207,9 +207,9 @@ Using appropriate indexes is key for reducing read consumption for partitioned
 ### Consumption of read and write operations by replication
 {: #consumption-of-read-and-write-operations-by-replication}
 
-[Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases consumes read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with reaching the provisioned throughput capacity limits set for the instance.
+[Replication](/docs/Cloudant?topic=Cloudant-replication-guide) between two databases uses read capacity on the source database and write capacity on the target database. The replicator is aware of the rate limits in {{site.data.keyword.cloudant_short_notm}} and employs staggered retry logic when encountering `429` responses associated with reaching the provisioned throughput capacity limits set for the instance.
 
-You can use the default parameters and replicate a database with a large backlog of documents. In that case, a single replication job consumes close to 2500 - 3000 reads per second on the source database and a few writes per second on the target database. Users can reduce the approximate read throughput that is consumed by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity consumed on the source database:
+You can use the default parameters and replicate a database with a large backlog of documents. In that case, a single replication job uses close to 2500 - 3000 reads per second on the source database and a few writes per second on the target database. Users can reduce the approximate read throughput that is used by a replication job by adjusting the [performance-related options](/docs/Cloudant?topic=Cloudant-advanced-replication#performance-related-options) that are associated with [tuning replication speed](/docs/Cloudant?topic=Cloudant-replication-guide#tuning-replication-speed). The following table provides recommended options for users who want to reduce the read capacity used on the source database:
 
 | `http_connections` | `worker_processes` | Approximate reads per second on source database |
 |------------------|------------------|-------------------------------------|
@@ -240,7 +240,7 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
 1.  Select the pricing plan that you want, and click **Save**. 
 1.  Select the type of account that you're looking for by clicking **Go**.
 
-    The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, *Success. Your capacity will be updated shortly.*  
+    The checkmark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data that is stored in the instance. When the target capacity is reached, the following message appears, *Success. Your capacity will be updated shortly.*
 
 Capacity increases made by using the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity. One hundred blocks of capacity equal 10,000 reads per second, 5,000 writes per second, and 500 global queries per second. If you require more capacity, see the `Need additional capacity?` tab on the Capacity page.
 {: note}
@@ -258,7 +258,7 @@ The API syntax for changing the capacity is also shown in the **Increase capacit
 
 Information about your usage of provisioned throughput capacity is available in the {{site.data.keyword.cloudant_short_notm}} Dashboard Monitoring tab. The **Current Operations** tab shows recent consumption of [provisioned throughput capacity](#provisioned-throughput-capacity) by showing the number of requests that are broken down by reads, writes, and global queries. The dotted line represents the peak capacity that is allowed according to the provisioned throughput capacity set for the instance.   
 
-*Current Operations* tab 
+*Current Operations* tab
 - Shows recent consumption of [provisioned throughput capacity](#provisioned-throughput-capacity). 
 
 - Shows the number of requests that are broken down by reads, writes, and global queries. 
@@ -267,10 +267,10 @@ Information about your usage of provisioned throughput capacity is available in 
 
 ![Current Operations shows consumption of provisioned throughput capacity, number of requests that are broken down by reads, writes, and global queries. Peak capacity that is allowed according to the provisioned throughput capacity set for the instance.](../images/monitoring-current_operations.png){: caption="Figure 4. Monitoring - Current Operations" caption-side="bottom"}
 
-*Denied Requests* tab 
+*Denied Requests* tab
 - Shows the number of requests that were denied in a given second.
 
-- Shows the response, *429: too many requests.* 
+- Shows the response, *429: too many requests.*
 
 - Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.
 
@@ -336,8 +336,7 @@ your bill includes an overage based on 88 GB x 1 hour = 88 GB hours.
 From hour 03:00 of day 3 to the end of day 3,
 your bill includes an overage based on 8 GB x 21 hours = 168 GB hours.
 
-From hour 00:00 of day 4 until the end of the month (of 30 days),
-your bill includes an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours.
+From hour 00:00 of day 4 until the end of the month (of 30 days), your bill includes an overage. The overage is based on 8 GB x 24 hours x 27 days = 5184 GB hours.
 
 The total overage bill for the month is based on a total of 88 + 168 + 5184 = 5440 GB hours.
 

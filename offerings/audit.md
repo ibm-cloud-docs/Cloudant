@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-12-08"
+lastupdated: "2023-04-21"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -55,6 +55,6 @@ To request access to the audit logs for your account, contact
 
 When you contact support, be sure to include the following information:
 
-- The {{site.data.keyword.cloudant_short_notm}} account the request relates to.
-- The timeframe for audit logs (must not be more than one month per support request).
+- The {{site.data.keyword.cloudant_short_notm}} account that the request relates to.
+- The time frame for audit logs (must not be more than one month per support request).
 - Any specific databases, documents, or principals of interest.

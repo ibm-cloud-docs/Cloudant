@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-17"
+  years: 2015, 2023
+lastupdated: "2023-04-20"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication, proper tools, organize documents, organize databases, primary index, secondary index, query
 
@@ -146,7 +146,7 @@ Continuous replication can result in many internal calls. These calls might affe
 {{site.data.keyword.cloudant_short_notm}} doesn't include the following features: 
 
 - Low latency, in-memory data store. For more information, see [{{site.data.keyword.cloud}} Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis).
-- Limitless object store for archiving data. For more information, see [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/uk-en/cloud/object-storage).
+- Limitless object store for archiving data. For more information, see [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage).
 - Relational database with SQL querying, stored procedures, and constraints and triggers. For more information, see [{{site.data.keyword.cloud_notm}} Databases for PostgreSQL](https://www.ibm.com/cloud/databases-for-postgresql).
 - Data warehouse for ad hoc querying. For more information, see [{{site.data.keyword.dashdblong}}](https://www.ibm.com/products/db2-warehouse).
 - A queue. For more information, see [{{site.data.keyword.IBM_notm}} MQ](https://www.ibm.com/uk-en/products/mq).

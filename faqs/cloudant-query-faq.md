@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-22"
+  years: 2022, 2023
+lastupdated: "2023-04-21"
 
 keywords: cloudant query, how to use, create an index, sort search results, sort reverse order, efficient query, partitioned databases
 
@@ -132,7 +132,7 @@ The previous index is suitable for both ascending and descending sort order.
 
 The [`POST /{db}/_explain`](https://cloud.ibm.com/apidocs/cloudant?code=java#postexplain) API endpoint when passed a JSON object that is usually sent to the [`POST /{db}/_find`](https://cloud.ibm.com/apidocs/cloudant#postfind) endpoint, explains how such a query is handled and which indexes, if any, might be used.
 
-If the `index` object in the response indicates that "all_docs" is being used, a full database scan is required to service the query. We recommend that you use the `_explain` mechanism to check each {{site.data.keyword.cloudant_short_notm}} query to ensure it is using an index before deploying to production.
+If the `index` object in the response indicates that "all_docs" is being used, a full database scan is required to service the query. We recommend that you use the `_explain` mechanism to check each {{site.data.keyword.cloudant_short_notm}} query to ensure it is using an index before you deploy to production.
 
 For example, a `type=json` index on `firstname`, `surname` and `date` is suitable for finding documents for:
 
@@ -140,14 +140,14 @@ For example, a `type=json` index on `firstname`, `surname` and `date` is suitabl
 - A known `firstname`, `lastname`, and a range of `date` values (that use `$lt`, `$lte`, `$gt`, `$gte` operators).
 - A known `firstname` and `lastname` sorted by `date`.
 
-It can also be used to assist queries on `firstname`, `surname`, `date`, and other attributes. In other words, it might only be able to answer part of the query but it can help reduce the number of documents that are scanned to find the answer.
+It can also be used to assist queries on `firstname`, `surname`, `date`, and other attributes. In other words, it might be able to answer only part of the query but it can help reduce the number of documents that are scanned to find the answer.
 
 ## How can I ensure that my query is efficent?
 {: #how-can-i-ensure-that-my-query-is-efficient}
 
 Ideally, an {{site.data.keyword.cloudant_short_notm}} Query execution would need to scan only one document for each document returned. If a query has to scan a million documents for each one returned, it is clearly not optimal, and is in need of a secondary index to help.
 
-When executing a query, passing `execution_stats: true` as an extra parameter forces {{site.data.keyword.cloudant_short_notm}} to enumerate the number of documents it scanned in performing the query, for example:
+When you execute a query, passing `execution_stats: true` as an extra parameter forces {{site.data.keyword.cloudant_short_notm}} to enumerate the number of documents it scanned in performing the query, for example:
 
 ```js
 {
