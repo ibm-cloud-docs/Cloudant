@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-04-21"
+lastupdated: "2023-04-27"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -84,7 +84,7 @@ Not on {{site.data.keyword.cloudant_short_notm}}.
 
 Or rather, it works 99 times out of 100.
 
-The reason for this difference is a (mostly) small inconsistency window between writing data to the database and this data becoming available on all nodes of the cluster. As all nodes in a cluster are equal in stature, no guarantee exists that a write, and a subsequent read are serviced by the same node. So, in some circumstances, the read might be hitting a node before the written data makes it to the node.
+The reason for this difference is a (mostly) small inconsistency window between writing data to the database and this data becoming available on all nodes of the cluster. As all nodes in a cluster are equal in stature, no guarantee exists that a write, and a subsequent read, are serviced by the same node. So, in some circumstances, the read might be hitting a node before the written data makes it to the node.
 
 So why don’t you just put a short delay in your test between the write and the read? That delay makes the test less likely to fail, but the problem is still there.
 
@@ -118,7 +118,7 @@ For more information, see the following websites:
 ## Use the bulk API
 {: #use-bulk-api}
 
-{{site.data.keyword.cloudant_short_notm}} has nice API endpoints for bulk loading (and reading) many documents at one time. Reading many documents at the same time can be much more efficient than reading and writing many documents one at a time. The write endpoint is shown in the following example:
+{{site.data.keyword.cloudant_short_notm}} has nice API endpoints for bulk loading (and reading) many documents in a single request. Reading many documents in a single request can be much more efficient than reading and writing many documents one at a time. The write endpoint is shown in the following example:
 
 ```sh
 ${database}/_bulk_docs
@@ -140,7 +140,7 @@ curl -XPOST 'https://ACCT.cloudant.com/DB/_bulk_docs' \
 ```
 {: codeblock}
 
-You can also fetch many documents at othe same time by issuing a POST to `_all_docs` (a relatively new endpoint that is called `_bulk_get` also exists, but this endpoint is probably not what you want. It’s there for a specific internal purpose).
+You can also fetch many documents in a single request by issuing a POST to `_all_docs` (a relatively new endpoint that is called `_bulk_get` also exists, but this endpoint is probably not what you want. It’s there for a specific internal purpose).
 
 To fetch a fixed set of docs by using `_all_docs`, `POST` with a `keys` body, run the following command:
 
@@ -206,7 +206,7 @@ It is also worth understanding that the rates aren’t directly equivalent to HT
 ## Logging helps you see what’s going on
 {: #see-whats-going-on-with-logs}
 
-{{site.data.keyword.cloudant_short_notm}}’s logs indicating each API call made, what was requested and how long it took to respond can be automatically spooled to LogDNA for analysis and reporting for IBM Cloud-based services. This data is useful for keeping an eye on request volumes, performance, and whether your application is exceeding the provisioning capacity for your {{site.data.keyword.cloudant_short_notm}} service.
+{{site.data.keyword.cloudant_short_notm}}’s logs indicating each API call made, what was requested and how long it took to respond can be automatically spooled to LogDNA for analysis and reporting for IBM Cloud-based services. This data is useful for keeping an eye on request volumes, performance, and whether your application is exceeding the provisioned capacity for your {{site.data.keyword.cloudant_short_notm}} service.
 
 You can set up the logging service at no cost to get started. Paid-for plans allow data to be parsed, retained, and archived to Object Storage. Slices and aggregations of your data can be built up into visual dashboards to give you an at-a-glance view of your {{site.data.keyword.cloudant_short_notm}} traffic. For more information, see the following website:
 

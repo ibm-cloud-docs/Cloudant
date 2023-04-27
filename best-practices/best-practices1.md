@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-04-21"
+lastupdated: "2023-04-27"
 
 keywords: api, http, database, partitioned query, eventual consistency, time box
 
@@ -145,7 +145,7 @@ If you have an ever-growing data set (like a log, sensor readings, or other type
 ## Avoid the *database per user* anti-pattern like the plague
 {: #avoid-db-per-user}
 
-If you’re building a multi-user service on atop {{site.data.keyword.cloudant_short_notm}}, it is tempting to allow each user store their data in a separate database under the application account. That works well, mostly, if the number of users is small.
+If you’re building a multi-user service atop {{site.data.keyword.cloudant_short_notm}}, it is tempting to allow each user store their data in a separate database under the application account. That works well, mostly, if the number of users is small.
 
 Now add the need to derive cross-user analytics. The way that you do that is to replicate all the user databases into a single analytics database. All good. This app has suddenly become successful, and the number of users grew in the range of 150 - 20,000. You have 20,000 replications just to keep the analytics database current. If you also want to run in an active-active disaster recovery setup, add another 20,000 replications, and the system stops functioning.
 

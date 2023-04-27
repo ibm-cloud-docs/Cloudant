@@ -43,7 +43,7 @@ A Dedicated Hardware instance offers improved storage and compute isolation for 
   
 ![Diagram about how to isolate data with the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan for one customer.](../images/Isolation-Dedicated-Hardware.svg){: caption="Figure 2. Data isolation on {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan" caption-side="bottom"} 
 
-Disk encryption is used to provide encryption at rest. In the Dedicated Hardware plan, customers can use their own keys by using {{site.data.keyword.cloud}} Key Protect's BYOK functions to further secure their data. 
+Disk encryption is used to provide encryption at rest. In the Dedicated Hardware plan, customers can use their own keys by using {{site.data.keyword.cloud}} Key Protect's BYOK to further secure their data. 
 
 Dedicated Hardware instances provide IP allowlisting and private network utilization to secure network access.
 

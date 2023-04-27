@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-04-21"
+lastupdated: "2023-04-27"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -79,7 +79,7 @@ The `since` parameter is used to define where in the changes feed you want to st
 `since=<a last seq token>`
 :   From a known place in the changes feed.
 
-At face value, the following the changes feed is as simple as chaining `_changes` API calls together. Then, {{site.data.keyword.cloudant_short_notm}} passes the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
+At face value, following the changes feed seems as simple as chaining `_changes` API calls together. Then, {{site.data.keyword.cloudant_short_notm}} passes the `last_seq` from one `changes feed` response into the next request's `since` parameter. But some subtleties to the changes feed need further discussion.
 
 ## Why does the changes feed deliver each change at least one time?
 {: #changes-feed-at-least-one-time}
