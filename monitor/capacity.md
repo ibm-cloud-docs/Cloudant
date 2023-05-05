@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-04-27"
+lastupdated: "2023-05-04"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
@@ -319,7 +319,7 @@ See the following example JSON response with the target capacity set:
 ## View the current consumption of provisioned throughput capacity used
 {: #view-current-capacity-consumption}
 
-Use a GET method to the `/_api/v2/user/current/throughput` endpoint to see the current consumption of provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. The current consumption shows the quantities of reads, writes, and global queries conducted against the instance for a given second. When you use this endpoint, it is a best practice to aggregate this data continuously over time to get a more comprehensive view of a Cloudant instance's throughput consumption patterns.
+Use a GET method to the `/_api/v2/user/current/throughput` endpoint to see the current consumption of provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. The current consumption shows the quantities of reads, writes, and global queries conducted against the instance for a given second. When you use this endpoint, it is a best practice to aggregate this data continuously over time to get a more comprehensive view of a {{site.data.keyword.cloudant_short_notm}} instance's throughput consumption patterns.
 
 Method 
 :  `GET`
