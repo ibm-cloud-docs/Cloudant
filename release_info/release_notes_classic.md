@@ -56,7 +56,7 @@ Compaction
 Indexing
 :   Enforce partition index count limits for (noninternally) replicated documents.
 
-:   Optimize process pool management.
+:   Optimize process pool management (fixes CVE-2023-26268).
 
 Query
 :   Optimize by pushing down field selectors to shards.
