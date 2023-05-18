@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-04-06"
+lastupdated: "2023-05-16"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
 subcollection: Cloudant
 
@@ -19,6 +19,48 @@ content-type: release-note
 
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## May 2023
+{: #cloudant-may23}
+
+### 17 May 2023
+{: #Cloudant-may1723}
+{: release-note}
+
+The following changes were made in build 8408:
+
+`_all_docs` endpoint
+:   Do not return documents for non-string `key` parameter.
+
+Filter view functions
+:   Optimize by not unnecessarily re-compiling filter view functions.
+
+Geospatial
+:   Remove geospatial functionality.
+
+Javascript
+:   Treat javascript internal errors (such as Out of Memory) as fatal.
+
+`_local_docs` endpoint
+:   Hide internal checkpoint documents by default in the `_local_docs` response.
+
+Mango query
+:   Return correct documents for queries with `$regex` and text indexes.
+
+:   Optimize queries using keys-only covering indexes.
+
+:   Add new covered Boolean field to `_explain` endpoint to indicate whether query is covered by an index.
+
+:   Return 405 instead of 500 for invalid path under `_index` endpoint.
+
+Partitioned database queries
+:   Fix permissions required for partitioned `_find` and `_explain` endpoints.
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 24 release.
+
+View query
+:   Treat single element `keys` parameter same as `key`.
 
 ## April 2023
 {: #cloudant-apr23}
