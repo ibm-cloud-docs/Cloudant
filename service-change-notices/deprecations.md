@@ -120,7 +120,7 @@ If you are concerned about the removal of the dbcopy feature, you can open a sup
 ## {{site.data.keyword.cloudant_short_notm}} replications no longer support HTTP
 {: #replications-no-longer-support-http}
 
-As of 1 July 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
+As of 1 October 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
 
 ### What is replication?
 {: #what-is-replication}
