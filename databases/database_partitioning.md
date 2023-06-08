@@ -118,7 +118,6 @@ You can make global queries to the following index types:
 - {{site.data.keyword.cloudant_short_notm}} Query
 - Views
 - Search
-- Geo
 
 When you make a global query, the database must perform a scatter-gather operation
 across all data in the database. This action means making requests of many individual
