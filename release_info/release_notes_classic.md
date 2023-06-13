@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-05-16"
+lastupdated: "2023-06-13"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
@@ -20,14 +20,14 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-## May 2023
-{: #cloudant-may23}
+## June 2023
+{: #cloudant-jun23}
 
-### 17 May 2023
-{: #Cloudant-may1723}
+### 05 June 2023
+{: #Cloudant-jun0523}
 {: release-note}
 
-The following changes were made in build 8408:
+The following changes were made in build 8413:
 
 `_all_docs` endpoint
 :   Do not return documents for non-string `key` parameter.
