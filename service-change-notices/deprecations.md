@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-06"
+lastupdated: "2023-06-23"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -16,6 +16,43 @@ subcollection: Cloudant
 {: #deprecations-for-ibm-cloudant}
 
 You can see the deprecations for {{site.data.keyword.cloudantfull}} here.
+
+## {{site.data.keyword.cloudant_short_notm}} Deprecation of Cloudant instances that are created as Cloud Foundry service instances
+{: #cloudant-nosql-db-cdt-cf-instance-dep}
+
+### Details
+{: #cloudant-nosql-db-cdt-cf-instance-dep-details}
+
+Due to the end of the Cloud Foundry service, {{site.data.keyword.cloudant_short_notm}} instances that are created as Cloud Foundry service instances are being deprecated and must be migrated to an {{site.data.keyword.cloud_notm}} [resource group](/docs/account?topic=account-rgs&interface=ui){: external}.
+
+Migration to a resource group provides the added capability to use [{{site.data.keyword.cloud_notm}} IAM](/docs/account?topic=account-iamoverview){: external} to control access. When migrating the Cloudant instance, you can choose which of your {{site.data.keyword.cloud_notm}} resource groups to migrate it to. For example, you might have one resource group for production and a different one for Dev/Test.
+
+Standard Plan instances that are not migrated before 1 September 2023 will be migrated by IBM.
+{: important}
+
+Should IBM be required to migrate a Cloudant instance to a resource group, it will be migrated to the default resource group for the {{site.data.keyword.cloud_notm}} account. The assignment of the Cloudant instance to the default resource group cannot be changed later.
+
+**Lite plan instances that are not migrated before 1 August 2023 will be disabled for 30 days and deleted on 1 September 2023.**
+
+### How do I know if my instances use Cloud Foundry?
+{: #cloudant-nosql-db-cdt-cf-instance-dep-identifying-instances}
+
+- Display the list of Cloudant instances in the {{site.data.keyword.cloud_notm}} GUI
+- The presence of the migrate icon after the instance name identifies instances that need to be migrated
+
+### How do I migrate the instance to an {{site.data.keyword.cloud_notm}} resource group?
+{: #cloudant-nosql-db-cdt-cf-instance-dep-how-to-migrate}
+
+- To complete the migration, follow these [{{site.data.keyword.cloudant_short_notm}} instructions](/docs/account?topic=account-migrate#migrate_instances){: external}.
+
+1. Open the **More actions** menu.
+1. Select **Migrate to a resource group** to get started.
+1. Select a resource group.
+1. Click **Migrate** and the instance is migrated for you.
+1. Since you can migrate only one instance at a time, you can continue migrating eligible instances after you migrate the first one.
+
+**The data in the Cloudant instance is not involved in this migration.**
+**There is no Cloudant service downtime as a result of this migration.**
 
 ## {{site.data.keyword.cloudant_short_notm}} Geospatial notice
 {: #cloudant-nosql-db-geospatial-dep}
@@ -120,7 +157,7 @@ If you are concerned about the removal of the dbcopy feature, you can open a sup
 ## {{site.data.keyword.cloudant_short_notm}} replications no longer support HTTP
 {: #replications-no-longer-support-http}
 
-As of 1 October 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
+As of 1 July 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
 
 ### What is replication?
 {: #what-is-replication}
@@ -164,7 +201,7 @@ If a self-hosted CouchDB service supports HTTPS, then change the replication def
 
 {{site.data.keyword.cloudant_short_notm}} restarts the replication from where the old replication job stopped.
 
-If a self-hosted CouchDB service does _not_ support HTTPS, CouchDB can mediate replication jobs instead of {{site.data.keyword.cloudant_short_notm}}. For example, stop the replication job that runs on the {{site.data.keyword.cloudant_short_notm}} side and set up a replication job on a self-hosted Apache CouchDB service to "pull" the data from {{site.data.keyword.cloudant_short_notm}}.
+If a self-hosted CouchDB service does _not* support HTTPS, CouchDB can mediate replication jobs instead of {{site.data.keyword.cloudant_short_notm}}. For example, stop the replication job that runs on the {{site.data.keyword.cloudant_short_notm}} side and set up a replication job on a self-hosted Apache CouchDB service to "pull" the data from {{site.data.keyword.cloudant_short_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} supports only `https://` traffic, so if {{site.data.keyword.cloudant_short_notm}} is to be the `source` or `target` in a self-hosted replication definition, it must be configured with an `https://` prefix.
 
