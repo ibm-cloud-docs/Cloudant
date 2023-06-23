@@ -97,7 +97,7 @@ The {{site.data.keyword.cloudant_short_notm}} on Transaction Engine service ends
 ## {{site.data.keyword.cloudant_short_notm}} dbcopy feature removal
 {: #dbcopy-feature-removal-dep}
 
-As of 1 July 2023, {{site.data.keyword.cloudant_short_notm}}'s dbcopy feature (also known as "Chained MapReduce" or "view chaining") will cease to function. The dbcopy feature was [removed from our documentation in 2016](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-feb16) and [since November 2022, new users cannot configure dbcopy](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-nov22). *Starting 1 July 2023, the dbcopy feature will be removed from the {{site.data.keyword.cloudant_short_notm}} service entirely.*
+As of 1 October 2023, {{site.data.keyword.cloudant_short_notm}}'s dbcopy feature (also known as "Chained MapReduce" or "view chaining") will cease to function. The dbcopy feature was [removed from our documentation in 2016](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-feb16) and [since November 2022, new users cannot configure dbcopy](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-classic-release-notes#cloudant-nov22). *Starting 1 October 2023, the dbcopy feature will be removed from the {{site.data.keyword.cloudant_short_notm}} service entirely.*
 {: shortdesc}
 
 ### What is dbcopy?
@@ -157,7 +157,7 @@ If you are concerned about the removal of the dbcopy feature, you can open a sup
 ## {{site.data.keyword.cloudant_short_notm}} replications no longer support HTTP
 {: #replications-no-longer-support-http}
 
-As of 1 July 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
+As of 1 October 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
 
 ### What is replication?
 {: #what-is-replication}
@@ -210,5 +210,5 @@ If a self-hosted CouchDB service does _not* support HTTPS, CouchDB can mediate r
 
 An accounting error exists in {{site.data.keyword.cloudant_short_notm}} that results in undercounting of the operations that are associated with this API against the [provisioned throughput](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) capacity of an {{site.data.keyword.cloudant_short_notm}} instance. You can find the correct accounting in the {{site.data.keyword.cloudant_short_notm}} API documentation under [Query a list of all documents in a database partition](/apidocs/cloudant#getpartitionalldocs-partitioned-databases). Until now, this accounting operation was not implemented correctly.
 
-Effective 1 July 2023, this accounting error is corrected. Customers performing `_find` queries that filter through large numbers of documents might need to increase the provisioned throughput capacity for their {{site.data.keyword.cloudant_short_notm}} instances. Otherwise, immediately after this correction deploys on 1 July 2023, {{site.data.keyword.cloudant_short_notm}} returns 429 errors for read operations.
+Effective 1 October 2023, this accounting error is corrected. Customers performing `_find` queries that filter through large numbers of documents might need to increase the provisioned throughput capacity for their {{site.data.keyword.cloudant_short_notm}} instances. Otherwise, immediately after this correction deploys on 1 October 2023, {{site.data.keyword.cloudant_short_notm}} returns 429 errors for read operations.
 {: important}
