@@ -11,8 +11,8 @@ toc:
     path: Cloudant
     label: Cloudant
 
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - topic: getting-started.md
@@ -34,7 +34,7 @@ toc:
       - service-change-notices/deprecations.md
       - release_info/release_notes_classic.md
 
-  - navgroup: 
+  - navgroup:
       id: tutorial
       topics:
       - tutorials/locate-service-credentials.md
@@ -82,7 +82,7 @@ toc:
           - databases/cloudant-redis-cache.md
       - topicgroup:
           label: How documents work
-          topics: 
+          topics:
           - documents/docs-overview.md
           - documents/creating-a-document.md
           - documents/reading-a-document.md
@@ -101,7 +101,7 @@ toc:
           - monitor/capacity.md
           - monitor/active_tasks.md
           - monitor/managing_tasks.md
-      - topicgroup: 
+      - topicgroup:
           label: Querying the database
           topics:
           - query/cloudant-query.md
@@ -118,7 +118,7 @@ toc:
           - query/search-analyzers.md
           - query/pagination-bookmarks.md
           - query/cloudant-geo.md
-      - topicgroup: 
+      - topicgroup:
           label: Replicating databases
           topics:
           - replicate/replication_guide.md
@@ -171,7 +171,7 @@ toc:
           - best-practices/best-practices3.md
       - topicgroup:
           label: Sample apps
-          links: 
+          links:
           - link:
               label: Offline First shopping list
               href: https://developer.ibm.com/patterns/create-an-offline-first-shopping-list-progressive-web-app/
@@ -190,7 +190,7 @@ toc:
       - libraries/client-libraries.md
       - topicgroup:
           label: Apache CouchDB
-          topics: 
+          topics:
           - couchdb/comparison.md
           - couchdb/compare.md
       - topicgroup:
@@ -204,18 +204,18 @@ toc:
       - topicgroup:
           label: CLI
           topics:
-          - /Cloudant-cli-plugin/Cloudant-cli-plugin-cloudant-cli
+          - include: ../cloud-docs/cloudant-cli.md
           - release_info/cli-change-log.md
       - link:
           label: Terraform reference docs
           href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant
-   
+
   - navgroup:
       id: help
       topics:
-      - topicgroup: 
+      - topicgroup:
           label: FAQs
-          topics: 
+          topics:
           - faqs/authenticating-faq.md
           - faqs/availability-zones-faq.md
           - faqs/document-version-conflicts-faq.md
