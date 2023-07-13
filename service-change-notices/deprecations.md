@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-06-23"
+lastupdated: "2023-07-12"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -158,6 +158,7 @@ If you are concerned about the removal of the dbcopy feature, you can open a sup
 {: #replications-no-longer-support-http}
 
 As of 1 October 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
+{: note}
 
 ### What is replication?
 {: #what-is-replication}
