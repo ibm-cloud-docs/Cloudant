@@ -12,15 +12,11 @@ by members of documentation team.
 Jenkins is used to publish docs to staging and to production.
 The setup is managed by IBM Cloud Documentation team.
 
-https://wcp-ace-docs-jenkins.swg-devops.com/job/Docs-build/job/Docs-build-Cloudant/
+https://wcp-docs-team-jenkins.swg-devops.com/job/build/job/cloud-docs/job/Cloudant/
 
+Jenkins is also used to keep github.com and github.ibm.com repositories in sync.
 
-## Travis
-
-Travis is used to keep github.com and github.ibm.com repositories in sync.
-The setup is managed by Cloudant infra team.
-
-https://travis.ibm.com/Bluemix-Docs
+https://wcp-docs-team-jenkins.swg-devops.com/job/mirror/job/cloud-docs/job/Cloudant
 
 ## Documentation
 
