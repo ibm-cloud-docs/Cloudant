@@ -104,12 +104,7 @@ If none of these tasks fix the problem, you can talk to our [{{site.data.keyword
 ## Disabling public service endpoints for {{site.data.keyword.cloudant_short_notm}}
 {: #endpoint-disable}
 
-If you use the dedicated hardware plan, you can deny access from the public network. To accomplish this task, make a request to update the firewall rules for your clusters to the [{{site.data.keyword.cloud_notm}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter). 
+The public service endpoint cannot be disabled however, if you use the dedicated hardware plan, you can deny access from the public network to user traffic. To accomplish this task, make a request to update the firewall rules for your clusters to the [{{site.data.keyword.cloud_notm}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter). 
 
 This option is not available to multi-tenant users.
 {: tip} 
-
-
-
-
-
