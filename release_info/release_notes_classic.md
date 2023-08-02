@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-07-03"
+lastupdated: "2023-08-02"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
@@ -21,12 +21,17 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 {: shortdesc}
 
 ## July 2023
-{: #cloudant-july03}
+{: #cloudant-july23}
+
+### 21 July 2023
+{: #Cloudant-july2123}
 {: release-note}
 
-The following changes were made in build 8418:
+The following changes were made in build 8430:
 
 Attachments
+:   Fix multipart parser "attachment longer than expected" error.
+
 :   Remove Content-MD5 header support.
 
 :   Replace MD5 with xxHash in ETag generation.
