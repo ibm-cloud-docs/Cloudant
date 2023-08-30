@@ -38,6 +38,15 @@ The following changes were made in build 8435:
 Mango
 :   Improve error messages in case of invalid field errors.
 
+## August 2023
+{: #cloudant-august23}
+
+## 30 August 2023
+{: #cloudant-august3023}
+
+Replicator
+:    Remove replicator endpoint proxy support.
+
 ## July 2023
 {: #cloudant-july23}
 
