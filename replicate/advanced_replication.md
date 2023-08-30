@@ -230,23 +230,6 @@ See the following example replication of specific documents:
 ```
 {: codeblock}
 
-## Replicating through a proxy
-{: #replicating-through-a-proxy}
-
-If you want replication to pass through an HTTP proxy,
-provide the proxy details in the `proxy` field of the replication data.
-
-See the following example that shows replication through a proxy:
-
-```json
-{
-	"source": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
-	"target": "https://$USERNAME:$PASSWORD@example.org/example-database",
-	"proxy": "https://my-proxy.com:8888"
-}
-```
-{: codeblock}
-
 ## The `user_ctx` property and delegations
 {: #the-user_ctx-property-and-delegations}
 

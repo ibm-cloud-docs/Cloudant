@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-07-13"
+lastupdated: "2023-08-30"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -16,6 +16,14 @@ subcollection: Cloudant
 {: #deprecations-for-ibm-cloudant}
 
 You can see the deprecations for {{site.data.keyword.cloudantfull}} here.
+
+## {{site.data.keyword.cloudant_short_notm}} Remove replicator endpoint proxy support
+{: #cloudant-nosql-db-replicator-proxy-dep}
+
+### Details
+{: #cloudant-nosql-db-replicator-proxy-dep-details}
+
+Replicator endpoint proxy support is removed. Replication jobs with `proxy`, `source_proxy` or `target_proxy` fields set will fail with an error.
 
 ## {{site.data.keyword.cloudant_short_notm}} Deprecation of Cloudant instances that are created as Cloud Foundry service instances
 {: #cloudant-nosql-db-cdt-cf-instance-dep}
