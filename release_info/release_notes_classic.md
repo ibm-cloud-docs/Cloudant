@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-08-02"
+lastupdated: "2023-08-30"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
@@ -19,6 +19,24 @@ content-type: release-note
 
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## August 2023
+{: #cloudant-aug23}
+
+### 30 August 2023
+{: #Cloudant-aug3023}
+{: release-note}
+
+The following changes were made in build 8435:
+
+`_all_dbs` endpoint
+:   Restrict `_all_dbs` to accept only binary `start_key`/`end_key` parameters.
+
+`_replicate` endpoint
+:   Authentication is required to access the `_replicate` endpoint.
+
+Mango
+:   Improve error messages in case of invalid field errors.
 
 ## July 2023
 {: #cloudant-july23}
