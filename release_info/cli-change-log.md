@@ -16,8 +16,18 @@ subcollection: Cloudant
 
 In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.cloudantfull}} CLI. 
 
+## Version 0.1.1
+{: #cli-011}
+
+- Uses minimal Go version: `1.20`.
+- Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.5.0`.
+- Updates dependencies.
+
 ## Version 0.1.0
 {: #cli-010}
+
+This version of the CLI plug-in is deprecated; upgrade to the latest release.
+{: deprecated}
 
 Version `0.1.0` of CLI was released on 01 Aug 2023.
 
