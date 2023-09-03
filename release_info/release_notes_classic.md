@@ -35,7 +35,7 @@ The following changes were made in build 8435:
 `_replicate` endpoint
 :   Authentication is required to access the `_replicate` endpoint.
 
-Mango
+Mango query
 :   Improve error messages in case of invalid field errors.
 
 Replicator
@@ -57,7 +57,7 @@ Attachments
 
 :   Replace MD5 with xxHash in ETag generation.
 
-Mango
+Mango query
 :   Return correct `keys_examined` value in `execution_stats` field.
 
 :   Improve error messages of the `_index` endpoint.
