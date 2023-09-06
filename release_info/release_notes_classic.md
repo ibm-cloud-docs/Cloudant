@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-08-30"
+lastupdated: "2023-09-06"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
@@ -20,6 +20,23 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
+## September 2023
+{: #cloudant-sep23}
+
+### Upcoming changes
+
+The following changes are planned for the next release:
+
+Mango query
+:   Change the `_explain` endpoint's query option `r` field type to an integer.
+
+:   Rename the `_explain` endpoint's `covered` field to `covering`.
+
+Search
+:   Change the representation of empty faceted results from `0` to `{}`.
+
+    See [PR](https://github.com/apache/couchdb/pull/4704){: external}.
+
 ## August 2023
 {: #cloudant-aug23}
 
@@ -35,7 +52,7 @@ The following changes were made in build 8435:
 `_replicate` endpoint
 :   Authentication is required to access the `_replicate` endpoint.
 
-Mango
+Mango query
 :   Improve error messages in case of invalid field errors.
 
 Replicator
@@ -57,7 +74,7 @@ Attachments
 
 :   Replace MD5 with xxHash in ETag generation.
 
-Mango
+Mango query
 :   Return correct `keys_examined` value in `execution_stats` field.
 
 :   Improve error messages of the `_index` endpoint.
