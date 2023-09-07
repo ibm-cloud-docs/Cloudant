@@ -28,12 +28,12 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 The following changes are planned for the next release:
 
 Mango query
-:   Change the `_explain` endpoint's query option `r` field type to an integer.
+:   Correct the `_explain` endpoint `r` response field content from a byte array to an integer to match the declared API type.
 
-:   Rename the `_explain` endpoint's `covered` field to `covering`.
+:   Rename the `_explain` endpoint response `covered` field name to `covering` to match correctly the Apache CouchDB name.
 
 Search
-:   Change the representation of empty faceted results from `0` to `{}`.
+:   Correct the representation of empty faceted results from `0` to `{}` to match the declared API type.
 
     See [PR](https://github.com/apache/couchdb/pull/4704){: external}.
 
