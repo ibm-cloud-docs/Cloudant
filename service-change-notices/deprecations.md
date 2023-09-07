@@ -40,7 +40,7 @@ Standard Plan instances that are not migrated before 1 September 2023 will be mi
 
 Should IBM be required to migrate a Cloudant instance to a resource group, it will be migrated to the default resource group for the {{site.data.keyword.cloud_notm}} account. The assignment of the Cloudant instance to the default resource group cannot be changed later.
 
-**Lite plan instances that are not migrated before 1 August 2023 will be disabled for 30 days and deleted on 1 September 2023.**
+**Deadline for Lite plan instances has been extended from 1 August 2023 to 18 September 2023: Lite plan instances that are not migrated before 18 September 2023 will be disabled for 30 days and deleted on 18 October 2023.**
 
 ### How do I know if my instances use Cloud Foundry?
 {: #cloudant-nosql-db-cdt-cf-instance-dep-identifying-instances}
