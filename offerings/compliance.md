@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-06"
+lastupdated: "2023-09-11"
 
 keywords: tier-1 physical system, hipaa, iso, pci dss, soc 2 type 2 certification, gdpr
 
@@ -39,13 +39,8 @@ Regulation also introduces rules that relate to the free movement of personal da
 ## HIPAA
 {: #hipaa}
 
-{{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.cloud_notm}}, 
-meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
-include the appropriate administrative, physical, and technical safeguards required of Business 
-Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be requested at the 
-time of provisioning and applies to the {{site.data.keyword.cloudant_short_notm}} Enterprise plan, 
-{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}} Dedicated plan, 
-and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.data.keyword.cloud_notm}}. Contact your sales representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
+{{site.data.keyword.cloudant_short_notm}} meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements include the appropriate administrative, physical, and technical safeguards required of Business Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be requested at the time of provisioning and applies to the {{site.data.keyword.cloudant_short_notm}} Enterprise plan, 
+{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}} Dedicated plan, and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.data.keyword.cloud_notm}}. Contact your sales representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
 
 ## International Organization for Standardization (ISO)
 {: #international-organization-for-standardization-iso-}
