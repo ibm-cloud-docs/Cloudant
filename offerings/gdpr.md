@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-12-02"
+  years: 2018, 2023
+lastupdated: "2023-09-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -15,10 +15,8 @@ subcollection: Cloudant
 # General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-}
 
-The GDPR seeks to create a harmonized data protection law framework across the EU. It aims 
-to give citizens back the control of their personal data, while it imposes strict rules on 
-the ones who host and "process" this data, anywhere in the world. The Regulation also introduces 
-rules that relate to the free movement of personal data within and outside the EU. 
+The GDPR seeks to create a harmonized data protection law framework across the EU. It aims to give citizens back the control of their personal data, while it imposes strict rules on 
+the ones who host and "process" this data, anywhere in the world. The Regulation also introduces rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
 
 With the [General Data Protection Regulation](https://gdpr.eu/){: external},
@@ -50,9 +48,7 @@ for GDPR:
 
 - Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/saas?OpenDocument){: external}.
 
-If you're storing healthcare data, you *must* complete the following tasks:
-- Notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
-- Request a HIPAA-compliant Dedicated Cluster.
+If you store healthcare data, you *must* notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
 
 For more information about supported classifications of Personal Data, see the
 [Data Sheet Addendum (DSA) under 2. Personal Data](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: external}.
