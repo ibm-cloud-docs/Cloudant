@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-09-06"
+lastupdated: "2023-09-19"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
@@ -23,19 +23,48 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 ## September 2023
 {: #cloudant-sep23}
 
-### Upcoming changes
+### 14 September 2023
+{: #Cloudant-sep1423}
+{: release-note}
 
-The following changes are planned for the next release:
+The following changes were made in build 8442:
+
+`_changes` feed
+:   Improve emitted changes feed sequence after a split.
+
+:   Return the correct number of pending changes when `descending=true`.
+
+Design documents
+:   `_design_docs/queries` / `_local_docs/queries` with parameter `keys` will return only design / local documents respectively.
+
+Legacy auth
+:   Send a session cookie after successful basic authentication to migrate users to a strong password hashing scheme without impacting performance for each request.
 
 Mango query
+:   Remove duplicate elements from `indexable_fields` results.
+
 :   Correct the `_explain` endpoint `r` response field content from a byte array to an integer to match the declared API type.
 
 :   Rename the `_explain` endpoint response `covered` field name to `covering` to match correctly the Apache CouchDB name.
+
+Replicator
+:   Fix undefined range in `mem3_rep` purge replication logic.
+
+:   Crash replication jobs on unexpected 4XX errors.
+
+:   Add `CouchDB-Replicator/...` user agent to replicator `/_session` requests.
 
 Search
 :   Correct the representation of empty faceted results from `0` to `{}` to match the declared API type.
 
     See [PR](https://github.com/apache/couchdb/pull/4704){: external}.
+
+Shard splitting
+:   Allow resumption of failed jobs, and make `timeout` configurable.
+
+Optimization
+:   Stop the client process and clean up if the client disconnects.
+
 
 ## August 2023
 {: #cloudant-aug23}
