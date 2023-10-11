@@ -378,7 +378,6 @@ It can take up to 5 minutes for the change to be reflected in the events seen in
 | `cloudantnosqldb.any-document.read` | Read a JSON document. |
 | `cloudantnosqldb.account-all-dbs.read` | Read a list of all databases. |
 | `cloudantnosqldb.account-dbs-info.read` | Read metadata about a database. |
-| `cloudantnosqldb.account-db-updates.read` | Read `_db_updates` endpoint. |
 | `cloudantnosqldb.account-search-analyze.execute` | Read search index statistics and size. |
 | `cloudantnosqldb.account-uuids.read` | Read `_uuids` endpoint. |
 | `cloudantnosqldb.account-active-tasks.read` | Read `_active_tasks`. |
