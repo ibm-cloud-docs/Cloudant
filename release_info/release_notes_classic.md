@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-09-19"
+lastupdated: "2023-10-10"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
@@ -19,6 +19,19 @@ content-type: release-note
 
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## October 2023
+{: #cloudant-oct23}
+
+### Upcoming changes
+
+The following changes are planned for the next release:
+
+`_db_updates` endpoint
+:   Remove `_db_updates` endpoint support.
+
+Mango query
+:   Correct `_explain` API to always return an array for `fields`. Return `[]` instead of `"all_fields"` if the `fields` parameter was unset.
 
 ## September 2023
 {: #cloudant-sep23}
