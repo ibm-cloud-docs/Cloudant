@@ -24,6 +24,7 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 {: #cloudant-oct23}
 
 ### Upcoming changes
+{: cloudant-upcoming-oct23}
 
 The following changes are planned for the next release:
 
