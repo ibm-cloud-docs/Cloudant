@@ -156,6 +156,9 @@ that depend on the results returned. Consumption is based on two axes:
 1. The number of rows that are read from the index that is involved in the query.
 2. The number of documents read from the database, if any, during the execution of the query.
 
+There is a minimum cost of 1 read for all partition queries.
+{: note}
+
 #### View queries, search queries, and `_all_docs`
 {: #view-queries-search-queries-all-docs}
 
