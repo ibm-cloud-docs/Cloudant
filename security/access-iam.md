@@ -666,7 +666,6 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/_session` | `cloudantnosqldb.session.write` |
 | `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
 | `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
-| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
 | `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
@@ -709,7 +708,6 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/_session` | `cloudantnosqldb.session.write` |
 | `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
 | `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
-| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
 | `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
@@ -746,7 +744,6 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/_session` | `cloudantnosqldb.session.write` |
 | `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
 | `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
-| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
 | `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
