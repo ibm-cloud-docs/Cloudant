@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-10-10"
+lastupdated: "2023-10-13"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
 
@@ -23,16 +23,29 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 ## October 2023
 {: #cloudant-oct23}
 
-### Upcoming changes
-{: cloudant-upcoming-oct23}
+### 13 October 2023
+{: #Cloudant-oct1323}
+{: release-note}
 
-The following changes are planned for the next release:
+The following changes were made in build 8448:
 
 `_db_updates` endpoint
 :   Remove `_db_updates` endpoint support.
 
 Mango query
 :   Correct `_explain` API to always return an array for `fields`. Return `[]` instead of `"all_fields"` if the `fields` parameter was unset.
+
+:   Prevent occasional duplication of paginated `text` results.
+
+Legacy auth
+:   Send compatible AuthSession cookie when possible.
+
+Replicator
+:   Fix `badrecord` error when cancelling transient replication job.
+
+:   Replace `kaboom` with `open_doc_revs_failed` error.
+
+:   Use HTTP rules for hostname verification.
 
 ## September 2023
 {: #cloudant-sep23}
