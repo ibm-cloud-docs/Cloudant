@@ -97,9 +97,10 @@ requests sent to the server stay open until changes are reported.
 This option helps when monitoring changes continuously.
 
 If you set `feed=continuous`,
-new changes are reported without closing the connection.
-This option means that the database connection stays open until explicitly closed,
-and that all changes are returned to the client as soon as possible after they occur.
+new changes are reported as they occur.
+This option means that the database connection stays open for a while.
+The response may end at any time and clients should reconnect if they wish to continue
+receiving changes.
 
 Each line in the continuous response is either empty or a JSON object that represents a single change.
 The option ensures that the following guidelines are met:
