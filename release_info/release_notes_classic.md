@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-10-18"
+lastupdated: "2023-10-24"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security
 
@@ -22,6 +22,15 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 
 ## October 2023
 {: #cloudant-oct23}
+
+### 24 October 2023
+{: #Cloudant-oct2423}
+{: release-note}
+
+The following changes were made in build 8452:
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 25 release.
 
 ### 18 October 2023
 {: #Cloudant-oct1823}
