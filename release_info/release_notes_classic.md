@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-10-13"
+lastupdated: "2023-10-18"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs
+keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security
 
 subcollection: Cloudant
 
@@ -22,6 +22,15 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 
 ## October 2023
 {: #cloudant-oct23}
+
+### 18 October 2023
+{: #Cloudant-oct1823}
+{: release-note}
+
+The following changes were made in build 8451:
+
+Security
+:   Scrub sensitive headers from JSON requests.
 
 ### 13 October 2023
 {: #Cloudant-oct1323}
