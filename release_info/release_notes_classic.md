@@ -20,6 +20,16 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
+## November 2023
+{: #cloudant-nov23}
+
+### 17 November 2023
+{: #Cloudant-nov1723}
+{: release-note}
+
+{{site.data.keyword.cloudant_short_notm}} Dashboard
+:   Update the Cloudant Query explain page with a user-friendly view of the JSON output. The parsed view better explains how indexes are chosen to help the user create more efficient queries. 
+
 ## October 2023
 {: #cloudant-oct23}
 
