@@ -28,7 +28,7 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 {: release-note}
 
 {{site.data.keyword.cloudant_short_notm}} Dashboard
-:   Update the Database Query explain page with a user-friendly view of the JSON output. The parsed view better explains how indexes are chosen to help the user create more efficient queries. 
+:   Update the Cloudant Query explain page with a user-friendly view of the JSON output. The parsed view better explains how indexes are chosen to help the user create more efficient queries. 
 
 ## October 2023
 {: #cloudant-oct23}
