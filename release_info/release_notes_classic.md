@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2023
-lastupdated: "2023-11-30"
+lastupdated: "2023-12-04"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -20,11 +20,11 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-## November 2023
-{: #cloudant-nov23}
+## December 2023
+{: #cloudant-dec23}
 
-### 30 November 2023
-{: #Cloudant-nov3023}
+### 04 December 2023
+{: #Cloudant-dec0423}
 {: release-note}
 
 The following changes were made in build 8462:
