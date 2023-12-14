@@ -558,12 +558,15 @@ if __name__ == "__main__":
 ```
 {: codeblock}
 
-## Using IAM IP Allowlisting with Cloudant
+## Using IAM IP allowlisting with Cloudant
 {: #using-iam-allowlisting}
 
 You can enable IAM IP address access restrictions when you're using {{site.data.keyword.cloudant_short_notm}}.
 
-To enable IAM IP address access restrictions, you must ensure that the Cloud Identity and Access Management (IAM) [access list](/docs/account?topic=account-ips){: external} is configured so that the {{site.data.keyword.cloudant_short_notm}} service can still function. IAM is used by {{site.data.keyword.cloudant_short_notm}} when authenticating requests to the {{site.data.keyword.cloudant_short_notm}} API that pass IAM credentials and when running [replications](/docs/Cloudant?topic=Cloudant-replication-guide#replication) that are configured to authenticate using IAM API keys. 
+To enable IAM IP address access restrictions, you must ensure that the Cloud Identity and Access Management (IAM) [IP allowlist](/docs/account?topic=account-ips){: external} is configured so that the {{site.data.keyword.cloudant_short_notm}} service can still function. IAM is used by {{site.data.keyword.cloudant_short_notm}} when authenticating requests to the {{site.data.keyword.cloudant_short_notm}} API that pass IAM credentials, and when running [replications](/docs/Cloudant?topic=Cloudant-replication-guide#replication) that are configured to authenticate using IAM API keys.
+
+IAM tokens can be valid for [up to 60 minutes](/docs/account?topic=account-token-limit){: external}. This means that changes to IAM IP allowlisting may not fully take effect until this validation period has expired, as allowlisting is only enforced at token creation time.
+{: note}
 
 ### Creating a Network Zone
 {: #using-iam-allowlisting-create-network-zone}
@@ -578,10 +581,10 @@ To create a network zone, complete the following steps.
 1. Click **Next** to review your network zone.
 1. Click **Create**.
 
-### Referencing the Network Zone in IAM access list
+### Referencing the Network Zone in the IAM IP allowlist
 {: #using-iam-allowlisting-reference-network-zone}
 
-The [Network Zone](/docs/account?topic=account-context-restrictions-create#network-zones-create){: external} created above, called `cloudant-network`, can now be used in your [IAM access list](/docs/account?topic=account-ips){: external}.
+The [Network Zone](/docs/account?topic=account-context-restrictions-create#network-zones-create){: external} created above, called `cloudant-network`, can now be used in your [IAM IP allowlist](/docs/account?topic=account-ips){: external}.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click **Manage** &gt; **Access (IAM)**, and select **Settings**.
 1. From the Account section, enable the **IP address access** setting.
