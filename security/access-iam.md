@@ -558,6 +558,36 @@ if __name__ == "__main__":
 ```
 {: codeblock}
 
+## Using IAM IP Allowlisting with Cloudant
+{: #using-iam-allowlisting}
+
+You can enable IAM IP address access restrictions when you're using {{site.data.keyword.cloudant_short_notm}}.
+
+To enable IAM IP address access restrictions, you must ensure that the Cloud Identity and Access Management (IAM) [access list](/docs/account?topic=account-ips){: external} is configured so that the {{site.data.keyword.cloudant_short_notm}} service can still function. IAM is used by {{site.data.keyword.cloudant_short_notm}} when authenticating requests to the {{site.data.keyword.cloudant_short_notm}} API that pass IAM credentials and when running [replications](/docs/Cloudant?topic=Cloudant-replication-guide#replication) that are configured to authenticate using IAM API keys. 
+
+### Creating a Network Zone
+{: #using-iam-allowlisting-create-network-zone}
+
+To add {{site.data.keyword.cloudant_short_notm}} to your [IAM access list](/docs/account?topic=account-ips){: external}, you must first create a [Network Zone](/docs/account?topic=account-context-restrictions-create#network-zones-create){: external} that includes the {{site.data.keyword.cloudant_short_notm}} service.
+
+To create a network zone, complete the following steps.
+1. In the {{site.data.keyword.cloud_notm}} console, click **Manage** > **Context-based restrictions**, and select **Network zones**.
+1. Click **Create**.
+1. Enter a unique name (e.g. `cloudant-network`) and, optionally, a description.
+1. Under `Reference a service`, select service type `IAM Services` and service `{{site.data.keyword.cloudant_short_notm}}`. Click **Add** to associate the `{{site.data.keyword.cloudant_short_notm}}` IP addresses with your network zone.
+1. Click **Next** to review your network zone.
+1. Click **Create**.
+
+### Referencing the Network Zone in IAM access list
+{: #using-iam-allowlisting-reference-network-zone}
+
+The [Network Zone](/docs/account?topic=account-context-restrictions-create#network-zones-create){: external} created above, called `cloudant-network`, can now be used in your [IAM access list](/docs/account?topic=account-ips){: external}.
+
+1. In the {{site.data.keyword.cloud_notm}} console, click **Manage** &gt; **Access (IAM)**, and select **Settings**.
+1. From the Account section, enable the **IP address access** setting.
+1. In the `Allowed IP addresses` field, add the name of the Network Zone you created above (e.g. `cloudant-network`).
+1. Click **Save**.
+
 ## Roles and actions
 {: #reference-ai}
 
