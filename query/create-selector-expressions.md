@@ -30,10 +30,8 @@ resulting in poor performance. Only equality operators, such as `$eq`,
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently *based* on
 the [Perl Compatible Regular Expression (PCRE) library](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions){: external}.
-However,
-not all of the PCRE library is implemented.
-Additionally,
-some parts of the `$regex` operator go beyond what PCRE offers.
+However, not all of the PCRE library is implemented.
+Additionally, some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
 see the [Erlang Regular Expression](https://www.erlang.org/doc/man/re.html){: external} information.
 
@@ -43,9 +41,7 @@ see the [Erlang Regular Expression](https://www.erlang.org/doc/man/re.html){: ex
 The `sort` field contains a list of field name and direction pairs,
 expressed as a basic array.
 The first field name and direction pair are the topmost-level of sort.
-The second pair,
-if provided,
-is the next level of sort.
+Further pairs, if provided, specify the next level of sort.
 
 The sort field can be any field.
 Use dotted notation if needed for subfields.
@@ -82,25 +78,17 @@ A typical requirement is to search for some content by using a selector,
 then to sort the results according to the specified field,
 in the direction preferred.
 
-To use sorting, ensure that the following are true:
-
--	At least one of the sort fields is included in the selector.
--	An index is already defined,
-	with all the sort fields in the same order.
--	Each object in the sort array has a single key.
-
-If an object in the sort array doesn't have a single key, the resulting sort order is implementation-specific and might change.
+To use sorting, an index containing the sort fields must be defined. 
+If using `json` index, the fields must be specified in the same order as the sort.
 
 Currently, {{site.data.keyword.cloudant_short_notm}} Query doesn't support multiple fields with different sort orders,
 so the direction must either be all ascending or all descending.
 {: tip}
 
-If the direction is ascending,
-you can use a string instead of an object to specify the sort fields.
+If the direction is ascending, you can use a string instead of an object to specify the sort fields.
 
-For field names in text search sorts,
-it's sometimes necessary for a field type to be specified,
-for example:
+For field names in sort queries against a `text` index where the type of the field being sorted cannot be determined, 
+it may be necessary for a field type to be specified. For example:
 
 ```json
 {
@@ -109,14 +97,10 @@ for example:
 ```
 {: codeblock}
 
-If possible,
-an attempt is made to find the field type based on the selector.
-In ambiguous cases,
-the field type must be provided explicitly.
 
 | Which index is used by query?               | Field type requirement |
 |------------------------------------------|-----------------------|
-| JSON index                                | It's not necessary to specify the type of sort fields in the query. |
+| JSON index                                | None |
 | Text index of all fields in all documents | Specify the sort field in the query if the database contains documents where the sort field has one type. Also, specify the sort field in the query if it contains documents where the sort field has a different type. |
 | Any other text index                      | Specify the type of all sort fields in the query. |
 {: caption="Table 1. When to specify the field type" caption-side="top"}
