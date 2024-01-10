@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-12-13"
+  years: 2015, 2024
+lastupdated: "2024-1-10"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -20,17 +20,20 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-## December 2023
-{: #cloudant-dec23}
+## January 2024
+{: #cloudant-jan24}
 
-### 13 December 2023
-{: #Cloudant-dec1323}
+### 10 January 2024
+{: #Cloudant-jan1024}
 {: release-note}
 
-The following changes were made in build 8464:
+The following changes were made in build 8469:
 
 Runtime environment
-:   Upgrade to Erlang/OTP-25.3.2.7 patched with `rickard/frag-unaliased-leak/25/OTP-18885`.
+:   Upgrade to Erlang/OTP-25.3.2.8.
+
+## December 2023
+{: #cloudant-dec23}
 
 ### 04 December 2023
 {: #Cloudant-dec0423}
