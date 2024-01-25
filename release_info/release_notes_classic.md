@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-1-10"
+lastupdated: "2024-2-9"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -19,6 +19,29 @@ content-type: release-note
 
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## February 2024
+{: #cloudant-feb24}
+
+### 12 February 2024
+{: #Cloudant-feb1224}
+{: release-note}
+
+The following changes were made in build 8472:
+
+`couch_index` server
+:   Improve stability of the index server.
+
+Mango
+:   Improve consistency of global stats collection.
+
+Replication
+:   Optimize replication document changes.
+
+:   Prevent replication jobs from conflicting.
+
+Runtime environment
+:   Downgrade runtime environment to Erlang/OTP 24.
 
 ## January 2024
 {: #cloudant-jan24}
