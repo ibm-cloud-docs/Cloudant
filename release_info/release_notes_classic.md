@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-2-9"
+lastupdated: "2024-2-20"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -29,16 +29,13 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 
 The following changes were made in build 8472:
 
-`couch_index` server
-:   Improve stability of the index server.
-
-Mango
-:   Improve consistency of global stats collection.
+Indexes
+:   In rare cases, background index updates for specific indexes would fail until a database node was restarted. After a node restart, the node would immediately start updating these indexes. If this generated a lot of indexing activity, customer requests involving this node would see degraded performance during that activity. This release fixes the issue with background indexing failures. For more information, see [Cloudant Query](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query).
 
 Replication
-:   Optimize replication document changes.
+:   Improve performance when updating replication documents.
 
-:   Prevent replication jobs from conflicting.
+:   Fix replication delays caused by conflicting jobs during internal data optimization. For more information, see [Replication](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide).
 
 Runtime environment
 :   Downgrade runtime environment to Erlang/OTP 24.
