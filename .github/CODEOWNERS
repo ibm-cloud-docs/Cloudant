@@ -1,6 +1,6 @@
 # by default all changes would require review from
-*   @lbboe @tonysun @jdoane @dburroughs @nvatama @rmccammon
+*   @jdoane @dburroughs @nvatama @rmccammon @Gabor-Pali
 
 # require review from @iilyak for build related changes
 .build_tools/   @iilyak
-.travis.yml     @iilayk
+.travis.yml     @iilyak
