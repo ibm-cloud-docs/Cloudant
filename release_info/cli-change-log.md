@@ -2,7 +2,7 @@
 
 copyright:
   years:  2022, 2024
-lastupdated: "2024-01-08"
+lastupdated: "2024-02-27"
 keywords: change log for IBM Cloudant, updates to IBM Cloudant
 
 subcollection: Cloudant
@@ -16,8 +16,22 @@ subcollection: Cloudant
 
 In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.cloudantfull}} CLI. 
 
+## Version 0.2.0
+{: #cli-020}
+
+Version `0.2.0` of CLI was released on 27 February 2024.
+
+- Adds support for private endpoints.
+- Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.7.3`.
+- Updates dependencies.
+
 ## Version 0.1.4
 {: #cli-014}
+
+This version of the CLI plug-in is deprecated; upgrade to the latest release.
+{: deprecated}
+
+Version `0.1.4` of the plug-in was released on 09 January 2024.
 
 - Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.7.2`.
 - Updates dependencies.
@@ -27,6 +41,8 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 This version of the CLI plug-in is deprecated; upgrade to the latest release.
 {: deprecated}
+
+Version `0.1.3` of the plug-in was released on 05 December 2023.
 
 - Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.7.1`.
 - Updates dependencies.
@@ -38,6 +54,8 @@ This version of the CLI plug-in is deprecated; upgrade to the latest release.
 This version of the CLI plug-in is deprecated; upgrade to the latest release.
 {: deprecated}
 
+Version `0.1.2` of the plug-in was released on 16 October 2023.
+
 - Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.6.0`.
 - Updates dependencies.
 
@@ -46,6 +64,8 @@ This version of the CLI plug-in is deprecated; upgrade to the latest release.
 
 This version of the CLI plug-in is deprecated; upgrade to the latest release.
 {: deprecated}
+
+Version `0.1.1` of the plug-in was released on 06 September 2023.
 
 - Uses minimal Go version: `1.20`.
 - Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.5.0`.
@@ -57,7 +77,7 @@ This version of the CLI plug-in is deprecated; upgrade to the latest release.
 This version of the CLI plug-in is deprecated; upgrade to the latest release.
 {: deprecated}
 
-Version `0.1.0` of CLI was released on 01 Aug 2023.
+Version `0.1.0` of CLI was released on 01 August 2023.
 
 - Uses {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.4.4`.
 - Updates dependencies.
