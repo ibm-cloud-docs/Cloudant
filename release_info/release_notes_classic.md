@@ -30,7 +30,7 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 The following changes were made in build 8490:
 
 Runtime environment
-:   Upgrade to latest Erlang/OTP 25 release patched with circular off-heap list fixes.
+:   Upgrade runtime environment back to Erlang/OTP 25 after addressing the related production issues.
 
 ## February 2024
 {: #cloudant-feb24}
