@@ -32,6 +32,13 @@ The following changes were made in build 8495:
 Optimization
 :   Added compatibility for OTP 25 and improved performance.
 
+### 8 March 2024
+{: #Cloudant-mar0824}
+{: release-note}
+
+List of {{site.data.keyword.cloudant_short_notm}} instances hosted on a dedicated environment
+:   The {{site.data.keyword.cloud_notm}} Console GUI for {{site.data.keyword.cloudant_short_notm}} instances on dedicated hardware plan now shows the list of instances hosted on the dedicated environment.
+
 ### 6 March 2024
 {: #Cloudant-mar0624}
 {: release-note}
