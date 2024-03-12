@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-3-6"
+lastupdated: "2024-3-25"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -22,6 +22,15 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 
 ## March 2024
 {: #cloudant-mar24}
+
+### 25 March 2024
+{: #Cloudant-mar2524}
+{: release-note}
+
+The following changes were made in build 8495:
+
+Optimization
+:   Added compatibility for OTP 25 and improved performance.
 
 ### 6 March 2024
 {: #Cloudant-mar0624}
