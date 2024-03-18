@@ -32,6 +32,11 @@ The following changes were made in build 8495:
 Optimization
 :   Added compatibility for OTP 25 and improved performance.
 
+### 20 March 2024
+{: #Cloudant-mar2024}
+
+Several updates were made to [Service Changes & Deprecations](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-deprecations-for-ibm-cloudant) - removing TXE notification; adding previously announced deprecation of `_show`, `_list`, `_update`, `_rewrite` functions; removing `_find` API accounting notice.
+
 ### 8 March 2024
 {: #Cloudant-mar0824}
 {: release-note}
