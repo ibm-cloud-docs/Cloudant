@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-08-30"
+  years: 2024
+lastupdated: "2024-03-20"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -16,6 +16,27 @@ subcollection: Cloudant
 {: #deprecations-for-ibm-cloudant}
 
 You can see the deprecations for {{site.data.keyword.cloudantfull}} here.
+
+## {{site.data.keyword.cloudant_short_notm}} Deprecation of `_show`, `_list`, `_update`, `_rewrite` functions
+{: #cloudant-nosql-db-show-list-update-rewrite-function-dep}
+
+### Details
+{: #cloudant-nosql-db-db-show-list-update-rewrite-function-dep-details}
+
+Notice that the following Cloudant features are deprecated:
+
+* show functions - used to modify the format of the response when requesting a single document from the database.
+* list functions - similar to show functions, but applied to the output of MapReduce views.
+* rewrite functions - used to embody routing logic in CouchApps.
+* update functions - used to carry out business logic within the database e.g. adding a timestamp to all document writes.
+
+These four features are already deprecated in Apache CouchDB and scheduled to be removed from the code in Apache CouchDB 4.0. None of these features are modelled in our Cloudant SDKs.
+
+Although these features are deprecated, they will not be removed from the service yet. {:important}
+
+We may completely remove the features in the future, but will leave them operable for the time being to give customers time to modify their applications. As deprecated features, they will not appear in our documentation, their use is not recommended and they will not be supported by our Support team.
+
+Alternatives to these functions can be found on the Cloudant blog [here](https://blog.cloudant.com/2022/08/16/Show-list-rewrite-udpate-functions-deprecated.html){: external}.
 
 ## {{site.data.keyword.cloudant_short_notm}} Remove replicator endpoint proxy support
 {: #cloudant-nosql-db-replicator-proxy-dep}
@@ -91,17 +112,6 @@ As of 1 February 2023, the following conditions apply:
 
 Many simple geospatial queries can be done without using the Geospatial capability that was removed from the {{site.data.keyword.cloudant_short_notm}} service. These alternatives are described in this [{{site.data.keyword.cloudant_short_notm}} blog post](https://blog.cloudant.com/2022/06/28/Simple-Geospatial-Queries.html){: external}.
 
-## Transaction Engine notice
-{: #transaction-engine-notice-dep}
-
-The {{site.data.keyword.cloudant_short_notm}} on Transaction Engine service ends on 1 February 2023. You can no longer create new instances of {{site.data.keyword.cloudant_short_notm}} on Transaction Engine. On 1 February 2023, all instances of {{site.data.keyword.cloudant_short_notm}} on Transaction Engine will be permanently disabled and deprovisioned. Users of existing instances need to migrate from the service before the end of service date. You can find guidance on migrating from {{site.data.keyword.cloudant_short_notm}} on Transaction Engine to {{site.data.keyword.cloudant_short_notm}} Standard here: [Migrating from TXE](https://blog.cloudant.com/2022/01/14/Migrating-from-Cloudant-TXE-to-Standard){: external}.
-{: deprecated}
-
-### What is Transaction Engine?
-{: #what-is-txe-dep}
-
-{{site.data.keyword.cloudant_short_notm}} has an architecture option, which is underpinned by a Transaction Engine. This architecture aims to provide the best of both nonrelational and relational data stores combining scale, fault tolerance, consistency, security, and speed at optimal cost. The Transaction Engine architecture is compared to the "Classic" architecture for clarity in the documentation. Instances that are provisioned with the `Standard on Transaction Engine` plan are deployed by using this architecture, while instances on the `Lite` and `Standard` plan are deployed on the "Classic" architecture.
-
 ## {{site.data.keyword.cloudant_short_notm}} dbcopy feature removal
 {: #dbcopy-feature-removal-dep}
 
@@ -162,7 +172,7 @@ The dbcopy key was removed, so this view becomes a normal MapReduce view that yo
 
 If you are concerned about the removal of the dbcopy feature, you can open a support ticket and ask to consult with our Client Architecture team.
 
-## {{site.data.keyword.cloudant_short_notm}} replications no longer support HTTP
+## {{site.data.keyword.cloudant_short_notm}} Replications no longer support HTTP
 {: #replications-no-longer-support-http}
 
 As of 1 October 2023, the replicator for {{site.data.keyword.cloudant_short_notm}} no longer supports the HTTP protocol – it supports only the HTTPS protocol to ensure that customer data is always encrypted in flight.
@@ -215,11 +225,3 @@ If a self-hosted CouchDB service supports HTTPS, then change the replication def
 If a self-hosted CouchDB service does _not* support HTTPS, CouchDB can mediate replication jobs instead of {{site.data.keyword.cloudant_short_notm}}. For example, stop the replication job that runs on the {{site.data.keyword.cloudant_short_notm}} side and set up a replication job on a self-hosted Apache CouchDB service to "pull" the data from {{site.data.keyword.cloudant_short_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} supports only `https://` traffic, so if {{site.data.keyword.cloudant_short_notm}} is to be the `source` or `target` in a self-hosted replication definition, it must be configured with an `https://` prefix.
-
-## {{site.data.keyword.cloudant_short_notm}} Correction to Provisioned Throughput accounting for partioned `_find` API notice
-{: #find-api-change}
-
-An accounting error exists in {{site.data.keyword.cloudant_short_notm}} that results in undercounting of the operations that are associated with this API against the [provisioned throughput](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) capacity of an {{site.data.keyword.cloudant_short_notm}} instance. You can find the correct accounting in the {{site.data.keyword.cloudant_short_notm}} API documentation under [Query a list of all documents in a database partition](/apidocs/cloudant#getpartitionalldocs-partitioned-databases). Until now, this accounting operation was not implemented correctly.
-
-Effective 1 October 2023, this accounting error is corrected. Customers performing `_find` queries that filter through large numbers of documents might need to increase the provisioned throughput capacity for their {{site.data.keyword.cloudant_short_notm}} instances. Otherwise, immediately after this correction deploys on 1 October 2023, {{site.data.keyword.cloudant_short_notm}} returns 429 errors for read operations.
-{: important}
