@@ -26,7 +26,7 @@ Users of {{site.data.keyword.cloudant_short_notm}} can use {{site.data.keyword.a
 ## {{site.data.keyword.cloudant_short_notm}} not in {{site.data.keyword.cloud_notm}}
 {: #audit-logs-not-ibm-cloud}
 
-Users of {{site.data.keyword.cloudant_short_notm}} outside of {{site.data.keyword.cloud_notm}}, such as users of {{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters, can contact support to request audit logs as described in the following section. Any user who requires frequent access to audit logs must migrate to {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}}.
+Users of {{site.data.keyword.cloudant_short_notm}} outside of {{site.data.keyword.cloud_notm}}, such as users of {{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters, can contact support to request audit logs for exceptional purposes. The process is described in the following section. Any user who requires frequent access to audit logs for purposes such as compliance audits must migrate to {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}}.
 
 ### How to access audit logs for your account
 {: #how-to-access-audit-logs-for-your-account}
