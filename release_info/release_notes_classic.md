@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-3-25"
+lastupdated: "2024-4-26"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -19,6 +19,27 @@ content-type: release-note
 
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## April 2024
+{: #cloudant-apr24}
+
+### 26 April 2024
+{: #Cloudant-apr2624}
+{: release-note}
+
+The following changes were made in build 8510:
+
+IAM auth
+:   Align with the latest Cloud Resource Name (CRN) authentication requirements. Prior to this change, database names shorter than 4 characters or containing some non-alpha-numeric characters were incorrectly prohibited from working with IAM auth.
+
+Mango
+:   Fix a race condition that resulted in some query response execution stats incorrectly reporting zero for `total_keys_examined`. See https://github.com/apache/couchdb/issues/4560 for more details.
+
+Replicator
+:   Fix case clause error in replicator response. For more information, see [Advanced replication](/docs/Cloudant?topic=Cloudant-advanced-replication). 
+
+Runtime environment
+:   Upgrade to the latest [Erlang/OTP 25.3.2.11](https://github.com/erlang/otp/releases/tag/OTP-25.3.2.11) release.
 
 ## March 2024
 {: #cloudant-mar24}
