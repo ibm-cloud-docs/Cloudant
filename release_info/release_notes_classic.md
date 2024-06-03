@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-6-5"
+lastupdated: "2024-6-10"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -22,6 +22,18 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 
 ## June 2024
 {: #cloudant-jun24}
+
+### 10 June 2024
+{: #Cloudant-jun1024}
+{: release-note}
+
+The following changes were made in build 8513:
+
+IAM auth
+:   JSON web tokens (JWT) added the `exp` claim to ensure that user tokens are considered invalid once they expire.
+
+Replicator
+:   Fix replicator session plugin to consider only `Set-Cookie` headers with `AuthSession` set and ignore others.
 
 ### 5 June 2024
 {: #Cloudant-jun0524}
