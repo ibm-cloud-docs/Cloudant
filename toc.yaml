@@ -10,7 +10,6 @@ toc:
     product-page: https://www.ibm.com/cloud/cloudant
     path: Cloudant
     label: Cloudant
-
   entries:
   - navgroup:
       id: learn
@@ -33,7 +32,6 @@ toc:
       - transaction-engine/overview-te.md
       - service-change-notices/deprecations.md
       - release_info/release_notes_classic.md
-
   - navgroup:
       id: tutorial
       topics:
@@ -49,7 +47,6 @@ toc:
       - tutorials/create_query.md
       - tutorials/create_backup.md
       - tutorials/locate-db2-warehouse-credentials.md
-
   - navgroup:
       id: howto
       topics:
@@ -147,7 +144,6 @@ toc:
           - security/manage-scc.md
           - security/secure-data.md
           - security/audit-events.md
-
   - navgroup:
       id: reference
       topics:
@@ -209,7 +205,6 @@ toc:
       - link:
           label: Terraform reference docs
           href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant
-
   - navgroup:
       id: help
       topics:
