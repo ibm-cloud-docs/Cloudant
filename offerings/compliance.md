@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2023
 lastupdated: "2023-09-11"
 
-keywords: tier-1 physical system, hipaa, iso, pci dss, soc 2 type 2 certification, gdpr
+keywords: tier-1 physical system, hipaa, iso, pci dss, soc 2 type 2 certification, gdpr, soc 1 type 2 certification, soc 3 certification
 
 subcollection: Cloudant
 
@@ -24,7 +24,7 @@ including ISO 27001:2013.
 {: #tier-1-physical-systems}
 
 {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
-on Tier-1 cloud infrastructure providers such as {{site.data.keyword.cloud}} and Amazon.
+on Tier-1 cloud infrastructure providers such as {{site.data.keyword.cloud}}.
 Therefore,
 your data is protected by the network and physical security measures that are employed by these providers.
 
@@ -72,16 +72,15 @@ Customers are responsible for the storing, processing, and transmission of their
 
 A full list of PCI DSS-ready {{site.data.keyword.cloud_notm}} Platform services and options to request that a PCI DSS AOC and SRM guide can be found at the [{{site.data.keyword.cloud_notm}} compliance page](https://www.ibm.com/cloud/compliance#Industry%20programs){: external}.
 
-## SOC 2 Type 2 Certification
-{: #soc-2-type-2-certification}
+## SOC 1 Type 2, SOC 2 Type 2, and SOC 3 Certification
+{: #soc_type}
 
-{{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 2 report 
+{{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) report 
 for {{site.data.keyword.cloudant_short_notm}}. The reports evaluate IBM's operational controls according to the criteria set 
 by the American Institute of Certified Public Accountants (AICPA) Trust Services Principles. 
 The Trust Services Principles define adequate control systems and establish industry standards 
 for service providers such as {{site.data.keyword.cloud_notm}} to safeguard their customers' data and information.
 
-You can request an SOC 2 Type 2 report from the Customer portal 
+You can request an SOC report from the Customer portal 
 or contact your sales representative. Alternatively, you can open 
 a support ticket with [{{site.data.keyword.cloud_notm}} Support](https://www.ibm.com/cloud/support).
-
