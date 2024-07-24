@@ -28,7 +28,7 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 The following changes are planned for the next release:
 
 Welcome message
-:   The CouchDB version in the welcome message will be updated from `major.minor.patch` to `major.minor.patch+cloudant`, eg: `3.3.3+cloudant`. Cloudant applies its own customizations, extensions, and security fixes atop upstream CouchDB, therefore the CouchDB version number could be considered only a reference for compatibility. To make this distinction clear, the `+cloudant` suffix was introduced.
+:   The CouchDB version in the welcome message will be updated from *major*`.`*minor*`.`*patch* to *major*`.`*minor*`.`*patch*`+cloudant`, eg: `3.3.3+cloudant`. Cloudant applies its own customizations, extensions, and security fixes atop upstream CouchDB, therefore the CouchDB version number could be considered only a reference for compatibility. To make this distinction clear, the `+cloudant` suffix was introduced.
 
 ## June 2024
 {: #cloudant-jun24}
