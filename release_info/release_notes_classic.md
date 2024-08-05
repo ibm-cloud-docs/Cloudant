@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-7-9"
+lastupdated: "2024-8-5"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -20,15 +20,32 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-## July 2024
-{: #cloudant-jul24}
+## August 2024
+{: #cloudant-aug24}
 
-### Upcoming changes
+### 2 August 2024
+{: #Cloudant-aug0224}
+{: release-note}
 
-The following changes are planned for the next release:
+The following changes were made in build 8520:
+
+`_scheduler` endpoint
+:   Return a `400 Bad Request` response for `_scheduler/docs/{path}` in case of an invalid path, instead of `500 function_clause`.
+
+`_search_analyze` endpoint
+:   Authentication is required to access the `_search_analyze` endpoint.
+
+`COPY` request
+:   Prevent creation of new documents if `Destination` header begins with `_` using the COPY method.
+
+Replication
+:   Improve robustness of replication during rebalancing.
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 25 release.
 
 Welcome message
-:   The CouchDB version in the welcome message will be updated from *major*`.`*minor*`.`*patch* to *major*`.`*minor*`.`*patch*`+cloudant`, eg: `3.3.3+cloudant`. Cloudant applies its own customizations, extensions, and security fixes atop upstream CouchDB, therefore the CouchDB version number could be considered only a reference for compatibility. To make this distinction clear, the `+cloudant` suffix was introduced.
+:   The CouchDB version in the welcome message was updated from *major*`.`*minor*`.`*patch* to *major*`.`*minor*`.`*patch*`+cloudant`, eg: `3.3.3+cloudant`. Cloudant applies its own customizations, extensions, and security fixes atop upstream CouchDB, therefore the CouchDB version number could be considered only a reference for compatibility. To make this distinction clear, the `+cloudant` suffix was introduced.
 
 ## June 2024
 {: #cloudant-jun24}
