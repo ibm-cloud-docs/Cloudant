@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-8-5"
+lastupdated: "2024-8-7"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -23,11 +23,11 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 ## August 2024
 {: #cloudant-aug24}
 
-### 2 August 2024
-{: #Cloudant-aug0224}
+### 7 August 2024
+{: #Cloudant-aug0724}
 {: release-note}
 
-The following changes were made in build 8520:
+The following changes were made in build 8521:
 
 `_scheduler` endpoint
 :   Return a `400 Bad Request` response for `_scheduler/docs/{path}` in case of an invalid path, instead of `500 function_clause`.
@@ -45,7 +45,7 @@ Runtime environment
 :   Upgrade to the latest Erlang/OTP 25 release.
 
 Welcome message
-:   The CouchDB version in the welcome message was updated from *major*`.`*minor*`.`*patch* to *major*`.`*minor*`.`*patch*`+cloudant`, eg: `3.3.3+cloudant`. Cloudant applies its own customizations, extensions, and security fixes atop upstream CouchDB, therefore the CouchDB version number could be considered only a reference for compatibility. To make this distinction clear, the `+cloudant` suffix was introduced.
+:   The CouchDB version in the welcome message was updated from "*major*`.`*minor*`.`*patch*" to "*major*`.`*minor*`.`*patch*`+cloudant`", eg: `3.3.3+cloudant`. Cloudant applies its own customizations, extensions, and security fixes atop upstream CouchDB, therefore the CouchDB version number could be considered only a reference for compatibility. To make this distinction clear, the `+cloudant` suffix was introduced.
 
 ## June 2024
 {: #cloudant-jun24}
