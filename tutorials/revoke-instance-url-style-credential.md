@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-03-30"
+  years: 2022, 2024
+lastupdated: "2024-09-11"
 
 keywords: legacy credentials, revoke credential, instance url style credential, authentication, security, credential rotation
 
@@ -28,9 +28,6 @@ In {{site.data.keyword.cloud}}, you create a new service credential by using the
 {{site.data.keyword.cloudantfull}} legacy credentials. As expected, deleting the service credential effectively revokes access for any
 applications that use those credentials.
 {: shortdesc}
-
-Revoking a credential that is tied to your instance only works if the instance is in a resource group. This tutorial is not for instances in Cloud Foundry. If you want to revoke a credential that is tied to your instance, you must first migrate the instance to a resource group. For more information, see [Migrating Cloud Foundry service instances and apps to a resource group](/docs/account?topic=account-migrate) or [Resource Groups FAQ](/docs/Cloudant?topic=Cloudant-faq-ibm-cloud-resource-groups).
-{: attention}
 
 Service credentials were not always handled like this though. Before 15 January 2021, creating a new service credential would always
 produce the same {{site.data.keyword.cloudant_short_notm}} legacy credential username and password combination.
