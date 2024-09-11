@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-8-7"
+lastupdated: "2024-9-9"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -19,6 +19,18 @@ content-type: release-note
 
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## September 2024
+{: #cloudant-sep24}
+
+### 5 September 2024
+{: #Cloudant-sep0524}
+{: release-note}
+
+The following changes were made in build 8524:
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 26 release.
 
 ## August 2024
 {: #cloudant-aug24}
@@ -1886,4 +1898,3 @@ Eliminate error
 
 New! Introducing {{site.data.keyword.cloudant_short_notm}} Classic
 :   {{site.data.keyword.cloudantfull}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. It is built with scalability, high availability, and durability in mind.
-
