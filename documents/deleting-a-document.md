@@ -141,3 +141,11 @@ See an example response after a successful deletion request.
 }
 ```
 {: codeblock}
+
+After a document has been deleted, you might find that it is still there but has a different [revision](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#revisions).
+That happens when you delete a document that has live [conflicts](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-conflicts).
+
+When a document has live conflicts, that means it has more than one live revision. 
+When a document has more than one live revision one of the live revisions is the winning revision.
+When the winning revision of a document with live conflicts is deleted, another of the live revisions becomes the winning revision.
+When the new winning revision is deleted, if there are any more live revisions of the document one of the remaining live revisions becomes the new winning revision. And so on until all the live revisions of the document have been deleted.
