@@ -38,7 +38,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-See the following example that uses HTTP to create a nonpartitioned database:
+See the following example that uses HTTP to create a non-partitioned database:
 
 ```http
 PUT /$DATABASE?partitioned=false HTTP/1.1
@@ -138,10 +138,10 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
-## Example - Creating a nonpartitioned database
+## Example - Creating a non-partitioned database
 {: #example-creating-a-non-partitioned-db}
 
-To create a nonpartitioned database, see the following example:
+To create a non-partitioned database, see the following example:
 
 ```sh
 curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/products"
