@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-9-9"
+lastupdated: "2024-9-19"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -22,6 +22,18 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 
 ## September 2024
 {: #cloudant-sep24}
+
+### 19 September 2024
+{: #Cloudant-sep1924}
+{: release-note}
+
+The following changes were made in build 8534:
+
+Auth
+:   Prepare for migration to a more secure password hashing scheme.
+
+Runtime environment
+:   Downgrade runtime environment to Erlang/OTP 25.
 
 ### 5 September 2024
 {: #Cloudant-sep0524}
