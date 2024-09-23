@@ -2,7 +2,7 @@
 
 copyright:
   years:  2022, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-09-23"
 keywords: change log for IBM Cloudant, updates to IBM Cloudant
 
 subcollection: Cloudant
@@ -16,17 +16,30 @@ subcollection: Cloudant
 
 In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.cloudantfull}} CLI. 
 
+## Version 0.2.3
+{: #cli-023}
+
+Version `0.2.3` of CLI was released on 23 September 2024.
+
+- Updated to Go version: `1.23.1`.
+- Upgraded to {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.9.0`.
+- Improved table printing.
+- Updated dependencies.
+- Updated documentation.
+
 ## Version 0.2.2
 {: #cli-022}
 
-Version `0.2.2` of CLI was released on 11 Jul 2024.
+This is a deprecated version upgrade to the latest release.
+{: deprecated}
+
+Version `0.2.2` of CLI was released on 11 July 2024.
 
 - Upgraded to {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.8.0`.
 - Improved error message for missing authentication details.
 - Changed the default service URL to make it more clear when the plug-in is not configured.
 - Updated dependencies.
 - Updated the plug-in metadata.
-
 
 ## Version 0.2.1
 {: #cli-021}
@@ -195,6 +208,3 @@ This is a deprecated version upgrade to the latest release.
 Version `0.0.3` of the CLI was released on 12 May 2021.
 
 Released {{site.data.keyword.cloudant_short_notm}} CLI plug-in for managing throughput capacity, Activity Tracker events, and retrieving data usage.
-
-
-
