@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-04-20"
+  years: 2017, 2024
+lastupdated: "2024-09-23"
 
-keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
+keywords: delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
 subcollection: Cloudant
 
@@ -24,18 +24,19 @@ completion-time: 15m
 {: toc-completion-time="15m"}
 
 This tutorial shows you how to use the [Python programming language](https://www.python.org/){: external} to
-create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance. You also learn how to populate the database with a simple collection of data.
+create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance.
+You also learn how to populate the database with a simple collection of data.
 {: shortdesc}
 
 This tutorial doesn't use the most efficient Python code. The intent is to show simple and easy-to-understand working code
 that you can learn from and apply to your own applications. You must apply normal best practices for checking and handling all
-warning or error conditions that are encountered by your own applications.
+warning or error conditions in your own applications.
 {: note}
 
 ## Objectives
 {: #objectives-db}
 
-This tutorial builds on a series of Python language instructions,
+This tutorial provides a series of Python language instructions,
 suitable for the following tasks:
 
 1.  Connecting to an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud}}.
@@ -43,112 +44,166 @@ suitable for the following tasks:
 3.  Storing a small collection of data as documents within the database.
 4.  Retrieving data.
 5.  Deleting the database.
-6.  Closing the connection to the service instance.
 
 ## Before you begin
 {: #before-you-begin}
 
-This tutorial provides you with the following options:
-
-- Follow each step as outlined in this tutorial.
-- Or [execute the Python script](#execute-the-complete-python-script), and come back to [Step 5. Retrieving data](#retrieving-data).
-
-## Installing Python
-{: #installing-python}
-
-Normally, you don't run commands individually in Python. You usually
-create a script, which is a list of the commands you want to run,
-stored in a Python file, with a `py` extension.
-{: tip}
+### Prepare an {{site.data.keyword.cloudant_short_notm}} service instance
+{: #prepare-service-instance}
 
 1. Set up service credential requirements.
 
-   a. Create a service instance and credentials by following the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
+    a. Create a service instance and credentials by following the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.
 
-   b. [Locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials) by following this tutorial.
+    b. Obtain your credentials by following the [Locate your service credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials) tutorial.
 
-2. Install the required version of Python.
+    The tutorial uses the IAM credentials type for authentication.
+    {: tip}
 
-   You must have a current version of the [Python programming language](https://www.python.org/){: external} that is installed on your system.
-   [: note]
+### Install Python and prepare the environment
+{: #installing-python}
 
-   a. Check that Python is installed by running the following command at a prompt:
+1. Install the required version of Python.
 
-   ```sh
-   python3 --version
-   ```
-   {: pre}
+    You must have a current version of the [Python programming language](https://www.python.org/){: external} installed on your system.
+    {: note}
 
-   b. Verify that you get a result similar to the following example:
+    a. Run the following command at a prompt to check that Python is installed:
 
-   ```sh
-   Python 3.8.1
-   ```
-   {: codeblock}
+    ```sh
+    python3 --version
+    ```
+    {: pre}
 
-3. Verify that your Python Client Library meets the requirement. 
+    b. Verify that you get a result similar to the following example:
 
-   The following examples use the deprecated `python-cloudant` client library.
-   {: deprecated}
+    ```sh
+    Python 3.12.5
+    ```
+    {: screen}
 
-   a. Check that the client library installed successfully by running the following command at a prompt:
+2. Create and activate a virtual environment
 
-   ```sh
-   pip freeze
-   ```
-   {: pre}
+    a. Create the virtual environment:
 
-   You get a list of all the Python modules installed on your system.
+    ```sh
+    python3 -m venv cloudantdemo
+    ```
+    {: pre}
 
-   b. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following example:
+    This creates a sub-directory called `cloudantdemo` in the present working directory.
+    You can choose another path.
+    {: tip}
 
-   ```sh
-   cloudant==2.14.0
-   ```
-   {: codeblock}
+    b. Activate the virtual environment:
+
+    ```sh
+    source cloudantdemo/bin/activate
+    ```
+    {: pre}
+
+    For more information about Python virtual environments and instructions for alternative
+    operating systems see the Python standard library [venv documentation](https://docs.python.org/3/library/venv.html){: external}.
+    {: tip}
+
+3. Install the {{site.data.keyword.cloudant_short_notm}} SDK for Python
+
+    ```sh
+    pip install ibmcloudant
+    ```
+    {: pre}
+
+4. Verify the {{site.data.keyword.cloudant_short_notm}} SDK for Python installation. 
+
+    a. Check that the client library installed successfully by running the following command at a prompt:
+
+    ```sh
+    pip show ibmcloudant
+    ```
+    {: pre}
+
+    You get output with information about the `ibmcloudant` package.
+
+    b. Inspect the output, which should start with lines similar to the following example:
+
+    ```text
+    Name: ibmcloudant
+    Version: 0.9.1
+    ```
+    {: screen}
+
+5. Start the interactive Python interpreter
+
+    a. Run the `python` command in the virtual environment to launch the interpreter
+    ```sh
+    python
+    ```
+    {: pre}
+
+    b. Verify that you get output similar to the following example:
+    ```text
+    Python 3.12.5
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> 
+    ```
+    {: screen}
+
+    Normally, you don't run commands individually in Python. You usually
+    create a script, which is a list of the commands you want to run,
+    stored in a Python file, with a `.py` extension.
+    {: tip}
 
 ## Connecting to a service instance
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 {: step}
 
-You must connect to your service instance before you create a database.
-
-The following components are identified as normal `import` statements.
-
-You can follow steps 1 - 5 to learn about the individual commands, or go to the end of the tutorial to [execute the Python script](#execute-the-complete-python-script). When you finish, return to [Step 5. Retrieving data](#retrieving-data). 
-
-1. Run these `import` statements to connect to the service instance.
-
-   ```python
-   from cloudant.client import Cloudant
-   from cloudant.error import CloudantException
-   from cloudant.result import Result, ResultByKey
-   ```
-   {: codeblock}
-
-2. Find `username`, `password`, and `URL` in your Classic service credentials and replace `serviceUsername`, `servicePassword`, and `serviceURL` in the following example.
+1. Run these `import` statements to load the necessary SDK classes.
 
     ```python
-    serviceUsername = "apikey-v2-58B528DF5397465BB6673E1B79482A8C"
-    servicePassword = "49c0c343d225623956157d94b25d574586f26d1211e8e589646b4713d5de4801"
-    serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
+    from ibmcloudant.cloudant_v1 import CloudantV1
+    from ibm_cloud_sdk_core import ApiException
+    from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
     ```
     {: codeblock}
 
-3. Establish a connection to the service instance.
+2. Find `host` and `apikey` in your service credentials and replace the values in `service_host` and `service_api_key` in the following example.
 
     ```python
-    client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
-    client.connect()
+    service_host = '{host}'
+    service_api_key = '{apikey}'
     ```
     {: codeblock}
 
-4. Or replace `ACCOUNT_NAME` and `API_KEY` with the values from your IAM API service credentials.
+    Don't store your credentials in source code files.
+    For real applications consider configuring your client from the environment.
+    {: tip}
 
-    ```json
-    client = Cloudant.iam(ACCOUNT_NAME, API_KEY, connect=True)
+3. Create a client configured with the service instance details.
+
+    ```python
+    client = CloudantV1(IAMAuthenticator(service_api_key))
+    client.set_service_url(f'https://{service_host}')
     ```
     {: codeblock}
+
+    Here `https://` is prefixed to the host to make the service URL.
+    Alternatively use the `url` from the service credentials, but if your instance is not IAM only
+    be sure to remove the user information after the protocol and before the hostname.
+    {: tip}
+
+4. Get the server information with the [`get_server_information` API](/apidocs/cloudant?code=python#getserverinformation) to validate the connection.
+
+    ```python
+    client.get_server_information().get_result()
+    ```
+    {: codeblock}
+
+    Validate the output is similar to the following example:
+
+    ```python
+    {'couchdb': 'Welcome', 'version': '3.3.3+cloudant', 'vendor': {'name': 'IBM Cloudant', 'version': '8521', 'variant': 'paas'}, 'features': ['search', 'access-ready', 'iam', 'partitioned', 'pluggable-storage-engines', 'scheduler'], 'features_flags': ['partitioned']}
+    ```
+    {: screen}
 
 Now, your Python application can access the service instance on {{site.data.keyword.cloud_notm}}.
 
@@ -159,350 +214,213 @@ Now, your Python application can access the service instance on {{site.data.keyw
 Next, you create a database within the service instance,
 called `databasedemo`.
 
-1. Create this instance by defining a variable in the Python application.
+1. Define the database name with a variable in the Python application.
 
     ```python
-    databaseName = "databasedemo"
+    database_name = 'databasedemo'
     ```
     {: codeblock}
 
-2. Create the database.
+2. Create the database using the [`put_database` API](/apidocs/cloudant?code=python#putdatabase).
 
     ```python
-    myDatabaseDemo = client.create_database(databaseName)
+    client.put_database(db=database_name).get_result()
     ```
     {: codeblock}
 
-3. Verify that the database was created successfully.
-
+    Validate the database was created successfully with output:
     ```python
-    if myDatabaseDemo.exists():
-        print("'{0}' successfully created.\n".format(databaseName))
+    {'ok': True}
     ```
-    {: codeblock}
+    {: screen}
 
 ## Storing a small collection of data as documents within the database
 {: #storing-a-small-collection-of-data-as-documents-within-the-database}
 {: step}
 
 You want to store a small,
-simple collection of data in the database. This data is used in other tutorials, like [Using {{site.data.keyword.cloudant_short_notm}} Query to find data](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query).
+simple collection of data in the database. Use these data in other tutorials, like [Using {{site.data.keyword.cloudant_short_notm}} Query to find data](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query).
 
 1. Create sample data.
 
     ```python
-    sampleData = [
-         [1, "one", "boiling", 100],
-         [2, "two", "hot", 40],
-         [3, "three", "hot", 75],
-         [4, "four", "hot", 97],
-         [5, "five", "warm", 20],
-         [6, "six", "cold", 10],
-         [7, "seven", "freezing", 0],
-         [8, "eight", "freezing", -5]
+    sample_data = [
+        [1, 'one', 'boiling', 100],
+        [2, 'two', 'hot', 40],
+        [3, 'three', 'hot', 75],
+        [4, 'four', 'hot', 97],
+        [5, 'five', 'warm', 20],
+        [6, 'six', 'cold', 10],
+        [7, 'seven', 'freezing', 0],
+        [8, 'eight', 'freezing', -5]
     ]
     ```
     {: codeblock}
 
-2. Use a `for` statement to retrieve the fields in each row by going through each row in the array.
+2. Initialize a list of documents.
 
     ```python
-    for document in sampleData:
-        # Retrieve the fields in each row.
-        number = document[0]
-        name = document[1]
-        description = document[2]
-        temperature = document[3]
+    sample_docs = []
     ```
     {: codeblock}
 
-3. Create a JSON document that represents all the data in the row.
+3. Iterate the sample data to make document data
+
+    For each row of the `sample_data` list create a dictionary mapping field names
+    to the values from the row elements. Append each dictionary to the `sample_docs` list.
 
     ```python
-    jsonDocument = {
-	    "numberField": number,
-	    "nameField": name,
-	    "descriptionField": description,
-	    "temperatureField": temperature
-    }
+    for row in sample_data:
+        # Make a dictionary for each row
+        document = {
+            'numberField': row[0],
+            'nameField': row[1],
+            'descriptionField': row[2],
+            'temperatureField': row[3]
+        }
+        # Append the dictionary to the list of documents
+        sample_docs.append(document)
     ```
     {: codeblock}
 
-4. Create a document by using the Database API.
+    Python dictionaries are suitable for making JSON documents.
+    {: tip}
+
+4. Create documents using the [`post_document` API](/apidocs/cloudant?code=python#postdocument).
 
     ```python
-    newDocument = myDatabaseDemo.create_document(jsonDocument)
+    for doc in sample_docs:
+        client.post_document(db=database_name, document=doc).get_result()
     ```
     {: codeblock}
 
-5. Check that the document exists in the database.
+    This use of the `post_document` API automatically generates document IDs on the server.
+    Alternatively include an ID in the document body or use the `put_document` API
+    to choose a specific document ID.
+    {: tip}
 
+    For creating or modifying large numbers of documents in a single request there is a
+    [`post_bulk_docs` API](/apidocs/cloudant?code=python#postbulkdocs).
+    {: tip}
+
+    Validate that the output is similar to the following example.
     ```python
-    if newDocument.exists():
-        print("Document '{0}' successfully created.".format(number))
+    {'ok': True, 'id': '43bb97b841c5b16c5ee44f4768e42efa', 'rev': '1-f998fc7b89d4466c1e7bb204b1b00f74'}
+    {'ok': True, 'id': '480d1073dca0bf7bc9f28c2ad2f1383e', 'rev': '1-08b940a61ee2f4a013ba8f4abb307c70'}
+    {'ok': True, 'id': '06266c9793afac3b5740872bc0f83d52', 'rev': '1-7de3d45186982b76243ce5879ccdbef4'}
+    {'ok': True, 'id': '40867bf98071981da37d266d23b681ca', 'rev': '1-60206efd94ac6434740acd53c4278646'}
+    {'ok': True, 'id': '622a70b1e0e9a0311284cd8bf5c439db', 'rev': '1-6d98db97adc12d2e4b114f96d2383a2d'}
+    {'ok': True, 'id': '8c07fdbbf67d5173adc3b3034cd9202c', 'rev': '1-d97d8d0b6928bc743ccbe12b0621ad58'}
+    {'ok': True, 'id': '4afb0c4e8d0c96d729dbf7081cbbe84c', 'rev': '1-462c5395df71106d903bedd29970ddeb'}
+    {'ok': True, 'id': '33376a6ea0644abeef5462ff394755ef', 'rev': '1-523c33f6c5f82a2ae51a8df6366ee92b'}
     ```
-    {: codeblock}
+    {: screen}
 
 ## Retrieving data
 {: #retrieving-data}
 {: step}
 
-To perform a minimal retrieval,
-you first request a list of all documents within the database.
-This list is returned as an array.
-You can then show the content of an element in the array.
-
-1. Retrieve a minimal amount of data.
+1. Retrieve a list of documents in the database using the [`post_all_docs` API](/apidocs/cloudant?code=python#postalldocs).
 
     ```python
-    result_collection = Result (myDatabaseDemo.all_docs)
-    print("Retrieved minimal document:\n{0}\n".format(result_collection[0]))
+    all_docs_result = client.post_all_docs(db=database_name).get_result()
     ```
     {: codeblock}
 
-2. See a result similar to the following example.
+2. Iterate the returned rows to view document metadata.
 
-    ```json
-    [{
-    	"id": '60e19edf809418e407fb6791a1d8fec4',
-    	"key": '60e19edf809418e407fb6791a1d8fec4',
-    	"value": {
-    		"rev": '2-3d6dc27627114431c049ddecae9796e0'
-    	}
-    }]
+    ```python
+    for row in all_docs_result['rows']:
+        print(row['id'])
     ```
     {: codeblock}
 
-In a relational database, the first 
-document that is stored in a database
-is always the first document that is returned in a list of results. 
-This notion doesn't
-necessarily apply to NoSQL databases, such as {{site.data.keyword.cloudant_short_notm}}.
+    Validate that the output is similar to the following example.
+    ```text
+    43bb97b841c5b16c5ee44f4768e42efa
+    480d1073dca0bf7bc9f28c2ad2f1383e
+    06266c9793afac3b5740872bc0f83d52
+    40867bf98071981da37d266d23b681ca
+    622a70b1e0e9a0311284cd8bf5c439db
+    8c07fdbbf67d5173adc3b3034cd9202c
+    4afb0c4e8d0c96d729dbf7081cbbe84c
+    33376a6ea0644abeef5462ff394755ef
+    ```
+    {: screen}
+
+    These IDs will match those from the previous creation step.
+    {: tip}
+
+In a relational database, the first document stored in a database is always the first document returned in a list of results. 
+This notion doesn't necessarily apply to document-oriented databases, such as {{site.data.keyword.cloudant_short_notm}}.
 
 ### Full retrieval of a document
 {: #full-retrieval-of-a-document}
 {: step}
 
-Additionally, to perform a full retrieval,
-you request a list of all documents within the database,
-and specify that the document content must also be returned.
-You run a full retrieval by using the `include_docs` option.
-As before,
-the results are returned as an array.
-You can then show the details of an element in the array
-by including the full content of the document this time.
-
-1. Request the first document that is retrieved from the database.
+1. Get the ID of the first document in the database.
 
     ```python
-    result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
-    print("Retrieved minimal document:\n{0}\n".format(result_collection[0]))
+    first_doc_id = all_docs_result['rows'][0]['id']
     ```
     {: codeblock}
 
-2. See the result, which is similar to the following example:
+    This uses the ID from listing the documents previously.
+    You can also store the ID from the response after creating the document.
+    {: tip}
 
-    ```json
-    [
-        {
-            "value": {
-              "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
-            },
-            "id": "14746fe384c7e2f06f7295403df89187",
-            "key": "14746fe384c7e2f06f7295403df89187",
-            "doc": {
-                "temperatureField": 10,
-                "descriptionField": "cold",
-                "numberField": 6,
-                "nameField": "six",
-                "_id": "14746fe384c7e2f06f7295403df89187",
-                "_rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
-            }
-        }
-    ]
-    ```
-    {: codeblock}
-
-## Calling an {{site.data.keyword.cloudant_short_notm}} API endpoint directly
-{: #calling-an-ibm-cloudant-api-endpoint-directly}
-{: step}
-
-You can work with the {{site.data.keyword.cloudant_short_notm}} API endpoints directly,
-from within a Python application.
-
-In this example code,
-you again request a list of all the documents,
-including their content.
-However, this time you do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](/apidocs/cloudant#postalldocs){: external} endpoint.
-
-1. Identify the endpoint to contact and any parameters to supply with it.
+2. Retrieve the document content using the [`get_document` API](/apidocs/cloudant?code=python#getdocument).
 
     ```python
-    end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
-    params = {'include_docs': 'true'}
+    client.get_document(db=database_name, doc_id=first_doc_id).get_result()
     ```
     {: codeblock}
 
-2. Send the request to the service instance and show the results.
-
+    Validate that the output is similar to the following example.
     ```python
-    response = client.r_session.get(end_point, params=params)
-    print("{0}\n".format(response.json()))
+    {'_id': '43bb97b841c5b16c5ee44f4768e42efa', '_rev': '1-f998fc7b89d4466c1e7bb204b1b00f74', 'numberField': 1, 'nameField': 'one', 'descriptionField': 'boiling', 'temperatureField': 100}
     ```
-    {: codeblock}
-
-3. See the result that is similar to the following *abbreviated* example.
-
-    ```json
-    {
-    	"rows": [{
-    			"value": {
-    				"rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
-    			},
-    			"id": "14746fe384c7e2f06f7295403df89187",
-    			"key": "14746fe384c7e2f06f7295403df89187",
-    			"doc": {
-    				"temperatureField": 10,
-    				"descriptionField": "cold",
-    				"numberField": 6,
-    				"nameField": "six",
-    				"_id": "14746fe384c7e2f06f7295403df89187",
-    				"_rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
-    			}
-    		},
-    		...{
-    			"value": {
-    				"rev": "1-7130413a8c7c5f1de5528fe4d373045c"
-    			},
-    			"id": "49baa66cc66b4dda86ffb2852ae78eb8",
-    			"key": "49baa66cc66b4dda86ffb2852ae78eb8",
-    			"doc": {
-    				"temperatureField": 40,
-    				"descriptionField": "hot",
-    				"numberField": 2,
-    				"nameField": "two",
-    				"_id": "49baa66cc66b4dda86ffb2852ae78eb8",
-    				"_rev": "1-7130413a8c7c5f1de5528fe4d373045c"
-    			}
-    		}
-    	],
-    	"total_rows": 5,
-    	"offset": 0
-    }
-    ```
-    {: codeblock}
+    {: screen}
 
 ## Deleting the database
 {: #deleting-the-database}
 {: step}
 
-1. Delete the database.
+1. Delete the database using the [`delete_database` API](/apidocs/cloudant?code=python#deletedatabase).
 
     ```python
-    try :
-        client.delete_database(databaseName)
-    except CloudantException:
-        print("There was a problem deleting '{0}'.\n".format(databaseName))
-    else:
-        print("'{0}' successfully deleted.\n".format(databaseName))
+    try:
+        client.delete_database(db=database_name).get_result()
+    except ApiException as ae:
+        print(f'There was a problem deleting database {database_name}. HTTP status code {ae.status_code}. Error message {ae.message}.')
     ```
     {: codeblock}
 
-2. Review the basic error handling that was included to illustrate how problems can be caught and addressed.
+    Validate the database was deleted successfully with output:
+    ```python
+    {'ok': True}
+    ```
+    {: screen}
 
-## Closing the connection to the service instance
-{: #closing-the-connection-to-the-service-instance}
+2. Review the basic error handling demonstrating one way to handle problems.
+
+## Finishing up
+{: #finishing-up}
 {: step}
 
-1. Disconnect the Python client application from the service instance.
-2. Run the disconnect command.
+1. End the interactive Python interpreter session by issuing an `EOF` for example with `Ctrl+D`.
+2. Optionally deactivate and delete the Python virtual environment.
+
+    a. Deactivate the virtual environment
+    
+    ```python
+    deactivate
+    ```
+    {: pre}
+
+    b. Delete the virtual environment.
 
     ```python
-    client.disconnect()
+    rm -r cloudantdemo
     ```
-    {: codeblock}
-
-## Execute the complete Python script
-{: #execute-the-complete-python-script}
-
-This script is the complete Python script for steps 2, 3, and 4. When you run
-the script, it connects to your service instance, creates the database,
-stores a small set of data in the database, and creates JSON documents.
-
-1. In the code example in the next step, replace the values for `serviceUsername`, `servicePassword`, and `serviceURL` with the values from your service credentials. 
-
-   For more information about where to find your credentials, see [Locating your credentials](/docs/Cloudant?topic=Cloudant-locating-your-service-credentials#locating-your-service-credentials).
-
-1. Copy the following script into a text editor and name it `demo.py`.
-
-    ```python
-    #!/usr/bin/env python
-
-    # Connect to service instance by running import statements.
-    from cloudant.client import Cloudant
-    from cloudant.error import CloudantException
-    from cloudant.result import Result, ResultByKey
-
-    # Add credentials to authenticate to the service instance.
-    serviceUsername = "apikey-v2-58B528DF5397465BB6673E1B79482A8C"
-    servicePassword = "680b037145f9dc8ef9e6a6d8b480783cbc1d1c12e71a0f4ced6b1eee30a243cd"
-    serviceURL = "serviceURL = "https://0c869093-c3ee-4a3f-bcec-00f01c8df8d8-bluemix.cloudantnosqldb.appdomain.cloud""
-    databaseName = "databasedemo"
-
-    # Define sample data.
-    sampleData = [
-        [1, "one", "boiling", 100],
-        [2, "two", "hot", 40],
-        [3, "three", "hot", 75],
-        [4, "four", "hot", 97],
-        [5, "five", "warm", 20],
-        [6, "six", "cold", 10],
-        [7, "seven", "freezing", 0],
-        [8, "eight", "freezing", -5]
-    ]
-
-    def main():
-        # Establish a connection with the service instance.
-        client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
-        client.connect()
-
-        # Create database and verify it was created.
-        myDatabaseDemo = client.create_database(databaseName)
-        if myDatabaseDemo.exists():
-            print("'{0}' successfully created.\n".format(databaseName))
-
-        for document in sampleData:
-            # Retrieve the fields in each row.
-            number = document[0]
-            name = document[1]
-            description = document[2]
-            temperature = document[3]
-
-            #  Create a JSON document that represents all the data in the row.
-            jsonDocument = {
-                "numberField": number,
-                "nameField": name,
-                "descriptionField": description,
-                "temperatureField": temperature
-            }
-
-            # Create a document by using the Database API.
-            newDocument = myDatabaseDemo.create_document(jsonDocument)
-
-            # Check that the documents exist in the database.
-            if newDocument.exists():
-                print("Document '{0}' successfully created.".format(number))
-
-    if __name__=='__main__':
-        main()
-    ```
-    {: codeblock}
-
-1. From the command line, run `demo.py` by typing a command similar to the following one.
-
-    ```python
-    python3 demo.py
-    ```
-    {: codeblock}
-
-   Once you run the script, return to [Step 5. Retrieving data](#retrieving-data) to complete the tutorial. 
+    {: pre}
