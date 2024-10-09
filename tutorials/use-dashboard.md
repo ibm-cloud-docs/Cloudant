@@ -155,7 +155,7 @@ that you create in this exercise include the data that you use to query the `das
 
     You populated the `dashboard-demo` with five documents. You can see the documents from the Table view in the following screen capture:
 
-    ![Example documents shown in the Table view.](../images/docs1.png){: caption="Figure 1. Sample documents" caption-side="bottom"} 
+    ![Example documents shown in the Table view.](../images/docs1.png){: caption="Sample documents" caption-side="bottom"} 
 
 ### Running a simple query
 {: #running-a-simple-query-dt}
@@ -179,7 +179,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     The query displays the results. You can see them from the Table view in the following screen capture:
 
-    ![Query results](../images/dashboard_query1_results.png){: caption="Figure 2. Query results" caption-side="bottom"}
+    ![Query results](../images/dashboard_query1_results.png){: caption="Query results" caption-side="bottom"}
 
 For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#getindexesinformation){: external}.
 
@@ -219,19 +219,19 @@ For more information, see [Replication](/docs/Cloudant?topic=Cloudant-replicatio
       - Replication type - Leave as `One time`.
       - Replication document - Leave as `Custom ID (optional`.
 
-      ![Replication configuration page described previously.](images/job-configuration.png){: caption="Figure 3. Replication configuration page" caption-side="bottom"}
+      ![Replication configuration page described previously.](images/job-configuration.png){: caption="Replication configuration page" caption-side="bottom"}
 
 4.  Click **Start Replication**. 
 
     The Replication page opens where you can see that your replication job is running. 
 
-    ![The status page displays the information about your replication job.](images/status-replication-jobs.png){: caption="Figure 4. Status of your replication job" caption-side="bottom"} 
+    ![The status page displays the information about your replication job.](images/status-replication-jobs.png){: caption="Status of your replication job" caption-side="bottom"} 
 
 5.  See the status when your job finishes change to Completed. 
 
 6.  Check that the database was created on the databases page. 
 
-    ![The Databases page shows the details of each database in your service instance. ](images/databases.png){: caption="Figure 5. Databases page" caption-side="bottom"} 
+    ![The Databases page shows the details of each database in your service instance. ](images/databases.png){: caption="Databases page" caption-side="bottom"} 
 
 ## Monitoring active tasks
 {: #monitoring-active-tasks-dt}
@@ -246,7 +246,7 @@ If your instance does not have any active tasks, you can return to the previous 
 
     The Active Tasks page opens. 
 
-    ![On the Active Tasks page, you can see a list of active tasks, which includes compaction, replication, and indexing.](images/active-tasks-page.png){: caption="Figure 6. Active tasks" caption-side="bottom"} 
+    ![On the Active Tasks page, you can see a list of active tasks, which includes compaction, replication, and indexing.](images/active-tasks-page.png){: caption="Active tasks" caption-side="bottom"} 
 
 2. Click the associated tab to see task-specific information. 
 
@@ -263,18 +263,18 @@ Your service instance contains no data because it is for demonstration purposes 
     The Monitoring page opens to the Current Operations tab. 
     Review recent consumption of provisioned throughput capacity by looking at requests broken down by reads, writes, and global queries. The dotted line is the peak capacity that is allowed for your instance. Peak capacity is based on what is set for your provisioned throughput capacity.
 
-    ![The Current Operations tab is the default tab for the Monitoring page.](images/current-operations-tab.png){: caption="Figure 7. Current Operations" caption-side="bottom"}
+    ![The Current Operations tab is the default tab for the Monitoring page.](images/current-operations-tab.png){: caption="Current Operations" caption-side="bottom"}
 
 2.  Click **Denied Requests**.
 
     Review the number of denied requests from a given second that are shown by the number of `429: too many requests` responses. Requests are denied when they exceed the provisioned throughput capacity set for the instance. The graph shows the denied requests that are broken down by reads, writes, and global queries.
 
-    ![The Denied Requests tab shows the denied requests that are broken down by read, writes, and global queries.](images/denied-requests-tab.png){: caption="Figure 8. Denied Requests" caption-side="bottom"}
+    ![The Denied Requests tab shows the denied requests that are broken down by read, writes, and global queries.](images/denied-requests-tab.png){: caption="Denied Requests" caption-side="bottom"}
 
 3.  Click **Storage**.
 
     Periodically review your storage, so you are prepared if your plan's provisioning needs to be changed.
 
-    ![The Storage tab includes your JSON documents, indexes, and attachements.](images/storage-tab.png){: caption="Figure 9. Storage" caption-side="bottom"}
+    ![The Storage tab includes your JSON documents, indexes, and attachements.](images/storage-tab.png){: caption="Storage" caption-side="bottom"}
 
 For more information, see [Plans and provisioning](/docs/Cloudant?topic=Cloudant-ibm-cloud-public).

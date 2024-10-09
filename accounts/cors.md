@@ -84,7 +84,7 @@ CORS support is available in the {{site.data.keyword.cloudant_short_notm}} Dashb
 
 You can update your CORS settings by using the CORS tab within the dashboard. See the following screenshot:
 
-![CORS dashboard lets you connect to remote servers directly from the brower. Using CORS, you can host browser-based apps on static pages, and load data directly from {{site.data.keyword.cloudant_short_notm}}.](../images/corsdashboard.png){: caption="Figure 1. CORS dashboard" caption-side="bottom"}
+![CORS dashboard lets you connect to remote servers directly from the brower. Using CORS, you can host browser-based apps on static pages, and load data directly from {{site.data.keyword.cloudant_short_notm}}.](../images/corsdashboard.png){: caption="CORS dashboard" caption-side="bottom"}
 
 To see the current CORS configuration,
 open **Account** > **CORS** in the dashboard.

@@ -99,7 +99,7 @@ See the following example of returned JSON, confirming that the index was create
 | `type` (optional) | Can be `json` or `text`. Defaults to `json`. | 
 | `name` (optional) | Name of the index. If no name is provided, a name is generated automatically. |
 | `partitioned` (optional, boolean) | Determines whether this index is partitioned. For more information, see [the `partitioned` field](#section1-the-partitioned-field).|
-{: caption="Table 1. Request body format" caption-side="top"}
+{: caption="Request body format" caption-side="top"}
 
 #### The `partitioned` field
 {: #section1-the-partitioned-field}
@@ -110,7 +110,7 @@ This field sets whether the created index is a partitioned or global index.
 |---------|---------------------|------------|
 | `true` | Create the index as partitioned.   | Can be used only in a partitioned database. |
 | `false`    | Create the index as global.  | Can be used in any database. |
-{: caption="Table 2. Partitioned field values" caption-side="top"}
+{: caption="Partitioned field values" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
@@ -118,7 +118,7 @@ The default follows the `partitioned` setting for the database:
 |---------|----------|---------|
 | Yes  | `true`  | `true`, `false` |
 | No   | `false` | `false` |
-{: caption="Table 3. Default partitioned value" caption-side="top"}
+{: caption="Default partitioned value" caption-side="top"}
 
 It's important to reiterate that the default `partitioned` value is `true`
 for indexes that are created in a partitioned database. This default  value means that the index *cannot*
@@ -129,7 +129,7 @@ be used to satisfy global queries.
 |-----|------------|
 | 200  | Index was created successfully or existed in the database. |
 | 400  | Bad request - the request body doesn't have the specified format. |
-{: caption="Table 4. Return codes" caption-side="top"}
+{: caption="Return codes" caption-side="top"}
 
 ### Creating a `type=text` index
 {: #creating-a-type-text-index}
@@ -258,7 +258,7 @@ The `default_field` includes two keys:
 | Key        | Description |
 |-----------|------------|
 | `enabled`  | Enable or disable the `default_field index`. The default value is `true`. |
-{: caption="Table 5. Default_field field keys" caption-side="top"}
+{: caption="Default_field field keys" caption-side="top"}
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
@@ -326,7 +326,7 @@ This field determines whether the created index is a partitioned or global index
 |---------|---------------------|------------|
 | `true` | Create the index as partitioned.   | Can be used only in a partitioned database. |
 | `false`    | Create the index as global.  | Can be used in any database. |
-{: caption="Table 6. Partitioned field values" caption-side="top"}
+{: caption="Partitioned field values" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
@@ -334,4 +334,4 @@ The default follows the `partitioned` setting for the database:
 |---------|----------|---------|
 | Yes  | `true`  | `true`, `false` |
 | No   | `false` | `false` |
-{: caption="Table 7. Partitioned settings for the database" caption-side="top"}
+{: caption="Partitioned settings for the database" caption-side="top"}

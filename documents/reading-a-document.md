@@ -193,7 +193,7 @@ All parameters are optional.
 | `rev`               | String | Retrieves document of specified revision. | - |
 | `revs`              | Boolean | Includes list of all known document revisions. | False |
 | `revs_info`         | Boolean | Includes detailed information for all known document revisions. | False |
-{: caption="Table 1. Query parameters" caption-side="top"}
+{: caption="Query parameters" caption-side="top"}
 
 ## Read many
 {: #read-many-documents}

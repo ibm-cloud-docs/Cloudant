@@ -25,7 +25,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 |--|--|
 |Database size|Consult the {{site.data.keyword.cloudant_short_notm}} team if your database is likely to exceed 5 TB in size.|
 |Partition size|10 GB|
-{: caption="Table 1. Limits for databases" caption-side="top"}
+{: caption="Limits for databases" caption-side="top"}
 
 ## Indexes
 {: #indexes-overview}
@@ -34,7 +34,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 |--|--|
 |Number of global indexes|Unlimited|
 |Number of partition indexes|10|
-{: caption="Table 2. Limits for indexes" caption-side="top"}
+{: caption="Limits for indexes" caption-side="top"}
 
 ## Request payload
 {: #request-payload-overview}
@@ -44,7 +44,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 |Total request size|10 MB|
 |Document size|1 MB|
 |Attachment size|10 MB|
-{: caption="Table 3. Limits for request payload" caption-side="top"}
+{: caption="Limits for request payload" caption-side="top"}
 
 ## Request timeouts
 {: #request-timeouts}
@@ -53,7 +53,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 |--|--|
 |Default|60 seconds|
 |`_partition/*` |5 seconds|
-{: caption="Table 4. Limits for request timeouts" caption-side="top"}
+{: caption="Limits for request timeouts" caption-side="top"}
 
 ## Query
 {: #query-results}
@@ -64,4 +64,4 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 |`_partition/*` default|2000|
 |`_search`|200|
 |`_find` by using `text` index|200|
-{: caption="Table 5. Limits for query results" caption-side="top"}
+{: caption="Limits for query results" caption-side="top"}

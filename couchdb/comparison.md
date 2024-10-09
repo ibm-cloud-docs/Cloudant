@@ -41,7 +41,7 @@ The following table shows the feature and function differences that you must be 
 | Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB |
 | Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} |
 | LDAP    | No     | No | No | No |
-{: caption="Table 1. Feature and function differences between {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB" caption-side="top"}
+{: caption="Feature and function differences between {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB" caption-side="top"}
 
 The CouchDB `_show`, `_list`, `_update`, and `_rewrite` functions were deprecated in Apache CouchDB 3.0. For more information, see [deprecated feature warnings](https://docs.couchdb.org/en/stable/whatsnew/3.0.html#deprecated-feature-warnings).
 

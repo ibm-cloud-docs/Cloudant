@@ -40,7 +40,7 @@ Migration from the Enterprise plans to {{site.data.keyword.cloudant_short_notm}}
 
 1. Click `Create resource`.
 2. Click `Databases` > `Cloudant`.  
-   ![Select **Databases** > **Cloudant dashboard** as your instance.](../tutorials/images/img0003.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} Dashboard" caption-side="bottom"}
+   ![Select **Databases** > **Cloudant dashboard** as your instance.](../tutorials/images/img0003.png){: caption="{{site.data.keyword.cloudant_short_notm}} Dashboard" caption-side="bottom"}
 
    For more information, see the [Getting started](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant) tutorial.  
 
@@ -58,7 +58,7 @@ The following table provides more information about these HTTP responses:
 |--------------|--------|
 | `429: too many requests` | Retrying requests that get a `429` response is acceptable for occasional traffic spikes that exceed your plan's capacity. If your application traffic is routinely generating `429` responses, you probably need to upgrade to a larger plan. |
 | `413: request entity too large` | The maximum individual document size is 1 MB on {{site.data.keyword.cloudant_short_notm}}. You receive a `413` message if the limit is exceeded. For more information, see [request and document size limits](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#request-and-document-size-limits). |
-{: caption="Table 1. HTTP responses" caption-side="top"}
+{: caption="HTTP responses" caption-side="top"}
 
 ## Migrate data from the old service to the new service 
 {: #step-4-migrate-data-from-the-old-service-to-the-new-service}

@@ -103,7 +103,7 @@ it may be necessary for a field type to be specified. For example:
 | JSON index                                | None |
 | Text index of all fields in all documents | Specify the sort field in the query if the database contains documents where the sort field has one type. Also, specify the sort field in the query if it contains documents where the sort field has a different type. |
 | Any other text index                      | Specify the type of all sort fields in the query. |
-{: caption="Table 1. When to specify the field type" caption-side="top"}
+{: caption="When to specify the field type" caption-side="top"}
 
 A text index of all fields
 in all documents is created when you use the syntax:

@@ -47,17 +47,17 @@ Create a service instance in the {{site.data.keyword.cloud_notm}} Dashboard by f
 
    This instance is the one you created as in the [Before you begin](#prereqs-locate-credentials) section.
 
-    ![This Resource list is a list of all the instances in your service. Cloudant-07 is the instance we use in this tutorial.](images/img0011.png){: caption="Figure 1. Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
+    ![This Resource list is a list of all the instances in your service. Cloudant-07 is the instance we use in this tutorial.](images/img0011.png){: caption="Selecting the {{site.data.keyword.cloudant_short_notm}} service" caption-side="bottom"}
 
 3. Click **Service credentials**.
 
 4. Click the chevron next to the service credentials to see the credentials that are required to access the service. 
 
-    ![Viewing the service credentials.](images/img0052.png){: caption="Figure 2. Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![Viewing the service credentials.](images/img0052.png){: caption="Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
     Now, you can see the service credentials:
 
-    ![The service credentials in this image are surrounded by a red box. The credentials include apikey, host, iam_apikey_description, iam_apikey_name, iam_role_crn, iam_serviceid_crn, url, and username.](images/img0009.png){: caption="Figure 3. The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
+    ![The service credentials in this image are surrounded by a red box. The credentials include apikey, host, iam_apikey_description, iam_apikey_name, iam_role_crn, iam_serviceid_crn, url, and username.](images/img0009.png){: caption="The {{site.data.keyword.cloudant_short_notm}} service credentials" caption-side="bottom"}
 
     The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid. You *must* supply and use your own service credentials.
     {: note}
@@ -85,6 +85,6 @@ The service credentials include the following fields, as well as designating the
 | `iam_apikey_name` | ID of the IAM API key. | |
 | `iam_role_crn` | The IAM role that the IAM API key has. | |
 | `iam_serviceid_crn`	| The CRN of the service ID. | X |
-{: caption="Table 1. Service credential fields" caption-side="top"}
+{: caption="Service credential fields" caption-side="top"}
 
 To create an application that can access your service instance, you need these credentials.

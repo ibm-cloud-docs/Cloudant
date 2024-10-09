@@ -41,7 +41,7 @@ records the following information about each HTTP request:
 | `Action` | The action carried out, for example, document read. |
 | `Resource` | Details about the account, database, and document accessed or query made. |
 | `Timestamp` | A record of the time and data of the event. |
-{: caption="Table 1. Recorded audit information" caption-side="top"}
+{: caption="Recorded audit information" caption-side="top"}
 
 {{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:
 

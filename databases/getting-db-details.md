@@ -127,7 +127,7 @@ The elements of the returned structure are shown in the following table:
 | `sizes`               | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that is stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that is stored on the disk. Indexes aren't included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes  data that is waiting for compaction. |
 | `update_seq`          | An opaque string that describes the state of the database. Don't rely on this string for counting the number of updates. |
 | `partitioned_indexes` | A JSON object that appears only if the database is partitioned. `count` is the number of partitioned indexes. `indexes` list the type of partitioned indexes, and `limit` shows the maximum number of allowed partitioned indexes. |
-{: caption="Table 1. Database details" caption-side="top"}
+{: caption="Database details" caption-side="top"}
 
 See the following example (abbreviated) response that contains database details:
 

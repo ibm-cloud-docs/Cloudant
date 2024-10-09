@@ -32,7 +32,7 @@ Currently, {{site.data.keyword.loganalysisfull_notm}} integration is available f
 | `Tokyo` | `Tokyo` |
 | `Toronto` | `Toronto` |
 | `Washington DC` | `Washington DC` |
-{: caption="Table 1. {{site.data.keyword.loganalysisfull_notm}} regions" caption-side="top"}
+{: caption="{{site.data.keyword.loganalysisfull_notm}} regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.loganalysisfull_notm}}
 {: #provisioning-log-analysis}
@@ -63,7 +63,7 @@ The expanded view has some handy, color-coded fields to help you parse your logs
 |-----------------|------------|
 | `Source` | The region the logs are being sent from. |
 | `App` | The CRN of your database deployment that is sending the logs. |
-{: caption="Table 2. Line identifiers" caption-side="top"}
+{: caption="Line identifiers" caption-side="top"}
 
 | Log Lines | Description |
 |----------|------------|
@@ -86,7 +86,7 @@ The expanded view has some handy, color-coded fields to help you parse your logs
 |`logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs. |
 | `meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}. |
 | `timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This time happens only once during the connection's lifetime, so subsequent requests that are sent over the same connection show `0` for this value.  \n `request` - The total time to get the client request. It's the time that is elapsed between the first bytes received and the moment the service receives the last byte of the request body.  \n `transfer`- The data transmission time to transfer the full response from the service to the client.  \n  `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body. |
-{: caption="Table 3. Log lines" caption-side="top"}
+{: caption="Log lines" caption-side="top"}
 
 The `request` and `transfer` timings are included in `response`.
 {: note}

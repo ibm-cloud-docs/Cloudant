@@ -103,7 +103,7 @@ The service credentials include the following fields:
 | `iam_apikey_name` | ID of the IAM API key. |
 | `iam_role_crn` | The IAM role that the IAM API key has. |
 | `iam_serviceid_crn`	| The CRN of the service ID. |
-{: caption="Table 1. Service credential fields" caption-side="top"}
+{: caption="Service credential fields" caption-side="top"}
 
 ## Authentication
 {: #authentication-overview-sc}

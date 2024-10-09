@@ -29,7 +29,7 @@ The following diagram shows a typical configuration that
 uses two {{site.data.keyword.cloudant_short_notm}} accounts,
 one in each region:
 
-![This diagram contains a customer, global load balancer/DNS, and two data centers. The data centers contain a load balancer, three app servers, and a database, which replicates between each database.](../images/active-active.svg){: caption="Figure 1. Example active-active architecture" caption-side="bottom"}
+![This diagram contains a customer, global load balancer/DNS, and two data centers. The data centers contain a load balancer, three app servers, and a database, which replicates between each database.](../images/active-active.svg){: caption="Example active-active architecture" caption-side="bottom"}
 
 Remember these important facts:
 

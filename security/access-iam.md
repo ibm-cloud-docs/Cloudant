@@ -606,7 +606,7 @@ The following table lists the available IAM service roles for {{site.data.keywor
 | `Reader` | Includes the ability to read all databases and documents, but not able to write new documents or create indexes. |
 | `Monitor` | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler` endpoints. |
 | `Checkpointer` | Includes the ability to write replication `checkpointer` `_local` documents. Required on source databases during replication. |
-{: caption="Table 1. IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
+{: caption="IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
 Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader.
 
@@ -716,7 +716,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 {: class="simple-tab-table"}
-{: caption="Table 2. Actions and mapping for the Manager role" caption-side="top"}
+{: caption="Actions and mapping for the Manager role" caption-side="top"}
 {: #manager-role}
 {: tab-title="Manager"}
 {: tab-group="Roles-simple"}
@@ -759,7 +759,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 | `POST` | `/$DATABASE/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` |
-{: caption="Table 2. Actions and mapping for the Writer role" caption-side="top"}
+{: caption="Actions and mapping for the Writer role" caption-side="top"}
 {: #writer-role}
 {: tab-title="Writer"}
 {: tab-group="Roles-simple"}
@@ -794,7 +794,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
-{: caption="Table 2. Actions and mapping for the Reader role" caption-side="top"}
+{: caption="Actions and mapping for the Reader role" caption-side="top"}
 {: #reader-role}
 {: tab-title="Reader"}
 {: tab-group="Roles-simple"}
@@ -814,7 +814,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
-{: caption="Table 2. Actions and mapping for the Monitor role" caption-side="top"}
+{: caption="Actions and mapping for the Monitor role" caption-side="top"}
 {: #monitor-role}
 {: tab-title="Monitor"}
 {: tab-group="Roles-simple"}
@@ -823,7 +823,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
 | `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
-{: caption="Table 2. Actions and mapping for the Checkpointer role" caption-side="top"}
+{: caption="Actions and mapping for the Checkpointer role" caption-side="top"}
 {: #checkpointer-role}
 {: tab-title="Checkpointer"}
 {: tab-group="Roles-simple"}

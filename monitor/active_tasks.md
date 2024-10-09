@@ -65,7 +65,7 @@ The returned structure includes the following fields for each task:
 | `total_changes` | Total number of documents to be processed by the task. The exact meaning depends on the type of the task. |
 | `type` | Operation Type |
 | `updated_on` | Time that the task status was updated. The field updates every few seconds. Returns the most recent update. |
-{: caption="Table 1. Fields in the returned structure" caption-side="top"}
+{: caption="Fields in the returned structure" caption-side="top"}
 
 In the `type` field,
 the possible values include:
@@ -164,7 +164,7 @@ See the example JSON response array that includes details of currently running t
 | `changes_done` | Number of documents compacted. |
 | `phase` | Reports the stage of compaction. |
 | `total_changes` | Number of documents in the database. |
-{: caption="Table 2. Response fields for compaction tasks" caption-side="top"}
+{: caption="Response fields for compaction tasks" caption-side="top"}
 
 In the `phase` field, the value indicates the stage that was reached by compaction:
 
@@ -187,7 +187,7 @@ In the `phase` field, the value indicates the stage that was reached by compacti
 | `source` | An obfuscated URL string that indicates the database from which the task is replicating. |
 | `target` | An obfuscated URL string that indicates the database to which the task is replicating. |
 | `user` | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user. |
-{: caption="Table 3. Response fields for replication tasks" caption-side="top"}
+{: caption="Response fields for replication tasks" caption-side="top"}
 
 ### Specific response fields for indexing tasks
 {: #specific-response-fields-for-indexing-tasks}
@@ -197,4 +197,4 @@ In the `phase` field, the value indicates the stage that was reached by compacti
 |`changes_done` | Number of document revisions that are processed by this task. A document can have one or more revisions. |
 | `design_document` | The design document that includes the view or index function or functions. |
 | `total_changes`| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer. |
-{: caption="Table 4. Response fields for indexing tasks" caption-side="top"}
+{: caption="Response fields for indexing tasks" caption-side="top"}

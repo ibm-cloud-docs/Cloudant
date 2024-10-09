@@ -73,11 +73,11 @@ This operation cannot be undone. Make sure all your applications are no longer u
 
 2. Find your {{site.data.keyword.cloudant_short_notm}} instance on the list of resources and open it.
 
-   ![Select your instance from the list of instances in your resource list.](images/img0011.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} instances in resource list" caption-side="bottom"}
+   ![Select your instance from the list of instances in your resource list.](images/img0011.png){: caption="{{site.data.keyword.cloudant_short_notm}} instances in resource list" caption-side="bottom"}
 
 3. Click the *Revoke* button under the *Cloudant credentials status* section. If you do not see the information that is shown in the next screen capture, the credential was already revoked, or it never existed.
 
-   ![Revoke instance URL style credential.](images/revoke-creds-status.png){: caption="Figure 2. Instance URL style credential" caption-side="bottom"}
+   ![Revoke instance URL style credential.](images/revoke-creds-status.png){: caption="Instance URL style credential" caption-side="bottom"}
 
 4. Click OK to confirm your action on the dialog window to proceed.
 

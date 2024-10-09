@@ -96,7 +96,7 @@ Now, you can check out your website.
 
    You can see your to-do list with a couple of items on it:
 
-   ![Your to-do list](images/todolist.png){: caption="Figure 1. Your web-based To-Do list" caption-side="bottom"}
+   ![Your to-do list](images/todolist.png){: caption="Your web-based To-Do list" caption-side="bottom"}
 
 1. Add or delete notes, or you can filter by tag by clicking one of the tags.
 

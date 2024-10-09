@@ -178,7 +178,7 @@ You can see example costs in the following table:
 | 199      | Yes     | **201** | 2 | 199 |
 | 301      | No     | **4** | 4 | 0 |
 | 301      | Yes     | **305** | 4 | 301 |
-{: caption="Table 1. Example costs" caption-side="top"}
+{: caption="Example costs" caption-side="top"}
 
 Reducing use of `include_docs=true` is key for reducing read consumption for
 partitioned `_all_docs`, view, and search queries.
@@ -202,7 +202,7 @@ selector and passed to the query.
 | 199      | 199     | **201** | 2 | 199 |
 | 5      | 301     | **305** | 4 | 301 |
 | 301      | 301     | **305** | 4 | 301 |
-{: caption="Table 2. Read consumption" caption-side="top"}
+{: caption="Read consumption" caption-side="top"}
 
 Using appropriate indexes is key for reducing read consumption for partitioned
 {{site.data.keyword.cloudant_short_notm}} Query queries.
@@ -220,7 +220,7 @@ You can use the default parameters and replicate a database with a large backlog
 | 6 | 2 | 1000 |
 | 12 | 3 | 2000 |
 | 20 | 4 | 3000 (This value is the default.) |
-{: caption="Table 3. Reduce read capacity" caption-side="top"}
+{: caption="Reduce read capacity" caption-side="top"}
 
 ### Viewing and changing capacity
 {: #viewing-and-changing-capacity}
@@ -236,7 +236,7 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
 1.  Go to the Service Details page for the instance. 
 1.  Click **Manage** > **Capacity** to view the current and target capacity.  
 
-    ![Capacity window shows current and target capacity.](../images/capacity-1.png){: caption="Figure 1. Capacity" caption-side="bottom"}
+    ![Capacity window shows current and target capacity.](../images/capacity-1.png){: caption="Capacity" caption-side="bottom"}
 
 1.  To change the target capacity, slide the capacity slider to the setting you want. 
 1.  Click **Update to Standard Plan**. 
@@ -268,7 +268,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 - The peak capacity that is allowed according to the provisioned throughput capacity set for the instance is shown by a dotted line in the following screen capture.   
 
-![Current Operations shows consumption of provisioned throughput capacity, number of requests that are broken down by reads, writes, and global queries. Peak capacity that is allowed according to the provisioned throughput capacity set for the instance.](../images/monitoring-current_operations.png){: caption="Figure 4. Monitoring - Current Operations" caption-side="bottom"}
+![Current Operations shows consumption of provisioned throughput capacity, number of requests that are broken down by reads, writes, and global queries. Peak capacity that is allowed according to the provisioned throughput capacity set for the instance.](../images/monitoring-current_operations.png){: caption="Monitoring - Current Operations" caption-side="bottom"}
 
 *Denied Requests* tab
 - Shows the number of requests that were denied in a given second.
@@ -277,7 +277,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 - Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance. The graphs are broken down by reads, writes, and global queries.
 
-![Monitoring - Denied Requests shows the number of requests that were denied in a given second. Shows 429: too many requests. Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance.](../images/monitoring-denied_requests.png){: caption="Figure 5. Monitoring - Denied Requests" caption-side="bottom"}
+![Monitoring - Denied Requests shows the number of requests that were denied in a given second. Shows 429: too many requests. Requests are denied because they exceed the provisioned throughput capacity that is allocated to the instance.](../images/monitoring-denied_requests.png){: caption="Monitoring - Denied Requests" caption-side="bottom"}
 
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
 For example, if you frequently approach the maximum number of database reads, then you can modify the capacity for the instance through the [Capacity](#viewing-and-changing-capacity) UI.
@@ -354,7 +354,7 @@ following maximum size limits:
 | Individual Document Size | 1 MB |
 | Single Attachment Size | 10 MB |
 | Request Body Size | 11 MB |
-{: caption="Table 4. Maximum size limits for JSON documents and requests" caption-side="top"}
+{: caption="Maximum size limits for JSON documents and requests" caption-side="top"}
 
 If you exceed these limits, a [413 response](/apidocs/cloudant#list-of-http-codes){: external} alerts you.
 
@@ -435,5 +435,3 @@ You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard 
 
 - Using the dashboard. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant){: external} tutorial that describes the process.
 - Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. For more information, see the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: external} tutorial that describes the process.
-
-

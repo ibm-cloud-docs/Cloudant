@@ -34,7 +34,7 @@ For more information about your responsibilities when you use {{site.data.keywor
 |---|---|
 |  RPO | 24 hours  |
 |  RTO | < 24 hours  |
-{: caption="Table 1. RPO and RTO for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
+{: caption="RPO and RTO for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
 ## Locations
 {: #ha-locations-bc-dr}

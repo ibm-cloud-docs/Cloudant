@@ -228,7 +228,7 @@ The argument is either another selector, or an array of selectors.
 | [`$nor`](#the-nor-operator)             | Array    | Matches if none of the selectors in the array match. |
 | [`$not`](#the-not-operator)             | Selector | Matches if the selector doesn't match. |
 | [`$or`](#the-or-operator)               | Array    | Matches if any of the selectors in the array match. All selectors must use the same index. |
-{: caption="Table 1. Combination operators" caption-side="top"}
+{: caption="Combination operators" caption-side="top"}
 
 ### Examples of combination operators
 {: #examples-of-combination-operators}
@@ -442,7 +442,7 @@ Other condition operators require the argument to be in a specific JSON format.
 |              | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields can't match this condition. |
 | Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/apidocs/cloudant#list-of-http-codes){: external}. Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer. |
 |              | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression. |
-{: caption="Table 2. Condition operator argument requirements" caption-side="top"}
+{: caption="Condition operator argument requirements" caption-side="top"}
 
 Regular expressions don't work with indexes,
 so they must not be used to filter large data sets. However, they can be used to restrict a `partial index <find/partial_indexes>`.

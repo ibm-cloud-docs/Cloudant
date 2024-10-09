@@ -24,7 +24,7 @@ You can migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard
 |-----|------------|
 | {{site.data.keyword.cloudant_short_notm}} Enterprise | Dedicated, single-tenant clusters |
 | Apache CouchDB | The self-hosted, open source database on which {{site.data.keyword.cloudant_short_notm}} is based. |
-{: caption="Table 1. {{site.data.keyword.cloudant_short_notm}} migration paths" caption-side="top"}
+{: caption="{{site.data.keyword.cloudant_short_notm}} migration paths" caption-side="top"}
 
 ## Benefits of the {{site.data.keyword.cloudant_short_notm}} Lite and Standard plans
 {: #what-are-the-benefits-of-the-ibm-cloudant-lite-and-standard-plans-}
@@ -37,13 +37,13 @@ With the Standard plan, you can *reserve throughput capacity* for your database 
 | Writes per second | The rate when data is written to the database. API calls dealing with document creation, update, or deletion count as "writes".
 | Global Queries per second |The rate when the database is queried by global indices, typically by accessing the `_find` endpoint, secondary MapReduce, or search indices. |
 | Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices. |
-{: caption="Table 2. Capacity metrics" caption-side="top"}
+{: caption="Capacity metrics" caption-side="top"}
 
 As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you're evaluating the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage for ~USD$76.65 per month. You can buy extra storage, which is charged by the GB.
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
-![You can increase or decrease your capacity for {{site.data.keyword.cloudant_short_notm}} service by using the slider.](../images/slider.png){: caption="Figure 1. Slider" caption-side="bottom"}
+![You can increase or decrease your capacity for {{site.data.keyword.cloudant_short_notm}} service by using the slider.](../images/slider.png){: caption="Slider" caption-side="bottom"}
 
 The amount that you can change the throughput capacity is limited to a maximum of 10 units per change with a maximum of one change per hour. Notice the "change limit" point on the slider. Changes downward are unlimited in size, but still subject to the time limit.
 {: tip}
@@ -51,8 +51,3 @@ The amount that you can change the throughput capacity is limited to a maximum o
 You're billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. Your monthly bill is always predictable; upgrades are automatic; and your SLA is [99.99%](https://www.ibm.com/support/customer/csol/terms?id=i126-6627&lc=en#detail-document){: external}.
 
 If you exceed your quota of reads, writes, and global queries in a given second, the {{site.data.keyword.cloudant_short_notm}} API responds with a `429: too many requests` HTTP response. Your application might retry the request later. You can use our official libraries to retry such requests with an exponential back off. 
-
-
-
-
-

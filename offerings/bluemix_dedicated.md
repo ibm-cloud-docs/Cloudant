@@ -28,7 +28,7 @@ by using the syndicated catalog, including the Lite and Standard plan instances.
 
 The following screen capture shows where you select the Dedicated Hardware plan on the {{site.data.keyword.cloud_notm}} Dashboard when you create a resource. 
  
-![Select the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan from the {{site.data.keyword.cloud_notm}} Dashboard when you create a resource.](../images/ibmcloud_catalog.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan" caption-side="bottom"}
+![Select the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan from the {{site.data.keyword.cloud_notm}} Dashboard when you create a resource.](../images/ibmcloud_catalog.png){: caption="{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan" caption-side="bottom"}
 
 ## Hardware capacity 
 {: #hardware-capacity}

@@ -122,7 +122,7 @@ An error response uses the HTTP status code to indicate what went wrong.
 | 200  | Database deleted successfully. |
 | 202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum. |
 | 404  | Database does not exist on all of the nodes. |
-{: caption="Table 1. HTTP status codes" caption-side="top"}
+{: caption="HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is deleted successfully:
 
@@ -132,4 +132,3 @@ See the following example response that is received after a database is deleted 
 }
 ```
 {: codeblock}
-

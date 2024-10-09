@@ -36,7 +36,7 @@ For both inserts and updates, the basic structure of the JSON document in the re
 | Field  | Description             | Type             | Optional |
 |-------|-------------------------|------------------|---------|
 | `docs` | List of document objects | Array of objects | No |
-{: caption="Table 1. Basic bulk request structure" caption-side="top"}
+{: caption="Basic bulk request structure" caption-side="top"}
 
 It is best not to use the `new_edits` field. By default, if conflicts exist, document updates fail and return an error to the client. However, this option applies document revisions without checking for conflicts, so it is easy to accidentally end up with many conflicts.
 {: note}
@@ -48,7 +48,7 @@ Each `docs` array object has the following structure:
 | `_id`      | Document ID  | String  | Optional only for new documents. Otherwise, it's mandatory. |
 | `_rev`     | Document revision  | String  | Mandatory for updates and deletes, not used for new documents. |
 | `_deleted` | Determines whether the document must be deleted. | Boolean | (Optional) The default value is `false`. |
-{: caption="Table 2. Structure of the docs array object" caption-side="top"}
+{: caption="Structure of the docs array object" caption-side="top"}
 
 Recall that for a partitioned database the `_id` field is formed from
 a partition key part and a document key part.
@@ -275,7 +275,7 @@ you get an array with detailed information for each document in the request.
 |------|-------------|
 | `201` | The request did succeed, but this success doesn't imply all documents were updated. Inspect the response body to determine the status of each requested change, and [address any problems](#bulk-document-validation-and-conflict-errors). |
 | `202` | For at least one document, the write [quorum](#quorum-writing-and-reading-data) wasn't met. |
-{: caption="Table 3. HTTP status codes" caption-side="top"}
+{: caption="HTTP status codes" caption-side="top"}
 
 See an example response from a bulk request:
 
@@ -756,7 +756,7 @@ The structure of the returned information is shown in the following tables:
 | Field  | Description             | Type |
 |-------|-------------------------|-----|
 | `docs` | List of document objects | Array of objects |
-{: caption="Table 4. Structure of JSON returned" caption-side="top"}
+{: caption="Structure of JSON returned" caption-side="top"}
 
 Each `docs` array object has the following structure:
 
@@ -765,7 +765,7 @@ Each `docs` array object has the following structure:
 | `id`     | Document ID                        | String |
 | `error`  | Error type                        | String |
 | `reason` | Error string with extended reason | String |
-{: caption="Table 5. Structure for the docs array object" caption-side="top"}
+{: caption="Structure for the docs array object" caption-side="top"}
 
 When a document (or document revision) is not correctly committed to the database because of an error,
 you must check the `error` field to determine error type and course of action.

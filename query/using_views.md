@@ -78,7 +78,7 @@ subset that is indicated in the table.
 | `start_key` | Return records, starting with the specified key. | Yes | String or JSON array |  |  | Yes |
 | `start_key_docid` | Return records, starting with the specified document ID. | Yes | String | | | Yes |
 | `update`        | Specify whether or not the view in question must be updated before you respond to the user.   \n - `true` - Return results after the view is updated.   \n - `false` - Return results without updating the view.   \n - `lazy` - Return the view results without waiting for an update, but update them immediately after the request. | Yes | String | True | | Yes |
-{: caption="Table 1. Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
+{: caption="Subset of query and JSON body arguments available for partitioned queries" caption-side="top"}
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
@@ -498,7 +498,7 @@ The basic order of the output is shown in the following table:
 | Text (uppercase) | |
 | Arrays (according to the values of each element, by using the order given in this table) | |
 | Objects (according to the values of keys, in key order by using the order given in this table) | Last |
-{: caption="Table 2. Order of returned rows" caption-side="top"}
+{: caption="Order of returned rows" caption-side="top"}
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 
