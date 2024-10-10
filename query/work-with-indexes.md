@@ -29,7 +29,7 @@ and to query data by using these indexes.
 | `POST`   | `/$DATABASE/_find`  | Find documents by using a global index. |
 | `POST`   | `/$DATABASE/_partition/$PARTITION_KEY/_find`  | Find documents by using a partitioned index. |
 | `POST`   | `/$DATABASE/_index` | Create an index. |
-{: caption="Table 1. Available methods and endpoints" caption-side="top"}
+{: caption="Available methods and endpoints" caption-side="top"}
 
 ## Creating a partial index
 {: #creating-a-partial-index}
@@ -101,4 +101,3 @@ by a `use_index` field, so you must modify the original query:
 
 Technically, you don't need to include the filter on the `status` field in the
 query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of partial indexes).
-

@@ -62,7 +62,7 @@ for you to control access to data:
 | Endpoints | All {{site.data.keyword.cloudant_short_notm}} instances are provided with external endpoints that are publicly accessible. Dedicated Hardware environments created after 1 January 2019 outside of the EU-managed cloud also add internal endpoints for all Standard plan instances deployed on them. Using internal endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Service Endpoint documentation](/docs/account?topic=account-service-endpoints-overview){: external} for more details on enabling Service Endpoints for your {{site.data.keyword.cloud}} account. |
 | IP allowlisting | {{site.data.keyword.cloudant_short_notm}} customers, who have a dedicated {{site.data.keyword.cloudant_short_notm}} environment, can allowlist IP addresses to restrict access to only specified servers and users. IP allowlisting isn't available for any {{site.data.keyword.cloud_notm}} Public Lite or Standard plans that are deployed on multi-tenant environments. Open a support ticket to request IP allowlists for a specified set of IP or IP ranges. IP allowlists apply to both the {{site.data.keyword.cloudant_short_notm}} API and Dashboard, so be mindful to include any administrator IP that needs to access the {{site.data.keyword.cloudant_short_notm}} Dashboard directly. |
 | CORS | Enable CORS support for specific domains by using the {{site.data.keyword.cloudant_short_notm}} Dashboard or API. For more information, see the [CORS documentation](/docs/Cloudant?topic=Cloudant-cross-origin-resource-sharing). |
-{: caption="Table 1. {{site.data.keyword.cloudant_short_notm}} security features" caption-side="top"}
+{: caption="{{site.data.keyword.cloudant_short_notm}} security features" caption-side="top"}
 
 ## Protection against data loss or corruption
 {: #protection-against-data-loss-or-corruption-sd}
@@ -74,7 +74,7 @@ to help you maintain data quality and availability:
 |--------|------------|
 | Redundant and durable data storage | By default, {{site.data.keyword.cloudant_short_notm}} saves to disk three copies of every document to three different nodes in a cluster. Saving the copies ensures that a working failover copy of your data is always available, regardless of failures. |
 | Data Replication and export | You can replicate your databases continuously between clusters in different data centers or Apache CouchDB. Another option is to export data from {{site.data.keyword.cloudant_short_notm}} (in JSON format) to other locations or sources (such as your own data center) for added data redundancy. |
-{: caption="Table 2. {{site.data.keyword.cloudant_short_notm}} data quality and availability features" caption-side="top"}
+{: caption="{{site.data.keyword.cloudant_short_notm}} data quality and availability features" caption-side="top"}
 
 ## Deleting your data in {{site.data.keyword.cloudant_short_notm}}
 {: #data-delete}
@@ -124,4 +124,3 @@ If you delete your account, you have a 7-day grace period during which you can c
 
 A database deletion cannot be undone.
 {: important}
-

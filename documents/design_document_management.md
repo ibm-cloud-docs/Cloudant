@@ -110,7 +110,7 @@ Deleted documents are de-indexed.
 This time-saving process is known as incremental MapReduce,
 as shown in the following diagram:
 
-![A database is created with 1000 documents. A design document is added, which triggers the building of one or more views. The view builds asynchronously until it is complete. The arrival of 250 more docs makes the index incomplete again. The view will build automatically in the background, or when queried.](../images/DesDocMan00.svg){: caption="Figure 1. Illustration of Incremental MapReduce" caption-side="bottom"}
+![A database is created with 1000 documents. A design document is added, which triggers the building of one or more views. The view builds asynchronously until it is complete. The arrival of 250 more docs makes the index incomplete again. The view will build automatically in the background, or when queried.](../images/DesDocMan00.svg){: caption="Illustration of Incremental MapReduce" caption-side="bottom"}
 
 It's worth remembering the following points:
 
@@ -141,7 +141,7 @@ place their definitions in separate design documents.
 This behavior doesn't apply to Lucene search indexes. They can be altered within the same design document without invalidating other unchanged indexes in the same document. 
 {: note}
 
-![A database is created with 1000 documents. A design document is added which triggers the building of 2 views and 2 search indexes. The view builds asynchronously until it is complete. The arrival of a second version of the design document invalidates all MapReduce views and any changed search indexes in the document. ](../images/DesDocMan02.svg){: caption="Figure 2. Design document version change" caption-side="bottom"}
+![A database is created with 1000 documents. A design document is added which triggers the building of 2 views and 2 search indexes. The view builds asynchronously until it is complete. The arrival of a second version of the design document invalidates all MapReduce views and any changed search indexes in the document. ](../images/DesDocMan02.svg){: caption="Design document version change" caption-side="bottom"}
 
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}
@@ -290,7 +290,7 @@ but new records are added into the database,
 then the index is scheduled to be updated in the background.
 The state of the database is shown in the following diagram:
 
-![The view is complete. The arrival of 250 more docs makes the index incomplete again. ](../images/DesDocMan01.svg){: caption="Figure 3. Index scheduled for update" caption-side="bottom"}
+![The view is complete. The arrival of 250 more docs makes the index incomplete again. ](../images/DesDocMan01.svg){: caption="Index scheduled for update" caption-side="bottom"}
 
 When querying the view, you have the following choices.
 

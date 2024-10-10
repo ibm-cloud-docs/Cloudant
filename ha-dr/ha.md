@@ -42,7 +42,7 @@ Service level objectives (SLOs) describe the design points that the {{site.data.
 | Availability target | Target Value   |
 |---|---|
 |  Availability % |  99.99% |
-{: caption="Table 1. SLA for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
+{: caption="SLA for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
 Refer to [Cloud Services terms](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: external} for commitments and credits that are issued for failure to meet any committed SLAs. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Service descriptions](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm-6627-07){: external}.
 

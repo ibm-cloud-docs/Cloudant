@@ -38,7 +38,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account, and click `Create resource`.  
 
-    ![{{site.data.keyword.cloud_notm}} Dashboard, which includes Build tile, Monitor your resources tile, Create and deploy an application tile, API Connect tile, Integrate Watson with anything tile, and Watson starter kits tile. ](/tutorials/images/img0001.png){: caption="Figure 1. {{site.data.keyword.cloud_notm}} Dashboard" caption-side="bottom"}
+    ![{{site.data.keyword.cloud_notm}} Dashboard, which includes Build tile, Monitor your resources tile, Create and deploy an application tile, API Connect tile, Integrate Watson with anything tile, and Watson starter kits tile. ](/tutorials/images/img0001.png){: caption="{{site.data.keyword.cloud_notm}} Dashboard" caption-side="bottom"}
 
     The {{site.data.keyword.cloud_notm}} Dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: external}.
@@ -53,7 +53,7 @@ The {{site.data.keyword.cloudantfull}} *Getting started* tutorial demonstrates h
 4.  Type an instance name.
 
 
-    ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials.](tutorials/images/img0005b.png){: caption="Figure 2. {{site.data.keyword.cloudant_short_notm}} service name and credentials" caption-side="bottom"}
+    ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials.](tutorials/images/img0005b.png){: caption="{{site.data.keyword.cloudant_short_notm}} service name and credentials" caption-side="bottom"}
 
     (In this example, the instance name is `Cloudant-o7`.) Verify that the resource group and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `IAM` or `IAM and legacy credentials`. For more information, see [authentication methods](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant).
 

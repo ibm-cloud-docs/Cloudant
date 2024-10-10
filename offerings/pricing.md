@@ -34,7 +34,7 @@ Let's assume you're building a mobile app with {{site.data.keyword.cloudant_shor
 The minimum provisioned throughput capacity for the Standard plan is 100 reads per second, 50 writes per second, and 5 global queries per second. 
 When you need to scale up (or down), you can scale in increments of these blocks of capacity. Assuming the instance has less than the 20 GB of storage that is included in the Standard plan, no storage costs are incurred. Go to the provisioned throughput capacity setting from the {{site.data.keyword.cloudant_short_notm}} Dashboard > **Account** > **Capacity** tab, which is shown in the following screen capture:
 
-![The Account window contains the Capacity, Announcements, CORS, and Settings tabs.](../images/cloudant-dashboard.png){: caption="Figure 1. {{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab" caption-side="bottom"}
+![The Account window contains the Capacity, Announcements, CORS, and Settings tabs.](../images/cloudant-dashboard.png){: caption="{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab" caption-side="bottom"}
 
 The capacity slider shows the hourly cost of the provisioned throughput capacity. The monthly amount is an estimate based on an average of 730 hours per month. The cost in any month can be slightly different depending on the number of hours in the month.
 
@@ -49,7 +49,7 @@ What about pricing for data overage? How does that work?
 |-----|------------------|--------------|
 | Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1-GB limit, or upgrade to a higher plan. |
 | Standard | 20 GB | Extra storage costs charged per GB per hour, for each GB over the included 20 GB. |
-{: caption="Table 1. Pricing for data overage" caption-side="top"}
+{: caption="Pricing for data overage" caption-side="top"}
 
 ## {{site.data.keyword.cloud_notm}} Usage Dashboard 
 {: #usage-dashboard}
@@ -57,5 +57,3 @@ What about pricing for data overage? How does that work?
 How does data populate the {{site.data.keyword.cloud_notm}} Usage Dashboard?
 
 Current and historical usage bills can be seen in the {{site.data.keyword.cloud_notm}} Dashboard, under **Manage** > **Billing and usage** > **Usage**. This view shows the totals for usage that are accrued during a particular month at the service, plan, or instance level.  The Estimated Total reflects the bill so far for the month or for past complete months. It shows only the hourly costs that are accrued up to that point for the current month. 
-
-

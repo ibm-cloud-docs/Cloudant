@@ -233,7 +233,7 @@ All Go examples require the `service` object to be initialized. For more informa
 | Argument        | Description | Optional | Type | Default | Supported values |
 |-----------------|-------------|----------|------|---------|------------------|
 | `partitioned`   | Determines whether the database is partitioned. | Yes | Boolean | `false` | `true`, `false` |
-{: caption="Table 1. Query arguments" caption-side="top"}
+{: caption="Query arguments" caption-side="top"}
 
 ## Database naming
 {: #database-naming}
@@ -253,7 +253,7 @@ If your database is successfully created, you get a 201 or 202 response. An erro
 |  202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum. |
 |  400  | Invalid database name. |
 |  412  | Database exists. |
-{: caption="Table 2. HTTP status codes" caption-side="top"}
+{: caption="HTTP status codes" caption-side="top"}
 
 See the following example response that is received after a database is created successfully:
 

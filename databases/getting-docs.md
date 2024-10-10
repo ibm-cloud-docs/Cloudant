@@ -38,7 +38,7 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 | `skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0 |
 | `startkey`          | Return records, starting with the specified key.                                                | Yes      | String          | |
 | `startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String | |
-{: caption="Table 1. Query string and JSON body arguments" caption-side="top"}
+{: caption="Query string and JSON body arguments" caption-side="top"}
 
 ## Notes
 {: #get-documents-notes}
@@ -279,7 +279,7 @@ The following table describes the meaning of the individual fields:
 | `rows`       | Array of document objects.                                                          | Array |
 | `total_rows` | Number of documents in the database or view that match the parameters of the query. | Numeric |
 | `pdate_seq` | Current update sequence for the database.                                           | String |
-{: caption="Table 2. JSON object fields" caption-side="top"}
+{: caption="JSON object fields" caption-side="top"}
 
 See the following example response after a request for all documents in a database:
 

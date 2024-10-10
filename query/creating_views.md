@@ -326,7 +326,7 @@ The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as oppose
 | `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric. |
 | `_sum`   | Produces the sum of all values for a key. The values must be numeric. |
 | `_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: external} algorithm. |
-{: caption="Table 1. Built-in reduce functions" caption-side="top"}
+{: caption="Built-in reduce functions" caption-side="top"}
 
 ## Custom reduce functions
 {: #custom-reduce-functions}

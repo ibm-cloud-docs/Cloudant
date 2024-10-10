@@ -121,7 +121,7 @@ This field includes the following values:
 |---------|---------------------|------------|
 | `true` | Create the index as partitioned.   | Can be used only in a partitioned database. |
 | `false`    | Create the index as global.  | Can be used in any database. |
-{: caption="Table 1. Values for the options.partitioned field" caption-side="top"}
+{: caption="Values for the options.partitioned field" caption-side="top"}
 
 The default follows the `partitioned` setting for the database:
 
@@ -129,7 +129,7 @@ The default follows the `partitioned` setting for the database:
 |---------|----------|---------|
 | Yes  | `true`  | `true`, `false` |
 | No   | `false` | `false` |
-{: caption="Table 2. Partition settings" caption-side="top"}
+{: caption="Partition settings" caption-side="top"}
 
 ## Copying a design document
 {: #copying-a-design-document}
@@ -1290,7 +1290,7 @@ Update validators require four arguments:
 | `oldDoc`  | The version of the document currently in the database, or `null` if none exists. |
 | `secObj`  | The [security object](/apidocs/cloudant#getsecurity){: external} for the database. |
 | `userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`. |
-{: caption="Table 3. Arguments for the update validator" caption-side="top"}
+{: caption="Arguments for the update validator" caption-side="top"}
 
 Update validators don't apply when a design document is updated by an admin user. This practice ensures that admins can never accidentally lock themselves out.
 {: tip}

@@ -33,7 +33,7 @@ Currently, {{site.data.keyword.mon_full_notm}} integration is available for {{si
 | `Tokyo` | `Tokyo` |
 | `Toronto` | `Toronto` |
 | `Washington DC` | `Washington DC` |
-{: caption="Table 1. {{site.data.keyword.mon_full_notm}} regions" caption-side="top"}
+{: caption="{{site.data.keyword.mon_full_notm}} regions" caption-side="top"}
 
 
 ## Platform metrics overview
@@ -66,7 +66,7 @@ Complete the following steps to configure platform metrics:
     If the menu choices include the **Monitoring** option, then your instance is already configured for platform metrics.
     {: note}
 
-    ![If the Actions menu includes monitoring items, then your instance is already configured for platform metrics.](../images/monitoring_add.png){: caption="Figure 1. Monitoring menu" caption-side="bottom"}
+    ![If the Actions menu includes monitoring items, then your instance is already configured for platform metrics.](../images/monitoring_add.png){: caption="Monitoring menu" caption-side="bottom"}
 
 5. Provision an instance of the {{site.data.keyword.mon_full_notm}} service.
 
@@ -99,7 +99,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
 4. Click **Actions**, and select **Monitoring**.
 
-    ![If the Actions menu includes monitoring items, then your instance is already configured for platform metrics.](../images/monitoring_menu.png){: caption="Figure 2. Monitoring menu" caption-side="bottom"}
+    ![If the Actions menu includes monitoring items, then your instance is already configured for platform metrics.](../images/monitoring_menu.png){: caption="Monitoring menu" caption-side="bottom"}
 
     A new tab opens in your browser and shows the *Default* dashboard that is named **{{site.data.keyword.cloudant_short_notm}}** within the context of your {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -115,7 +115,7 @@ Complete the following steps to launch the {{site.data.keyword.mon_full_notm}} w
 
     To access your deployment's {{site.data.keyword.mon_full_notm}} Dashboard from {{site.data.keyword.mon_full_notm}}, it's in the sidebar, under {{site.data.keyword.IBM_notm}}.
 
-    ![Choose {{site.data.keyword.cloudant_short_notm}} to open the dashboard.](../images/dashboard_link.png){: caption="Figure 3. {{site.data.keyword.cloudant_short_notm}} Dashboard" caption-side="bottom"}
+    ![Choose {{site.data.keyword.cloudant_short_notm}} to open the dashboard.](../images/dashboard_link.png){: caption="{{site.data.keyword.cloudant_short_notm}} Dashboard" caption-side="bottom"}
 
     Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -133,7 +133,7 @@ The number of HTTP requests made against an {{site.data.keyword.cloudant_short_n
 | `Metric Type` | `counter` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance, Service instance name` |
-{: caption="Table 2. HTTP request count metric metadata" caption-side="top"}
+{: caption="HTTP request count metric metadata" caption-side="top"}
 
 ### Rate-limited operations
 {: #ibm_cloudant_rate_limited_operations-pm}
@@ -146,7 +146,7 @@ The number of operations that were rate-limited:
 | `Metric Type` | `counter` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance, Service instance name, Cloudant operation type` |
-{: caption="Table 3. Rate-limited operations metric metadata" caption-side="top"}
+{: caption="Rate-limited operations metric metadata" caption-side="top"}
 
 ## Attributes for segmentation
 {: #attributes-pm}
@@ -163,7 +163,7 @@ The following attributes are available for segmenting all the metrics that are l
 | `Resource` | `ibm_resource` | The resource that is measured by the service, typically an identifying name, or GUID. |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service that generates this metric. |
-{: caption="Table 4. Global attributes" caption-side="top"}
+{: caption="Global attributes" caption-side="top"}
 
 ### More Attributes
 {: #additional-attributes}
@@ -177,7 +177,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value that depends on the name that is provided by the user. |
 | `Resource group name` | `ibm_resource_group_name` | The resource group name provides the user-provided name of the resource group where the service instance was created. |
 | `Resource group` | `ibm_resource_group_id` | The unique ID of the resource group where the service instance was created. |
-{: caption="Table 5. More attributes" caption-side="top"}
+{: caption="More attributes" caption-side="top"}
 
 ## {{site.data.keyword.cloudant_short_notm}} Dashboard's dictionary
 {: #dashboards_dictionary-pm}
@@ -187,8 +187,7 @@ The following table outlines the pre-defined dashboards that you can use to moni
 | Dashboard name        | Description    |
 |-----------------------|----------------|
 | `IBM Cloudant`   | The default dashboard that opens when you launch {{site.data.keyword.mon_full_notm}} web UI from your service instance UI. |
-{: caption="Table 6. Pre-defined dashboard" caption-side="top"}
+{: caption="Pre-defined dashboard" caption-side="top"}
 
 The *Default* dashboard cannot be changed.
 {: important}
-

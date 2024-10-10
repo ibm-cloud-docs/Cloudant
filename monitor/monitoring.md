@@ -77,7 +77,7 @@ The fields are described in the following table:
 | `END`        | UTC timestamp in ISO-8601 or UTC epoch second, which specifies the end of a time series query. The timestamp can't have a query where `START` and `END` are the same, or where `END` is before `START`, or where `START` is after `END`. |
 | `END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor. |
 | `START`      | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the starting point of a time series query that is mutually exclusive with `END`. |
-{: caption="Table 1. Monitoring API request fields" caption-side="top"}
+{: caption="Monitoring API request fields" caption-side="top"}
 
 Several of the fields have default values:
 
@@ -86,7 +86,7 @@ Several of the fields have default values:
 | `DURATION` | 5 minutes |
 | `END`      | No default value |
 | `START`    | The current time |
-{: caption="Table 2. Default values for monitoring API request fields" caption-side="top"}
+{: caption="Default values for monitoring API request fields" caption-side="top"}
 
 ### Results format
 {: #results-format}
@@ -201,7 +201,7 @@ The following table lists the supported monitoring endpoints that are provided b
 | [`rate/verb`](#rate-verb)               | The rate of requests, which are grouped by HTTP verb. |
 | [`rps`](#rps)                           | The number of reads per second. |
 | [`wps`](#wps)                           | The number of writes per second. |
-{: caption="Table 3. Monitoring API endpoints" caption-side="top"}
+{: caption="Monitoring API endpoints" caption-side="top"}
 
 See an example showing how to obtain a list of the currently supported monitoring endpoints:
 

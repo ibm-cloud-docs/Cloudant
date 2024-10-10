@@ -53,7 +53,7 @@ The following suggested practices might help you decide when to check for, and r
 | Often but not always connected to the network, for example, a laptop. | Often | - | Y |
 | Often but not always connected to the network. | Occasionally | - | Y | 
 | Occasionally connected to the network, for example, a tablet. | Often | - | Y |
-{: caption="Table 1. Suggested practices" caption-side="top"}
+{: caption="Suggested practices" caption-side="top"}
 
 ## Finding conflicts
 {: #finding-conflicts}

@@ -192,7 +192,7 @@ The results are returned by using the following response JSON object:
 | Response JSON object    | Description | Type |
 |-------------------------|-------------|------|
 | `results` | An array of result objects - one for each query. Each result object contains the same fields as the response to a regular `_all_docs` request. | Array |
-{: caption="Table 1. Response JSON object" caption-side="top"}
+{: caption="Response JSON object" caption-side="top"}
 
 See the following example request with multiple queries:
 

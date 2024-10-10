@@ -29,12 +29,12 @@ The servers are available within a single Region.
 If the Region supports Availability Zones, the replicas are stored on servers in different Zones.
 The collection of servers in a Region is called a cluster. 
  
-![A single database is split into Q shards, which are each stored in triplicate on three separate servers.](../images/sharding_database.svg){: caption="Figure 1. Data storage" caption-side="bottom"}
+![A single database is split into Q shards, which are each stored in triplicate on three separate servers.](../images/sharding_database.svg){: caption="Data storage" caption-side="bottom"}
 
 A document is assigned to a particular shard by using consistent hashing of its ID.
 This assignment means that a document is always stored on a known shard and a known set of servers. 
  
-![A single document is assigned to a single shard so ends up on three replicas on three separate servers. ](../images/sharding_document.svg){: caption="Figure 2. Document consistent hashing" caption-side="bottom"}
+![A single document is assigned to a single shard so ends up on three replicas on three separate servers. ](../images/sharding_document.svg){: caption="Document consistent hashing" caption-side="bottom"}
 
 Occasionally,
 shards are rebalanced.
@@ -244,4 +244,3 @@ By specifying a `W` value,
 the client can inspect the HTTP status code in the response to determine whether `W` replicas responded to the coordinator.
 The coordinator waits until a pre-determined timeout for `W` responses from nodes that host copies of the document 
 before it returns the response to the client.
-

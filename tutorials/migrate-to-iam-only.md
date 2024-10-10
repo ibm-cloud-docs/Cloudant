@@ -66,15 +66,15 @@ before you start this step.
 
 2. Find your {{site.data.keyword.cloudant_short_notm}} instance on the list of resources and open it.
 
-   ![Select your instance.](images/img0011.png){: caption="Figure 1. Resource list" caption-side="bottom"}
+   ![Select your instance.](images/img0011.png){: caption="Resource list" caption-side="bottom"}
 
 3. Click the *Migrate to IAM Only* button under the *Authentication methods* section. If you do not see the button, your instance is already IAM Only.
 
-   ![Migrate to IAM Only.](images/authentication_methods_root_credential.png){: caption="Figure 2. Authentication methods" caption-side="bottom"}
+   ![Migrate to IAM Only.](images/authentication_methods_root_credential.png){: caption="Authentication methods" caption-side="bottom"}
 
 4. Click OK to confirm your action on the dialog window to proceed. If the instance URL-style credential is still enabled, the confirmation box differs. You still click OK to confirm your action on the dialog window to proceed.
 
 5. When the operation completes successfully, the Authentication methods row shows only `IBM Cloud IAM`.
 
-   ![Migration complete.](images/migrate_iam_only_finish.png){: caption="Figure 3. Successful operation" caption-side="bottom"}
+   ![Migration complete.](images/migrate_iam_only_finish.png){: caption="Successful operation" caption-side="bottom"}
    

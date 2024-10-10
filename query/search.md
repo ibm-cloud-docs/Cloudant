@@ -116,7 +116,7 @@ The third, optional, parameter is a JavaScript object with the following fields:
 | `facet` | Creates a faceted index. For more information, see [Faceting](/docs/Cloudant?topic=Cloudant-cloudant-search#faceting). | `true` | `false` | `false` |
 | `index` | Whether the data is indexed, and if so, how. If set to `false`, the data can't be used for searches, but can still be retrieved from the index if `store` is set to `true`. For more information, see [Analyzers](/docs/Cloudant?topic=Cloudant-search-analyzers). | `true`, `false` | `true` |
 | `store` | If `true`, the value is returned in the search result; otherwise, the value isn't returned. | `true`, `false` | `false` |
-{: caption="Table 1. Fields for the JavaScript object (optional parameter)" caption-side="top"}
+{: caption="Fields for the JavaScript object (optional parameter)" caption-side="top"}
 
 If you don't set the `store` parameter,
 the index data results for the document aren't returned in response to a query.
@@ -218,7 +218,7 @@ The following table shows a list of generic analyzers that are supported by {{si
 | `simple`     | Divides text at nonletters. |
 | `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode&trade; text segmentation algorithm)](https://www.unicode.org/reports/tr29/){: external}. |
 | `whitespace` | Divides text at white-space boundaries. |
-{: caption="Table 2. Generic analyzers" caption-side="top"}
+{: caption="Generic analyzers" caption-side="top"}
 
 See the following example analyzer document:
 
@@ -777,7 +777,7 @@ You must enable [faceting](#faceting) before you can use the following parameter
 | `ranges` | This field defines ranges for faceted, numeric search fields. The value is a JSON object where the fields names are faceted numeric search fields, and the values of the fields are JSON objects. The field names of the JSON objects are names for ranges. The values are strings that describe the range, for example `"[0 TO 10]"`. | Yes | JSON | The value must be an object with fields that have objects as their values. These objects must have strings with ranges as their field values. | No |
 | `sort` | Specifies the sort order of the results. In a grouped search (when `group_field` is used), this parameter specifies the sort order within a group. The default sort order is relevance. | Yes | JSON | A JSON string of the form `"fieldname<type>"` or `-fieldname<type>` for descending order. The `fieldname` is the name of a String or Number field, and `type` is either a number, a string, or a JSON array of strings. The `type` part is optional, and defaults to `number`. Some examples are `"foo"`, `"-foo"`, `"bar<string>"`, `"-foo<number>"`, and `["-foo<number>","bar<string>"]`. String fields that are used for sorting must not be analyzed fields. Fields that are used for sorting must be indexed by the same indexer that is used for the search query. | Yes | 
 | `stale` | Do not wait for the index to finish building to return results. | Yes | String | OK | Yes | 
-{: caption="Table 3. Query parameters" caption-side="top"}
+{: caption="Query parameters" caption-side="top"}
 
 Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when you try to contact replicas that are slow or not available.
 
