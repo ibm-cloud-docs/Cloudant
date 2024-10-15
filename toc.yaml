@@ -190,6 +190,10 @@ toc:
           - couchdb/comparison.md
           - couchdb/compare.md
       - topicgroup:
+            label: Data portability
+            topics:
+            - offerings/data-portability.md 
+      - topicgroup:
           label: Other offerings
           topics:
           - offerings/bluemix_dedicated.md
