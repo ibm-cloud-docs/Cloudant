@@ -55,37 +55,37 @@ Setting up a *push replication* to export data:
 
 1. Create the `_replicator` database if it does not already exist:
 
-```sh
-curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/_replicator
-```
-{: codeblock}
+    ```sh
+    curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/_replicator
+    ```
+    {: pre}
 
-2. Create a replication document for each database you want to export using replication. Use the following command as an example, setting the variables to appropriate values.
+1. Create a replication document for each database you want to export using replication. Use the following command as an example, setting the variables to appropriate values.
 
-```sh
-curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/_replicator/$SOURCE_DATABASE_export" -H "Content-Type: application/json" --data '{
-  "_id": "'"$SOURCE_DATABASE"'_export",
-  "create_target": true,
-  "source": {
-    "url": "'"$SOURCE_SERVICE_URL/$SOURCE_DATABASE"'"
-    "auth": {
-      "iam": {
-        "api_key": "'"$API_KEY"'"
+    ```sh
+    curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/_replicator/$SOURCE_DATABASE_export" -H "Content-Type: application/json" --data '{
+      "_id": "'"$SOURCE_DATABASE"'_export",
+      "create_target": true,
+      "source": {
+        "url": "'"$SOURCE_SERVICE_URL/$SOURCE_DATABASE"'"
+        "auth": {
+          "iam": {
+            "api_key": "'"$API_KEY"'"
+          }
+        }
+      },
+      "target": {
+        "auth": {
+          "basic": {
+            "username": "'"$TARGET_DATABASE_USERNAME"'",
+            "password": "'"$TARGET_DATABASE_PASSWORD"'"
+          }
+        },
+        "url": "'"$TARGET_URL/$TARGET_DATABASE"'"
       }
-    }
-  },
-  "target": {
-    "auth": {
-      "basic": {
-        "username": "'"$TARGET_DATABASE_USERNAME"'",
-        "password": "'"$TARGET_DATABASE_PASSWORD"'"
-      }
-    },
-    "url": "'"$TARGET_URL/$TARGET_DATABASE"'"
-  }
-}'
-```
-{: codeblock}
+    }'
+    ```
+    {: pre}
 
 
 ### Option 2: CouchBackup
