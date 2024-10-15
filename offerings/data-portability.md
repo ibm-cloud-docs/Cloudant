@@ -16,7 +16,7 @@ subcollection: Cloudant
 # Understanding data portability for {{site.data.keyword.cloudant_short_notm}}
 {: #data-portability}
 
-[Data Portability](#x2113280){: term} involves a set of tools, and procedures that enable customers to export data stored within {{site.data.keyword.cloudant_short_notm}} to different data stores hosted elsewhere. It includes procedures to export data using replication or backups, these data exports include the design documents used to generate indexes.
+Data Portability involves a set of tools, and procedures that enable customers to export data stored within {{site.data.keyword.cloudant_short_notm}} to different data stores hosted elsewhere. It includes procedures to export data using replication or backups, these data exports include the design documents used to generate indexes.
 {: shortdesc}
 
 ## Responsibilities
@@ -60,7 +60,7 @@ curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/_replicat
 ```
 {: codeblock}
 
-1. Create a replication document for each database you want to export using replication. Use the following command as an example, setting the variables to appropriate values.
+2. Create a replication document for each database you want to export using replication. Use the following command as an example, setting the variables to appropriate values.
 
 ```sh
 curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X PUT "$SERVICE_URL/_replicator/$SOURCE_DATABASE_export" -H "Content-Type: application/json" --data '{
