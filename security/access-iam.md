@@ -76,6 +76,22 @@ Use only IAM
 When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monitor`, or `Checkpointer`, you **must** use *Use only IAM* to avoid supplying users with legacy credentials that include greater access permissions.
 {: important}
 
+
+## Policy enforcement
+{: #iam-policy-enforcement}
+
+IAM policies are enforced hierarchically from greatest level of access to most restricted, with more permissive overriding less permissive policies. For example, if a user has both the `Writer` and `Reader` service access role on a database, the policy granting the `Reader` role is ignored.
+
+This is also applicable to service instance and database level policies.
+
+- If a user has a policy granting the `Writer` role on a service instance and the `Reader` role on a single database, the database-level policy is ignored.
+- If a user has a policy granting the `Reader` role on a service instance and the `Writer` role on a single database, both policies are enforced and the more permissive `Writer` role will take precedence for the individual database.
+
+If it is necessary to restrict access to a single database (or set of databases), ensure that the user or Service ID doesn't have any other instance level policies by using either the console or CLI.
+
+See [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup) to learn more.
+
+
 ### {{site.data.keyword.cloudant_short_notm}} API keys and _Use only IAM_
 {: #ibm-cloudant-api-keys-and-use-only-iam_ai}
 
@@ -261,7 +277,6 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 {: #disadvantages-iam-mode-ai}
 
 - If you are not using the supported libraries from {{site.data.keyword.cloudant_short_notm}}, application changes are likely to be required to use IAM's API keys and access tokens.
-- No database-level permissions (yet).
 - Some endpoints are not available. For more information, see [unavailable endpoints](#unavailable-endpoints).
 - No way to specify a database as "public", that is, not requiring an authorized user to access.
 
@@ -269,12 +284,48 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 {: #advantages-legacy-mode-ai}
 
 - No need to change existing applications or client library dependencies.
-- Database-level permissions.
 
 #### Disadvantages of legacy mode
 {: #disadvantages-legacy-mode-ai}
 
 - Separate management of {{site.data.keyword.cloudant_short_notm}} credentials, so unable to get full overview of all access within centralized interface.
+
+
+## Database-level IAM policies
+{: #database-level-iam-policies}
+
+IAM polices can be defined to restrict access to individual databases or those databases matching a wildcard pattern.
+
+To target a database, set the attribute **Resource Type** to `database`. There are two operators
+available:
+
+| Operator | Description |
+|-------------|----------|
+|`string equals`|matches a URL encoded database name exactly.|
+|`string matches`|match using a multi-character wildcard (*), which matches any sequence of zero or more characters, a single-character wildcard (?), matching any single character, or both.|
+
+Database names should be URL encoded in the **Resource ID** field of the policy, except for forward slashes `/`. This *does not* apply to any wildcard characters in the policy.
+
+Note that leaving the **Resource Type** or **Resource ID** fields blank will create an instance-level policy.
+{: tip}
+
+
+### Examples
+{: #database-level-iam-policies-examples}
+
+| Description | Attribute | Operator | Value |
+|-------------|----------|
+| databases named `movies` | **Resource Type** | `string equals` | `database` |
+|                          | **Resource ID** | `string equals` | `movies` |
+| databases starting with `movies` | **Resource Type** | `string equals` | `database` |
+|                                  | **Resource ID** | `string matches` | `movies*` |
+| databases named `movies+new` | **Resource Type** | `string equals` | `database` |
+|                              | **Resource ID** | `string equals` | `movies%2Bnew` |
+| databases starting with `movies+*` | **Resource Type** | `string equals` | `database` |
+|                                    | **Resource ID** | `string matches` | `movies%2B*` |
+| databases named `movies/new` | **Resource Type** | `string equals` | `database` |
+|                              | **Resource ID** | `string equals` | `movies/new` |
+
 
 ## Create a replication job by using IAM credentials only
 {: #create-replication-job-using-iam-cred-only-ai}
