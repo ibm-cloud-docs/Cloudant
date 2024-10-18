@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-9-19"
+lastupdated: "2024-10-16"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -19,6 +19,36 @@ content-type: release-note
 
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
+
+## October 2024
+{: #cloudant-oct24}
+
+### Upcoming changes
+
+The following changes are planned for the next release:
+
+Auth
+:   To enhance security, Cloudant will enable temporary lockout of accounts in the coming months. After multiple login attempts using incorrect credentials, further login attempts will be denied for a period of time. To unlock your account, please wait for some time or change the password and then wait at least 5 minutes to ensure that the change propagates throughout the system.
+
+### 16 October 2024
+{: #Cloudant-oct1624}
+{: release-note}
+
+The following changes were made in build 8536:
+
+`_changes` endpoint
+:   If the request includes `limit` parameter, `continuous` / `eventsource` feed emission will stop after emitting the specified number of rows.
+
+Auth
+:   Enhance security for Cloudant by adding config options to effectively reject requests for a given user if repeated requests have failed for authentication reasons.
+
+Replicator
+:   Improve how the replicator handles IPv6 addresses.
+
+:   Prevent conflict generation in the replicator application.
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 25 release.
 
 ## September 2024
 {: #cloudant-sep24}
