@@ -1,140 +1,59 @@
 {
-    "title": "IBM Cloudant docs",
-    "lastupdated": "2023-03-08",
-    "introduction": "The IBM Cloudant portfolio includes two complementary, document-oriented NoSQL database-as-a-service offerings on the IBM Cloud. In addition to the comprehensive information in the IBM Cloudant docs, links to additional sources of information are provided below.",
-    "section_devtools": {
-      "api": "/apidocs/cloudant#introduction",
-      "cli": "/docs/Cloudant-cli-plugin/Cloudant-cli-plugin-cloudant-cli",
-      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant"
-    },
-    "section_recommended": [
+  "version": 2,
+  "title": "IBM Cloudant Docs",
+  "introduction": "The IBM Cloudant portfolio includes two complementary, document-oriented NoSQL database-as-a-service offerings on the IBM Cloud. In addition to the comprehensive information in the IBM Cloudant docs, links to additional sources of information are provided below.",
+  "product_page": "https://www.ibm.com/products/cloudant",
+  "console_page": "/catalog/services/cloudant",
+  "section_topics": {
+    "links": [
       {
-        "title": "IBM Cloudant plans",
-        "description": "Describes the plans you can use with IBM Cloudant and how IBM Cloudant calculates usage.",
-        "href": "/docs/Cloudant?topic=Cloudant-ibm-cloud-public"
+        "title": "Getting started with IBM Cloudant",
+        "href": "/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant"
       },
       {
-        "title": "IBM Cloudant security",
-        "description": "Describes IAM, security compliance, and securing your connection and data.",
+        "title": "Managing access for IBM Cloudant",
         "href": "/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant"
       },
       {
-        "title": "Try IBM Cloudant for free",
-        "description": "Describes the steps to get started with IBM Cloudant for free.",
-        "href": "/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant"
+        "title": "IBM Cloud Monitoring integration",
+        "href": "/docs/Cloudant?topic=Cloudant-monitor-ibm-cloud-pm"
+      },
+      {
+        "title": "Understanding your responsibilities when you use IBM Cloudant",
+        "href": "/docs/Cloudant?topic=Cloudant-cloudant-responsibilities"
+      },
+      {
+        "title": "Getting help and support for IBM Cloudant",
+        "href": "/docs/Cloudant?topic=Cloudant-help-and-support"
+      },
+      {
+        "title": "IBM Cloudant plans",
+        "href": "/docs/Cloudant?topic=Cloudant-ibm-cloud-public"
       }
-    ],
-    "section_learn": {
-      "developer": "https://developer.ibm.com/",
-      "architecture": "https://www.ibm.com/cloud/cloudant",
-      "training": "https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center",
-      "community": "https://community.ibm.com/community/user/home"
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "Cloudant Blog",
+      "description": "IBM Cloudant database introduction and use cases.",
+      "href": "https://blog.cloudant.com",
+      "type": "blog",
+      "recommended": true
     },
-    "section_videos": [
-      {
-        "title": "Introducing IBM Cloudant",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#cloudant-course-intro-video",
-        "thumbnail": "/images/cloudant-intro.png"
-      },
-      {
-        "title": "The Document",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-document-video",
-        "thumbnail": "/images/document.png"
-      },
-      {
-        "title": "The _id",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-id-video",
-        "thumbnail": "/images/_id.png"
-      },
-      {
-        "title": "The rev token",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-rev-token-video",
-        "thumbnail": "/images/rev-token.png"
-      },
-      {
-        "title": "Authentication",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#authentication-video",
-        "thumbnail": "/images/authentication.png"
-      },
-      {
-        "title": "Cloudant Dashboard",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-dashboard-video",
-        "thumbnail": "/images/dashboard.png"
-      },
-      {
-        "title": "HTTP API Basics",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#http-api-basics-video",
-        "thumbnail": "/images/basics.png"
-      },
-      {
-        "title": "The Bulk API",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#the-bulk-api-video",
-        "thumbnail": "/images/bulk-api.png"
-      },
-      {
-        "title": "Accessing IBM Cloudant Programmatically",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#accessing-cloudant-programmatically-video",
-        "thumbnail": "/images/programmatically.png"
-      },
-      {
-        "title": "Querying",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#querying-video",
-        "thumbnail": "/images/querying.png"
-      },
-      {
-        "title": "Indexing",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#indexing-video",
-        "thumbnail": "/images/indexing.png"
-      },
-      {
-        "title": "MapReduce",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#mapreduce-video",
-        "thumbnail": "/images/mapreduce.png"
-      },
-      {
-        "title": "Dates",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#dates-video",
-        "thumbnail": "/images/dates.png"
-      },
-      {
-        "title": "Replication",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#replication-video",
-        "thumbnail": "/images/replication.png"
-      },
-      {
-        "title": "Partitioned databases",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#partitioned-databases-video",
-        "thumbnail": "/images/partitioned-dbs.png"
-      },
-      {
-        "title": "Cloudant Search",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#cloudant-search-video",
-        "thumbnail": "/images/cloudant-search.png"
-      },
-      {
-        "title": "Under the hood",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center#under-the-hood-video",
-        "thumbnail": "/images/under-the-hood.png"
-      }
-    ],
-    "section_updates": {
-      "view_more": "/docs/Cloudant?topic=Cloudant-classic-release-notes",
-      "tiles": [
-        {
-          "date": "January 2023",
-          "title": "IAM trusted profiles",
-          "description": "Fix bug in IAM trusted profiles."
-        },
-        {
-          "date": "January 2023",
-          "title": "Runtime environment",
-          "description": "Upgrade runtime environment to Erlang/OTP 24."
-        },
-        {
-          "date": "November 2022",
-          "title": "_changes endpoint",
-          "description": "Fix eventsource formatted feed. Remove support for the long-deprecated change sequence format."
-        }
-      ]
+    {
+      "title": "Cloudant Learning Center",
+      "description": "Video series to help you learn to use IBM Cloudant.",
+      "href": "https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center",
+      "type": "video",
+      "recommended": true
     }
+  ],
+  "section_updates": {
+    "view_more": "/docs/Cloudant?topic=Cloudant-classic-release-notes"
+  },
+  "section_devtools": {
+    "api": "/apidocs/cloudant#introduction",
+    "cli": "/docs/Cloudant-cli-plugin/Cloudant-cli-plugin-cloudant-cli",
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant"
   }
+}

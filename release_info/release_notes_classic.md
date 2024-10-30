@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-10-29"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -29,6 +29,15 @@ The following changes are planned for the next release:
 
 Auth
 :   To enhance security, Cloudant will enable temporary lockout of accounts in the coming months. After multiple login attempts using incorrect credentials, further login attempts will be denied for a period of time. To unlock your account, please wait for some time or change the password and then wait at least 5 minutes to ensure that the change propagates throughout the system.
+
+### 23 October 2024
+{: #Cloudant-oct2324}
+{: release-note}
+
+The following changes were made in build 8537:
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 26 release.
 
 ### 16 October 2024
 {: #Cloudant-oct1624}
