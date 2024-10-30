@@ -27,8 +27,8 @@
         "href": "/docs/Cloudant?topic=Cloudant-help-and-support"
       },
       {
-        "title": "Learning Center",
-        "href": "/docs/Cloudant?topic=Cloudant-learning-center"
+        "title": "IBM Cloudant plans",
+        "href": "/docs/Cloudant?topic=Cloudant-ibm-cloud-public"
       }
     ]
   },
@@ -41,9 +41,10 @@
       "recommended": true
     },
     {
-      "title": "IBM Cloudant plans",
-      "description": "Describes the plans you can use with IBM Cloudant and how IBM Cloudant calculates usage.",
-      "href": "https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-ibm-cloud-public",
+      "title": "Cloudant Learning Center",
+      "description": "Video series to help you learn to use IBM Cloudant.",
+      "href": "https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-learning-center",
+      "type": "video",
       "recommended": true
     }
   ],
