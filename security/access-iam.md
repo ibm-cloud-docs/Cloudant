@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023, 2024
-lastupdated: "2024-09-16"
+  years: 2020, 2024
+lastupdated: "2024-10-30"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -92,7 +92,7 @@ If it is necessary to restrict access to a single database (or set of databases)
 See [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup) to learn more.
 
 
-### {{site.data.keyword.cloudant_short_notm}} API keys and _Use only IAM_
+### {{site.data.keyword.cloudant_short_notm}} API keys and *Use only IAM*
 {: #ibm-cloudant-api-keys-and-use-only-iam_ai}
 
 Use of {{site.data.keyword.cloudant_short_notm}} API keys alongside IAM is possible but **not recommended**. This recommendation is made because
@@ -299,10 +299,11 @@ IAM polices can be defined to restrict access to individual databases or those d
 To target a database, set the attribute **Resource Type** to `database`. There are two operators
 available:
 
-| Operator | Description |
-|-------------|----------|
-|`string equals`|matches a URL encoded database name exactly.|
-|`string matches`|match using a multi-character wildcard (*), which matches any sequence of zero or more characters, a single-character wildcard (?), matching any single character, or both.|
+| Operator         | Description                                                                                                                                                                 |
+|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `string equals`  | matches a URL encoded database name exactly.                                                                                                                                |
+| `string matches` | match using a multi-character wildcard (*), which matches any sequence of zero or more characters, a single-character wildcard (?), matching any single character, or both. |
+{: caption="Database-level IAM operators" caption-side="top"}
 
 Database names should be URL encoded in the **Resource ID** field of the policy, except for forward slashes `/`. This *does not* apply to any wildcard characters in the policy.
 
@@ -313,19 +314,19 @@ Note that leaving the **Resource Type** or **Resource ID** fields blank will cre
 ### Examples
 {: #database-level-iam-policies-examples}
 
-| Description | Attribute | Operator | Value |
-|-------------|----------|
-| databases named `movies` | **Resource Type** | `string equals` | `database` |
-|                          | **Resource ID** | `string equals` | `movies` |
-| databases starting with `movies` | **Resource Type** | `string equals` | `database` |
-|                                  | **Resource ID** | `string matches` | `movies*` |
-| databases named `movies+new` | **Resource Type** | `string equals` | `database` |
-|                              | **Resource ID** | `string equals` | `movies%2Bnew` |
-| databases starting with `movies+*` | **Resource Type** | `string equals` | `database` |
-|                                    | **Resource ID** | `string matches` | `movies%2B*` |
-| databases named `movies/new` | **Resource Type** | `string equals` | `database` |
-|                              | **Resource ID** | `string equals` | `movies/new` |
-
+| Description                        | Attribute         | Operator         | Value          |
+|------------------------------------|-------------------|------------------|----------------|
+| databases named `movies`           | **Resource Type** | `string equals`  | `database`     |
+|                                    | **Resource ID**   | `string equals`  | `movies`       |
+| databases starting with `movies`   | **Resource Type** | `string equals`  | `database`     |
+|                                    | **Resource ID**   | `string matches` | `movies*`      |
+| databases named `movies+new`       | **Resource Type** | `string equals`  | `database`     |
+|                                    | **Resource ID**   | `string equals`  | `movies%2Bnew` |
+| databases starting with `movies+*` | **Resource Type** | `string equals`  | `database`     |
+|                                    | **Resource ID**   | `string matches` | `movies%2B*`   |
+| databases named `movies/new`       | **Resource Type** | `string equals`  | `database`     |
+|                                    | **Resource ID**   | `string equals`  | `movies/new`   |
+{: caption="Database-level IAM operator examples" caption-side="top"}
 
 ## Create a replication job by using IAM credentials only
 {: #create-replication-job-using-iam-cred-only-ai}

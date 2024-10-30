@@ -32,7 +32,7 @@ Notice that the following Cloudant features are deprecated:
 
 These four features are already deprecated in Apache CouchDB and scheduled to be removed from the code in Apache CouchDB 4.0. None of these features are modelled in our Cloudant SDKs.
 
-Although these features are deprecated, they will not be removed from the service yet. {:important}
+Although these features are deprecated, they will not be removed from the service yet. { :important}
 
 We may completely remove the features in the future, but will leave them operable for the time being to give customers time to modify their applications. As deprecated features, they will not appear in our documentation, their use is not recommended and they will not be supported by our Support team.
 

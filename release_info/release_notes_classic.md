@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-10-30"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -24,6 +24,7 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 {: #cloudant-oct24}
 
 ### Upcoming changes
+{: #Upcoming-changes}
 
 The following changes are planned for the next release:
 
