@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2023, 2024
+  years: 2017, 2024
 lastupdated: "2024-09-16"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance

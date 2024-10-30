@@ -29,6 +29,10 @@
       {
         "title": "IBM Cloudant plans",
         "href": "/docs/Cloudant?topic=Cloudant-ibm-cloud-public"
+      },
+      {
+        "title": "Try IBM Cloudant for free",
+        "href": "/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant"
       }
     ]
   },

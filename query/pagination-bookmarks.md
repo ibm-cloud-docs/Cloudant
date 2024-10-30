@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-04-06"
+  years: 2019, 2024
+lastupdated: "2024-10-30"
 
 keywords: _all_docs endpoint, skip, limit, startkey, endkey, query, search, paging, mapreduce views
 
@@ -32,7 +32,7 @@ If you use the `GET` or `POST` `$SERVICE_URL/$DATABASE/_all_docs` endpoint to fe
 ## What is the `_all_docs` endpoint?
 {: #what-is-the_all_docs_endpoint}
 
-The `GET` and `POST` `$SERVICE_URL/$DATABASE/_all_docs` are used to fetch data from an {{site.data.keyword.cloudant_short_notm}} database's _primary index_, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data that is requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
+The `GET` and `POST` `$SERVICE_URL/$DATABASE/_all_docs` are used to fetch data from an {{site.data.keyword.cloudant_short_notm}} database's *primary index*, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data that is requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
 
 ```sh
 curl -H "Authorization: Bearer $API_BEARER_TOKEN" -X GET "$SERVICE_URL/orders/_all_docs"
