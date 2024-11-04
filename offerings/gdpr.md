@@ -51,7 +51,7 @@ for GDPR:
 If you store healthcare data, you *must* notify {{site.data.keyword.cloudant_short_notm}} before you write any data.
 
 For more information about supported classifications of Personal Data, see the
-[Data Sheet Addendum (DSA) under 2. Personal Data](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: external}.
+[Data Sheet Addendum (DSA) under 2. Personal Data](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2052E430379B11E58B2CB2A838CE4F20){: external}.
 
 ## Data about me
 {: #data-about-me}
@@ -233,4 +233,3 @@ database are removed from your system. For more information, see
 [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: external}.
 
 If you need more help, go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
-
