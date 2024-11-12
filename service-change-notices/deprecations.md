@@ -17,6 +17,144 @@ subcollection: Cloudant
 
 You can see the deprecations for {{site.data.keyword.cloudantfull}} here.
 
+## {{site.data.keyword.cloudant_short_notm}} Upgrading JavaScript engine
+{: #cloudant-nosql-db-jsengine-dep}
+
+### Details
+{: #cloudant-nosql-db-jsengine-dep-details}
+
+The JavaScript engine used in design documents is being upgraded to support
+newer language features and optimize index build speeds. However, as a result,
+some JavaScript language features are deprecated, and others will change their
+behavior:
+
+ * `RegExp.$1...$9` regular expressions feature is deprecated. The `$1`...`$9`
+   properties will return `undefined`. For example:
+
+Previous result:
+```js
+> v="abc"
+"abc"
+
+> v.match(/(b)/)
+["b", "b"]
+
+> RegExp.$1
+"b"
+```
+
+New reuslt:
+```js
+> v="abc"
+"abc"
+
+> RegExp.$1
+undefined
+```
+
+ * `Date.prototype.toString()` result doesn't include the timezone name, just the offset. For example:
+
+Previous result:
+```js
+>  (new Date()).toString();
+"Thu Sep 05 2024 17:04:03 GMT-0400 (EDT)"
+```
+
+New result:
+```js
+> (new Date()).toString();
+"Thu Sep 05 2024 17:03:23 GMT-0400"
+```
+
+ * `for each (var x in ...)` experssions are deprecated
+
+ * E4X (ECMAScript for XML) is deprecated
+
+Previous result:
+ ```js
+> var xml = <root><x></x></root>
+
+> xml.(x)
+<root>
+  <x/>
+</root>
+```
+
+New result:
+```js
+> var xml = <root><x></x></root>
+typein:1:11 SyntaxError: expected expression, got '<':
+```
+
+ * `Date.prototype.toLocaleFormat()` function is depcrecated.
+
+Previous result:
+```js
+> d = new Date("Dec 1, 2015 3:22:46 PM")
+(new Date(1449001366000))
+
+> d.toLocaleFormat("%Y-%m-%d")
+"2015-12-01"
+```
+
+New result:
+```js
+> d = new Date("Dec 1, 2015 3:22:46 PM")
+(new Date(1449001366000))
+
+> d.toLocaleFormat("%Y-%m-%d")
+typein:2:3 TypeError: d.toLocaleFormat is not a function
+```
+
+ * `Date.prototype.toLocaleString()` used to ignore locale strings, the new version will return the correct format:
+
+Previous result:
+```js
+> (new Date("2019-01-15T19:32:52.915Z")).toLocaleString('en-US')
+"Tue Jan 15 14:32:52 2019"
+```
+
+New result:
+```js
+> (new Date("2019-01-15T19:32:52.915Z")).toLocaleString('en-US')
+"01/15/2019, 02:32:52 PM"
+```
+
+ * Invalid expressions following `function(){...}` expressions used to be
+   ignored, but in the future will throw a syntax error. For example, a design
+   view function like the following will start returning `compilation_error`
+   with a `400 HTTP` result.
+
+ * Object key order changed:
+
+Previous result:
+```js
+> r={}; ["Xyz", "abc", 1].forEach(function(v) {r[v]=v;}); Object.keys(r)
+["Xyz", "abc", "1"]
+```
+
+New result:
+```js
+> r={}; ["Xyz", "abc", 1].forEach(function(v) {r[v]=v;}); Object.keys(r)
+["1", "Xyz", "abc"]
+```
+
+ * `String.prototype.match(undefined)` used to return `null`, and now will return `[""]`:
+
+Previous result:
+```js
+> "abc".match(undefined)
+null
+```
+
+New result
+```js
+> "abc".match(undefined)
+[""]
+```
+
+For more details see the [Cloudant blog](https://blog.cloudant.com/2024/10/29/QuickJS-for-Faster-Index-Builds.html){: external}).
+
 ## {{site.data.keyword.cloudant_short_notm}} Deprecation of `_show`, `_list`, `_update`, `_rewrite` functions
 {: #cloudant-nosql-db-show-list-update-rewrite-function-dep}
 
