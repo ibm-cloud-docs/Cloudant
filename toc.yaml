@@ -159,6 +159,8 @@ toc:
           topics:
           - ha-dr/bc-dr.md
           - ha-dr/ha.md
+      -  topic: offerings/data-portability.md 
+         navtitle: Data portability         
       - topicgroup:
           label: Best practices for IBM Cloudant
           topics:
@@ -189,10 +191,6 @@ toc:
           topics:
           - couchdb/comparison.md
           - couchdb/compare.md
-      - topicgroup:
-            label: Data portability
-            topics:
-            - offerings/data-portability.md 
       - topicgroup:
           label: Other offerings
           topics:
