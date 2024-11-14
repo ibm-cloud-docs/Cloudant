@@ -206,11 +206,13 @@ It is also worth understanding that the rates aren’t directly equivalent to HT
 ## Logging helps you see what’s going on
 {: #see-whats-going-on-with-logs}
 
-{{site.data.keyword.cloudant_short_notm}}’s logs indicating each API call made, what was requested and how long it took to respond can be automatically spooled to LogDNA for analysis and reporting for IBM Cloud-based services. This data is useful for keeping an eye on request volumes, performance, and whether your application is exceeding the provisioned capacity for your {{site.data.keyword.cloudant_short_notm}} service.
+{{site.data.keyword.cloudant_short_notm}}’s logs indicating each API call made, what was requested and how long it took to respond can be automatically spooled to {{site.data.keyword.logs_full_notm}} for analysis and reporting for IBM Cloud-based services. This data is useful for keeping an eye on request volumes, performance, and whether your application is exceeding the provisioned capacity for your {{site.data.keyword.cloudant_short_notm}} service.
 
-You can set up the logging service at no cost to get started. Paid-for plans allow data to be parsed, retained, and archived to Object Storage. Slices and aggregations of your data can be built up into visual dashboards to give you an at-a-glance view of your {{site.data.keyword.cloudant_short_notm}} traffic. For more information, see the following website:
+{{site.data.keyword.logs_full_notm}} is a metered service that offers a variety of retention periods and log consumption tiers. Tiers allow data to be retained to archive to COS, cold or hot searched, and alerted upon at varying costs. Slices and aggregations of your data can be built up into visual dashboards to give you an at-a-glance view of your {{site.data.keyword.cloudant_short_notm}} traffic. For more information, see the following documentation:
 
-- [{{site.data.keyword.cloudant_short_notm}} Logging with LogDNA blog](https://blog.cloudant.com/2019/09/16/Cloudant-Logging-with-LogDNA.html){: external}
+- [Getting started with IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started){: external}
+- [Getting started with IBM Cloud Logs Routing](https://cloud.ibm.com/docs/logs-router?topic=logs-router-getting-started){: external} 
+- [IBM Cloud Logs Total Cost of Ownership Optimizer](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-tco-optimizer){: external} 
 
 ## Compress your HTTP traffic
 {: #how-to-compress-my-http-traffic}
@@ -237,4 +239,3 @@ Compressed content occupies a fraction of the size of the decompressed equivalen
 
 You might also choose to compress HTTP request bodies by using the Content-encoding header. This practice helps reduce data transfer times when you write documents to {{site.data.keyword.cloudant_short_notm}}.
 {: note}
-
