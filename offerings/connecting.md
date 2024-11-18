@@ -45,9 +45,9 @@ Private (internal) endpoints are added to all instances deployed on Dedicated Ha
 
 `https://$ACCOUNT.private.cloudantnosqldb.appdomain.cloud`
 
-In the previous example, ACCOUNT is the service name of the service instance user in the URL. An example ACCOUNT is
-de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external endpoint would be
-de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud.
+In the previous example, `ACCOUNT` is the service name of the service instance user in the URL. An example `ACCOUNT` is
+`de810d0e-763f-46a6-ae88-50823dc85581-bluemix`, and resulting example external endpoint would be
+`de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud`.
 
 For more information about how to block public network connectivity by using IP allowlisting, see [Secure access control](/docs/Cloudant?topic=Cloudant-security#secure-access-control).
 {: note}
