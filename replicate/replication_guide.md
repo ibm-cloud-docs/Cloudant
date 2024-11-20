@@ -80,8 +80,24 @@ See the following example that defines source and target URLs for replication:
 
 ```json
 {
-    "source": "https://myfirstaccount.cloudant.com/a",
-    "target": "https://mysecondaccount.cloudant.com/b"
+  "source": {
+    "url": "https://myfirstaccount.cloudant.com/a",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  },
+  "target": {
+    "url": "https://mysecondaccount.cloudant.com/b",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  }
 }
 ```
 {: codeblock}
@@ -469,8 +485,24 @@ See the following example of a JSON document that defines a continuous replicati
 ```json
 {
     "_id": "weekly_continuous_backup",
-    "source": "https://$USERNAME:$PASSWORD@$SOURCE_SERVICE_DOMAIN/source",
-    "target": "https://$USERNAME:$PASSWORD@$TARGET_SERVICE_DOMAIN/target",
+    "source": {
+      "url": "https://$SOURCE_SERVICE_DOMAIN/source",
+      "auth": {
+        "basic": {
+          "username": "$USERNAME",
+          "password": "$PASSWORD"
+        }
+      }
+    },
+    "target": {
+      "url": "https://$TARGET_SERVICE_DOMAIN/target",
+      "auth": {
+        "basic": {
+          "username": "$USERNAME",
+          "password": "$PASSWORD"
+        }
+      }
+    },
     "continuous": true
 }
 ```
@@ -774,8 +806,24 @@ See the following example of a JSON document that defines a filtered replication
 ```json
 {
     "_id": "weekly_backup",
-    "source": "https://$USERNAME:$PASSWORD@$SOURCE_SERVICE_DOMAIN/source",
-    "target": "https://$USERNAME:$PASSWORD@$TARGET_SERVICE_DOMAIN/target",
+    "source": {
+      "url": "https://$SOURCE_SERVICE_DOMAIN/source",
+      "auth": {
+        "basic": {
+          "username": "$USERNAME",
+          "password": "$PASSWORD"
+        }
+      }
+    },
+    "target": {
+      "url": "https://$TARGET_SERVICE_DOMAIN/target",
+      "auth": {
+        "basic": {
+          "username": "$USERNAME",
+          "password": "$PASSWORD"
+        }
+      }
+    },
     "filter": "mydesigndoc/myfilter",
     "query_params": {
         "foo": "bar",
