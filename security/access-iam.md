@@ -695,6 +695,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication-scheduler.read` |
 | `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication-scheduler.read` |
 | `POST` | `/_replicate` | `cloudantnosqldb.replication.write` |
+| `POST` | `/_replicator` | `cloudantnosqldb.replication.write` |
 | `PUT/DELETE` | `/_replicator` | `cloudantnosqldb.replicator-database.create` |
 | `PUT/DELETE` | `/_replicator/$DOCUMENT` | `cloudantnosqldb.replication.write` |
 | `GET/HEAD` | `/_up` | `cloudantnosqldb.account-up.read` |

@@ -150,10 +150,27 @@ database `myaccount-dc2.cloudant.com/mydb`.
 curl -XPOST "https://myaccount-dc1.cloudant.com/_replicator"
 	-u myaccount-dc1
 	-H "Content-Type: application/json"
-	-d '{ "_id": "mydb-myaccount-dc1-to-myaccount-dc2",
-	"source": "https://ble...igl:YPN...Tfi@myaccount-dc1.cloudant.com/mydb",
-	"target": "https://ble...igl:YPN...Tfi@myaccount-dc2.cloudant.com/mydb",
-	"continuous": true
+	-d '{
+	  "_id": "mydb-myaccount-dc1-to-myaccount-dc2",
+	  "source": {
+	    "auth": {
+	      "basic": {
+	        "username": "ble...igl",
+	        "password": "YPN...Tfi"
+	      }
+	    },
+	    "url": "https://myaccount-dc1.cloudant.com/mydb"
+	  },
+	  "target": {
+	    "auth": {
+	      "basic": {
+	        "username": "ble...igl",
+	        "password": "YPN...Tfi"
+	      }
+	    },
+	    "url": "https://myaccount-dc2.cloudant.com/mydb"
+	  },
+	  "continuous": true
 }'
 ```
 {: codeblock}
@@ -166,10 +183,27 @@ database `myaccount-dc1.cloudant.com/mydb`.
 curl -XPOST "https://myaccount-dc2.cloudant.com/_replicator"
 	-u myaccount-dc2
 	-H "Content-Type: application/json"
-	-d '{ "_id": "mydb-myaccount-dc2-to-myaccount-dc1",
-	"source": "https://ble...igl:YPN...Tfi@myaccount-dc2.cloudant.com/mydb",
-	"target": "https://ble...igl:YPN...Tfi@myaccount-dc1.cloudant.com/mydb",
-	"continuous": true
+	-d '{ 
+	  "_id": "mydb-myaccount-dc2-to-myaccount-dc1",
+	  "source": {
+	    "auth": {
+	      "basic": {
+	        "username": "ble...igl",
+	        "password": "YPN...Tfi"
+	      }
+	    },
+	    "url": "https://myaccount-dc2.cloudant.com/mydb"
+	  },
+	  "target": {
+	    "auth": {
+	      "basic": {
+	        "username": "ble...igl",
+	        "password": "YPN...Tfi"
+	      }
+	    },
+	    "url": "https://myaccount-dc1.cloudant.com/mydb"
+	  },
+	  "continuous": true
 }'
 ```
 {: codeblock}

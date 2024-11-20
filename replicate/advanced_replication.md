@@ -93,8 +93,47 @@ See the following example of specifying username and password values for accessi
 
 ```json
 {
-	"source": "https://$USERNAME:$PASSWORD@example.com/db", 
-	"target": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/db"
+  "source": {
+    "url": "https://example.com/db",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  },
+  "target": {
+    "url": "https://$ACCOUNT.cloudant.com/db",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  }
+}
+```
+{: codeblock}
+
+For IAM credentials, use the example below to authenticate with an IAM API key:
+```json
+{
+  "source": {
+    "url": "https://example.com/db",
+    "auth": {
+      "iam": {
+        "apikey": "$APIKEY"
+      }
+    }
+  },
+  "target": {
+    "url": "https://$ACCOUNT.cloudant.com/db",
+    "auth": {
+      "iam": {
+        "apikey": "$APIKEY"
+      }
+    }
+  }
 }
 ```
 {: codeblock}
@@ -155,9 +194,25 @@ See example JSON for starting a filtered replication:
 
 ```json
 {
-	"source": "https://$USERNAME:$PASSWORD@example.org/example-database",
-	"target": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
-	"filter": "myddoc/myfilter"
+  "source": {
+    "url": "https://example.org/example-database",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  },
+  "target": {
+    "url": "https://$ACCOUNT.cloudant.com/example-database",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  },
+  "filter": "myddoc/myfilter"
 }
 ```
 {: codeblock}
@@ -169,12 +224,28 @@ See example JSON for starting a filtered replication with supplied parameters:
 
 ```json
 {
-	"source": "https://$USERNAME:$PASSWORD@example.org/example-database",
-	"target": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
-	"filter": "myddoc/myfilter",
-	"query_params": {
-		"key": "value"
-	}
+  "source": {
+    "url": "https://example.org/example-database",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  },
+  "target": {
+    "url": "https://$ACCOUNT.cloudant.com/example-database",
+    "auth": {
+      "basic": {
+        "username": "$USERNAME",
+        "password": "$PASSWORD"
+      }
+    }
+  },
+  "filter": "myddoc/myfilter",
+  "query_params": {
+    "key": "value"
+  }
 }
 ```
 {: codeblock}
@@ -191,8 +262,24 @@ $ACCOUNT/$DATABASE/$DOCID` API endpoint by default, or appear in the
 
 ```json
 {
-	"source": "https://$USERNAME:$PASSWORD@example.org/example-database",
-	"target": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/example-database",
+	"source": {
+	  "url": "https://example.org/example-database",
+	  "auth": {
+	    "basic": {
+	      "username": "$USERNAME",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
+	"target": {
+	  "url": "https://$ACCOUNT.cloudant.com/example-database",
+	  "auth": {
+	    "basic": {
+	      "username": "$USERNAME",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
 	"winning_revs_only": true
 }
 ```
@@ -223,8 +310,24 @@ See the following example replication of specific documents:
 
 ```json
 {
-	"source": "https://$USERNAME:$PASSWORD@example.org/example-database",
-	"target": "https://$USERNAME:$PASSWORD@127.0.0.1:5984/example-database",
+	"source": {
+	  "url": "https://example.org/example-database",
+	  "auth": {
+	    "basic": {
+	      "username": "$USERNAME",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
+	"target": {
+	  "url": "https://127.0.0.1:5984/example-database",
+	  "auth": {
+	    "basic": {
+	      "username": "$USERNAME",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
 	"doc_ids": ["foo", "bar", "baz"]
 }
 ```
@@ -264,8 +367,24 @@ See the following example delegated replication document:
 ```json
 {
 	"_id": "my_rep",
-	"source":  "https://$ACCOUNT:$PASSWORD@$SERVER.com:5984/foo",
-	"target":  "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/bar",
+	"source": {
+	  "url": "https://$SERVER.com:5984/foo",
+	  "auth": {
+	    "basic": {
+	      "username": "$USERNAME",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
+	"target": {
+	  "url": "https://$ACCOUNT.cloudant.com/bar",
+	  "auth": {
+	    "basic": {
+	      "username": "$USERNAME",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
 	"continuous":  true,
 	"user_ctx": {
 		"name": "joe",
@@ -331,8 +450,24 @@ See the following example that includes performance options in a replication doc
 
 ```json
 {
-	"source": "https://$ACCOUNT1:$PASSWORD1@example.com/example-database",
-	"target": "https://$ACCOUNT2:$PASSWORD2@example.org/example-database",
+	"source": {
+	  "url": "https://example.com/example-database",
+	  "auth": {
+	    "basic": {
+	      "username": "$ACCOUNT1",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
+	"target": {
+	  "url": "https://example.org/example-database",
+	  "auth": {
+	    "basic": {
+	      "username": "$ACCOUNT2",
+	      "password": "$PASSWORD"
+	    }
+	  }
+	},
 	"connection_timeout": 60000,
 	"retries_per_request": 20,
 	"http_connections": 30
