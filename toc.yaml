@@ -14,6 +14,7 @@ toc:
   - navgroup:
       id: learn
       topics:
+      - what-is-cloudant.md
       - topic: getting-started.md
         navtitle: Getting started
       - offerings/bluemix.md
