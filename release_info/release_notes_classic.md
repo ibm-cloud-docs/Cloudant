@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-22"
 
 keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
 
@@ -20,8 +20,8 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-## October 2024
-{: #cloudant-oct24}
+## November 2024
+{: #cloudant-nov24}
 
 ### Upcoming changes
 {: #Upcoming-changes}
@@ -30,6 +30,32 @@ The following changes are planned for the next release:
 
 Auth
 :   To enhance security, Cloudant will enable temporary lockout of accounts in the coming months. After multiple login attempts using incorrect credentials, further login attempts will be denied for a period of time. To unlock your account, please wait for some time or change the password and then wait at least 5 minutes to ensure that the change propagates throughout the system.
+
+### 22 November 2024
+{: #Cloudant-nov2224}
+{: release-note}
+
+The following changes were made in build 8542:
+
+`X-Couch-Request-ID` HTTP header
+:   Allow users to specify the request ID using `X-Couch-Request-ID` header, which is useful for tracking down requests that fail to start in a timely manner when using a load balancer in front.
+
+Mango query
+:   Introduced `allow_fallback` (boolean) query parameter that determines whether Cloudant can fall back to another valid index. When the user-specified index is not usable, if `allow_fallback=true`, the built-in `_all_docs` index is used. If `allow_fallback=false`, a 400 Bad Request is returned. The default value is true.
+
+:   Prevent inserting illegal ddocs via `_index` POST request.
+
+Replication
+:   Improve the robustness of replication.
+
+Runtime environment
+:   Downgrade to the latest Erlang/OTP 25 release.
+
+Welcome message
+:   JavaScript engine `quickjs` will show up in the list of welcome features if enabled.
+
+## October 2024
+{: #cloudant-oct24}
 
 ### 23 October 2024
 {: #Cloudant-oct2324}
