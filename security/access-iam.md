@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-25"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -750,6 +750,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/_session` | `cloudantnosqldb.session.write` |
 | `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
 | `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
+| `GET/HEAD` | `/_user/current/dbs` | `cloudantnosqldb.account-current-dbs.read` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
 | `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
@@ -792,6 +793,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/_session` | `cloudantnosqldb.session.write` |
 | `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
 | `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
+| `GET/HEAD` | `/_user/current/dbs` | `cloudantnosqldb.account-current-dbs.read` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
 | `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
@@ -828,6 +830,7 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `POST` | `/_session` | `cloudantnosqldb.session.write` |
 | `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
 | `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
+| `GET/HEAD` | `/_user/current/dbs` | `cloudantnosqldb.account-current-dbs.read` |
 | `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
 | `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
 | `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
