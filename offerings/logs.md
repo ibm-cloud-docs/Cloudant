@@ -15,7 +15,7 @@ subcollection: Cloudant
 # {{site.data.keyword.logs_full_notm}} integration
 {: #log-analysis-integration}
 
-{{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.logsfull}}](/docs/cloud-logs?topic=cloud-logs-about-cl){: external}, so you can view database logs.
+{{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.logs_full}}](/docs/cloud-logs?topic=cloud-logs-about-cl){: external}, so you can view database logs.
 {: shortdesc}
 
 Currently, {{site.data.keyword.logs_full_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
