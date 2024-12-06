@@ -149,6 +149,7 @@ toc:
       id: reference
       topics:
       - offerings/responsibilities.md
+      - service-dependency.md
       - topicgroup:
           label: Observability
           topics:
