@@ -126,7 +126,7 @@ This table can be used to answer the following questions:
    :   Deployment, upgrade, patch, and so on of the service and service instances.
 
    customer responsibility
-   :   Functions provides by customers to support specific service and service instances function. For example: Key Protect instances provided by customer to support service BYOK encryption.
+   :   Functions provides by customers to support specific service and service instances function. For example: {{site.data.keyword.keymanagementservicefull_notm}} instances provided by customer to support service BYOK encryption.
 
    disaster recovery
    :   Backup, recovery, restart of the service and service instances in case of disruption.
@@ -143,7 +143,7 @@ This table can be used to answer the following questions:
    security compliance
    :   Vulnerability management and other security and compliance management of the service and service instances.
 
-- The **Customer provided** column will show if there is any dependency that has been provided by the customer to enable specific functionality. (for example: In order to properly configure and set up using BYOK into a service, the customer would provision a service like Keyprotect. But there may be other examples like this.) For details on how to enable the features and which services you need to provision, please see the documentation on the service.
+- The **Customer provided** column will show if there is any dependency that has been provided by the customer to enable specific functionality. (for example: To properly configure and set up using BYOK into a service, the customer would provision a service like {{site.data.keyword.keymanagementservicefull_notm}}. But there may be other examples like this.) For details on how to enable the features and which services you need to provision, please see the documentation on the service.
 
 - **Where do dependency services need to be deployed regarding my service?** In the Location of dependency column you can view if the dependency is located in the same region or deployed to a specific data center. You can use this data with the data in the Control or data plane column for a quick reference to identify if your data leaves the region or not in a standard setup.
 
@@ -152,7 +152,7 @@ This table can be used to answer the following questions:
    The table shows a standard cloud deployment. If a special deployment is used like Fedramp or other region-bound deployment models, the data might differ from the details available in the table. Refer to the specific deployment that you are using for that information.
    {: note}
 
-- **Where are the separate control plane and data plane located, if applicable?** In some cases, the dependency might have a separate control plane and data plane. In these cases, there are separate lines that show the location in relation to the deployed customer instance of the service where these will be provisioned. The lines might have different impacts and different functions. See the Control or data plane column to understand what possible impact this type of outage might have.
+- **Where are the separate control plane and data plane located, if applicable?** Sometimes, the dependency might have a separate control plane and data plane. In these cases, there are separate lines that show the location in relation to the deployed customer instance of the service where these will be provisioned. The lines might have different impacts and different functions. See the Control or data plane column to understand what possible impact this type of outage might have.
 
    Same region means that the dependent services are in the same region as the provisioned instance. Other values might show data center or region names if the service must be used from a specific region, a specific availability zone, or set of availability zones. If a service is tied to a specific region or site, and the region goes offline, the service might go offline as well. It is recommended that you go through the high availability and disaster recovery documentation of the dependency to determine if there are any steps that you should take to mitigate these types of risks.
 
