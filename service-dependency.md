@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-12"
+lastupdated: "2024-12-16"
 
 keywords:
 
@@ -55,9 +55,8 @@ The following table provides the dependency listing of this service following a 
 |:---|:---|:---|:---|:---|
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  Same region  |
 | PagerDuty | Availability, Operations | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Internet Services | Availability, Disaster recovery, Instance control | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Key Protect for IBM Cloud | Availability, Disaster recovery, Instance control, Security compliance | No | Data plane |  Same region  |
 | IBM Cloud Monitoring | Availability, Operations | No | Control plane |  Same region  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Control plane |  Same data center  |
@@ -84,16 +83,12 @@ The following table provides the dependency listing of this service following a 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Business Support Services| none | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Object Storage| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Object Storage| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Object Storage| none | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Object Storage| Disaster recovery | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Object Storage| Security compliance | No | Control plane |  Same region  |
 | SOS SIEM| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Log Analysis and IBM Cloud Activity Tracker| Customer responsibility | No | Control plane |  Same region  |
-| IBM Event Streams for IBM Cloud| Customer responsibility | No | Control plane |  Same region  |
+| IBM Event Streams for IBM Cloud| Customer responsibility | Yes | Control plane |  customer-selected  |
 | SOS Inventory Management| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| SOS SIEM| none | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
