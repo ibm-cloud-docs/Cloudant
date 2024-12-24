@@ -30,7 +30,6 @@ toc:
           - offerings/dataprivacygovernance.md
           - offerings/audit.md
           - offerings/gdpr.md
-      - transaction-engine/overview-te.md
       - service-change-notices/deprecations.md
       - release_info/release_notes_classic.md
   - navgroup:
@@ -47,7 +46,6 @@ toc:
       - tutorials/create_database.md
       - tutorials/create_query.md
       - tutorials/create_backup.md
-      - tutorials/locate-db2-warehouse-credentials.md
   - navgroup:
       id: howto
       topics:
