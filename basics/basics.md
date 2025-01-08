@@ -148,7 +148,6 @@ Continuous replication can result in many internal calls. These calls might affe
 - Low latency, in-memory data store. For more information, see [{{site.data.keyword.cloud}} Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis).
 - Limitless object store for archiving data. For more information, see [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage).
 - Relational database with SQL querying, stored procedures, and constraints and triggers. For more information, see [{{site.data.keyword.cloud_notm}} Databases for PostgreSQL](https://www.ibm.com/cloud/databases-for-postgresql).
-- Data warehouse for ad hoc querying. For more information, see [{{site.data.keyword.dashdblong}}](https://www.ibm.com/products/db2-warehouse).
 - A queue. For more information, see [{{site.data.keyword.IBM_notm}} MQ](https://www.ibm.com/uk-en/products/mq).
 
 For more information, see the [Best and worst practice](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog.

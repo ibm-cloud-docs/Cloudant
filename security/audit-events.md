@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-25"
+  years: 2019, 2025
+lastupdated: "2025-01-08"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -381,7 +381,6 @@ It can take up to 5 minutes for the change to be reflected in the events seen in
 | `cloudantnosqldb.account-search-analyze.execute` | Read search index statistics and size. |
 | `cloudantnosqldb.account-uuids.read` | Read `_uuids` endpoint. |
 | `cloudantnosqldb.account-active-tasks.read` | Read `_active_tasks`. |
-| `cloudantnosqldb.account-current-dbs.read` | Read a count of all databases. |
 | `cloudantnosqldb.current-throughput.read` | Get the current consumption of the provisioned throughput capacity for an instance. |
 | `cloudantnosqldb.database-ensure-full-commit.execute` | Post to `_ensure_full_commit` endpoint. |
 | `cloudantnosqldb.database-info.read` | Read database metadata. |

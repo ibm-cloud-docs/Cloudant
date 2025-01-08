@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2015, 2024
-lastupdated: "2024-11-22"
+  years: 2015, 2025
+lastupdated: "2025-01-08"
 
-keywords: Cloudant, release notes, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, Mango, all docs, security, active tasks
+keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
 subcollection: Cloudant
 
@@ -20,16 +20,31 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-## November 2024
-{: #cloudant-nov24}
+## January 2025
+{: #cloudant-jan25}
 
 ### Upcoming changes
 {: #Upcoming-changes}
 
 The following changes are planned for the next release:
 
-Auth
+Legacy authentication
 :   To enhance security, Cloudant will enable temporary lockout of accounts in the coming months. After multiple login attempts using incorrect credentials, further login attempts will be denied for a period of time. To unlock your account, please wait for some time or change the password and then wait at least 5 minutes to ensure that the change propagates throughout the system.
+
+The temporary lockout described here applies to legacy (non-IAM) credentials only.
+{: note}
+
+### 8 January 2025
+{: #Cloudant-jan0825}
+{: release-note}
+
+The following changes were made in build 8543:
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 26 release.
+
+## November 2024
+{: #cloudant-nov24}
 
 ### 22 November 2024
 {: #Cloudant-nov2224}
@@ -40,10 +55,10 @@ The following changes were made in build 8542:
 `X-Couch-Request-ID` HTTP header
 :   Allow users to specify the request ID using `X-Couch-Request-ID` header, which is useful for tracking down requests that fail to start in a timely manner when using a load balancer in front.
 
-Mango query
-:   Introduced `allow_fallback` (boolean) query parameter that determines whether Cloudant can fall back to another valid index. When the user-specified index is not usable, if `allow_fallback=true`, the built-in `_all_docs` index is used. If `allow_fallback=false`, a 400 Bad Request is returned. The default value is true.
+Cloudant Query
+:   Introduced `allow_fallback` (boolean) query parameter that determines whether `_find` can fall back to a full database scan if the query does not specify an index, or if the specified index is invalid for the query. If `allow_fallback=false`, a `400 Bad Request` is returned. The default value is `true`.
 
-:   Prevent inserting illegal ddocs via `_index` POST request.
+:   Prevent inserting illegal design documents via `_index` POST request.
 
 Replication
 :   Improve the robustness of replication.
@@ -52,7 +67,7 @@ Runtime environment
 :   Downgrade to the latest Erlang/OTP 25 release.
 
 Welcome message
-:   JavaScript engine `quickjs` will show up in the list of welcome features if enabled.
+:   JavaScript engine `quickjs` will show up in the list of welcome features if enabled as the default JavaScript engine.
 
 ## October 2024
 {: #cloudant-oct24}
@@ -75,13 +90,8 @@ The following changes were made in build 8536:
 `_changes` endpoint
 :   If the request includes `limit` parameter, `continuous` / `eventsource` feed emission will stop after emitting the specified number of rows.
 
-Auth
-:   Enhance security for Cloudant by adding config options to effectively reject requests for a given user if repeated requests have failed for authentication reasons.
-
 Replicator
-:   Improve how the replicator handles IPv6 addresses.
-
-:   Prevent conflict generation in the replicator application.
+:   Prevent the replicator from creating conflicts in replication documents.
 
 Runtime environment
 :   Upgrade to the latest Erlang/OTP 25 release.
@@ -95,7 +105,7 @@ Runtime environment
 
 The following changes were made in build 8534:
 
-Auth
+Legacy authentication
 :   Prepare for migration to a more secure password hashing scheme.
 
 Runtime environment
@@ -123,7 +133,7 @@ The following changes were made in build 8521:
 :   Return a `400 Bad Request` response for `_scheduler/docs/{path}` in case of an invalid path, instead of `500 function_clause`.
 
 `_search_analyze` endpoint
-:   Authentication is required to access the `_search_analyze` endpoint.
+:   Authentication is now required to access the `_search_analyze` endpoint.
 
 `COPY` request
 :   Prevent creation of new documents if `Destination` header begins with `_` using the COPY method.
@@ -146,7 +156,7 @@ Welcome message
 
 The following changes were made in build 8513:
 
-IAM auth
+IAM authentication
 :   JSON web tokens (JWT) added the `exp` claim to ensure that user tokens are considered invalid once they expire.
 
 Replicator
@@ -158,7 +168,7 @@ Replicator
 
 The following changes were made in build 8511:
 
-IAM auth
+IAM authentication
 :   Refresh access tokens when credentials change. Previously, an access token was allowed to expire before obtaining a new one with the new credentials.
 
 Runtime environment
@@ -175,10 +185,10 @@ Runtime environment
 
 The following changes were made in build 8510:
 
-IAM auth
-:   Align with the latest Cloud Resource Name (CRN) authentication requirements. Prior to this change, database names shorter than 4 characters or containing some non-alpha-numeric characters were incorrectly prohibited from working with IAM auth.
+IAM authentication
+:   Add support for database resources in IAM access policies.
 
-Mango
+Cloudant Query
 :   Fix a race condition that resulted in some query response execution stats incorrectly reporting zero for `total_keys_examined`. See https://github.com/apache/couchdb/issues/4560 for more details.
 
 Replicator
@@ -267,7 +277,7 @@ The following changes were made in build 8462:
 Indexing
 :   Improve robustness of index compaction.
 
-Mango
+Cloudant Query
 :   Introduce `$beginsWith` operator.
 
 Runtime environment
@@ -316,12 +326,12 @@ The following changes were made in build 8448:
 `_db_updates` endpoint
 :   Remove `_db_updates` endpoint support.
 
-Mango query
+Cloudant Query
 :   Correct `_explain` API to always return an array for `fields`. Return `[]` instead of `"all_fields"` if the `fields` parameter was unset.
 
 :   Prevent occasional duplication of paginated `text` results.
 
-Legacy auth
+Legacy authentication
 :   Send compatible AuthSession cookie when possible.
 
 Replicator
@@ -348,10 +358,10 @@ The following changes were made in build 8442:
 Design documents
 :   `_design_docs/queries` / `_local_docs/queries` with parameter `keys` will return only design / local documents respectively.
 
-Legacy auth
+Legacy authentication
 :   Send a session cookie after successful basic authentication to migrate users to a strong password hashing scheme without impacting performance for each request.
 
-Mango query
+Cloudant query
 :   Remove duplicate elements from `indexable_fields` results.
 
 :   Correct the `_explain` endpoint `r` response field content from a byte array to an integer to match the declared API type.
@@ -392,7 +402,7 @@ The following changes were made in build 8435:
 `_replicate` endpoint
 :   Authentication is required to access the `_replicate` endpoint.
 
-Mango query
+Cloudant Query
 :   Improve error messages in case of invalid field errors.
 
 Replicator
@@ -414,7 +424,7 @@ Attachments
 
 :   Replace MD5 with xxHash in ETag generation.
 
-Mango query
+Cloudant Query
 :   Return correct `keys_examined` value in `execution_stats` field.
 
 :   Improve error messages of the `_index` endpoint.
@@ -456,7 +466,7 @@ Javascript
 `_local_docs` endpoint
 :   Hide internal checkpoint documents by default in the `_local_docs` response.
 
-Mango query
+Cloudant Query
 :   Return correct documents for queries with `$regex` and text indexes.
 
 :   Optimize queries using keys-only covering indexes.
@@ -638,7 +648,7 @@ Bulk docs
 Compaction
 :   Retain compactor state across node reboots.
 
-IAM auth
+IAM authentication
 :   Retry `authz` endpoint on failure.
 
 Indexes
@@ -692,7 +702,7 @@ Runtime environment
 
 The following changes were made in build 8278:
 
-IAM auth
+IAM authentication
 :   Improve compatibility during upgrades.
 
 Document updates and compaction
@@ -914,8 +924,8 @@ Compressed requests
 
 The following changes were made in build 8169:
 
-New! Mango query operator
-:   Introduce the Mango query operator, `$keyMapMatch` that offers the ability to make queries on the keys of a map.
+New! Cloudant query operator
+:   Introduce the query operator, `$keyMapMatch` that offers the ability to make queries on the keys of a map.
 
 Improvements
 :   Internal bug fixes.
@@ -1365,8 +1375,8 @@ Improvements
 
 The following changes were made in build 7302:
 
-Mango Query
-:   Improve Mango Query so that mixed clusters return correct results during upgrades.
+Cloudant Query
+:   Improve Cloudant Query so that mixed clusters return correct results during upgrades.
 
 Downgrade function
 :   Add a downgrade function to support future cluster purge releases.
@@ -1406,8 +1416,8 @@ versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ is supported.)*** Find m
 
 The following changes were made in build 7205:
 
-Refactor Mango Query selectors
-:   Refactor Mango Query selectors to reduce the amount of traffic sent between nodes in the cluster.
+Refactor Cloudant Query selectors
+:   Improve efficiency of Cloudant Query by adding support for predicate push-down to database shards.
 
 Document update errors
 :   Expose document update errors on concurrent document updates to client.
