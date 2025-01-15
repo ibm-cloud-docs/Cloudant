@@ -19,7 +19,7 @@ subcollection: Cloudant
 
 {{site.data.keyword.cloudant_short_notm}} is a close relative of the open-source database [Apache CouchDB](https://couchdb.apache.org/) and is run as a service so that customers don't have to worry about managing servers, networking, load balancing, database upgrades, database tuning or license fees - it is simply consumed over an encrypted HTTP API and charged by usage and data volume.
 
-A {{site.data.keyword.cloudant_short_notm}} instance lives in an {{site.data.keyword.cloud_notm}} region and stores JSON documents in collections called databases. Each JSON document in a database is stored in triplicate (across multiple availability zones where supported) to allow {{site.data.keyword.cloudant_short_notm}} to remain available even during availability zone outages.
+An {{site.data.keyword.cloudant_short_notm}} instance lives in an {{site.data.keyword.cloud_notm}} region and stores JSON documents in collections called databases. Each JSON document in a database is stored in triplicate (across multiple availability zones where supported) to allow {{site.data.keyword.cloudant_short_notm}} to remain available even during availability zone outages.
 
 Finally, data can be bi-directionally replicated across regions, to
  allow applications to survive regional failures with minimal downtime.
@@ -45,7 +45,7 @@ Unlike a [relational database](https://www.ibm.com/topics/relational-databases),
 ### Scalability
 {: #scalability}
 
-{{site.data.keyword.cloudant_short_notm}} is designed to scale from very small and zero-cost (on our Lite plan) to very large with linear billing costs proportional to the volume of data stored and the rate of read, write and query API calls made per second. A {{site.data.keyword.cloudant_short_notm}} instance can have hundreds of databases, with the potential for a database to store billions of documents. In total, a {{site.data.keyword.cloudant_short_notm}} instance can store tens of terabytes of data.
+{{site.data.keyword.cloudant_short_notm}} is designed to scale from very small and zero-cost (on our Lite plan) to very large with linear billing costs proportional to the volume of data stored and the rate of read, write and query API calls made per second. An {{site.data.keyword.cloudant_short_notm}} instance can have hundreds of databases, with the potential for a database to store billions of documents. In total, an {{site.data.keyword.cloudant_short_notm}} instance can store tens of terabytes of data.
 
 Paid plans can be scaled up and down in the web UI or through our API to meet expected demand or to scale back during quiet times.
 
@@ -59,10 +59,10 @@ Paid plans can be scaled up and down in the web UI or through our API to meet ex
 
 The {{site.data.keyword.cloudant_short_notm}} service is managed 24/7 by IBM Engineers across the globe. Hardware refreshes, disk drive replacements, operating system upgrades and {{site.data.keyword.cloudant_short_notm}} code releases are all handled with zero downtime.
 
-### HTTP API, Dashboard and SDKs
+### HTTP API, Dashboard, and SDKs
 {: #http-api-dashboard-and-sdks}
 
-{{site.data.keyword.cloudant_short_notm}} has an [HTTP API](https://cloud.ibm.com/apidocs/cloudant#introduction) and each instance has a [web UI](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-navigate-the-dashboard) to provide easy management of a {{site.data.keyword.cloudant_short_notm}} instance, its databases, indexes and documents. 
+{{site.data.keyword.cloudant_short_notm}} has an [HTTP API](https://cloud.ibm.com/apidocs/cloudant#introduction) and each instance has a [web UI](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-navigate-the-dashboard) to provide easy management of an {{site.data.keyword.cloudant_short_notm}} instance, its databases, indexes and documents.
 
 {{site.data.keyword.cloudant_short_notm}} provides SDKs to help your application to interact with databases programmatically in [Node.js](https://github.com/IBM/cloudant-node-sdk), [Java](https://github.com/IBM/cloudant-java-sdk), [Python](https://github.com/IBM/cloudant-python-sdk) and [Go](https://github.com/IBM/cloudant-go-sdk).
 
