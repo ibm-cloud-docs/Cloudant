@@ -23,7 +23,7 @@ You can use the [playlist](https://www.youtube.com/embed/playlist?list=PLzpeuWUE
 ## Introduction to {{site.data.keyword.cloudant_short_notm}} video
 {: #cloudant-course-intro-video}
 
-Learn about the {{site.data.keyword.cloudant_short_notm}} 17-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service. 
+Learn about the {{site.data.keyword.cloudant_short_notm}} 17-part video series that provides an overview of the {{site.data.keyword.cloudant_short_notm}} database-as-a-service.
 
 ![Introduction to {{site.data.keyword.cloudant_short_notm}}](https://www.youtube.com/embed/P9dFZaKAhIo){: video output="iframe" data-script="#cloudant-course-intro-video-script" id="Introduction to IBM Cloudant video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -38,7 +38,7 @@ This video is part 1 - *What is {{site.data.keyword.cloudant_short_notm}}?*
 {{site.data.keyword.cloudant_short_notm}} is a database, run as a service in the {{site.data.keyword.cloud}}. Its job is to store your application's data securely and make it possible for you to retrieve it quickly and efficiently. {{site.data.keyword.cloudant_short_notm}}'s key features are shown in the following list:
 
 Database
-:   Stores and retrieves data. More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format. 
+:   Stores and retrieves data. More specifically, it is a JSON document store. JSON comes from JavaScript and represents simple objects in a universal file format.
 
 "Document"
 :   The unit of storage in {{site.data.keyword.cloudant_short_notm}}. Documents are added, updated, and deleted in their entirety.
@@ -63,7 +63,7 @@ That's the end of this part. The next part is called *The Document*.
 ## The Document video
 {: #the-document-video}
 
-Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents work. 
+Learn about {{site.data.keyword.cloudant_short_notm}} databases and documents work.
 
 ![The Document](https://www.youtube.com/embed/zlfPQ5cl2Zo){: video output="iframe" data-script="#the-document-video-script" id="The Document video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -148,7 +148,7 @@ That's the end of this part. The next part is called *The Document ID*.
 ## The `_id` video
 {: #the-id-video}
 
-Learn how `_id`s work in {{site.data.keyword.cloudant_short_notm}}, how they are different from relational databases, and how you can define your own `_id`. 
+Learn how `_id`s work in {{site.data.keyword.cloudant_short_notm}}, how they are different from relational databases, and how you can define your own `_id`.
 
 ![The _id](https://www.youtube.com/embed/y_L8r_knq8U){: video output="iframe" data-script="#the-id-video-script" id="The _id video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -192,7 +192,7 @@ That's the end of this part. The next part is called *The rev token*.
 ## The rev token video
 {: #the-rev-token-video}
 
-Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token when you add, edit, or delete a document. 
+Learn how {{site.data.keyword.cloudant_short_notm}} creates a revision token when you add, edit, or delete a document.
 
 ![The rev token](https://www.youtube.com/embed/T14voAppUl0){: video output="iframe" data-script="#the-rev-token-video-script" id="The rev token video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -344,7 +344,7 @@ That's the end of this part. The next part is called *HTTP API Basics*.
 ## HTTP API Basics video
 {: #http-api-basics-video}
 
-Learn how to use the command line to make HTTP requests and to add, edit, and delete documents. 
+Learn how to use the command line to make HTTP requests and to add, edit, and delete documents.
 
 ![HTTP API Basics](https://www.youtube.com/embed/0G3J5eJF_jk){: video output="iframe" data-script="#http-api-basics-video-script" id="HTTP API Basics video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -497,9 +497,9 @@ That's the end of this part. The next part is called *Accessing {{site.data.keyw
 ## Accessing {{site.data.keyword.cloudant_short_notm}} Programmatically video
 {: #accessing-cloudant-programmatically-video}
 
-Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically. 
+Learn how to access {{site.data.keyword.cloudant_short_notm}} programmatically.
 
-![Accessing {site.data.keyword.cloudant_short_notm}} Programmatically](https://www.youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="Accessing Cloudant Programmatically video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Accessing {{site.data.keyword.cloudant_short_notm}} Programmatically](https://www.youtube.com/embed/y35LbPetISw){: video output="iframe" data-script="#accessing-cloudant-programmatically-video-script" id="Accessing Cloudant Programmatically video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Accessing {{site.data.keyword.cloudant_short_notm}} Programmatically video script
 {: #accessing-cloudant-programmatically-video-script}
@@ -562,10 +562,10 @@ This video is part 10 - *Querying*.
 
 So far we performed CRUD (create, retrieve, update, and delete) operations from the command line, the dashboard, and from code. These operations use the document's `_id`:
 
-- Fetch document by `_id`.    
-- Update document whose `_id` = 'x'.    
-- Delete document whose `_id` = 'x'.    
-- Get documents in the `_id` range 'a' to 'z'.    
+- Fetch document by `_id`.
+- Update document whose `_id` = 'x'.
+- Delete document whose `_id` = 'x'.
+- Get documents in the `_id` range 'a' to 'z'.
 
 These operations are the building blocks of a database, but they get you only so far. What if you need to return a subset of documents that match on fields within the document? A person's birth date? A book's title? An order's value?
 
@@ -585,13 +585,13 @@ If you need to access objects within documents, you can use standard dot notatio
 
 We can also add the following parameters:
 
-Fields 
+Fields
 :   Specifies the document attributes that we want returned (the default is the entire document).
 
-Sort 
+Sort
 :   Defines how the data is to be sorted. Sort is an array, allowing the sort to be calculated on multiple attributes.
 
-Limit 
+Limit
 :  The number of documents to return.
 
 If you are from a relational database background, this query is the equivalent SQL query to that last {{site.data.keyword.cloudant_short_notm}} query example.
@@ -631,7 +631,7 @@ That's the end of this part. The next part is called *Indexing*.
 ## Indexing video
 {: #indexing-video}
 
-Learn how indexing can speed up your query process. 
+Learn how indexing can speed up your query process.
 
 ![Indexing](https://www.youtube.com/embed/we2P8mtsnPs){: video output="iframe" data-script="#indexing-video-script" id="Indexing video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -728,13 +728,13 @@ Indexes build asynchronously and cannot be used until they build completely. Onc
 `_count`
 :   For counting things.
 
-`_sum` 
+`_sum`
 :   For totalizing values.
 
-`_stats` 
+`_stats`
 :   For providing counts and totals suitable for calculating means, variances, and standard deviations.
 
-`_approx_count_distinct` 
+`_approx_count_distinct`
 :   For approximate counting of unique values of the key.
 
 The design document's `MAP` function is passed a `doc` - the function is called once per document in the database. Any key-value pairs that `emit` from the `MAP` function create the index.
@@ -832,7 +832,7 @@ The {{site.data.keyword.cloudant_short_notm}} Sync libraries are native iOS or A
 
 Replication is a one-way operation from source to target, which moves all data (deletions, conflicts, attachments, as well as documents) and can be triggered in one of two ways:
 
-1. Run until all the data from the source reaches the target and then stop. 
+1. Run until all the data from the source reaches the target and then stop.
 2. The same as one, but the replication runs continuously forever, transferring new data from the source to the target as it arrives.
 
 Replication can also be resumed from where it last stopped. {{site.data.keyword.cloudant_short_notm}} keeps a note of `checkpoints` between replicating parties to allow the resumption of a pre-existing replication from its last known position.
@@ -843,7 +843,7 @@ A replication can also be given a name, which is handy for tracking which replic
 
 Now it's time for a practical exercise.
 
-1. Go to the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
+1. Go to the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 2. Create a database called `books2`.
 3. Start a continuous replication from `books` to `books2`.
 4. Visit the `books2` database to check that documents from `books` are now in `books2`.
@@ -932,7 +932,7 @@ That's the end of this part. The next part is called *{{site.data.keyword.clouda
 ## {{site.data.keyword.cloudant_short_notm}} Search video
 {: #cloudant-search-video}
 
-Learn how to use {{site.data.keyword.cloudant_short_notm}} Search, as well as Lucene query language and faceting. 
+Learn how to use {{site.data.keyword.cloudant_short_notm}} Search, as well as Lucene query language and faceting.
 
 ![{{site.data.keyword.cloudant_short_notm}} Search](https://www.youtube.com/embed/4cs5qH3lt5U){: video output="iframe" data-script="#cloudant-search-video-script" id="Cloudant Search video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -984,7 +984,7 @@ That's the end of this part. The next part is called *Under the hood*.
 ## Under the hood video
 {: #under-the-hood-video}
 
-Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized. 
+Learn how the {{site.data.keyword.cloudant_short_notm}} service is organized.
 
 ![Under the hood](https://www.youtube.com/embed/kCOTeCnHWJg){: video output="iframe" data-script="#under-the-hood-video-script" id="Under the hood video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 

@@ -20,9 +20,9 @@ https://wcp-docs-team-jenkins.swg-devops.com/job/mirror/job/cloud-docs/job/Cloud
 
 ## Documentation
 
-Please use https://github.ibm.com/cloud-docs/Cloudant for contributions to the documentation. Pushes to https://github.com/ibm-cloud-docs/Cloudant are only allowed by members of the documentation team. See [Documentation Update Process](https://github.ibm.com/cloud-docs/Cloudant/wiki/Documentation-Update-Process) for instructions. 
+Please use https://github.ibm.com/cloud-docs/Cloudant for contributions to the documentation. Pushes to https://github.com/ibm-cloud-docs/Cloudant are only allowed by members of the documentation team. See [Documentation Update Process](https://github.ibm.com/cloud-docs/Cloudant/wiki/Documentation-Update-Process) for instructions.
 
-If you are not an IBM employee and want to make a documentation contribution, go to the [IBM Cloudant documentation](https://cloud.ibm.com/docs/services/Cloudant?topic=Cloudant-getting-started-with-cloudant#getting-started-with-cloudant) and click `Feedback` on the page where you want to comment. 
+If you are not an IBM employee and want to make a documentation contribution, go to the [IBM Cloudant documentation](https://cloud.ibm.com/docs/services/Cloudant?topic=Cloudant-getting-started-with-cloudant#getting-started-with-cloudant) and click `Feedback` on the page where you want to comment.
 
 ### Example update guide
 

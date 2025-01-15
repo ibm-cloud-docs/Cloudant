@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2022, 2024
+  years: 2015, 2024
 lastupdated: "2024-11-15"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl, acurl
@@ -22,7 +22,7 @@ requests, without exposing them in your terminal history or needing them to be
 typed in for every request.
 {: shortdesc}
 
-You use `curl` examples by following these steps. 
+You use `curl` examples by following these steps.
 
 ## Simplifying using IAM credentials with `curl`
 {: #working-with-iam-credentials}
@@ -51,7 +51,7 @@ You can supply username and password data for a request in four ways.
 
 	You can then define an "alias" that enables the `curl` command to apply the control file, for example:
 
-	```
+	```sh
 	alias acurl="curl -s --config <full_path_and_name_of_control_file> "
 	```
 	{: pre}

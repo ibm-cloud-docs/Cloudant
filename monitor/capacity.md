@@ -319,12 +319,12 @@ See the following example JSON response with the target capacity set:
 ## View the current consumption of provisioned throughput capacity used
 {: #view-current-capacity-consumption}
 
-Use a GET method to the `/_api/v2/user/current/throughput` endpoint to see the current consumption of provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. The current consumption shows the quantities of reads, writes, and global queries conducted against the instance for a given second. When you use this endpoint, it is a best practice to aggregate this data continuously over time to get a more comprehensive view of a {{site.data.keyword.cloudant_short_notm}} instance's throughput consumption patterns.
+Use a GET method to the `/_api/v2/user/current/throughput` endpoint to see the current consumption of provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. The current consumption shows the quantities of reads, writes, and global queries conducted against the instance for a given second. When you use this endpoint, it is a best practice to aggregate this data continuously over time to get a more comprehensive view of an {{site.data.keyword.cloudant_short_notm}} instance's throughput consumption patterns.
 
-Method 
+Method
 :  `GET`
 
-Path 
+Path
 :  `/_api/v2/user/current/throughput`
 
 Response
