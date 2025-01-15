@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-01-08"
+lastupdated: "2025-01-15"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -33,6 +33,13 @@ Legacy authentication
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+### 14 January 2025
+{: #Cloudant-jan1425}
+{: release-note}
+
+Provisioning
+:   Allow creation of Dedicated Hardware plan instances in the Chennai region.
 
 ### 8 January 2025
 {: #Cloudant-jan0825}
