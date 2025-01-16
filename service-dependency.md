@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-16"
+lastupdated: "2025-01-16"
 
 keywords:
 
@@ -86,9 +86,10 @@ The following table provides the dependency listing of this service following a 
 | IBM Cloud Object Storage| Security compliance | No | Control plane |  Same region  |
 | SOS SIEM| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Log Analysis and IBM Cloud Activity Tracker| Customer responsibility | No | Control plane |  Same region  |
-| IBM Event Streams for IBM Cloud| Customer responsibility | Yes | Control plane |  customer-selected  |
+| IBM Event Streams for IBM Cloud| Customer responsibility | No | Control plane |  Same region  |
 | SOS Inventory Management| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Activity Tracker event routing| Security compliance | No | Control plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
