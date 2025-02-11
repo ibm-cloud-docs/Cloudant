@@ -124,7 +124,6 @@ All design documents and `_local` documents that are added to the `/_replicator`
 ## Important notes
 {: #important-notes}
 
-- A new and more powerful [replication scheduler](/docs/Cloudant?topic=Cloudant-advanced-replication#the-replication-scheduler) changes the previous behavior of the {{site.data.keyword.cloudant_short_notm}} replication mechanisms. Ensure that your applications are updated.
 - Replications can severely impact the performance of an {{site.data.keyword.cloudant_short_notm}} instance. Performance testing helps you understand the impact on your environment under an increasing number of concurrent replications.
 - [Continuous replication](#continuous-replication) can result in many internal calls. Requiring many calls might affect the costs for multi-tenant users of {{site.data.keyword.cloudant_short_notm}} systems. By default, continuous replication is not enabled.
 - The target database must exist. It is not automatically created if it does not exist. Add `"create_target":true` to the JSON document that describes the replication if the target database does not exist before replication. For more information, see [Creating a target database during replication](#creating-a-target-database-during-replication).
