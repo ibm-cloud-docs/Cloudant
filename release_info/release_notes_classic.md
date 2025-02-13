@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-02-13"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -20,9 +20,6 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-## January 2025
-{: #cloudant-jan25}
-
 ### Upcoming changes
 {: #Upcoming-changes}
 
@@ -33,6 +30,21 @@ Legacy authentication
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## February 2025
+{: #cloudant-feb25}
+
+### 12 February 2025
+{: #Cloudant-feb1225}
+{: release-note}
+
+The following changes were made in build 8577:
+
+TLS support
+:   Improve TLS security by verifying certificates for internal services.
+
+## January 2025
+{: #cloudant-jan25}
 
 ### 14 January 2025
 {: #Cloudant-jan1425}
