@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-08"
+lastupdated: "2025-02-28"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -676,6 +676,8 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` |
 | `PUT` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.write` |
 | `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` |
+| `GET` | `/_api/v2/user/capacity/databases` | `cloudantnosqldb.account-capacity-dbs.read` |
+| `GET` | `/_api/v2/user/current/databases` | `cloudantnosqldb.account-current-dbs.read` |
 | `GET` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.read` |
 | `POST` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.write`|
 | `POST` | `/_api/v2/api_keys` | `cloudantnosqldb.sapi.apikeys` |
@@ -777,6 +779,8 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
 | `GET` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.read` |
+| `GET` | `/_api/v2/user/capacity/databases` | `cloudantnosqldb.account-capacity-dbs.read` |
+| `GET` | `/_api/v2/user/current/databases` | `cloudantnosqldb.account-current-dbs.read` |
 | `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
 | `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
 | `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` either or both `cloudantnosqldb.design-document.write` either or both `cloudantnosqldb.local-document.write` |
@@ -821,6 +825,8 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 | Method | Endpoint | Action name |
 |--------|----------|-------------|
 | `GET` | `/_api/v2/user/activity_tracker/events` | `cloudantnosqldb.activity-tracker-event-types.read` |
+| `GET` | `/_api/v2/user/capacity/databases` | `cloudantnosqldb.account-capacity-dbs.read` |
+| `GET` | `/_api/v2/user/current/databases` | `cloudantnosqldb.account-current-dbs.read` |
 | `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
 | `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
 | `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |
@@ -858,6 +864,8 @@ When you use IAM roles other than `Manager`, such as `Reader`, `Writer`, `Monito
 |`GET` | `/_api/v2/usage/data_volume` and `/_api/v2/usage/$YEAR/$MONTH` | `cloudantnosqldb.sapi.usage-data-volume` |
 | `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` |
 | `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` |
+| `GET` | `/_api/v2/user/capacity/databases` | `cloudantnosqldb.account-capacity-dbs.read` |
+| `GET` | `/_api/v2/user/current/databases` | `cloudantnosqldb.account-current-dbs.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 | `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` |
 | `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication-scheduler.read` |
