@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-08"
+lastupdated: "2025-02-28"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -340,6 +340,8 @@ It can take up to 5 minutes for the change to be reflected in the events seen in
 
 | Action | Description |
 |-------|------------|
+| `cloudantnosqldb.account-capacity-dbs.read` | Read the maximum number of databases allowed. |
+| `cloudantnosqldb.account-current-dbs.read` | Read the current number of databases. |
 | `cloudantnosqldb.account-status.configure` | Set the status of an instance. |
 | `cloudantnosqldb.account-status.read` | Get the status of an instance. |
 | `cloudantnosqldb.activity-tracker-event-types.read` | Get the configured event types of an instance. |

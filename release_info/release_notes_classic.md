@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-28"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -33,6 +33,14 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 
 ## February 2025
 {: #cloudant-feb25}
+
+### 26 February 2025
+{: #Cloudant-feb2625}
+{: release-note}
+
+Instance limits
+:   Add new `/_api/v2/user/capacity/databases` endpoint that returns the number of databases permitted for a Cloudant instance.
+:   Add new `/_api/v2/user/current/databases` endpoint that returns the current database count of a Cloudant instance.
 
 ### 12 February 2025
 {: #Cloudant-feb1225}
