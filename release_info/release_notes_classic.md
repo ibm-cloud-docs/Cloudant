@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-03-13"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -30,6 +30,27 @@ Legacy authentication
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## March 2025
+{: #cloudant-mar25}
+
+### 13 March 2025
+{: #Cloudant-mar1325}
+{: release-note}
+
+The following changes were made in build 8585:
+
+Attachments
+:   Fix attachment size calculation.
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 26 release.
+
+Views
+:   Restore the ability to return error objects from maps for the latest JavaScript engine `QuickJS`.
+
+Welcome message
+:   Improve robustness of the `search` feature status in the welcome message.
 
 ## February 2025
 {: #cloudant-feb25}
