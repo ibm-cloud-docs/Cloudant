@@ -143,6 +143,21 @@ function(doc) {
 ```
 {: codeblock}
 
+### Store vs include_docs=true
+{: #store-true-include_docs=true}
+
+When {{site.data.keyword.cloudant_short_notm}} returns data from a search, you can choose between the following options: `store: true` or `include_docs=true`. See the following descriptions: 
+
+1. At index-time, choose the `{store: true}` option. This option indicates that the field you're dealing with needs to be stored inside the index. A field can be "stored" even if it isn't used for indexing itself. For example, you might want to "store" a telephone number, even if your search algorithm doesn't include searching by phone number. 
+2. At query-time, pass `?include_docs=true` to indicate to {{site.data.keyword.cloud_notm}} that you want the entire body of each matching document to be returned.
+
+The first option means you have a larger index, but it's the fastest way of retrieving data. The second option keeps the index small, but adds extra query-time work for {{site.data.keyword.cloud_notm}} as it must fetch document bodies after the search result set is calculated. This process can be slower to run and adds a further burden to the {{site.data.keyword.cloud_notm}} cluster.
+
+If possible, choose the first option using the following guidelines: 
+
+- Index only the fields that you want to be searchable.
+- Store only the fields that you need to retrieve at query-time.
+
 ### Index guard clauses
 {: #index-guard-clauses}
 
@@ -210,14 +225,15 @@ Analyzers can be helpful if you need to [index multiple languages](#language-spe
 
 The following table shows a list of generic analyzers that are supported by {{site.data.keyword.cloudant_short_notm}} search:
 
-| Analyzer     | Description |
-|-------------|------------|
-| `classic`    | The standard Lucene analyzer, circa version 3.1. |
-| `email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token. |
-| `keyword`    | Input isn't tokenized at all. |
-| `simple`     | Divides text at nonletters. |
-| `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode&trade; text segmentation algorithm)](https://www.unicode.org/reports/tr29/){: external}. |
-| `whitespace` | Divides text at white-space boundaries. |
+| Analyzer                  | Description |
+|---------------------------|------------|
+| `classic`                 | The standard Lucene analyzer, circa version 3.1. |
+| `email`                   | Like the `standard` analyzer, but tries harder to match an email address as a complete token. |
+| `keyword`                 | Input isn't tokenized at all. |
+| `simple`                  | Divides text at nonletters. |
+| `simple_asciifolding`     | Divides text at nonletters. Converts characters to the nearest ASCII equivalent|
+| `standard`    	        | The default analyzer. It implements the Word Break rules from the [Unicode&trade; text segmentation algorithm)](https://www.unicode.org/reports/tr29/){: external}. |
+| `whitespace`              | Divides text at white-space boundaries. |
 {: caption="Generic analyzers" caption-side="top"}
 
 See the following example analyzer document:
@@ -239,7 +255,7 @@ See the following example analyzer document:
 {: #language-specific-analyzers}
 
 These analyzers omit common words in the specific language,
-and many also [remove prefixes and suffixes](https://en.wikipedia.org/wiki/Stemming){: external}.
+and many also [remove prefixes and suffixes](https://www.ibm.com/think/topics/stemming){: external}.
 The name of the language is also the name of the analyzer.
 
 - `arabic`
