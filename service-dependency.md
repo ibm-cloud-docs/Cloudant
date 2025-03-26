@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2025-01-16"
+  years: 2024, 2025
+lastupdated: "2025-03-26"
 
 keywords:
 
@@ -38,11 +38,11 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| IBM Cloud Identity and Access Management | Availability, Change management, Instance control, Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Identity and Access Management | Access management, Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Identity and Access Management | Availability, Change management, Instance control, Security compliance | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Identity and Access Management | Access management, Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Control plane |  Same data center  |
-| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Public IP Address Management | Availability, Change management, Instance control | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Public IP Address Management | Availability, Change management, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -54,10 +54,11 @@ The following table provides the dependency listing of this service following a 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  Same region  |
-| PagerDuty | Availability, Operations | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| PagerDuty | Availability, Operations | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Key Protect for IBM Cloud | Availability, Disaster recovery, Instance control, Security compliance | No | Data plane |  Same region  |
+| IBM Event Streams for IBM Cloud | Instance control, Security compliance | No | Control plane |  us-south  |
 | IBM Cloud Monitoring | Availability, Operations | No | Control plane |  Same region  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Control plane |  Same data center  |
 {: row-headers}
@@ -66,36 +67,6 @@ The following table provides the dependency listing of this service following a 
 {: tab-group="service-dependency-data-for-cloudantnosqldb"}
 {: class="comparison-tab-table"}
 {: #significant-deps}
-{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
-
-|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
-|:---|:---|:---|:---|:---|
-| ServiceNow| Change management, Operations | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| Slack| Change management, Operations | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-{: row-headers}
-{: caption="IBM Cloudant for IBM Cloud service dependency information - Medium dependencies" caption-side="top"}
-{: tab-title="Medium dependencies"}
-{: tab-group="service-dependency-data-for-cloudantnosqldb"}
-{: class="comparison-tab-table"}
-{: #medium-deps}
-{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
-
-|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
-|:---|:---|:---|:---|:---|
-| IBM Cloud Business Support Services| none | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Object Storage| Security compliance | No | Control plane |  Same region  |
-| SOS SIEM| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Log Analysis and IBM Cloud Activity Tracker| Customer responsibility | No | Control plane |  Same region  |
-| IBM Event Streams for IBM Cloud| Customer responsibility | No | Control plane |  Same region  |
-| SOS Inventory Management| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | Control plane |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Activity Tracker event routing| Security compliance | No | Control plane |  Same region  |
-{: row-headers}
-{: caption="IBM Cloudant for IBM Cloud service dependency information - Minimal dependencies" caption-side="top"}
-{: tab-title="Minimal dependencies"}
-{: tab-group="service-dependency-data-for-cloudantnosqldb"}
-{: class="comparison-tab-table"}
-{: #minimal-deps}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 This table can be used to answer the following questions:
