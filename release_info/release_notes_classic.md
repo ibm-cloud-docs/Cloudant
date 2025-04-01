@@ -41,7 +41,6 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 The following changes were made in build 8588:
 
 Optimization
-:   Throughput improvements for concurrent read workloads.
 :   Replication no longer re-replicates attachment bodies when the associated document is updated.
 
 QuickJS
