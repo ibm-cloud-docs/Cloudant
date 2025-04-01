@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-04-01"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -30,6 +30,24 @@ Legacy authentication
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## April 2025
+{: #cloudant-apr25}
+
+### 1 April 2025
+{: #Cloudant-april0125}
+{: release-note}
+
+The following changes were made in build 8588:
+
+Optimization
+:   Throughput improvements for concurrent read workloads.
+:   Replication no longer re-replicates attachment bodies when the associated document is updated.
+
+QuickJS
+:   BigInt support.
+:  `Date.parse` now returns `NaN` when dates are expressed as > 9 continuous digits.
+:   Accept `/[\-]/u` as a valid regular expression.
 
 ## March 2025
 {: #cloudant-mar25}
