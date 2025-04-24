@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-24"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -33,6 +33,20 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 
 ## April 2025
 {: #cloudant-apr25}
+
+### 24 April 2025
+{: #Cloudant-april2425}
+{: release-note}
+
+The following changes were made in build 8595:
+
+New built-in reducers for views
+:   `_first`/`_last` reducers return the first / last row associated with composite keys in the grouped views. For example, a view with keys of the form `[device, timestamp]` that specifies the `_first` reducer will return the most recent `timestamp` for each `device` when `group_level=1` is used at query time.
+:   `_top_N`/`_bottom_N` reducers return the top / bottom `N` rows associated with each key, where `N` is in the range [1, 100] (inclusive).
+:    For more information, see [Views (MapReduce)](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce) and [Grouping](/docs/Cloudant?topic=Cloudant-grouping-related-documents-together-in-ibm-cloudant).
+
+Runtime environment
+:   Upgrade to the latest Erlang/OTP 26 release.
 
 ### 1 April 2025
 {: #Cloudant-april0125}
