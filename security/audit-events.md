@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-05-19"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -15,15 +15,15 @@ subcollection: Cloudant
 # Auditing events
 {: #at_events}
 
-As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with the {{site.data.keyword.cloudantfull}} service in {{site.data.keyword.cloud}}.
+As a security officer, auditor, or manager, you can use the {{site.data.keyword.atracker_full}} service to track how users and applications interact with the {{site.data.keyword.cloudantfull}} service in {{site.data.keyword.cloud}}.
 {: shortdesc}
 
-{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started){: external}.
+{{site.data.keyword.atracker_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.atracker_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started){: external}.
 
 ## Types of events
 {: #at_event_types}
 
-{{site.data.keyword.cloudant_short_notm}} forwards two types of events to {{site.data.keyword.at_full_notm}}:
+{{site.data.keyword.cloudant_short_notm}} forwards two types of events to {{site.data.keyword.atracker_full_notm}}:
 
 - **Management Events** are administrative events that impact the state of an  {{site.data.keyword.cloudant_short_notm}} instance, such as the following management events:
     - Creating or deleting a database.
@@ -37,10 +37,10 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
     - Authenticating against the service.
 
 
-By default, only management events are automatically collected and sent to the {{site.data.keyword.at_full_notm}} service.
+By default, only management events are automatically collected and sent to the {{site.data.keyword.atracker_full_notm}} service.
 {: note}
 
-You must configure each {{site.data.keyword.cloudant_short_notm}} instance to collect and send data events to the {{site.data.keyword.at_full_notm}} service.
+You must configure each {{site.data.keyword.cloudant_short_notm}} instance to collect and send data events to the {{site.data.keyword.atracker_full_notm}} service.
 {: important}
 
 ## Configuring data events for an {{site.data.keyword.cloudant_short_notm}} instance
@@ -51,7 +51,7 @@ The following instructions demonstrate how to configure data events for an {{sit
 ### Configuring data events through the {{site.data.keyword.cloud_notm}} UI
 {: #at_event_configure_ui}
 
-You can change what types of events are sent to {{site.data.keyword.at_full_notm}} in the {{site.data.keyword.cloud_notm}} Dashboard by following these steps:
+You can change what types of events are sent to {{site.data.keyword.atracker_full_notm}} in the {{site.data.keyword.cloud_notm}} Dashboard by following these steps:
 
 1. Go to the Resource list, and select an {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -75,7 +75,7 @@ The API to view and change the event types requires {{site.data.keyword.IBM_notm
 #### Check what event types are configured for an {{site.data.keyword.cloudant_short_notm}} instance
 {: #at_event_configure_api_get}
 
-The `/_api/v2/user/activity_tracker/events` endpoint returns a `types` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance.
+The `/_api/v2/user/activity_tracker/events` endpoint returns a `types` field in the response that includes an array of event types that are being sent to {{site.data.keyword.atracker_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance.
 
 See the following example request to retrieve information about configured event types by using HTTP:
 
@@ -328,7 +328,7 @@ If the `types` field is missing, then a similar response to the following one is
 ```
 {: codeblock}
 
-It can take up to 5 minutes for the change to be reflected in the events seen in {{site.data.keyword.at_full_notm}}.
+It can take up to 5 minutes for the change to be reflected in the events seen in {{site.data.keyword.atracker_full_notm}}.
 {: note}
 
 
@@ -418,8 +418,4 @@ It can take up to 5 minutes for the change to be reflected in the events seen in
 
 Events are available in the Chennai, Dallas, Frankfurt, London, Osaka, São Paulo, Sydney, Tokyo, Toronto, and Washington DC locations. For more information, see [{{site.data.keyword.cloud_notm}} services locations](/docs/activity-tracker?topic=activity-tracker-cloud_services_locations).
 
-Management events that are generated by an instance of the {{site.data.keyword.cloudant_short_notm}} service are automatically collected and forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
-
-You must enable data events for the {{site.data.keyword.cloudant_short_notm}} instance to be able to view them through the {{site.data.keyword.at_full_notm}} instance that is available in the same location as your {{site.data.keyword.cloudant_short_notm}} instance.
-
-{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web user interface of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see how to [start the web UI through the {{site.data.keyword.cloud_notm}} UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-launch).
+Management events generated by an instance of the {{site.data.keyword.cloudant_short_notm}} service are automatically collected and forwarded to the {{site.data.keyword.atracker_full_notm}} service. You can route auditing events in your account to destinations of your choice by configuring targets and routes, which determine where activity tracking events are delivered. One common target is {{site.data.keyword.logs_full_notm}}, where you can view audit logs, set up monitoring, and configure alerts to track important changes and behaviors.    
