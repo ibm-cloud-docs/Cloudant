@@ -34,8 +34,8 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 ## May 2025
 {: #cloudant-may25}
 
-### 26 May 2025
-{: #Cloudant-may2625}
+### 20 May 2025
+{: #Cloudant-may2025}
 {: release-note}
 
 The following changes were made in build 8612:
