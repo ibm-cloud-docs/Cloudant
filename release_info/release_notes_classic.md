@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-05-20"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -30,6 +30,21 @@ Legacy authentication
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## May 2025
+{: #cloudant-may25}
+
+### 26 May 2025
+{: #Cloudant-may2625}
+{: release-note}
+
+The following changes were made in build 8612:
+
+Query
+:   A response to the `/_all_docs` or `/_design/<ddoc>/_view/<viewname>` endpoints would previously be silently limited to 268,435,456 rows. This limit has been removed to avoid truncating results, though the endpoints are still subject to the HTTP request timeouts defined by the service.
+
+Runtime environment
+:   Upgrade the runtime environment to the latest Erlang/OTP 26 patch release.
 
 ## April 2025
 {: #cloudant-apr25}
