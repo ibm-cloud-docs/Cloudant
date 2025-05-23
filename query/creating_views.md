@@ -223,13 +223,18 @@ Whenever possible,
 you must use one of these functions instead of writing your own.
 
 To use one of the built-in functions,
-put the name into the `reduce` field of the view object in your design document.
+put the reducer's name into the `reduce` field of the view object in your design document.
+
+#### Count reducer
+{: #built-in-reduce-functions-count-reducer}
+
+The `_count` reducer counts a MapReduce view's rows and optionally groups the counts by distinct keys.
 
 ```json
 {
     "views": {
-        "sumPrices": {
-            "map": "function(user) { if(user.email_verified === true) { emit(user.name, user.email); } }",
+        "teamCount": {
+            "map": "function(doc) { if (doc.email_verified === true) { emit(doc.team, doc.name); } }",
             "reduce": "_count"
         }
     }
@@ -237,15 +242,53 @@ put the name into the `reduce` field of the view object in your design document.
 ```
 {: codeblock}
 
-The previous MapReduce view creates an index that is keyed on the username and whose counts all active email. As the reducer is `_count`, the view outputs the total email count for the selection of data queried. It is suitable for counting the registered users.
+The previous MapReduce view creates an index that is keyed on the `team` the user belongs to, but only includes those with a verified email address. As the reducer is `_count`, the view outputs the number of rows in the view e.g the number of verified users in the database.
 
-The numeric reducers `_stats`/`_sum` act upon the value (the emit function's second parameter) which can be a number, array, or object. Consider the following MapReduce definition on the `products` partitioned database:
+```json
+{"rows":[
+{"key":null,"value":10010}
+]}
+```
+{: codeblock}
+
+By adding `?group=true`, the counts are grouped by distinct keys so the database outputs counts by team membership:
+
+```json
+{"rows":[
+{"key":"blue","value":1409},
+{"key":"green","value":1439},
+{"key":"indigo","value":1425},
+{"key":"orange","value":1432},
+{"key":"red","value":1414},
+{"key":"violet","value":1443},
+{"key":"yellow","value":1448}
+]}
+```
+{: codeblock}
+
+Switching the reducer off allows the same view to be used for selection of a single team's members `?key="orange"&reduce=false&limit=5`:
+
+```json
+{"total_rows":10010,"offset":4273,"rows":[
+{"id":"783173e102613c78d02a2b3304001642","key":"orange","value":"Bethel Lusk"},
+{"id":"783173e102613c78d02a2b3304001b40","key":"orange","value":"Ethyl Dionne"},
+{"id":"783173e102613c78d02a2b3304009c66","key":"orange","value":"Fredda Hendrix"},
+{"id":"783173e102613c78d02a2b330401800d","key":"orange","value":"Bibi Page"},
+{"id":"783173e102613c78d02a2b3304018ae7","key":"orange","value":"Marylou Lavender-Milton"}
+]}
+```
+{: codeblock}
+
+#### Sum reducer
+{: #built-in-reduce-functions-sum-reducer}
+
+The `_sum` reducer totalizes a MapReduce view's emitted numeric values. The view's value can be a number, an array of numbers, or an object containing numeric values. Consider the following MapReduce definition on a database of products:
 
 ```json
 {
     "views": {
-        "statsReadingsObject": {
-            "map": "function(product) {  emit(product.type, { price: product.price, tax: product.tax }); }",
+        "productPrices": {
+            "map": "function(doc) {  emit(doc.type, { price: doc.price, tax: doc.tax }); }",
             "reduce": "_sum"
         }
     }
@@ -253,7 +296,7 @@ The numeric reducers `_stats`/`_sum` act upon the value (the emit function's sec
 ```
 {: codeblock}
 
-The view is keyed on the type of the product, and the value is an object that contains two values: price and tax. The `_sum` reduce calculates totals for each attribute of the object that it finds:
+The view is keyed on the type of the product, and the value is an object that contains two values: `price` and `tax`. The `_sum` reducer calculates totals for both the `price` and `tax` values across the view:
 
 ```json
 {"rows":[
@@ -262,22 +305,25 @@ The view is keyed on the type of the product, and the value is an object that co
 ```
 {: codeblock}
 
-Or add `?group=true` when querying the view. The output is grouped and summed by a unique key, in this case, `type`:
+By adding `?group=true` when querying the view, the output is grouped and summed by a unique key, in this case, the product type:
 
 ```json
 {"rows":[
-    {"key":"portable","value":{"price":14.99,"tax":1.14}},
-    {"key":"product","value":{"price":129.98,"tax":6.18}}
+    {"key":"kitchen","value":{"price":14.99,"tax":1.14}},
+    {"key":"garden","value":{"price":129.98,"tax":6.18}}
 ]}
 ```
 {: codeblock}
 
-The numeric reducers also calculate multiple reductions when the value of an index is an array of numbers:
+#### Stats reducer
+{: #built-in-reduce-functions-stats-reducer}
+
+Like the `_sum` reducer, the `_stats` reducer works on numbers, objects with numeric values or arrays of numbers, returning counts, sums, minimum & maximum values and a sum of the square of the values, which is useful for variance or standard deviation calculations:
 
 ```json
 {
     "views": {
-        "statsReadingsArray": {
+        "salesByDate": {
             "map": "function(doc) { emit(doc.date, [doc.price, doc.tax]); }",
             "reduce": "_stats"
         }
@@ -290,11 +336,11 @@ The previous definition calculates statistics on the numerical values that it fi
 
 ```json
 {"rows":[
-    {"key":"portable","value":[
+    {"key":"2025-01-01","value":[
         {"sum":14.99,"count":1,"min":14.99,"max":14.99,"sumsqr":224.7001},
         {"sum":1.14,"count":1,"min":1.14,"max":1.14,"sumsqr":1.2995}
     ]},
-    {"key":"product","value":[
+    {"key":"2025-01-02","value":[
         {"sum":129.98,"count":2,"min":29.99,"max":99.99,"sumsqr":10897.4002},
         {"sum":6.18,"count":2,"min":1.62,"max":4.56,"sumsqr":23.418}
     ]}
@@ -302,23 +348,120 @@ The previous definition calculates statistics on the numerical values that it fi
 ```
 {: codeblock}
 
-The `_count` reducer simply counts the number of `key-value` pairs that are emitted into the index.
+#### The approximate count distinct reducer
+{: #built-in-reduce-functions-approx-count-distinct-reducer}
+
+Unlike the numeric reducers `_sum` and `_stats` which act upon the index's value, the `_approx_count_distinct` reducer uses the view's _key_. It estimates the number of distinct keys found in the MapReduce view using an algorithm which uses far less memory than an exact count distinct algorithm would consume:
+
+```json
+{
+  "views": {
+    "estimateIpCount": {
+      "map": "function (doc) {\n  emit(doc.ip, 1);\n}",
+      "reduce": "_approx_count_distinct"
+    }
+  }
+}
+```
+{: codeblock}
+
+The previous view definition aims to estimate the number of distinct IP addresses in a database of server logs. The document's `ip` is emitted as the index's _key_ so that the `_approx_count_distinct` reducer can estimate the count of distinct keys:
 
 ```json
 {"rows":[
-    {"key":"product","value":3}
+{"key":null,"value":100528}
 ]}
 ```
 {: codeblock}
 
-The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as opposed to the numeric reducers that act upon the index's _value_.
+#### The top/bottom reducers
+{: #built-in-reduce-functions-top-bottom-reducer}
+
+The `_top_x` and `_bottom_x` reducers (where `x` is a number between 1 and 100) return an array of the top x or bottom x _values_ in a view grouping, respectively. For example, in a gaming application, a view can be created keyed on the user id and whose value is the score that the user achieved. This view can be used to create a scoreboard of the best or worst scores:
+
+```json
+{
+    "views": {
+        "bestScores": {
+            "map": "function(doc) { emit(doc.user_id, doc.score); }",
+            "reduce": "_top_3"
+        }
+    }
+}
+```
+{: codeblock}
+
+If we query the view without any parameters, the top three scores in the entire view are returned:
 
 ```json
 {"rows":[
-    {"key":null,"value":2}
+  {"key":null,"value":[99,98,97]}
 ]}
 ```
 {: codeblock}
+
+With grouping (`?group=true`), each distinct user's top three scores are returned:
+
+```json
+{"rows":[
+  {"key":"user082","value":[99,98,97]},
+  {"key":"user291","value":[85,72,42]},
+  {"key":"user452","value":[55,51,30]}
+]}
+```
+{: codeblock}
+
+#### The first/last reducers
+{: #built-in-reduce-functions-first-last-reducer}
+
+The `_first`/`_last` reducers return the _value_ of the first or last _key_ in a view grouping, respectively. If we have an IoT application storing readings from many devices periodically, we can create a view keyed on the device id & the time the reading was taken. The view's _value_ is the entire document:
+
+```json
+{
+    "views": {
+        "latestReading": {
+            "map": "function(doc) { emit([doc.deviceid, doc.timestamp], doc); }",
+            "reduce": "_last"
+        }
+    }
+}
+```
+{: codeblock}
+
+This view produces keys and values of this form, with the view sorted by `deviceid` and `timestamp`. The rows considered the "first" and "last" readings for each device are highlighted:
+
+| key                                | value                                                                                      | First reading (group_level=1) | Last reading (group_level=1) |
+|------------------------------------|--------------------------------------------------------------------------------------------|-------------------------------|------------------------------|
+| ["A00","2025-01-01T10:00:00.000Z"] | {"_id": "A00:5000","reading":   65,"timestamp":2025-01-01T10:00:00.000Z","deviceid":"A00"} | x                             |                              |
+| ["A00","2025-01-01T10:01:00.000Z"] | {"_id": "A00:5001","reading":   64,"timestamp":2025-01-01T10:01:00.000Z","deviceid":"A00"} |                               |                              |
+| ["A00","2025-01-01T10:02:00.000Z"] | {"_id": "A00:5002","reading":   59,"timestamp":2025-01-01T10:02:00.000Z","deviceid":"A00"} |                               | x                            |
+| ["A01","2025-01-01T10:00:00.000Z"] | {"_id": "A01:8000","reading":   12,"timestamp":2025-01-01T10:00:00.000Z","deviceid":"A01"} | x                             |                              |
+| ["A01","2025-01-01T10:01:00.000Z"] | {"_id": "A01:8001","reading":   15,"timestamp":2025-01-01T10:01:00.000Z","deviceid":"A01"} |                               |                              |
+| ["A01","2025-01-01T10:02:00.000Z"] | {"_id": "A01:8002","reading":   19,"timestamp":2025-01-01T10:02:00.000Z","deviceid":"A01"} |                               | x                            |
+| ["A02","2025-01-01T10:00:00.000Z"] | {"_id": "A02:4000","reading":   55,"timestamp":2025-01-01T10:00:00.000Z","deviceid":"A02"} | x                             |                              |
+| ["A02","2025-01-01T10:01:00.000Z"] | {"_id": "A02:4001","reading":   54,"timestamp":2025-01-01T10:01:00.000Z","deviceid":"A02"} |                               |                              |
+| ["A02","2025-01-01T10:02:00.000Z"] | {"_id": "A01:4002","reading":   56,"timestamp":2025-01-01T10:02:00.000Z","deviceid":"A02"} |                               | x                            |
+
+Querying the view with `group_level=1`, using the `_last` reducer, will return the newest reading for every device_id in the database:
+
+```json
+{"rows":[
+{"key":["A00"],"value":{"_id":"93117567370d41d091b8dd160a3adf3f","_rev":"1-bc05e93e592d5a5a18e240240b581a55","deviceid":"A00","reading":13.8986,"timestamp":"2025-03-26T04:44:08.917Z","status":"red"}},
+{"key":["A01"],"value":{"_id":"c9f53ac9e4a8444487ed0eaa11dc1c78","_rev":"1-1fcf121c73db03e49bac4c1981518b19","deviceid":"A01","reading":59.8453,"timestamp":"2025-04-01T01:52:34.254Z","status":"green"}},
+{"key":["A02"],"value":{"_id":"577b7108a8a1458f9a17194ed1da398a","_rev":"1-71d345a773ab31f35ceb998f3c107c41","deviceid":"A02","reading":2.6208,"timestamp":"2025-03-31T00:22:17.175Z","status":"green"}},
+{"key":["A03"],"value":{"_id":"150839b1d363427496a4f4e2917b8b1d","_rev":"1-860a2ed5f1f48aa642495dfb21dff3ce","deviceid":"A03","reading":55.8677,"timestamp":"2025-03-22T10:15:57.890Z","status":"red"}},
+{"key":["A04"],"value":{"_id":"d3317bdc1f7b4466ae6bf7a30ca9e328","_rev":"1-a58762532f6980ca5b06a8d01d113814","deviceid":"A04","reading":44.1822,"timestamp":"2025-03-23T10:56:10.639Z","status":"green"}},
+{"key":["A05"],"value":{"_id":"946754d3762f44e297ca20d13bbceb5e","_rev":"1-41fa2bb3ef8782c90b28ee44628abeab","deviceid":"A05","reading":13.2874,"timestamp":"2025-03-27T13:59:04.723Z","status":"blue"}},
+{"key":["A06"],"value":{"_id":"bbcd8a5c0ae948baae713a9fcb5262d5","_rev":"1-66883211ee20a0772374672aa175dc50","deviceid":"A06","reading":7.9525,"timestamp":"2025-04-01T15:13:04.305Z","status":"blue"}},
+{"key":["A07"],"value":{"_id":"a600caccdb82400698b158ecebfaa6f2","_rev":"1-68975a8d7133a13c6cc8ae34d28ea1c6","deviceid":"A07","reading":89.4818,"timestamp":"2025-03-07T02:12:59.934Z","status":"blue"}},
+{"key":["A08"],"value":{"_id":"be20bae911db4da685f891fd01e07d3a","_rev":"1-d69b559627cf01e80fe85ea2f54d2f4b","deviceid":"A08","reading":97.6739,"timestamp":"2025-03-29T13:46:31.689Z","status":"green"}},
+{"key":["A09"],"value":{"_id":"96526e80f2ff48e89e9e42aa47abae24","_rev":"1-85e56901f7113d7d6ff8ba573c535eb3","deviceid":"A09","reading":26.1597,"timestamp":"2025-03-18T03:22:19.848Z","status":"blue"}}
+]}
+```
+{: codeblock}
+
+#### The built-in reducers summary
+{: #built-in-reduce-functions-summary}
 
 | Function | Description |
 |---------|------------|
@@ -326,12 +469,17 @@ The `_approx_count_distinct_reducer` acts upon the _key_ of the index, as oppose
 | `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric. |
 | `_sum`   | Produces the sum of all values for a key. The values must be numeric. |
 | `_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: external} algorithm. |
+| `_top_x`/`_bottom_x` | Returns an array of the top x or bottom x _values_ in the view grouping as an array, where `x` is a number between 1 and 100. |
+| `_first`/`_last` | Returns the _values_ of the lowest or highest sorting _key_, respectively, for each view group. |
 {: caption="Built-in reduce functions" caption-side="top"}
 
 ## Custom reduce functions
 {: #custom-reduce-functions}
 
 Most customers find that built-in reducers are sufficient to perform aggregations on the view `key-value` pairs emitted from their Map functions. However, for unusual use-cases, a JavaScript reduce function can be supplied instead of the name of one of the built-in reducers. 
+
+Custom reduce functions are much slower and more difficult to maintain than built-in reducers, so check if a use-case can be satisfied with a built-in reducer before writing a custom one.
+{: tip}
 
 Reduce functions are passed three arguments in the following order:
 
