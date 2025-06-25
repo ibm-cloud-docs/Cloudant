@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-06-25"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -31,6 +31,28 @@ Legacy authentication
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
 
+## June 2025
+{: #cloudant-jun25}
+
+### 24 June 2025
+{: #Cloudant-jun2425}
+{: release-note}
+
+The following changes were made in build 8620:
+
+Cluster setup
+:   Enhance cluster robustness during node restarts and cluster partitions.
+
+Optimization
+:   Improve efficiency of starting database servers.
+
+QuickJS
+:   Fix QuickJS bigint heap overflow.
+:   More robust out of memory handling.
+
+Replicator
+:   Reduce the chance of crashing replication jobs with the `ibrowse_stream_cleanup` errors.
+
 ## May 2025
 {: #cloudant-may25}
 
@@ -50,7 +72,7 @@ Runtime environment
 {: #cloudant-apr25}
 
 ### 24 April 2025
-{: #Cloudant-april2425}
+{: #Cloudant-apr2425}
 {: release-note}
 
 The following changes were made in build 8595:
@@ -64,7 +86,7 @@ Runtime environment
 :   Upgrade to the latest Erlang/OTP 26 release.
 
 ### 1 April 2025
-{: #Cloudant-april0125}
+{: #Cloudant-apr0125}
 {: release-note}
 
 The following changes were made in build 8588:
@@ -1049,7 +1071,7 @@ Invalid parameters
 :   {{site.data.keyword.cloudant_short_notm}} now checks for and reports invalid parameters on database creation.
 
 ## July 2020
-{: #cloudant-july20}
+{: #cloudant-jul20}
 
 ### 1 July 2020
 {: #Cloudant-jul0120}
@@ -1073,7 +1095,7 @@ Improvements
 :   Internal bug fixes.
 
 ## April 2020
-{: #cloudant-april20}
+{: #cloudant-apr20}
 
 ### 1 April 2020
 {: #Cloudant-apr0120}
@@ -1272,7 +1294,7 @@ Improvements
 :   Internal bug fixes.
 
 ## April 2019
-{: #cloudant-april19}
+{: #cloudant-apr19}
 
 ### 15 April 2019
 {: #Cloudant-apr1519}
