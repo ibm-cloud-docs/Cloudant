@@ -37,7 +37,7 @@ If you are not an IBM employee and want to make a documentation contribution, go
        <details>
        <summary><b>Example template:</b></summary>
 
-       `````
+       ``````
        ```sh
        
        ```
@@ -82,7 +82,7 @@ If you are not an IBM employee and want to make a documentation contribution, go
        ```
        {: codeblock}
        {: go}
-       `````
+       ``````
 
 </details>
 

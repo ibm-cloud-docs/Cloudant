@@ -40,7 +40,7 @@ Finally, data can be bi-directionally replicated across regions, to
 ### Flexibility
 {: #flexibility}
 
-Unlike a [relational database](https://www.ibm.com/topics/relational-databases), the schema of a {{site.data.keyword.cloudant_short_notm}} document does not need to be declared to the database - indeed, many document types can co-exist in the same database. This flexibility allows developers to turn their application's objects into JSON and store them in the database with ease, and change their mind about the design later without costly database schema migrations.
+Unlike a [relational database](https://www.ibm.com/topics/relational-databases), the schema of an {{site.data.keyword.cloudant_short_notm}} document does not need to be declared to the database - indeed, many document types can co-exist in the same database. This flexibility allows developers to turn their application's objects into JSON and store them in the database with ease, and change their mind about the design later without costly database schema migrations.
 
 ### Scalability
 {: #scalability}
