@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -38,11 +38,11 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
+| IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Control plane |  Same data center  |
+| IBM Cloud Public IP Address Management | Availability, Change management, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Identity and Access Management | Availability, Change management, Instance control, Security compliance | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Identity and Access Management | Access management, Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Control plane |  Same data center  |
-| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Public IP Address Management | Availability, Change management, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -53,14 +53,14 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  Same region  |
-| PagerDuty | Availability, Operations | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Key Protect for IBM Cloud | Availability, Disaster recovery, Instance control, Security compliance | No | Data plane |  Same region  |
 | IBM Event Streams for IBM Cloud | Instance control, Security compliance | No | Control plane |  us-south  |
 | IBM Cloud Monitoring | Availability, Operations | No | Control plane |  Same region  |
+| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Data plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Control plane |  Same data center  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Control plane |  Same region  |
+| PagerDuty | Availability, Operations | No | Control plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Key Protect for IBM Cloud | Availability, Disaster recovery, Instance control, Security compliance | No | Data plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
