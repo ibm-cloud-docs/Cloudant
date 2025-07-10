@@ -154,13 +154,9 @@ toc:
           - offerings/logs.md
           - offerings/at-integration.md
           - offerings/platform-metrics.md
-      - topicgroup:
-          label: High availability and disaster recovery
-          topics:
-          - ha-dr/bc-dr.md
-          - ha-dr/ha.md
-      -  topic: offerings/data-portability.md 
-         navtitle: Data portability         
+      - ha-dr/ha-dr.md
+      - topic: offerings/data-portability.md 
+        navtitle: Data portability         
       - topicgroup:
           label: Best practices for IBM Cloudant
           topics:
