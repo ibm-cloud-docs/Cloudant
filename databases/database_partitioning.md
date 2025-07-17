@@ -17,25 +17,27 @@ subcollection: Cloudant
 
 {{site.data.keyword.cloudantfull}} supports two types of databases:
 
-- Partitioned
 - Non-partitioned
+- Partitioned
 
-A *partitioned* database offers significant performance and cost advantages but
-requires you to specify a logical partitioning of your data. This process is described
-more in the following text.
+A *non-partitioned* database is easier to work with as no partitioning scheme
+needs to be defined, but only global secondary indexes can be created. This is
+the default type of database for {{site.data.keyword.cloudant_short_notm}}.
+
+A *partitioned* database requires that you are able to partition your data into
+many partitions. If your data model supports this, partitioned databases can
+offer performance and cost advantages for large datasets. Creating a logical
+partitioning is described more in the following text.
 {: shortdesc}
 
-Alternatively, you can create a *non-partitioned* database. This type of
-database might be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
+{{site.data.keyword.cloudant_short_notm}} recommends that you use a partitioned
+database only where the data model allows for logical partitioning of documents
+into many (1000+) partitions.
+{: note}
 
-{{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term
-database performance where the data model allows for logical partitioning
-of documents.
-
-You can decide whether to partition at database creation time. When
-you create a database, use the `partitioned` query string parameter to set whether
-the database is partitioned. The default for `partitioned` is `false`,
-maintaining compatibility with an earlier version.
+You can decide whether to partition at database creation time. When you create
+a database, use the `partitioned` query string parameter to set whether the
+database is partitioned. The default for `partitioned` is `false`.
 
 The partitioning type can't be changed for an existing database.
 
