@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-06-25"
+lastupdated: "2025-07-17"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -23,13 +23,26 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 ### Upcoming changes
 {: #Upcoming-changes}
 
-The following changes are planned for the next release:
-
 Legacy authentication
 :   To enhance security, Cloudant will enable temporary lockout of accounts in the coming months. After multiple login attempts using incorrect credentials, further login attempts will be denied for a period of time. To unlock your account, please wait for some time or change the password and then wait at least 5 minutes to ensure that the change propagates throughout the system.
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## July 2025
+{: #cloudant-jul25}
+
+### 17 July 2025
+{: #Cloudant-jul1725}
+{: release-note}
+
+The following changes were made in build 8650:
+
+Cloudant Query
+:   Fix query parameter parsing mechanism to improve stability during cluster upgrades.
+
+Replicator
+:   Improve replicator application shutdown behavior.
 
 ## June 2025
 {: #cloudant-jun25}
