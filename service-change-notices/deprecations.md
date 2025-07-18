@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-03-20"
+  years: 2015, 2025
+lastupdated: "2025-07-18"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -15,7 +15,34 @@ subcollection: Cloudant
 # Service Changes and Deprecations for {{site.data.keyword.cloudant_short_notm}}
 {: #deprecations-for-ibm-cloudant}
 
-You can see the deprecations for {{site.data.keyword.cloudantfull}} here.
+### Ongoing changes
+{: #Ongoing-changes}
+
+QuickJS
+:   To speed up index building, {{site.data.keyword.cloudant_short_notm}} is
+replacing the JavaScript engine from [SpiderMonkey](https://spidermonkey.dev/)
+to [QuickJS](https://bellard.org/quickjs/). Please read
+[below](/docs/Cloudant?topic=Cloudant-deprecations-for-ibm-cloudant#cloudant-nosql-db-jsengine-dep)
+for more information or open a
+[support ticket](https://cloud.ibm.com/unifiedsupport/cases/form) with us.
+
+This could break some applications, and might require changes to align with
+`QuickJS`. So far, we have migrated most of the accounts to `QuickJS`, and very
+few accounts might get individual notifications.
+{: note}
+
+### Upcoming changes
+{: #Upcoming-changes}
+
+Legacy authentication
+:   To enhance security, Cloudant will enable temporary lockout of accounts in
+the coming months. After multiple login attempts using incorrect credentials,
+further login attempts will be denied for a period of time. To unlock your
+account, please wait for some time or change the password and then wait at
+least 5 minutes to ensure that the change propagates throughout the system.
+
+The temporary lockout described here applies to legacy (non-IAM) credentials only.
+{: note}
 
 ## {{site.data.keyword.cloudant_short_notm}} instances will be limited to 200 dbs starting March 1st, 2025
 {: #cloudant-database-size-limit}

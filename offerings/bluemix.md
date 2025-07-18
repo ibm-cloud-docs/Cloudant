@@ -343,28 +343,6 @@ From hour 00:00 of day 4 until the end of the month (of 30 days), your bill incl
 
 The total overage bill for the month is based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
-## Request and document size limits
-{: #request-and-document-size-limits}
-
-{{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the
-following maximum size limits:
-
-| Limit | Maximum Size |
-|------|-------------|
-| Individual Document Size | 1 MB |
-| Single Attachment Size | 10 MB |
-| Request Body Size | 11 MB |
-{: caption="Maximum size limits for JSON documents and requests" caption-side="top"}
-
-If you exceed these limits, a [413 response](/apidocs/cloudant#list-of-http-codes){: external} alerts you.
-
-The {{site.data.keyword.cloudant_short_notm}} team recommends that you store binary attachments, or large JSON blobs,
-in object storage and save a link to the location in an {{site.data.keyword.cloudant_short_notm}} JSON document.
-
-When you replicate, documents or attachments that exceed these limits don't
-replicate to the target database. For more information about how to detect replication
-errors, see [Replication errors](/apidocs/cloudant#getreplicationdocument){: external}.
-
 ## Locations and tenancy
 {: #locations-and-tenancy}
 
@@ -381,8 +359,6 @@ following {{site.data.keyword.cloud_notm}} locations.
 -   Seoul (SZR)
 -   Tokyo
 -   Washington DC
-
-
 
 Single-Zone Region (SZR) means that only one availability zone is available in that location. All other locations are Multi-Zone Regions (MZR) and leverage three separate availability zones for instances that are deployed in those locations. For more information, see the [High availability (HA), disaster recovery (DR), and backup](/docs/Cloudant?topic=Cloudant-disaster-recovery-and-backup){: external} documentation.
 
