@@ -197,7 +197,7 @@ toc:
       - topicgroup:
           label: CLI
           topics:
-          - include: ../cloud-docs/cloudant-cli.md
+          - include: ../Cloudant-cli-plugin/cloudant-cli.md
           - release_info/cli-change-log.md
       - link:
           label: Terraform reference docs
