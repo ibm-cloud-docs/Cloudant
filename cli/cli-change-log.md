@@ -2,7 +2,7 @@
 
 copyright:
   years:  2022, 2025
-lastupdated: "2025-05-09"
+lastupdated: "2025-07-21"
 keywords: change log for IBM Cloudant, updates to IBM Cloudant
 
 subcollection: Cloudant
@@ -260,3 +260,6 @@ This is a deprecated version upgrade to the latest release.
 Version `0.0.3` of the CLI was released on 12 May 2021.
 
 Released {{site.data.keyword.cloudant_short_notm}} CLI plug-in for managing throughput capacity, Activity Tracker events, and retrieving data usage.
+
+
+
