@@ -197,8 +197,8 @@ toc:
       - topicgroup:
           label: CLI
           topics:
-          - include: ../Cloudant-cli-plugin/cloudant-cli.md
-          - release_info/cli-change-log.md
+          - cli/cloudant-cli.md
+          - cli/cli-change-log.md
       - link:
           label: Terraform reference docs
           href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant
