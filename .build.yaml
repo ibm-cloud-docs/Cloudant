@@ -1,5 +1,3 @@
-includes:
-  - https://github.ibm.com/cloud-docs/Cloudant-cli-plugin
 # Uncomment the following section if excluding files from translation.
 # translation:
 #  exclude:
