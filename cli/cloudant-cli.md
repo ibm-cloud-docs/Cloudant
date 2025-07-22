@@ -21,7 +21,7 @@ keywords: Cloudant CLI, Cloudant command line,  Cloudant terminal, Cloudant shel
 
 
 
-The {{site.data.keyword.cloud}} Command Line Interface (CLI) provides more capabilities for service offerings. You can use {{site.data.keyword.cloudant_short_notm}} CLI plug-in to manage throughput details and event types that are being sent from your {{site.data.keyword.cloudant_short_notm}} account to the {{site.data.keyword.at_full}} service.
+The {{site.data.keyword.cloud}} Command Line Interface (CLI) provides more capabilities for service offerings. You can use {{site.data.keyword.cloudant_short_notm}} CLI plug-in to manage throughput details and event types sent from your {{site.data.keyword.cloudant_short_notm}} account to {{site.data.keyword.atracker_full_notm}}.
 {: shortdesc}
 
 
@@ -56,7 +56,8 @@ When you make a server resource request, the {{site.data.keyword.cloudant_short_
 Inline configuration overrides the global configuration and the environment variable setting, while global configuration overrides the environment variable setting.
 {: tip}
 
-If you are unsure about your server URL, you can find it [by the instance ID of your cloud resource](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_service_instance). The instance ID can be found by the name of your service. The following example gets first the GUID then the CRN ID by service name (for example `Cloudant-fg`). Either of GUID and CRN ID can be used as `<resource-id>` to get the Cloudant instance URL.
+If you are unsure about your server URL, you can find it [by the instance ID of your cloud resource](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_service_instance).
+To find the instance ID use the name of your service. The following example gets first the GUID then the CRN ID by service name (for example `Cloudant-fg`). Use either of GUID or CRN ID as `<resource-id>` to get the Cloudant instance URL.
 ```sh
 # Get GUID of the service instance by service name, which can be used as a <resource-id> later
 ibmcloud resource service-instance <service-name> --guid
@@ -69,7 +70,7 @@ ibmcloud cloudant url -q --resource-id <resource-id>
 #### Inline configuration
 {: #cloudant-cli-inline-config}
 
-Inline configuration happens with the `--service-url` flag. All subcommands like `events-config` or `capacity` can be used with inline configured service URL, which comes from the `ibmcloud cloudant url --resource-id <resource-id>` command.
+Inline configuration happens with the `--service-url` flag. All subcommands like `events-config` or `capacity` accept an inline configured service URL, which comes from the `ibmcloud cloudant url --resource-id <resource-id>` command.
 
 ```sh
 # Use events-config subcommand with inline configured service url
@@ -87,7 +88,7 @@ ibmcloud cloudant events-config --service-url $(ibmcloud cloudant url -q --resou
 #### Global configuration
 {: #cloudant-cli-global-config}
 
-Global configuration happens with the [config subcommand](#cloudant-cli-config-command). This stores a persistent configuration so that it does not need to be manually specified each time that the plugin is invoked. The following example sets the service url globally, which comes from the `ibmcloud cloudant url --resource-id <resource-id>` command, then uses the set value with subcommands like `events-config` or `capacity`.
+Global configuration happens with the [config subcommand](#cloudant-cli-config-command). This stores a persistent configuration so that it does not need to be manually specified each time. The following example sets the service url globally, which comes from the `ibmcloud cloudant url --resource-id <resource-id>` command, then uses the set value with subcommands like `events-config` or `capacity`.
 
 ```sh
 # Set service url globally
@@ -122,21 +123,6 @@ As an alternative to `ibmcloud login`, you can set the environment variable `CLO
 
 The `classic` and the `c` subcommands were deprecated in version `0.0.5` and removed from version `0.1.0`. The operations from the `classic` command are available on the `cloudant` command. Track the [changes log](/docs/Cloudant?topic=Cloudant-cli-change-log) for changes in the interface. {: deprecated}
 
-
----
-
-copyright:
-  years: 2025
-lastupdated: "2025-04-24"
-
-keywords: cloudant, cli, plugin
-
----
-
-{{site.data.keyword.attribute-definition-list}}
-
-# Cloudant CLI
-{: #cloudant-cli-commands}
 
 ## Globals
 {: #cloudant-globals}
