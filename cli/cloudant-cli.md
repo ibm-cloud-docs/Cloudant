@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-07-22"
 
-subcollection: Cloudant-cli-plugin
+subcollection: Cloudant
 
 keywords: Cloudant CLI, Cloudant command line,  Cloudant terminal, Cloudant shell
 
@@ -621,4 +621,3 @@ You can see the condition for each default JMESPath query in the following table
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
-
