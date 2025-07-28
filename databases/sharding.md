@@ -15,232 +15,74 @@ subcollection: Cloudant
 # How is data stored in {{site.data.keyword.cloudant_short_notm}}?
 {: #how-is-data-stored-in-ibm-cloudant-}
 
-Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct shards, where the number of shards is referred to as `Q`. A shard is a distinct subset of documents from the database.
+Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct shards, where the number of shards is referred to as `Q`. A shard contains a distinct subset of documents from the database.
 {: shortdesc}
 
-## Concepts
-{: #concepts}
+## Sharding
+{: #sharding}
 
-All `Q` shards together contain the data within a database.
-Each shard is stored in three separate copies.
-Each shard copy is called a shard replica.
-Each shard replica is stored on a different server.
-The servers are available within a single Region.
-If the Region supports Availability Zones, the replicas are stored on servers in different Zones.
-The collection of servers in a Region is called a cluster. 
+As noted above, every {{site.data.keyword.cloudantfull}} database is formed of `Q` shards, and all `Q` shards together contain the data within a database. Further, each shard is replicated three times. Each replica is stored on a different server, and replicas are spread across availability zones within a single region. Shard replicas are used to provide high availability within a region.
  
 ![A single database is split into Q shards, which are each stored in triplicate on three separate servers.](../images/sharding_database.svg){: caption="Data storage" caption-side="bottom"}
 
-A document is assigned to a particular shard by using consistent hashing of its ID.
+A document is assigned to a particular shard by using the hash of its ID.
 This assignment means that a document is always stored on a known shard and a known set of servers. 
  
-![A single document is assigned to a single shard so ends up on three replicas on three separate servers. ](../images/sharding_document.svg){: caption="Document consistent hashing" caption-side="bottom"}
+![A single document is assigned to a single shard so ends up on three replicas on three separate servers. ](../images/sharding_document.svg){: caption="Document assignment using hashing" caption-side="bottom"}
 
-Occasionally,
-shards are rebalanced.
-Rebalancing involves moving replicas to different servers.
-Rebalancing occurs for several reasons, for example, when server monitoring suggests that a server is more heavily or lightly used than other servers,
-or when a server must be taken out of service temporarily for maintenance.
-The number of shards and replicas stays the same,
-and documents remain assigned to the same shard,
-but the server storage location for a shard replica changes.
-
-The default value for `Q` varies for different clusters.
-The value can be tuned over time.
-
-The number of replicas (copies of a shard) is also configurable.
-In practice,
-observation and measurement of many systems suggests that three replicas are a pragmatic number in most cases
-to achieve a good balance between performance and data safety.
-It would be exceptional and unusual for an {{site.data.keyword.cloudant_short_notm}} system to use a different replica count.
+{{site.data.keyword.cloudantfull}} selects a standard default value for `Q` based on observed workloads, and may update this default over time. The number of replicas for each shard is always three, chosen to balance performance and data safety.
 
 ## How does sharding affect performance?
 {: #how-does-sharding-affect-performance-}
 
-The number of shards for a database is configurable
-because it affects database performance in a number of ways.
+The number of shards for a database can affect the database's performance in a number of ways:
 
-When a request comes into the database from a client application,
-one server or 'node' in the cluster is assigned as the coordinator of the request.
-This coordinator makes internal requests to the nodes that hold the data relevant to the request,
-determines the response to the request,
-and returns this response to the client.
+1.	Each document in the database is stored on a single shard. In a partitioned database, all documents in a partition are stored on a single shard. Each shard hosts multiple partitions.
 
-The number of shards for a database can affect the performance in two ways:
+	When reading data, workloads that read documents by ID and restrict their querying to partitioned queries, having more shards enables greater parallelism within the database. This is because the database is able to retrieve data from a single shard rather than needing to access every database shard. 
 
-1.	Each document in the database is stored on a single shard.
+	When writing documents, greater shard counts also tend to improve performance. Data is written directly to the shards involved. As database indexes are local to each shard, index building can benefit from extra parallelism.
 
-	Therefore,
-	having many shards enables greater parallelism for any single document request.
-	The reason is that the coordinator sends requests only to the nodes that hold the document.
-	Therefore,
-	if the database has many shards,
-	there are likely to be many other nodes that do not need to respond to the request.
-	These nodes can continue to work on other tasks without interruption from the coordinator request.
-2.  To respond to a query request, a database must process the results from all the shards. 
+	Bulk document reads and writes also benefit from larger shard counts because the database is able to determine the exact shards needed for the request.
 
-    Therefore, having more shards introduces a greater processing demand. The reason is that the coordinator must make one request per shard, then combine the results before it returns the response to the client.
+2.  To respond to a global query request, a database must process the results from all the shards. 
 
-To help determine a suitable shard count for your database,
-begin by identifying the most common types of requests that are made by the applications.
-For example,
-consider whether the requests are mostly for single document operations,
-or are the requests mostly queries?
-Are any of the operations time-sensitive?
+    Therefore, having more shards introduces a greater processing demand for global queries. The reason is that the database retrieves data from all database shards, then combines the results before it returns the response to the client. This currently scales greater than linearly with the number of shards, so is important to avoid with more than 16 shards in latency-sensitive request paths.
 
-For all queries,
-the coordinator issues read requests to all replicas.
-This approach is used because each replica maintains its own copy of the indexes that help answer queries.
-An important consequence of this configuration is that having more shards enables parallel index building if
-document writes tend to be evenly distributed across the shards in the cluster.
+## Advanced sharding topics
+{: #advanced-sharding-topics}
 
-In practice,
-it is hard to predict the likely indexing load across the nodes in the cluster.
-Furthermore,
-predicting indexing load tends to be less useful than addressing request patterns.
-The reason is that indexing might be required after a document write,
-but not after a document request.
-Therefore,
-considering indexing alone does not provide sufficient information
-to estimate an appropriate shard count.
+As changing the number of shards for a database is an advanced topic, most customers should keep the default values. The defaults have been tuned over time to balance database performance across the different considerations discussed below.
 
-When you consider data size,
-an important consideration is the number of documents per shard.
-Each shard holds its documents in a large
-[B-tree](https://en.wikipedia.org/wiki/B-tree){: external}
-on disk.
-Indexes are stored in the same way.
-As more documents are added to a shard,
-the number of steps that are used to traverse the B-tree
-during a typical document lookup or query increases.
-This 'depth increase' tends to slow down requests
-because more data must be read from caches or disk.
+### Selecting a shard count for a database
+{: #selecting-a-shard-count-for-a-database}
 
-In general,
-avoid having more than 10 million documents per shard.
-In terms of overall shard size,
-keeping shards under 10 GB is helpful for operational reasons.
-For example,
-smaller shards are easier to move over the network during rebalancing.
+The tension when choosing a shard count is between data volume and the types of requests used by an application:
 
-Given the conflicting requirements to avoid having too many documents and keeping shard size low,
-a single `Q` value cannot work optimally for all cases.
-{{site.data.keyword.cloudant_short_notm}} tunes the defaults for clusters over time as usage patterns change.
+- Larger data volumes and document counts benefit from greater numbers of shards.
+- Performance of global queries decreases with the number of shards.
 
-Nevertheless,
-for a specific database,
-it is often useful to take the time to consider observed request patterns and sizing. You can use this information to guide the future selection of an appropriate number of shards.
-Testing with representative data and request patterns is essential for better estimation of good `Q` values.
-Be prepared for production experience to alter those expectations.
+We need to take account of both data size and the application's required data access patterns to decide on a good sharding strategy. To start calculating an appropriate shard count, first evaluate your expected number of documents and the data volume. Then refer to these guidelines:
 
-The following simple guidelines might be helpful during the early planning stages.
-Remember to validate your proposed configuration by testing with representative data,
-particularly for larger databases:
+- Use power-of-two steps to increase shard count --- 4, 8, 16 and so on.
+- Select a shard count that will keep each shard beneath both 20GB _and_ 50 million documents for your long term estimated data needs.
 
--	If your data is trivial in size,
-	such as a few tens or hundreds of MB,
-	or thousands of documents,
-	then there is little need for more than a single shard.
--	For databases of a few GB or few million documents,
-	then a single-digit shard count such as 8 is likely to be acceptable.
--	For larger databases of tens to hundreds of millions of documents or tens of GB,
-	consider configuring your database to use 16 shards.
--	For even larger databases,
-	consider manually sharding your data into several databases.
-	For such large databases,
-	go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support) for advice.
+Now you have an estimate for the number of shards your data requires, the next step is to understand whether your data model allows your data to be in one database or needs to be spread over several databases:
+
+- If your data requires 16 or fewer shards, most data models will be successful. Single document read/write, partitioned queries and global queries will perform well.
+- If your data requires more than 16 shards, evaluate whether your application needs to execute global queries in latency-sensitive paths:
+	- If the data model naturally supports partitioned queries, then using a larger shard count (eg, 32 or 64) in a single database is recommended.
+	- If the data model requires the ability to execute global queries, then the application will need to use several databases with 16 or fewer shards. The application will need to handle merging query responses from several databases.
 
 The numbers in these guidelines are derived from observation and experience rather than precise calculation.
+
+Regardless of shard count, both partitioned and global queries must ensure they use appropriate indexes and selective queries to avoid significant latency increases as your data set grows. Good indexes allow scanning consistent amounts of data to respond to queries, regardless of how large your data grows.
 {: tip}
 
-## Working with shards
-{: #working-with-shards}
-
-### Setting shard count
+#### Setting shard count when creating a database
 {: #setting-shard-count}
 
 The number of shards,
 `Q`, for a database is set when the database is created. The `Q` value cannot be changed later.
 
-To specify the `Q` when you create a database,
-use the `q` query string parameter. 
-
-You can configure `Q`. However, you want to prohibit large values of `Q` since they have a deleterious effect on the service with no performance gain for the user.
-{: note}
-
-If you attempt to set the `Q` value where it is not available,
-the result is a [`403` response](/apidocs/cloudant#list-of-http-codes){: external} with a JSON body
-similar to the following example:
-
-```json
-{
-	"error": "forbidden",
-	"reason": "q is not configurable"
-}
-```
-{: codeblock}
-
-It's possible to modify the configuration of a sharding topology for a database on dedicated database clusters. This modification can be done when the database is created. However, poor choices for configuration parameters can adversely affect database performance. For more information about modifying database configuration in a dedicated database environment, contact {{site.data.keyword.cloudant_short_notm}} support.
-{: important}
-
-
-### Setting the replica count
-{: #setting-the-replica-count}
-
-In CouchDB version 2 onwards,
-you are allowed to [specify the replica count](https://docs.couchdb.org/en/stable/cluster/databases.html#creating-a-database){: external}
-when you create a database.
-However,
-you are not allowed to change the replica count value from the default of 3.
-In particular,
-it is not possible to specify a different replica count value when you create a database.
-For further help, go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
-
-### What are the `R` and `W` arguments?
-{: #what-are-the-r-and-w-arguments-}
-
-Some requests can have arguments that affect the coordinator's behavior when it answers the request.
-These arguments are known as `R` and `W` after their names in the request query string.
-They can be used for single document operations only.
-They have no effect on general 'query style' requests.
-
-In practice,
-it is rarely useful to specify `R` and `W` values.
-For example,
-specifying either `R` or `W` does not alter consistency for the read or write.
-
-#### What is `R`?
-{: #what-is-r-}
-
-The `R` argument can be specified on single document requests only.
-`R` affects how many responses must be received by the coordinator before it replies to the client.
-The responses must come from the nodes that host the replicas of the shard that contains the document. 
-
-Setting `R` to 1 might improve the overall response time
-because the coordinator can return a response more quickly.
-The reason is that the coordinator must wait only for a single response
-from any one of the replicas that host the appropriate shard.
-
-If you reduce the `R` value, it increases the likelihood that the returned response is not based on the most up-to-date data. This state occurs because of the [eventual consistency](/docs/Cloudant?topic=Cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default `R` value helps mitigate this effect.
-{: note}
-
-The default value for `R` is 2.
-This value corresponds to most of the replicas for a typical database that uses three shard replicas.
-If the database has multiple replicas that are greater than or less than 3, the default value for `R` changes correspondingly.
-
-#### What is *W*?
-{: #what-is-w-}
-
-`W` can be specified on single document write requests only.
-
-`W` is similar to `R`
-because it affects how many responses must be received by the coordinator before it replies to the client.
-
-`W` does not affect the actual write behavior in any way.
-{: note}
-
-The value of `W` does not affect whether the document is written within the database or not.
-By specifying a `W` value,
-the client can inspect the HTTP status code in the response to determine whether `W` replicas responded to the coordinator.
-The coordinator waits until a pre-determined timeout for `W` responses from nodes that host copies of the document 
-before it returns the response to the client.
+To specify the `Q` when you create a database, use the `q` query string parameter. 
