@@ -41,6 +41,7 @@ toc:
       - tutorials/use-dashboard.md
       - tutorials/dig-deeper-dashboard.md
       - tutorials/todo-list.md
+      - tutorials/iot-partitioned-database.md
       - tutorials/create_service_cli.md
       - tutorials/create_dedicated_hardware_plan.md
       - tutorials/create_database.md
