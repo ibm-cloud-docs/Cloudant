@@ -40,6 +40,7 @@ From an application perspective, the key difference between a non-partitioned da
 This document contains more detail about the use-cases for each index type.
 
 ## Limits for partitioned databases
+{: #limits-for-partitioned-databases}
 
 Partitioned databases have limits on the number of indexes and the total size of
 all documents with the same partition key.
@@ -103,6 +104,7 @@ determining partitioned database suitability:
 1. **Partition keys should group related documents**: if each key maps to only one document, partitioning offers little benefit.
 
 ### Good and bad partition key examples
+{: #good-and-bad-partition-key-examples}
 
 To ground this, let's look at some use-cases and some good and bad choices for a
 partition key.
@@ -126,6 +128,7 @@ dates. None of these fields make for a suitable partition key, so a
 non-partitioned database must be used instead.
 
 ## Creating partitioned databases and indexes
+{: #creating-partitioned-databases-and-indexes}
 
 You must decide whether to partition at database creation time. When you create
 a database, use the `partitioned` query string parameter to set whether the

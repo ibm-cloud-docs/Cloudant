@@ -70,7 +70,7 @@ Let's look at how this approach works out. Let's look at four queries:
 1. Readings for all time for a specific device.
 1. Readings for today for a specific device.
 
-### Creating the database
+## Creating the database
 {: #creating-the-database}
 
 To create a partitioned database, pass `true` as the `partitioned` argument to the database creation request:
@@ -164,7 +164,7 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-### Document structure
+## Document structure
 {: #document-struture}
 
 First, let's define a simple document format to work with:
@@ -199,7 +199,7 @@ For the queries described previously, you need two indexes:
 1. A global index-mapping device ID to infrastructure ID
 2. A partitioned index-mapping device ID to reading
 
-#### Creating a global view index
+### Creating a global view index
 {: #creating-a-global-view-index}
 
 A view index is the most efficient way to do the simple device ID to
@@ -231,7 +231,7 @@ curl -X PUT "$SERVICE_URL/readings/_design/infrastructure-mapping" -H 'Content-T
 
 For more language examples that show creating a global view, see the [Storing the view definition](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#storing-the-view-definition) guide, or [the Create or modify a design document section in API Docs](/apidocs/cloudant#putdesigndocument).
 
-#### Creating a partitioned {{site.data.keyword.cloudant_short_notm}} Query index
+### Creating a partitioned {{site.data.keyword.cloudant_short_notm}} Query index
 {: #creating-a-paritioned-ibm-cloudant-query-index}
 
 To return the readings for a specific device from a partition, you can use an
@@ -247,7 +247,7 @@ For these queries, you need two partitioned indexes:
 1. By timestamp
 2. By device ID and timestamp
 
-##### Uploading partitioned index by timestamp
+#### Uploading partitioned index by timestamp
 {: #uploading-partitioned-index-by-timestamp}
 
 Upload the index by timestamp to the database by using this command:
@@ -395,7 +395,7 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-##### Uploading partitioned index by device ID and timestamp
+#### Uploading partitioned index by device ID and timestamp
 {: #uploading-partitioned-index-by-device-id-and-timestamp}
 
 Upload the index by device ID and timestamp to the database by using this command:
@@ -558,7 +558,7 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-### Making queries
+## Making queries
 {: #making-queries}
 
 Overall, you want to make four queries:
@@ -568,7 +568,7 @@ Overall, you want to make four queries:
 1. Readings for all time for a specific device.
 1. Readings for today for a specific device.
 
-#### Finding all readings for a piece of infrastructure
+### Finding all readings for a piece of infrastructure
 {: #finding-all-readings-for-a-piece-of-infrastructure}
 
 These partitions are infrastructure-based, so you can use `_all_docs` for a
@@ -670,7 +670,7 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-#### Finding recent readings for a piece of infrastructure
+### Finding recent readings for a piece of infrastructure
 {: #finding-recent-readings-for-a-piece-of-infrastructure}
 
 This query needs to use [the partitioned `timestamped-readings` index](#creating-a-paritioned-ibm-cloudant-query-index). You can
@@ -797,7 +797,7 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-#### Finding the infrastructure ID for a device
+### Finding the infrastructure ID for a device
 {: #finding-the-infrastructure-id-for-a-device}
 
 The two queries we've yet to perform are shown in the following list:
@@ -848,7 +848,7 @@ The previous command returns the following response:
 The partition key is in the `value` field of the included row:
 `bridge-9876`.
 
-#### Querying for all results for a device
+### Querying for all results for a device
 {: #querying-for-all-results-for-a-device}
 
 To get the results for a device, you issue a partition query for the device
@@ -978,14 +978,14 @@ import (
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
-#### Querying for recent results for a device
+### Querying for recent results for a device
 {: #querying-for-recent-results-for-a-device}
 
 To get the results for a device, you issue a partition query for the device
 within the `bridge-9876` partition. The selector is only slightly more
 complicated, but still the same as an equivalent global query.
 
-##### Query for recent results assuming today is 13 December 2018
+#### Query for recent results assuming today is 13 December 2018
 {: #query-for-recent-results-assume-date-is-dec-13}
 
 The partition is embedded in the HTTP path when issuing the request to {{site.data.keyword.cloudant_short_notm}}:

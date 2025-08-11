@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-07-18"
+lastupdated: "2025-08-11"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Service Changes and Deprecations for {{site.data.keyword.cloudant_short_notm}}
 {: #deprecations-for-ibm-cloudant}
 
-### Ongoing changes
+## Ongoing changes
 {: #Ongoing-changes}
 
 QuickJS
@@ -31,7 +31,7 @@ This could break some applications, and might require changes to align with
 few accounts might get individual notifications.
 {: note}
 
-### Upcoming changes
+## Upcoming changes
 {: #Upcoming-changes}
 
 Legacy authentication
