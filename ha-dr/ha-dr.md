@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-10"
+lastupdated: "2025-08-11"
 
 keywords: HA for Cloudant, DR for Cloudant, Cloudant recovery time objective, Cloudant recovery point objective
 
@@ -116,8 +116,8 @@ For more information about responsibility ownership between you and {{site.data.
 
 
 
- ## Stay informed: IBM notifications
- {: #ibm-notifications}
+## Stay informed: IBM notifications
+{: #ibm-notifications}
 
 Updates affecting customer workloads are communicated through IBM Cloud notification. Changes that impact customer workloads are detailed in {{site.data.keyword.cloud_notm}} notifications. For more information about planned maintenance, announcements, and release notes that impact this service, see [Monitoring notifications and status](/docs/account?topic=account-viewing-cloud-status).
 

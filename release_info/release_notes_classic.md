@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-07-18"
+lastupdated: "2025-08-11"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -20,7 +20,7 @@ content-type: release-note
 Use these release notes to learn about the most recent updates to {{site.data.keyword.cloudantfull}} that are grouped by date and build number.
 {: shortdesc}
 
-### Ongoing changes
+## Ongoing changes
 {: #Ongoing-changes}
 
 QuickJS
@@ -29,7 +29,7 @@ QuickJS
 This could break some applications, and might require changes to align with `QuickJS`. So far, we have migrated most of the accounts to `QuickJS`, and very few accounts might get individual notifications.
 {: note}
 
-### Upcoming changes
+## Upcoming changes
 {: #Upcoming-changes}
 
 Legacy authentication

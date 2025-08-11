@@ -85,7 +85,6 @@ The `simple` analyzer changes the string in the following ways:
 
 
 ### Simple ASCII-folding analyzer
-
 {: #simple-asciifolding-analyzer}
 
 The `simple_asciifolding` analyzer changes the string in the following ways:

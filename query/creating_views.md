@@ -441,6 +441,7 @@ This view produces keys and values of this form, with the view sorted by `device
 | ["A02","2025-01-01T10:00:00.000Z"] | {"_id": "A02:4000","reading":   55,"timestamp":2025-01-01T10:00:00.000Z","deviceid":"A02"} | x                             |                              |
 | ["A02","2025-01-01T10:01:00.000Z"] | {"_id": "A02:4001","reading":   54,"timestamp":2025-01-01T10:01:00.000Z","deviceid":"A02"} |                               |                              |
 | ["A02","2025-01-01T10:02:00.000Z"] | {"_id": "A01:4002","reading":   56,"timestamp":2025-01-01T10:02:00.000Z","deviceid":"A02"} |                               | x                            |
+{: caption="Example key-value pairs for the latestReading view" caption-side="bottom"}
 
 Querying the view with `group_level=1`, using the `_last` reducer, will return the newest reading for every device_id in the database:
 
