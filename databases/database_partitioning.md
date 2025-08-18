@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-08-11"
+lastupdated: "2025-08-18"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials, cardinality, partitioned
 
@@ -16,7 +16,7 @@ subcollection: Cloudant
 {: #database-partitioning}
 
 As stated on the [How data is stored
-page](/docs/Cloudant?topic=Cloudant--how-is-data-stored-in-ibm-cloudant-),
+page](/docs/Cloudant?topic=Cloudant-how-is-data-stored-in-ibm-cloudant-),
 partitioned databases allow your application to co-locate documents on the same
 shard using the document partition key. This page helps you work out if your
 data model is suited for use with partitioned databases.
@@ -163,7 +163,7 @@ To benefit from partition-scoped querying, the majority of application queries
 must target specific partition keys. This allows the database to take advantage
 of document co-location and deliver consistent performance at scale.
 
-See [How sharding affects database performance](/docs/Cloudant?topic=Cloudant--how-is-data-stored-in-ibm-cloudant-#how-does-sharding-affect-performance-) for details of how global and partition-scoped queries affect performance of your database operations.
+See [How sharding affects database performance](/docs/Cloudant?topic=Cloudant-how-is-data-stored-in-ibm-cloudant-#how-does-sharding-affect-performance-) for details of how global and partition-scoped queries affect performance of your database operations.
 
 ### Global querying
 {: #global-querying}
@@ -220,5 +220,5 @@ To create a partitioned index that support partition-scoped queries, specify `"o
 
 Partitioned databases can be difficult to understand in the abstract. You can see the concepts in action in these two examples:
 
-1. Read [Creating an IoT historian using partitioned databases](/docs/Cloudant?topic=creating-an-iot-historian-using-partitioned-databases) for a deep dive into partitioned databases with examples in several programming languages.
+1. Read [Creating an IoT historian using partitioned databases](/docs/Cloudant?topic=Cloudant-creating-an-iot-historian-using-partitioned-databases) for a deep dive into partitioned databases with examples in several programming languages.
 1. Read about [partitioned databases and Node.js](https://blog.cloudant.com/2019/05/24/Partitioned-Databases-with-Cloudant-Libraries.html){: external} in this blog article that includes how to create a partitioned database, search, views, and a global index. 
