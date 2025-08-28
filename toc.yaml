@@ -16,9 +16,9 @@ toc:
       topics:
       - what-is-cloudant.md
       - topic: getting-started.md
-        navtitle: Getting started<production>
+        navtitle: Getting started
       - offerings/bluemix.md
-      - offerings/pricing.md</production>
+      - offerings/pricing.md
       - offerings/limits.md
       - offerings/connecting.md
       - offerings/learning-center.md
