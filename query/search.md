@@ -15,10 +15,33 @@ subcollection: Cloudant
 # Using {{site.data.keyword.cloudant_short_notm}} Search
 {: #cloudant-search}
 
-Search indexes provide a way to query a database by using [Lucene Query Parser Syntax](https://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: external}. A search index uses one or more fields from your documents. 
+{{site.data.keyword.cloudantfull}} Search allows language-aware free-text, multi-field and simple geospatial queries backed by [Apache Lucene](https://lucene.apache.org/), an open-source search engine.
 {: shortdesc}
 
-You can use a search index to run queries, find documents based on the content they include, or work with groups, facets, or geographical searches.
+{{site.data.keyword.cloudant_short_notm}} Search is used to create flexible queries using one, many or all of the indexed fields using the [Apache Lucene query syntax](https://lucene.apache.org/core/4_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview). 
+
+## How {{site.data.keyword.cloudant_short_notm}} search works
+
+Search index definitions are stored in _design documents_ in the form of a JavaScript function which is executed against every document in the database. The function defines which attributes are indexed, which are stored in the index but are not searchable and how each text attribute is pre-processed prior to indexing (using a chosen search "analyzer").
+
+{{site.data.keyword.cloudant_short_notm}} searches can act on the entire database, or for partitioned databases, on a single partition where `options.partitioned` is `true` in the design document.
+
+## When to use {{site.data.keyword.cloudant_short_notm}} search
+
+{{site.data.keyword.cloudant_short_notm}} Search is ideal for:
+
+- Language-aware full-text searching, wildcard searches and simple range queries on numeric or text fields.
+- Flexible queries on a set of indexed fields.
+- Simple geospatial queries such as find nearest or find with a bounding box.
+- Count aggregations on individual fields within the result set - known as "faceting".
+
+## When *not* to use {{site.data.keyword.cloudant_short_notm}} search
+
+Avoid {{site.data.keyword.cloudant_short_notm}} Search for
+
+- Aggregation (other than faceting). Use Views instead.
+
+## Building a search index
 
 To create a search index, you add a JavaScript function to a design document in the database. An index builds after it processes one search request or after the server detects a document update. The `index` function takes the following parameters: 
 

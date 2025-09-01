@@ -15,30 +15,42 @@ subcollection: Cloudant
 # Creating Views (MapReduce)
 {: #creating-views-mapreduce}
 
-Views are used to obtain data stored within a database. Within views, you use reduce functions, map and reduce functions, and storing a view definition.
+## Overview
+
+Views can be secondary data structures in {{site.data.keyword.cloudantfull}}, storing key/value pairs derived from document attributes. They can be used to query and aggregate over document projections.
 {: shortdesc}
 
-Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. Views are written by using JavaScript.
+They serve two primary purposes:
 
-## View concepts
-{: #view-concepts}
+- **Indexing (Projection)**: Use **map-only views** to project documents into new key spaces. This enables efficient lookups and sorting by fields other than the document ID (e.g., email, timestamp, or category).
+- **Aggregation and Analytics**: Use **MapReduce views** to emit and aggregate data across documents — for example, counting documents by type, summing values, or computing averages.
 
-Views are mechanisms for working with document content in databases.
-A view can selectively filter documents and speed up the search for content.
-It can be used to pre-process the results before they're returned to the client.
+## How views work
 
-Views are simply JavaScript functions, which are defined within the `views` field of a design document.
-When you use a view,
-or more accurately when you run a query by using your view,
-the system applies the JavaScript function to every document in the database.
-Views can be complex.
-You might choose to define a collection of JavaScript functions to create the overall view that is required.
+Views are defined in _design documents_ and consist of:
 
-## View index partitioning type
-{: #view-index-partitioning-type}
+- A **map function** (JavaScript): Executed against every document to determine which attributes form the view’s _key_ and _value_. A map function can emit zero, one, or many rows per document.
+- An optional **reduce function**: Used to aggregate emitted values, supporting operations like counting, summing, or averaging.
 
-A view index inherits the partitioning type from the `options.partitioned`
-field of the design document that contains it.
+Once built, views are automatically maintained and updated by {{site.data.keyword.cloudant_short_notm}} as documents change.
+
+For partitioned databases, views can operate on a single partition when `options.partitioned` is set to `true` in the design document.
+
+## When to use views
+
+Views are ideal for:
+
+- **Efficient lookups and range queries** on document attributes other than the ID (e.g., find documents by customer email or order status).
+- **Covering indexes**: Queries that can be satisfied using only the view’s key/value data, avoiding the need to fetch full documents.
+- **Aggregated summaries**: Generate totals, averages, or counts grouped by keys (e.g., sales by year/month/day).
+- **Partial indexes**: Including only a subset of documents (e.g., a list of only completed e-commerce orders).
+
+## When *not* to use views
+
+Avoid views for:
+
+- **Ad-hoc queries** — use **Cloudant Search** instead.
+- **Free-text or wildcard searches** — use **Cloudant Search** instead.
 
 ## A simple view
 {: #a-simple-view}
