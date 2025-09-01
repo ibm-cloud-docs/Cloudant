@@ -15,29 +15,39 @@ subcollection: Cloudant
 # Working with {{site.data.keyword.cloudant_short_notm}} Query
 {: #query}
 
-{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for {{site.data.keyword.cloudant_short_notm}} databases. You can use a `json` or `text` type of index with {{site.data.keyword.cloudant_short_notm}}.
+## Overview
+
+{{site.data.keyword.cloudantfull}} Query is a flexible query language that allows fetching documents from a database that match a "selector" -- a JSON object that defines the search criteria.
 {: shortdesc}
 
-In the following cases, you can specify how the index is created by
-making it of type `json`:
+The selector syntax is loosely based on MongoDB's query language, offering a rich set of query operators that can be combined to make complex queries. 
 
-- You know exactly what data you want to look for.
-- You want to keep storage and processing requirements to a minimum.
+## How {{site.data.keyword.cloudant_short_notm}} Query works
 
-But for maximum flexibility when you search for data, you typically create
-an index of type `text`. Indexes of type `text` have a simple mechanism for automatically
-indexing all the fields in the documents.
+{{site.data.keyword.cloudant_short_notm}} Queries should be backed by a suitable secondary index. There are two types of indexes available:
 
-While more flexible, `text` indexes might take longer to create and require more storage resources than `json` indexes.
-{: tip}
+1. `type=json` (the default) - a set of nominated document fields combined together to form the index keyspace. A query's selector and sort parameters must match an index's keys for it to be used when processing the query.
+2. `type=text` - a set of nominated document fields indexed separately. One or more of the indexed fields can be combined in selector expressions to extract small slices of data (up to 200 documents per query).
+
+{{site.data.keyword.cloudant_short_notm}} queries can act on the entire database, or for partitioned databases, on a single partition.
+
+## When to use {{site.data.keyword.cloudant_short_notm}} Query
+
+{{site.data.keyword.cloudant_short_notm}} Query is ideal for:
+
+- Operational queries where a query's selector/sort match a pre-defined `type=json` index.
+- Ad-hoc queries on one or more fields backed by a `type=text` index, for small result sets.
+- Creating partial indexes, where a subset of the documents are used to form the index and the selector/sort further filters the indexed data.
+
+## When *not* to use {{site.data.keyword.cloudant_short_notm}} Query
+
+Avoid Query for:
+
+- Data aggregation. Use Views instead.
+- Free-text or wildcard searching. Use Cloudant Search instead.
 
 ## Creating an index
 {: #creating-an-index}
-
-You can create an index with one of the following types:
-
--	`"type": "json"`
--	`"type": "text"`
 
 ### Creating a `type=json` index
 {: #creating-a-type-json-index}
