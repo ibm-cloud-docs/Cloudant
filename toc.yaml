@@ -68,6 +68,7 @@ toc:
           - databases/getting-a-list-of-all-dbs-in-account.md
           - databases/getting-docs.md
           - databases/sending-multiple-queries-to-db.md
+          - databases/pagination-bookmarks.md
           - databases/getting-changes-to-docs-in-db.md
           - databases/deleting-a-db.md
           - databases/sharding.md
@@ -92,14 +93,12 @@ toc:
           - documents/transactions.md
           - documents/attachments.md
       - topicgroup:
-          label: Monitoring your instance
+          label: Views
           topics:
-          - monitor/monitoring.md
-          - monitor/capacity.md
-          - monitor/active_tasks.md
-          - monitor/managing_tasks.md
+          - query/creating_views.md
+          - query/using_views.md
       - topicgroup:
-          label: Querying the database
+          label: Queries
           topics:
           - query/cloudant-query.md
           - query/query-parameters.md
@@ -109,11 +108,14 @@ toc:
           - query/cloudant-operators.md
           - query/more-about-text-indexes.md
           - query/movies-demo-database.md
-          - query/creating_views.md
-          - query/using_views.md
+      - topicgroup:
+          label: Searches
+          topics:
           - query/search.md
           - query/search-analyzers.md
-          - query/pagination-bookmarks.md
+      - topicgroup:
+          label: Geo
+          topics:
           - query/cloudant-geo.md
       - topicgroup:
           label: Replicating databases
@@ -121,6 +123,13 @@ toc:
           - replicate/replication_guide.md
           - replicate/replication.md
           - replicate/advanced_replication.md
+      - topicgroup:
+          label: Monitoring your instance
+          topics:
+          - monitor/monitoring.md
+          - monitor/capacity.md
+          - monitor/active_tasks.md
+          - monitor/managing_tasks.md
       - topicgroup:
           label: Migrating your plan
           topics:
