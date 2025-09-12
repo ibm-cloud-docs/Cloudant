@@ -108,6 +108,7 @@ toc:
           - query/cloudant-operators.md
           - query/more-about-text-indexes.md
           - query/movies-demo-database.md
+          - query/query-monitoring.md
       - topicgroup:
           label: Searches
           topics:
