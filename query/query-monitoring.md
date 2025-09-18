@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-09-12"
+lastupdated: "2025-09-18"
 
 keywords: cloudant query, query parameters, query troubleshooting, query performance, monitor query usage, query scalability
 
@@ -115,9 +115,4 @@ Recommended histogram buckets:
 Once you have identified problematic queries --- hopefully before they
 become a problem --- you can act to improve their efficiency.
 
-Refer to these documents for to learn how to improve your query efficiency:
-
-- [Optimising {{site.data.keyword.cloudant_short_notm}} Queries](https://blog.cloudant.com/2020/05/20/Optimising-Cloudant-Queries.html) from the {{site.data.keyword.cloudant_short_notm}} blog.
-- [Explaining Explain](https://blog.cloudant.com/2024/01/17/Explaining-Explain.html) describes how to interpret and use the output of the `_explain` request.
-- [Avoiding Query Fallback](https://blog.cloudant.com/2025/02/04/Avoid-Fallback.html) shows a technique to prevent critical queries falling back to full table scans.
-- [The rest of the Query documentation](/docs/Cloudant?topic=Cloudant-query).
+Refer to [{{site.data.keyword.cloudant_short_notm}} Query performance optimization](/docs/Cloudant?topic=cloudant-query-performance-optimization) for a complete guide to creating efficient and scalable indexes and queries.
