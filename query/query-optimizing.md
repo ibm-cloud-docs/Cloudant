@@ -14,7 +14,7 @@ subcollection: Cloudant
 {{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.cloudant_short_notm}} Query performance guide
-{: cloudant-query-performance-guide}
+{: #cloudant-query-performance-guide}
 
 This guide walks you through the essential techniques for optimizing {{site.data.keyword.cloudant_short_notm}} Query performance, starting with the most foundational optimizations and progressing to advanced techniques. By following this guide, you'll transform slow, expensive queries into fast, efficient ones that scale with your data.
 
@@ -125,8 +125,6 @@ POST /orders/_index
 ```
 
 **Performance impact**: In a 100,000 document database, this single change can reduce query time from 20+ seconds to under 10 milliseconds.
-
-The following sections explain why this index is optimal for the query.
 
 ### Production safety: prevent accidental large scans
 {: #safety-prevent-accidental-large-scans}
@@ -329,6 +327,14 @@ The following table summarises the key properties of indexes, and the operators 
 }
 ```
 
+## Foundation: query performance monitoring
+{: #foundation-query-performance-monitoring}
+
+**Impact: Ongoing optimization and problem detection**
+
+Efficient querying requires continuous monitoring. {{site.data.keyword.cloudant_short_notm}} provides tools to measure and track query performance over time.
+
+{{site.data.keyword.cloudant_short_notm}} Query provides the `execution_stats` field in the response to help evaluate your queries. See [Monitor for inefficient IBM {{site.data.keyword.cloudant_short_notm}} queries](/docs/Cloudant?topic=Cloudant-monitor-for-inefficient-query-requests) for a detailed guide to the metrics {{site.data.keyword.cloudant_short_notm}} provides for analysing query execution.
 
 ## Warning: document structure requirements for JSON indexes
 {: #warning-document-structure-requirements-for-json-indexes}
@@ -392,15 +398,6 @@ If you create an index on `["username", "status", "date"]`, any document missing
 ```
 
 A text index will index documents missing the `date` (or other) fields.
-
-## Foundation: query performance monitoring
-{: #foundation-query-performance-monitoring}
-
-**Impact: Ongoing optimization and problem detection**
-
-Efficient querying requires continuous monitoring. {{site.data.keyword.cloudant_short_notm}} provides tools to measure and track query performance over time.
-
-{{site.data.keyword.cloudant_short_notm}} Query provides the `execution_stats` field in the response to help evaluate your queries. See [Monitor for inefficient IBM {{site.data.keyword.cloudant_short_notm}} queries](/docs/Cloudant?topic=Cloudant-monitor-for-inefficient-query-requests) for a detailed guide to the metrics {{site.data.keyword.cloudant_short_notm}} provides for analysing query execution.
 
 ## Advanced: partial indexes
 {: #advanced-partial-indexes}
