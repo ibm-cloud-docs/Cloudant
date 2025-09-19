@@ -4,7 +4,7 @@ copyright:
   years: 2015, 2023
 lastupdated: "2023-04-04"
 
-keywords: create index, json index type, text index type, partial index
+keywords: cloudant query, create index, json index type, text index type, partial index
 
 subcollection: Cloudant
 
@@ -12,32 +12,16 @@ subcollection: Cloudant
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Working with indexes
-{: #working-with-indexes}
+# Partial indexes
+{: #partial-indexes}
 
-{{site.data.keyword.cloudantfull}} endpoints can be used to create,
-list,
-update,
-and delete indexes in a database,
-and to query data by using these indexes.
+Use partial indexes to create indexes using a subset of the documents of the database. This is a powerful optimisation technique when used correctly: it reduces the overall size of an index, making queries faster and reducing data storage costs.
 {: shortdesc}
-
-| Methods  | Path                | Description |
-|---------|---------------------|------------|
-| `DELETE` | `/$DATABASE/_index` | Delete an index. |
-| `GET`    | `/$DATABASE/_index` | List all {{site.data.keyword.cloudant_short_notm}} Query indexes. |
-| `POST`   | `/$DATABASE/_find`  | Find documents by using a global index. |
-| `POST`   | `/$DATABASE/_partition/$PARTITION_KEY/_find`  | Find documents by using a partitioned index. |
-| `POST`   | `/$DATABASE/_index` | Create an index. |
-{: caption="Available methods and endpoints" caption-side="top"}
 
 ## Creating a partial index
 {: #creating-a-partial-index}
 
-{{site.data.keyword.cloudant_short_notm}} Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation](https://docs.couchdb.org/en/stable/api/database/find.html?highlight=partial#partial-indexes){: external} and the original example.
-
-The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still compatible with an earlier version for text indexes only.
-{: tip}
+{{site.data.keyword.cloudant_short_notm}} Query supports partial indexes by using the `partial_filter_selector` field. The `partial_filter_selector` contains a standard {{site.data.keyword.cloudant_short_notm}} Query that is executed _at index time_. Documents that don't match the selector are not added to the index.
 
 See the following example query:
 
@@ -59,8 +43,8 @@ This situation occurs because a normal index can be used to match contiguous row
 and the `$ne` operator can't guarantee that.
 
 To improve response time, you can create an index that excludes documents 
-with `status: { $ne: archived }` at index time by using the 
-`partial_filter_selector` field that is shown in the following example:
+with `status: { $ne: archived }` at index time by using 
+`partial_filter_selector` shown in the following example:
 
 ```json
 POST /db/_index HTTP/1.1
@@ -83,7 +67,7 @@ Host: localhost:5984
 ```
 {: codeblock}
 
-Partial indexes aren't currently used by the query planner unless specified
+Partial indexes aren't used by the query planner unless specified
 by a `use_index` field, so you must modify the original query:
 
 ```json
@@ -101,3 +85,4 @@ by a `use_index` field, so you must modify the original query:
 
 Technically, you don't need to include the filter on the `status` field in the
 query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of partial indexes).
+
