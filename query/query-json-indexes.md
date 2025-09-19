@@ -109,3 +109,4 @@ be used to satisfy global queries.
 | 200  | Index was created successfully or existed in the database. |
 | 400  | Bad request - the request body doesn't have the specified format. |
 {: caption="Return codes" caption-side="top"}
+
