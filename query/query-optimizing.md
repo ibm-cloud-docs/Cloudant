@@ -2,10 +2,9 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
-keywords: cloudant query, query parameters, query troubleshooting, query performance, monitor query usage, query scalability, performance, indexes,
-text indexes, json indexes, application scaling, building scalable databases
+keywords: cloudant query, query parameters, query troubleshooting, query performance, monitor query usage, query scalability, performance, indexes, text indexes, json indexes, application scaling, building scalable databases
 
 subcollection: Cloudant
 
