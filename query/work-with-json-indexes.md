@@ -12,11 +12,14 @@ subcollection: Cloudant
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Working with JSON indexes
-{: #working-with-json-indexes}
+# JSON indexes
+{: #json-indexes}
 
 JSON indexes are {{site.data.keyword.cloudant_short_notm}} Query indexes that are excellent for equality (`$eq`) and range (`$lt`, `$lte`, `$gte` and `$gte`) queries. Create JSON indexes to support queries that include these operators.
 {: shortdesc}
+
+## Creating JSON indexes
+{: #creating-json-indexes}
 
 To create a JSON index in the database `$DATABASE`,
 make a `POST` request to `/$DATABASE/_index` with a JSON object that describes the index in the request body.
@@ -106,4 +109,3 @@ be used to satisfy global queries.
 | 200  | Index was created successfully or existed in the database. |
 | 400  | Bad request - the request body doesn't have the specified format. |
 {: caption="Return codes" caption-side="top"}
-

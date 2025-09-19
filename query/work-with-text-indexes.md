@@ -12,11 +12,14 @@ subcollection: Cloudant
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Working with text indexes
-{: #working-with-text-indexes}
+# Text indexes
+{: #text-indexes}
 
 Text indexes are {{site.data.keyword.cloudant_short_notm}} Query indexes that excel at supporting flexible queries, where the exact fields are not known in advance or use `$or` and `$not` operators. Create text indexes to support queries that have these characteristics.
 {: shortdesc}
+
+## Creating text indexes
+{: #creating-text-indexes}
 
 When you create a single text index, it's a good practice to use the default values, but some useful index attributes can be modified.
 
