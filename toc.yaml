@@ -101,8 +101,8 @@ toc:
           label: Queries
           topics:
           - query/cloudant-query.md
-          - query/work-with-json-indexes.md
-          - query/work-with-text-indexes.md
+          - query/query-json-indexes.md
+          - query/query-text-indexes.md
           - query/query-partial-indexes.md
           - query/selector-syntax.md
           - query/create-selector-expressions.md

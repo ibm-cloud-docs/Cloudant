@@ -35,8 +35,8 @@ To ensure queries return results quickly, {{site.data.keyword.cloudant_short_not
 
 Learn about creating indexes by reading:
 
-- [Working with JSON indexes](/docs/Cloudant?topic=Cloudant-working-with-json-indexes).
-- [Working with text indexes](/docs/Cloudant?topic=Cloudant-working-with-text-indexes).
+- [Working with JSON indexes](/docs/Cloudant?topic=Cloudant-json-indexes).
+- [Working with text indexes](/docs/Cloudant?topic=Cloudant-text-indexes).
 - [Partial indexes](/docs/Cloudant?topic=Cloudant-partial-indexes).
 
 ## When to use {{site.data.keyword.cloudant_short_notm}} Query
