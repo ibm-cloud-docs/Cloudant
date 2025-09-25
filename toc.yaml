@@ -230,4 +230,5 @@ toc:
           - faqs/provisioned-throughput-capacity-faq.md
           - faqs/changes-feed-faq.md
           - faqs/cloudant-query-faq.md
+          - faqs/quickjs-migration.md
       - get-help.md

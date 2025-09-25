@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-25"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -23,17 +23,26 @@ Use these release notes to learn about the most recent updates to {{site.data.ke
 ## Ongoing changes
 {: #Ongoing-changes}
 
-QuickJS
-:   To speed up index building, {{site.data.keyword.cloudant_short_notm}} is replacing the JavaScript engine from [SpiderMonkey](https://spidermonkey.dev/) to [QuickJS](https://bellard.org/quickjs/). Please read [Service Changes](/docs/Cloudant?topic=Cloudant-deprecations-for-ibm-cloudant#cloudant-nosql-db-jsengine-dep) for more information or open a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/form) with us.
+### QuickJS
 
-This could break some applications, and might require changes to align with `QuickJS`. So far, we have migrated most of the accounts to `QuickJS`, and very few accounts might get individual notifications.
+To support ES2023 JavaScript features and speed up index building,
+{{site.data.keyword.cloudant_short_notm}} is replacing the
+[SpiderMonkey][sm-qjs] JavaScript engine with [QuickJS][qjs-qjs].
+
+[sm-qjs]: https://spidermonkey.dev/
+[qjs-qjs]: https://bellard.org/quickjs/
+
+Read [Migration to QuickJS from SpiderMonkey](/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey) for full details on this change.
+
+This could break some applications, and might require JavaScript updates in your design documents to align with QuickJS. Read the migration guide to understand whether this affects your instances.
 {: note}
 
 ## Upcoming changes
 {: #Upcoming-changes}
 
-Legacy authentication
-:   To enhance security, Cloudant will enable temporary lockout of accounts in the coming months. After multiple login attempts using incorrect credentials, further login attempts will be denied for a period of time. To unlock your account, please wait for some time or change the password and then wait at least 5 minutes to ensure that the change propagates throughout the system.
+### Legacy authentication
+
+To enhance security, Cloudant will enable temporary lockout of accounts in the coming months. After multiple login attempts using incorrect credentials, further login attempts will be denied for a period of time. To unlock your account, please wait for some time or change the password and then wait at least 5 minutes to ensure that the change propagates throughout the system.
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
