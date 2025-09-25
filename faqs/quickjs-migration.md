@@ -22,7 +22,7 @@ To support ES2023 JavaScript features and speed up index building,
 [qjs-qjs]: https://bellard.org/quickjs/
 
 Some JavaScript features available in the SpiderMonkey engine are not available in QuickJS. When these are used, design documents must be updated to replace these features with QuickJS-compatible JavaScript. {{site.data.keyword.cloudant_short_notm}} have analysed all customer JavaScript functions and have identified that less than 1% of customers will need to do this.
-{: warning}
+{: important}
 
 ## Do I need to take action?
 
@@ -121,7 +121,7 @@ Two ways to test your JavaScript are:
     This must be in a new design document; changing / setting this field in
     an existing design document will cause all indexes in the document to
     be rebuilt!
-    {: warning}
+    {: attention}
 
 2. Test locally by running QuickJS in your local environment.
 
@@ -217,14 +217,14 @@ instead cause changes in output.
     ```js
     js> String.substring("abcd", 1, 2)
     "b"
-    ````
+    ```
 
     Use `String.prototype.substring(start, end)` instead:
 
     ```js
     js> "abcd".substring(1, 2)
     "b"
-    ````
+    ```
 
 * The `toISOString()` throws an error on invalid `Date` objects.
 
@@ -238,7 +238,7 @@ instead cause changes in output.
     typein:1:23 RangeError: invalid date
     Stack:
       @typein:1:23
-    ````
+    ```
 
 * The `Date.prototype.toLocaleFormat()` function is deprecated.
 
@@ -449,4 +449,3 @@ instead cause changes in output.
     > "abc".match(undefined)
     [""]
     ```
-
