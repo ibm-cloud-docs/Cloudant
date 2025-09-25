@@ -104,10 +104,10 @@ toc:
           - query/query-json-indexes.md
           - query/query-text-indexes.md
           - query/query-partial-indexes.md
-          - query/selector-syntax.md
-          - query/create-selector-expressions.md
-          - query/cloudant-operators.md
-          - query/query-parameters.md
+          - query/query2-selector-syntax.md
+          - query/query2-cloudant-operators.md
+          - query/query2-parameters.md
+          - query/query2-explain.md
           - query/movies-demo-database.md
           - query/query-optimizing.md
           - query/query-monitoring.md

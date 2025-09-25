@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-03-13"
+  years: 2015, 2025
+lastupdated: "2025-09-25"
 
 keywords: implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter, pagination
 
@@ -12,7 +12,7 @@ subcollection: Cloudant
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.cloudant_short_notm}} Operators
+# Query operators
 {: #operators}
 
 Operators are identified by the use of a dollar sign (`$`) prefix in the name field.
@@ -230,10 +230,7 @@ The argument is either another selector, or an array of selectors.
 | [`$or`](#the-or-operator)               | Array    | Matches if any of the selectors in the array match. All selectors must use the same index. |
 {: caption="Combination operators" caption-side="top"}
 
-### Examples of combination operators
-{: #examples-of-combination-operators}
-
-#### The `$all` operator
+### `$all`
 {: #the-all-operator}
 
 The `$all` operator matches an array value if it contains *all* the elements of the argument array.
@@ -256,7 +253,7 @@ See the following example that uses the `$all` operator:
 ```
 {: codeblock}
 
-#### The `$allMatch` operator
+### `$allMatch`
 {: #the-allmatch-operator}
 
 The `$allMatch` operator matches and returns all documents that contain an array field,
@@ -275,7 +272,7 @@ See the following example that uses the `$allMatch` operator:
 ```
 {: codeblock}
 
-#### The `$and` operator
+### `$and`
 {: #the-and-operator}
 
 The `$and` operator matches if all the selectors in the array match.
@@ -308,7 +305,7 @@ See the following example that uses the `$and` operator:
 ```
 {: codeblock}
 
-#### The `$elemMatch` operator
+### `$elemMatch`
 {: #the-elemmatch-operator}
 
 The `$elemMatch` operator matches and returns all documents that contain an array field
@@ -334,7 +331,7 @@ See the following example that uses the `$elemMatch` operator:
 ```
 {: codeblock}
 
-#### The `$nor` operator
+### `$nor`
 {: #the-nor-operator}
 
 The `$nor` operator matches if the selector does *not* match.
@@ -362,7 +359,7 @@ See the following example that uses the `$nor` operator:
 ```
 {: codeblock}
 
-#### The `$not` operator
+### `$not`
 {: #the-not-operator}
 
 The `$not` operator matches if the selector does *not* resolve to a value of `true`.
@@ -388,7 +385,7 @@ See the following example that uses the `$not` operator:
 ```
 {: codeblock}
 
-#### The `$or` operator
+### `$or`
 {: #the-or-operator}
 
 The `$or` operator matches if any of the selectors in the array match.
@@ -448,10 +445,7 @@ Regular expressions don't work with indexes,
 so they must not be used to filter large data sets. However, they can be used to restrict a `partial index <find/partial_indexes>`.
 {: tip}
 
-### Examples of condition operators
-{: #examples-of-condition-operators}
-
-#### The `$lt` operator
+### `$lt`
 {: #the-lt-operator}
 
 The `$lt` operator matches if the specified field content is less than the argument.
@@ -496,7 +490,7 @@ See the following example that uses the `$lt` operator with a database that is i
 ```
 {: codeblock}
 
-#### The `$lte` operator
+### `$lte`
 {: #the-lte-operator}
 
 The `$lte` operator matches if the specified field content is less than or equal to the argument.
@@ -541,7 +535,7 @@ See the following example that uses the `$lte` operator with a database that is 
 ```
 {: codeblock}
 
-#### The `$eq` operator
+### `$eq`
 {: #the-eq-operator}
 
 The `$eq` operator matches if the specified field content is equal to the supplied argument.
@@ -584,7 +578,7 @@ See the following example that uses the `$eq` operator with a database that is i
 ```
 {: codeblock}
 
-#### The `$ne` operator
+### `$ne`
 {: #the-ne-operator}
 
 The `$ne` operator matches if the specified field content isn't equal to the supplied argument.
@@ -629,7 +623,7 @@ See the following example that uses the `$ne` operator with a primary index:
 ```
 {: codeblock}
 
-#### The `$gte` operator
+### `$gte`
 {: #the-gte-operator}
 
 The `$gte` operator matches if the specified field content is greater than or equal to the argument.
@@ -674,7 +668,7 @@ See the following example that uses the `$gte` operator with a database that is 
 ```
 {: codeblock}
 
-#### The `$gt` operator
+### `$gt`
 {: #the-gt-operator}
 
 The `$gt` operator matches if the specified field content is greater than the argument.
@@ -719,7 +713,7 @@ See the following example that uses the `$gt` operator with a database that is i
 ```
 {: codeblock}
 
-#### The `$exists` operator
+### `$exists`
 {: #the-exists-operator}
 
 The `$exists` operator matches if the field exists,
@@ -744,7 +738,7 @@ See the following example that uses the `$exists` operator:
 ```
 {: codeblock}
 
-#### The `$type` operator
+### `$type`
 {: #the-type-operator}
 
 The `$type` operator requires that the specified document field is of the correct type.
@@ -767,7 +761,7 @@ See the following example that uses the `$type` operator:
 ```
 {: codeblock}
 
-#### The `$in` operator
+### `$in`
 {: #the-in-operator}
 
 The `$in` operator requires that the document field *must* exist in the list provided.
@@ -791,7 +785,7 @@ See the following example that uses the `$in` operator:
 ```
 {: codeblock}
 
-#### The `$nin` operator
+### `$nin`
 {: #the-nin-operator}
 
 The `$nin` operator requires that the document field must *not* exist in the list provided.
@@ -815,7 +809,7 @@ See the following example that uses the `$nin` operator:
 ```
 {: codeblock}
 
-#### The `$size` operator
+### `$size`
 {: #the-size-operator}
 
 The `$size` operator matches the length of an array field in a document.
@@ -838,7 +832,7 @@ See the following example that uses the `$size` operator:
 ```
 {: codeblock}
 
-#### The `$mod` operator
+### `$mod`
 {: #the-mod-operator}
 
 The `$mod` operator matches documents where the expression (`field % Divisor == Remainder`) is true,
@@ -870,7 +864,7 @@ See the following example that uses the `$mod` operator:
 ```
 {: codeblock}
 
-#### The `$regex` operator
+### `$regex`
 {: #the-regex-operator}
 
 The `$regex` operator matches when the field is a string value *and* matches the supplied regular expression.
