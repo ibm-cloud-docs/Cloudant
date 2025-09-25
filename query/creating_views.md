@@ -202,7 +202,7 @@ or day.
 
 For more information, see [Using views](/docs/Cloudant?topic=Cloudant-using-views#using-views).
 
-## Making use of the value
+## Making use of the value
 {: #making-use-of-the-value}
 
 The second parameter of a MapReduce definition's `emit` function is the "value", which is stored along with the key in the resultant index. The value has two uses:
