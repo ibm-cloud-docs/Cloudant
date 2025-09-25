@@ -202,6 +202,67 @@ or day.
 
 For more information, see [Using views](/docs/Cloudant?topic=Cloudant-using-views#using-views).
 
+## Making use of the value
+{: #making-use-of-the-value}
+
+The second parameter of a MapReduce definition's `emit` function is the "value", which is stored along with the key in the resultant index. The value has two uses:
+
+1. For selection-only views, the value can be used to store a subset of the document to avoid having to use `?include_docs=true` at query-time. This can yield a query-time performance boost at the expense of having a larger index.
+2. For views that use a reducer, the value will generally contain a single numeric quantity, a small object with fixed keys and numeric values, or a short array of numbers. The numeric data is summed (with the `_sum`) reducer or produces statistical data with the `_stats` reducer.
+
+Some examples:
+
+```js
+// create a view to allow selection of orders by year/month/day,
+// where a subset of the document is projected into the view's value.
+function(doc) {
+  if (doc.type === 'order') {
+    const minidoc = {
+      customer_id: doc.customer_id,
+      date: doc.date,
+      status: doc.status
+    }
+    emit([doc.year, doc.month, doc.day], minidoc)
+  }
+}
+
+// create a view, designed for the _sum reducer which contains
+// one row per order, in year/month/day order where the value
+// is the order's total in USD. This can be summed at query-time
+// with optional grouping by year, year/month or year/month/day.
+function(doc) {
+  emit([doc.year, doc.month, doc.day], doc.order_total_usd)
+}
+
+// create a view, designed for the _sum reducer which contains
+// one row per order, in year/month/day order where the value
+// contains three numeric quantities (order total, tax and shipping)
+// which will be summed at query-time with optional grouping by year, 
+// year/month or year/month/day.
+function(doc) {
+  const value = { 
+    total: doc.order_total_usd,
+    tax: doc.tax_usd,
+    shipping: doc.shipping_usd
+  }
+  emit([doc.year, doc.month, doc.day], value)
+}
+
+// create a view, designed for the _sum reducer which contains
+// one row per order, with customer_id as the key. The numeric
+// quantities are in array (order total and tax)  which will be 
+// summed at query-time with optional grouping by customer_id
+function(doc) {
+  emit(doc.customer_id, [doc.order_total_usd, doc.tax_usd])
+}
+```
+{: codeblock}
+
+Do not put high-cardinality keys in a view's value such as `order_id` or 
+`customer_id` as this will lead to _expansion_ of a view's reduced value rather than a _reduction_. Such queries may time out or be rejected by the 
+{{site.data.keyword.cloudant_short_notm}} service. For numeric reducers, high-cardinality data is usually a component of a view's "key", with the "value" reserved for numeric data.
+{: tip}
+
 ## Reduce functions
 {: #reduce-functions}
 
