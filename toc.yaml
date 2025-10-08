@@ -168,8 +168,8 @@ toc:
           - offerings/at-integration.md
           - offerings/platform-metrics.md
       - ha-dr/ha-dr.md
-      - topic: offerings/data-portability.md 
-        navtitle: Data portability         
+      - topic: offerings/data-portability.md
+        navtitle: Data portability
       - topicgroup:
           label: Best practices for IBM Cloudant
           topics:

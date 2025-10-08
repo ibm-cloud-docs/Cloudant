@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-10-08"
 
 subcollection: Cloudant
 
@@ -57,42 +57,46 @@ Inline configuration overrides the global configuration and the environment vari
 {: tip}
 
 If you are unsure about your server URL, you can find it [by the instance ID of your cloud resource](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_service_instance).
-To find the instance ID use the name of your service. The following example gets first the GUID then the CRN ID by service name (for example `Cloudant-fg`). Use either of GUID or CRN ID as `<resource-id>` to get the Cloudant instance URL.
+To find the instance ID use the name of your service.
+The following example gets first the GUID then the CRN ID by service name (for example `Cloudant-aa`).
+Pass either a GUID or CRN ID as the value for the `--resource-id` option to get the Cloudant instance URL.
+
 ```sh
-# Get GUID of the service instance by service name, which can be used as a <resource-id> later
-ibmcloud resource service-instance <service-name> --guid
-# Get CRN ID of the service instance by service name, which can be used as a <resource-id> later
-ibmcloud resource service-instance <service-name> --crn
-# Get <service-url> of your Cloudant instance by resource ID (can be either the GUID or the CRN ID)
-ibmcloud cloudant url -q --resource-id <resource-id>
+# Get GUID of the service instance by service name, which can be used with --resource-id later
+ibmcloud resource service-instance Cloudant-aa --guid
+# Get CRN ID of the service instance by service name, which can be used with --resource-id later
+ibmcloud resource service-instance Cloudant-aa --crn
+# Get the url of your Cloudant instance from the resource ID (can be either the GUID or the CRN ID)
+ibmcloud cloudant url -q --resource-id 00000000-0000-0000-0000-000000000000
 ```
 
 #### Inline configuration
 {: #cloudant-cli-inline-config}
 
-Inline configuration happens with the `--service-url` flag. All subcommands like `events-config` or `capacity` accept an inline configured service URL, which comes from the `ibmcloud cloudant url --resource-id <resource-id>` command.
+Inline configuration happens with the `--service-url` flag. All subcommands like `events-config` or `capacity` accept an inline configured service URL,
+which comes from the `ibmcloud cloudant url --resource-id 00000000-0000-0000-0000-000000000000` command.
 
 ```sh
 # Use events-config subcommand with inline configured service url
-ibmcloud cloudant events-config --service-url <service-url>
+ibmcloud cloudant events-config --service-url 'https://~replace-with-cloudant-host~.cloudantnosqldb.appdomain.cloud'
 # Use capacity subcommand with inline configured service url
-ibmcloud cloudant capacity --service-url <service-url>
+ibmcloud cloudant capacity --service-url 'https://~replace-with-cloudant-host~.cloudantnosqldb.appdomain.cloud'
 ```
 
 The following example shows a shorthand for using the `events-config` with inline configured service URL:
 
 ```sh
-ibmcloud cloudant events-config --service-url $(ibmcloud cloudant url -q --resource-id <resource-id>)
+ibmcloud cloudant events-config --service-url $(ibmcloud cloudant url -q --resource-id 00000000-0000-0000-0000-000000000000)
 ```
 
 #### Global configuration
 {: #cloudant-cli-global-config}
 
-Global configuration happens with the [config subcommand](#cloudant-cli-config-command). This stores a persistent configuration so that it does not need to be manually specified each time. The following example sets the service url globally, which comes from the `ibmcloud cloudant url --resource-id <resource-id>` command, then uses the set value with subcommands like `events-config` or `capacity`.
+Global configuration happens with the [config subcommand](#cloudant-cli-config-command). This stores a persistent configuration so that it does not need to be manually specified each time. The following example sets the service url globally, which comes from the `ibmcloud cloudant url --resource-id 00000000-0000-0000-0000-000000000000` command, then uses the set value with subcommands like `events-config` or `capacity`.
 
 ```sh
 # Set service url globally
-ibmcloud cloudant config set service-url <service-url>
+ibmcloud cloudant config set service-url 'https://~replace-with-cloudant-host~.cloudantnosqldb.appdomain.cloud'
 # Use events-config subcommand with globally configured service url
 ibmcloud cloudant events-config
 # Use capacity subcommand with globally configured service url
@@ -102,7 +106,7 @@ ibmcloud cloudant capacity
 The following example shows a shorthand for setting the service URL with the help of the `ibmcloud cloudant url` subcommand:
 
 ```sh
-ibmcloud cloudant config set service-url $(ibmcloud cloudant url -q --resource-id <resource-id>)
+ibmcloud cloudant config set service-url $(ibmcloud cloudant url -q --resource-id 00000000-0000-0000-0000-000000000000)
 ```
 
 
