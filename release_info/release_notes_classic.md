@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-16"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -46,6 +46,16 @@ To enhance security, Cloudant will enable temporary lockout of accounts in the c
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## October 2025
+{: #cloudant-oct25}
+
+### 16 October 2025
+{: #Cloudant-oct1625}
+{: release-note}
+
+Provisioning
+:   The location ID for new provisions in Chennai has changed from 'in-che' to 'che01'. Existing instances provisioned with 'in-che' are not affected.  
 
 ## September 2025
 {: #cloudant-sep25}
