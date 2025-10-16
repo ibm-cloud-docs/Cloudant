@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-16"
 
 keywords: quickjs, migration, spidermonkey, javascript
 
@@ -62,7 +62,14 @@ Actions to take if your instance is not already using QuickJS:
 
 ## When will the migration be complete for all instances?
 
-There is no completion date for the migration at the current time.
+SpiderMonkey will be removed for any remaining environments
+**6th October 2026**. After this date, all JavaScript in all
+{{site.data.keyword.cloudant_short_notm}} environments will be executed with
+QuickJS.
+
+Most environments are already using QuickJS; see [this
+question](#do-i-need-to-take-action) to find out whether you are using a QuickJS
+environment already.
 
 Ensure you are receiving {{site.data.keyword.cloudant_short_notm}} notifications
 to receive updates to the timeline.
@@ -178,7 +185,7 @@ instead cause changes in output.
     ```
 
     When using `for each` with an object:
-    
+
     ```js
     js> obj ={'a':'x', 'b':'y'}
     ({a:"x", b:"y"})
@@ -213,7 +220,7 @@ instead cause changes in output.
 * String `substring(val, start, end)` is removed.
 
     Old code:
-    
+
     ```js
     js> String.substring("abcd", 1, 2)
     "b"
