@@ -267,21 +267,21 @@ instead cause changes in output.
     typein:2:3 TypeError: d.toLocaleFormat is not a function
     ```
 
-    A better way to emit a timestamp is using `Date.prototype.toISOString()`:
+    A better way to emit a timestamp is using `Date.prototype.toISOString()`. SpiderMonkey does not throw an error on invalid `Date` objects when calling `.toISOString()`, so always check date validity first with `isNaN(...)`.
 
     ```js
-    > to_iso(new Date("05 October 2011 14:48 UTC"))
+    > d = new Date("05 October 2011 14:48 UTC")
+    > if (!isNaN(d)) {d.toISOString()} else {throw new RangeError("Date value is NaN")}
     "2011-10-05T14:48:00.000Z"
 
-    > to_iso(new Date("2011-10-05T14:48:00.000Z"))
+    > d = new Date("2011-10-05T14:48:00.000Z")
+    > if (!isNaN(d)) {d.toISOString()} else {throw new RangeError("Date value is NaN")}
     "2011-10-05T14:48:00.000Z"
 
-    > to_iso(new Date("some_invalid_date"))
-    RangeError: invalid date
+    > d = new Date("some_invalid_date")
+    > if (!isNaN(d)) {d.toISOString()} else {throw new RangeError("Date value is NaN")}
+    typein:24: RangeError: Date value is NaN
     ```
-
-    Date validity can be checked before calling functions on the `Date` by using
-    `isNaN(new Date("..."))`.
 
     To build a custom format use the `Date.prototype.getUTC...()` methods:
 
