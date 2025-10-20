@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-20"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -56,6 +56,15 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 
 Provisioning
 :   The location ID for new provisions in Chennai has changed from 'in-che' to 'che01'. Existing instances provisioned with 'in-che' are not affected.  
+
+### 14 October 2025
+{: #Cloudant-oct1425}
+{: release-note}
+
+The following changes were made in build 8673:
+
+Optimization
+:   Internal caching improves performance of writing and accessing data.
 
 ## September 2025
 {: #cloudant-sep25}
