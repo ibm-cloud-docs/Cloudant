@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-10-22"
 
 subcollection: Cloudant
 
@@ -51,7 +51,7 @@ You're notified on the command line when updates to the {{site.data.keyword.clou
 ### Service configuration
 {: #cloudant-cli-service-config}
 
-When you make a server resource request, the {{site.data.keyword.cloudant_short_notm}} account URL from the service credentials (for example, `https://account.appdomain.cloud`) is not available automatically in the plug-in. You need to set the URL of your Cloudant instance first. You can set the URL by [inline configuration](#cloudant-cli-inline-config), [global configuration](#cloudant-cli-global-config), or [setting an environment variable](#cloudant-cli-env-var-setting).
+When you make a server resource request, the {{site.data.keyword.cloudant_short_notm}} account URL from the service credentials (for example, `https://~replace-with-cloudant-host~.cloudantnosqldb.appdomain.cloud`) is not available automatically in the plug-in. You need to set the URL of your Cloudant instance first. You can set the URL by [inline configuration](#cloudant-cli-inline-config), [global configuration](#cloudant-cli-global-config), or [setting an environment variable](#cloudant-cli-env-var-setting).
 
 Inline configuration overrides the global configuration and the environment variable setting, while global configuration overrides the environment variable setting.
 {: tip}
