@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-10-20"
+lastupdated: "2025-10-28"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -49,6 +49,15 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 
 ## October 2025
 {: #cloudant-oct25}
+
+### 28 October 2025
+{: #Cloudant-oct2825}
+{: release-note}
+
+The following changes were made in build 8677:
+
+Runtime environment
+:   Upgrade the runtime environment to the latest Erlang/OTP 27 release.
 
 ### 16 October 2025
 {: #Cloudant-oct1625}
