@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-10-28"
+lastupdated: "2025-10-29"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -65,6 +65,32 @@ Runtime environment
 
 Provisioning
 :   The location ID for new provisions in Chennai has changed from 'in-che' to 'che01'. Existing instances provisioned with 'in-che' are not affected.  
+
+#### dbCopy is fully deprecated
+
+'dbCopy' feature is fully deprecated on IBM Cloudant Dedicated Cluster and {{site.data.keyword.cloudantfull}}. It will be removed from usage as per the schedule below.
+
+- IBM Cloudant Dedicated Cluster: October 6, 2026
+  
+-  {{site.data.keyword.cloudantfull}}:
+  - Lite plan : November 15, 2025
+  - Standard plan: October 6, 2026
+  - Dedicated Hardware plan : October 6, 2026
+
+{: note} 'dbcopy' was a less used feature which enabled writing view index results to a database. Please note, this is not replication. Cloudant [replication](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide) continues to be supported.
+
+#### SpiderMonkeyJS is fully deprecated
+
+SpiderMonkeyJS is fully deprecated on IBM Cloudant Dedicated Cluster and {{site.data.keyword.cloudantfull}}. It will be removed from usage as per the schedule below. Customers are advised to switch to QuickJS. Read [Migration to QuickJS from SpiderMonkey](/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey) 
+
+- IBM Cloudant Dedicated Cluster: October 6, 2026
+
+- {{site.data.keyword.cloudantfull}}:
+  - Lite plan : October 6, 2026
+  - Standard plan: October 6, 2026
+  - Dedicated Hardware plan : October 6, 2026
+    
+{: note} IBM Cloudant uses the javascript engine for design documents and filters. Check [Do I need to take action?](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey#do-i-need-to-take-action)
 
 ### 14 October 2025
 {: #Cloudant-oct1425}
