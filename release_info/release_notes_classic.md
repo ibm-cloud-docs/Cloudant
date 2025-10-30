@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-10-29"
+lastupdated: "2025-10-30"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -64,15 +64,15 @@ Runtime environment
 {: release-note}
 
 Provisioning
-:   The location ID for new provisions in Chennai has changed from 'in-che' to 'che01'. Existing instances provisioned with 'in-che' are not affected.  
+:   The location ID for new provisions in Chennai has changed from 'in-che' to 'che01'. Existing instances provisioned with 'in-che' are not affected.
 
 #### dbCopy is fully deprecated
 
 'dbCopy' feature is fully deprecated on IBM Cloudant Dedicated Cluster and {{site.data.keyword.cloudantfull}}. It will be removed from usage as per the schedule below.
 
 - IBM Cloudant Dedicated Cluster: October 6, 2026
-  
--  {{site.data.keyword.cloudantfull}}:
+
+- {{site.data.keyword.cloudantfull}}:
   - Lite plan : November 15, 2025
   - Standard plan: October 6, 2026
   - Dedicated Hardware plan : October 6, 2026
@@ -81,7 +81,7 @@ Provisioning
 
 #### SpiderMonkeyJS is fully deprecated
 
-SpiderMonkeyJS is fully deprecated on IBM Cloudant Dedicated Cluster and {{site.data.keyword.cloudantfull}}. It will be removed from usage as per the schedule below. Customers are advised to switch to QuickJS. Read [Migration to QuickJS from SpiderMonkey](/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey) 
+SpiderMonkeyJS is fully deprecated on IBM Cloudant Dedicated Cluster and {{site.data.keyword.cloudantfull}}. It will be removed from usage as per the schedule below. Customers are advised to switch to QuickJS. Read [Migration to QuickJS from SpiderMonkey](/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey)
 
 - IBM Cloudant Dedicated Cluster: October 6, 2026
 
@@ -89,7 +89,7 @@ SpiderMonkeyJS is fully deprecated on IBM Cloudant Dedicated Cluster and {{site.
   - Lite plan : October 6, 2026
   - Standard plan: October 6, 2026
   - Dedicated Hardware plan : October 6, 2026
-    
+
 {: note} IBM Cloudant uses the javascript engine for design documents and filters. Check [Do I need to take action?](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey#do-i-need-to-take-action)
 
 ### 14 October 2025
@@ -408,7 +408,7 @@ Cloudant Query
 :   Fix a race condition that resulted in some query response execution stats incorrectly reporting zero for `total_keys_examined`. See https://github.com/apache/couchdb/issues/4560 for more details.
 
 Replicator
-:   Fix case clause error in replicator response. For more information, see [Advanced replication](/docs/Cloudant?topic=Cloudant-advanced-replication). 
+:   Fix case clause error in replicator response. For more information, see [Advanced replication](/docs/Cloudant?topic=Cloudant-advanced-replication).
 
 Runtime environment
 :   Upgrade to the latest [Erlang/OTP 25.3.2.11](https://github.com/erlang/otp/releases/tag/OTP-25.3.2.11) release.
@@ -510,7 +510,7 @@ Security
 {: release-note}
 
 {{site.data.keyword.cloudant_short_notm}} Dashboard
-:   Update the Cloudant Query explain page with a user-friendly view of the JSON output. The parsed view better explains how indexes are chosen to help the user create more efficient queries. 
+:   Update the Cloudant Query explain page with a user-friendly view of the JSON output. The parsed view better explains how indexes are chosen to help the user create more efficient queries.
 
 ## October 2023
 {: #cloudant-oct23}
@@ -1622,7 +1622,7 @@ Configuration option
 TLS 1.3 connection support
 :   From today, {{site.data.keyword.cloudant_short_notm}} supports TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
 
-:   {{site.data.keyword.cloudant_short_notm}} recommends that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}. 
+:   {{site.data.keyword.cloudant_short_notm}} recommends that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
 ***(In June 2019, {{site.data.keyword.cloudant_short_notm}} retired the use of older
 versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ is supported.)*** Find more information on the [Security page](/docs/Cloudant?topic=Cloudant-security#security).
 
