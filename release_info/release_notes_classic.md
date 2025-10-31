@@ -90,7 +90,7 @@ SpiderMonkeyJS is fully deprecated on IBM Cloudant Dedicated Cluster and {{site.
   - Standard plan: October 6, 2026
   - Dedicated Hardware plan : October 6, 2026
 
-{: note} IBM Cloudant uses the javascript engine for design documents and filters. Check [Do I need to take action?](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey#do-i-need-to-take-action)
+{: note} IBM Cloudant uses the javascript engine for design documents and filters. Check [Do I need to take action?](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey#do-i-need-to-take-action).
 
 ### 14 October 2025
 {: #Cloudant-oct1425}
