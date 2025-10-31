@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-15"
+  years: 2025
+lastupdated: "2025-10-31"
 
 keywords: replication, export, data portability, backup, migrate, couchbackup, dora
 
@@ -91,8 +91,8 @@ Setting up a *push replication* to export data:
 ### Option 2: CouchBackup
 {: #option-2-couchbackup}
 
-If the target data store is not compatible with Apache CouchDB, {{site.data.keywaord.cloudant_short_notm}} provides a supported tool
-for backing up data called CouchBackup. Information on using CouchBackup can be found in [{{site.data.keywaord.cloudant_short_notm}} backup and recovery](docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery), along with the [GitHub `README` file](https://github.com/cloudant/couchbackup/blob/master/README.md){: external}.
+If the target data store is not compatible with Apache CouchDB, {{site.data.keyword.cloudant_short_notm}} provides a supported tool
+for backing up data called CouchBackup. Information on using CouchBackup can be found in [{{site.data.keyword.cloudant_short_notm}} backup and recovery](docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery), along with the [GitHub `README` file](https://github.com/cloudant/couchbackup/blob/master/README.md){: external}.
 
 ## Exported data formats
 {: #data-portability-data-formats}
