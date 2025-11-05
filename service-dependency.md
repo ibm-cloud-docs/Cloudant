@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -38,7 +38,7 @@ Minimal
 ## Data deployment
 {: #data-deployment}
 
-The following dependencies apply to the following deployment locations: Amsterdam 03, Chennai (in-che), Chennai 01, Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Milan 01, Montreal 01, Osaka (jp-osa), San Jose 01, San Jose 03, San Jose 04, Sao Paulo (br-sao), Singapore 01, Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
+The following dependencies apply to the following deployment locations: Amsterdam 03, Chennai - Airtel (in-che), Chennai 01, Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Milan 01, Montreal 01, Osaka (jp-osa), San Jose 01, San Jose 03, San Jose 04, Sao Paulo (br-sao), Singapore 01, Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
