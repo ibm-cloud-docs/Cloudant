@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-11"
+lastupdated: "2025-11-13"
 
 keywords: HA for Cloudant, DR for Cloudant, Cloudant recovery time objective, Cloudant recovery point objective
 
@@ -29,7 +29,7 @@ For more information about the available region and data center locations, see [
 ## High availability architecture
 {: #ha-architecture}
 
-![Architecture](../images/Cloudant_HA.svg){: caption="Cloudant architecture" caption-side="bottom"}
+![Architecture](../images/Cloudant_high_availability.svg){: caption="Cloudant architecture" caption-side="bottom"}
 
 {{site.data.keyword.cloudant_short_notm}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and some failures. Deployments contain a cluster with three nodes spread across three availability zones in a region. All data is distributed in multiple shards, which are replicated three times in different nodes, so that a shard replica is stored in triplicate across these three separate nodes. The data is kept up to date using *eventual consistency* replication. A distributed consensus mechanism is used to maintain cluster state and handle failovers. If a node is unavailable, the request is routed to a different node, which has shard replicas, ensuring service and data availability. The old node rejoins the set when available. If a zone failure results in a member failing, the new replica will be created in a surviving zone.
 
@@ -53,7 +53,7 @@ For more information about the available region and data center locations, see [
 ## Disaster recovery architecture
 {: #disaster-recovery-intro}
 
-![Architecture](../images/Cloudant_DR.svg){: caption="Cloudant recovery architecture" caption-side="bottom"}
+![Architecture](../images/Cloudant_disaster_recovery.svg){: caption="Cloudant recovery architecture" caption-side="bottom"}
 
 Although data is stored redundantly within an {{site.data.keyword.cloudant_short_notm}} cluster, it's important to consider extra backup measures. {{site.data.keyword.cloudant_short_notm}} provides a supported tool for snapshot backup and restore. The tool is called *CouchBackup*, and is open source. For more information, see [Introducing CouchBackup](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#introducing-couchbackup).
 
