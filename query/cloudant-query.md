@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-01-24"
+  years: 2015, 2025
+lastupdated: "2025-11-24"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -16,11 +16,13 @@ subcollection: Cloudant
 {: #query}
 
 ## Overview
+{: #query-overview}
 
 {{site.data.keyword.cloudant_short_notm}} Query is a flexible query language that allows fetching documents from a database that match a "selector" -- a JSON object that defines the search criteria.
 {: shortdesc}
 
 ## How {{site.data.keyword.cloudant_short_notm}} Query works
+{: #query-how-it-works}
 
 To use {{site.data.keyword.cloudant_short_notm}} Query, you send JSON-formatted queries to the `_find` HTTP endpoint of a database. The JSON contains a _selector_ which defines the query itself, alongside metadata such as the sort order to use when returning documents. The selector syntax is loosely based on MongoDB's query language, offering a rich set of query operators that can be combined to make complex queries. 
 
@@ -40,6 +42,7 @@ Learn about creating indexes by reading:
 - [Partial indexes](/docs/Cloudant?topic=Cloudant-partial-indexes).
 
 ## When to use {{site.data.keyword.cloudant_short_notm}} Query
+{: #query-when-to-use}
 
 {{site.data.keyword.cloudant_short_notm}} Query is ideal for:
 
@@ -48,8 +51,15 @@ Learn about creating indexes by reading:
 - Creating partial indexes, where a subset of the documents are used to form the index and the selector/sort further filters the indexed data.
 
 ## When *not* to use {{site.data.keyword.cloudant_short_notm}} Query
+{: #query-when-not-to-use}
 
 Avoid Query for:
 
 - Data aggregation. Use Views instead.
 - Free-text or wildcard searching. Use Cloudant Search instead.
+
+## Pagination
+{: #query-pagination}
+
+Use [bookmark pagination](/apidocs/cloudant#bookmark-pagination) for selector syntax queries.
+For specific details and examples see the API documentation topic [Paging on selector syntax queries](/apidocs/cloudant#paging-on-selector-syntax-queries).

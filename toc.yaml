@@ -68,7 +68,6 @@ toc:
           - databases/getting-a-list-of-all-dbs-in-account.md
           - databases/getting-docs.md
           - databases/sending-multiple-queries-to-db.md
-          - databases/pagination-bookmarks.md
           - databases/getting-changes-to-docs-in-db.md
           - databases/deleting-a-db.md
           - databases/sharding.md
@@ -76,7 +75,6 @@ toc:
           - databases/database_partitioning.md
           - databases/conflicts.md
           - databases/cap_theorem.md
-          - databases/couchapps.md
           - databases/cloudant-redis-cache.md
       - topicgroup:
           label: How documents work
