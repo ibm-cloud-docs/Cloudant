@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-02-01"
+  years: 2015, 2025
+lastupdated: "2025-11-24"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -1213,6 +1213,12 @@ See the example response after you run a query by using a list of keys:
 }
 ```
 {: codeblock}
+
+## Pagination
+{: #querying-a-view-pagination}
+
+Use [key-based pagination](/apidocs/cloudant#key-pagination) for views.
+For specific details and examples see the API documentation topic [Paging on view queries](/apidocs/cloudant#paging-on-view-queries).
 
 ## Multi-document fetching
 {: #multi-document-fetching}

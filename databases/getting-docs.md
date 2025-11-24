@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-02-01"
+  years: 2015, 2025
+lastupdated: "2025-11-24"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -39,6 +39,17 @@ The `_all_docs` endpoint accepts the following query string and JSON body argume
 | `startkey`          | Return records, starting with the specified key.                                                | Yes      | String          | |
 | `startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String | |
 {: caption="Query string and JSON body arguments" caption-side="top"}
+
+## What is the `_all_docs` endpoint?
+{: #what-is-the_all_docs_endpoint}
+
+The `GET` and `POST` `$SERVICE_URL/$DATABASE/_all_docs` operations fetch data from an {{site.data.keyword.cloudant_short_notm}} database's *primary index*, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all a database's documents, returning only the document `_id` and its current `_rev` token.
+
+## Pagination
+{: #get-documents-pagination}
+
+Use [key-based pagination](/apidocs/cloudant#key-pagination) for all documents.
+For specific details and examples see the API documentation topic [Paging on all documents](/apidocs/cloudant#paging-on-all-documents).
 
 ## Notes
 {: #get-documents-notes}

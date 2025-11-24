@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-01"
+  years: 2015, 2025
+lastupdated: "2025-11-24"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -389,3 +389,9 @@ When you `POST` to the `_changes` endpoint, you see an example similar to the fo
 "last_seq":"18-g1AAAA...","pending":0}
 ```
 {: codeblock}
+
+## Pagination
+{: #getting-changes-pagination}
+
+Use the `since` parameter like a [bookmark](apidocs/cloudant#bookmark-pagination) to paginate the changes feed.
+For specific details and examples see the API documentation topic [Paging the changes feed](/apidocs/cloudant#paging-the-changes-feed).
