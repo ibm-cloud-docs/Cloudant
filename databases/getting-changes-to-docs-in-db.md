@@ -393,5 +393,5 @@ When you `POST` to the `_changes` endpoint, you see an example similar to the fo
 ## Pagination
 {: #getting-changes-pagination}
 
-Use the `since` parameter like a [bookmark](apidocs/cloudant#bookmark-pagination) to paginate the changes feed.
+Use the `since` parameter like a [bookmark](/apidocs/cloudant#bookmark-pagination) to paginate the changes feed.
 For specific details and examples see the API documentation topic [Paging the changes feed](/apidocs/cloudant#paging-the-changes-feed).

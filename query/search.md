@@ -892,7 +892,7 @@ See the following example JSON document that includes a search request:
 ## Pagination
 {: #search-pagination}
 
-Use [bookmark pagination](apidocs/cloudant#bookmark-pagination) for search queries.
+Use [bookmark pagination](/apidocs/cloudant#bookmark-pagination) for search queries.
 For specific details and examples see the API documentation topic [Paging on search index queries](/apidocs/cloudant#paging-on-search-index-queries).
 
 ## Query syntax

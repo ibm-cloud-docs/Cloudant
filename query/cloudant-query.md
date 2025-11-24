@@ -61,5 +61,5 @@ Avoid Query for:
 ## Pagination
 {: #query-pagination}
 
-Use [bookmark pagination](apidocs/cloudant#bookmark-pagination) for selector syntax queries.
+Use [bookmark pagination](/apidocs/cloudant#bookmark-pagination) for selector syntax queries.
 For specific details and examples see the API documentation topic [Paging on selector syntax queries](/apidocs/cloudant#paging-on-selector-syntax-queries).
