@@ -154,8 +154,9 @@ or at an absolute time,
 the data is considered expired.
 The data itself might be deleted or moved to an alternative (archive) location.
 
-{{site.data.keyword.cloudant_short_notm}} does not support Time to Live functions. The reason is that {{site.data.keyword.cloudant_short_notm}} documents are only "soft" deleted, not deleted. The soft deletion involves replacing the original document with a [smaller record](/docs/Cloudant?topic=Cloudant-tombstone-docs). This small record or "tombstone" is required for replication purposes. It helps ensure that the correct revision to use can be identified during replication.
+{{site.data.keyword.cloudant_short_notm}} does not support Time to Live
+functions within the database. Customers could implement this functionality
+by indexing documents by their expiry timestamp using [Views] and periodically
+query the view to find documents that need removing.
 
-If the TTL capability was available in {{site.data.keyword.cloudant_short_notm}},
-the resulting potential increase in short-lived documents and soft deletion records
-would mean that the database size might grow in an unbounded fashion.
+[Views]: /docs/Cloudant?topic=Cloudant-creating-views-mapreduce
