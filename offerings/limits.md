@@ -23,7 +23,7 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 
 |Description|Limit|
 |--|--|
-|Database count|200 on Standard Plan; 20 on Lite plan|
+|Database count|200 (default) on Standard Plan. You can contact {{site.data.keyword.cloudant_short_notm}} support if you need more databases.<br/> 20 (fixed) on Lite plan|
 |Database size|Consult the {{site.data.keyword.cloudant_short_notm}} team if your database is likely to exceed 5 TB in size|
 |Partition size|10 GB|
 {: caption="Limits for databases" caption-side="top"}
