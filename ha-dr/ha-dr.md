@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-09"
 
 keywords: HA for Cloudant, DR for Cloudant, Cloudant recovery time objective, Cloudant recovery point objective
 
@@ -19,10 +19,12 @@ subcollection: content-kit
 
 
 
-[High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. [Disaster recovery](#x2113280){: term} is the process of recovering the service instance to a working state.
+{{site.data.keyword.cloudantfull}} is designed for applications requiring very high availability. Customer data remains readable and writable as long as at least one zone in a region is available, with no need for customer action, such as failover.
 {: shortdesc}
 
-{{site.data.keyword.cloudantfull}} is a highly available global service designed for availability during a zonal outage. {{site.data.keyword.cloudant_short_notm}} is designed to meet the [Service Level Objectives (SLO)](/docs/resiliency?topic=resiliency-slo) with the Standard plan.
+[High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. [Disaster recovery](#x2113280){: term} is the process of recovering the service instance to a working state.
+
+{{site.data.keyword.cloudant_short_notm}} meets the [Service Level Objectives (SLO)](/docs/resiliency?topic=resiliency-slo) with the Standard plan.
 
 For more information about the available region and data center locations, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
 
@@ -31,7 +33,7 @@ For more information about the available region and data center locations, see [
 
 ![Architecture](../images/Cloudant_high_availability.svg){: caption="Cloudant architecture" caption-side="bottom"}
 
-{{site.data.keyword.cloudant_short_notm}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and some failures. Deployments contain a cluster with three nodes spread across three availability zones in a region. All data is distributed in multiple shards, which are replicated three times in different nodes, so that a shard replica is stored in triplicate across these three separate nodes. The data is kept up to date using *eventual consistency* replication. A distributed consensus mechanism is used to maintain cluster state and handle failovers. If a node is unavailable, the request is routed to a different node, which has shard replicas, ensuring service and data availability. The old node rejoins the set when available. If a zone failure results in a member failing, the new replica will be created in a surviving zone.
+{{site.data.keyword.cloudant_short_notm}} provides high-availability by replicating all data across three zones in a region. By doing this, {{site.data.keyword.cloudant_short_notm}} keeps your data fully available during infrastructure maintenance, database upgrades, machine failures and zone-level outages.
 
 ### High availability features
 {: #ha-features}
@@ -42,10 +44,9 @@ For more information about the available region and data center locations, see [
 
 | Feature | Description | Consideration |
 | -------------- | -------------- | -------------- |
-| Automatic failover | Standard on all clusters and resilient against a zone or single member failure. |  |
-| Node count | Out of the box, 3 node deployment. A three-member cluster will automatically recover from a single instance or zone failure (with data loss up to the lag threshold), ensuring service availability. |  |
-| Shard replication | Shards are replicated thrice ensuring data availability. Each replica shard is placed on a different node.  |  |
-| Cross-region high availabilty | {{site.data.keyword.cloudant_short_notm}} enables cross-region data redundancy and failover. | Optional. Customers can configure cross-region high availability. |
+| Resilient to complete zone outages | Standard on all instances and data remains fully available during a zone or machine failure. |  |
+| Shard replication | Data is replicated to three zones in a region, ensuring data availability.  |  |
+| Cross-region high availability | {{site.data.keyword.cloudant_short_notm}} enables cross-region data redundancy and failover. | Optional. Customers must configure cross-region high availability when needed. |
 {: caption="HA features for {{site.data.keyword.cloudant_short_notm}}" caption-side="bottom"}
 
 
@@ -57,7 +58,7 @@ For more information about the available region and data center locations, see [
 
 Although data is stored redundantly within an {{site.data.keyword.cloudant_short_notm}} cluster, it's important to consider extra backup measures. {{site.data.keyword.cloudant_short_notm}} provides a supported tool for snapshot backup and restore. The tool is called *CouchBackup*, and is open source. For more information, see [Introducing CouchBackup](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery#introducing-couchbackup).
 
-You can also create replication to another {{site.data.keyword.cloudant_short_notm}} instance with bidirectional continuous replication, either active-passive or active-active configuration. For more information, see [replication setup](/docs/Cloudant?topic=Cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery).
+To implement resilience to full region outages, you can create replication to another {{site.data.keyword.cloudant_short_notm}} instance in a different region with bidirectional continuous replication. This supports either active-passive or active-active configuration. For more information, see [replication setup for cross-region disaster recovery](/docs/Cloudant?topic=Cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 ### Disaster recovery features
 {: #dr-features}
@@ -68,9 +69,9 @@ You can also create replication to another {{site.data.keyword.cloudant_short_no
 
 | Feature | Description | Consideration |
 | -------------- | -------------- | -------------- |
-| Backup restore | Restore a database from previously created backup; see {{site.data.keyword.cloudant_short_notm}} [backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery). | Open soure tool. Customer configured. |
-| Cross-region failover | {{site.data.keyword.cloudant_short_notm}} [replication](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery) feature helps you build a flexible disaster recovery capability. |  Customer configured.  |
-| Live synchronization | {{site.data.keyword.cloudant_short_notm}} bidirectional active-active replication feature helps you build a flexible disaster recovery capability. |  Customer configured. |
+| Backup and restore | Restore a database from previously created backup; see {{site.data.keyword.cloudant_short_notm}} [backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery). | Open source tool. Customer configured. |
+| Cross-region failover | {{site.data.keyword.cloudant_short_notm}} [replication](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery) helps you build a complete disaster recovery capability. |  Customer configured.  |
+| Live data synchronization | {{site.data.keyword.cloudant_short_notm}} bidirectional active-active replication feature helps you build a complete disaster recovery capability. |  Customer configured. |
 {: caption="DR features for {{site.data.keyword.cloudant_short_notm}}" caption-side="bottom"}
 
 
@@ -84,10 +85,10 @@ The DR steps must be practiced regularly. As you build your plan, consider the f
 
 | Failure | Resolution |
 | -------------- | -------------- |
-| Hardware failure (single point) | {{site.data.keyword.cloudant_short_notm}} provides a database that is resilient from single point of hardware failure within a zone. No customer configuration required. |
-| Zone failure | Automatic failover. The database members are distributed between zones. Configured three members provide additional resiliency to multiple zone failures. <br> Shard replica. The database is distributed in multiple shards with triplicate replication on the members. |
-| Data corruption | Backup restore. Use the restored database in production or for source data to correct the corruption in the restored database. |
-| Regional failure | Backup restore. Use the restored database in production. <br> Cross-region replication. |
+| Hardware failure (single point) | {{site.data.keyword.cloudant_short_notm}} is resilient to single point of hardware failure; data remains online. No customer configuration required. |
+| Zone failure | {{site.data.keyword.cloudant_short_notm}} is resilient to zone failures; data remains fully available for read and write during zone failures. |
+| Data corruption |  {{site.data.keyword.cloudant_short_notm}} checks data checksums for when data is read. In the case of corruption, the customer needs to restore from backup. Use the restored database in production. |
+| Regional failure | Restore backup to new region. Use the restored database in production. <br> Cross-region replication: failover to replicated instance and continue reads/writes as normal. |
 {: caption="DR scenarios for {{site.data.keyword.cloudant_short_notm}}" caption-side="bottom"}
 
 ## Your responsibilities for HA and DR
