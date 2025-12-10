@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-09"
+lastupdated: "2025-12-10"
 
 keywords: HA for Cloudant, DR for Cloudant, Cloudant recovery time objective, Cloudant recovery point objective
 
@@ -19,7 +19,7 @@ subcollection: content-kit
 
 
 
-{{site.data.keyword.cloudantfull}} is designed for applications requiring very high availability. Customer data remains readable and writable as long as at least one zone in a region is available, with no need for customer action, such as failover.
+{{site.data.keyword.cloudantfull}} is designed for applications requiring very high availability. Customer data remains readable and writable during zone outages, with no need for customer action, such as failover.
 {: shortdesc}
 
 [High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. [Disaster recovery](#x2113280){: term} is the process of recovering the service instance to a working state.
