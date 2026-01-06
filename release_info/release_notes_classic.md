@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-10-31"
+  years: 2015, 2026
+lastupdated: "2026-01-06"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -46,6 +46,21 @@ To enhance security, Cloudant will enable temporary lockout of accounts in the c
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## December 2025
+{: #cloudant-dec25}
+
+### 11 December 2025
+{: #Cloudant-dec1125}
+{: release-note}
+
+The following changes were made in build 8681:
+
+`_bulk_get` endpoint
+:   Optimize error handling for the `_bulk_get` endpoint.
+
+Indexes
+:   Fix automatic index building when specifying `"language": "javascript_quickjs"` in design documents (See [QuickJS for Faster Index Builds](https://blog.cloudant.com/2024/10/29/QuickJS-for-Faster-Index-Builds.html)).
 
 ## October 2025
 {: #cloudant-oct25}
