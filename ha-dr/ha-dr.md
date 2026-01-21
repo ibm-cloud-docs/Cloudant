@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-01-21"
 
 keywords: HA for Cloudant, DR for Cloudant, Cloudant recovery time objective, Cloudant recovery point objective
 
@@ -31,7 +31,7 @@ For more information about the available region and data center locations, see [
 ## High availability architecture
 {: #ha-architecture}
 
-![Architecture](../images/Cloudant_high_availability.svg){: caption="Cloudant availability architecture" caption-side="bottom"}
+![Architecture](../images/Cloudant_high_availability.svg){: caption="Cloudant architecture" caption-side="bottom"}
 
 {{site.data.keyword.cloudant_short_notm}} provides high-availability by replicating all data across three zones in a region. By doing this, {{site.data.keyword.cloudant_short_notm}} keeps your data fully available during infrastructure maintenance, database upgrades, machine failures and zone-level outages.
 
