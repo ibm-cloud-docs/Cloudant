@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-22"
+  years: 2021, 2026
+lastupdated: "2026-02-13"
 
 subcollection: Cloudant
 
@@ -184,12 +184,13 @@ ibmcloud cloudant url \
 ibmcloud cloudant
     --output=json \
     --jmes-query="[:10]" \
-    --service-url="https://myservice.test.cloud.ibm.com"
+    --service-url="https://myservice.cloud.ibm.com"
     --quiet
 ```
 {: pre}
 
-Note: This example only demonstrates the global options available to all sub-commands and is not a valid command itself.
+This example only demonstrates the global options available to all sub-commands and is not a valid command itself.
+{: note}
 
 ## Config
 {: #cloudant-cli-config-command}
@@ -345,11 +346,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | `current.throughput` |
-|  | Table | `current.throughput` |
+| | Table | `current.throughput` |
 | Error | Default | `current.throughput` |
-|  | Table | `current.throughput` |
+| | Table | `current.throughput` |
 | All pages | Default | `current.throughput` |
-|  | Table | `current.throughput` |
+| | Table | `current.throughput` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -431,11 +432,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | `target.throughput` |
-|  | Table | `target.throughput` |
+| | Table | `target.throughput` |
 | Error | Default | `target.throughput` |
-|  | Table | `target.throughput` |
+| | Table | `target.throughput` |
 | All pages | Default | `target.throughput` |
-|  | Table | `target.throughput` |
+| | Table | `target.throughput` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -497,11 +498,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | `types` |
-|  | Table | `types` |
+| | Table | `types` |
 | Error | Default | `types` |
-|  | Table | `types` |
+| | Table | `types` |
 | All pages | Default | `types` |
-|  | Table | `types` |
+| | Table | `types` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -512,7 +513,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Configure event types sent to IBM Cloud Activity Tracker Event Routing for the IBM Cloudant instance.
 
 ```sh
-ibmcloud cloudant events-config-update --types TYPES
+ibmcloud cloudant events-config-update --types management,data
 ```
 
 
@@ -603,11 +604,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | `throughput` |
-|  | Table | `throughput` |
+| | Table | `throughput` |
 | Error | Default | `throughput` |
-|  | Table | `throughput` |
+| | Table | `throughput` |
 | All pages | Default | `throughput` |
-|  | Table | `throughput` |
+| | Table | `throughput` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
