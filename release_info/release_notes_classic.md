@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-02-23"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -46,6 +46,37 @@ To enhance security, Cloudant will enable temporary lockout of accounts in the c
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## February 2026
+{: #cloudant-feb26}
+
+### 20 February 2026
+{: #cloudant-feb2026}
+{: release-note}
+
+The following changes were made in build 8686:
+
+`/{db}/_partition/{key}` endpoint
+:   Partition‑info calls now remain reliable even during maintenance operations or when a node goes offline.
+
+Legacy Authentication
+:   Users can update their own password via the `_user` endpoint.
+:   The authentication secret is now rotated safely without disrupting user sessions.
+
+Optimization
+:   Optimize revision ID parsing, resulting in a 50-90% speed increase.
+
+Query
+:   Text bookmarks are now always strings in `_explain` responses.
+
+Replicator
+:   A timing issue has been fixed that could cause occasional 500 responses from `/_scheduler/docs` during brief replication job transitions.
+
+Runtime environment
+:   Upgrade the runtime environment to the latest Erlang/OTP 27 patch release.
+
+Views
+:   Enable new reducers (`_first`, `_last`, `_top_N`, `_bottom_N`) for partitioned database views. For more information, see [Views (MapReduce)](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce), [Grouping](/docs/Cloudant?topic=Cloudant-grouping-related-documents-together-in-ibm-cloudant) and [New Reducers](https://blog.cloudant.com/2025/05/23/New-Reducers.html).
 
 ## December 2025
 {: #cloudant-dec25}
