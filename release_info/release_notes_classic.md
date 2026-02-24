@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-02-23"
+lastupdated: "2026-02-24"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -77,6 +77,58 @@ Runtime environment
 
 Views
 :   Enable new reducers (`_first`, `_last`, `_top_N`, `_bottom_N`) for partitioned database views. For more information, see [Views (MapReduce)](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce), [Grouping](/docs/Cloudant?topic=Cloudant-grouping-related-documents-together-in-ibm-cloudant) and [New Reducers](https://blog.cloudant.com/2025/05/23/New-Reducers.html).
+
+### 12 February 2026
+{: #Cloudant-feb1226}
+{: release-note}
+
+Cloudant finished rolling out a bug fix for Search (Lucene) indexes.  The bug affected some indexes that use the `perfield` analyzer.  Specifically, if any field was defined as an object rather than a string.  If you use this feature in this way in your Search indexes, your `perfield` configuration was ignored, and the Standard Analyzer was used instead.  Now, with the fix, your chosen analyzer is correctly used for any new index updates.  However, documents updated between February 26, 2024 and February 12, 2026 will have used the standard analyzer.  To correct this issue for all documents in your index, we recommend rebuilding the index.  It is sufficient to add a Javascript comment to the index function or any other change to the code.  Whitespace only changes will, however, have no effect.
+
+To understand better if your index definition is affected, please consider the following examples below.
+
+```javascript
+{
+  "_id": "_design/analyzer_example",
+  "indexes": {
+    "INDEX_NAME": {
+      "analyzer": {
+        "name": "perfield",
+        "default": "english",
+        "fields": {
+          "spanish": "spanish",
+          "german": "german"
+        }
+      },
+      "index": "function (doc) { ... }"
+    }
+  }
+}
+```
+
+This definition _would not be affected_ by the bug.  All the field analyzers are defined as strings `"spanish"` and `"german"`.  Here is an example that _would be affected_.
+
+```javascript
+{
+  "_id": "_design/analyzer_example",
+  "indexes": {
+    "INDEX_NAME": {
+      "analyzer": {
+        "name": "perfield",
+        "default": "english",
+        "fields": {
+          "spanish": {
+            "name": "spanish"
+          },
+          "german": "german"
+        }
+      },
+      "index": "function (doc) { ... }"
+    }
+  }
+}
+```
+
+In that case, the `spanish` field would be analyzed by the Standard Analyzer.
 
 ## December 2025
 {: #cloudant-dec25}
