@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-02-24"
+lastupdated: "2026-02-25"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -51,7 +51,7 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 {: #cloudant-feb26}
 
 ### 20 February 2026
-{: #cloudant-feb2026}
+{: #Cloudant-feb2026}
 {: release-note}
 
 The following changes were made in build 8686:
