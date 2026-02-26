@@ -179,7 +179,7 @@ the storage tier. Databases are always being compacted. It isn't guaranteed that
 data that you deleted or changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting the *right to be forgotten* requests through
-the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](https://w3.ibm.com/ibm/privacy/){: external}.
+the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](https://www.ibm.com/trust/privacy){: external}.
 When a *right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request,
 explicitly triggers database compaction, and verifies that compaction occurred.
 At the end of this process, the only version of the document is its tombstone
