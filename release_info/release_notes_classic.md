@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-02-25"
+lastupdated: "2026-02-26"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -82,7 +82,8 @@ Views
 {: #Cloudant-feb1226}
 {: release-note}
 
-Cloudant finished rolling out a bug fix for Search (Lucene) indexes.  The bug affected some indexes that use the `perfield` analyzer.  Specifically, if any field was defined as an object rather than a string.  If you use this feature in this way in your Search indexes, your `perfield` configuration was ignored, and the Standard Analyzer was used instead.  Now, with the fix, your chosen analyzer is correctly used for any new index updates.  However, documents updated between February 26, 2024 and February 12, 2026 will have used the standard analyzer.  To correct this issue for all documents in your index, we recommend rebuilding the index.  It is sufficient to add a Javascript comment to the index function or any other change to the code.  Whitespace only changes will, however, have no effect.
+Search
+:   Roll-out of a bug fix for Search (Lucene) indexes has completed.  The bug affected some indexes that use the `perfield` analyzer.  Specifically, if any field in the design document's `indexes.INDEX_NAME.analyzer.fields` was defined as an object rather than a string.  If you use this feature in this way in your Search indexes, your `perfield` configuration was ignored, and the Standard Analyzer was used instead.  Now, with the fix, your chosen analyzer is correctly used for any new index updates.  However, documents updated between February 26, 2024 and February 12, 2026 will have used the standard analyzer.  To correct this issue for all documents in your index, we recommend rebuilding the index.  It is sufficient to add a Javascript comment to the index function or any other change to the code.  Whitespace only changes will, however, have no effect.
 
 To understand better if your index definition is affected, please consider the following examples below.
 
