@@ -178,20 +178,14 @@ toc:
           label: Sample apps
           links:
           - link:
-              label: Offline First shopping list
-              href: https://developer.ibm.com/patterns/create-an-offline-first-shopping-list-progressive-web-app/
-          - link:
               label: Serverless web application and API
-              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-api-webapp#serverless-api-webapp
+              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
           - link:
-              label: Create a climate rating system on the IBM Cloud
-              href: https://developer.ibm.com/tutorials/provision-a-couchdb-instance-using-cloudant-cfc-starter-kit-2/
+              label: Deploy microservices with Red Hat OpenShift on IBM Cloud
+              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-openshift-microservices
           - link:
-              label: Mobile application with serverless backend
-              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend
-          - link:
-              label: Gather, visualize, and analyze IoT data
-              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-gather-visualize-analyze-iot-data#gather-visualize-analyze-iot-data
+              label: Apply end to end security to a cloud application
+              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security
       - libraries/client-libraries.md
       - topicgroup:
           label: Apache CouchDB
