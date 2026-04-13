@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-10-31"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -271,10 +271,10 @@ The HTTP status code that is received in response indicates whether the request 
 In the response body itself,
 you get an array with detailed information for each document in the request.
 
-| Code | Description |
-|------|-------------|
+| Code | Description                                                                                                                                                                                                                                |
+|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `201` | The request did succeed, but this success doesn't imply all documents were updated. Inspect the response body to determine the status of each requested change, and [address any problems](#bulk-document-validation-and-conflict-errors). |
-| `202` | For at least one document, the write [quorum](#quorum-writing-and-reading-data) wasn't met. |
+| `202` | For at least one document, the write [quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) wasn't met.                                                                                                                                               |
 {: caption="HTTP status codes" caption-side="top"}
 
 See an example response from a bulk request:
@@ -783,7 +783,7 @@ Conflict resolution that uses the bulk docs interface is identical to the resolu
 ) documentation. 
 
 ### `forbidden`
-{: #forbidden-doc}
+{: #forbidden}
 
 Entries with this error type indicate that the validation routine that was applied
 to the document during submission returned an error.

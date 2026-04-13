@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-23"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -35,7 +35,7 @@ Examples of BLOBs would be images and multimedia.
 If you include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-how-to-use-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
-The content type corresponds to a [MIME type](https://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}.
+The content type corresponds to a [Media type](https://en.wikipedia.org/wiki/Media_type#List_of_common_media_types){: external}.
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.

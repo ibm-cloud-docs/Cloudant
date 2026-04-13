@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-02-28"
+  years: 2020, 2026
+lastupdated: "2026-04-13"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles, manage credentials
 
@@ -277,7 +277,7 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 {: #disadvantages-iam-mode-ai}
 
 - If you are not using the supported libraries from {{site.data.keyword.cloudant_short_notm}}, application changes are likely to be required to use IAM's API keys and access tokens.
-- Some endpoints are not available. For more information, see [unavailable endpoints](#unavailable-endpoints).
+- Some endpoints are not available. For more information, see [unavailable endpoints](#unavailable-endpoints-ai).
 - No way to specify a database as "public", that is, not requiring an authorized user to access.
 
 #### Advantages of legacy mode

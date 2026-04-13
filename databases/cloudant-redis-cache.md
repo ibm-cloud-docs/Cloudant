@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-03-30"
+  years: 2022, 2026
+lastupdated: "2026-04-13"
 
 keywords: combine ibm services, example, create a database, populate database, queries, retrieve data,  query data, create query, web application, add documents, caching, redis
 
@@ -49,9 +49,9 @@ You need the following items:
 
 1. An [{{site.data.keyword.cloud}}](https://cloud.ibm.com/login) pay-as-you-go account
 2. Access to a Mac or Linux&trade; terminal
-3. [Git](https://git-scm.com/downloads)
+3. [Git](https://git-scm.com/install/)
 4. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-5. [Terraform](https://www.terraform.io/downloads.html)
+5. [Terraform](https://developer.hashicorp.com/terraform/install)
 6. [Jq](https://stedolan.github.io/jq/), a command-line tool to process JSON data
 
 ## Step 1. Obtain an API key to deploy infrastructure to your account

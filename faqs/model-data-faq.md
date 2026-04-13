@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-01-10"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: immutable data, pre-calculate results, de-normalize data, avoid conflicts, conflict resolution
 
@@ -223,7 +223,4 @@ performance. {{site.data.keyword.cloudant_short_notm}}’s data store has some s
 and to take advantage of, that ensure the database performance scales as your application 
 grows. {{site.data.keyword.cloudant_short_notm}} support understands the shift can be confusing, so they are always available to give advice.
 
-For more information, see the
-[data model for Foundbite](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: external},
-or the [example from our friends at Twilio](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: external}.
-
+For more information, see the [example from our friends at Twilio](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: external}.

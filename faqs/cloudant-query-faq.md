@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-04-21"
+  years: 2022, 2026
+lastupdated: "2026-04-13"
 
 keywords: cloudant query, how to use, create an index, sort search results, sort reverse order, efficient query, partitioned databases
 
@@ -32,7 +32,7 @@ subcollection: Cloudant
 }
 ```
 
-For more information, see [Selector Syntax](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#selector-syntax).
+For more information, see [Selector Syntax](/docs/Cloudant?topic=Cloudant-selector-syntax).
 
 ## How do I create an index to support an {{site.data.keyword.cloudant_short_notm}} Query?
 {: #how-do-i-create-an-index-to-support}
@@ -50,7 +50,7 @@ Without a suitable secondary index, {{site.data.keyword.cloudant_short_notm}} Qu
 }
 ```
 
-For more information, see [Creating an Index](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#creating-an-index).
+For more information, see [Creating an Index](/docs/Cloudant?topic=Cloudant-query).
 
 ## Can I sort my search results with {{site.data.keyword.cloudant_short_notm}} Query?
 {: #can-i-sort-my-search-results-with-cq}
@@ -178,16 +178,16 @@ The returned data now includes an extra JSON object:
 
 The ratio between `total_docs_examined` and `results_returned` is key here: a high value indicates that too many documents are being scanned per document that is returned. 
 
-For more information, see [Blog post on Optimizing {{site.data.keyword.cloudant_short_notm}} Queries](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html).
+For more information, see [Blog post on Optimizing {{site.data.keyword.cloudant_short_notm}} Queries](https://blog.cloudant.com/2020/05/20/Optimising-Cloudant-Queries.html).
 
 ## Which {{site.data.keyword.cloudant_short_notm}} Query operators defeat the use of an index?
 {: #which-cq-operators-defeat-index}
 
-Any of the [combination operators](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#operators) other than `$and` can make a query do a full database scan without the help of a secondary index. For example, if an `$or` operator is used, then no secondary index can be used to assist the query. If in doubt, use the [`POST /{db}/_explain`](https://cloud.ibm.com/apidocs/cloudant?code=java#postexplain) endpoint to check that an index is used, and the `execution_stats: true` parameter to measure the efficiency of each query.
+Any of the [combination operators](/docs/Cloudant?topic=Cloudant-operators) other than `$and` can make a query do a full database scan without the help of a secondary index. For example, if an `$or` operator is used, then no secondary index can be used to assist the query. If in doubt, use the [`POST /{db}/_explain`](https://cloud.ibm.com/apidocs/cloudant?code=java#postexplain) endpoint to check that an index is used, and the `execution_stats: true` parameter to measure the efficiency of each query.
 
 For a `type=json` index to be used to support a query, it must match the fields that are used in the selector and sort parameters. Comparison operators might be used on the last element to perform _range queries_.
 
-For more information, see [Explain plans](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#explain-plans).
+For more information, see [Retrieving query plans](/docs/Cloudant?topic=Cloudant-explain-plans).
 
 ## Can I use {{site.data.keyword.cloudant_short_notm}} Query with a Lucene index?
 {: #can-i-use-cq-with-a-lucene-index}
@@ -231,7 +231,7 @@ The resultant index can be used by queries that contain one or more of the index
 
 The Lucene-backed indexes allow some extra flexibility over `type=json` indexes. You can use one, some, or all of your indexed fields in any order, and the index supports the query. With `type=json` indexes, the query must match all of the indexed fields to be useful.
 
-For more information, see [Creating a `type=text` index](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#creating-a-type-text-index).
+For more information, see [Creating a `type=text` index](/docs/Cloudant?topic=Cloudant-text-indexes).
 
 ## Can I create an {{site.data.keyword.cloudant_short_notm}} Query index for a subset of a database?
 {: #can-i-create-cq-index-subset-of-db}
@@ -281,7 +281,7 @@ At query time, the `use_index` field must be supplied to tell {{site.data.keywor
 The `partial_filter_selector` fields are repeated in the query-time selector.
 {: note}
 
-For more information, see [Creating a partial index](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#creating-a-partial-index).
+For more information, see [Creating a partial index](/docs/Cloudant?topic=Cloudant-partial-indexes).
 
 ## Can I use {{site.data.keyword.cloudant_short_notm}} Query on partitioned databases?
 {: #can-i-use-cq-partitioned-dbs}
@@ -304,12 +304,12 @@ To create a partitioned index on `firstname` and `surname`, the `POST /<dbname>/
 
 Partitioned indexes can be used when you run only a partitioned query, for example, by using the [`GET /<dbname>/_partition/<partition key>/_find`](https://cloud.ibm.com/apidocs/cloudant?code=java#postpartitionfind-partitioned-databases) API endpoint.
 
-For more information, see [Creating a partitioned index](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#selector-syntax).
+For more information, see [Creating a partial index](/docs/Cloudant?topic=Cloudant-partial-indexes).
 
 ## Can I use regular expressions in my queries?
 {: #can-i-use-regular-expressions-queries}
 
-Yes! {{site.data.keyword.cloudant_short_notm}} Query has a [$regex operator](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-query#the-regex-operator) that allows regular expression terms within a query. 
+Yes! {{site.data.keyword.cloudant_short_notm}} Query has a [$regex operator](/docs/Cloudant?topic=Cloudant-operators#the-regex-operator) that allows regular expression terms within a query.
 
 Proceed with caution: if a query contains _only_ a `$regex` operator, then a secondary index cannot help you - the query results in a document-by-document scan of the database.
 {: attention}

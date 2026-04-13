@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-03-17"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -20,8 +20,7 @@ across accounts and across data centers.
 {: shortdesc}
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
-using [{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: external}
-or [PouchDB](https://pouchdb.com/){: external}.
+using [PouchDB](https://pouchdb.com/){: external}.
 Replication can run in one direction or in both directions,
 as a "single shot" or continuous operation,
 and can be finely tuned by using parameters.
@@ -123,7 +122,7 @@ The decision as to which device starts replication is yours.
 {: #how-does-replication-affect-the-list-of-changes-}
 
 You can get a list of changes made to a document by using
-the [`_changes` endpoint](/docs/Cloudant?topic=Cloudant-databases#get-changes).
+the [`_changes` endpoint](/docs/Cloudant?topic=Cloudant-get-changes).
 However,
 the distributed nature of {{site.data.keyword.cloudant_short_notm}} databases
 means that the response that is provided by the `_changes` feed
@@ -190,7 +189,7 @@ This point is identified by using checkpoints.
 
 Therefore,
 an application that uses the `_changes` feed must
-be ['idempotent'](http://eaipatterns.com/IdempotentReceiver.html){: external}. Idempotency means that the application must be able to safely receive the same data multiple times,
+be ['idempotent'](https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html){: external}. Idempotency means that the application must be able to safely receive the same data multiple times,
 and potentially in a different order for repeated requests.
 
 ## Checkpoints
@@ -524,7 +523,7 @@ The following applications are included:
 -   Backup - Replicate your data from {{site.data.keyword.cloudant_short_notm}} to your own CouchDB databases
     and take nightly snapshots of your data for archiving purposes.
     Send the data to a backup service such as
-    [Amazon Glacier](https://aws.amazon.com/glacier/){: external} for safe keeping.
+    [Amazon Glacier](https://aws.amazon.com/s3/storage-classes/glacier/){: external} for safe keeping.
 -   Local-first data collection - Write your data to local Apache CouchDB first,
     then replicate it to {{site.data.keyword.cloudant_short_notm}} for long-term storage,
     aggregation,
@@ -892,7 +891,7 @@ See the following example `_changes` feed:
 {: codeblock}
 
 To join the changes feed from a known position,
-pass a [`since` argument](/docs/Cloudant?topic=Cloudant-databases#the-since-argument) with the sequence number you want to start from.
+pass a [`since` argument](/docs/Cloudant?topic=Cloudant-get-changes#the-since-argument) with the sequence number you want to start from.
 
 See the following example (abbreviated) that uses HTTP to supply the `since` option to join a `_changes` feed at a known position:
 
@@ -1094,7 +1093,7 @@ All Go examples require the `service` object to be initialized. For more informa
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support) for further advice.
+go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/products/cloud/support) for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -1420,7 +1419,7 @@ with replication treated as a background process.
 - For more information, see [Consumption of Read and Write Operations by Replication](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#consumption-of-read-and-write-operations-by-replication).
 
 For further assistance about the best configuration for your use case,
-go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support).
+go to the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/products/cloud/support).
 
 Replication performance can be improved by enabling the `"use_bulk_get": true"` replication option. In that case, the replicator fetches documents from the source in batches rather than individually.
 

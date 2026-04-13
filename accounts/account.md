@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-04-27"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -22,7 +22,7 @@ You access your account by using the address prefix
 
 For your {{site.data.keyword.cloudant_short_notm}} Dashboard, you always use this address: `https://$ACCOUNT.cloudant.com/dashboard.html`.
 
-If you don't have an account yet, sign in to [{{site.data.keyword.cloudant_short_notm}}](https://cloudant.com/sign-up/){: external}.
+If you don't have an account yet, sign in to [{{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/products/cloudant){: external}.
 
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.

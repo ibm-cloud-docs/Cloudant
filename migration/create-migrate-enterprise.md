@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-04-06"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: lite plan, pricing plans, standard plan, enterprise plan, sign up, test application, move to new instance
 
@@ -49,15 +49,15 @@ Migration from the Enterprise plans to {{site.data.keyword.cloudant_short_notm}}
 {: step}
 
 1. Revisit your application’s usage of {{site.data.keyword.cloudant_short_notm}} to make sure it is ready to handle the capacity limits of the Standard plan.
-   For more information, see [how the {{site.data.keyword.cloudant_short_notm}} API works](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity).
+   For more information, see [how the {{site.data.keyword.cloudant_short_notm}} API works](/docs/Cloudant?topic=Cloudant-usage-and-charges#provisioned-throughput-capacity-units)(/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity).
 2. Verify that your application can handle a `429: too many requests` HTTP response.
 
 The following table provides more information about these HTTP responses:
 
-| HTTP response | Issue |
-|--------------|--------|
-| `429: too many requests` | Retrying requests that get a `429` response is acceptable for occasional traffic spikes that exceed your plan's capacity. If your application traffic is routinely generating `429` responses, you probably need to upgrade to a larger plan. |
-| `413: request entity too large` | The maximum individual document size is 1 MB on {{site.data.keyword.cloudant_short_notm}}. You receive a `413` message if the limit is exceeded. For more information, see [request and document size limits](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#request-and-document-size-limits). |
+| HTTP response | Issue                                                                                                                                                                                                                                                                                                                                                          |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `429: too many requests` | Retrying requests that get a `429` response is acceptable for occasional traffic spikes that exceed your plan's capacity. If your application traffic is routinely generating `429` responses, you probably need to upgrade to a larger plan.                                                                                                                  |
+| `413: request entity too large` | The maximum individual document size is 1 MB on {{site.data.keyword.cloudant_short_notm}}. You receive a `413` message if the limit is exceeded. For more information, see [request and document size limits](/docs/Cloudant?topic=Cloudant-limits#request-payload-overview)(/docs/Cloudant?topic=Cloudant-ibm-cloud-public#request-and-document-size-limits). |
 {: caption="HTTP responses" caption-side="top"}
 
 ## Migrate data from the old service to the new service 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-04-06"
+  years: 2022, 2026
+lastupdated: "2026-04-13"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -135,7 +135,7 @@ Indexing instructs {{site.data.keyword.cloudant_short_notm}} to create a seconda
 
 For more information, see the following details in {{site.data.keyword.cloudant_short_notm}} documentation:
 
-- [Optimizing {{site.data.keyword.cloudant_short_notm}} Queries](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html)
+- [Optimizing {{site.data.keyword.cloudant_short_notm}} Queries](https://blog.cloudant.com/2020/05/20/Optimising-Cloudant-Queries.html)
 - [{{site.data.keyword.cloudant_short_notm}} Query documentation](/docs/Cloudant?topic=Cloudant-query)
 
 This index is useful for queries that involve both the `publisher` and the `year`, but if we introduce another field or make the query more complex (for example, by using the `$or` operator), then the index doesn't get used. We are back to a full database scan.

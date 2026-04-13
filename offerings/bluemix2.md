@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-09-03"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: standard plan, lite plan, dedicated hardware plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -32,7 +32,7 @@ The available plans for {{site.data.keyword.cloudantfull}} are:
 You can select which plan to use when you
 [provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud). When you select a plan, its capacity displays and the Cost Estimator shows the monthly charge for the selected plan. 
 
-Refer to the {{site.data.keyword.cloud_notm}} Cost Estimator in the dashboard for charges at different capacities and currencies, and the [Usage and charges](/docs/Cloudant?topic=Usage-and-charges){: external} information for examples to estimate costs.
+Refer to the {{site.data.keyword.cloud_notm}} Cost Estimator in the dashboard for charges at different capacities and currencies, and the [Usage and charges](/docs/Cloudant?topic=Cloudant-usage-and-charges){: external} information for examples to estimate costs.
 
 ### Plan comparison: Lite vs. Standard
 
@@ -40,7 +40,7 @@ Refer to the {{site.data.keyword.cloud_notm}} Cost Estimator in the dashboard fo
 |----------------------------------|-------------------------------------------------------|--------------------------------------------------------|
 | **Cost**                         | Free                                                  | Pay-as-you-go or subscription                          |
 | **Use-case**                     | Evaluation and testing                      | Development and production workloads                                   |
-| **Throughput capacity**          | Fixed: 20 reads/sec, 10 writes/sec, 5 global queries/sec     | Starts at 100 reads/sec, 50 writes/sec, 5 global queries/sec; scalable in [provisioned throughput capacity units](/docs/Cloudant?topic=Usage-and-charges#provisioned-throughput-capacity-units)       |
+| **Throughput capacity**          | Fixed: 20 reads/sec, 10 writes/sec, 5 global queries/sec     | Starts at 100 reads/sec, 50 writes/sec, 5 global queries/sec; scalable in [provisioned throughput capacity units](/docs/Cloudant?topic=Cloudant-usage-and-charges#provisioned-throughput-capacity-units)       |
 | **Throughput scaling**                  | Not scalable                                          | Throughput scalable via UI or API                           |
 | **Included storage**                | 1 GB                                                  | 20GB |
 | **Extra storage**                | Unavailable                                                  | Charged per extra GB                   |
@@ -50,7 +50,7 @@ Refer to the {{site.data.keyword.cloud_notm}} Cost Estimator in the dashboard fo
 | **Upgrade path**                 | Transparent upgrade to Standard plan to increase capacity/storage | Can scale up/down anytime                              |
 {: caption="Summary of {{site.data.keyword.cloudantfull}} Lite and Standard plans" caption-side="top"}
 
-Refer to [Usage and charges](/docs/Cloudant?topic=Usage-and-charges){: external}
+Refer to [Usage and charges](/docs/Cloudant?topic=Cloudant-usage-and-charges){: external}
 for more details on data storage and provisioned throughput capacity, including
 how to estimate costs for the Standard plan.
 {: tip}
@@ -106,7 +106,7 @@ See the drop-down menu in the {{site.data.keyword.cloud_notm}} catalog for an up
 are deployed into EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}}
 account or API key that is generated
 outside an EU-managed environment can't be granted access to an EU-managed
-{{site.data.keyword.cloudant_short_notm}} instance. For more information, see [Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account. 
+{{site.data.keyword.cloudant_short_notm}} instance. For more information, see [Enabling the EU Supported setting](/docs/account?topic=account-eu-supported) for your {{site.data.keyword.cloud_notm}} account.
 
 ## High availability, disaster recovery, and backup in a data center
 {: #high-availability-disaster-recovery-and-backup-in-a-data-center}
@@ -128,4 +128,3 @@ For more information, see the [{{site.data.keyword.cloud_notm}} Standard Support
 
 The support systems that are used for {{site.data.keyword.cloudant_short_notm}} don't offer features for the protection of personal data or sensitive personal data. This content includes Healthcare Information, health data, Protected Health Information, or data that is subject to more regulatory requirements. As such, the Client must not enter or provide such data when interacting with {{site.data.keyword.cloudant_short_notm}} support.
 {: note}
-

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-04-06"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -37,7 +37,7 @@ when the replicator process is restarted by {{site.data.keyword.cloudantfull}} o
 
 To maintain a replication database, remove old documents. 
 You can remove old documents by determining their age
-and [deleting them](/docs/Cloudant?topic=Cloudant-documents#delete-a-document) if they're no longer needed.
+and [deleting them](/docs/Cloudant?topic=Cloudant-delete-a-doc) if they're no longer needed.
 
 ## The replication scheduler
 {: #the-replication-scheduler}
@@ -438,7 +438,7 @@ Before a retry, the replicator waits for a short period before it repeats the re
 
 `socket_options` 
 :   A list of options to pass to the connection sockets. The available options can be found in the
-[documentation for the Erlang function `setopts` of the `inet` module](https://www.erlang.org/doc/man/inet.html#setopts-2){: external}. Default value is `[{keepalive, true},{nodelay, false}]`.
+[documentation for the Erlang function `setopts` of the `inet` module](https://www.erlang.org/doc/apps/kernel/inet.html#setopts/2){: external}. Default value is `[{keepalive, true},{nodelay, false}]`.
 
 `worker_batch_size` 
 :   Worker processes run batches of replication tasks, where the batch size is defined by this parameter. The size corresponds to the number of `_changes` feed rows. Larger values for the batch size might result in better performance. Smaller values mean that checkpointing is done more frequently. Default value is 500.
@@ -481,7 +481,7 @@ See the following example that includes performance options in a replication doc
 Having large numbers of attachments on documents might cause an adverse effect on replication performance.
 
 For more information about the effect of attachments on replication performance,
-see [Performance considerations](/docs/Cloudant?topic=Cloudant-attachments#performance-considerations).
+see [Performance considerations](/docs/Cloudant?topic=Cloudant-how-to-use-attachments#performance-considerations).
 
 ### Avoiding the `/_replicate` endpoint
 {: #avoiding-the-replicate-endpoint}

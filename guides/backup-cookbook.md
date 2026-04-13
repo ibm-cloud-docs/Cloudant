@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-01-09"
+  years: 2017, 2026
+lastupdated: "2026-04-13"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library, compress backup, schedule backup
 
@@ -54,7 +54,7 @@ couchbackup --url "$SERVICE_URL" --db animaldb > backup.txt
 ```
 {: codeblock}
 
-The [NPM readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: external} details other options,
+The [NPM readme file](https://github.com/IBM/couchbackup/blob/main/README.md){: external} details other options,
 including the ones in this list:
 
 - Environment variables to set the names of the database and URL.
@@ -88,7 +88,7 @@ couchrestore --url "https://myaccount.cloudant.com" --db newanimaldb < backup.tx
 ```
 {: codeblock}
 
-The [NPM readme file](https://github.com/cloudant/couchbackup/blob/master/README.md){: external} provides details of other restore options.
+The [NPM readme file](https://github.com/IBM/couchbackup/blob/main/README.md){: external} provides details of other restore options.
 
 ## Limitations
 {: #limitations}
@@ -130,7 +130,7 @@ or the library with application code,
 to enable backup from {{site.data.keyword.cloudant_short_notm}} databases as part of more complicated situations.
 A useful scenario is scheduling backups by using `cron`,
 and automatically uploading data to
-[Cloud Object Storage](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: external}
+[Cloud Object Storage](https://www.ibm.com/products/cloud-object-storage){: external}
 for long-term retention.
 
 ## Command line scripting examples

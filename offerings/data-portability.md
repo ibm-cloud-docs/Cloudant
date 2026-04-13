@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-10-31"
+  years: 2026
+lastupdated: "2026-04-13"
 
 keywords: replication, export, data portability, backup, migrate, couchbackup, dora
 
@@ -44,11 +44,11 @@ There are two options to export data from {{site.data.keyword.cloudant_short_not
 ### Option 1: Replication
 {: #option-1-replication}
 
-If you are migrating to a data store that is compatible with Apache CouchDB, use [replication](/docs/Cloudant?topic=Cloudant-advanced-replication) to migrate all data stored with {{site.data.keyword.cloudant_short_notm}}.
+If you are migrating to a data store that is compatible with Apache CouchDB, use [replication](/docs/Cloudant?topic=Cloudant-replication-api) to migrate all data stored with {{site.data.keyword.cloudant_short_notm}}.
 
 Replication can be a push or pull model, for full details on configuring replications see,
-[{{site.data.keyword.cloudant_short_notm}} Replication](/docs/Cloudant?topic=Cloudant-advanced-replication) and
-[Advanced Replication](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-advanced-replication).
+[{{site.data.keyword.cloudant_short_notm}} Replication](/docs/Cloudant?topic=Cloudant-replication-api) and
+[Advanced Replication](/docs/Cloudant?topic=Cloudant-advanced-replication).
 {: note}
 
 Setting up a *push replication* to export data:
@@ -92,7 +92,7 @@ Setting up a *push replication* to export data:
 {: #option-2-couchbackup}
 
 If the target data store is not compatible with Apache CouchDB, {{site.data.keyword.cloudant_short_notm}} provides a supported tool
-for backing up data called CouchBackup. Information on using CouchBackup can be found in [{{site.data.keyword.cloudant_short_notm}} backup and recovery](docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery), along with the [GitHub `README` file](https://github.com/cloudant/couchbackup/blob/master/README.md){: external}.
+for backing up data called CouchBackup. Information on using CouchBackup can be found in [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=Cloudant-ibm-cloudant-backup-and-recovery), along with the [GitHub `README` file](https://github.com/cloudant/couchbackup/blob/master/README.md){: external}.
 
 ## Exported data formats
 {: #data-portability-data-formats}

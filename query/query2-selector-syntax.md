@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-09-25"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: selector expressions, sort, filter, pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, selector syntax
 
@@ -136,7 +136,7 @@ Combination or array logical operators, such as `$regex`, can
 result in a full database scan when you use indexes of type JSON,
 resulting in poor performance. Only equality operators, such as `$eq`,
 `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups. To ensure that indexes are used effectively, analyze the
-[explain plan](#explain-plans) for each query.  
+[explain plan](/docs/Cloudant?topic=Cloudant-explain-plans) for each query.  
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently *based* on
@@ -161,4 +161,3 @@ For more information,
 see the [Search documentation](/docs/Cloudant?topic=Cloudant-cloudant-search).
 The `$text` operator applies to all strings found in the document.
 If you place this operator in the context of a field name, it's invalid.
-
