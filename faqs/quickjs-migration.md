@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-10-16"
+  years: 2025, 2026
+lastupdated: "2026-04-13"
 
 keywords: quickjs, migration, spidermonkey, javascript
 
@@ -42,6 +42,8 @@ $ curl -XGET https://$ACCOUNT.cloudant.com/
   "features_flags":["partitioned"]
 }
 ```
+{: codeblock}
+{: curl}
 
 Check the `features` array:
 
@@ -124,6 +126,7 @@ Two ways to test your JavaScript are:
       }
     }
     ```
+    {: codeblock}
 
     This must be in a new design document; changing / setting this field in
     an existing design document will cause all indexes in the document to
@@ -153,12 +156,13 @@ instead cause changes in output.
     Previously this would have compiled and discarded the unparsable
     code (`sfsdfsdfsdfsdf`):
 
-    ```jsonc
+    ```json
     // Inside a view definition
     {
-      "map": "function(doc) { emit(doc.foo, doc.bar); } sfsdfsdfsdfsdf"
+      "map": "function(doc) { emit(doc.foo, doc.bar); }"
     }
     ```
+    {: codeblock}
 
     In QuickJS, this will instead cause JavaScript execution to fail.
 
@@ -183,6 +187,7 @@ instead cause changes in output.
     b
     c
     ```
+    {: codeblock}
 
     When using `for each` with an object:
 
@@ -200,6 +205,7 @@ instead cause changes in output.
     x
     y
     ```
+    {: codeblock}
 
 * `Array.concat` is removed, use `Array.prototype.concat` instead:
 
@@ -210,6 +216,7 @@ instead cause changes in output.
     // New code
     [0].concat([1,2,3])
     ```
+    {: codeblock}
 
 * The `toSource()` method is removed.
 
@@ -225,6 +232,7 @@ instead cause changes in output.
     js> String.substring("abcd", 1, 2)
     "b"
     ```
+    {: codeblock}
 
     Use `String.prototype.substring(start, end)` instead:
 
@@ -232,6 +240,7 @@ instead cause changes in output.
     js> "abcd".substring(1, 2)
     "b"
     ```
+    {: codeblock}
 
 * The `toISOString()` throws an error on invalid `Date` objects.
 
@@ -246,6 +255,7 @@ instead cause changes in output.
     Stack:
       @typein:1:23
     ```
+    {: codeblock}
 
 * The `Date.prototype.toLocaleFormat()` function is deprecated.
 
@@ -257,6 +267,7 @@ instead cause changes in output.
     > d.toLocaleFormat("%Y-%m-%d")
     "2015-12-01"
     ```
+    {: codeblock}
 
     New result:
     ```js
@@ -266,6 +277,7 @@ instead cause changes in output.
     > d.toLocaleFormat("%Y-%m-%d")
     typein:2:3 TypeError: d.toLocaleFormat is not a function
     ```
+    {: codeblock}
 
     A better way to emit a timestamp is using `Date.prototype.toISOString()`. SpiderMonkey does not throw an error on invalid `Date` objects when calling `.toISOString()`, so always check date validity first with `isNaN(...)`.
 
@@ -282,6 +294,7 @@ instead cause changes in output.
     > if (!isNaN(d)) {d.toISOString()} else {throw new RangeError("Date value is NaN")}
     typein:24: RangeError: Date value is NaN
     ```
+    {: codeblock}
 
     To build a custom format use the `Date.prototype.getUTC...()` methods:
 
@@ -290,6 +303,7 @@ instead cause changes in output.
     > (d.getUTCMonth() + 1) + "/" + d.getUTCDate() + "/" + d.getUTCFullYear()
     "10/5/2011"
     ```
+    {: codeblock}
 
 * Constant values leak out of nested scopes
 
@@ -306,6 +320,7 @@ instead cause changes in output.
     js> f({'x':'y'})
     typein:1:23 TypeError: can't access property "x", doc is undefined
     ```
+    {: codeblock}
 
 * Callable regular expressions
 
@@ -324,11 +339,12 @@ instead cause changes in output.
     js> /.*abc$/.exec("abc")
     ["abc"]
     ```
+    {: codeblock}
 
 * E4X (ECMAScript for XML) is deprecated
 
     Previous result:
-     ```js
+    ```js
     > var xml = <root><x></x></root>
 
     > xml.(x)
@@ -336,11 +352,14 @@ instead cause changes in output.
       <x/>
     </root>
     ```
+    {: codeblock}
 
     New result:
     ```js
     > var xml = <root><x></x></root>
     typein:1:11 SyntaxError: expected expression, got '<':
+    ```
+    {: codeblock}
 
 ### Changes causing unexpected results
 
@@ -373,6 +392,7 @@ instead cause changes in output.
     js> parseInt("08", 10)
     8
     ```
+    {: codeblock}
 
 * `RegExp.$1...$9` regular expressions feature is deprecated. The `$1`...`$9`
    properties will return `undefined`. For example:
@@ -388,6 +408,7 @@ instead cause changes in output.
     > RegExp.$1
     "b"
     ```
+    {: codeblock}
 
     New result:
     ```js
@@ -400,6 +421,7 @@ instead cause changes in output.
     > RegExp.$1
     undefined
     ```
+    {: codeblock}
 
 * `Date.prototype.toString()` result doesn't include the timezone name, just the offset. For example:
 
@@ -408,12 +430,14 @@ instead cause changes in output.
     > (new Date()).toString();
     "Thu Sep 05 2024 17:04:03 GMT-0400 (EDT)"
     ```
+    {: codeblock}
 
     New result:
     ```js
     > (new Date()).toString();
     "Thu Sep 05 2024 17:03:23 GMT-0400"
     ```
+    {: codeblock}
 
 * `Date.prototype.toLocaleString()` used to ignore locale strings, the new version will return the correct format:
 
@@ -422,12 +446,14 @@ instead cause changes in output.
     > (new Date("2019-01-15T19:32:52.915Z")).toLocaleString('en-US')
     "Tue Jan 15 14:32:52 2019"
     ```
+    {: codeblock}
 
     New result:
     ```js
     > (new Date("2019-01-15T19:32:52.915Z")).toLocaleString('en-US')
     "01/15/2019, 02:32:52 PM"
     ```
+    {: codeblock}
 
 * Object key order changed:
 
@@ -436,12 +462,14 @@ instead cause changes in output.
     > r={}; ["Xyz", "abc", 1].forEach(function(v) {r[v]=v;}); Object.keys(r)
     ["Xyz", "abc", "1"]
     ```
+    {: codeblock}
 
     New result:
     ```js
     > r={}; ["Xyz", "abc", 1].forEach(function(v) {r[v]=v;}); Object.keys(r)
     ["1", "Xyz", "abc"]
     ```
+    {: codeblock}
 
 * `String.prototype.match(undefined)` used to return `null`, and now will return `[""]`:
 
@@ -450,9 +478,11 @@ instead cause changes in output.
     > "abc".match(undefined)
     null
     ```
+    {: codeblock}
 
     New result
     ```js
     > "abc".match(undefined)
     [""]
     ```
+    {: codeblock}

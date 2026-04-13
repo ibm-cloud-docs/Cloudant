@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-09-25"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: query, json index type, text index type, query parameters
 
@@ -150,8 +150,6 @@ that {{site.data.keyword.cloudant_short_notm}} uses to determine where to resume
 set of query results, add the bookmark that was received in the previous response to your next request.
 Remember to keep the selector the same, otherwise you receive unexpected results. To paginate backwards,
 you can use a previous bookmark to return the previous set of results.
-
-For full documentation of pagination, see [Pagination and bookmarks](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks#use-cloudant-query-search).
 
 The presence of a bookmark doesn’t guarantee more results. You can test whether
 you are at the end of the result set by comparing the number of results that are returned with the page size

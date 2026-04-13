@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-09-19"
+  years: 2025, 2026
+lastupdated: "2026-04-13"
 
 keywords: cloudant query, query parameters, query troubleshooting, query performance, monitor query usage, query scalability, performance, indexes, text indexes, json indexes, application scaling, building scalable databases
 
@@ -75,6 +75,7 @@ POST /orders/_explain
   }
 }
 ```
+{: codeblock}
 
 If the response shows a specific index, evaluate whether the index is _high_ or _low_ selectivity. In this example, an index on the `status` field is likely a low selectivity index, so this query needs work:
 
@@ -94,6 +95,7 @@ If the response shows a specific index, evaluate whether the index is _high_ or 
   }
 }
 ```
+{: codeblock}
 
 If the response shows `"name": "_all_docs"`, your query will scan the entire database:
 
@@ -106,6 +108,7 @@ If the response shows `"name": "_all_docs"`, your query will scan the entire dat
   }
 }
 ```
+{: codeblock}
 
 ### Solution: create appropriate indexes
 {: #solution-create-appropriate-indexes}
@@ -122,6 +125,7 @@ POST /orders/_index
   "type": "json"
 }
 ```
+{: codeblock}
 
 **Performance impact**: In a 100,000 document database, this single change can reduce query time from 20+ seconds to under 10 milliseconds.
 
@@ -137,6 +141,7 @@ If you know a certain index will be highly selective for a query, combine `use_i
   "allow_fallback": false
 }
 ```
+{: codeblock}
 
 This will return an error if `my_design_doc/username-index` is unusable for the query, rather than silently performing an expensive scan. The default for `allow_fallback` is `true`, meaning that {{site.data.keyword.cloudant_short_notm}} will use a different index to respond to the query, potentially resulting in a large scan.
 
@@ -148,6 +153,7 @@ If you don't supply `use_index`, then `allow_fallback: false` will still prevent
   "allow_fallback": false
 }
 ```
+{: codeblock}
 
 This will return an error if no suitable user-defined index exists, avoiding an expensive scan.
 
@@ -187,6 +193,7 @@ When creating compound indexes, any field used with range operators (`$gt`, `$gt
   }
 }
 ```
+{: codeblock}
 
 **Correct - enables efficient seeking:**
 
@@ -197,6 +204,7 @@ When creating compound indexes, any field used with range operators (`$gt`, `$gt
   }
 }
 ```
+{: codeblock}
 
 ### Critical rule 3: sort fields must come last
 {: #critical-rule-3-sort-fields-must-come-last}
@@ -211,8 +219,9 @@ For example, to support the following query:
   "sort": [ { "date": "asc" } ]
 }
 ```
+{: codeblock}
 
-You need an index on `["username", "status", "date"]`. In this structure, the sort field (`date`) must come last. This ordering ensures {{site.data.keyword.cloudant_short_notm}} can use the index both to filter and to sort efficiently.
+You need an index on `["username", "status", "date"]`. In this structure, the sort field (`date`) must come last. This ordering ensures {{site.data.keyword.cloudant_short_notm}} can use the index both to filter and to sort efficiently.
 
 ### Why field ordering matters
 {: #why-field-ordering-matters}
@@ -226,6 +235,7 @@ You need an index on `["username", "status", "date"]`. In this structure, the s
 ["bob", "cancelled", "2018-01-15"]
 ["bob", "paid", "2018-01-12"]
 ```
+{: codeblock}
 
 When using an efficient index for a query like `user: "bob", status: "cancelled", date: {$gte: "2018-01-01"}`, {{site.data.keyword.cloudant_short_notm}} can:
 
@@ -325,6 +335,7 @@ The following table summarises the key properties of indexes, and the operators 
   }
 }
 ```
+{: codeblock}
 
 ## Foundation: query performance monitoring
 {: #foundation-query-performance-monitoring}
@@ -356,6 +367,7 @@ If you create an index on `["username", "status", "date"]`, any document missing
   // Missing "date" field
 }
 ```
+{: codeblock}
 
 ### Solutions
 {: #document-structure-solutions}
@@ -371,6 +383,7 @@ If you create an index on `["username", "status", "date"]`, any document missing
   "date": null  // Use null for missing values
 }
 ```
+{: codeblock}
 
 **Option 2: Create multiple JSON indexes for different document structures**
 
@@ -381,8 +394,10 @@ If you create an index on `["username", "status", "date"]`, any document missing
 // Index for documents without date
 {"fields": ["username", "status"]}
 ```
+{: codeblock}
 
 **Option 3: Use text indexes for flexible field requirements**
+
 ```json
 {
   "index": {
@@ -395,6 +410,7 @@ If you create an index on `["username", "status", "date"]`, any document missing
   "type": "text"
 }
 ```
+{: codeblock}
 
 A text index will index documents missing the `date` (or other) fields.
 
@@ -430,6 +446,7 @@ Partial indexes are ideal when:
   "name": "published-articles-index"
 }
 ```
+{: codeblock}
 
 This index only includes documents where `status: "published"`, making it much smaller and faster for queries on published content.
 
@@ -446,6 +463,7 @@ The `partial_filter_selector` can include any valid selector, not just simple si
 ```json
 {"fields": ["category", "publishDate"]}
 ```
+{: codeblock}
 
 **Partial index** (only published articles):
 
@@ -455,6 +473,7 @@ The `partial_filter_selector` can include any valid selector, not just simple si
   "partial_filter_selector": {"status": "published"}
 }
 ```
+{: codeblock}
 
 Benefits:
 
@@ -479,6 +498,7 @@ This works:
   }
 }
 ```
+{: codeblock}
 
 This doesn't work:
 
@@ -491,6 +511,7 @@ This doesn't work:
   }
 }
 ```
+{: codeblock}
 
 ## Advanced: covering indexes
 {: #advanced-covering-indexes}
@@ -518,6 +539,7 @@ A covering index occurs when your index contains all the fields needed to satisf
   "fields": ["username", "date", "amount"]  // All fields in index
 }
 ```
+{: codeblock}
 
 {{site.data.keyword.cloudant_short_notm}} can return results directly from the index without reading the original documents, providing significant performance benefits.
 
@@ -541,6 +563,8 @@ const commonQueries = [
   }
 }
 ```
+{: codeblock}
+{: node}
 
 The [`_explain` endpoint](/apidocs/cloudant#postexplain) will contain `"covering": true` when an index is found that can cover the query.
 
@@ -557,12 +581,14 @@ Instead of creating many narrow indexes, consider fewer broader compound indexes
 {"fields": ["date"]}
 {"fields": ["username", "date"]}
 ```
+{: codeblock}
 
 **Use:**
 
 ```json
 {"fields": ["username", "status", "date", "amount"]}
 ```
+{: codeblock}
 
 This single index can efficiently serve queries filtering on:
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-29"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -83,7 +83,7 @@ the document that was deleted from the source database is not deleted from the t
 causing an inconsistency.
 
 A solution is to do more advanced removal of tombstones by using
-a [`validate_doc_update` function](https://docs.couchdb.org/en/3.2.2-docs/ddocs/ddocs.html#validate-document-update-functions){: external}.
+a [`validate_doc_update` function](https://docs.couchdb.org/en/stable/ddocs/ddocs.html#validate-document-update-functions){: external}.
 
 A `validate_doc_update` function is stored in a design document.
 The function is run every time that a document is updated in the database.
@@ -128,6 +128,7 @@ function(newDoc, oldDoc, userCtx) {
 }
 ```
 {: codeblock}
+{: node}
 
 To use a `validate_doc_update` function to remove tombstone documents:
 
@@ -162,7 +163,6 @@ If you re-create a database, for example, a new target for a replication. Any cl
 If you're using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects that result from having the function present on the client.
 {: tip}
 
-[{{site.data.keyword.cloudant_short_notm}} sync](/docs/Cloudant?topic=Cloudant-client-libraries#mobile-supported) libraries don't replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
+[{{site.data.keyword.cloudant_short_notm}} sync](/docs/Cloudant?topic=Cloudant-client-libraries) libraries don't replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
 {: note}
-

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-04-20"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication, proper tools, organize documents, organize databases, primary index, secondary index, query
 
@@ -145,10 +145,10 @@ Continuous replication can result in many internal calls. These calls might affe
 
 {{site.data.keyword.cloudant_short_notm}} doesn't include the following features: 
 
-- Low latency, in-memory data store. For more information, see [{{site.data.keyword.cloud}} Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis).
-- Limitless object store for archiving data. For more information, see [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage).
-- Relational database with SQL querying, stored procedures, and constraints and triggers. For more information, see [{{site.data.keyword.cloud_notm}} Databases for PostgreSQL](https://www.ibm.com/cloud/databases-for-postgresql).
-- A queue. For more information, see [{{site.data.keyword.IBM_notm}} MQ](https://www.ibm.com/uk-en/products/mq).
+- Low latency, in-memory data store. For more information, see [{{site.data.keyword.cloud}} Databases for Redis](https://www.ibm.com/products/databases-for-redis).
+- Limitless object store for archiving data. For more information, see [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/products/cloud-object-storage).
+- Relational database with SQL querying, stored procedures, and constraints and triggers. For more information, see [{{site.data.keyword.cloud_notm}} Databases for PostgreSQL](https://www.ibm.com/products/databases-for-postgresql).
+- A queue. For more information, see [{{site.data.keyword.IBM_notm}} MQ](https://www.ibm.com/products/mq).
 
 For more information, see the [Best and worst practice](https://blog.cloudant.com/2019/11/21/Best-and-Worst-Practices.html) blog.
 
@@ -170,7 +170,7 @@ If you're storing arrays of objects within a document, consider whether the arra
 
 If you have an ever-growing data set, then you probably don't want to store data in a single, ever-growing database. Data is best stored in *time-boxed databases* that allow older data to be archived and deleted cleanly. Deleting an {{site.data.keyword.cloudant_short_notm}} document leaves a *tombstone* document behind, so don't rely on deleting documents to recover disk space. Instead, you must rely on deleting whole databases.
 
-JSON doesn't offer a native way to store dates or timestamps. Choose your [date format](https://blog.cloudant.com/2018/05/24/Date-formats.html) carefully if you intend to query it later.
+JSON doesn't offer a native way to store dates or timestamps. Choose your [date format](https://blog.cloudant.com/2018/05/22/Date-formats.html) carefully if you intend to query it later.
 
 The maximum document size is 1 MB, but documents must be much smaller than that size, typically a few KB.
 
@@ -203,7 +203,7 @@ For more information, see the following blog posts:
 See the following tips:
 
 - It's sometimes difficult to measure the performance of your queries until your data set is large enough to expose slow operations. Generate enough realistic data so that you can test your indexing and query performance before you get to production.
-- {{site.data.keyword.cloudant_short_notm}} might return data to you without an index, but you must never rely on this data for production workloads. If your result set includes the warning, `No matching index found. Create an index to optimize query time,` then you need to revisit your indexing strategy. Use the [explain](/docs/Cloudant?topic=Cloudant-query#explain-plans) feature to see which index is being selected for each query.
+- {{site.data.keyword.cloudant_short_notm}} might return data to you without an index, but you must never rely on this data for production workloads. If your result set includes the warning, `No matching index found. Create an index to optimize query time,` then you need to revisit your indexing strategy. Use the [explain](/docs/Cloudant?topic=Cloudant-explain-plans#using-the-explain-endpoint) feature to see which index is being selected for each query.
 - With several object types in the same database, many use cases can be serviced by a few indexes on fixed attributes. For more information, see [Optimal {{site.data.keyword.cloudant_short_notm}} Indexing](https://blog.cloudant.com/2019/05/10/Optimal-Cloudant-Indexing.html).
 - Give your indexes meaningful names, and specify the index name at query-time, so that it's obvious which index corresponds to which of your application's queries.
 

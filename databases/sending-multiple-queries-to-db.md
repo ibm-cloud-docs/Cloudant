@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-02-10"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -107,7 +107,7 @@ service.postAllDocsQueries({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import AllDocsQuery, CloudantV1
@@ -196,8 +196,8 @@ The results are returned by using the following response JSON object:
 
 See the following example request with multiple queries:
 
-```json
-{POST /db/_all_docs/queries HTTP/1.1
+```http
+POST /db/_all_docs/queries HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Host: localhost:5984
@@ -399,7 +399,7 @@ service.postViewQueries({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```go
 postViewQueriesOptions := service.NewPostViewQueriesOptions(

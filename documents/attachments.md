@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-12-23"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -35,7 +35,7 @@ Examples of BLOBs would be images and multimedia.
 If you include the attachment as an [inline](/docs/Cloudant?topic=Cloudant-how-to-use-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
-The content type corresponds to a [MIME type](https://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: external}.
+The content type corresponds to a [Media type](https://en.wikipedia.org/wiki/Media_type#List_of_common_media_types){: external}.
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
@@ -60,7 +60,7 @@ You can create more than one attachment for a document by ensuring that the `$AT
 
 See the following example for creating or updating an attachment by using HTTP:
 
-```HTTP
+```http
 PUT /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 Content-Type: $$ATTACHMENT_MIME_TYPE
 ```
@@ -129,7 +129,7 @@ service.putAttachment({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1
@@ -273,7 +273,7 @@ service.getAttachment({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1
@@ -388,7 +388,7 @@ service.deleteAttachment({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1

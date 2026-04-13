@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-04-06"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: database-as-a-service,json document store, lite plan, standard plan, enterprise plan, benefits of lite and standard plans
 
@@ -15,7 +15,7 @@ subcollection: Cloudant
 # Migration overview
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-The [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant){: external} database-as-a-service offering is a JSON document store that runs on multi-tenant clusters. The service is available with a choice of geographical locations with predictable costs, scalability, and a service-level agreement (SLA).
+The [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/products/cloudant){: external} database-as-a-service offering is a JSON document store that runs on multi-tenant clusters. The service is available with a choice of geographical locations with predictable costs, scalability, and a service-level agreement (SLA).
 {: shortdesc}
 
 You can migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} from one of the following plans:

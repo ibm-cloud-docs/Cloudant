@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-10"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -57,9 +57,10 @@ each document is defined as part of the document ID as detailed in the next sect
 When you use a partitioned database, the document ID specifies both the partition key and the document key. These keys are specified by splitting the document ID
 into two parts that are separated by a colon:
 
-```json
+```sh
 $PARTITION_KEY:$DOCUMENT_KEY
 ```
+{: codeblock}
 
 The `$PARTITION_KEY` might be the same between documents. The `$DOCUMENT_KEY`
 must be unique within each partition. That is, overall the entire document

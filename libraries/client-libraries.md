@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-06-23"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: develop applications, supported library, mobile, java, node.js, python, swift, go
 
@@ -198,7 +198,7 @@ npm install -g couchreplicate
 
 For more information, see [`couchreplicate`](https://www.npmjs.com/package/couchreplicate){: external}.
 
-#### `couchxray`
+#### `couchxray` (deprecated)
 {: #couchxray-cl}
 
 A tool that you use from the command line to see the CouchDB features used by a database.

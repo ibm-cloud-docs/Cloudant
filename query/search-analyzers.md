@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-02"
+  years: 2019, 2026
+lastupdated: "2026-04-13"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, white space analyzer, classic analyzer, english analyzer, simple_asciifolding analyzer, normalize, store option, include_docs option, pick best analyzer
 
@@ -39,7 +39,7 @@ To look at each analyzer in turn, you can pass the following string to each anal
 ```sh
 "My name is Chris Wright-Smith. I live at 21a Front Street, Durham, UK - my email is chris7767@aol.com."
 ```
-{: screen}
+{: codeblock}
 
 ### Standard analyzer
 {: #standard-analyzer}
@@ -55,7 +55,7 @@ The `standard` analyzer changes the string in the following ways:
 ```json
 {"tokens":["my","name","josé","wright","smith","i","live","21a","front","street","durham","uk","my","email","jose7767","aol.com"]}
 ```
-{: screen}
+{: codeblock}
 
 ### Keyword analyzer
 {: #keyword-analyzer}
@@ -65,7 +65,7 @@ With the `keyword` analyzer, the string stays intact. See the following example:
 ```json
 {"tokens":["My name is José Wright-Smith. I live at 21a Front Street, Durham, UK - my email is jose7767@aol.com."]}
 ```
-{: screen}
+{: codeblock}
 
 ### Simple analyzer
 {: #simple-analyzer}
@@ -81,8 +81,7 @@ The `simple` analyzer changes the string in the following ways:
 ```json
 {"tokens":["my","name","is","josé","wright","smith","i","live","at","a","front","street","durham","uk","my","email","is","jose","aol","com"]}
 ```
-{: screen}
-
+{: codeblock}
 
 ### Simple ASCII-folding analyzer
 {: #simple-asciifolding-analyzer}
@@ -99,8 +98,7 @@ The `simple_asciifolding` analyzer changes the string in the following ways:
 ```json
 {"tokens":["my","name","is","jose","wright","smith","i","live","at","a","front","street","durham","uk","my","email","is","jose","aol","com"]}
 ```
-{: screen}
-
+{: codeblock}
 
 ### Whitespace analyzer
 {: #whitespace-analyzer}
@@ -116,7 +114,7 @@ The `whitespace` analyzer changes the string in the following ways:
 ```json
 {"tokens":["My","name","is","José","Wright-Smith.","I","live","at","21a","Front","Street,","Durham,","UK","-","my","email","is","jose7767@aol.com."]}
 ```
-{: screen}
+{: codeblock}
  
 ### Classic analyzer
 {: #classic-analyzer}
@@ -132,7 +130,7 @@ The `classic` analyzer changes the string in the following ways:
 ```json
 {"tokens":["my","name","josé","wright","smith","i","live","21a","front","street","durham","uk","my","email","jose7767@aol.com"]}
 ```
-{: screen}
+{: codeblock}
 
 ### English analyzer
 {: #english-analyzer}
@@ -148,8 +146,7 @@ The `english` analyzer changes the string in the following ways:
 ```json
 {"tokens":["my","name","josé","wright","smith","i","live","21a","front","street","durham","uk","my","email","jose7767","aol.com"]}
 ```
-{: screen}
-
+{: codeblock}
 
 Language-specific analyzers make the most changes to the source data. See the following two examples that use the `english` analyzer: 
 
@@ -160,7 +157,7 @@ The quick brown fox jumped over the lazy dog.
 Four score and seven years ago our fathers brought forth, on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.
 {"tokens":["four","score","seven","year","ago","our","father","brought","forth","contin","new","nation","conceiv","liberti","dedic","proposit","all","men","creat","equal"]}
 ```
-{: screen}
+{: codeblock}
 
 ## Which analyzer must I pick?
 {: #which-analyzer-must-i-pick}

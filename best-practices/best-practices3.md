@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-04-27"
+  years: 2022, 2026
+lastupdated: "2026-04-13"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -46,7 +46,7 @@ If you routinely create conflicts, you must really consider model changes: even 
 
 - {{site.data.keyword.cloudant_short_notm}} guide to [conflicts](/docs/Cloudant?topic=Cloudant-conflicts#conflicts)
 - {{site.data.keyword.cloudant_short_notm}} guide to versions and [MVCC](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc)
-- Three-part blog series on [conflicts](https://developer.ibm.com/blogs/)
+- Three-part blog series on [conflicts](https://blog.cloudant.com/search.html#Introduction%20to%20conflicts)
 
 ## Deleting documents doesn't delete them
 {: #deleting-documents}
@@ -112,7 +112,7 @@ It’s difficult to put a number on replication throughput. The answer is always
 
 For more information, see the following websites:
 
-- Blog post on [replication topology](https://dx13.co.uk/articles/2017/11/07/cloudant-replication-topologies-and-failover/)
+- Blog post on [replication topology](https://blog.cloudant.com/2017/11/07/Cloudant-replication-topologies.html)
 - {{site.data.keyword.cloudant_short_notm}} [guide to replication](/docs/Cloudant?topic=Cloudant-replication-guide#replication)
 
 ## Use the bulk API
@@ -156,7 +156,7 @@ curl -XPOST 'https://ACCT.cloudant.com/DB/_all_docs' \
 
 For more information, see the following websites:
 
-- {{site.data.keyword.cloudant_short_notm}} [bulk operations docs](/docs/Cloudant?topic=Cloudant-documents#bulk-operations)
+- {{site.data.keyword.cloudant_short_notm}} [bulk operations docs](/docs/Cloudant?topic=Cloudant-bulk-operations)
 - {{site.data.keyword.cloudant_short_notm}} [request and doc size limits](#replication-is-not-magic)
 
 ## Don’t mess with Q, R, and N unless you really know what you are doing

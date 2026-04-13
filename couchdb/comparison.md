@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-02-01"
+  years: 2019, 2026
+lastupdated: "2026-04-13"
 
 keywords: feature comparison, function comparison
 
@@ -26,25 +26,25 @@ For more information, see the [API comparison guide](/docs/Cloudant?topic=Clouda
 
 The following table shows the feature and function differences that you must be cognizant of when you use the Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} data layer ecosystem. 
 
-| Feature | CouchDB 1.6 | CouchDB 2.3.1 | CouchDB 3.x | {{site.data.keyword.cloudant_short_notm}} |
-|--------------|----------------|-------------|---------------------| --- |
-| Clustering    | No     | Yes | Yes | Yes |
-| Fauxton Dashboard UI    | No     | Yes | Yes | Yes |
-| MapReduce view    | Yes     | Yes | Yes | Yes |
-| Mango and {{site.data.keyword.cloudant_short_notm}} Query    | No     | Yes | Yes | Yes |
-| Full-text search    | No     | No | Yes, requires separate installer or container. | Yes |
-| Partition queries    | No     | No | Yes | Yes |
-| Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops. |
-| Selector on `changes feed`    | No     | Yes | Yes | Yes |
-| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#provisioned-throughput-capacity) settings | 
-| Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB |
-| Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB |
+| Feature | CouchDB 1.6 | CouchDB 2.3.1 | CouchDB 3.x | {{site.data.keyword.cloudant_short_notm}}                                                                                                                                                                                                                                                                                             |
+|--------------|----------------|-------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Clustering    | No     | Yes | Yes | Yes                                                                                                                                                                                                                                                                                                                                   |
+| Fauxton Dashboard UI    | No     | Yes | Yes | Yes                                                                                                                                                                                                                                                                                                                                   |
+| MapReduce view    | Yes     | Yes | Yes | Yes                                                                                                                                                                                                                                                                                                                                   |
+| Mango and {{site.data.keyword.cloudant_short_notm}} Query    | No     | Yes | Yes | Yes                                                                                                                                                                                                                                                                                                                                   |
+| Full-text search    | No     | No | Yes, requires separate installer or container. | Yes                                                                                                                                                                                                                                                                                                                                   |
+| Partition queries    | No     | No | Yes | Yes                                                                                                                                                                                                                                                                                                                                   |
+| Shard splitting    | No     | No | Yes | Available as tool for {{site.data.keyword.IBM_notm}} Ops.                                                                                                                                                                                                                                                                             |
+| Selector on `changes feed`    | No     | Yes | Yes | Yes                                                                                                                                                                                                                                                                                                                                   |
+| Rate limits    | No    | No | No | User-defined [provisioned throughput capacity](/docs/Cloudant?topic=Cloudant-usage-and-charges#provisioned-throughput-capacity-units) settings                                                                                                                                                                                             | 
+| Request size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 11 MB                                                                                                                                                                                                                                                                                                                                 |
+| Attachment size    | 4 GB (default)     | 4 GB (default) | 4 GB (default) | 10 MB                                                                                                                                                                                                                                                                                                                                 |
 | Security auth    | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external}     | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} | [{{site.data.keyword.cloudant_short_notm}} legacy auth with API Keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization), [{{site.data.keyword.cloud_notm}} IAM](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant), or [CouchDB Auth](https://docs.couchdb.org/en/stable/intro/security.html#){: external} |
-| LDAP    | No     | No | No | No |
+| LDAP    | No     | No | No | No                                                                                                                                                                                                                                                                                                                                    |
 {: caption="Feature and function differences between {{site.data.keyword.cloudant_short_notm}} and Apache CouchDB" caption-side="top"}
 
 The CouchDB `_show`, `_list`, `_update`, and `_rewrite` functions were deprecated in Apache CouchDB 3.0. For more information, see [deprecated feature warnings](https://docs.couchdb.org/en/stable/whatsnew/3.0.html#deprecated-feature-warnings).
 
-As a result, these functions are no longer supported for {{site.data.keyword.cloudant_short_notm}}. They do not appear in {{site.data.keyword.cloudant_short_notm}} documentation, and while the APIs currently remain in service, their use is not recommended. The {{site.data.keyword.cloudant_short_notm}} Support team no longer supports them. 
+As a result, these functions are no longer supported for {{site.data.keyword.cloudant_short_notm}}. They do not appear in {{site.data.keyword.cloudant_short_notm}} documentation, and while the APIs currently remain in service, their use is not recommended. The {{site.data.keyword.cloudant_short_notm}} Support team no longer supports them.
 
 Information on alternatives to these functions can be found in the {{site.data.keyword.cloudant_short_notm}} blog at [deprecated functions](https://blog.cloudant.com/2022/08/16/Show-list-rewrite-udpate-functions-deprecated.html).

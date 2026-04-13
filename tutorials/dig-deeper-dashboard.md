@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-04-06"
+  years: 2022, 2026
+lastupdated: "2026-04-13"
 
 keywords: cloudant dashboard, indexes, cloudant query, create, run, cloudant search
 
@@ -34,7 +34,7 @@ You need to create a service instance in {{site.data.keyword.cloudant_short_notm
 
 1. Create some sample data that represents a book in a library as shown in the following example:
 
-    ```javascript
+    ```json
     {
       "_id": "BXP9G5ZQY9Q4EA13",
       "author": "Dickens",
@@ -109,14 +109,14 @@ To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to cre
 3. Select New Indexes from the Design Documents menu.
 4. Copy and paste the following index definition:
 
-   ```javascript
+   ```json
    {
       "index": {
          "fields": [
             "publisher", "year"
          ]
       },
-      "name": "publisher-year-index",indexingdashboard5
+      "name": "publisher-year-index",
       "type": "json"
    }
    ```
@@ -135,7 +135,7 @@ Indexing instructs {{site.data.keyword.cloudant_short_notm}} to create a seconda
 
 For more information, see the following details in {{site.data.keyword.cloudant_short_notm}} documentation:
 
-- [Optimizing {{site.data.keyword.cloudant_short_notm}} Queries](https://blog.cloudant.com/2020/04/24/Optimising-Cloudant-Queries.html)
+- [Optimizing {{site.data.keyword.cloudant_short_notm}} Queries](https://blog.cloudant.com/2020/05/20/Optimising-Cloudant-Queries.html)
 - [{{site.data.keyword.cloudant_short_notm}} Query documentation](/docs/Cloudant?topic=Cloudant-query)
 
 This index is useful for queries that involve both the `publisher` and the `year`, but if we introduce another field or make the query more complex (for example, by using the `$or` operator), then the index doesn't get used. We are back to a full database scan.
@@ -170,6 +170,7 @@ Unlike {{site.data.keyword.cloudant_short_notm}} Query, you *must* specify the f
    }
    ```
    {: codeblock}
+   {: node}
 
 7. Choose the "Standard Analyzer".
 
@@ -209,6 +210,7 @@ For more information, see the following resources:
    }
    ```
    {: codeblock}
+   {: node}
 
    See an example of the window in the following screen capture:
 

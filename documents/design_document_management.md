@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-03-17"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter, indexing
 
@@ -67,6 +67,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 The function emits the document's timestamp so that you can use it as the key to the index.
 Since we're not interested in the value in the index,

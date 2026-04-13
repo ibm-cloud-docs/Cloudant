@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-04-27"
+  years: 2022, 2026
+lastupdated: "2026-04-13"
 
 keywords: api, http, database, partitioned query, eventual consistency, time box
 
@@ -53,7 +53,7 @@ By understanding the API better, you also gain experience in how {{site.data.key
 
 - {{site.data.keyword.cloudant_short_notm}} [API docs](/apidocs/cloudant){: external}
 - Logging [integration](/docs/Cloudant?topic=Cloudant-log-analysis-integration){: external}
-- Blog post on [logging](https://blog.cloudant.com/2019/09/16/Cloudant-Logging-with-LogDNA.html){: external}
+- Blog post on [logging](https://blog.cloudant.com/2019/09/13/Cloudant-Logging-with-LogDNA.html){: external}
 
 ## Documents must group data that mostly changes together
 {: #documents-group-data-change}
@@ -66,16 +66,19 @@ If your model groups information that doesn’t change together, you’re more l
 
 Consider a situation where you have users, each with a set of orders associated with them. One way might be to represent the orders as an array in the user document:
 
-```json
+```jsonc
 { // DON'T DO THIS
-    "customer_id": 65522389,
-    "orders": [ {
+  "customer_id": 65522389,
+  "orders": [
+    {
       "order_id": 887865,
-      "items": [ {
+      "items": [
+        {
           "item_id": 9982,
           "item_name": "Iron sprocket",
           "cost": 53.0
-        }, {
+        },
+        {
           "item_id": 2932,
           "item_name": "Rubber wedge",
           "cost": 3.0
@@ -126,7 +129,7 @@ So, slow and expensive.
 Your databases are smaller, cheaper, faster, and easier to replicate. For more information, see the following websites:
 
 - {{site.data.keyword.cloudant_short_notm}} docs on [attachments](/docs/Cloudant?topic=Cloudant-how-to-use-attachments)
-- Detaching {{site.data.keyword.cloudant_short_notm}} attachments to [Object Storage](https://medium.com/codait/detaching-cloudant-attachments-to-object-storage-with-serverless-functions-99b8c3c77925){: external}
+- Detaching {{site.data.keyword.cloudant_short_notm}} attachments to [Object Storage](https://blog.cloudant.com/2017/12/21/Detaching-Attachments-with-Serverless.html){: external}
 
 ## Fewer databases are better than many
 {: #fewer-dbs-better-than-many}

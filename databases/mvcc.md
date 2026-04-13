@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-10"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -55,7 +55,7 @@ older revisions are regularly deleted by a process called
 [compaction](https://en.wikipedia.org/wiki/Data_compaction){: external}. You can query a particular document revision
 by using its `_rev` in order to obtain a history of revisions to your document. However, a consequence of compaction is that
 you cannot rely on a successful response. If you need a version history of your documents,
-a solution is to [create a new document](/docs/Cloudant?topic=Cloudant-documents#create-document) for each revision.
+a solution is to [create a new document](/docs/Cloudant?topic=Cloudant-create-document) for each revision.
 
 ## Distributed databases and conflicts
 {: #distributed-databases-and-conflicts}
@@ -65,7 +65,7 @@ which is itself distributed,
 so updates based on the same previous version can still be in conflict.
 
 To find conflicts,
-add the query parameter [`conflicts=true`](/docs/Cloudant?topic=Cloudant-databases#get-changes) when you retrieve a document.
+add the query parameter [`conflicts=true`](/docs/Cloudant?topic=Cloudant-get-changes) when you retrieve a document.
 The response contains a `_conflicts` array with all conflicting revisions.
 
 To find conflicts for multiple documents in a database,
@@ -83,6 +83,7 @@ function (doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 You might regularly query this view and resolve conflicts as needed,
 or query the view after each replication.
@@ -276,7 +277,7 @@ service.deleteDocument({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1

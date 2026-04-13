@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-03-30"
+  years: 2017, 2026
+lastupdated: "2026-04-13"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -83,6 +83,7 @@ curl "https://myaccount-dc1.cloudant.com/mydb" -XPUT -u myaccount-dc1
 curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ```
 {: codeblock}
+{: curl}
 
 ## Step 2. Create an API key for your replications
 {: #step-2-create-an-api-key-for-your-replications}
@@ -103,6 +104,7 @@ the following command requests an API key for the account `myaccount-dc1`:
 curl -XPOST "https://myaccount-dc1.cloudant.com/_api/v2/api_keys" -u myaccount-dc1
 ```
 {: codeblock}
+{: curl}
 
 A successful response is similar to the following abbreviated example:
 
@@ -174,6 +176,7 @@ curl -XPOST "https://myaccount-dc1.cloudant.com/_replicator"
 }'
 ```
 {: codeblock}
+{: curl}
 
 Next,
 create a replication from database `myaccount-dc2.cloudant.com/mydb` to
@@ -207,6 +210,7 @@ curl -XPOST "https://myaccount-dc2.cloudant.com/_replicator"
 }'
 ```
 {: codeblock}
+{: curl}
 
 If this step fails because the `_replicator` database doesn't exist, create it.
 {: note}

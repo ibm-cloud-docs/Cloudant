@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-02"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: generate uuid, record payments, add more documents, advantages, uuid
 
@@ -183,6 +183,7 @@ function (doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 Use the built-in [`_sum` reducer](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#built-in-reduce-functions)
 to produce output as a ledger of payment events.

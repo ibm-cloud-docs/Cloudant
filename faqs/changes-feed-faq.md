@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-04-27"
+  years: 2022, 2026
+lastupdated: "2026-04-13"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -158,6 +158,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 This view can be queried to return any documents that are modified on or after a supplied date and time:
 
@@ -176,8 +177,8 @@ The {{site.data.keyword.cloudant_short_notm}} changes feed is good for the follo
 
 The {{site.data.keyword.cloudant_short_notm}} changes feed is not good for the following components:
 
-- A message queue. For more information, see [IBM Messages for RabbitMQ](https://www.ibm.com/cloud/messages-for-rabbitmq){: external} for managing queues.
-- A message broker. For more information, see [IBM Event Streams](https://www.ibm.com/cloud/event-streams){: external} for handling scalable, time-ordered streams of events.
-- A real-time publish and subscribe system. For more information, see [IBM Databases for Redis](https://www.ibm.com/uk-en/cloud/databases-for-redis){: external} for handling publish and subscribe topics.
+- A message queue. For more information, see [IBM Messages for RabbitMQ](https://www.ibm.com/products/messages-for-rabbitmq){: external} for managing queues.
+- A message broker. For more information, see [IBM Event Streams](https://www.ibm.com/products/event-streams){: external} for handling scalable, time-ordered streams of events.
+- A real-time publish and subscribe system. For more information, see [IBM Databases for Redis](https://www.ibm.com/products/databases-for-redis){: external} for handling publish and subscribe topics.
 - A transaction log. Some databases store each change in a transaction log, but the distributed and eventually consistent nature of {{site.data.keyword.cloudant_short_notm}} means that no definitive time-ordered transaction log exists.
-- A querying mechanism. For more information, see [MapReduce Views](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-creating-views-mapreduce) for creating views of your data that is ordered by a key of your choice.
+- A querying mechanism. For more information, see [MapReduce Views](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce) for creating views of your data that is ordered by a key of your choice.

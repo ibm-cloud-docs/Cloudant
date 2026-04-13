@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-04-11"
+  years: 2017, 2026
+lastupdated: "2026-04-13"
 
 keywords: create index, create query, run query, fields, operators
 
@@ -25,7 +25,7 @@ completion-time: 10m
 In this tutorial, we demonstrate how to create an index and use the index to query the database. You also learn to create different types of queries to more easily find data.
 {: shortdesc}
 
-Here you run the commands from the command line, but you can also complete these tasks with the {{site.data.keyword.cloudantfull}} Dashboard, which gives you a visual example of each task. For more information about the dashboard, see [Using the {{site.data.keyword.cloudant_short_notm}} Dashboard](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial. 
+Here you run the commands from the command line, but you can also complete these tasks with the {{site.data.keyword.cloudantfull}} Dashboard, which gives you a visual example of each task. For more information about the dashboard, see [Using the {{site.data.keyword.cloudant_short_notm}} Dashboard](/docs/Cloudant?topic=Cloudant-navigate-the-dashboard) tutorial.
 
 ## Before you begin
 {: #before-you-begin-qt}
@@ -131,6 +131,7 @@ To run the query, follow these steps:
         -d \@query1.json
     ```
     {: codeblock}
+    {: curl}
 
 3.  Review the query results:
     ```json
@@ -212,6 +213,7 @@ To run the query, follow these steps:
         -d \@query2.json
     ```
     {: codeblock}
+    {: curl}
 
 3.  Review the query results:
     ```json
@@ -293,6 +295,7 @@ To run the query, follow these steps:
         -d \@query3.json
     ```
     {: codeblock}
+    {: curl}
 
 3.  Review the query results:
     ```json

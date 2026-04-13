@@ -63,6 +63,7 @@ for use with this tutorial.
     curl "https://username:password@myhost.cloudant.com/couchbackup-demo" -X PUT
     ```
     {: codeblock}
+    {: curl}
     
 2.  Review the results.
     
@@ -132,6 +133,7 @@ back up and restore in later exercises.
     curl "https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs" -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
     ```
     {: codeblock}
+    {: curl}
     
 3.  Review the results.
     
@@ -406,6 +408,7 @@ Restoring a backup is only supported when you restore into an empty database. If
     curl "https://username:password@myhost.cloudant.com/couchbackup-demo-restore" -X PUT
     ```
     {: codeblock}
+    {: curl}
 
 2.  Run the `couchrestore` command.
     

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-02-01"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -86,6 +86,7 @@ function(user) {
 }
 ```
 {: codeblock}
+{: node}
 
 See sample data for demonstrating the simple view example:
 
@@ -166,6 +167,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 ### An index for a one-to-many relationship
 {: #an-index-for-a-one-to-many-relationship}
@@ -185,6 +187,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 ### Complex keys
 {: #complex-keys}
@@ -212,7 +215,7 @@ The second parameter of a MapReduce definition's `emit` function is the "value",
 
 Some examples:
 
-```js
+```javascript
 // create a view to allow selection of orders by year/month/day,
 // where a subset of the document is projected into the view's value.
 function(doc) {
@@ -257,6 +260,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 Do not put high-cardinality keys in a view's value such as `order_id` or 
 `customer_id` as this will lead to _expansion_ of a view's reduced value rather than a _reduction_. Such queries may time out or be rejected by the 
@@ -580,6 +584,7 @@ function (keys, values, rereduce) {
 }
 ```
 {: codeblock}
+{: node}
 
 Reduce functions must handle two cases:
 
@@ -748,6 +753,7 @@ The following sample adds a new `getVerifiedEmails` named view function to the `
     }
 }
 ```
+{: codeblock}
 
 See the request examples:
 
@@ -879,7 +885,6 @@ fmt.Println(string(b))
 {: go}
 
 The previous Go example requires the following import block:
-{: go}
 
 ```go
 import (
@@ -892,4 +897,3 @@ import (
 {: go}
 
 All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
-{: go}

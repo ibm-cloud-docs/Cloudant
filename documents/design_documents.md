@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-03-29"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators, partitioned index, global index
 
@@ -168,7 +168,8 @@ curl "$SERVICE_URL/users/_design/allusers" \
 	-H "Content-Type: application/json" \
 	-H "Destination: _design/copyOfAllusers"
 ```
-
+{: codeblock}
+{: curl}
 
 See the following example response to the copy request:
 
@@ -250,6 +251,7 @@ curl "$SERVICE_URL/users/_design/allusers?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5
 	-H "Destination: _design/copyOfAllusers"
 ```
 {: codeblock}
+{: curl}
 
 ### Copying to an existing design document
 {: #copying-to-an-existing-design-document}
@@ -276,6 +278,7 @@ curl "$SERVICE_URL/users/_design/allusers" \
 	-H "Destination: _design/copyOfAllusers?rev=1-9c65296036141e575d32ba9c034dd3ee"
 ```
 {: codeblock}
+{: curl}
 
 The return value is the ID and new revision of the copied document.
 
@@ -353,7 +356,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -473,7 +476,7 @@ you must ensure that two conditions are true:
 1.   You defined the document as a design document when you started the `_id` with `_design/`.
 
 2.   You created a [search index](/docs/Cloudant?topic=Cloudant-cloudant-search) within the document where you 
-   [updated](/docs/Cloudant?topic=Cloudant-documents#update) the document with the appropriate field or [created](/docs/Cloudant?topic=Cloudant-documents#create-document) a new document that includes the search index.
+   [updated](/docs/Cloudant?topic=Cloudant-update-docs) the document with the appropriate field or [created](/docs/Cloudant?topic=Cloudant-create-document) a new document that includes the search index.
 
 As soon as the search index design document exists and the index is built,
 you can make queries by using it.
@@ -496,7 +499,7 @@ Design documents with `options.partitioned` set to `true` can't contain a `filte
 {: tip}
 
 Filter functions are design documents that filter
-the [changes feed](/docs/Cloudant?topic=Cloudant-databases#get-changes). 
+the [changes feed](/docs/Cloudant?topic=Cloudant-get-changes).
 They work by applying tests to each of the objects included in the changes feed.
 
 If any of the function tests fail,
@@ -535,7 +538,7 @@ See the following example design document that includes a filter function:
 
 See the following example of a filter function:
 
-```node
+```javascript
 function(doc, req){
 	// we need only `mail` documents
 	if (doc.type != 'mail'){
@@ -549,6 +552,7 @@ function(doc, req){
 }
 ```
 {: codeblock}
+{: node}
 
 ### Changes feed filter functions
 {: #changes-feed-filter-functions}
@@ -608,7 +612,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -678,7 +682,7 @@ curl "$SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new"
 
 See the following example filter by using a supplied `req` argument:
 
-```node
+```javascript
 function(doc, req){
 	// we need only `mail` documents
 	if (doc.type != 'mail'){
@@ -692,22 +696,23 @@ function(doc, req){
 }
 ```
 {: codeblock}
+{: node}
 
 ### Predefined filter functions
 {: #predefined-filter-functions}
 
 A number of predefined filter functions are available:
 
-[`_design`](#the-_design-filter)
+[`_design`](#the-design-filter)
 :   Accepts only changes to design documents.
 
-[`_doc_ids`](#the-_doc_ids-filter)
+[`_doc_ids`](#the-doc_ids-filter)
 :   Accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
 
-[`_selector`](#the-_selector-filter)
+[`_selector`](#the-selector-filter)
 :   Accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: external}.
 
-[`_view`](#the-_view-filter)
+[`_view`](#the-view-filter)
 :   With this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
@@ -770,7 +775,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -908,7 +913,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -990,11 +995,11 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 #### The `_selector` filter
 {: #the-selector-filter}
 
-The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax) that is used
+The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-selector-syntax) that is used
 for [`_find`](/apidocs/cloudant#postfind){: external}.
 
 For more examples that show use of this filter,
-see the information on [selector syntax](/docs/Cloudant?topic=Cloudant-query#selector-syntax).
+see the information on [selector syntax](/docs/Cloudant?topic=Cloudant-selector-syntax).
 
 See the following example application of the `_selector` filter by using HTTP:
 
@@ -1055,7 +1060,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -1217,7 +1222,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -1307,7 +1312,7 @@ See the following example design document with an update validator:
 
 See the following example of an update validator:
 
-```node
+```javascript
 function(newDoc, oldDoc, userCtx, secObj) {
 	if (newDoc.address === undefined) {
 		throw({forbidden: 'Document must have an address.'});
@@ -1330,7 +1335,7 @@ See the following example response from an update validator:
 {: #retrieving-information-about-a-design-document}
 
 Two endpoints provide you with more information about
-design documents: [`_info`](#the-info-endpoint) and [`_search_info`](#thesearch_info-endpoint).
+design documents: [`_info`](#the-info-endpoint) and [`_search_info`](#the-search_info-endpoint).
 
 ### The `_info` endpoint
 {: #the-info-endpoint}
@@ -1420,7 +1425,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -1561,7 +1566,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});

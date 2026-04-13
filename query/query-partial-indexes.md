@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-04-04"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: cloudant query, create index, json index type, text index type, partial index
 
@@ -46,7 +46,7 @@ To improve response time, you can create an index that excludes documents
 with `status: { $ne: archived }` at index time by using 
 `partial_filter_selector` shown in the following example:
 
-```json
+```http
 POST /db/_index HTTP/1.1
 Content-Type: application/json
 Content-Length: 144
@@ -85,4 +85,3 @@ by a `use_index` field, so you must modify the original query:
 
 Technically, you don't need to include the filter on the `status` field in the
 query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of partial indexes).
-

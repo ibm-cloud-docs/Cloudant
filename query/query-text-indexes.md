@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-09-19"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: cloudant query, create index, text index type, performance
 
@@ -41,7 +41,7 @@ Generally,
 you must put each text index into its own design document.
 
 For more information,
-see the [more about `text` indexes](/docs/Cloudant?topic=Cloudant-note-about-text-indexes).
+see the [more about `text` indexes](https://docs.couchdb.org/en/stable/ddocs/mango.html#text-indexes){: external}.
 
 See the following example of a JSON document that requests a partitioned index creation:
 
@@ -274,6 +274,7 @@ See the following example query to be converted:
 (age_3anumber:{5 TO Infinity])
 ```
 {: codeblock}
+{: node}
 
 ### A more complex example
 {: #a-more-complex-example}
@@ -363,3 +364,4 @@ The "#" comments aren't valid Lucene syntax, but help explain the query construc
 )
 ```
 {: codeblock}
+{: node}

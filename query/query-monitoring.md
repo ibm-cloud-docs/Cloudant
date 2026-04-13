@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-09-19"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: cloudant query, query parameters, query troubleshooting, query performance, monitor query usage, query scalability
 
@@ -49,6 +49,7 @@ When you ask for `execution_stats` as part of your request, the response {{site.
   "total_keys_examined": 172,
 }
 ```
+{: codeblock}
 
 The following table documents the `execution_stats` JSON structure shown above. Each field offers insight into how efficiently a query was processed and how much data was involved in the operation.
 
