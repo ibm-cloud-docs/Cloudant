@@ -274,6 +274,7 @@ See the following example query to be converted:
 (age_3anumber:{5 TO Infinity])
 ```
 {: codeblock}
+{: node}
 
 ### A more complex example
 {: #a-more-complex-example}
@@ -363,3 +364,4 @@ The "#" comments aren't valid Lucene syntax, but help explain the query construc
 )
 ```
 {: codeblock}
+{: node}

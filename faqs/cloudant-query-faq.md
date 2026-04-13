@@ -22,7 +22,7 @@ subcollection: Cloudant
 
 {{site.data.keyword.cloudant_short_notm}} Query is accessed through the [`POST /{db}/_find`](https://cloud.ibm.com/apidocs/cloudant#postfind) API endpoint where the JSON specification of the query is passed in the HTTP POST body. For example, this query finds up to 10 documents where the `firstname` is "Charles" and the `surname` is "Dickens":
 
-```js
+```json
 {
   "selector": {
     "firstname": "Charles",
@@ -31,6 +31,7 @@ subcollection: Cloudant
   "limit": 10
 }
 ```
+{: codeblock}
 
 For more information, see [Selector Syntax](/docs/Cloudant?topic=Cloudant-selector-syntax).
 
@@ -39,7 +40,7 @@ For more information, see [Selector Syntax](/docs/Cloudant?topic=Cloudant-select
 
 Without a suitable secondary index, {{site.data.keyword.cloudant_short_notm}} Query scans each document in the database in turn until it has enough matches to satisfy the query. The larger the data set and the more documents it has to scan to find matching documents, the slower the response time. For faster performance, an {{site.data.keyword.cloudant_short_notm}} Query `_find` must be backed by a suitable secondary index. A secondary index is a pre-calculated data structure that allows {{site.data.keyword.cloudant_short_notm}} to quickly jump to the slice of data it needs without scanning irrelevant documents. For the `surname` fields, we call the [`POST /{db}/_index`](https://cloud.ibm.com/apidocs/cloudant#postindex) endpoint to pass the JSON index definition as the HTTP POST body:
 
-```js
+```json
 {
   "index": {
     "fields": ["firstname", "surname"]
@@ -49,6 +50,7 @@ Without a suitable secondary index, {{site.data.keyword.cloudant_short_notm}} Qu
   "type": "json"
 }
 ```
+{: codeblock}
 
 For more information, see [Creating an Index](/docs/Cloudant?topic=Cloudant-query).
 
@@ -57,7 +59,7 @@ For more information, see [Creating an Index](/docs/Cloudant?topic=Cloudant-quer
 
 Yes! The `_find` JSON syntax allows for a `sort` parameter to be provided listing the attribute or attributes to sort by. In this case, we are sorting by `date`:
 
-```js
+```json
 {
   "selector": {
     "firstname": "Charles",
@@ -67,10 +69,11 @@ Yes! The `_find` JSON syntax allows for a `sort` parameter to be provided listin
   "limit": 10
 }
 ```
+{: codeblock}
 
 A suitable index must be present that contains the `selector` fields and the `sort` fields. Otherwise, {{site.data.keyword.cloudant_short_notm}} refuses to execute the query. A suitable index definition for the previous query is shown next:
 
-```js
+```json
 {
    "index": {
       "fields": [
@@ -84,6 +87,7 @@ A suitable index must be present that contains the `selector` fields and the `so
    "type": "json"
 }
 ```
+{: codeblock}
 
 ## Can I sort in reverse order?
 {: #can-i-sort-in-reverse-order}
@@ -92,7 +96,7 @@ Yes! {{site.data.keyword.cloudant_short_notm}} Query supports sorting the result
 
 This query returns documents that match `firstname` and `surname` and sorts by `surname`/`firstname`/`date` descending:
 
-```js
+```json
 {
   "selector": {
     "firstname": "Charles",
@@ -106,11 +110,11 @@ This query returns documents that match `firstname` and `surname` and sorts by `
   "limit": 10
 }
 ```
-
+{: codeblock}
 
 A suitable index must be present that contains the `selector` fields and the `sort` fields. Otherwise, {{site.data.keyword.cloudant_short_notm}} refuses to execute the query. A suitable index definition for the previous query is shown next:
 
-```js
+```json
 {
    "index": {
       "fields": [
@@ -124,6 +128,7 @@ A suitable index must be present that contains the `selector` fields and the `so
    "type": "json"
 }
 ```
+{: codeblock}
 
 The previous index is suitable for both ascending and descending sort order.
 
@@ -149,7 +154,7 @@ Ideally, an {{site.data.keyword.cloudant_short_notm}} Query execution would need
 
 When you execute a query, passing `execution_stats: true` as an extra parameter forces {{site.data.keyword.cloudant_short_notm}} to enumerate the number of documents it scanned in performing the query, for example:
 
-```js
+```json
 {
   "selector": {
     "firstname": "Charles",
@@ -160,10 +165,11 @@ When you execute a query, passing `execution_stats: true` as an extra parameter 
   "execution_stats": true
 }
 ```
+{: codeblock}
 
 The returned data now includes an extra JSON object:
 
-```js
+```json
 {
   ...
   "execution_stats": {
@@ -175,6 +181,7 @@ The returned data now includes an extra JSON object:
   }
 }
 ```
+{: codeblock}
 
 The ratio between `total_docs_examined` and `results_returned` is key here: a high value indicates that too many documents are being scanned per document that is returned. 
 
@@ -199,7 +206,7 @@ Yes! {{site.data.keyword.cloudant_short_notm}} Query supports two types of index
 
 A `type=text` index is created with an index definition like this:
 
-```js
+```json
 {
    "index": {
       "fields": [
@@ -213,12 +220,13 @@ A `type=text` index is created with an index definition like this:
    "type": "text"
 }
 ```
+{: codeblock}
 
 Notice that the `fields` array requires each attribute to be named and typed (unlike `type=json` indexes).
 
 The resultant index can be used by queries that contain one or more of the indexed fields:
 
-```js
+```json
 {
   "selector": {
     "surname": "Dickens"
@@ -228,6 +236,7 @@ The resultant index can be used by queries that contain one or more of the index
   "execution_stats": true
 }
 ```
+{: codeblock}
 
 The Lucene-backed indexes allow some extra flexibility over `type=json` indexes. You can use one, some, or all of your indexed fields in any order, and the index supports the query. With `type=json` indexes, the query must match all of the indexed fields to be useful.
 
@@ -240,7 +249,7 @@ Yes! If your use case requires that queries are performed within the confines of
 
 A _partial_ index is created by passing a `partial_filter_selector` to the `POST /{db}/_index` method. In this example, only hardback books that have a status of "published" or "reprint" make it to the index. See the following example:
 
-```js
+```json
 {
   "index": {
     "partial_filter_selector": {
@@ -253,14 +262,15 @@ A _partial_ index is created by passing a `partial_filter_selector` to the `POST
     "fields": ["firstname","surname","date"]
   },
   "ddoc" : "partialindexes",
-  "name": "byNameAndDate"
+  "name": "byNameAndDate",
   "type" : "json"
 }
 ```
+{: codeblock}
 
 At query time, the `use_index` field must be supplied to tell {{site.data.keyword.cloudant_short_notm}} that you want it to use the specified index:
 
-```js
+```json
 {
   "selector": {
       "$or": [
@@ -277,6 +287,7 @@ At query time, the `use_index` field must be supplied to tell {{site.data.keywor
   "use_index": "partialindexes/byNameAndDate"
 }
 ```
+{: codeblock}
 
 The `partial_filter_selector` fields are repeated in the query-time selector.
 {: note}
@@ -290,7 +301,7 @@ Yes! By default, an {{site.data.keyword.cloudant_short_notm}} Query index is _gl
 e
 To create a partitioned index on `firstname` and `surname`, the `POST /<dbname>/_index` is used:
 
-```js
+```json
 {
   "index": {
     "fields": ["firstname", "surname"]
@@ -301,6 +312,7 @@ To create a partitioned index on `firstname` and `surname`, the `POST /<dbname>/
   "partitioned": true
 }
 ```
+{: codeblock}
 
 Partitioned indexes can be used when you run only a partitioned query, for example, by using the [`GET /<dbname>/_partition/<partition key>/_find`](https://cloud.ibm.com/apidocs/cloudant?code=java#postpartitionfind-partitioned-databases) API endpoint.
 
@@ -316,8 +328,7 @@ Proceed with caution: if a query contains _only_ a `$regex` operator, then a sec
 
 A `$regex` operator can be tagged onto the end of an already performant query. For example, if we already have a `type=json` index on `firstname` and `surname`, we can use the following example:
 
-
-```js
+```json
 {
   "selector": {
     "firstname": "Charles",
@@ -329,5 +340,6 @@ A `$regex` operator can be tagged onto the end of an already performant query. F
   "limit": 10
 }
 ```
+{: codeblock}
 
 {{site.data.keyword.cloudant_short_notm}} uses the index to find documents by `firstname` and `surname` and winnows the result set that uses the regular expression on the `title` field.

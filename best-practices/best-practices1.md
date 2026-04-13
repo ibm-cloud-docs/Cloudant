@@ -66,16 +66,19 @@ If your model groups information that doesn’t change together, you’re more l
 
 Consider a situation where you have users, each with a set of orders associated with them. One way might be to represent the orders as an array in the user document:
 
-```json
+```jsonc
 { // DON'T DO THIS
-    "customer_id": 65522389,
-    "orders": [ {
+  "customer_id": 65522389,
+  "orders": [
+    {
       "order_id": 887865,
-      "items": [ {
+      "items": [
+        {
           "item_id": 9982,
           "item_name": "Iron sprocket",
           "cost": 53.0
-        }, {
+        },
+        {
           "item_id": 2932,
           "item_name": "Rubber wedge",
           "cost": 3.0

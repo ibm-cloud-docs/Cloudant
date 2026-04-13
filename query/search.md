@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-11-24"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create index, search index partitioning, index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -85,10 +85,12 @@ Your indexing functions operate in a memory-constrained environment where the do
 Within a search index, don't index the same field name with more than one data type. If the same field name is indexed with different data types in the same search index function, you might get an error. This error occurs when you query the search index that says the field `was indexed without position data`. For example, don't include both of these lines in the same search index function. These lines index the `myfield` field as two different data types, a string `"this is a string"` and a number `123`.
 
 
-```json
+```javascript
 index("myfield", "this is a string");
 index("myfield", 123);
 ```
+{: codeblock}
+{: node}
 
 The function that is contained in the index field is a JavaScript function
 that is called for each document in the database.
@@ -102,7 +104,7 @@ The first parameter is the name of the field that you intend to use when queryin
 which is specified in the Lucene syntax portion of later queries.
 An example appears in the following query:
 
-```java
+```http
 query=color:red
 ```
 {: codeblock}
@@ -112,7 +114,7 @@ The Lucene field name `color` is the first parameter of the `index` function.
 The `query` parameter can be abbreviated to `q`,
 so another way of writing the query is shown in the  following example.
 
-```java
+```http
 q=color:red
 ```
 {: codeblock}
@@ -121,7 +123,7 @@ If the special value `"default"` is used when you define the name,
 you don't have to specify a field name at query time.
 The effect is that the query can be simplified:
 
-```java
+```http
 query=red
 ```
 {: codeblock}
@@ -165,6 +167,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 ### Store vs include_docs=true
 {: #store-true-include_docs=true}
@@ -200,6 +203,7 @@ if (doc.min_length) {
 }
 ```
 {: codeblock}
+{: node}
 
 You might use the JavaScript `typeof` operator to implement the guard clause test.
 If the field exists and has the expected type,
@@ -226,6 +230,7 @@ if (typeof doc.min_length === 'number') {
 }
 ```
 {: codeblock}
+{: node}
 
 Use a generic guard clause test to ensure that the type of the candidate data field is defined.
 
@@ -238,6 +243,7 @@ if (typeof doc.min_length) !== 'undefined') {
 }
 ```
 {: codeblock}
+{: node}
 
 ## Analyzers
 {: #analyzers}
@@ -362,7 +368,8 @@ The default stop words for the `standard` analyzer are included in the following
  "in", "into", "is", "it", "no", "not", "of", "on", "or", "such", 
  "that", "the", "their", "then", "there", "these", "they", "this", 
  "to", "was", "will", "with" 
- ```
+```
+{: codeblock}
 
 See the following example that defines nonindexed ('stop') words:
 
@@ -521,6 +528,7 @@ curl "https://$ACCOUNT.cloudant.com/_search_analyze" -H "Content-Type: applicati
 	-d '{"analyzer":"standard", "text":"ablanks@renovations.com"}'
 ```
 {: codeblock}
+{: curl}
 
 See the following result of testing the `standard` analyzer:
 
@@ -1035,6 +1043,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 To use facets,
 all the documents in the index must include all the fields that have faceting enabled.
@@ -1055,6 +1064,7 @@ if (typeof doc.town == "string" && typeof doc.name == "string") {
     }
 ```
 {: codeblock}
+{: node}
 
 ### Counts
 {: #counts}
@@ -1214,8 +1224,9 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
-See the following example that uses HTTP for a query that sorts cities in the northern hemisphere by their distance to New York:
+See the following example that uses HTTP for a query that sorts cities in the Northern Hemisphere by their distance to New York:
 
 ```http
 GET /examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>" HTTP/1.1

@@ -128,6 +128,7 @@ function(newDoc, oldDoc, userCtx) {
 }
 ```
 {: codeblock}
+{: node}
 
 To use a `validate_doc_update` function to remove tombstone documents:
 

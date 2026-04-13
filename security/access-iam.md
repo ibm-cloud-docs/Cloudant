@@ -385,10 +385,11 @@ curl -k -X POST \
   "https://iam.cloud.ibm.com/identity/token"
 ```
 {: codeblock}
+{: curl}
 
 The `apiaccess` key returns the following information (abbreviated):
 
-```sh
+```json
 {
    "access_token": "eyJraWQiOiIyMDE5MD...tIwkCO9A",
    "refresh_token": "ReVbNrHo3UA38...mq67g",
@@ -419,10 +420,11 @@ curl -k -X PUT \
      'https://d43caf1b-e2c8-4d3e-9b85-1d04839fa68f-bluemix.cloudant.com/_replicator'
 ```
 {: codeblock}
+{: curl}
 
 See the results in the following example:
 
-```sh
+```json
 {"ok": "true"}
 ```
 {: codeblock}
@@ -432,7 +434,7 @@ See the results in the following example:
 
 Create a file called `data.json` that contains the following information. The two keys are the Source and Target API keys that are created in the beginning, and the Source and Target instance URLs, with database names added.
 
-```sh
+```json
 {
   "source": {
     "url": "https://d43caf1b-e2c8-4d3e-9b85-1d04839fa68f-bluemix.cloudant.com/source",
@@ -465,10 +467,11 @@ curl -k -X PUT \
      'https://d43caf1b-e2c8-4d3e-9b85-1d04839fa68f-bluemix.cloudant.com/_replicator/source_dest' -d@data.json
 ```
 {: codeblock}
+{: curl}
 
 See the results in the following example:
 
-```sh
+```json
 {"ok":true,"id":"source_dest","rev":"1-89b01e42968acd5944ed657b87c49f0c"}
 ```
 {: codeblock}
@@ -607,6 +610,7 @@ if __name__ == "__main__":
     main(API_KEY, ACCOUNT)
 ```
 {: codeblock}
+{: python}
 
 ## Using IAM IP allowlisting with Cloudant
 {: #using-iam-allowlisting}

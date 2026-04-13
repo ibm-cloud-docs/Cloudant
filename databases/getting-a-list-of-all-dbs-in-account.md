@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-06-03"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -59,7 +59,7 @@ service.getAllDbs().then(response => {
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1

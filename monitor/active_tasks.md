@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-08-04"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -54,6 +54,7 @@ curl "https://$ACCOUNT.cloudant.com/_active_tasks" \
 	-u $ACCOUNT
 ```
 {: codeblock}
+{: curl}
 
 The returned structure includes the following fields for each task:
 

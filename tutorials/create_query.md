@@ -131,6 +131,7 @@ To run the query, follow these steps:
         -d \@query1.json
     ```
     {: codeblock}
+    {: curl}
 
 3.  Review the query results:
     ```json
@@ -212,6 +213,7 @@ To run the query, follow these steps:
         -d \@query2.json
     ```
     {: codeblock}
+    {: curl}
 
 3.  Review the query results:
     ```json
@@ -293,6 +295,7 @@ To run the query, follow these steps:
         -d \@query3.json
     ```
     {: codeblock}
+    {: curl}
 
 3.  Review the query results:
     ```json

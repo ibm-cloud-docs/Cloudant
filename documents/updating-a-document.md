@@ -107,7 +107,7 @@ service.postDocument({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import Document, CloudantV1

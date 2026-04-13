@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-11-24"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -415,6 +415,8 @@ See the following examples:
   }
 }
 ```
+{: codeblock}
+
 ```json
 {
   "_id": "_design/lookup",
@@ -426,6 +428,7 @@ See the following examples:
   }
 }
 ```
+{: codeblock}
 
 ## View freshness
 {: #view-freshness}
@@ -1242,6 +1245,8 @@ function(user) {
   }
 }
 ```
+{: codeblock}
+{: node}
 
 See the example request that uses HTTP to obtain the full content of documents that match the listed keys within a partition:
 

@@ -404,7 +404,7 @@ service.putSecurity({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1, SecurityObject
@@ -485,5 +485,3 @@ See the following example response from a modification request:
 }
 ```
 {: codeblock}
-
- 

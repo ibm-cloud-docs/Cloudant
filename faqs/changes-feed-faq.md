@@ -158,6 +158,7 @@ function(doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 This view can be queried to return any documents that are modified on or after a supplied date and time:
 

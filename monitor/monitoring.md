@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-02"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: syntax of monitoring request, monitoring endpoints, monitoring metrics, monitoring requests
 
@@ -66,6 +66,7 @@ All requests to the monitoring API have the following form:
 curl -u $ADMIN_USER "https://$ADMIN_USER.cloudant.com/_api/v2/monitoring/$END_POINT?cluster=$CLUSTER[&format=(json|raw)]"
 ```
 {: codeblock}
+{: curl}
 
 The fields are described in the following table:
 
@@ -122,6 +123,7 @@ See an example monitoring request for disk use data returned in `JSON` format:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See an example result after you request disk use data in `JSON` format:
 
@@ -173,6 +175,7 @@ See an example monitoring request for disk use data returned in `raw` format:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=raw"
 ```
 {: codeblock}
+{: curl}
 
 See an example result after you request disk use data in `raw` format:
 
@@ -209,6 +212,7 @@ See an example showing how to obtain a list of the currently supported monitorin
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring"
 ```
 {: codeblock}
+{: curl}
 
 See an example response that lists the available monitoring endpoints:
 
@@ -254,6 +258,8 @@ See an example of a `connections` monitoring request:
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&node=myloadbalancername&format=json"
 ```
+{: codeblock}
+{: curl}
 
 The response includes a data series for the following connection states:
 
@@ -364,6 +370,7 @@ The response includes a data series for the following connection states:
    ]
 }
 ```
+{: codeblock}
 
 You must explicitly specify the load balancer in the request.
 
@@ -376,6 +383,7 @@ See an example of a `disk_use` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from a `disk_use` monitoring request:
 
@@ -442,6 +450,7 @@ See an example of a `kv_emits` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/kv_emits?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from a `kv_emits` monitoring request:
 
@@ -486,6 +495,7 @@ See an example of a `map_doc` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/map_doc?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from a `map_doc` monitoring request:
 
@@ -527,6 +537,8 @@ See example results (abbreviated) from a `map_doc` monitoring request:
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&node=myloadbalancername&format=json"
 ```
+{: codeblock}
+{: curl}
 
 ```json
 {
@@ -554,6 +566,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=mycluster
     ]
 }
 ```
+{: codeblock}
 
 You must explicitly specify the load balancer in the request. 
 
@@ -566,6 +579,7 @@ See an example of a `rate/status_code` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/status_code?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from a `rate/status_code` monitoring request:
 
@@ -660,6 +674,7 @@ See an example of a `rate/verb` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/verb?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from a `rate/verb` monitoring request:
 
@@ -790,6 +805,7 @@ See an example of a `response_time` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/response_time?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from a `response_time` monitoring request:
 
@@ -937,6 +953,7 @@ See an example of an `rps` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rps?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from an `rps` monitoring request:
 
@@ -977,6 +994,7 @@ See an example of a `wps` monitoring request:
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/wps?cluster=myclustername&format=json"
 ```
 {: codeblock}
+{: curl}
 
 See example results (abbreviated) from a `wps` monitoring request:
 

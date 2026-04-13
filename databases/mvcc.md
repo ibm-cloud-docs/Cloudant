@@ -83,6 +83,7 @@ function (doc) {
 }
 ```
 {: codeblock}
+{: node}
 
 You might regularly query this view and resolve conflicts as needed,
 or query the view after each replication.
@@ -276,7 +277,7 @@ service.deleteDocument({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1

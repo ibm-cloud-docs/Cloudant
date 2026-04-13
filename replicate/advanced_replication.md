@@ -169,6 +169,7 @@ function(doc, req) {
 }
 ```
 {: codeblock}
+{: node}
 
 Filters are stored under the topmost `filters` key of the design document.
 

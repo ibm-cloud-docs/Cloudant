@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-04-13"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -105,6 +105,8 @@ To understand better if your index definition is affected, please consider the f
   }
 }
 ```
+{: codeblock}
+{: node}
 
 This definition _would not be affected_ by the bug.  All the field analyzers are defined as strings `"spanish"` and `"german"`.  Here is an example that _would be affected_.
 
@@ -128,6 +130,8 @@ This definition _would not be affected_ by the bug.  All the field analyzers are
   }
 }
 ```
+{: codeblock}
+{: node}
 
 In that case, the `spanish` field would be analyzed by the Standard Analyzer.
 
@@ -2155,10 +2159,10 @@ The following changes were made in build 6276:
 Error message
 :   An error message changed that occurs when you try to put a document attachment with a nonexistent revision. Now, the error is a 409 error with the following information:
 
-    ```json
-    {"error":"not_found","reason":"missing_rev"}
-    ```
-    {: codeblock}
+```json
+{"error":"not_found","reason":"missing_rev"}
+```
+{: codeblock}
 
 ## June 2017
 {: #cloudant-jun17}
@@ -2179,10 +2183,10 @@ The following changes were made in build 6233:
 Revised error message
 :   The error message that occurs when you try to put a document attachment with a nonexistent revision. This error is changed to a 409 error with the following information:
 
-    ```sh
-    {"error":"not_found","reason":"missing_rev"}
-    ```
-    {: codeblock}
+```json
+{"error":"not_found","reason":"missing_rev"}
+```
+{: codeblock}
 
 ## May 2017
 {: #cloudant-may17}

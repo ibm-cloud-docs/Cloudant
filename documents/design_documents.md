@@ -168,7 +168,8 @@ curl "$SERVICE_URL/users/_design/allusers" \
 	-H "Content-Type: application/json" \
 	-H "Destination: _design/copyOfAllusers"
 ```
-
+{: codeblock}
+{: curl}
 
 See the following example response to the copy request:
 
@@ -250,6 +251,7 @@ curl "$SERVICE_URL/users/_design/allusers?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5
 	-H "Destination: _design/copyOfAllusers"
 ```
 {: codeblock}
+{: curl}
 
 ### Copying to an existing design document
 {: #copying-to-an-existing-design-document}
@@ -276,6 +278,7 @@ curl "$SERVICE_URL/users/_design/allusers" \
 	-H "Destination: _design/copyOfAllusers?rev=1-9c65296036141e575d32ba9c034dd3ee"
 ```
 {: codeblock}
+{: curl}
 
 The return value is the ID and new revision of the copied document.
 
@@ -353,7 +356,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -535,7 +538,7 @@ See the following example design document that includes a filter function:
 
 See the following example of a filter function:
 
-```node
+```javascript
 function(doc, req){
 	// we need only `mail` documents
 	if (doc.type != 'mail'){
@@ -549,6 +552,7 @@ function(doc, req){
 }
 ```
 {: codeblock}
+{: node}
 
 ### Changes feed filter functions
 {: #changes-feed-filter-functions}
@@ -608,7 +612,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -678,7 +682,7 @@ curl "$SERVICE_URL/$DATABASE/_changes?filter=$DDOC/$FILTER_FUNCTION&status=new"
 
 See the following example filter by using a supplied `req` argument:
 
-```node
+```javascript
 function(doc, req){
 	// we need only `mail` documents
 	if (doc.type != 'mail'){
@@ -692,6 +696,7 @@ function(doc, req){
 }
 ```
 {: codeblock}
+{: node}
 
 ### Predefined filter functions
 {: #predefined-filter-functions}
@@ -770,7 +775,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -908,7 +913,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -1055,7 +1060,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -1217,7 +1222,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -1307,7 +1312,7 @@ See the following example design document with an update validator:
 
 See the following example of an update validator:
 
-```node
+```javascript
 function(newDoc, oldDoc, userCtx, secObj) {
 	if (newDoc.address === undefined) {
 		throw({forbidden: 'Document must have an address.'});
@@ -1420,7 +1425,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});
@@ -1561,7 +1566,7 @@ System.out.println(response);
 {: codeblock}
 {: java}
 
-```node
+```javascript
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 
 const service = CloudantV1.newInstance({});

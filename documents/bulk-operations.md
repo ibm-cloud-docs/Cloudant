@@ -148,7 +148,7 @@ service.postBulkDocs({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import Document, CloudantV1, BulkDocs
@@ -571,7 +571,7 @@ service.postBulkDocs({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 The previous Go example requires the following import block:
 {: go}
@@ -794,6 +794,7 @@ See an example JavaScript to produce `forbidden` error as part of a validation f
 throw({forbidden: 'invalid recipe ingredient'});
 ```
 {: codeblock}
+{: node}
 
 See an example error message from a validation function:
 
@@ -961,7 +962,7 @@ service.postBulkGet(postBulkGetParams)
    });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 The previous Go example requires the following import block:
 {: go}

@@ -60,7 +60,7 @@ You can create more than one attachment for a document by ensuring that the `$AT
 
 See the following example for creating or updating an attachment by using HTTP:
 
-```HTTP
+```http
 PUT /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 Content-Type: $$ATTACHMENT_MIME_TYPE
 ```
@@ -129,7 +129,7 @@ service.putAttachment({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1
@@ -273,7 +273,7 @@ service.getAttachment({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1
@@ -388,7 +388,7 @@ service.deleteAttachment({
 });
 ```
 {: codeblock}
-{: javascript}
+{: node}
 
 ```python
 from ibmcloudant.cloudant_v1 import CloudantV1

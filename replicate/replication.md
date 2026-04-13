@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-06-23"
-
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
 
@@ -111,6 +110,8 @@ To create a database, send a `PUT` request to:
 ```http
 https://$ACCOUNT.cloudant.com/_replicator
 ```
+{: codeblock}
+
 For more information, see [Databases](/docs/Cloudant?topic=Cloudant-databases).
 
 To cancel a replication,

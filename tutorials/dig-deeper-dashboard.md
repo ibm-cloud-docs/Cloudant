@@ -34,7 +34,7 @@ You need to create a service instance in {{site.data.keyword.cloudant_short_notm
 
 1. Create some sample data that represents a book in a library as shown in the following example:
 
-    ```javascript
+    ```json
     {
       "_id": "BXP9G5ZQY9Q4EA13",
       "author": "Dickens",
@@ -109,14 +109,14 @@ To create an index, we can tell {{site.data.keyword.cloudant_short_notm}} to cre
 3. Select New Indexes from the Design Documents menu.
 4. Copy and paste the following index definition:
 
-   ```javascript
+   ```json
    {
       "index": {
          "fields": [
             "publisher", "year"
          ]
       },
-      "name": "publisher-year-index",indexingdashboard5
+      "name": "publisher-year-index",
       "type": "json"
    }
    ```
@@ -170,6 +170,7 @@ Unlike {{site.data.keyword.cloudant_short_notm}} Query, you *must* specify the f
    }
    ```
    {: codeblock}
+   {: node}
 
 7. Choose the "Standard Analyzer".
 
@@ -209,6 +210,7 @@ For more information, see the following resources:
    }
    ```
    {: codeblock}
+   {: node}
 
    See an example of the window in the following screen capture:
 

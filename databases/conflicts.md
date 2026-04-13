@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2022
-lastupdated: "2022-11-11"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -66,13 +66,15 @@ which includes a list of all the conflicting revisions.
 
 See the following example map function to find document conflicts:
 
-```sh
+```javascript
 function (doc) {
   if (doc._conflicts) {
     emit(null, [doc._rev].concat(doc._conflicts));
   }
 }
 ```
+{: codeblock}
+{: node}
 
 To find conflicts for multiple documents in a database,
 write a [view](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce).
@@ -105,6 +107,7 @@ See the following example document of the first version:
   "price": 650
 }
 ```
+{: codeblock}
 
 Let's consider a scenario for this example.
 Suppose you have a database of products for an online shop.
@@ -121,6 +124,7 @@ See the following second version (first revision) of the document that adds a de
   "price": 650
 }
 ```
+{: codeblock}
 
 The document doesn't have a description yet,
 so someone might add one.
@@ -136,6 +140,7 @@ See the following *alternative* second version that introduces a price reduction
   "price": 600
 }
 ```
+{: codeblock}
 
 At the same time, someone else, working with a replicated database, reduces the price.
 This change is made to the first version of the document.
@@ -170,6 +175,7 @@ See the following example response to document retrieval that shows conflicting 
   "_conflicts":["2-61ae00e029d4f5edd2981841243ded13"]
 }
 ```
+{: codeblock}
 
 If the document has any conflicts,
 you would get a response similar to the example provided,
@@ -244,6 +250,7 @@ See the following final revisions after you resolve and merge changes from the p
   "price": 600
 }
 ```
+{: codeblock}
 
 After you assess and resolve the conflicts,
 you create a document that includes the current and definitive data.
@@ -259,6 +266,7 @@ DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd298184
 
 DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121
 ```
+{: codeblock}
 
 In the final step, you delete the old revisions.
 You delete the old revisions by sending a `DELETE` request,

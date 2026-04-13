@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-01-09"
+  years: 2015, 2026
+lastupdated: "2026-04-13"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -127,6 +127,7 @@ See an example of obtaining and formatting a list of active tasks:
 curl "$SERVICE_URL/_active_tasks" | jq
 ```
 {: codeblock}
+{: curl}
 
 ## Monitoring view builds and search indexes
 {: #monitoring-view-builds-and-search-indexes}
@@ -158,6 +159,7 @@ See an example of finding all view indexing tasks by filtering for the `indexer`
 curl -s "$SERVICE_URL/_active_tasks" | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
+{: curl}
 
 See an example of finding all search indexing tasks by filtering for the `search_indexer` type:
 
@@ -165,6 +167,7 @@ See an example of finding all search indexing tasks by filtering for the `search
 curl -s "$SERVICE_URL/_active_tasks" | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
+{: curl}
 
 See example results after you search for view indexing tasks:
 
@@ -212,6 +215,7 @@ See the example of extracting the `changes_done` field by using `jq`:
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 ```
 {: codeblock}
+{: curl}
 
 ## Monitoring replication
 {: #monitoring-replication}
@@ -231,6 +235,7 @@ See an example of finding all replication tasks, by filtering for the `replicati
 curl -s "$SERVICE_URL/_active_tasks" | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
+{: curl}
 
 See an example of finding a specific replication task, by filtering for a known document identity:
 
@@ -238,6 +243,7 @@ See an example of finding a specific replication task, by filtering for a known 
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
+{: curl}
 
 See an example of finding a specific replication task, by filtering for a known `replication_id`:
 
@@ -245,6 +251,7 @@ See an example of finding a specific replication task, by filtering for a known 
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
+{: curl}
 
 See an example result after you search for a replication task:
 
