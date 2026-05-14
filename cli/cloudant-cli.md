@@ -2,11 +2,13 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-05-14"
 
 subcollection: Cloudant
 
 keywords: Cloudant CLI, Cloudant command line,  Cloudant terminal, Cloudant shell
+
+content-type: cli-docs
 
 ---
 
