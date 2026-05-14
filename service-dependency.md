@@ -1,12 +1,13 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-08"
+  years: 2024, 2026
+lastupdated: "2026-05-14"
 
 keywords:
 
 subcollection: Cloudant
+
 
 ---
 
@@ -38,7 +39,7 @@ Minimal
 ## Data deployment
 {: #data-deployment}
 
-The following dependencies apply to the following deployment locations: Amsterdam 03, Chennai - Airtel (in-che), Chennai 01, Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Milan 01, Montreal 01, Osaka (jp-osa), San Jose 01, San Jose 03, San Jose 04, Sao Paulo (br-sao), Singapore 01, Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
+The following dependencies apply to the following deployment locations: Amsterdam 03, Chennai - Airtel (in-che), Chennai 01, Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Montreal 01, Osaka (jp-osa), San Jose 03, San Jose 04, Sao Paulo (br-sao), Singapore 01, Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -149,6 +150,8 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 ## Understanding service dependency data
 {: #understand-dependency-data}
+
+
 
 If you have any questions about the service dependency data as you review the service dependency information in the tables, you can refer to the following FAQ:
 
