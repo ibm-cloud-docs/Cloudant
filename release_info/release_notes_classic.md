@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-05-21"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -46,6 +46,44 @@ To enhance security, Cloudant will enable temporary lockout of accounts in the c
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## May 2026
+{: #cloudant-may26}
+
+### 21 May 2026
+{: #Cloudant-may2126}
+{: release-note}
+
+The following changes were made in build 8701:
+
+`/_all_dbs` and `/_dbs_info` endpoints
+:   These endpoints now correctly return a 404 error when called with extra path segments, improving API consistency.
+
+`/{db}/_bulk_docs` endpoint
+:   Fixed an issue where bulk document operations would fail when the database exceeded its data quota. You can now delete documents in bulk even when over quota.
+
+`/{db}/_changes` endpoint
+:   The endpoint now returns entries since Unix time 0 if the `time_seq` parameter is before Unix time 0.
+
+`/{db}/_find` endpoint
+:   The endpoint now errors with `507` when there is not enough room to update index.
+
+Optimization
+:   Improved view query performance by introducing B-tree cache for views. This enhancement significantly benefits concurrent view queries.
+:   Enhanced view building performance for faster index updates.
+:   Improved replicator performance for more efficient data synchronization.
+:   Improved cluster index cleanup processes for better stability and performance.
+:   Optimized JSON encoding and decoding.
+
+Replicator
+:   Improved handling of the `since_seq` parameter for more reliable replication.
+
+Runtime environment
+:   Upgrade the runtime environment to the latest Erlang/OTP 27 patch release.
+
+Query
+:   Improved query performance by pre-parsing selector fields.
+:   Better error handling for document update operations.
 
 ## February 2026
 {: #cloudant-feb26}
