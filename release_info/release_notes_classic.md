@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-05-21"
+lastupdated: "2026-06-18"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -46,6 +46,16 @@ To enhance security, Cloudant will enable temporary lockout of accounts in the c
 
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
+
+## June 2026
+{: #cloudant-jun26}
+
+## 17 June 2026
+{: #cloudant-jun1726}
+{: release-note}
+
+Replicator
+:   Fixed replication jobs with Mango selectors unexpectedly rewinding and restarting from the beginning.
 
 ## May 2026
 {: #cloudant-may26}
