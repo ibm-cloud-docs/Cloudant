@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-14"
+lastupdated: "2026-06-26"
 
 subcollection: Cloudant
 
@@ -183,10 +183,10 @@ ibmcloud cloudant url \
 {: #cloudant-global-options-example}
 
 ```sh
-ibmcloud cloudant
+ibmcloud cloudant \
     --output=json \
     --jmes-query="[:10]" \
-    --service-url="https://myservice.cloud.ibm.com"
+    --service-url="https://myservice.cloud.ibm.com" \
     --quiet
 ```
 {: pre}
@@ -285,7 +285,7 @@ Commands for Server resource.
 View the amount of provisioned throughput capacity that is allocated to an IBM Cloudant instance and what is the target provisioned throughput capacity.
 
 ```sh
-ibmcloud cloudant capacity
+ibmcloud cloudant capacity [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -363,7 +363,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Sets the target provisioned throughput capacity for an IBM Cloudant instance. When target capacity is changed, the current capacity asynchronously changes to meet the target capacity.
 
 ```sh
-ibmcloud cloudant capacity-update --blocks BLOCKS
+ibmcloud cloudant capacity-update --blocks BLOCKS [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -454,7 +454,7 @@ Commands for Monitoring resource.
 Check event types sent to IBM Cloud Activity Tracker Event Routing for the IBM Cloudant instance.
 
 ```sh
-ibmcloud cloudant events-config
+ibmcloud cloudant events-config [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -515,7 +515,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Configure event types sent to IBM Cloud Activity Tracker Event Routing for the IBM Cloudant instance.
 
 ```sh
-ibmcloud cloudant events-config-update --types management,data
+ibmcloud cloudant events-config-update --types management,data [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -555,7 +555,7 @@ Example Ok response.
 View the current consumption of provisioned throughput capacity for an IBM Cloudant instance. The current consumption shows the quantities of reads, writes, and global queries conducted against the instance for a given second.
 
 ```sh
-ibmcloud cloudant throughput
+ibmcloud cloudant throughput [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
