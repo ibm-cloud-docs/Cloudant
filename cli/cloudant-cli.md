@@ -2,11 +2,11 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-06"
 
 subcollection: Cloudant
 
-keywords: Cloudant CLI, Cloudant command line,  Cloudant terminal, Cloudant shell
+keywords: Cloudant CLI, Cloudant command line,  Cloudant terminal, Cloudant shell, Gen 1 CLI
 
 content-type: cli-docs
 
@@ -26,6 +26,8 @@ content-type: cli-docs
 The {{site.data.keyword.cloud}} Command Line Interface (CLI) provides more capabilities for service offerings. You can use {{site.data.keyword.cloudant_short_notm}} CLI plug-in to manage throughput details and event types sent from your {{site.data.keyword.cloudant_short_notm}} account to {{site.data.keyword.atracker_full_notm}}.
 {: shortdesc}
 
+The {{site.data.keyword.cloudant_short_notm}} CLI plug-in is for Gen 1 instances only. For Gen 2 instances use the {{site.data.keyword.cloud}} CLI `resource` command.
+{: tip}
 
 
 
