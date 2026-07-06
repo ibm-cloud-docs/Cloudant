@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: cloudant query, query parameters, query troubleshooting, query performance, monitor query usage, query scalability, performance, indexes, text indexes, json indexes, application scaling, building scalable databases
 
@@ -157,7 +157,7 @@ If you don't supply `use_index`, then `allow_fallback: false` will still prevent
 
 This will return an error if no suitable user-defined index exists, avoiding an expensive scan.
 
-See the [Query API documentation](/apidocs/cloudant#postfind) for more details on these query parameters.
+See the [Query API documentation](/docs/apis/cloudant/cloudant-gen1#postfind) for more details on these query parameters.
 
 Consistently combining `use_index` with `allow_fallback` is recommended practice for critical queries.
 {: tip}
@@ -433,7 +433,7 @@ Partial indexes are ideal when:
 ### Creating partial indexes
 {: #advanced-creating-partial-indexes}
 
-[Use `partial_filter_selector`](/apidocs/cloudant#postfind) to specify which documents to include:
+[Use `partial_filter_selector`](/docs/apis/cloudant/cloudant-gen1#postfind) to specify which documents to include:
 
 ```json
 {
@@ -566,7 +566,7 @@ const commonQueries = [
 {: codeblock}
 {: node}
 
-The [`_explain` endpoint](/apidocs/cloudant#postexplain) will contain `"covering": true` when an index is found that can cover the query.
+The [`_explain` endpoint](/docs/apis/cloudant/cloudant-gen1#postexplain) will contain `"covering": true` when an index is found that can cover the query.
 
 ## Advanced: index consolidation strategy
 {: #advanced-index-consolidation-strategy}

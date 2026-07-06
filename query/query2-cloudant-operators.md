@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter, pagination
 
@@ -437,7 +437,7 @@ Other condition operators require the argument to be in a specific JSON format.
 | Array         | `$in`     | Array of JSON values | The document field must exist in the list provided. |
 |              | `$nin`    | Array of JSON values | The document field must not exist in the list provided. |
 |              | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields can't match this condition. |
-| Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/apidocs/cloudant#list-of-http-codes){: external}. Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer. |
+| Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}. Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer. |
 |              | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression. |
 {: caption="Condition operator argument requirements" caption-side="top"}
 
@@ -839,7 +839,7 @@ The `$mod` operator matches documents where the expression (`field % Divisor == 
 and only when the document field is an integer.
 The Divisor and Remainder must be integers.
 They can be positive or negative integers.
-A query where the Divisor or Remainder is a non-integer returns a [404 status](/apidocs/cloudant#list-of-http-codes){: external}.
+A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}.
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudantfull}} `$mod` operator uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: external}. Both the [Erlang `rem` modulo operator](https://www.erlang.org/doc/system/expressions.html){: external}, and the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: external},

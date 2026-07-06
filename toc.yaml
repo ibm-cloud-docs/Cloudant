@@ -198,7 +198,7 @@ toc:
           - offerings/cloudant.com.md
       - link:
           label: API & SDK reference docs
-          href: https://cloud.ibm.com/apidocs/cloudant
+          href: https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1
       - topicgroup:
           label: CLI
           topics:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -23,7 +23,7 @@ In other words,
 independent updates can be made to different copies of documents. The effect of these updates might be to introduce disagreement or "conflicts" as to what is the correct, definitive content for the document.
 
 {{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
-It warns you by returning a [`409` response](/apidocs/cloudant#list-of-http-codes){: external} to a problematic update request.
+It warns you by returning a [`409` response](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} to a problematic update request.
 However,
 a `409` response might not be received if the database update is requested on a
 system that isn't currently connected to the network.

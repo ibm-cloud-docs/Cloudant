@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-08-11"
+  years: 2017, 2026
+lastupdated: "2026-07-06"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index  partition search, tutorials, cardinality, partitioned
 
@@ -161,7 +161,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ## Document structure
@@ -229,7 +229,7 @@ curl -X PUT "$SERVICE_URL/readings/_design/infrastructure-mapping" -H 'Content-T
 ```
 {: codeblock}
 
-For more language examples that show creating a global view, see the [Storing the view definition](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#storing-the-view-definition) guide, or [the Create or modify a design document section in API Docs](/apidocs/cloudant#putdesigndocument).
+For more language examples that show creating a global view, see the [Storing the view definition](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#storing-the-view-definition) guide, or [the Create or modify a design document section in API Docs](/docs/apis/cloudant/cloudant-gen1#putdesigndocument).
 
 ### Creating a partitioned {{site.data.keyword.cloudant_short_notm}} Query index
 {: #creating-a-paritioned-ibm-cloudant-query-index}
@@ -392,7 +392,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 #### Uploading partitioned index by device ID and timestamp
@@ -555,7 +555,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ## Making queries
@@ -667,7 +667,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ### Finding recent readings for a piece of infrastructure
@@ -794,7 +794,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ### Finding the infrastructure ID for a device
@@ -826,7 +826,7 @@ curl -X POST "$SERVICE_URL/readings/_design/infrastructure-mapping/_view/by-devi
 ```
 {: codeblock}
 
-For more language examples that show querying a global view, see the [Query a MapReduce view in API Docs](/apidocs/cloudant#postview).
+For more language examples that show querying a global view, see the [Query a MapReduce view in API Docs](/docs/apis/cloudant/cloudant-gen1#postview).
 
 The previous command returns the following response:
 
@@ -975,7 +975,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ### Querying for recent results for a device
@@ -1121,5 +1121,5 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}

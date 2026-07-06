@@ -75,7 +75,7 @@ To reduce the risk of man-in-the-middle attacks, follow these guidelines:
 -	Ensure that web applications that run on allowed origin domains are trusted
 	and do not have security vulnerabilities.
 
-For more information, see the [API and SDK documentation](/apidocs/cloudant#getcorsinformation){: external} about the configuration endpoints for CORS.
+For more information, see the [API and SDK documentation](/docs/apis/cloudant/cloudant-gen1#getcorsinformation){: external} about the configuration endpoints for CORS.
 
 ## Dashboard
 {: #dashboard}
@@ -90,7 +90,7 @@ To see the current CORS configuration,
 open **Account** > **CORS** in the dashboard.
 
 You can enable or disable CORS by using `Enable CORS`.
-This setting corresponds to the [`enable_cors` option](/apidocs/cloudant#putcorsconfiguration){: external}.
+This setting corresponds to the [`enable_cors` option](/docs/apis/cloudant/cloudant-gen1#putcorsconfiguration){: external}.
 when you change the CORS configuration from within an application.
 
 To specify that CORS is enabled for all domains,

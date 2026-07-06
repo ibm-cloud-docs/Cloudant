@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-09-23"
+  years: 2017, 2026
+lastupdated: "2026-07-06"
 
 keywords: delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -191,7 +191,7 @@ suitable for the following tasks:
     be sure to remove the user information after the protocol and before the hostname.
     {: tip}
 
-4. Get the server information with the [`get_server_information` API](/apidocs/cloudant?code=python#getserverinformation) to validate the connection.
+4. Get the server information with the [`get_server_information` API](/docs/apis/cloudant/cloudant-gen1?code=python#getserverinformation) to validate the connection.
 
     ```python
     client.get_server_information().get_result()
@@ -221,7 +221,7 @@ called `databasedemo`.
     ```
     {: codeblock}
 
-2. Create the database using the [`put_database` API](/apidocs/cloudant?code=python#putdatabase).
+2. Create the database using the [`put_database` API](/docs/apis/cloudant/cloudant-gen1?code=python#putdatabase).
 
     ```python
     client.put_database(db=database_name).get_result()
@@ -286,7 +286,7 @@ simple collection of data in the database. Use these data in other tutorials, li
     Python dictionaries are suitable for making JSON documents.
     {: tip}
 
-4. Create documents using the [`post_document` API](/apidocs/cloudant?code=python#postdocument).
+4. Create documents using the [`post_document` API](/docs/apis/cloudant/cloudant-gen1?code=python#postdocument).
 
     ```python
     for doc in sample_docs:
@@ -300,7 +300,7 @@ simple collection of data in the database. Use these data in other tutorials, li
     {: tip}
 
     For creating or modifying large numbers of documents in a single request there is a
-    [`post_bulk_docs` API](/apidocs/cloudant?code=python#postbulkdocs).
+    [`post_bulk_docs` API](/docs/apis/cloudant/cloudant-gen1?code=python#postbulkdocs).
     {: tip}
 
     Validate that the output is similar to the following example.
@@ -320,7 +320,7 @@ simple collection of data in the database. Use these data in other tutorials, li
 {: #retrieving-data}
 {: step}
 
-1. Retrieve a list of documents in the database using the [`post_all_docs` API](/apidocs/cloudant?code=python#postalldocs).
+1. Retrieve a list of documents in the database using the [`post_all_docs` API](/docs/apis/cloudant/cloudant-gen1?code=python#postalldocs).
 
     ```python
     all_docs_result = client.post_all_docs(db=database_name).get_result()
@@ -369,7 +369,7 @@ This notion doesn't necessarily apply to document-oriented databases, such as {{
     You can also store the ID from the response after creating the document.
     {: tip}
 
-2. Retrieve the document content using the [`get_document` API](/apidocs/cloudant?code=python#getdocument).
+2. Retrieve the document content using the [`get_document` API](/docs/apis/cloudant/cloudant-gen1?code=python#getdocument).
 
     ```python
     client.get_document(db=database_name, doc_id=first_doc_id).get_result()
@@ -386,7 +386,7 @@ This notion doesn't necessarily apply to document-oriented databases, such as {{
 {: #deleting-the-database}
 {: step}
 
-1. Delete the database using the [`delete_database` API](/apidocs/cloudant?code=python#deletedatabase).
+1. Delete the database using the [`delete_database` API](/docs/apis/cloudant/cloudant-gen1?code=python#deletedatabase).
 
     ```python
     try:

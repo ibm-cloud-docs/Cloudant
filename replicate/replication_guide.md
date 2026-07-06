@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -201,7 +201,7 @@ in both the source and destination databases.
 Checkpoints allow a replication task to be resumed from where it stopped,
 without having to start from the beginning.
 Checkpoint creation can be prevented by supplying the
-[`"use_checkpoints": false`](/apidocs/cloudant#postreplicate){: external} option when you request replication.
+[`"use_checkpoints": false`](/docs/apis/cloudant/cloudant-gen1#postreplicate){: external} option when you request replication.
 It is helpful to leave the feature on if your replication is to resume efficiently from its last known position.
 
 ## Permissions
@@ -228,7 +228,7 @@ on a per-database basis.
 
 ![API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} Dashboard, on a per-database basis.](../images/replication_guide_5.png){: caption="{{site.data.keyword.cloudant_short_notm}} users and API keys with permissions" caption-side="bottom"}
 
-They can also be created [programmatically](/apidocs/cloudant#introduction) by using the {{site.data.keyword.cloudant_short_notm}} API.
+They can also be created [programmatically](/docs/apis/cloudant/cloudant-gen1#introduction) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
 For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys) rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication), and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization) documentation.
 {: important}
@@ -256,7 +256,7 @@ data flows continuously.
 All subsequent changes to the source database are transmitted to the target database in real time.
 
 Continuous replication is triggered by clicking the `Make this replication continuous` check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or by setting the [`continuous`](/apidocs/cloudant#postreplicate){: external} flag in the {{site.data.keyword.cloudant_short_notm}} API.
+or by setting the [`continuous`](/docs/apis/cloudant/cloudant-gen1#postreplicate){: external} flag in the {{site.data.keyword.cloudant_short_notm}} API.
 
 Two-way replication can be made continuous in one or both of the directions,
 by setting the `continuous` flag.
@@ -476,7 +476,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 See the following example of a JSON document that defines a continuous replication:
@@ -799,7 +799,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 See the following example of a JSON document that defines a filtered replication:
@@ -840,7 +840,7 @@ See the following example of a JSON document that defines a filtered replication
 {{site.data.keyword.cloudant_short_notm}} publishes the adds,
 edits,
 and deletes affecting a database through a single HTTP feed from
-the [`_changes` endpoint](/apidocs/cloudant#postchanges-databases).
+the [`_changes` endpoint](/docs/apis/cloudant/cloudant-gen1#postchanges-databases).
 This feed can be used by your application to trigger events.
 You can access the feed by using HTTP or `curl`,
 as shown in the examples.
@@ -935,7 +935,7 @@ curl "$SERVICE_URL/$DATABASE/_changes?feed=continuous&include_docs=true&since=no
 
 Accessing the `_changes` data programmatically is straightforward.
 For example,
-see the SDK examples in the [{{site.data.keyword.cloudant_short_notm}} API docs](/apidocs/cloudant#postchanges-databases)
+see the SDK examples in the [{{site.data.keyword.cloudant_short_notm}} API docs](/docs/apis/cloudant/cloudant-gen1#postchanges-databases)
 to follow changes with a few lines of code.
 
 The following list includes some example use cases:
@@ -990,7 +990,7 @@ the credentials that are supplied must have:
 - `_reader` and `_replicator` permissions on database "a".
 - `_writer` permissions on database "b".
 
-API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](/apidocs/cloudant){: external}.
+API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or through the [API](/docs/apis/cloudant/cloudant-gen1){: external}.
 Each key can be given individual permissions that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.
@@ -1090,7 +1090,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 #### Get conflicts from replication document
@@ -1194,7 +1194,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ### Cancel all replications
@@ -1300,7 +1300,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 #### Re-create the replicator database
@@ -1389,7 +1389,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ### Many simultaneous replications

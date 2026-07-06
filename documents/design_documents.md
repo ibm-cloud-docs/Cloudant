@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create design document, update design document, copy design document, filter functions, update validators, partitioned index, global index
 
@@ -710,7 +710,7 @@ A number of predefined filter functions are available:
 :   Accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
 
 [`_selector`](#the-selector-filter)
-:   Accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/apidocs/cloudant#postfind){: external} as described in the Request section, which is used for [`_find`](/apidocs/cloudant#getdatabaseinformation){: external}.
+:   Accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/docs/apis/cloudant/cloudant-gen1#postfind){: external} as described in the Request section, which is used for [`_find`](/docs/apis/cloudant/cloudant-gen1#getdatabaseinformation){: external}.
 
 [`_view`](#the-view-filter)
 :   With this function, you can use an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
@@ -996,7 +996,7 @@ See the following example response (abbreviated) after you filter by `_docs_ids`
 {: #the-selector-filter}
 
 The `_selector` filter accepts only changes for documents that match a specified selector, which is defined by using the same [selector syntax](/docs/Cloudant?topic=Cloudant-selector-syntax) that is used
-for [`_find`](/apidocs/cloudant#postfind){: external}.
+for [`_find`](/docs/apis/cloudant/cloudant-gen1#postfind){: external}.
 
 For more examples that show use of this filter,
 see the information on [selector syntax](/docs/Cloudant?topic=Cloudant-selector-syntax).
@@ -1293,7 +1293,7 @@ Update validators require four arguments:
 |----------|--------|
 | `newDoc`  | The version of the document passed in the request. |
 | `oldDoc`  | The version of the document currently in the database, or `null` if none exists. |
-| `secObj`  | The [security object](/apidocs/cloudant#getsecurity){: external} for the database. |
+| `secObj`  | The [security object](/docs/apis/cloudant/cloudant-gen1#getsecurity){: external} for the database. |
 | `userCtx` | Context regarding the currently authenticated user, such as `name` and `roles`. |
 {: caption="Arguments for the update validator" caption-side="top"}
 

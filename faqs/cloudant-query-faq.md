@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: cloudant query, how to use, create an index, sort search results, sort reverse order, efficient query, partitioned databases
 
@@ -20,7 +20,7 @@ subcollection: Cloudant
 ## How do I use {{site.data.keyword.cloudant_short_notm}} Query?
 {: #how-do-i-use-cloudant-query}
 
-{{site.data.keyword.cloudant_short_notm}} Query is accessed through the [`POST /{db}/_find`](https://cloud.ibm.com/apidocs/cloudant#postfind) API endpoint where the JSON specification of the query is passed in the HTTP POST body. For example, this query finds up to 10 documents where the `firstname` is "Charles" and the `surname` is "Dickens":
+{{site.data.keyword.cloudant_short_notm}} Query is accessed through the [`POST /{db}/_find`](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1#postfind) API endpoint where the JSON specification of the query is passed in the HTTP POST body. For example, this query finds up to 10 documents where the `firstname` is "Charles" and the `surname` is "Dickens":
 
 ```json
 {
@@ -38,7 +38,7 @@ For more information, see [Selector Syntax](/docs/Cloudant?topic=Cloudant-select
 ## How do I create an index to support an {{site.data.keyword.cloudant_short_notm}} Query?
 {: #how-do-i-create-an-index-to-support}
 
-Without a suitable secondary index, {{site.data.keyword.cloudant_short_notm}} Query scans each document in the database in turn until it has enough matches to satisfy the query. The larger the data set and the more documents it has to scan to find matching documents, the slower the response time. For faster performance, an {{site.data.keyword.cloudant_short_notm}} Query `_find` must be backed by a suitable secondary index. A secondary index is a pre-calculated data structure that allows {{site.data.keyword.cloudant_short_notm}} to quickly jump to the slice of data it needs without scanning irrelevant documents. For the `surname` fields, we call the [`POST /{db}/_index`](https://cloud.ibm.com/apidocs/cloudant#postindex) endpoint to pass the JSON index definition as the HTTP POST body:
+Without a suitable secondary index, {{site.data.keyword.cloudant_short_notm}} Query scans each document in the database in turn until it has enough matches to satisfy the query. The larger the data set and the more documents it has to scan to find matching documents, the slower the response time. For faster performance, an {{site.data.keyword.cloudant_short_notm}} Query `_find` must be backed by a suitable secondary index. A secondary index is a pre-calculated data structure that allows {{site.data.keyword.cloudant_short_notm}} to quickly jump to the slice of data it needs without scanning irrelevant documents. For the `surname` fields, we call the [`POST /{db}/_index`](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1#postindex) endpoint to pass the JSON index definition as the HTTP POST body:
 
 ```json
 {
@@ -135,7 +135,7 @@ The previous index is suitable for both ascending and descending sort order.
 ## How can I tell if an index is backing a query?
 {: #how-can-i-tell-if-an-index-is-backing-a-query}
 
-The [`POST /{db}/_explain`](https://cloud.ibm.com/apidocs/cloudant?code=java#postexplain) API endpoint when passed a JSON object that is usually sent to the [`POST /{db}/_find`](https://cloud.ibm.com/apidocs/cloudant#postfind) endpoint, explains how such a query is handled and which indexes, if any, might be used.
+The [`POST /{db}/_explain`](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=java#postexplain) API endpoint when passed a JSON object that is usually sent to the [`POST /{db}/_find`](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1#postfind) endpoint, explains how such a query is handled and which indexes, if any, might be used.
 
 If the `index` object in the response indicates that "all_docs" is being used, a full database scan is required to service the query. We recommend that you use the `_explain` mechanism to check each {{site.data.keyword.cloudant_short_notm}} query to ensure it is using an index before you deploy to production.
 
@@ -190,7 +190,7 @@ For more information, see [Blog post on Optimizing {{site.data.keyword.cloudant_
 ## Which {{site.data.keyword.cloudant_short_notm}} Query operators defeat the use of an index?
 {: #which-cq-operators-defeat-index}
 
-Any of the [combination operators](/docs/Cloudant?topic=Cloudant-operators) other than `$and` can make a query do a full database scan without the help of a secondary index. For example, if an `$or` operator is used, then no secondary index can be used to assist the query. If in doubt, use the [`POST /{db}/_explain`](https://cloud.ibm.com/apidocs/cloudant?code=java#postexplain) endpoint to check that an index is used, and the `execution_stats: true` parameter to measure the efficiency of each query.
+Any of the [combination operators](/docs/Cloudant?topic=Cloudant-operators) other than `$and` can make a query do a full database scan without the help of a secondary index. For example, if an `$or` operator is used, then no secondary index can be used to assist the query. If in doubt, use the [`POST /{db}/_explain`](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=java#postexplain) endpoint to check that an index is used, and the `execution_stats: true` parameter to measure the efficiency of each query.
 
 For a `type=json` index to be used to support a query, it must match the fields that are used in the selector and sort parameters. Comparison operators might be used on the last element to perform _range queries_.
 
@@ -314,7 +314,7 @@ To create a partitioned index on `firstname` and `surname`, the `POST /<dbname>/
 ```
 {: codeblock}
 
-Partitioned indexes can be used when you run only a partitioned query, for example, by using the [`GET /<dbname>/_partition/<partition key>/_find`](https://cloud.ibm.com/apidocs/cloudant?code=java#postpartitionfind-partitioned-databases) API endpoint.
+Partitioned indexes can be used when you run only a partitioned query, for example, by using the [`GET /<dbname>/_partition/<partition key>/_find`](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=java#postpartitionfind-partitioned-databases) API endpoint.
 
 For more information, see [Creating a partial index](/docs/Cloudant?topic=Cloudant-partial-indexes).
 

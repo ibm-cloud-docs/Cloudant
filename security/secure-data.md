@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption, byok, encryption
 
@@ -54,7 +54,7 @@ for you to control access to data:
 | Feature | Description |
 |--------|------------|
 |Authentication | {{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. {{site.data.keyword.cloudant_short_notm}} supports both legacy and IAM access controls. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or the legacy [Authentication document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication). |
-| Authorization | {{site.data.keyword.cloudant_short_notm}} supports both legacy and IAM access controls. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](/apidocs/cloudant#introduction){: external} rather than account-level credentials for programmatic access and replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or the legacy [Authentication document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) and the legacy [Authorization document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization). |
+| Authorization | {{site.data.keyword.cloudant_short_notm}} supports both legacy and IAM access controls. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you're using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](/docs/apis/cloudant/cloudant-gen1#introduction){: external} rather than account-level credentials for programmatic access and replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or the legacy [Authentication document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication) and the legacy [Authorization document](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization). |
 | At-rest encryption | All data that is stored in an {{site.data.keyword.cloudant_short_notm}} instance is encrypted at rest by using LUKS1 with 256-bit Advanced Encryption Standard (AES-256). By default, {{site.data.keyword.cloudant_short_notm}} manages the encryption keys for all environments.  If you require bring-your-own-key (BYOK) encryption for encryption-at-rest, you enable it by using your encryption key that is stored in an {{site.data.keyword.cloud_notm}} Key Protect instance. {{site.data.keyword.cloudant_short_notm}} supports the BYOK feature for new {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances that are deployed in all regions. For more information, see the [Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud) tutorial for details on how to choose BYOK at provisioning time. |
 | In-flight encryption | All access to {{site.data.keyword.cloudant_short_notm}} is encrypted by using HTTPS. |
 | Client-side encryption | Customers can use client-side encryption to ensure that the data protection is controlled by the data owner and the data is never visible to the service provider. |
@@ -92,7 +92,7 @@ To delete a document, follow these steps:
 
    The document is selected for compaction. 
 
-For more information, see [Delete a document](/apidocs/cloudant#deletedocument) in the API Reference documentation. 
+For more information, see [Delete a document](/docs/apis/cloudant/cloudant-gen1#deletedocument) in the API Reference documentation. 
 
 ### Deleting {{site.data.keyword.cloudant_short_notm}} instances
 {: #service-delete}
@@ -113,7 +113,7 @@ To delete a database, follow these steps:
 A database deletion cannot be undone.
 {: important}
 
-For more information, see [Delete a database](/apidocs/cloudant#deletedatabase) in the API Reference documentation.
+For more information, see [Delete a database](/docs/apis/cloudant/cloudant-gen1#deletedatabase) in the API Reference documentation.
 
 The {{site.data.keyword.cloudant_short_notm}} data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.cloudant_short_notm}} service description, which you can find in the {{site.data.keyword.cloud_notm}} Terms and Notices.
 

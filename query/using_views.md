@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -211,7 +211,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 See the example to retrieve a list of the first 10 documents from a database, applying the user-created `getVerifiedEmails` view.
@@ -319,7 +319,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 See the following example response to the request:
@@ -621,7 +621,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 See the example response of requesting the records in reverse sort order:
@@ -781,7 +781,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 For example, if you have a database that returns one result when you use a `start_key` of `alpha`
@@ -909,7 +909,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 
@@ -1042,7 +1042,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 ## Querying a view by using a list of keys
@@ -1181,7 +1181,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 The response contains the standard view information,
@@ -1220,8 +1220,8 @@ See the example response after you run a query by using a list of keys:
 ## Pagination
 {: #querying-a-view-pagination}
 
-Use [key-based pagination](/apidocs/cloudant#key-pagination) for views.
-For specific details and examples see the API documentation topic [Paging on view queries](/apidocs/cloudant#paging-on-view-queries).
+Use [key-based pagination](/docs/apis/cloudant/cloudant-gen1#key-pagination) for views.
+For specific details and examples see the API documentation topic [Paging on view queries](/docs/apis/cloudant/cloudant-gen1#paging-on-view-queries).
 
 ## Multi-document fetching
 {: #multi-document-fetching}
@@ -1381,7 +1381,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 See the example (abbreviated) response, returning the full document for each appliance that matches a provided key:

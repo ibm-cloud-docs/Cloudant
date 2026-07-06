@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -175,7 +175,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 If you `POST` to the `_all_docs/queries` endpoint, it runs multiple specified built-in view queries of all documents 
@@ -442,10 +442,10 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
-The previous example requires the getVerifiedEmails view to exist. To create the design document with this view, see [Create or modify a design document](https://cloud.ibm.com/apidocs/cloudant#putdesigndocument){: external}.The previous Go example also requires an import for `github.com/IBM/go-sdk-core/v5/core`.
+The previous example requires the getVerifiedEmails view to exist. To create the design document with this view, see [Create or modify a design document](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1#putdesigndocument){: external}.The previous Go example also requires an import for `github.com/IBM/go-sdk-core/v5/core`.
 {: go}
 
 Multiple queries are supported by the `_view` endpoint, 

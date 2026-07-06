@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -99,7 +99,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 Now, you learn how to use the `_active_tasks` endpoint to monitor long-running tasks.
@@ -308,7 +308,7 @@ the database.
 {: #what-to-do-about-a-stuck-task-}
 
 To resolve a stalled replication,
-you might have to [cancel the replication process](/apidocs/cloudant#deletereplicationdocument){: external} and start it again.
+you might have to [cancel the replication process](/docs/apis/cloudant/cloudant-gen1#deletereplicationdocument){: external} and start it again.
 
 If that doesn't help,
 the replication might be stalled because the user who is accessing the source or target databases

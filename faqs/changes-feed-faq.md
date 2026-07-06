@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: changes feed, filtered replication, using changes feed
 
@@ -19,7 +19,7 @@ subcollection: Cloudant
 
 An {{site.data.keyword.cloudant_short_notm}} database's changes feed's primary use-case is to power the replication of data from a source to a target database. The {{site.data.keyword.cloudant_short_notm}} replicator is built to handle the changes feed and runs the necessary checks to ensure data is copied accurately to its destination.
 
-{{site.data.keyword.cloudant_short_notm}} has a raw [changes feed API](https://cloud.ibm.com/apidocs/cloudant#getchanges-changes){: external} that can be used to consume a single database's changes but it must be used with care. 
+{{site.data.keyword.cloudant_short_notm}} has a raw [changes feed API](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1#getchanges-changes){: external} that can be used to consume a single database's changes but it must be used with care. 
 
 The `_changes` API endpoint can be used in several ways and can output data in various formats. But here we focus on best practice and how to avoid some pitfalls when you develop against the `_changes` API.
 

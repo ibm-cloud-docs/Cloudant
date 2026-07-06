@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -48,8 +48,8 @@ The `GET` and `POST` `$SERVICE_URL/$DATABASE/_all_docs` operations fetch data fr
 ## Pagination
 {: #get-documents-pagination}
 
-Use [key-based pagination](/apidocs/cloudant#key-pagination) for all documents.
-For specific details and examples see the API documentation topic [Paging on all documents](/apidocs/cloudant#paging-on-all-documents).
+Use [key-based pagination](/docs/apis/cloudant/cloudant-gen1#key-pagination) for all documents.
+For specific details and examples see the API documentation topic [Paging on all documents](/docs/apis/cloudant/cloudant-gen1#paging-on-all-documents).
 
 ## Notes
 {: #get-documents-notes}
@@ -164,7 +164,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 See the following example that uses HTTP to list all documents in a database that match at least one of the specified keys:
@@ -277,7 +277,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 

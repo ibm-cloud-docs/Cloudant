@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, $doc_id endpoint, /_scheduler/jobs endpoint, $job_id endpoint
 
@@ -24,7 +24,7 @@ You can learn about advanced replication concepts and tasks, such as the ones in
 
 You might also find it helpful to review details of the underlying
 [replication protocol](https://docs.couchdb.org/en/stable/replication/protocol.html){: external},
-and review the [API reference](/apidocs/cloudant#introduction){: external} documentation.
+and review the [API reference](/docs/apis/cloudant/cloudant-gen1#introduction){: external} documentation.
 
 ## Replication database maintenance
 {: #replication-database-maintenance}
@@ -67,14 +67,14 @@ The transition between these states is illustrated in the following diagram:
 
 The scheduler introduces two new endpoints:
 
-- [`/_scheduler/docs`](/apidocs/cloudant#getschedulerdocs){: external}
-- [`/_scheduler/jobs`](/apidocs/cloudant#getschedulerjobs){: external}
+- [`/_scheduler/docs`](/docs/apis/cloudant/cloudant-gen1#getschedulerdocs){: external}
+- [`/_scheduler/jobs`](/docs/apis/cloudant/cloudant-gen1#getschedulerjobs){: external}
 
 You can manage and determine replication status more quickly and easily by using these endpoints.
 
 See the typical process for using the replication scheduler to manage and monitor replications:
 
-1.  Create a [replication document](/apidocs/cloudant#putreplicationdocument){: external} that describes the needed replication, and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
+1.  Create a [replication document](/docs/apis/cloudant/cloudant-gen1#putreplicationdocument){: external} that describes the needed replication, and store the document in the [replicator database](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
 ## Authentication during replication
@@ -82,7 +82,7 @@ See the typical process for using the replication scheduler to manage and monito
 
 In any production application, security of the source and target databases is essential.
 In order for replication to continue, authentication is necessary to access the databases.
-Checkpoints for replication are [enabled by default](/apidocs/cloudant#postreplicate){: external},
+Checkpoints for replication are [enabled by default](/docs/apis/cloudant/cloudant-gen1#postreplicate){: external},
 which means that replicating the source database requires write access.
 
 To enable authentication during replication,
@@ -159,7 +159,7 @@ A filter function returns a `true` or `false` value.
 If the result is true,
 the document is replicated.
 
-To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/apidocs/cloudant#postfind){: external} documentation. 
+To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/docs/apis/cloudant/cloudant-gen1#postfind){: external} documentation. 
 
 See the following example of a filter function:
 
@@ -251,7 +251,7 @@ See example JSON for starting a filtered replication with supplied parameters:
 ```
 {: codeblock}
 
-The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/apidocs/cloudant#postfind){: external} documentation.
+The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/docs/apis/cloudant/cloudant-gen1#postfind){: external} documentation.
 
 ### Eliminating conflicts that use replication
 {: #eliminate-conflicts-using-replication}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-05-19"
+  years: 2019, 2026
+lastupdated: "2026-07-06"
 
 keywords: principal, action, resource, timestamp, access audit logs, activity tracker
 
@@ -165,7 +165,7 @@ import (
 {: go}
 
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 
@@ -295,7 +295,7 @@ import (
 {: go}
 
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 

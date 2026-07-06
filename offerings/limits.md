@@ -47,12 +47,12 @@ Limits that pertain to the usage of {{site.data.keyword.cloudantfull}} databases
 |Single attachment size|10 MB|
 {: caption="Limits for request payload" caption-side="top"}
 
-If you exceed these limits, a [413 response](/apidocs/cloudant#list-of-http-codes){: external} alerts you.
+If you exceed these limits, a [413 response](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} alerts you.
 
 When you replicate, documents or attachments that exceed these
 limits don't replicate to the target database. For more information
 about how to detect replication errors, see [Replication
-errors](/apidocs/cloudant#getreplicationdocument){: external}.
+errors](/docs/apis/cloudant/cloudant-gen1#getreplicationdocument){: external}.
 
 ## Request timeouts
 {: #request-timeouts}

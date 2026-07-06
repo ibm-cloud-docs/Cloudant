@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
 
@@ -117,7 +117,7 @@ For more information, see [Databases](/docs/Cloudant?topic=Cloudant-databases).
 To cancel a replication,
 you `DELETE` the replication document.
 The fields that are supplied in the replication document are
-described in the [Create or modify a replication operation](/apidocs/cloudant#postreplicate){: external} description under Request information.
+described in the [Create or modify a replication operation](/docs/apis/cloudant/cloudant-gen1#postreplicate){: external} description under Request information.
 
 All design documents and `_local` documents that are added to the `/_replicator` database are ignored.
 {: note}

@@ -121,7 +121,7 @@ For this approach, you need to set the `CLOUDANT_URL` environment variable.
 
 You can define this variable two ways:
 1. Export them as environment variables, for example `export CLOUDANT_URL=...`.
-2. Store them in a [credentials file](/apidocs/cloudant?code=go#authentication-with-external-configuration).
+2. Store them in a [credentials file](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration).
 
 As an alternative to `ibmcloud login`, you can set the environment variable `CLOUDANT_APIKEY` to an IAM API key.
 {: tip}

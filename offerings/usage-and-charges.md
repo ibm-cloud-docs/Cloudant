@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-09-03"
+  years: 2015, 2026
+lastupdated: "2026-07-06"
 
 keywords: standard plan, lite plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits 
 
@@ -94,23 +94,23 @@ The different request classes are as follows:
 | **Writes** | Operations that create, update, or delete documents. | <ul><li>Creating a document</li><li>Updating a document</li><li>Deleting a document</li><li>Updating multiple documents ([`_bulk_docs`][bulkdocs]{: external})</li></ul> |
 | **Global Queries** | Queries that access global indexes (not partition-specific). | <ul><li>Global queries using:<ul><li>Primary Index ([`_all_docs`][galldocs]{: external})</li><li>View ([`_view`][gmrview]{: external})</li><li>Search ([`_search`][gsearchindex]{: external})</li><li>Cloudant Query ([`_find`][gqueryfind]{: external})</li></ul></li></ul> |
 
-[galldocs]: /apidocs/cloudant#postalldocs
-[gmrview]: /apidocs/cloudant#postview
-[gsearchindex]: /apidocs/cloudant#postsearch
-[gqueryfind]: /apidocs/cloudant#postfind
-[palldocs]: /apidocs/cloudant#postpartitionalldocs
-[pmrview]: /apidocs/cloudant#postpartitionview
-[psearchindex]: /apidocs/cloudant#postpartitionsearch
-[pqueryfind]: /apidocs/cloudant#postpartitionfind-partitioned-databases
-[bulkdocs]: /apidocs/cloudant#postbulkdocs
-[bulkget]: /apidocs/cloudant#postbulkget
+[galldocs]: /docs/apis/cloudant/cloudant-gen1#postalldocs
+[gmrview]: /docs/apis/cloudant/cloudant-gen1#postview
+[gsearchindex]: /docs/apis/cloudant/cloudant-gen1#postsearch
+[gqueryfind]: /docs/apis/cloudant/cloudant-gen1#postfind
+[palldocs]: /docs/apis/cloudant/cloudant-gen1#postpartitionalldocs
+[pmrview]: /docs/apis/cloudant/cloudant-gen1#postpartitionview
+[psearchindex]: /docs/apis/cloudant/cloudant-gen1#postpartitionsearch
+[pqueryfind]: /docs/apis/cloudant/cloudant-gen1#postpartitionfind-partitioned-databases
+[bulkdocs]: /docs/apis/cloudant/cloudant-gen1#postbulkdocs
+[bulkget]: /docs/apis/cloudant/cloudant-gen1#postbulkget
 
 The number of read and write operations that are used by partition-scoped query
 requests, bulk document reads and bulk document writes varies depending on the
 number of documents processed.
 
 For any HTTP request to {{site.data.keyword.cloudant_short_notm}}, you can check the `X-Cloudant-Request-Class`
-[response header](/apidocs/cloudant#response-headers) to see the class
+[response header](/docs/apis/cloudant/cloudant-gen1#response-headers) to see the class
 of the request.
 {: tip}
 
@@ -125,7 +125,7 @@ query allowance, writes and reads can still continue. Once your application
 reduces the number of requests it is making, new requests will be allowed within
 a few seconds.
 
-When a request is rejected, your application receives a HTTP [`429` Too Many Requests](/apidocs/cloudant#list-of-http-codes){: external} response with a description of the error.
+When a request is rejected, your application receives a HTTP [`429` Too Many Requests](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} response with a description of the error.
 
 If your application regularly receives `429` responses, consider increasing the number of provisioned throughput capacity units allocated to your instance.
 
@@ -216,7 +216,7 @@ The cost is calculated as follows:
 | 250 | 250 | **253** | 3 | 250 |
 {: caption="Read consumption" caption-side="top"}
 
-For cost-efficient use of partition-scoped {{site.data.keyword.cloudant_short_notm}} Query, you must take care to create indexes that reduce the number of documents read for a query. The [`_explain` endpoint for partition-scoped queries](/apidocs/cloudant#postpartitionexplain-partitioned-databases) provides detailed execution plans to help you with this task.
+For cost-efficient use of partition-scoped {{site.data.keyword.cloudant_short_notm}} Query, you must take care to create indexes that reduce the number of documents read for a query. The [`_explain` endpoint for partition-scoped queries](/docs/apis/cloudant/cloudant-gen1#postpartitionexplain-partitioned-databases) provides detailed execution plans to help you with this task.
 {: tip}
 
 ## Consumption of read and write operations by replication
