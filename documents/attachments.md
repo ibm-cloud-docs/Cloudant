@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -40,7 +40,7 @@ For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
 
-Attachments aren't permitted on documents in [`_replicator`](/apidocs/cloudant#postreplicate){: external} or [`_users`](/apidocs/cloudant#putsecurity){: external} databases.
+Attachments aren't permitted on documents in [`_replicator`](/docs/apis/cloudant/cloudant-gen1#postreplicate){: external} or [`_users`](/docs/apis/cloudant/cloudant-gen1#putsecurity){: external} databases.
 {: important}
 
 ## Create or update
@@ -186,7 +186,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 The response includes the document ID and the new document revision.
@@ -322,7 +322,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 ## Delete an attachment
@@ -332,7 +332,7 @@ To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you don't supply the most recent `_rev`,
-the response is a [409 error](/apidocs/cloudant#list-of-http-codes){: external}.
+the response is a [409 error](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}.
 
 See the following example of deleting an attachment by using HTTP:
 
@@ -439,7 +439,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 If the deletion is successful,

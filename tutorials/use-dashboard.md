@@ -23,7 +23,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-By using the {{site.data.keyword.cloudantfull}} Dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/apidocs/cloudant#introduction){: external}.
+By using the {{site.data.keyword.cloudantfull}} Dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/docs/apis/cloudant/cloudant-gen1#introduction){: external}.
 {: shortdesc}
 
 ## Objectives
@@ -60,7 +60,7 @@ Now, you can create a database and run queries against it.
 {: #creating-a-database-dt}
 {: step}
 
-In this exercise, you create the `dashboard-demo` [database](/apidocs/cloudant#putdatabase){: external}, which 
+In this exercise, you create the `dashboard-demo` [database](/docs/apis/cloudant/cloudant-gen1#putdatabase){: external}, which 
 is the database that you use in this tutorial.
 
 1.  From the {{site.data.keyword.cloudant_short_notm}} Dashboard, click **Create database**.
@@ -181,7 +181,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query fi
 
     ![Query results](../images/dashboard_query1_results.png){: caption="Query results" caption-side="bottom"}
 
-For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/apidocs/cloudant#getindexesinformation){: external}.
+For more information, see the [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-query) tutorial or the API reference on [{{site.data.keyword.cloudant_short_notm}} Query](/docs/apis/cloudant/cloudant-gen1#getindexesinformation){: external}.
 
 ## Replicating a database
 {: #replicate-database-dt}

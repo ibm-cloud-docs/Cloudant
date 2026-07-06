@@ -24,7 +24,7 @@ The steps shown here demonstrate how to read a document:
 Recall that for a partitioned database the `$DOCUMENT_ID` is formed of a partition key part and a document key part.
 
 If you don't know the `_id` for a particular document,
-you can [query the database](/apidocs/cloudant#postalldocsqueries){: external} for all documents.
+you can [query the database](/docs/apis/cloudant/cloudant-gen1#postalldocsqueries){: external} for all documents.
 
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
 data written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
@@ -131,7 +131,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 The response contains the document that you requested,
@@ -199,5 +199,5 @@ All parameters are optional.
 {: #read-many-documents}
 
 To fetch more than one document at a time,
-[query the database](/apidocs/cloudant#postalldocs){: external}
+[query the database](/docs/apis/cloudant/cloudant-gen1#postalldocs){: external}
 by using the `include_docs` option.

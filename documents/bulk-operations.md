@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -243,7 +243,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 See an example JSON describing the update, creation, and deletion of three documents in one bulk request:
@@ -345,7 +345,7 @@ See an example JSON for a bulk insert of three documents:
 ```
 {: codeblock}
 
-The return code from a successful bulk insertion is [`201`](/apidocs/cloudant#list-of-http-codes){: external}.
+The return code from a successful bulk insertion is [`201`](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}.
 The content of the returned structure indicates success
 or other information messages on a per-document basis.
 
@@ -587,7 +587,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 See an example JSON structure to request bulk update of documents:
@@ -705,7 +705,7 @@ See an example JSON structure that is returned after bulk delete:
 ## Bulk documents transaction semantics
 {: #bulk-documents-transaction-semantics}
 
-If your request receives a [`202` response](/apidocs/cloudant#list-of-http-codes){: external},
+If your request receives a [`202` response](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external},
 the only certainty is that some of the document tasks were processed completely.
 The response body contains the list of documents that were successfully inserted or updated during the process.
 
@@ -811,7 +811,7 @@ See an example error message from a validation function:
 {: #the-bulk_get-endpoint}
 
 You might need to access all the available information about multiple documents.
-The `_bulk_get` endpoint is similar to the [`_all_docs`](/apidocs/cloudant#postalldocs){: external} endpoint,
+The `_bulk_get` endpoint is similar to the [`_all_docs`](/docs/apis/cloudant/cloudant-gen1#postalldocs){: external} endpoint,
 but returns information about the requested documents only.
 
 Like the `_bulk_docs` endpoint,
@@ -978,7 +978,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 See an example of a JSON object that uses `POST` to the `_bulk_get` endpoint:

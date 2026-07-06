@@ -5,7 +5,7 @@ toc:
     version: 2
     category: database
     audience: service
-    href: /docs/Cloudant?topic=Cloudant-getting-started-with-cloudant
+    href: /docs/Cloudant
     console-page: /docs/Cloudant
     product-page: https://www.ibm.com/cloud/cloudant
     path: Cloudant
@@ -198,7 +198,7 @@ toc:
           - offerings/cloudant.com.md
       - link:
           label: API & SDK reference docs
-          href: https://cloud.ibm.com/apidocs/cloudant
+          href: https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1
       - topicgroup:
           label: CLI
           topics:

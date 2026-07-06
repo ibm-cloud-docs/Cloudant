@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -31,7 +31,7 @@ The `_changes` endpoint accepts several optional query arguments:
 |----------------|-------------|------------------|---------|
 | `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False |
 | `descending`   | Return the changes in sequential order. | Boolean | False |
-| `doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](/apidocs/cloudant#getserverinformation){: external} documentation. | A JSON array of document IDs | 
+| `doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [`GET /`](/docs/apis/cloudant/cloudant-gen1#getserverinformation){: external} documentation. | A JSON array of document IDs | 
 | `feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"` |
 | `filter`       | Name of [filter function](/docs/Cloudant?topic=Cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=Cloudant-design-documents#design-documents). | `string` | No filter. |
 | `heartbeat`    | If no changes occurred during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | Any positive number | No heartbeat |
@@ -167,9 +167,9 @@ several built-in filters are available:
 :   This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
 
 `_selector`
-:   Returns changes for documents that match the `selector` request body parameter. The [selector syntax](/apidocs/cloudant#postfind){: external} is the same as the syntax that is used for [`_find`](/apidocs/cloudant#postexplain){: external}. If you want to use a selector filter, you must use the `POST` changes feed (as you can't supply a document body with a GET request). Use the `_selector` method of filtering instead of the `_view` filtering method because it's faster and easier to use.
+:   Returns changes for documents that match the `selector` request body parameter. The [selector syntax](/docs/apis/cloudant/cloudant-gen1#postfind){: external} is the same as the syntax that is used for [`_find`](/docs/apis/cloudant/cloudant-gen1#postexplain){: external}. If you want to use a selector filter, you must use the `POST` changes feed (as you can't supply a document body with a GET request). Use the `_selector` method of filtering instead of the `_view` filtering method because it's faster and easier to use.
 
-	For more information, see the [API documentation](https://cloud.ibm.com/apidocs/cloudant#getchanges-changes-request).
+	For more information, see the [API documentation](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1#getchanges-changes-request).
 
 `_view`
 :   Enables use of an existing [map function](/docs/Cloudant?topic=Cloudant-creating-views-mapreduce#a-simple-view) as the filter.
@@ -375,7 +375,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 When you `POST` to the `_changes` endpoint, you see an example similar to the following JSON object:
@@ -393,5 +393,5 @@ When you `POST` to the `_changes` endpoint, you see an example similar to the fo
 ## Pagination
 {: #getting-changes-pagination}
 
-Use the `since` parameter like a [bookmark](/apidocs/cloudant#bookmark-pagination) to paginate the changes feed.
-For specific details and examples see the API documentation topic [Paging the changes feed](/apidocs/cloudant#paging-the-changes-feed).
+Use the `since` parameter like a [bookmark](/docs/apis/cloudant/cloudant-gen1#bookmark-pagination) to paginate the changes feed.
+For specific details and examples see the API documentation topic [Paging the changes feed](/docs/apis/cloudant/cloudant-gen1#paging-the-changes-feed).

@@ -137,7 +137,7 @@ The process is described in the following steps:
 
 1. Create a replication with the same settings but new credentials.
 
-1. Monitor the new replication by using [Active Tasks](/docs/Cloudant?topic=Cloudant-active-tasks), or you can use [`_scheduler/jobs`](https://cloud.ibm.com/apidocs/cloudant#getschedulerjobs).
+1. Monitor the new replication by using [Active Tasks](/docs/Cloudant?topic=Cloudant-active-tasks), or you can use [`_scheduler/jobs`](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1#getschedulerjobs).
 
 1. Once the `changes_pending` field for the new replication is a suitably low value for your requirements, the replication that uses the previous credentials can be deleted.
 
@@ -145,4 +145,3 @@ The process is described in the following steps:
 
 Replications that use IAM API keys can be updated to use a new API key directly, without delaying the changes that are replicating.
 {: important}
-

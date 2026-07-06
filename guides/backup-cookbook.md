@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library, compress backup, schedule backup
 
@@ -214,7 +214,7 @@ The library is useful for more complicated scenarios,
 for example:
 
 - Backing up several databases in one task.
-   You might do this backup by identifying all the databases by using the [`_all_dbs`](/apidocs/cloudant#getalldbs){: external} call,
+   You might do this backup by identifying all the databases by using the [`_all_dbs`](/docs/apis/cloudant/cloudant-gen1#getalldbs){: external} call,
    then doing a backup of each database individually.
 - Longer pipelines increase the risk of errors.
    By using the CouchBackup library,

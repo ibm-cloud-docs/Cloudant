@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-11-24"
+  years: 2015, 2026
+lastupdated: "2026-07-06"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -61,5 +61,5 @@ Avoid Query for:
 ## Pagination
 {: #query-pagination}
 
-Use [bookmark pagination](/apidocs/cloudant#bookmark-pagination) for selector syntax queries.
-For specific details and examples see the API documentation topic [Paging on selector syntax queries](/apidocs/cloudant#paging-on-selector-syntax-queries).
+Use [bookmark pagination](/docs/apis/cloudant/cloudant-gen1#bookmark-pagination) for selector syntax queries.
+For specific details and examples see the API documentation topic [Paging on selector syntax queries](/docs/apis/cloudant/cloudant-gen1#paging-on-selector-syntax-queries).

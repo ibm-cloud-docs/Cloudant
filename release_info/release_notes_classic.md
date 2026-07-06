@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-07-06"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -1967,7 +1967,7 @@ Replaced `queries` parameter
    - `POST /{db}/_design_docs/queries`
 
 Sending several queries to a view
-:   Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/apidocs/cloudant#postviewqueries){: external}. For more information, see the previous deprecation note about replacing the `queries` parameter.
+:   Sending multiple queries to a view that uses a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` is deprecated with [multi-querying a MapReduce view](/docs/apis/cloudant/cloudant-gen1#postviewqueries){: external}. For more information, see the previous deprecation note about replacing the `queries` parameter.
 
 ### 4 April 2018
 {: #Cloudant-apr0418}
@@ -2007,7 +2007,7 @@ The following changes were made in build 6761:
 
 New! `_dbs_info` endpoint
 :   Introduce new `_dbs_info` endpoint to get information from a list of databases. See
-[Get a list of all databases in the instance](/apidocs/cloudant#getalldbs){: external}.
+[Get a list of all databases in the instance](/docs/apis/cloudant/cloudant-gen1#getalldbs){: external}.
 
 New! Pluggable storage engine
 :   Add a pluggable storage engine.
@@ -2037,7 +2037,7 @@ Session support
 The following changes were made in build 6656:
 
 Query parameters
-:   Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/apidocs/cloudant#postalldocs){: external}.
+:   Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/docs/apis/cloudant/cloudant-gen1#postalldocs){: external}.
 
 `COPY` request
 :   When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
@@ -2147,10 +2147,10 @@ Text indexes
 :   Queries that use text indexes no longer fail when `$exists`: `false` is used.
 
 Partial indexes
-:   Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](/apidocs/cloudant#postindex){: external} to learn about the `partial_filter_selector` parameter.
+:   Partial indexes are now supported for both JSON and text indexes. For more information, see [Creating a partial index](/docs/apis/cloudant/cloudant-gen1#postindex){: external} to learn about the `partial_filter_selector` parameter.
 
 Execution statistics
-:   Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](/apidocs/cloudant#postfind){: external} to learn more about `execution_stats=true` parameter.
+:   Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [querying an index by using selector syntax](/docs/apis/cloudant/cloudant-gen1#postfind){: external} to learn more about `execution_stats=true` parameter.
 
 Pagination
 :   [Pagination](/docs/Cloudant?topic=Cloudant-pagination-and-bookmarks) is supported by using the bookmark field. Bookmarks are enabled for all index types.
@@ -2180,7 +2180,7 @@ New! X-Frame-Options
 
    You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned.
 
-   This change might impact customers who are accessing the database directly from the browser. If you see the error message, "X-Frame-Options: DENY", and it's breaking your service, you must enable CORS by [modifying the CORS configuration](/apidocs/cloudant#putcorsconfiguration){: external}. After you enable CORS, add the value of the HOST header that you send in the request to the list of allowed `origins`.
+   This change might impact customers who are accessing the database directly from the browser. If you see the error message, "X-Frame-Options: DENY", and it's breaking your service, you must enable CORS by [modifying the CORS configuration](/docs/apis/cloudant/cloudant-gen1#putcorsconfiguration){: external}. After you enable CORS, add the value of the HOST header that you send in the request to the list of allowed `origins`.
 
 New! Replication scheduler
 :   Add the replication scheduler. Learn more about [replication scheduler](/docs/Cloudant?topic=Cloudant-advanced-replication#the-replication-scheduler).

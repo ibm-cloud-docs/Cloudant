@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: ping, ping account, cors, connect to your cloudant account, api keys, iam, authentication, basic authentication, cookie authentication, _users database
 
@@ -27,7 +27,7 @@ If you don't have an account yet, sign in to [{{site.data.keyword.cloudant_short
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspell your account name,
-you might get the following error, [*503: Service unavailable*](/apidocs/cloudant#list-of-http-codes){: external}. You can see the types of authentication that are available in the following list: 
+you might get the following error, [*503: Service unavailable*](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}. You can see the types of authentication that are available in the following list: 
 
 -    [{{site.data.keyword.cloud}} Identity and Access Management (IAM)](#authentication-iam)
 -    [Basic authentication](#basic-authentication)
@@ -75,7 +75,7 @@ followed by the [BASE64](https://en.wikipedia.org/wiki/Base64){: external} encod
 In practice,
 many application libraries that are used for creating HTTP requests can do this encoding for you.
 
-For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: external} on basic authentication.
+For more information, see [Security scheme](/docs/apis/cloudant/cloudant-gen1#security-scheme){: external} on basic authentication.
 
 ### Cookie authentication
 {: #cookie-authentication}
@@ -100,7 +100,7 @@ Using the `DELETE` method logs out the user because the cookie is considered exp
 | `DELETE` | `/_session` | Log out cookie-based user. | AuthSession cookie returned by POST request. | 
 {: caption="Cookie authentication and methods" caption-side="top"}
 
-For more information, see [Security scheme](/apidocs/cloudant#security-scheme){: external} on basic authentication.
+For more information, see [Security scheme](/docs/apis/cloudant/cloudant-gen1#security-scheme){: external} on basic authentication.
 
 ## Authorization
 {: #authorization}
@@ -168,8 +168,8 @@ The focused roles are defined in the following table:
 | Role | Description | API Endpoints |
 |-----|-------------|---------------|
 | `_design`     | Allows create, read, modify, or delete access to design documents. | [`_design`](/docs/Cloudant?topic=Cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes), [`_index`](/docs/Cloudant?topic=Cloudant-query#working-with-indexes) |
-| `_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/apidocs/cloudant?code=node#postreplicate){: external}, [`_replicate`](/apidocs/cloudant#postreplicate){: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database) |
-| `_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/apidocs/cloudant#getsecurity){: external} |
+| `_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/docs/apis/cloudant/cloudant-gen1?code=node#postreplicate){: external}, [`_replicate`](/docs/apis/cloudant/cloudant-gen1#postreplicate){: external}, [`_replicator`](/docs/Cloudant?topic=Cloudant-replication-api#the-replicator-database) |
+| `_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint. | [`_security`](/docs/apis/cloudant/cloudant-gen1#getsecurity){: external} |
 {: caption="Focused roles" caption-side="top"}
 
 The nature of the access that is granted depends on the specific API endpoint.
@@ -257,7 +257,7 @@ An earlier method of generating API keys by issuing the `POST` command to the `h
 You can create an API key in the following two ways:
 
 1.  Use the dashboard.
-2.  Use the {{site.data.keyword.cloudant_short_notm}} API to [modify the permissions](/apidocs/cloudant#postapikeys){: external}.
+2.  Use the {{site.data.keyword.cloudant_short_notm}} API to [modify the permissions](/docs/apis/cloudant/cloudant-gen1#postapikeys){: external}.
 
 No matter what method you choose,
 remember to record the key name and password.
@@ -283,8 +283,8 @@ The database isn't required to be in the same account as the account used for ge
 
 To give an existing API key permission to access a database in another account, follow these steps:
 
-1.  Retrieve the existing [security permissions](/apidocs/cloudant#getsecurity){: external} for the database.
-2.  [Add](/apidocs/cloudant#putsecurity){: external} the details of the API key to the database security permissions, along with the roles required.
+1.  Retrieve the existing [security permissions](/docs/apis/cloudant/cloudant-gen1#getsecurity){: external} for the database.
+2.  [Add](/docs/apis/cloudant/cloudant-gen1#putsecurity){: external} the details of the API key to the database security permissions, along with the roles required.
 
 For an example of this process,
 see the blog article:
@@ -312,7 +312,7 @@ All the permissions that were previously assigned to the API key for it to work 
 #### To remove an API key by using the {{site.data.keyword.cloudant_short_notm}} API
 {: #to-remove-an-api-key-by-using-the-cloudant-nosql-db-api}
 
-Use the [modifying permissions](/apidocs/cloudant#putcloudantsecurity){: external} technique to remove the API key from the list of users with access permission.
+Use the [modifying permissions](/docs/apis/cloudant/cloudant-gen1#putcloudantsecurity){: external} technique to remove the API key from the list of users with access permission.
 
 This technique works because an API key is similar to a user,
 and is granted access permissions.
@@ -320,7 +320,7 @@ By removing the API key from the list of users that have access permissions,
 you remove the API key from the list of users that have access to the database.
 
 To remove the API key,
-send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/apidocs/cloudant#putcloudantsecurity){: external}. This request removes the API key from the list of users with access permission. Provide an updated list of the usernames that have access permission.
+send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/docs/apis/cloudant/cloudant-gen1#putcloudantsecurity){: external}. This request removes the API key from the list of users with access permission. Provide an updated list of the usernames that have access permission.
 The updated list must not include the API key.
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
@@ -459,7 +459,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
 {: go}
 
 See the following example modification request in JSON format:

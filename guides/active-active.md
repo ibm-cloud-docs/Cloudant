@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -20,7 +20,7 @@ explains that one way to enable disaster recovery is to use
 {{site.data.keyword.cloudant_short_notm}} replication to create redundancy across regions.
 {: shortdesc}
 
-For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs) and monitor replication status.
+For more information, see how to [retrieve replication scheduler documents](/docs/apis/cloudant/cloudant-gen1#getschedulerdocs) and monitor replication status.
 
 You can configure replication in {{site.data.keyword.cloudantfull}} by using an "active-active"
 or "active-passive" topology across data centers.
@@ -69,7 +69,7 @@ After these accounts are created, follow these steps:
 ## Step 1. Create your databases
 {: #step-1-create-your-databases}
 
-[Create the databases](/apidocs/cloudant#putdatabase){: external} that you want to replicate between
+[Create the databases](/docs/apis/cloudant/cloudant-gen1#putdatabase){: external} that you want to replicate between
 within each account.
 
 In this example,
@@ -88,7 +88,7 @@ curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ## Step 2. Create an API key for your replications
 {: #step-2-create-an-api-key-for-your-replications}
 
-It's a good idea to use an [API key](/apidocs/cloudant#introduction) for continuous replications.
+It's a good idea to use an [API key](/docs/apis/cloudant/cloudant-gen1#introduction) for continuous replications.
 The advantage is that if your primary account details change,
 for example after a password reset,
 your replications can continue unchanged.
@@ -123,7 +123,7 @@ Take careful note of the password. It isn't possible to retrieve the password la
 ## Step 3. Grant access permission
 {: #step-3-grant-access-permission}
 
-Give the API Key [permission](/apidocs/cloudant#getsecurity){: external}
+Give the API Key [permission](/docs/apis/cloudant/cloudant-gen1#getsecurity){: external}
 to read and to write on both databases.
 
 If you also need to replicate indexes,
@@ -273,7 +273,7 @@ A simple test of whether a failover is required would be to
 use the main database endpoint as a "heartbeat".
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
-[details about the database](/apidocs/cloudant#getdatabaseinformation){: external}.
+[details about the database](/docs/apis/cloudant/cloudant-gen1#getdatabaseinformation){: external}.
 If no response is received,
 it might indicate that a failover is necessary.
 
@@ -346,7 +346,7 @@ If you implement rerouting for requests or failover based on a health test, you 
 - Do any replications need restarting?
 - How many pending changes are still waiting for replication into the database?
 
-For more information, see how to [retrieve replication scheduler documents](/apidocs/cloudant#getschedulerdocs){: external} and monitor replication status.
+For more information, see how to [retrieve replication scheduler documents](/docs/apis/cloudant/cloudant-gen1#getschedulerdocs){: external} and monitor replication status.
 
 If a database is being changed continuously, the replication status is unlikely to be zero. You must decide what status threshold is acceptable, or what represents an error state.
 {: note}

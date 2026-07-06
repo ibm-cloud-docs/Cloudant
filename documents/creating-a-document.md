@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-06"
 
 keywords: create document, examples of create document, create document with http
 
@@ -182,7 +182,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/apidocs/cloudant?code=go#authentication-with-external-configuration) for examples.
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](https://cloud.ibm.com/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 The response is a JSON document that contains the ID of the created document,
@@ -207,5 +207,5 @@ See an example response after successfully creating a document:
 ```
 {: codeblock}
 
-If the write [quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/apidocs/cloudant#list-of-http-codes){: external} is returned.
+If the write [quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} is returned.
 {: tip}
