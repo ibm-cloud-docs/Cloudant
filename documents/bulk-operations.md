@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -345,7 +345,7 @@ See an example JSON for a bulk insert of three documents:
 ```
 {: codeblock}
 
-The return code from a successful bulk insertion is [`201`](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}.
+The return code from a successful bulk insertion is [`201`](/docs/apis/cloudant/cloudant-gen1#error-handling){: external}.
 The content of the returned structure indicates success
 or other information messages on a per-document basis.
 
@@ -705,7 +705,7 @@ See an example JSON structure that is returned after bulk delete:
 ## Bulk documents transaction semantics
 {: #bulk-documents-transaction-semantics}
 
-If your request receives a [`202` response](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external},
+If your request receives a [`202` response](/docs/apis/cloudant/cloudant-gen1#error-handling){: external},
 the only certainty is that some of the document tasks were processed completely.
 The response body contains the list of documents that were successfully inserted or updated during the process.
 

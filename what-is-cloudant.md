@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: cloudant, http api, query, index, MapReduce, search, JSON, scalability, scale, sync, replication, SDK, http
 
@@ -65,7 +65,7 @@ Unlike a [relational database](https://www.ibm.com/topics/relational-databases),
 ### HTTPS API, Dashboard, and SDKs
 {: #http-api-dashboard-and-sdks}
 
-The {{site.data.keyword.cloudant_short_notm}} [HTTPS API](/docs/apis/cloudant/cloudant-gen1#introduction) makes it easy to integrate with web applications and microservices, enabling access from virtually any programming language or environment. {{site.data.keyword.cloudant_short_notm}} has a [web UI](/docs/Cloudant?topic=Cloudant-navigate-the-dashboard) to provide easy management of an instance, its databases, indexes, documents, replications and more.
+The {{site.data.keyword.cloudant_short_notm}} [HTTPS API](/docs/apis/cloudant/cloudant-gen1#intro) makes it easy to integrate with web applications and microservices, enabling access from virtually any programming language or environment. {{site.data.keyword.cloudant_short_notm}} has a [web UI](/docs/Cloudant?topic=Cloudant-navigate-the-dashboard) to provide easy management of an instance, its databases, indexes, documents, replications and more.
 
 {{site.data.keyword.cloudant_short_notm}} provides SDKs to help your application to interact with databases in [Node.js](https://github.com/IBM/cloudant-node-sdk), [Java](https://github.com/IBM/cloudant-java-sdk), [Python](https://github.com/IBM/cloudant-python-sdk) and [Go](https://github.com/IBM/cloudant-go-sdk).
 

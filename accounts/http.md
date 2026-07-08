@@ -171,11 +171,11 @@ The `If-None-Match` header is optional.
 You might send it to determine whether a document was modified since it was last read or updated.
 The value of the `If-None-Match` header must match the last [`Etag`](#etag) value received.
 If the value matches the current revision of the document,
-the server sends a [`304 Not Modified`](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} status code,
+the server sends a [`304 Not Modified`](/docs/apis/cloudant/cloudant-gen1#error-handling){: external} status code,
 and the response itself has no body.
 
 If the document was modified,
-you get a normal [`200` response](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external},
+you get a normal [`200` response](/docs/apis/cloudant/cloudant-gen1#error-handling){: external},
 provided the document still exists and no other errors occurred.
 
 ### Response headers
@@ -220,7 +220,7 @@ The `Etag` header is used to show the revision for a document.
 For documents,
 the value is identical to the revision of the document.
 The value can be used with an `If-None-Match` request header
-to get a [`304 Not Modified`](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} response if the revision is still current.
+to get a [`304 Not Modified`](/docs/apis/cloudant/cloudant-gen1#error-handling){: external} response if the revision is still current.
 
 ETags cannot currently be used with views,
 since the ETags returned from those requests are random numbers that change on every request.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -45,7 +45,7 @@ The two main uses of the revision number are to help in the following cases:
 2.  Confirm that a client is trying to modify the latest version of a document.
 
 You must specify the previous `_rev` when you [update a document](/docs/Cloudant?topic=Cloudant-documents#update)
-or else your request fails and returns a [409 error](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}.
+or else your request fails and returns a [409 error](/docs/apis/cloudant/cloudant-gen1#error-handling){: external}.
 
 `_rev` must not be used to build a version control system because it is an internal value that is used by the server. Therefore, older revisions of a document are transient, and removed regularly.
 {: note}

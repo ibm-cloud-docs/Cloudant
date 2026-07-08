@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: standard plan, lite plan, request class, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits 
 
@@ -125,7 +125,7 @@ query allowance, writes and reads can still continue. Once your application
 reduces the number of requests it is making, new requests will be allowed within
 a few seconds.
 
-When a request is rejected, your application receives a HTTP [`429` Too Many Requests](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} response with a description of the error.
+When a request is rejected, your application receives a HTTP [`429` Too Many Requests](/docs/apis/cloudant/cloudant-gen1#error-handling){: external} response with a description of the error.
 
 If your application regularly receives `429` responses, consider increasing the number of provisioned throughput capacity units allocated to your instance.
 

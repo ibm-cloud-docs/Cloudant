@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: create document, examples of create document, create document with http
 
@@ -207,5 +207,5 @@ See an example response after successfully creating a document:
 ```
 {: codeblock}
 
-If the write [quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} is returned.
+If the write [quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) can't be met during an attempt to create a document, a [`202` response](/docs/apis/cloudant/cloudant-gen1#error-handling){: external} is returned.
 {: tip}
