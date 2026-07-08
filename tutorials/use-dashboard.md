@@ -23,7 +23,7 @@ completion-time: 20m
 {: toc-services="Cloudant"}
 {: toc-completion-time="20m"}
 
-By using the {{site.data.keyword.cloudantfull}} Dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/docs/apis/cloudant/cloudant-gen1#introduction){: external}.
+By using the {{site.data.keyword.cloudantfull}} Dashboard, you create an {{site.data.keyword.cloudant_short_notm}} database, populate the database with data, and retrieve data by using queries or API endpoints. For more information about API endpoints, see the [API and SDK reference](/docs/apis/cloudant/cloudant-gen1#intro){: external}.
 {: shortdesc}
 
 ## Objectives

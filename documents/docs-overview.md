@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -21,7 +21,7 @@ Documents are also containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
 
-If you're using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}.
+If you're using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/Cloudant?topic=Cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/docs/apis/cloudant/cloudant-gen1#error-handling){: external}.
 {: tip}
 
 {{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](/docs/Cloudant?topic=Cloudant-cap-theorem#cap-theorem) model for data.

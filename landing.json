@@ -56,7 +56,7 @@
     "view_more": "/docs/Cloudant?topic=Cloudant-classic-release-notes"
   },
   "section_devtools": {
-    "api": "/docs/apis/cloudant/cloudant-gen1#introduction",
+    "api": "/docs/apis/cloudant/cloudant-gen1#intro",
     "cli": "/docs/Cloudant-cli-plugin/Cloudant-cli-plugin-cloudant-cli",
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cloudant"
   }

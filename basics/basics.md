@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication, proper tools, organize documents, organize databases, primary index, secondary index, query
 
@@ -21,7 +21,7 @@ If you never use {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in
 You can find more information about {{site.data.keyword.cloudant_short_notm}} in the following sections: 
 
 - [Client Libraries](/docs/Cloudant?topic=Cloudant-client-libraries#client-libraries)
-- [API and SDK reference](/docs/apis/cloudant/cloudant-gen1#introduction){: external}
+- [API and SDK reference](/docs/apis/cloudant/cloudant-gen1#intro){: external}
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant-basics}
@@ -67,7 +67,7 @@ If the client (such as some web browsers) doesn't support the use of HTTP method
 {: #method-not-allowed-error-basics}
 
 If you use an unsupported HTTP request type with a URL that doesn't support the specified type,
-a [405](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external} error is returned. The error that lists the supported HTTP methods, as shown in the following example.
+a [405](/docs/apis/cloudant/cloudant-gen1#error-handling){: external} error is returned. The error that lists the supported HTTP methods, as shown in the following example.
 
 #### Example error message in response to an unsupported request
 {: #example-error-message-basics}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: create, update, read, delete an attachment, inline, performance considerations, BLOB, attachments
 
@@ -332,7 +332,7 @@ To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you don't supply the most recent `_rev`,
-the response is a [409 error](/docs/apis/cloudant/cloudant-gen1#list-of-http-codes){: external}.
+the response is a [409 error](/docs/apis/cloudant/cloudant-gen1#error-handling){: external}.
 
 See the following example of deleting an attachment by using HTTP:
 

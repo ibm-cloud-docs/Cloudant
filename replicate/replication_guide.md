@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -228,7 +228,7 @@ on a per-database basis.
 
 ![API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} Dashboard, on a per-database basis.](../images/replication_guide_5.png){: caption="{{site.data.keyword.cloudant_short_notm}} users and API keys with permissions" caption-side="bottom"}
 
-They can also be created [programmatically](/docs/apis/cloudant/cloudant-gen1#introduction) by using the {{site.data.keyword.cloudant_short_notm}} API.
+They can also be created [programmatically](/docs/apis/cloudant/cloudant-gen1#intro) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
 For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=Cloudant-work-with-your-account#api-keys) rather than account-level credentials for replication jobs. For more information, see [Managing access](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant) or legacy [authentication](/docs/Cloudant?topic=Cloudant-work-with-your-account#authentication), and [authorization](/docs/Cloudant?topic=Cloudant-work-with-your-account#authorization) documentation.
 {: important}

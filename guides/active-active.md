@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-08"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
@@ -88,7 +88,7 @@ curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ## Step 2. Create an API key for your replications
 {: #step-2-create-an-api-key-for-your-replications}
 
-It's a good idea to use an [API key](/docs/apis/cloudant/cloudant-gen1#introduction) for continuous replications.
+It's a good idea to use an [API key](/docs/apis/cloudant/cloudant-gen1#intro) for continuous replications.
 The advantage is that if your primary account details change,
 for example after a password reset,
 your replications can continue unchanged.
