@@ -32,6 +32,9 @@ toc:
           - offerings/gdpr.md
       - service-change-notices/deprecations.md
       - release_info/release_notes_classic.md
+      - link:
+          label: Gen 2 docs
+          href: https://cloud.ibm.com/docs/cloudant-gen2
   - navgroup:
       id: tutorial
       topics:
