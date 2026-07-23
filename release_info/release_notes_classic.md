@@ -51,7 +51,7 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 {: #cloudant-jul26}
 
 ### 22 July 2026
-{: #cloudant-jul2226}
+{: #Cloudant-jul2226}
 {: release-note}
 
 Indexing
@@ -61,7 +61,7 @@ Indexing
 {: #cloudant-jun26}
 
 ## 17 June 2026
-{: #cloudant-jun1726}
+{: #Cloudant-jun1726}
 {: release-note}
 
 Replicator
