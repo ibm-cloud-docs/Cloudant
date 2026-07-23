@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-14"
+lastupdated: "2026-07-23"
 
 keywords:
 
@@ -39,7 +39,7 @@ Minimal
 ## Data deployment
 {: #data-deployment}
 
-The following dependencies apply to the following deployment locations: Amsterdam 03, Chennai - Airtel (in-che), Chennai 01, Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Montreal 01, Osaka (jp-osa), San Jose 03, San Jose 04, Sao Paulo (br-sao), Singapore 01, Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
+The following dependencies apply to the following deployment locations: Amsterdam 03, Chennai 01, Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Montreal 01, Osaka (jp-osa), San Jose 03, San Jose 04, Sao Paulo (br-sao), Singapore 01, Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -58,9 +58,10 @@ The following dependencies apply to the following deployment locations: Amsterda
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| NS1 | Availability, Change management, Disaster recovery, Instance control | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | data-plane |  Same data center  |
 | {{site.data.keyword.keymanagementservicefull}} | Availability, Disaster recovery, Instance control, Security compliance | No | data-plane |  Same region  |
+| {{site.data.keyword.pag_full}} | Availability, Operations | No | data-plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud - Data deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -71,9 +72,10 @@ The following dependencies apply to the following deployment locations: Amsterda
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| SOS SIEM| Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-qradar| Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | SOS Inventory Management| Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-uptycs| Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud - Data deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
@@ -94,6 +96,12 @@ The following dependencies apply to the following deployment locations: Dallas (
 | IBM Cloud Public IP Address Management | Availability, Change management, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.iamlong}} | Availability, Change management, Instance control, Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud - Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -105,10 +113,17 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.monitoringlong}} | Availability, Operations | No | control-plane |  Same region  |
-| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | control-plane |  Same region  |
 | PagerDuty | Availability, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-on-call-manager | Availability, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| NS1 | Availability, configuration-management, Instance control, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.pag_full}} | Availability, Operations | No | control-plane |  us-south, eu-de, eu-fr2  |
+| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
+| {{site.data.keyword.pag_full}} | Availability, Operations | No | control-plane |  Same region  |
+| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
+| {{site.data.keyword.pag_full}} | Availability, Operations | No | control-plane |  Same region  |
+| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud - Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -119,7 +134,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| ServiceNow| Change management, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| ServiceNow| Change management | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | Slack| Change management, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud - Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
@@ -133,18 +148,44 @@ The following dependencies apply to the following deployment locations: Dallas (
 |:---|:---|:---|:---|:---|
 | IBM Cloud Business Support Services| none | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.cos_full}}| Security compliance | No | control-plane |  Same region  |
-| SOS SIEM| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Carbon Calculator| Security compliance | No | control-plane |  us-south  |
+| corporate-qradar| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.messagehub_full}}| Customer responsibility | No | control-plane |  Same region  |
 | SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.atracker_full}}| Security compliance | No | control-plane |  Same region  |
 | SOS Inventory Management| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Log Analysis and IBM Cloud Activity Tracker| Customer responsibility | No | control-plane |  Same region  |
+| IBM Log Analysis Log Routing| Customer responsibility | No | control-plane |  Same region  |
+| {{site.data.keyword.logs_full}}| Operations | No | control-plane |  Same region  |
+| corporate-uptycs| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.metrics_router_full}}| Operations | No | control-plane |  Same region  |
+| IBM Cloud Global Search and Tagging| Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-uptycs| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-uptycs| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-uptycs| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloudant for IBM Cloud - Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
 {: tab-group="service-dependency-data-for-cloudantnosqldb-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #minimal-deps-control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+## Data deployment for VPC
+{: #data-deployment-for-vpc}
+
+The following dependencies apply to the following deployment locations: Montreal (ca-mon), Mumbai - Airtel (in-mum).
+
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.iamlong}} | Availability, Instance control, Operations, Security compliance | No | ngdc-data-plane |  Same region  |
+| Common Data Platform | Access management, Availability, Change management, configuration-management, Disaster recovery, Instance control, Operations, Security compliance | No | ngdc-data-plane |  Same region  |
+{: row-headers}
+{: caption="IBM Cloudant for IBM Cloud - Data deployment for VPC service dependency information - Critical dependencies" caption-side="top"}
+{: tab-title="Critical dependencies"}
+{: tab-group="service-dependency-data-for-cloudantnosqldb-Data-deployment-for-VPC"}
+{: class="comparison-tab-table"}
+{: #critical-deps-data-deployment-for-vpc}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 
