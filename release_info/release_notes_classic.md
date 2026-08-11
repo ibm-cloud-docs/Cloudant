@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-08-11"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -47,6 +47,35 @@ To enhance security, Cloudant will enable temporary lockout of accounts in the c
 The temporary lockout described here applies to legacy (non-IAM) credentials only.
 {: note}
 
+## August 2026
+{: #cloudant-aug26}
+
+### 6 August 2026
+{: #Cloudant-aug0626}
+{: release-note}
+
+The following changes were made in build 8719:
+
+`/{db}/_bulk_get` endpoint
+:   Improved error handling: `not_found` responses are now returned correctly, and error accumulation across multiple revisions has been fixed.
+
+Document revisions
+:   Invalid revision identifiers now return an HTTP `400 Bad Request` with a `bad_request` error body instead of an HTTP `500` server error.
+
+Optimization
+:   Improved bulk document write performance.
+:   Improved reduce view merging performance.
+:   Improved view query speed for databases using ICU collation sort keys.
+
+QuickJS
+:   A 10–40% speedup for index building and query evaluation.
+
+Replicator
+:   Fixed an issue where replication jobs could unexpectedly rewind and restart from the beginning.
+
+Search
+:   Improved error handling during search index cleanup.
+
 ## July 2026
 {: #cloudant-jul26}
 
@@ -54,15 +83,19 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 {: #Cloudant-jul2226}
 {: release-note}
 
+The following changes were made in build 8715:
+
 Indexing
 :   Fixed a bug that could cause Cloudant to crash during index rebuilding.
 
 ## June 2026
 {: #cloudant-jun26}
 
-## 17 June 2026
+### 17 June 2026
 {: #Cloudant-jun1726}
 {: release-note}
+
+The following changes were made in build 8703:
 
 Replicator
 :   Fixed replication jobs with Mango selectors unexpectedly rewinding and restarting from the beginning.
