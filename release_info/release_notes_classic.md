@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-08-11"
+lastupdated: "2026-08-24"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -49,6 +49,19 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 
 ## August 2026
 {: #cloudant-aug26}
+
+### 21 August 2026
+{: #Cloudant-aug2126}
+{: release-note}
+
+The following changes were made in build 8727:
+
+`/{db}/_changes` endpoint
+:   Negative integers are no longer accepted for the `limit` and `timeout` parameters. Requests with negative values now return an HTTP `400 Bad Request` error.
+
+Authorization
+:   Base64 header values for authorization are now validated, improving security and rejecting malformed credentials early.
+
 
 ### 6 August 2026
 {: #Cloudant-aug0626}
