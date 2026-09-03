@@ -15,8 +15,8 @@ subcollection: Cloudant
 # General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-}
 
-The GDPR seeks to create a harmonized data protection law framework across the EU. It aims to give citizens back the control of their personal data, while it imposes strict rules on 
-the ones who host and "process" this data, anywhere in the world. The Regulation also introduces rules that relate to the free movement of personal data within and outside the EU. 
+The GDPR seeks to create a harmonized data protection law framework across the EU. It aims to give citizens back the control of their personal data, while it imposes strict rules on
+the ones who host and "process" this data, anywhere in the world. The Regulation also introduces rules that relate to the free movement of personal data within and outside the EU.
 {: shortdesc}
 
 With the [General Data Protection Regulation](https://gdpr.eu/){: external},
@@ -83,11 +83,11 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 ### Restriction of processing
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request through the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support). Upon 
-receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated 
-with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
-ability to contact dedicated customers by email. {{site.data.keyword.cloudant_short_notm}} provides an interface for customers to keep this 
-information up to date either directly, or by using customer configuration of their contact details 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It's possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way with an {{site.data.keyword.cloudant_short_notm}} support request through the [{{site.data.keyword.cloud_notm}} Support portal](https://www.ibm.com/cloud/support). Upon
+receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated
+with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the
+ability to contact dedicated customers by email. {{site.data.keyword.cloudant_short_notm}} provides an interface for customers to keep this
+information up to date either directly, or by using customer configuration of their contact details
 with their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is the {{site.data.keyword.cloudant_short_notm}} database encrypted?
@@ -155,19 +155,19 @@ Access is also limited to a *need to know* basis and is logged, monitored, and a
 ### Deleting a document
 {: #deleting-a-document}
 
-When a document is deleted, the database creates a "tombstone." What the tombstone includes depends 
+When a document is deleted, the database creates a "tombstone." What the tombstone includes depends
 on how you delete it:
 
 - If you make a `DELETE` call, the tombstone includes the `_id`, `_rev`, and `_deleted` fields.
 - If you delete by updating the document with a `_deleted: true` field and add a `PUT` or `POST` request to it, the tombstone includes what you set in the document body. This practice can be useful in some circumstances, for example, when recording why a document was deleted in its tombstone.
 
-For more information, see [Simple removal of "tombstone" documents](/docs/Cloudant?topic=Cloudant-documents#tombstone-documents){: external}.
+For more information, see [Tombstone documents](/docs/Cloudant?topic=Cloudant-documents#tombstone-documents){: external}.
 
 ### When is a deleted document removed?
 {: #when-is-a-deleted-document-removed-}
 
-Compaction runs automatically and periodically removes old revisions (deleted or otherwise) 
-from the database, by writing out only "leaf" revisions to a new file. {{site.data.keyword.cloudant_short_notm}} keeps a history of 
+Compaction runs automatically and periodically removes old revisions (deleted or otherwise)
+from the database, by writing out only "leaf" revisions to a new file. {{site.data.keyword.cloudant_short_notm}} keeps a history of
 `_id` and `_rev` to enable replication, but not old document bodies.
 
 {{site.data.keyword.cloudant_short_notm}} doesn't expose the CouchDB compaction API.
@@ -178,30 +178,22 @@ Compaction is done as a background process across
 the storage tier. Databases are always being compacted. It isn't guaranteed that the data compacted is the
 data that you deleted or changed.
 
+In addition, tombstone documents are completely removed approximately 90 days after deletion. For more information, see [Removal of tombstones](#removal-of-tombstones).
+
 {{site.data.keyword.cloudant_short_notm}} is accepting the *right to be forgotten* requests through
 the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](https://www.ibm.com/trust/privacy){: external}.
 When a *right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request,
 explicitly triggers database compaction, and verifies that compaction occurred.
 At the end of this process, the only version of the document is its tombstone
-(`_id`, `_rev`, `_deleted`, and any fields your application includes there).
+(`_id`, `_rev`, `_deleted`). The tombstone itself is completely removed 90 days after the document was deleted.
 
 ### Removal of tombstones
 {: #removal-of-tombstones}
 
-{{site.data.keyword.cloudant_short_notm}} can completely remove all references and data for a
-document when required. This task is
-an operator-managed process called purging. Before you request that documents be purged, it's
-important to understand that purged documents *cannot be recovered* by
-{{site.data.keyword.cloudant_short_notm}} once the
-process is complete.
+Tombstones are completely removed shortly after 90 days from the document's deletion.
 
-The CouchDB purge API is not supported by {{site.data.keyword.cloudant_short_notm}}.
-{: tip}
-
-In the context of GDPR, purging is only required if PI is used in a document ID. It's a bad
-idea for an `_id` to store PI for lots of reasons, but a handful of semi-valid use
-cases exist (for example, a unique email). If possible, encrypt or pseudonymize data so it's opaque
-to {{site.data.keyword.cloudant_short_notm}}.
+### Right to be forgotten
+{: #right-to-be-forgotten}
 
 If a document needs removal through a *right to be forgotten* request, follow these steps:
 

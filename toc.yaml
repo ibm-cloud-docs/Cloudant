@@ -224,6 +224,7 @@ toc:
           - faqs/pricing-faq.md
           - faqs/provisioned-throughput-capacity-faq.md
           - faqs/changes-feed-faq.md
+          - faqs/tombstone-automated-removal.md
           - faqs/cloudant-query-faq.md
           - faqs/quickjs-migration.md
       - get-help.md

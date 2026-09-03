@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-09-03"
 
 keywords: create document, update document, read document, bulk operations, tombstone documents
 
@@ -18,14 +18,13 @@ subcollection: Cloudant
 The steps shown here demonstrate how to delete a document.
 
 1. Send a `DELETE` request with the document's most recent `_rev` in the query string.
-2. Run the following command: `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`. 
+2. Run the following command: `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
    The response contains the ID and the new revision of the document, or an error message if the delete failed.
 
 If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/apis/cloudant/cloudant-gen1#error-handling){: external}. This error prevents you overwriting data that were changed by other clients. If the write [quorum](/docs/Cloudant?topic=Cloudant-documents#quorum-writing-and-reading-data) can't be met, a [`202` response](/docs/apis/cloudant/cloudant-gen1#error-handling){: external} is returned.
 {: note}
 
-{{site.data.keyword.cloudant_short_notm}} doesn't completely delete the specified document. Instead, it leaves a [tombstone](/docs/Cloudant?topic=Cloudant-tombstone-docs) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
-creating new documents and deleting them increases the disk space usage of a database. They might also increase the query time for the primary index, which is used to look up documents by their ID.
+{{site.data.keyword.cloudant_short_notm}} doesn't completely delete the specified document. Instead, it leaves a [tombstone](/docs/Cloudant?topic=Cloudant-tombstone-docs) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. The tombstone is retained for 90 days before being fully removed.
 
 The following steps show you how to delete a request by using HTTP.
 
@@ -33,7 +32,7 @@ The following steps show you how to delete a request by using HTTP.
 
 2. Run the following command: `DELETE /$DATABASE/$DOCUMENT_ID?rev=$REV HTTP/1.1`.
 
-The following code examples show you how to delete a document by using the command line. 
+The following code examples show you how to delete a document by using the command line.
 
 ```sh
 # make sure $JSON contains the correct `_rev` value!
@@ -128,7 +127,7 @@ import (
 {: codeblock}
 {: go}
 
-All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples. 
+All Go examples require the `service` object to be initialized. For more information, see the API documentation's [Authentication section](/docs/apis/cloudant/cloudant-gen1?code=go#authentication-with-external-configuration) for examples.
 {: go}
 
 See an example response after a successful deletion request.
