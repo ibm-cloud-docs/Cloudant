@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-09-03"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication, proper tools, organize documents, organize databases, primary index, secondary index, query
 
@@ -168,7 +168,7 @@ It's common to store several object types in the same database: a convention is 
 
 If you're storing arrays of objects within a document, consider whether the array items must really be their own document. For example, a *product* and each *product review* must be stored in separate documents, but a *user* and each of that user's *orders* must have their own document.
 
-If you have an ever-growing data set, then you probably don't want to store data in a single, ever-growing database. Data is best stored in *time-boxed databases* that allow older data to be archived and deleted cleanly. Deleting an {{site.data.keyword.cloudant_short_notm}} document leaves a *tombstone* document behind, so don't rely on deleting documents to recover disk space. Instead, you must rely on deleting whole databases.
+If you have an ever-growing data set, then you probably don't want to store data in a single, ever-growing database. Data is best stored in *time-boxed databases* that allow older data to be archived and deleted cleanly. Deleting an {{site.data.keyword.cloudant_short_notm}} document leaves a *tombstone* document behind for 90 days, after which it is completely deleted.
 
 JSON doesn't offer a native way to store dates or timestamps. Choose your [date format](https://blog.cloudant.com/2018/05/22/Date-formats.html) carefully if you intend to query it later.
 

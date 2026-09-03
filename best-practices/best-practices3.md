@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-09-03"
 
 keywords: design document management, rate limits, partitioned queries, time boxed database, logging, http traffic, primary index
 
@@ -17,8 +17,8 @@ subcollection: Cloudant
 
 The {{site.data.keyword.cloudant_short_notm}} in practice document is the third best practice document in the series. It shows you the following best practices:
 
-- How to avoid conflicts. 
-- How deleting documents works. 
+- How to avoid conflicts.
+- How deleting documents works.
 - What to watch out for with updates.
 - How to work in an eventually consistent environment.
 - How to set up replication.
@@ -48,12 +48,12 @@ If you routinely create conflicts, you must really consider model changes: even 
 - {{site.data.keyword.cloudant_short_notm}} guide to versions and [MVCC](/docs/Cloudant?topic=Cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc)
 - Three-part blog series on [conflicts](https://blog.cloudant.com/search.html#Introduction%20to%20conflicts)
 
-## Deleting documents doesn't delete them
+## Deleting documents doesn't delete them (immediately)
 {: #deleting-documents}
 
-Deleting a document from an {{site.data.keyword.cloudant_short_notm}} database doesn’t purge it. Deletion is implemented by writing a new revision of the document under deletion, with an added field `_deleted: true`. This special revision is called a `tombstone`. Tombstones still take up space and are also passed around by the replicator.
+Deleting a document from an {{site.data.keyword.cloudant_short_notm}} creates a new document revision that contains only document metadata: the `_id`, `_rev`, and a `_deleted` flag.  This special revision is called a `tombstone`. Tombstones still take up a small amount of space and are also passed around by the replicator. After 90 days, the tombstone itself is completely removed.
 
-Models that rely on frequent deletions of documents are not suitable for {{site.data.keyword.cloudant_short_notm}}. For more information, see {{site.data.keyword.cloudant_short_notm}} tombstone [docs](/docs/Cloudant?topic=Cloudant-documents#-tombstone-documents).
+For more information, see [{{site.data.keyword.cloudant_short_notm}} tombstone documents](/docs/Cloudant?topic=Cloudant-documents#-tombstone-documents).
 
 ## Be careful with updates
 {: #take-care-with-updates}
@@ -62,9 +62,9 @@ It is more expensive in the end to mutate existing documents than to create new 
 
 Prefer models that are immutable.
 
-When you read the following sections, *Deleting documents doesn't delete them* and *Be careful with updates*, they provoke an obvious question. That is, does the data set grow unbounded if my model is immutable? If you accept that deletes don’t completely purge the deleted data and that updates are not updating in place in terms of data volume growth, not much difference exists. Managing data volume over time requires different techniques.
+When you read the following sections, *Deleting documents doesn't delete them* and *Be careful with updates*, they provoke an obvious question. That is, does the data set grow unbounded if my model is immutable?
 
-The only way to truly reclaim space is to delete databases, rather than documents. You can replicate only winning revisions to a new database and delete the old to get rid of lingering deletes and conflicts. Or perhaps you can build it into your model to regularly start new databases (say ‘annual data’) and archive off (or remove) outdated data, if your use case allows.
+Deleting documents piecemeal is inefficient. A write-only approach with time-boxed databases — deleting entire databases when data is no longer needed — is more effective.
 
 ## Eventual consistency is a harsh taskmaster (also known as don’t read your writes)
 {: #eventual-consistency-harsh-taskmaster}
@@ -177,11 +177,11 @@ Sometimes, tweaking the shard count for a database is essential to get the best 
 
 Cloudant-the-service (unlike basic CouchDB) is sold on a “reserved throughput capacity” model. That means that you pay for the *right to use* up to a certain throughput, rather than the throughput you end up using. The *right to use* method takes a while to sink in. One flaky comparison might be that of a cell phone contract where you pay for a set number of minutes regardless of whether you use them or not.
 
-Although the cell phone contract comparison doesn’t capture the whole situation, no constraint exists on the sum of requests that you can make to {{site.data.keyword.cloudant_short_notm}} in a month. The constraint is on how *fast* you make requests. 
+Although the cell phone contract comparison doesn’t capture the whole situation, no constraint exists on the sum of requests that you can make to {{site.data.keyword.cloudant_short_notm}} in a month. The constraint is on how *fast* you make requests.
 
 It’s really a promise that you make to {{site.data.keyword.cloudant_short_notm}}, not one that {{site.data.keyword.cloudant_short_notm}} makes to you. You promise not to make more requests per second than you agreed to up front. A maximum speed limit, if you like. If you transgress, {{site.data.keyword.cloudant_short_notm}} fails your requests with a status of `429: Too Many Requests`. It’s your responsibility to look out for this case, and deal with it, which can be difficult when multiple app servers exist. How can they coordinate to ensure that they collectively stay under the requests-per-second limit?
 
-{{site.data.keyword.cloudant_short_notm}}’s official client libraries have some built-in provision for this use case that can be enabled, following a “back-off and retry” strategy. 
+{{site.data.keyword.cloudant_short_notm}}’s official client libraries have some built-in provision for this use case that can be enabled, following a “back-off and retry” strategy.
 
 This built-in provision is turned off by default to force you to think about it.
 {: note}
@@ -191,7 +191,7 @@ However, if you rely on this facility alone, you might eventually be disappointe
 Your business logic *must* be able to handle this condition. Another way to look at it is that you get the allocation you pay for. If that allocation isn’t sufficient, the only solution is to pay for a higher allocation.
 
 Provisioned throughput capacity is split into three different buckets: *Lookups*, *Writes*, and *Queries*. A *Lookup* is a “primary key” read, fetching a document based on its `_id`. A *Write* is storing a document or attachment on disk, and a *Query* is looking up documents by using a secondary index (any API endpoint that has a `_design` or `_find` in it).
- 
+
 You get different allocations of each and the ratios between them are fixed. This fact can be used to optimize for cost. You get 20 *Lookups* for every one *Query* (per second). You might find that you’re mainly hitting the *Query* limit, but you have plenty of headroom in *Lookups*. It might be possible to reduce the reliance on *Queries* through some remodeling of the data or perhaps doing more work client-side.
 
 The corollary here though is that you can’t assume that any third-party library or framework optimizes for cost ahead of convenience. Client-side frameworks that support multiple persistence layers by using plug-ins are unlikely to be aware of this situation, or might be incapable of making such tradeoffs.
@@ -211,8 +211,8 @@ It is also worth understanding that the rates aren’t directly equivalent to HT
 {{site.data.keyword.logs_full_notm}} is a metered service that offers a variety of retention periods and log consumption tiers. Tiers allow data to be retained to archive to COS, cold or hot searched, and alerted upon at varying costs. Slices and aggregations of your data can be built up into visual dashboards to give you an at-a-glance view of your {{site.data.keyword.cloudant_short_notm}} traffic. For more information, see the following documentation:
 
 - [Getting started with IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started){: external}
-- [Getting started with IBM Cloud Logs Routing](https://cloud.ibm.com/docs/logs-router?topic=logs-router-getting-started){: external} 
-- [IBM Cloud Logs Total Cost of Ownership Optimizer](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-tco-optimizer){: external} 
+- [Getting started with IBM Cloud Logs Routing](https://cloud.ibm.com/docs/logs-router?topic=logs-router-getting-started){: external}
+- [IBM Cloud Logs Total Cost of Ownership Optimizer](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-tco-optimizer){: external}
 
 ## Compress your HTTP traffic
 {: #how-to-compress-my-http-traffic}
@@ -227,9 +227,9 @@ Request:
 > Accept: */*
 > Accept-Encoding: deflate, gzip
 
-Response:                                                                   
+Response:
 
-< HTTP/2 200 
+< HTTP/2 200
 < content-type: application/json
 < content-encoding: gzip
 ```
