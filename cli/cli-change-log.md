@@ -2,7 +2,7 @@
 
 copyright:
   years:  2022, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-09-21"
 keywords: change log for IBM Cloudant, updates to IBM Cloudant
 
 subcollection: Cloudant
@@ -16,8 +16,21 @@ subcollection: Cloudant
 
 In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.cloudantfull}} CLI. 
 
+## Version 0.2.17
+{: #cli-0217}
+
+Version `0.2.17` of CLI was released on 21 Sep 2026.
+
+- Updated to Go version: `1.27.0`.
+- Upgraded to {{site.data.keyword.cloudant_short_notm}} Go SDK version: `0.10.18`.
+- Updated dependencies.
+- Updated documentation.
+
 ## Version 0.2.16
 {: #cli-0216}
+
+This is a deprecated version upgrade to the latest release.
+{: deprecated}
 
 Version `0.2.16` of CLI was released on 21 Aug 2026.
 
