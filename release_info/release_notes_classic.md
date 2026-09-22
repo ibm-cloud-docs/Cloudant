@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-09-22"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -51,6 +51,18 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 {: #automatic-removal-of-tombstones}
 
 Cloudant will begin completely deleting `tombstones` (the remnants of deleted Cloudant documents) in late 2026. This will run as a background task, harvesting documents that were deleted 90 days ago or more. See the [FAQ](/docs/Cloudant?topic=Cloudant-faq-enabling-automatic-removal-of-document-tombstones) for more details.
+
+## September 2026
+{: #cloudant-sep26}
+
+### 18 September 2026
+{: #Cloudant-sep1826}
+{: release-note}
+
+The following changes were made in build 8733:
+
+Performance
+:   Fixed a write performance regression related to file position validation.
 
 ## August 2026
 {: #cloudant-aug26}
