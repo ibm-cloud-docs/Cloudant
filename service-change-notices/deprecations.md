@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-09-25"
+  years: 2015, 2026
+lastupdated: "2026-09-23"
 
 keywords: security, compliance, standardize resource configuration
 
@@ -31,6 +31,25 @@ Read [Migration to QuickJS from SpiderMonkey](/docs/Cloudant?topic=Cloudant-faq-
 
 This could break some applications, and might require JavaScript updates in your design documents to align with QuickJS. Read the migration guide to understand whether this affects your instances.
 {: note}
+
+## Upcoming deprecations
+{: #Upcoming-deprecations}
+
+### dbCopy is fully deprecated
+dbCopy feature is fully deprecated on IBM Cloudant Dedicated Cluster and IBM Cloudant for IBM Cloud. It will be removed from usage as per the schedule below.
+- IBM Cloudant Dedicated Cluster: October 6, 2026
+-  IBM Cloudant on IBM Cloud: October 6, 2026
+
+{: note} 'dbcopy' was a infrequently used feature which enabled writing view index results to a database. Note, this is not replication. Cloudant [replication](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-replication-guide) continues to be supported.
+
+### SpiderMonkeyJS is fully deprecated
+
+SpiderMonkeyJS is fully deprecated on IBM Cloudant Dedicated Cluster and IBM Cloudant for IBM Cloud. It will be removed from usage as per the schedule below. Customers are advised to switch to QuickJS. Read [Migration to QuickJS from SpiderMonkey](/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey) .
+
+- IBM Cloudant Dedicated Cluster: October 6, 2026
+-  IBM Cloudant on IBM Cloud: October 6, 2026
+
+{: note} IBM Cloudant uses the javascript engine for design documents and filters. Check [Do I need to take action?](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-faq-migration-to-quickjs-from-spidermonkey#do-i-need-to-take-action) .
 
 ## Upcoming changes
 {: #Upcoming-changes}
