@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-09-22"
+lastupdated: "2026-10-26"
 
 keywords: Cloudant, release notes, query, partition query, dedicated hardware plan, replication scheduler, views, runtime environment, IAM auth, Legacy auth, document updates, compaction, all databases, attachments, bulk get, bulk docs, indexes, view collation, changes feed, dbcopy, session, Javascript, local docs, all docs, security, active tasks
 
@@ -51,6 +51,53 @@ The temporary lockout described here applies to legacy (non-IAM) credentials onl
 {: #automatic-removal-of-tombstones}
 
 Cloudant will begin completely deleting `tombstones` (the remnants of deleted Cloudant documents) in late 2026. This will run as a background task, harvesting documents that were deleted 90 days ago or more. See the [FAQ](/docs/Cloudant?topic=Cloudant-faq-enabling-automatic-removal-of-document-tombstones) for more details.
+
+## October 2026
+{: #cloudant-oct26}
+
+### 15 October 2026
+{: #Cloudant-oct1526}
+{: release-note}
+
+The following changes were made in build 8739:
+
+`/{db}/_index_info` endpoint
+:   Added the `GET /{db}/_index_info` and `POST /{db}/_index_info` endpoints.
+
+`/{db}/_design/{ddoc}/_info` endpoint
+:   The `updates_pending` object in the response has the new fields `maximum`, `copies`, and `copies_expected`.
+
+`/{db}/_design/{ddoc}/_search_info/{index}` endpoint
+:   The response now includes an `updates_pending` object.
+
+`/{db}/_changes` endpoint
+:   Requests that contain an incorrect `since` sequence now return an HTTP `400 Bad Request` error instead of an HTTP `500` server error.
+
+`/_replicate` and `/_replicator/{doc}` endpoints
+:   Added the optional `request_compression` field to the request body. Accepted values are `none` (default) and `gzip`. When set to `gzip`, the replication job compresses the HTTP requests that it sends.
+
+Attachments
+:   Fixed an issue where attachment revisions were incorrect when a deleted document was recreated.
+
+Databases
+:   Fixed several issues that could cause database deletion to return an HTTP `500` server error.
+
+Optimization
+:   Improved the performance of decoding change sequences.
+
+Purge
+:   View purge sequences are now preserved when views are compacted.
+:   Fixed an issue where purging non-leaf revisions in MapReduce views did not work correctly.
+
+Query
+:   Fixed an issue where Mango queries with a range on the `_id` field could silently omit rows from the results.
+
+Replicator
+:   Replication jobs now handle expired IAM credentials automatically.
+:   Improved handling of HTTP redirects during replication.
+
+Runtime environment
+:   Upgrade the runtime environment to the latest Erlang/OTP 27 patch release.
 
 ## September 2026
 {: #cloudant-sep26}
